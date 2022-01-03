@@ -2,19 +2,19 @@ package com.supermartijn642.rechiseled.screen;
 
 import com.supermartijn642.rechiseled.ChiselItem;
 import com.supermartijn642.rechiseled.Rechiseled;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Hand;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.item.ItemStack;
 
 /**
  * Created 25/12/2021 by SuperMartijn642
  */
 public class ChiselContainer extends BaseChiselingContainer {
 
-    private final Hand hand;
+    private final InteractionHand hand;
 
-    public ChiselContainer(ContainerType<?> type, int id, PlayerEntity player, Hand hand){
+    public ChiselContainer(MenuType<?> type, int id, Player player, InteractionHand hand){
         super(type, id, player);
         this.hand = hand;
         super.updateRecipe();

@@ -1,8 +1,8 @@
 package com.supermartijn642.rechiseled.chiseling;
 
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.item.crafting.RecipeManager;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.item.crafting.RecipeType;
 
 import java.util.Collection;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class ChiselingRecipes {
 
-    static final IRecipeType<ChiselingRecipe> CHISELING = IRecipeType.register("chiseling");
+    static final RecipeType<ChiselingRecipe> CHISELING = RecipeType.register("chiseling");
 
     public static ChiselingRecipe getRecipe(RecipeManager recipeManager, ItemStack stack){
         List<ChiselingRecipe> recipes = recipeManager.getAllRecipesFor(CHISELING);

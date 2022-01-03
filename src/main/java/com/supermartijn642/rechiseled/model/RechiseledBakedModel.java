@@ -1,14 +1,14 @@
 package com.supermartijn642.rechiseled.model;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.client.renderer.model.BakedQuad;
-import net.minecraft.client.renderer.model.ItemCameraTransforms;
-import net.minecraft.client.renderer.model.ItemOverrideList;
+import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.block.model.ItemOverrides;
+import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.util.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.util.Tuple;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockDisplayReader;
+import net.minecraft.world.level.BlockAndTintGetter;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.data.IDynamicBakedModel;
 import net.minecraftforge.client.model.data.IModelData;
 
@@ -27,10 +27,10 @@ public class RechiseledBakedModel implements IDynamicBakedModel {
     private final boolean blockLighting;
     private final boolean customRenderer;
     private final TextureAtlasSprite particles;
-    private final ItemOverrideList itemOverrides;
-    private final ItemCameraTransforms transforms;
+    private final ItemOverrides itemOverrides;
+    private final ItemTransforms transforms;
 
-    public RechiseledBakedModel(Map<Direction,List<Tuple<BakedQuad,Boolean>>> quads, boolean ambientOcclusion, boolean gui3d, boolean blockLighting, boolean customRenderer, TextureAtlasSprite particles, ItemOverrideList itemOverrides, ItemCameraTransforms transforms){
+    public RechiseledBakedModel(Map<Direction,List<Tuple<BakedQuad,Boolean>>> quads, boolean ambientOcclusion, boolean gui3d, boolean blockLighting, boolean customRenderer, TextureAtlasSprite particles, ItemOverrides itemOverrides, ItemTransforms transforms){
         this.quads = quads;
         this.ambientOcclusion = ambientOcclusion;
         this.gui3d = gui3d;
@@ -85,7 +85,7 @@ public class RechiseledBakedModel implements IDynamicBakedModel {
 
     @Nonnull
     @Override
-    public IModelData getModelData(@Nonnull IBlockDisplayReader world, @Nonnull BlockPos pos, @Nonnull BlockState state, @Nonnull IModelData tileData){
+    public IModelData getModelData(@Nonnull BlockAndTintGetter world, @Nonnull BlockPos pos, @Nonnull BlockState state, @Nonnull IModelData tileData){
         return IDynamicBakedModel.super.getModelData(world, pos, state, tileData);
     }
 
@@ -115,12 +115,12 @@ public class RechiseledBakedModel implements IDynamicBakedModel {
     }
 
     @Override
-    public ItemOverrideList getOverrides(){
+    public ItemOverrides getOverrides(){
         return this.itemOverrides;
     }
 
     @Override
-    public ItemCameraTransforms getTransforms(){
+    public ItemTransforms getTransforms(){
         return this.transforms;
     }
 }

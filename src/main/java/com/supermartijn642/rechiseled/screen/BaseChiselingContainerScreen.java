@@ -1,6 +1,6 @@
 package com.supermartijn642.rechiseled.screen;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.vertex.PoseStack;
 import com.supermartijn642.core.gui.BaseContainerScreen;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.rechiseled.Rechiseled;
@@ -10,12 +10,12 @@ import com.supermartijn642.rechiseled.model.PreviewModeButtonWidget;
 import com.supermartijn642.rechiseled.packet.PacketChiselAll;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
 import com.supermartijn642.rechiseled.packet.PacketToggleConnecting;
-import net.minecraft.inventory.container.Slot;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 
 /**
  * Created 23/12/2021 by SuperMartijn642
@@ -33,7 +33,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
 
     private ChiselAllWidget chiselAllWidget;
 
-    public BaseChiselingContainerScreen(T screenContainer, ITextComponent title){
+    public BaseChiselingContainerScreen(T screenContainer, Component title){
         super(screenContainer, title);
         this.setDrawSlots(false);
     }
@@ -80,13 +80,13 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
     }
 
     @Override
-    protected void renderBackground(MatrixStack matrixStack, int mouseX, int mouseY){
+    protected void renderBackground(PoseStack matrixStack, int mouseX, int mouseY){
         ScreenUtils.bindTexture(BACKGROUND);
         ScreenUtils.drawTexture(matrixStack, 0, 0, this.sizeX(), this.sizeY());
     }
 
     @Override
-    protected void renderForeground(MatrixStack matrixStack, int mouseX, int mouseY){
+    protected void renderForeground(PoseStack matrixStack, int mouseX, int mouseY){
         // Render chisel all slot overlays
         if(this.container.currentRecipe != null && this.chiselAllWidget != null && this.chiselAllWidget.hovered){
             for(int index = 1; index < this.container.slots.size(); index++){
@@ -104,7 +104,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
         }
 
         super.renderForeground(matrixStack, mouseX, mouseY);
-        ScreenUtils.drawString(matrixStack, this.inventory.getDisplayName(), 31, 133);
+        ScreenUtils.drawString(matrixStack, this.playerInventoryTitle, 31, 133);
     }
 
     private ChiselingEntry getEntry(int index){

@@ -1,6 +1,6 @@
 package com.supermartijn642.rechiseled.chiseling;
 
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
 
 /**
  * Created 24/12/2021 by SuperMartijn642

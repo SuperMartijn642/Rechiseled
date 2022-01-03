@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
         classpath 'org.spongepowered:mixingradle:0.7.+'
     }
 }
@@ -13,16 +13,17 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.0.0-mc1.16'
+version = '1.0.0-mc1.17'
 group = 'com.supermartijn642.rechiseled' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'rechiseled'
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(8) // Mojang ships Java 8 to end users, so your mod should target Java 8.
+// Mojang ships Java 16 to end users in 1.17+ instead of Java 8 in 1.16 or lower, so your mod should target Java 16.
+java.toolchain.languageVersion = JavaLanguageVersion.of(16)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
 minecraft {
-    mappings channel: 'official', version: '1.16.5'
+    mappings channel: 'official', version: '1.17.1'
 
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -78,16 +79,13 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.2.0'
+    minecraft 'net.minecraftforge:forge:1.17.1-37.1.1'
 
     // Core lib
-    implementation fg.deobf('curse.maven:supermartijn642s-core-lib-454372:3543827')
+    implementation fg.deobf('curse.maven:supermartijn642s-core-lib-454372:3543831')
     // Config lib
-    implementation fg.deobf('curse.maven:supermartijn642s-config-lib-438332:3413938')
+    implementation fg.deobf('curse.maven:supermartijn642s-config-lib-438332:3413940')
 
     // Just Enough Items
-    implementation fg.deobf('curse.maven:jei-238222:3564654')
-
-    // Block Renderer
-    runtimeOnly fg.deobf('curse.maven:block-renderer-380456:3294692')
+    implementation fg.deobf('curse.maven:jei-238222:3592080')
 }

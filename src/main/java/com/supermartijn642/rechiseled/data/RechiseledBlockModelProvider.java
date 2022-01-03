@@ -1,10 +1,10 @@
 package com.supermartijn642.rechiseled.data;
 
 import com.supermartijn642.rechiseled.RechiseledBlockType;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockModelProvider;
-import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 /**
  * Created 21/12/2021 by SuperMartijn642

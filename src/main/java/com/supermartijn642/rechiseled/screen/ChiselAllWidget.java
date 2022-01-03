@@ -1,14 +1,13 @@
 package com.supermartijn642.rechiseled.screen;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.vertex.PoseStack;
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.AbstractButtonWidget;
 import com.supermartijn642.core.gui.widget.IHoverTextWidget;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.function.Supplier;
 
@@ -28,25 +27,24 @@ public class ChiselAllWidget extends AbstractButtonWidget implements IHoverTextW
     }
 
     @Override
-    protected ITextComponent getNarrationMessage(){
+    protected Component getNarrationMessage(){
         return this.getHoverText();
     }
 
     @Override
-    public ITextComponent getHoverText(){
+    public Component getHoverText(){
         boolean hasEntry = this.currentEntry.get() != null;
         return hasEntry ? TextComponents.translation("rechiseled.chiseling.chisel_all").get() : null;
     }
 
     @Override
-    public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks){
+    public void render(PoseStack matrixStack, int mouseX, int mouseY, float partialTicks){
         ChiselingEntry currentEntry = this.currentEntry.get();
         boolean hasEntry = currentEntry != null;
 
         ScreenUtils.bindTexture(GREY_BUTTONS);
         ScreenUtils.drawTexture(matrixStack, this.x, this.y, this.width, this.height, 0, (hasEntry ? this.hovered ? 2 : 0 : 1) / 3f, 1, 1 / 3f);
 
-        GlStateManager._enableAlphaTest();
         ScreenUtils.bindTexture(CHISEL_TEXTURE);
         ScreenUtils.drawTexture(matrixStack, this.x + 1, this.y + 2, this.width - 2, this.height - 4);
     }

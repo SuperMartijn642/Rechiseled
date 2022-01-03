@@ -4,16 +4,16 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.JSONUtils;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.GsonHelper;
+import net.minecraft.world.Container;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * Created 24/12/2021 by SuperMartijn642
  */
-public class ChiselingRecipe implements IRecipe<IInventory> {
+public class ChiselingRecipe implements Recipe<Container> {
 
     public static final Serializer SERIALIZER = new Serializer();
 
@@ -51,12 +51,12 @@ public class ChiselingRecipe implements IRecipe<IInventory> {
     }
 
     @Override
-    public boolean matches(IInventory inventory, World world){
+    public boolean matches(Container inventory, Level world){
         return false;
     }
 
     @Override
-    public ItemStack assemble(IInventory inventory){
+    public ItemStack assemble(Container inventory){
         return ItemStack.EMPTY;
     }
 
@@ -76,25 +76,25 @@ public class ChiselingRecipe implements IRecipe<IInventory> {
     }
 
     @Override
-    public IRecipeSerializer<?> getSerializer(){
+    public RecipeSerializer<?> getSerializer(){
         return SERIALIZER;
     }
 
     @Override
-    public IRecipeType<?> getType(){
+    public RecipeType<?> getType(){
         return ChiselingRecipes.CHISELING;
     }
 
-    public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<ChiselingRecipe> {
+    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<ChiselingRecipe> {
 
         @Override
         public ChiselingRecipe fromJson(ResourceLocation resourceLocation, JsonObject json){
             List<ChiselingEntry> chiselingEntries = new ArrayList<>();
 
             // read entries
-            if(!JSONUtils.isArrayNode(json, "entries"))
+            if(!GsonHelper.isArrayNode(json, "entries"))
                 throw new JsonParseException("Recipe must have an 'entries' array!");
-            JsonArray array = JSONUtils.getAsJsonArray(json, "entries");
+            JsonArray array = GsonHelper.getAsJsonArray(json, "entries");
             for(JsonElement element : array){
                 if(!element.isJsonObject())
                     throw new JsonParseException("Recipe entries must be json objects with 'item' and 'connecting_item' keys!");
@@ -102,9 +102,9 @@ public class ChiselingRecipe implements IRecipe<IInventory> {
                 if(!object.has("item") && !object.has("connecting_item"))
                     throw new JsonParseException("Recipe entry must be have at least one of 'item' or 'connecting_item' keys!");
 
-                boolean optional = JSONUtils.getAsBoolean(object, "optional", false);
+                boolean optional = GsonHelper.getAsBoolean(object, "optional", false);
 
-                String regularItemName = JSONUtils.getAsString(object, "item", "");
+                String regularItemName = GsonHelper.getAsString(object, "item", "");
                 Item regularItem;
                 if(regularItemName.isEmpty())
                     regularItem = null;
@@ -113,7 +113,7 @@ public class ChiselingRecipe implements IRecipe<IInventory> {
                     if(regularItem == null && !optional)
                         throw new JsonParseException("Unknown item '" + regularItemName + "'");
                 }
-                String connectingItemName = JSONUtils.getAsString(object, "connecting_item", "");
+                String connectingItemName = GsonHelper.getAsString(object, "connecting_item", "");
                 Item connectingItem;
                 if(connectingItemName.isEmpty())
                     connectingItem = null;
@@ -134,12 +134,12 @@ public class ChiselingRecipe implements IRecipe<IInventory> {
 
         @Nullable
         @Override
-        public ChiselingRecipe fromNetwork(ResourceLocation resourceLocation, PacketBuffer buffer){
+        public ChiselingRecipe fromNetwork(ResourceLocation resourceLocation, FriendlyByteBuf buffer){
             return null;
         }
 
         @Override
-        public void toNetwork(PacketBuffer buffer, ChiselingRecipe recipe){
+        public void toNetwork(FriendlyByteBuf buffer, ChiselingRecipe recipe){
 
         }
     }

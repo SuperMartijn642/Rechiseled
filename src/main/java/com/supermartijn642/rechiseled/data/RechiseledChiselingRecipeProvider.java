@@ -4,8 +4,8 @@ import com.google.common.collect.Maps;
 import com.supermartijn642.rechiseled.RechiseledBlockType;
 import com.supermartijn642.rechiseled.RechiseledTagGroups;
 import com.supermartijn642.rechiseled.api.ChiselingRecipeProvider;
-import net.minecraft.item.Items;
-import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
+import net.minecraft.world.item.Items;
+import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 import java.util.Map;
 

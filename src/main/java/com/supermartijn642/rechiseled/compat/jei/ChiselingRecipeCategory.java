@@ -11,9 +11,9 @@ import mezz.jei.api.gui.ingredient.IGuiItemStackGroup;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.category.IRecipeCategory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -43,12 +43,7 @@ public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipe>
     }
 
     @Override
-    public String getTitle(){
-        return TextComponents.translation("rechiseled.jei_category.title").format();
-    }
-
-    @Override
-    public ITextComponent getTitleAsTextComponent(){
+    public Component getTitle(){
         return TextComponents.translation("rechiseled.jei_category.title").get();
     }
 

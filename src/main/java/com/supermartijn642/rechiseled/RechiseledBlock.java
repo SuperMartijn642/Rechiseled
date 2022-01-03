@@ -2,11 +2,11 @@ package com.supermartijn642.rechiseled;
 
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.block.BaseBlock;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.BlockGetter;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -24,9 +24,9 @@ public class RechiseledBlock extends BaseBlock {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable IBlockReader world, List<ITextComponent> text, ITooltipFlag flag){
+    public void appendHoverText(ItemStack stack, @Nullable BlockGetter world, List<Component> text, TooltipFlag flag){
         super.appendHoverText(stack, world, text, flag);
         if(this.connecting)
-            text.add(TextComponents.translation("rechiseled.tooltip.connecting").color(TextFormatting.GRAY).get());
+            text.add(TextComponents.translation("rechiseled.tooltip.connecting").color(ChatFormatting.GRAY).get());
     }
 }

@@ -48,7 +48,7 @@ description='''Rechiseled allows you to exchange between various decorative bloc
 [[dependencies.rechiseled]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16,1.17)"
+    versionRange="[1.17,1.18)"
     ordering="NONE"
     side="BOTH"
 # Add a dependency on SuperMartijn642's Config Lib

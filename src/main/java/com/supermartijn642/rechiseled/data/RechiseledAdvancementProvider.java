@@ -5,10 +5,10 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DirectoryCache;
-import net.minecraft.data.IDataProvider;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
+import net.minecraft.data.DataProvider;
+import net.minecraft.data.HashCache;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,7 +20,7 @@ import java.util.function.Consumer;
 /**
  * Created 9/2/2021 by SuperMartijn642
  */
-public class RechiseledAdvancementProvider implements IDataProvider {
+public class RechiseledAdvancementProvider implements DataProvider {
 
     private static final Logger LOGGER = LogManager.getLogger();
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().create();
@@ -30,7 +30,7 @@ public class RechiseledAdvancementProvider implements IDataProvider {
         this.generator = e.getGenerator();
     }
 
-    public void run(DirectoryCache hashCache){
+    public void run(HashCache hashCache){
         Path path = this.generator.getOutputFolder();
         Set<ResourceLocation> set = Sets.newHashSet();
         Consumer<Advancement> consumer = (advancement) -> {
@@ -39,7 +39,7 @@ public class RechiseledAdvancementProvider implements IDataProvider {
             }else{
                 Path advancementPath = createPath(path, advancement);
                 try{
-                    IDataProvider.save(GSON, hashCache, advancement.deconstruct().serializeToJson(), advancementPath);
+                    DataProvider.save(GSON, hashCache, advancement.deconstruct().serializeToJson(), advancementPath);
                 }catch(IOException ioexception){
                     LOGGER.error("Couldn't save advancement {}", advancementPath, ioexception);
                 }

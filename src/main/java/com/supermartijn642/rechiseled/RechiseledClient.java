@@ -3,8 +3,8 @@ package com.supermartijn642.rechiseled;
 import com.supermartijn642.rechiseled.model.RechiseledModelLoader;
 import com.supermartijn642.rechiseled.screen.BaseChiselingContainerScreen;
 import com.supermartijn642.rechiseled.screen.ChiselContainer;
-import net.minecraft.client.gui.ScreenManager;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
@@ -25,6 +25,6 @@ public class RechiseledClient {
 
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent e){
-        ScreenManager.register(Rechiseled.chisel_container, (ScreenManager.IScreenFactory<ChiselContainer,BaseChiselingContainerScreen<ChiselContainer>>)((container, inventory, name) -> new BaseChiselingContainerScreen<>(container, name)));
+        MenuScreens.register(Rechiseled.chisel_container, (MenuScreens.ScreenConstructor<ChiselContainer,BaseChiselingContainerScreen<ChiselContainer>>)((container, inventory, name) -> new BaseChiselingContainerScreen<>(container, name)));
     }
 }

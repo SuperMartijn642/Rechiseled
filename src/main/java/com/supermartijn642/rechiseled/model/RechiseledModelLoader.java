@@ -3,7 +3,7 @@ package com.supermartijn642.rechiseled.model;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.supermartijn642.rechiseled.model.serialization.RechiseledModelDeserializer;
-import net.minecraft.resources.IResourceManager;
+import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraftforge.client.model.IModelLoader;
 
 /**
@@ -12,7 +12,7 @@ import net.minecraftforge.client.model.IModelLoader;
 public class RechiseledModelLoader implements IModelLoader<RechiseledModel> {
 
     @Override
-    public void onResourceManagerReload(IResourceManager resourceManager){
+    public void onResourceManagerReload(ResourceManager resourceManager){
     }
 
     @Override

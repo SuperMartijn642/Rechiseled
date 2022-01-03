@@ -3,8 +3,8 @@ package com.supermartijn642.rechiseled.packet;
 import com.supermartijn642.core.network.BasePacket;
 import com.supermartijn642.core.network.PacketContext;
 import com.supermartijn642.rechiseled.screen.BaseChiselingContainer;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.network.PacketBuffer;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 
 /**
  * Created 26/12/2021 by SuperMartijn642
@@ -12,16 +12,16 @@ import net.minecraft.network.PacketBuffer;
 public class PacketChiselAll implements BasePacket {
 
     @Override
-    public void write(PacketBuffer buffer){
+    public void write(FriendlyByteBuf buffer){
     }
 
     @Override
-    public void read(PacketBuffer buffer){
+    public void read(FriendlyByteBuf buffer){
     }
 
     @Override
     public void handle(PacketContext context){
-        Container container = context.getSendingPlayer().containerMenu;
+        AbstractContainerMenu container = context.getSendingPlayer().containerMenu;
         if(container instanceof BaseChiselingContainer)
             ((BaseChiselingContainer)container).chiselAll();
     }

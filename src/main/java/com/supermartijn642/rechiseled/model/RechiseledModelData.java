@@ -1,11 +1,11 @@
 package com.supermartijn642.rechiseled.model;
 
 import com.google.common.collect.Maps;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.data.ModelProperty;
 
 import java.util.Map;
@@ -58,7 +58,7 @@ public class RechiseledModelData {
             this.down_right = isSameBlock(blockGetter, block, pos.relative(down).relative(right));
         }
 
-        public SideData(Direction side, IBlockReader world, BlockPos pos, Block block){
+        public SideData(Direction side, BlockGetter world, BlockPos pos, Block block){
             this(side, world::getBlockState, pos, block);
         }
 

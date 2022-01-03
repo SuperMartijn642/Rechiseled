@@ -7,19 +7,19 @@ import com.supermartijn642.rechiseled.packet.PacketChiselAll;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
 import com.supermartijn642.rechiseled.packet.PacketToggleConnecting;
 import com.supermartijn642.rechiseled.screen.ChiselContainer;
-import net.minecraft.block.Block;
-import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.util.Hand;
-import net.minecraft.util.NonNullList;
+import net.minecraft.core.NonNullList;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.registries.ObjectHolder;
 
 import java.util.LinkedList;
@@ -33,7 +33,7 @@ public class Rechiseled {
 
     public static final PacketChannel CHANNEL = PacketChannel.create("rechiseled");
 
-    public static final ItemGroup GROUP = new ItemGroup("rechiseled") {
+    public static final CreativeModeTab GROUP = new CreativeModeTab("rechiseled") {
         @Override
         public ItemStack makeIcon(){
             return new ItemStack(chisel);
@@ -56,7 +56,7 @@ public class Rechiseled {
     public static ChiselItem chisel;
 
     @ObjectHolder("rechiseled:chisel_container")
-    public static ContainerType<ChiselContainer> chisel_container;
+    public static MenuType<ChiselContainer> chisel_container;
 
     public Rechiseled(){
         CHANNEL.registerMessage(PacketSelectEntry.class, PacketSelectEntry::new, true);
@@ -92,14 +92,14 @@ public class Rechiseled {
         }
 
         @SubscribeEvent
-        public static void onContainerRegistry(RegistryEvent.Register<ContainerType<?>> e){
+        public static void onContainerRegistry(RegistryEvent.Register<MenuType<?>> e){
             e.getRegistry().register(IForgeContainerType.create(
-                (id, inventory, data) -> new ChiselContainer(chisel_container, id, inventory.player, data.readBoolean() ? Hand.MAIN_HAND : Hand.OFF_HAND)
+                (id, inventory, data) -> new ChiselContainer(chisel_container, id, inventory.player, data.readBoolean() ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND)
             ).setRegistryName("chisel_container"));
         }
 
         @SubscribeEvent
-        public static void onRecipeSerializerRegistry(RegistryEvent.Register<IRecipeSerializer<?>> e){
+        public static void onRecipeSerializerRegistry(RegistryEvent.Register<RecipeSerializer<?>> e){
             e.getRegistry().register(new ChiselingRecipe.Serializer().setRegistryName("chiseling"));
         }
 

@@ -6,9 +6,9 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DirectoryCache;
-import net.minecraft.data.IDataProvider;
-import net.minecraft.item.Item;
+import net.minecraft.data.DataProvider;
+import net.minecraft.data.HashCache;
+import net.minecraft.world.item.Item;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
 
@@ -25,7 +25,7 @@ import java.util.Set;
 /**
  * Created 24/12/2021 by SuperMartijn642
  */
-public abstract class ChiselingRecipeProvider implements IDataProvider {
+public abstract class ChiselingRecipeProvider implements DataProvider {
 
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
@@ -44,7 +44,7 @@ public abstract class ChiselingRecipeProvider implements IDataProvider {
     }
 
     @Override
-    public void run(DirectoryCache cache){
+    public void run(HashCache cache){
         this.buildRecipes();
 
         Path path = this.generator.getOutputFolder();
@@ -87,7 +87,7 @@ public abstract class ChiselingRecipeProvider implements IDataProvider {
         return json;
     }
 
-    private static void saveRecipe(DirectoryCache cache, JsonObject json, Path path){
+    private static void saveRecipe(HashCache cache, JsonObject json, Path path){
         try{
             String jsonString = GSON.toJson(json);
             String hash = SHA1.hashUnencodedChars(jsonString).toString();

@@ -3,24 +3,24 @@ package com.supermartijn642.rechiseled.model.serialization;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.supermartijn642.rechiseled.model.RechiseledBlockPartFace;
-import net.minecraft.client.renderer.model.BlockFaceUV;
-import net.minecraft.client.renderer.model.BlockPartFace;
-import net.minecraft.util.Direction;
-import net.minecraft.util.JSONUtils;
+import net.minecraft.client.renderer.block.model.BlockElementFace;
+import net.minecraft.client.renderer.block.model.BlockFaceUV;
+import net.minecraft.core.Direction;
+import net.minecraft.util.GsonHelper;
 
 /**
  * Created 21/12/2021 by SuperMartijn642
  */
 public class RechiseledBlockPartFaceDeserializer {
 
-    public static BlockPartFace deserialize(JsonObject json, JsonDeserializationContext context){
+    public static BlockElementFace deserialize(JsonObject json, JsonDeserializationContext context){
         // Connecting boolean
-        boolean connecting = JSONUtils.getAsBoolean(json, "connecting", false);
+        boolean connecting = GsonHelper.getAsBoolean(json, "connecting", false);
 
         // Vanilla stuff
-        Direction direction = Direction.byName(JSONUtils.getAsString(json, "cullface", ""));
-        int tintIndex = JSONUtils.getAsInt(json, "tintindex", -1);
-        String texture = JSONUtils.getAsString(json, "texture");
+        Direction direction = Direction.byName(GsonHelper.getAsString(json, "cullface", ""));
+        int tintIndex = GsonHelper.getAsInt(json, "tintindex", -1);
+        String texture = GsonHelper.getAsString(json, "texture");
         BlockFaceUV blockfaceuv = context.deserialize(json, BlockFaceUV.class);
 
         return new RechiseledBlockPartFace(direction, tintIndex, texture, blockfaceuv, connecting);

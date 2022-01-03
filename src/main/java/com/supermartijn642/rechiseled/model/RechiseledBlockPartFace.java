@@ -1,15 +1,15 @@
 package com.supermartijn642.rechiseled.model;
 
-import net.minecraft.client.renderer.model.BlockFaceUV;
-import net.minecraft.client.renderer.model.BlockPartFace;
-import net.minecraft.util.Direction;
+import net.minecraft.client.renderer.block.model.BlockElementFace;
+import net.minecraft.client.renderer.block.model.BlockFaceUV;
+import net.minecraft.core.Direction;
 
 import javax.annotation.Nullable;
 
 /**
  * Created 21/12/2021 by SuperMartijn642
  */
-public class RechiseledBlockPartFace extends BlockPartFace {
+public class RechiseledBlockPartFace extends BlockElementFace {
 
     public final boolean connecting;
 

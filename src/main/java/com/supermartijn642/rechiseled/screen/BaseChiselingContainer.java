@@ -4,12 +4,12 @@ import com.supermartijn642.core.gui.BaseContainer;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
 import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
 import com.supermartijn642.rechiseled.chiseling.ChiselingRecipes;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.inventory.container.Slot;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.SlotItemHandler;
 
@@ -24,13 +24,13 @@ public abstract class BaseChiselingContainer extends BaseContainer {
     public ChiselingEntry currentEntry = null;
     public boolean connecting = false;
 
-    public BaseChiselingContainer(ContainerType<?> type, int id, PlayerEntity player){
+    public BaseChiselingContainer(MenuType<?> type, int id, Player player){
         super(type, id, player);
         this.addSlots();
     }
 
     @Override
-    protected void addSlots(PlayerEntity playerEntity){
+    protected void addSlots(Player playerEntity){
         this.addSlot(new SlotItemHandler(new IItemHandlerModifiable() {
             @Override
             public void setStackInSlot(int slot, @Nonnull ItemStack stack){
@@ -108,7 +108,7 @@ public abstract class BaseChiselingContainer extends BaseContainer {
     }
 
     @Override
-    public boolean stillValid(PlayerEntity playerIn){
+    public boolean stillValid(Player playerIn){
         return !this.shouldBeClosed();
     }
 
@@ -173,7 +173,7 @@ public abstract class BaseChiselingContainer extends BaseContainer {
         if(this.currentRecipe == null)
             return;
 
-        PlayerInventory inventory = this.player.inventory;
+        Inventory inventory = this.player.getInventory();
         for(int index = 0; index < inventory.getContainerSize(); index++){
             ItemStack stack = inventory.getItem(index);
             Item item = this.connecting ? this.currentEntry.getConnectingItem() : this.currentEntry.getRegularItem();
@@ -198,7 +198,7 @@ public abstract class BaseChiselingContainer extends BaseContainer {
     public abstract boolean shouldBeClosed();
 
     @Override
-    public ItemStack quickMoveStack(PlayerEntity player, int index){
+    public ItemStack quickMoveStack(Player player, int index){
         ItemStack stack = this.getSlot(index).getItem();
         if(stack.isEmpty())
             return stack;
@@ -234,7 +234,7 @@ public abstract class BaseChiselingContainer extends BaseContainer {
 
                 Slot slot = this.slots.get(index);
                 ItemStack slotStack = slot.getItem();
-                if(!slotStack.isEmpty() && consideredTheSameItem(stack, slotStack)){
+                if(!slotStack.isEmpty() && ItemStack.isSameItemSameTags(stack, slotStack)){
                     int sumCount = slotStack.getCount() + stack.getCount();
                     int maxSize = Math.min(slot.getMaxStackSize(), stack.getMaxStackSize());
                     if(sumCount <= maxSize){

@@ -1,11 +1,11 @@
 package com.supermartijn642.rechiseled.data;
 
 import com.supermartijn642.rechiseled.Rechiseled;
-import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.data.RecipeProvider;
-import net.minecraft.data.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraftforge.common.Tags;
-import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 import java.util.function.Consumer;
 
@@ -19,7 +19,7 @@ public class RechiseledRecipeProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildShapelessRecipes(Consumer<IFinishedRecipe> recipeConsumer){
+    protected void buildCraftingRecipes(Consumer<FinishedRecipe> recipeConsumer){
         ShapedRecipeBuilder.shaped(Rechiseled.chisel)
             .pattern(" A")
             .pattern("B ")
