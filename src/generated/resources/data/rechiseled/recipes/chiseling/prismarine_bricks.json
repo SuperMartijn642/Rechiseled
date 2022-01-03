@@ -1,0 +1,24 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "item": "minecraft:prismarine_bricks"
+    },
+    {
+      "item": "rechiseled:prismarine_bricks_bricks",
+      "connecting_item": "rechiseled:prismarine_bricks_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:prismarine_bricks_diagonal_bricks",
+      "connecting_item": "rechiseled:prismarine_bricks_diagonal_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:prismarine_bricks_polished",
+      "connecting_item": "rechiseled:prismarine_bricks_polished_connecting"
+    },
+    {
+      "item": "rechiseled:prismarine_bricks_tiles",
+      "connecting_item": "rechiseled:prismarine_bricks_tiles_connecting"
+    }
+  ]
+}

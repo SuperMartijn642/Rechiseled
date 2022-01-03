@@ -1,0 +1,7 @@
+{
+  "parent": "rechiseled:block/connecting_cube_all",
+  "textures": {
+    "all": "rechiseled:block/crimson_planks_crate"
+  },
+  "loader": "rechiseled:connecting_model"
+}

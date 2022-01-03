@@ -1,0 +1,8 @@
+{
+  "parent": "rechiseled:block/connecting_cube_all",
+  "textures": {
+    "all": "rechiseled:block/spruce_planks_wavy"
+  },
+  "loader": "rechiseled:connecting_model",
+  "should_connect": true
+}

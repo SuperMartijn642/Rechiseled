@@ -1,0 +1,20 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "item": "minecraft:netherrack"
+    },
+    {
+      "item": "rechiseled:netherrack_beams",
+      "connecting_item": "rechiseled:netherrack_beams_connecting"
+    },
+    {
+      "item": "rechiseled:netherrack_dented",
+      "connecting_item": "rechiseled:netherrack_dented_connecting"
+    },
+    {
+      "item": "rechiseled:netherrack_stripes",
+      "connecting_item": "rechiseled:netherrack_stripes_connecting"
+    }
+  ]
+}

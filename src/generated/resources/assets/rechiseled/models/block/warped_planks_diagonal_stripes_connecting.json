@@ -1,0 +1,8 @@
+{
+  "parent": "rechiseled:block/connecting_cube_all",
+  "textures": {
+    "all": "rechiseled:block/warped_planks_diagonal_stripes"
+  },
+  "loader": "rechiseled:connecting_model",
+  "should_connect": true
+}

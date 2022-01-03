@@ -1,0 +1,18 @@
+{
+  "loader": "rechiseled:connecting_model",
+  "parent": "block/block",
+  "should_connect": true,
+  "elements": [
+    { "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "texture": "#down", "cullface": "down", "connecting": true },
+        "up":    { "texture": "#up", "cullface": "up", "connecting": true },
+        "north": { "texture": "#north", "cullface": "north", "connecting": true },
+        "south": { "texture": "#south", "cullface": "south", "connecting": true },
+        "west":  { "texture": "#west", "cullface": "west", "connecting": true },
+        "east":  { "texture": "#east", "cullface": "east", "connecting": true }
+      }
+    }
+  ]
+}

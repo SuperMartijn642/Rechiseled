@@ -1,0 +1,7 @@
+{
+  "parent": "rechiseled:block/connecting_cube_all",
+  "textures": {
+    "all": "rechiseled:block/birch_planks_dotted"
+  },
+  "loader": "rechiseled:connecting_model"
+}

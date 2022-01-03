@@ -1,0 +1,32 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "item": "minecraft:glowstone"
+    },
+    {
+      "item": "rechiseled:glowstone_bricks",
+      "connecting_item": "rechiseled:glowstone_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:glowstone_crushed",
+      "connecting_item": "rechiseled:glowstone_crushed_connecting"
+    },
+    {
+      "item": "rechiseled:glowstone_large_tiles",
+      "connecting_item": "rechiseled:glowstone_large_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:glowstone_small_tiles",
+      "connecting_item": "rechiseled:glowstone_small_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:glowstone_smooth",
+      "connecting_item": "rechiseled:glowstone_smooth_connecting"
+    },
+    {
+      "item": "rechiseled:glowstone_tiles",
+      "connecting_item": "rechiseled:glowstone_tiles_connecting"
+    }
+  ]
+}
