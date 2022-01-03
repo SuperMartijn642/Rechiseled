@@ -15,7 +15,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.extensions.IForgeContainerType;
+import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -93,7 +93,7 @@ public class Rechiseled {
 
         @SubscribeEvent
         public static void onContainerRegistry(RegistryEvent.Register<MenuType<?>> e){
-            e.getRegistry().register(IForgeContainerType.create(
+            e.getRegistry().register(IForgeMenuType.create(
                 (id, inventory, data) -> new ChiselContainer(chisel_container, id, inventory.player, data.readBoolean() ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND)
             ).setRegistryName("chisel_container"));
         }
