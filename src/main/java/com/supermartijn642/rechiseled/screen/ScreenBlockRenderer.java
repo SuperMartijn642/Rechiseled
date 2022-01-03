@@ -11,6 +11,7 @@ import com.supermartijn642.rechiseled.model.RechiseledModelData;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.model.BakedQuad;
 import net.minecraft.client.renderer.model.IBakedModel;
 import net.minecraft.client.renderer.texture.OverlayTexture;
@@ -36,32 +37,36 @@ public class ScreenBlockRenderer {
         double span = Math.sqrt(bounds.getXsize() * bounds.getXsize() + bounds.getYsize() * bounds.getYsize() + bounds.getZsize() * bounds.getZsize());
         scale /= span;
 
-        RenderSystem.pushMatrix();
         RenderSystem.enableRescaleNormal();
         RenderSystem.enableAlphaTest();
         RenderSystem.defaultAlphaFunc();
         RenderSystem.enableBlend();
         RenderSystem.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
+
+        RenderSystem.pushMatrix();
         RenderSystem.translated(x, y, 350);
         RenderSystem.scalef(1, -1, 1);
         RenderSystem.scaled(scale, scale, scale);
-        IRenderTypeBuffer.Impl renderTypeBuffer = RenderUtils.getMainBufferSource();
-        if(doShading)
-            RenderSystem.enableLighting();
 
         MatrixStack matrixstack = new MatrixStack();
         matrixstack.mulPose(new Quaternion(pitch, yaw, 0, true));
 
+        if(doShading)
+            RenderSystem.enableLighting();
+
+        IRenderTypeBuffer.Impl renderTypeBuffer = RenderUtils.getMainBufferSource();
         for(Map.Entry<BlockPos,BlockState> entry : capture.getBlocks())
             renderBlock(capture, entry.getKey(), entry.getValue(), matrixstack, renderTypeBuffer);
+        renderTypeBuffer.endBatch();
 
-        renderTypeBuffer.endBatch(RenderType.translucent());
         RenderSystem.enableDepthTest();
         if(doShading)
             RenderSystem.disableLighting();
+
+        RenderSystem.popMatrix();
+
         RenderSystem.disableAlphaTest();
         RenderSystem.disableRescaleNormal();
-        RenderSystem.popMatrix();
     }
 
     private static void renderBlock(BlockCapture capture, BlockPos pos, BlockState state, MatrixStack matrixStack, IRenderTypeBuffer renderTypeBuffer){
@@ -77,7 +82,8 @@ public class ScreenBlockRenderer {
             modelData = new ModelDataMap.Builder().withInitial(RechiseledModelData.PROPERTY, data).build();
         }
 
-        renderModel(model, state, matrixStack, renderTypeBuffer.getBuffer(RenderType.translucent()), modelData);
+        RenderType renderType = RenderTypeLookup.getRenderType(state, true);
+        renderModel(model, state, matrixStack, renderTypeBuffer.getBuffer(renderType), modelData);
 
         matrixStack.popPose();
     }
