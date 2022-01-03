@@ -43,23 +43,6 @@ public class ChiselItem extends Item {
                     return new ChiselContainer(Rechiseled.chisel_container, id, player, hand);
                 }
             }, buffer -> buffer.writeBoolean(hand == Hand.MAIN_HAND));
-//            // TODO remove this vv
-//            // Used to easily place all rechiseled blocks into the world
-//            int index = 0;
-//            for(RechiseledBlockType type : RechiseledBlockType.values()){
-//                int x = index % 20 * 2;
-//                int y = index / 20 * 3;
-//                int z = index / 20;
-//                BlockPos pos = player.blockPosition().above(3).offset(x, y, z);
-//                BlockState state = type.getConnectingBlock().defaultBlockState(); // Blocks.AIR.defaultBlockState();
-//                world.setBlock(pos, state, 1 | 2);
-//                world.setBlock(pos.above(), state, 1 | 2);
-//                world.setBlock(pos.above().above(), state, 1 | 2);
-//                world.setBlock(pos.east(), state, 1 | 2);
-//                world.setBlock(pos.east().above(), state, 1 | 2);
-//                world.setBlock(pos.east().above().above(), state, 1 | 2);
-//                index++;
-//            }
         }
         return ActionResult.sidedSuccess(stack, world.isClientSide);
     }
