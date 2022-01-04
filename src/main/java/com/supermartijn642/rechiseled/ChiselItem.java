@@ -11,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
@@ -44,7 +45,7 @@ public class ChiselItem extends Item {
                 }
             }, buffer -> buffer.writeBoolean(hand == Hand.MAIN_HAND));
         }
-        return world.isClientSide ? ActionResult.success(stack) : ActionResult.consume(stack);
+        return ActionResult.newResult(ActionResultType.SUCCESS, stack);
     }
 
     public static ItemStack getStoredStack(ItemStack chisel){

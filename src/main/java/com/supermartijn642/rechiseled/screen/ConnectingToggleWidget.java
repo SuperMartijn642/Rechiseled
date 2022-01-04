@@ -52,7 +52,7 @@ public class ConnectingToggleWidget extends AbstractButtonWidget implements IHov
         ScreenUtils.bindTexture(GREY_BUTTONS);
         ScreenUtils.drawTexture(this.x, this.y, this.width, this.height, 0, (canSwitch ? this.hovered ? 2 : 0 : 1) / 3f, 1, 1 / 3f);
 
-        GlStateManager._enableAlphaTest();
+        GlStateManager.enableAlphaTest();
         ScreenUtils.bindTexture(this.connecting.get() ? ICON_CONNECTED_ON : ICON_CONNECTED_OFF);
         ScreenUtils.drawTexture(this.x + 1, this.y + 2, this.width - 2, this.height - 4);
     }

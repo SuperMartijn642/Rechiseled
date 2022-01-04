@@ -18,7 +18,7 @@ import java.util.Locale;
 public class RechiseledBlockStateProvider extends BlockStateProvider {
 
     public RechiseledBlockStateProvider(GatherDataEvent e){
-        super(e.getGenerator(), "rechiseled", new ExistingFileHelper(Collections.emptyList(), true){
+        super(e.getGenerator(), "rechiseled", new ExistingFileHelper(Collections.emptyList(), true) {
             @Override
             public boolean exists(ResourceLocation loc, ResourcePackType type, String pathSuffix, String pathPrefix){
                 if(loc.getNamespace().equals("rechiseled") && loc.getPath().startsWith("block/")){
@@ -41,7 +41,7 @@ public class RechiseledBlockStateProvider extends BlockStateProvider {
             .filter(block -> block.getRegistryName().getNamespace().equals("rechiseled"))
             .forEach(
                 block -> this.getVariantBuilder(block).forAllStates(
-                    state -> new ConfiguredModel[]{new ConfiguredModel(this.models().getExistingFile(new ResourceLocation("rechiseled", "block/" + block.getRegistryName().getPath())))}
+                    state -> new ConfiguredModel[]{new ConfiguredModel(this.getExistingFile(new ResourceLocation("rechiseled", "block/" + block.getRegistryName().getPath())))}
                 )
             );
     }

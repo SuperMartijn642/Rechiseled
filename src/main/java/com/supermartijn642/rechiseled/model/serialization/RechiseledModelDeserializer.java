@@ -5,11 +5,10 @@ import com.google.common.collect.Maps;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.mojang.datafixers.util.Either;
 import com.supermartijn642.rechiseled.model.RechiseledModel;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.client.renderer.texture.AtlasTexture;
+import net.minecraft.client.renderer.model.BlockPart;
+import net.minecraft.client.renderer.model.ItemCameraTransforms;
+import net.minecraft.client.renderer.model.ItemOverride;
 import net.minecraft.util.JSONUtils;
 import net.minecraft.util.ResourceLocation;
 
@@ -31,7 +30,7 @@ public class RechiseledModelDeserializer {
         // Deserialize vanilla stuff
         String parentString = JSONUtils.getAsString(json, "parent", "");
         ResourceLocation parent = parentString.isEmpty() ? null : new ResourceLocation(parentString);
-        Map<String,Either<Material,String>> map = getTextureMap(json);
+        Map<String,String> map = getTextureMap(json);
         boolean ambientOcclusion = JSONUtils.getAsBoolean(json, "ambientocclusion", true);
         ItemCameraTransforms cameraTransforms = ItemCameraTransforms.NO_TRANSFORMS;
         if(json.has("display")){
@@ -39,11 +38,9 @@ public class RechiseledModelDeserializer {
             cameraTransforms = context.deserialize(transform, ItemCameraTransforms.class);
         }
         List<ItemOverride> overrides = getOverrides(context, json);
-        BlockModel.GuiLight guiLighting = null;
-        if(json.has("gui_light"))
-            guiLighting = BlockModel.GuiLight.getByName(JSONUtils.getAsString(json, "gui_light"));
+        boolean gui3d = JSONUtils.getAsBoolean(json, "gui_3d", true);
 
-        return new RechiseledModel(shouldConnect, parent, elements, map, ambientOcclusion, guiLighting, cameraTransforms, overrides);
+        return new RechiseledModel(shouldConnect, parent, elements, map, ambientOcclusion, gui3d, cameraTransforms, overrides);
     }
 
     private static List<BlockPart> deserializeElements(JsonObject json, JsonDeserializationContext context){
@@ -68,28 +65,15 @@ public class RechiseledModelDeserializer {
         return overrides;
     }
 
-    private static Map<String,Either<Material,String>> getTextureMap(JsonObject json){
-        ResourceLocation blockAtlas = AtlasTexture.LOCATION_BLOCKS;
-        Map<String,Either<Material,String>> map = Maps.newHashMap();
+    private static Map<String,String> getTextureMap(JsonObject json){
+        Map<String,String> map = Maps.newHashMap();
         if(json.has("textures")){
             JsonObject textures = JSONUtils.getAsJsonObject(json, "textures");
 
             for(Map.Entry<String,JsonElement> entry : textures.entrySet())
-                map.put(entry.getKey(), parseTextureLocationOrReference(blockAtlas, entry.getValue().getAsString()));
+                map.put(entry.getKey(), entry.getValue().getAsString());
         }
 
         return map;
-    }
-
-    private static Either<Material,String> parseTextureLocationOrReference(ResourceLocation atlas, String reference){
-        if(reference.charAt(0) == '#')
-            return Either.right(reference.substring(1));
-        else{
-            ResourceLocation resourcelocation = ResourceLocation.tryParse(reference);
-            if(resourcelocation == null)
-                throw new JsonParseException(reference + " is not valid resource location");
-            else
-                return Either.left(new Material(atlas, resourcelocation));
-        }
     }
 }

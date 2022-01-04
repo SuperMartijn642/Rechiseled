@@ -8,7 +8,7 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Tuple;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ILightReader;
+import net.minecraft.world.IEnviromentBlockReader;
 import net.minecraftforge.client.model.data.IDynamicBakedModel;
 import net.minecraftforge.client.model.data.IModelData;
 
@@ -24,17 +24,15 @@ public class RechiseledBakedModel implements IDynamicBakedModel {
     private final Map<Direction,List<Tuple<BakedQuad,Boolean>>> quads;
     private final boolean ambientOcclusion;
     private final boolean gui3d;
-    private final boolean blockLighting;
     private final boolean customRenderer;
     private final TextureAtlasSprite particles;
     private final ItemOverrideList itemOverrides;
     private final ItemCameraTransforms transforms;
 
-    public RechiseledBakedModel(Map<Direction,List<Tuple<BakedQuad,Boolean>>> quads, boolean ambientOcclusion, boolean gui3d, boolean blockLighting, boolean customRenderer, TextureAtlasSprite particles, ItemOverrideList itemOverrides, ItemCameraTransforms transforms){
+    public RechiseledBakedModel(Map<Direction,List<Tuple<BakedQuad,Boolean>>> quads, boolean ambientOcclusion, boolean gui3d, boolean customRenderer, TextureAtlasSprite particles, ItemOverrideList itemOverrides, ItemCameraTransforms transforms){
         this.quads = quads;
         this.ambientOcclusion = ambientOcclusion;
         this.gui3d = gui3d;
-        this.blockLighting = blockLighting;
         this.customRenderer = customRenderer;
         this.particles = particles;
         this.itemOverrides = itemOverrides;
@@ -58,7 +56,7 @@ public class RechiseledBakedModel implements IDynamicBakedModel {
                 int[] uv = this.getUV(quad.getDirection(), extraData);
                 adjustVertexDataUV(vertexData, uv[0], uv[1], quad.getSprite());
 
-                quads.add(new BakedQuad(vertexData, quad.getTintIndex(), quad.getDirection(), quad.getSprite(), quad.shouldApplyDiffuseLighting()));
+                quads.add(new BakedQuad(vertexData, quad.getTintIndex(), quad.getDirection(), quad.getSprite(), quad.shouldApplyDiffuseLighting(), quad.getFormat()));
             }else
                 quads.add(quad);
         }
@@ -73,19 +71,19 @@ public class RechiseledBakedModel implements IDynamicBakedModel {
     private static int[] adjustVertexDataUV(int[] vertexData, int newU, int newV, TextureAtlasSprite sprite){
         for(int i = 0; i < 4; i++){
             float width = sprite.getU1() - sprite.getU0();
-            float u = (newU + (Float.intBitsToFloat(vertexData[i * 8 + 4]) - sprite.getU0()) / width) * 2;
-            vertexData[i * 8 + 4] = Float.floatToRawIntBits(sprite.getU(u));
+            float u = (newU + (Float.intBitsToFloat(vertexData[i * 7 + 4]) - sprite.getU0()) / width) * 2;
+            vertexData[i * 7 + 4] = Float.floatToRawIntBits(sprite.getU(u));
 
             float height = sprite.getV1() - sprite.getV0();
-            float v = (newV + (Float.intBitsToFloat(vertexData[i * 8 + 5]) - sprite.getV0()) / height) * 2;
-            vertexData[i * 8 + 5] = Float.floatToRawIntBits(sprite.getV(v));
+            float v = (newV + (Float.intBitsToFloat(vertexData[i * 7 + 5]) - sprite.getV0()) / height) * 2;
+            vertexData[i * 7 + 5] = Float.floatToRawIntBits(sprite.getV(v));
         }
         return vertexData;
     }
 
     @Nonnull
     @Override
-    public IModelData getModelData(@Nonnull ILightReader world, @Nonnull BlockPos pos, @Nonnull BlockState state, @Nonnull IModelData tileData){
+    public IModelData getModelData(@Nonnull IEnviromentBlockReader world, @Nonnull BlockPos pos, @Nonnull BlockState state, @Nonnull IModelData tileData){
         return IDynamicBakedModel.super.getModelData(world, pos, state, tileData);
     }
 
@@ -97,11 +95,6 @@ public class RechiseledBakedModel implements IDynamicBakedModel {
     @Override
     public boolean isGui3d(){
         return this.gui3d;
-    }
-
-    @Override
-    public boolean usesBlockLight(){
-        return this.blockLighting;
     }
 
     @Override

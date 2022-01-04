@@ -17,7 +17,7 @@ import java.util.Locale;
 public class RechiseledItemModelProvider extends ItemModelProvider {
 
     public RechiseledItemModelProvider(GatherDataEvent e){
-        super(e.getGenerator(), "rechiseled", new ExistingFileHelper(Collections.emptyList(), true){
+        super(e.getGenerator(), "rechiseled", new ExistingFileHelper(Collections.emptyList(), true) {
             @Override
             public boolean exists(ResourceLocation loc, ResourcePackType type, String pathSuffix, String pathPrefix){
                 if(loc.getNamespace().equals("rechiseled") && loc.getPath().startsWith("block/")){
@@ -44,5 +44,10 @@ public class RechiseledItemModelProvider extends ItemModelProvider {
                     new ResourceLocation("rechiseled", "block/" + block.getRegistryName().getPath())
                 )
             );
+    }
+
+    @Override
+    public String getName(){
+        return "Item Models: Rechiseled";
     }
 }
