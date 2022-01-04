@@ -27,16 +27,9 @@ public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
             .addRegularItem(Items.ANDESITE);
         builders.computeIfAbsent(RechiseledTagGroups.BIRCH_PLANKS, this::beginRecipe)
             .addRegularItem(Items.BIRCH_PLANKS);
-        builders.computeIfAbsent(RechiseledTagGroups.BLACKSTONE, this::beginRecipe)
-            .addRegularItem(Items.BLACKSTONE)
-            .addRegularItem(Items.POLISHED_BLACKSTONE_BRICKS)
-            .addRegularItem(Items.CRACKED_POLISHED_BLACKSTONE_BRICKS)
-            .addRegularItem(Items.CHISELED_POLISHED_BLACKSTONE);
         builders.computeIfAbsent(RechiseledTagGroups.COBBLESTONE, this::beginRecipe)
             .addRegularItem(Items.COBBLESTONE)
             .addRegularItem(Items.MOSSY_COBBLESTONE);
-        builders.computeIfAbsent(RechiseledTagGroups.CRIMSON_PLANKS, this::beginRecipe)
-            .addRegularItem(Items.CRIMSON_PLANKS);
         builders.computeIfAbsent(RechiseledTagGroups.DARK_OAK_PLANKS, this::beginRecipe)
             .addRegularItem(Items.DARK_OAK_PLANKS);
         builders.computeIfAbsent(RechiseledTagGroups.DIORITE, this::beginRecipe)
@@ -53,9 +46,7 @@ public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
         builders.computeIfAbsent(RechiseledTagGroups.NETHERRACK, this::beginRecipe)
             .addRegularItem(Items.NETHERRACK);
         builders.computeIfAbsent(RechiseledTagGroups.NETHER_BRICKS, this::beginRecipe)
-            .addRegularItem(Items.NETHER_BRICKS)
-            .addRegularItem(Items.CHISELED_NETHER_BRICKS)
-            .addRegularItem(Items.CRACKED_NETHER_BRICKS);
+            .addRegularItem(Items.NETHER_BRICKS);
         builders.computeIfAbsent(RechiseledTagGroups.OAK_PLANKS, this::beginRecipe)
             .addRegularItem(Items.OAK_PLANKS);
         builders.computeIfAbsent(RechiseledTagGroups.PRISMARINE_BRICKS, this::beginRecipe)
@@ -77,8 +68,6 @@ public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
             .addRegularItem(Items.STONE_BRICKS)
             .addRegularItem(Items.MOSSY_STONE_BRICKS)
             .addRegularItem(Items.CRACKED_STONE_BRICKS);
-        builders.computeIfAbsent(RechiseledTagGroups.WARPED_PLANKS, this::beginRecipe)
-            .addRegularItem(Items.WARPED_PLANKS);
 
         for(RechiseledBlockType type : RechiseledBlockType.values()){
             for(String tag : type.tags){

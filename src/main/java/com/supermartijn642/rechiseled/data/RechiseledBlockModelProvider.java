@@ -2,17 +2,16 @@ package com.supermartijn642.rechiseled.data;
 
 import com.supermartijn642.rechiseled.RechiseledBlockType;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.generators.BlockModelBuilder;
-import net.minecraftforge.client.model.generators.BlockModelProvider;
+import net.minecraftforge.client.model.generators.ModelProvider;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 
 /**
  * Created 21/12/2021 by SuperMartijn642
  */
-public class RechiseledBlockModelProvider extends BlockModelProvider {
+public class RechiseledBlockModelProvider extends ModelProvider<RechiseledBlockModelBuilder> {
 
     public RechiseledBlockModelProvider(GatherDataEvent e){
-        super(e.getGenerator(), "rechiseled", e.getExistingFileHelper());
+        super(e.getGenerator(), "rechiseled", BLOCK_FOLDER, RechiseledBlockModelBuilder::new, e.getExistingFileHelper());
     }
 
     @Override
@@ -25,14 +24,17 @@ public class RechiseledBlockModelProvider extends BlockModelProvider {
         }
     }
 
-    public RechiseledBlockModelBuilder<BlockModelBuilder> regularCubeAll(String name, ResourceLocation texture){
-        return this.singleTexture(name, new ResourceLocation("rechiseled", "block/connecting_cube_all"), "all", texture)
-            .customLoader(RechiseledBlockModelBuilder::new);
+    public RechiseledBlockModelBuilder regularCubeAll(String name, ResourceLocation texture){
+        return this.singleTexture(name, new ResourceLocation("rechiseled", "block/connecting_cube_all"), "all", texture);
     }
 
-    public RechiseledBlockModelBuilder<BlockModelBuilder> connectingCubeAll(String name, ResourceLocation texture){
+    public RechiseledBlockModelBuilder connectingCubeAll(String name, ResourceLocation texture){
         return this.singleTexture(name, new ResourceLocation("rechiseled", "block/connecting_cube_all"), "all", texture)
-            .customLoader(RechiseledBlockModelBuilder::new)
             .connectToOtherBlocks();
+    }
+
+    @Override
+    public String getName(){
+        return "Rechiseled Connecting Block Models";
     }
 }

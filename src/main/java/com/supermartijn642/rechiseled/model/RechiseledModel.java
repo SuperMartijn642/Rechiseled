@@ -24,13 +24,13 @@ public class RechiseledModel implements IModelGeometry<RechiseledModel> {
     private final boolean shouldConnect;
     private final ResourceLocation parent;
     private final List<BlockPart> elements;
-    private final Map<String,Either<RenderMaterial,String>> textureMap;
+    private final Map<String,Either<Material,String>> textureMap;
     private final boolean ambientOcclusion;
     private final BlockModel.GuiLight guiLight;
     private final ItemCameraTransforms cameraTransforms;
     private final List<ItemOverride> itemOverrides;
 
-    public RechiseledModel(boolean shouldConnect, ResourceLocation parent, List<BlockPart> elements, Map<String,Either<RenderMaterial,String>> textureMap, boolean ambientOcclusion, BlockModel.GuiLight guiLight, ItemCameraTransforms cameraTransforms, List<ItemOverride> itemOverrides){
+    public RechiseledModel(boolean shouldConnect, ResourceLocation parent, List<BlockPart> elements, Map<String,Either<Material,String>> textureMap, boolean ambientOcclusion, BlockModel.GuiLight guiLight, ItemCameraTransforms cameraTransforms, List<ItemOverride> itemOverrides){
         this.shouldConnect = shouldConnect;
         this.parent = parent;
         this.elements = elements;
@@ -42,8 +42,8 @@ public class RechiseledModel implements IModelGeometry<RechiseledModel> {
     }
 
     @Override
-    public IBakedModel bake(IModelConfiguration owner, ModelBakery bakery, Function<RenderMaterial,TextureAtlasSprite> spriteGetter, IModelTransform modelTransform, ItemOverrideList overrides, ResourceLocation modelLocation){
-        Function<ResourceLocation, IUnbakedModel> modelGetter = bakery::getModel;
+    public IBakedModel bake(IModelConfiguration owner, ModelBakery bakery, Function<Material,TextureAtlasSprite> spriteGetter, IModelTransform modelTransform, ItemOverrideList overrides, ResourceLocation modelLocation){
+        Function<ResourceLocation,IUnbakedModel> modelGetter = bakery::getModel;
 
         TextureAtlasSprite particle = spriteGetter.apply(owner.resolveTexture("particle"));
         List<BlockPart> elements = this.getElements(bakery::getModel);
@@ -71,12 +71,12 @@ public class RechiseledModel implements IModelGeometry<RechiseledModel> {
     }
 
     @Override
-    public Collection<RenderMaterial> getTextures(IModelConfiguration owner, Function<ResourceLocation,IUnbakedModel> modelGetter, Set<Pair<String,String>> missingTextureErrors){
-        Set<RenderMaterial> textures = Sets.newHashSet();
+    public Collection<Material> getTextures(IModelConfiguration owner, Function<ResourceLocation,IUnbakedModel> modelGetter, Set<Pair<String,String>> missingTextureErrors){
+        Set<Material> textures = Sets.newHashSet();
 
         for(BlockPart part : this.getElements(modelGetter)){
             for(BlockPartFace face : part.faces.values()){
-                RenderMaterial texture = owner.resolveTexture(face.texture);
+                Material texture = owner.resolveTexture(face.texture);
                 if(Objects.equals(texture, MissingTextureSprite.getLocation().toString()))
                     missingTextureErrors.add(Pair.of(face.texture, owner.getModelName()));
 

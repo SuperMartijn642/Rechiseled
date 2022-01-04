@@ -2,13 +2,13 @@ package com.supermartijn642.rechiseled.model.serialization;
 
 import com.google.common.collect.Maps;
 import com.google.gson.*;
+import net.minecraft.client.renderer.Vector3f;
 import net.minecraft.client.renderer.model.BlockPart;
 import net.minecraft.client.renderer.model.BlockPartFace;
 import net.minecraft.client.renderer.model.BlockPartRotation;
 import net.minecraft.util.Direction;
 import net.minecraft.util.JSONUtils;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.vector.Vector3f;
 
 import javax.annotation.Nullable;
 import java.util.Locale;

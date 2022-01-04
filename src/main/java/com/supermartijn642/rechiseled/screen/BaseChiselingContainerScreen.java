@@ -1,6 +1,5 @@
 package com.supermartijn642.rechiseled.screen;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
 import com.supermartijn642.core.gui.BaseContainerScreen;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.rechiseled.Rechiseled;
@@ -57,58 +56,56 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
                 int y = 17 + 22 * row;
                 this.addWidget(new BlockButtonWidget(x, y, 20, 22,
                     () -> this.getEntry(index),
-                    () -> this.container.currentEntry,
+                    () -> this.menu.currentEntry,
                     () -> this.selectEntry(index),
-                    () -> this.container.connecting,
-                    this::left,
-                    this::top));
+                    () -> this.menu.connecting));
             }
         }
 
         this.addWidget(new BlockPreviewWidget(117, 17, 68, 69, () -> {
-            ChiselingEntry entry = this.container.currentEntry;
+            ChiselingEntry entry = this.menu.currentEntry;
             if(entry == null)
                 return null;
-            Item item = (this.container.connecting && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
+            Item item = (this.menu.connecting && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
             return item instanceof BlockItem ? ((BlockItem)item).getBlock() : null;
-        }, () -> previewMode, this::left, this::top));
+        }, () -> previewMode));
         this.addWidget(new PreviewModeButtonWidget(193, 18, 19, 21, 2, () -> previewMode, () -> previewMode = 2));
         this.addWidget(new PreviewModeButtonWidget(193, 41, 19, 21, 1, () -> previewMode, () -> previewMode = 1));
         this.addWidget(new PreviewModeButtonWidget(193, 64, 19, 21, 0, () -> previewMode, () -> previewMode = 0));
-        this.addWidget(new ConnectingToggleWidget(193, 99, 19, 21, () -> this.container.connecting, () -> this.container.currentEntry, this::toggleConnecting));
-        this.chiselAllWidget = this.addWidget(new ChiselAllWidget(127, 99, 19, 21, () -> this.container.currentEntry, this::chiselAll));
+        this.addWidget(new ConnectingToggleWidget(193, 99, 19, 21, () -> this.menu.connecting, () -> this.menu.currentEntry, this::toggleConnecting));
+        this.chiselAllWidget = this.addWidget(new ChiselAllWidget(127, 99, 19, 21, () -> this.menu.currentEntry, this::chiselAll));
     }
 
     @Override
-    protected void renderBackground(MatrixStack matrixStack, int mouseX, int mouseY){
+    protected void renderBackground(int mouseX, int mouseY){
         ScreenUtils.bindTexture(BACKGROUND);
-        ScreenUtils.drawTexture(matrixStack, 0, 0, this.sizeX(), this.sizeY());
+        ScreenUtils.drawTexture(0, 0, this.sizeX(), this.sizeY());
     }
 
     @Override
-    protected void renderForeground(MatrixStack matrixStack, int mouseX, int mouseY){
+    protected void renderForeground(int mouseX, int mouseY){
         // Render chisel all slot overlays
-        if(this.container.currentRecipe != null && this.chiselAllWidget != null && this.chiselAllWidget.hovered){
-            for(int index = 1; index < this.container.slots.size(); index++){
-                Slot slot = this.container.getSlot(index);
+        if(this.menu.currentRecipe != null && this.chiselAllWidget != null && this.chiselAllWidget.hovered){
+            for(int index = 1; index < this.menu.slots.size(); index++){
+                Slot slot = this.menu.getSlot(index);
                 ItemStack stack = slot.getItem();
 
-                for(ChiselingEntry entry : this.container.currentRecipe.getEntries()){
+                for(ChiselingEntry entry : this.menu.currentRecipe.getEntries()){
                     if((!stack.hasTag() || stack.getTag().isEmpty())
                         && ((entry.hasConnectingItem() && stack.getItem() == entry.getConnectingItem())
                         || (entry.hasRegularItem() && stack.getItem() == entry.getRegularItem()))){
-                        ScreenUtils.fillRect(matrixStack, slot.x, slot.y, 16, 16, 0, 20, 100, 0.5f);
+                        ScreenUtils.fillRect(slot.x, slot.y, 16, 16, 0, 20, 100, 0.5f);
                     }
                 }
             }
         }
 
-        super.renderForeground(matrixStack, mouseX, mouseY);
-        ScreenUtils.drawString(matrixStack, this.inventory.getDisplayName(), 31, 133);
+        super.renderForeground(mouseX, mouseY);
+        ScreenUtils.drawString(this.inventory.getDisplayName(), 31, 133);
     }
 
     private ChiselingEntry getEntry(int index){
-        ChiselingRecipe recipe = this.container.currentRecipe;
+        ChiselingRecipe recipe = this.menu.currentRecipe;
         if(recipe == null)
             return null;
         return index >= 0 && index < recipe.getEntries().size() ? recipe.getEntries().get(index) : null;

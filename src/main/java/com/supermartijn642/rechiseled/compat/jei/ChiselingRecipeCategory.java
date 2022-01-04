@@ -13,7 +13,6 @@ import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -45,11 +44,6 @@ public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipe>
     @Override
     public String getTitle(){
         return TextComponents.translation("rechiseled.jei_category.title").format();
-    }
-
-    @Override
-    public ITextComponent getTitleAsTextComponent(){
-        return TextComponents.translation("rechiseled.jei_category.title").get();
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.supermartijn642.rechiseled.model;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
@@ -46,15 +45,15 @@ public class PreviewModeButtonWidget extends AbstractButtonWidget {
     }
 
     @Override
-    public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks){
+    public void render(int mouseX, int mouseY, float partialTicks){
         int currentMode = this.currentMode.get();
         boolean selected = this.mode == currentMode;
 
         ScreenUtils.bindTexture(GREY_BUTTONS);
-        ScreenUtils.drawTexture(matrixStack, this.x, this.y, this.width, this.height, 0, (selected ? 1 : this.hovered ? 2 : 0) / 3f, 1, 1 / 3f);
+        ScreenUtils.drawTexture(this.x, this.y, this.width, this.height, 0, (selected ? 1 : this.hovered ? 2 : 0) / 3f, 1, 1 / 3f);
 
         GlStateManager._enableAlphaTest();
         ScreenUtils.bindTexture(ICONS[this.mode][selected ? 1 : 0]);
-        ScreenUtils.drawTexture(matrixStack, this.x + 1, this.y + 2, this.width - 2, this.height - 4);
+        ScreenUtils.drawTexture(this.x + 1, this.y + 2, this.width - 2, this.height - 4);
     }
 }

@@ -1,8 +1,0 @@
-{
-  "parent": "rechiseled:block/connecting_cube_all",
-  "textures": {
-    "all": "rechiseled:block/blackstone_polished"
-  },
-  "loader": "rechiseled:connecting_model",
-  "should_connect": true
-}

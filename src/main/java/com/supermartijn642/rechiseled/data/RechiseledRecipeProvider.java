@@ -25,7 +25,7 @@ public class RechiseledRecipeProvider extends RecipeProvider {
             .pattern("B ")
             .define('A', Tags.Items.INGOTS_IRON)
             .define('B', Tags.Items.RODS_WOODEN)
-            .unlockedBy("has_iron", has(Tags.Items.INGOTS_IRON))
+            .unlocks("has_iron", this.has(Tags.Items.INGOTS_IRON))
             .save(recipeConsumer);
     }
 }

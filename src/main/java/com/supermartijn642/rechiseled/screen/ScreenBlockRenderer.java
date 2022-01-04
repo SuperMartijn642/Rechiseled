@@ -10,6 +10,7 @@ import com.supermartijn642.rechiseled.model.RechiseledConnectedBakedModel;
 import com.supermartijn642.rechiseled.model.RechiseledModelData;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
+import net.minecraft.client.renderer.Quaternion;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.model.BakedQuad;
@@ -18,7 +19,6 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Quaternion;
 import net.minecraftforge.client.model.data.EmptyModelData;
 import net.minecraftforge.client.model.data.IModelData;
 import net.minecraftforge.client.model.data.ModelDataMap;
@@ -82,7 +82,7 @@ public class ScreenBlockRenderer {
             modelData = new ModelDataMap.Builder().withInitial(RechiseledModelData.PROPERTY, data).build();
         }
 
-        RenderType renderType = RenderTypeLookup.getRenderType(state, true);
+        RenderType renderType = RenderTypeLookup.getRenderType(state);
         renderModel(model, state, matrixStack, renderTypeBuffer.getBuffer(renderType), modelData);
 
         matrixStack.popPose();

@@ -44,7 +44,7 @@ public class ChiselItem extends Item {
                 }
             }, buffer -> buffer.writeBoolean(hand == Hand.MAIN_HAND));
         }
-        return ActionResult.sidedSuccess(stack, world.isClientSide);
+        return world.isClientSide ? ActionResult.success(stack) : ActionResult.consume(stack);
     }
 
     public static ItemStack getStoredStack(ItemStack chisel){

@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.0.0-mc1.16'
+version = '1.0.0-mc1.15'
 group = 'com.supermartijn642.rechiseled' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'rechiseled'
 
@@ -22,7 +22,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(8) // Mojang ships Java 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
 minecraft {
-    mappings channel: 'official', version: '1.16.5'
+    mappings channel: 'official', version: '1.15.2'
 
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -78,16 +78,13 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.2.0'
+    minecraft 'net.minecraftforge:forge:1.15.2-31.2.55'
 
     // Core lib
-    implementation fg.deobf('curse.maven:supermartijn642s-core-lib-454372:3543827')
+    implementation fg.deobf('curse.maven:supermartijn642s-core-lib-454372:3543825')
     // Config lib
-    implementation fg.deobf('curse.maven:supermartijn642s-config-lib-438332:3413938')
+    implementation fg.deobf('curse.maven:supermartijn642s-config-lib-438332:3413935')
 
     // Just Enough Items
-    implementation fg.deobf('curse.maven:jei-238222:3564654')
-
-    // Block Renderer
-    runtimeOnly fg.deobf('curse.maven:block-renderer-380456:3294692')
+    implementation fg.deobf('curse.maven:jei-238222:3272032')
 }

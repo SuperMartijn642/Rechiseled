@@ -8,7 +8,7 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Tuple;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockDisplayReader;
+import net.minecraft.world.ILightReader;
 import net.minecraftforge.client.model.data.IDynamicBakedModel;
 import net.minecraftforge.client.model.data.IModelData;
 
@@ -58,7 +58,7 @@ public class RechiseledBakedModel implements IDynamicBakedModel {
                 int[] uv = this.getUV(quad.getDirection(), extraData);
                 adjustVertexDataUV(vertexData, uv[0], uv[1], quad.getSprite());
 
-                quads.add(new BakedQuad(vertexData, quad.getTintIndex(), quad.getDirection(), quad.getSprite(), quad.isShade()));
+                quads.add(new BakedQuad(vertexData, quad.getTintIndex(), quad.getDirection(), quad.getSprite(), quad.shouldApplyDiffuseLighting()));
             }else
                 quads.add(quad);
         }
@@ -85,7 +85,7 @@ public class RechiseledBakedModel implements IDynamicBakedModel {
 
     @Nonnull
     @Override
-    public IModelData getModelData(@Nonnull IBlockDisplayReader world, @Nonnull BlockPos pos, @Nonnull BlockState state, @Nonnull IModelData tileData){
+    public IModelData getModelData(@Nonnull ILightReader world, @Nonnull BlockPos pos, @Nonnull BlockState state, @Nonnull IModelData tileData){
         return IDynamicBakedModel.super.getModelData(world, pos, state, tileData);
     }
 

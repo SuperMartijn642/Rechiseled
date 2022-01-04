@@ -1,6 +1,5 @@
 package com.supermartijn642.rechiseled.screen;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
 import com.supermartijn642.core.gui.widget.Widget;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
@@ -17,7 +16,6 @@ public class BlockPreviewWidget extends Widget {
 
     private final Supplier<Block> block;
     private final Supplier<Integer> previewMode;
-    private final Supplier<Integer> guiLeft, guiTop;
 
     private float yaw = 0.35f, pitch = 30;
     private long lastRotationTime;
@@ -26,14 +24,10 @@ public class BlockPreviewWidget extends Widget {
 
     public BlockPreviewWidget(int x, int y, int width, int height,
                               Supplier<Block> block,
-                              Supplier<Integer> previewMode,
-                              Supplier<Integer> guiLeft,
-                              Supplier<Integer> guiTop){
+                              Supplier<Integer> previewMode){
         super(x, y, width, height);
         this.block = block;
         this.previewMode = previewMode;
-        this.guiLeft = guiLeft;
-        this.guiTop = guiTop;
         this.lastRotationTime = System.currentTimeMillis();
     }
 
@@ -43,7 +37,7 @@ public class BlockPreviewWidget extends Widget {
     }
 
     @Override
-    public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks){
+    public void render(int mouseX, int mouseY, float partialTicks){
         long now = System.currentTimeMillis();
 
         Block block = this.block.get();
@@ -69,7 +63,7 @@ public class BlockPreviewWidget extends Widget {
                 for(int i = 0; i < 9; i++)
                     capture.putBlock(new BlockPos(i / 3 - 1, i % 3 - 1, 0), block);
             }
-            ScreenBlockRenderer.drawBlock(capture, this.guiLeft.get() + this.x + this.width / 2d, this.guiTop.get() + this.y + this.height / 2d, this.width, this.yaw, this.pitch, false);
+            ScreenBlockRenderer.drawBlock(capture, this.x + this.width / 2d, this.y + this.height / 2d, this.width, this.yaw, this.pitch, false);
         }
 
         this.lastRotationTime = now;

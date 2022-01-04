@@ -1,6 +1,5 @@
 package com.supermartijn642.rechiseled.screen;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.Widget;
@@ -23,22 +22,17 @@ public class BlockButtonWidget extends Widget {
     private final Supplier<ChiselingEntry> selectedEntry;
     private final Runnable onClick;
     private final Supplier<Boolean> connecting;
-    private final Supplier<Integer> guiLeft, guiTop;
 
     public BlockButtonWidget(int x, int y, int width, int height,
                              Supplier<ChiselingEntry> entrySupplier,
                              Supplier<ChiselingEntry> selectedEntrySupplier,
                              Runnable onClick,
-                             Supplier<Boolean> connecting,
-                             Supplier<Integer> guiLeft,
-                             Supplier<Integer> guiTop){
+                             Supplier<Boolean> connecting){
         super(x, y, width, height);
         this.entry = entrySupplier;
         this.selectedEntry = selectedEntrySupplier;
         this.onClick = onClick;
         this.connecting = connecting;
-        this.guiLeft = guiLeft;
-        this.guiTop = guiTop;
     }
 
     @Override
@@ -51,7 +45,7 @@ public class BlockButtonWidget extends Widget {
     }
 
     @Override
-    public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks){
+    public void render(int mouseX, int mouseY, float partialTicks){
         ChiselingEntry entry = this.entry.get();
 
         boolean hasEntry = entry != null;
@@ -59,13 +53,13 @@ public class BlockButtonWidget extends Widget {
         boolean hasCorrectItem = hasEntry && (this.connecting.get() ? entry.hasConnectingItem() : entry.hasRegularItem());
 
         ScreenUtils.bindTexture(TEXTURE);
-        ScreenUtils.drawTexture(matrixStack, this.x, this.y, this.width, this.height, 0, (selected ? 1 : hasEntry ? hasCorrectItem ? this.hovered ? 2 : 0 : this.hovered ? 4 : 3 : 0) / 5f, 1, 1 / 5f);
+        ScreenUtils.drawTexture(this.x, this.y, this.width, this.height, 0, (selected ? 1 : hasEntry ? hasCorrectItem ? this.hovered ? 2 : 0 : this.hovered ? 4 : 3 : 0) / 5f, 1, 1 / 5f);
 
         if(hasEntry){
             Item item = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
             if(item instanceof BlockItem){
                 BlockCapture capture = new BlockCapture(((BlockItem)item).getBlock());
-                ScreenBlockRenderer.drawBlock(capture, this.guiLeft.get() + this.x + this.width / 2d, this.guiTop.get() + this.y + this.height / 2d, this.width, 135, 40, true);
+                ScreenBlockRenderer.drawBlock(capture, this.x + this.width / 2d, this.y + this.height / 2d, this.width, 135, 40, true);
             }
         }
     }

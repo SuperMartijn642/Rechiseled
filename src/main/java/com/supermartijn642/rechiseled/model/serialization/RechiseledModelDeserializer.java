@@ -31,7 +31,7 @@ public class RechiseledModelDeserializer {
         // Deserialize vanilla stuff
         String parentString = JSONUtils.getAsString(json, "parent", "");
         ResourceLocation parent = parentString.isEmpty() ? null : new ResourceLocation(parentString);
-        Map<String,Either<RenderMaterial,String>> map = getTextureMap(json);
+        Map<String,Either<Material,String>> map = getTextureMap(json);
         boolean ambientOcclusion = JSONUtils.getAsBoolean(json, "ambientocclusion", true);
         ItemCameraTransforms cameraTransforms = ItemCameraTransforms.NO_TRANSFORMS;
         if(json.has("display")){
@@ -68,9 +68,9 @@ public class RechiseledModelDeserializer {
         return overrides;
     }
 
-    private static Map<String,Either<RenderMaterial,String>> getTextureMap(JsonObject json){
+    private static Map<String,Either<Material,String>> getTextureMap(JsonObject json){
         ResourceLocation blockAtlas = AtlasTexture.LOCATION_BLOCKS;
-        Map<String,Either<RenderMaterial,String>> map = Maps.newHashMap();
+        Map<String,Either<Material,String>> map = Maps.newHashMap();
         if(json.has("textures")){
             JsonObject textures = JSONUtils.getAsJsonObject(json, "textures");
 
@@ -81,7 +81,7 @@ public class RechiseledModelDeserializer {
         return map;
     }
 
-    private static Either<RenderMaterial,String> parseTextureLocationOrReference(ResourceLocation atlas, String reference){
+    private static Either<Material,String> parseTextureLocationOrReference(ResourceLocation atlas, String reference){
         if(reference.charAt(0) == '#')
             return Either.right(reference.substring(1));
         else{
@@ -89,7 +89,7 @@ public class RechiseledModelDeserializer {
             if(resourcelocation == null)
                 throw new JsonParseException(reference + " is not valid resource location");
             else
-                return Either.left(new RenderMaterial(atlas, resourcelocation));
+                return Either.left(new Material(atlas, resourcelocation));
         }
     }
 }

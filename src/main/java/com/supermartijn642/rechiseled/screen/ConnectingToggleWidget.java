@@ -1,6 +1,5 @@
 package com.supermartijn642.rechiseled.screen;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
@@ -45,16 +44,16 @@ public class ConnectingToggleWidget extends AbstractButtonWidget implements IHov
     }
 
     @Override
-    public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks){
+    public void render(int mouseX, int mouseY, float partialTicks){
         boolean connecting = this.connecting.get();
         ChiselingEntry currentEntry = this.currentEntry.get();
         boolean canSwitch = currentEntry != null && (connecting ? currentEntry.hasRegularItem() : currentEntry.hasConnectingItem());
 
         ScreenUtils.bindTexture(GREY_BUTTONS);
-        ScreenUtils.drawTexture(matrixStack, this.x, this.y, this.width, this.height, 0, (canSwitch ? this.hovered ? 2 : 0 : 1) / 3f, 1, 1 / 3f);
+        ScreenUtils.drawTexture(this.x, this.y, this.width, this.height, 0, (canSwitch ? this.hovered ? 2 : 0 : 1) / 3f, 1, 1 / 3f);
 
         GlStateManager._enableAlphaTest();
         ScreenUtils.bindTexture(this.connecting.get() ? ICON_CONNECTED_ON : ICON_CONNECTED_OFF);
-        ScreenUtils.drawTexture(matrixStack, this.x + 1, this.y + 2, this.width - 2, this.height - 4);
+        ScreenUtils.drawTexture(this.x + 1, this.y + 2, this.width - 2, this.height - 4);
     }
 }

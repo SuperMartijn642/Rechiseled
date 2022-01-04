@@ -3,12 +3,6 @@
   "entries": [
     {
       "item": "minecraft:nether_bricks"
-    },
-    {
-      "item": "minecraft:chiseled_nether_bricks"
-    },
-    {
-      "item": "minecraft:cracked_nether_bricks"
     }
   ]
 }
