@@ -4,7 +4,9 @@ import com.supermartijn642.core.ToolType;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 /**
@@ -27,5 +29,10 @@ public class InheritingRechiseledBlock extends RechiseledBlock {
     @Override
     public float getExplosionResistance(Entity exploder){
         return this.parent.getExplosionResistance(exploder);
+    }
+
+    @Override
+    public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, EntityLiving.SpawnPlacementType type){
+        return this.parent.canCreatureSpawn(this.parent.getDefaultState(), world, pos, type);
     }
 }
