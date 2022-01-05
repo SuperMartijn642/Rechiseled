@@ -113,6 +113,7 @@ public class Rechiseled {
             e.getGenerator().addProvider(new RechiseledAdvancementProvider(e));
             e.getGenerator().addProvider(new RechiseledChiselingRecipeProvider(e));
             e.getGenerator().addProvider(new RechiseledRecipeProvider(e));
+            e.getGenerator().addProvider(new RechiseledBlockTagsProvider(e));
         }
     }
 }
