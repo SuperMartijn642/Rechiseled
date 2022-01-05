@@ -135,12 +135,31 @@ public class ChiselingRecipe implements Recipe<Container> {
         @Nullable
         @Override
         public ChiselingRecipe fromNetwork(ResourceLocation resourceLocation, FriendlyByteBuf buffer){
-            return null;
+            List<ChiselingEntry> chiselingEntries = new ArrayList<>();
+
+            int entries = buffer.readInt();
+            for(int i = 0; i < entries; i++)
+                chiselingEntries.add(
+                    new ChiselingEntry(
+                        buffer.readBoolean() ? Item.byId(buffer.readVarInt()) : null,
+                        buffer.readBoolean() ? Item.byId(buffer.readVarInt()) : null
+                    )
+                );
+
+            return new ChiselingRecipe(resourceLocation, chiselingEntries);
         }
 
         @Override
         public void toNetwork(FriendlyByteBuf buffer, ChiselingRecipe recipe){
-
+            buffer.writeInt(recipe.entries.size());
+            for(ChiselingEntry entry : recipe.entries){
+                buffer.writeBoolean(entry.getRegularItem() != null);
+                if(entry.getRegularItem() != null)
+                    buffer.writeVarInt(Item.getId(entry.getRegularItem()));
+                buffer.writeBoolean(entry.getConnectingItem() != null);
+                if(entry.getConnectingItem() != null)
+                    buffer.writeVarInt(Item.getId(entry.getConnectingItem()));
+            }
         }
     }
 }
