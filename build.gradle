@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.0.0-mc1.12'
+version = '1.0.1-mc1.12'
 group = 'com.supermartijn642.rechiseled' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'rechiseled'
 
@@ -71,7 +71,7 @@ dependencies {
     implementation fg.deobf('curse.maven:supermartijn642s-config-lib-438332:3413933')
 
     // Just Enough Items
-    implementation fg.deobf('curse.maven:jei-238222:3043174')
+    compileOnly fg.deobf('curse.maven:jei-238222:3043174')
 }
 
 sourceSets.main.output.resourcesDir = sourceSets.main.output.classesDirs.asPath
