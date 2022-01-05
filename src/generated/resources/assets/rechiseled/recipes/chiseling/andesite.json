@@ -14,13 +14,33 @@
       "connecting_item": "rechiseled:andesite_diagonal_bricks_connecting"
     },
     {
+      "item": "rechiseled:andesite_dotted",
+      "connecting_item": "rechiseled:andesite_dotted_connecting"
+    },
+    {
+      "item": "rechiseled:andesite_paving",
+      "connecting_item": "rechiseled:andesite_paving_connecting"
+    },
+    {
       "item": "minecraft:stone",
       "item_data": 6,
       "connecting_item": "rechiseled:andesite_polished_connecting"
     },
     {
+      "item": "rechiseled:andesite_rotated_bricks",
+      "connecting_item": "rechiseled:andesite_rotated_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:andesite_squares",
+      "connecting_item": "rechiseled:andesite_squares_connecting"
+    },
+    {
       "item": "rechiseled:andesite_tiles",
       "connecting_item": "rechiseled:andesite_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:andesite_wavy",
+      "connecting_item": "rechiseled:andesite_wavy_connecting"
     }
   ]
 }

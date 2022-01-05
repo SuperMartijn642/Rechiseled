@@ -1,0 +1,24 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "item": "minecraft:red_nether_brick"
+    },
+    {
+      "item": "rechiseled:red_nether_bricks_large_bricks",
+      "connecting_item": "rechiseled:red_nether_bricks_large_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:red_nether_bricks_large_tiles",
+      "connecting_item": "rechiseled:red_nether_bricks_large_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:red_nether_bricks_small_tiles",
+      "connecting_item": "rechiseled:red_nether_bricks_small_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:red_nether_bricks_tiles",
+      "connecting_item": "rechiseled:red_nether_bricks_tiles_connecting"
+    }
+  ]
+}

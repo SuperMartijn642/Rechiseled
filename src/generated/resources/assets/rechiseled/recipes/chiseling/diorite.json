@@ -14,13 +14,33 @@
       "connecting_item": "rechiseled:diorite_diagonal_bricks_connecting"
     },
     {
+      "item": "rechiseled:diorite_dotted",
+      "connecting_item": "rechiseled:diorite_dotted_connecting"
+    },
+    {
+      "item": "rechiseled:diorite_paving",
+      "connecting_item": "rechiseled:diorite_paving_connecting"
+    },
+    {
       "item": "minecraft:stone",
       "item_data": 4,
       "connecting_item": "rechiseled:diorite_polished_connecting"
     },
     {
+      "item": "rechiseled:diorite_rotated_bricks",
+      "connecting_item": "rechiseled:diorite_rotated_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:diorite_squares",
+      "connecting_item": "rechiseled:diorite_squares_connecting"
+    },
+    {
       "item": "rechiseled:diorite_tiles",
       "connecting_item": "rechiseled:diorite_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:diorite_wavy",
+      "connecting_item": "rechiseled:diorite_wavy_connecting"
     }
   ]
 }
