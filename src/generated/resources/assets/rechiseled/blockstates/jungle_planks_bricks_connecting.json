@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/jungle_planks_bricks_connecting"
+    "normal": {
+      "model": "rechiseled:jungle_planks_bricks_connecting"
     }
   }
 }

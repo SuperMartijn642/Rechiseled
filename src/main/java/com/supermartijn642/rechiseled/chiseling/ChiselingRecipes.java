@@ -1,27 +1,22 @@
 package com.supermartijn642.rechiseled.chiseling;
 
+import com.google.common.collect.Streams;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.item.crafting.RecipeManager;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
+import net.minecraft.item.crafting.CraftingManager;
 
-import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Created 25/12/2021 by SuperMartijn642
  */
 public class ChiselingRecipes {
 
-    private static final Method byType = ObfuscationReflectionHelper.findMethod(RecipeManager.class, "func_215366_a", IRecipeType.class);
+    private static Collection<ChiselingRecipe> recipes = Collections.emptyList();
 
-    static final IRecipeType<ChiselingRecipe> CHISELING = IRecipeType.register("chiseling");
-
-    public static ChiselingRecipe getRecipe(RecipeManager recipeManager, ItemStack stack){
-        Collection<ChiselingRecipe> recipes = getAllRecipes(recipeManager);
+    public static ChiselingRecipe getRecipe(ItemStack stack){
+        Collection<ChiselingRecipe> recipes = getAllRecipes();
         for(ChiselingRecipe recipe : recipes){
             if(recipe.contains(stack))
                 return recipe;
@@ -29,14 +24,14 @@ public class ChiselingRecipes {
         return null;
     }
 
-    @SuppressWarnings("unchecked")
-    public static Collection<ChiselingRecipe> getAllRecipes(RecipeManager recipeManager){
-        try{
-            byType.setAccessible(true);
-            return ((Map<ResourceLocation,ChiselingRecipe>)byType.invoke(recipeManager, CHISELING)).values();
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        return Collections.emptyList();
+    public static Collection<ChiselingRecipe> getAllRecipes(){
+        return recipes;
+    }
+
+    public static void collectRecipes(){
+        recipes = Streams.stream(CraftingManager.REGISTRY)
+            .filter(ChiselingRecipe.class::isInstance)
+            .map(ChiselingRecipe.class::cast)
+            .collect(Collectors.toList());
     }
 }

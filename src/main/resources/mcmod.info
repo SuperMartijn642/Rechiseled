@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "rechiseled",
+    "name": "Rechiseled",
+    "description": "Rechiseled allows you to exchange between various decorative blocks!",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "SuperMartijn642"
+    ],
+    "credits": "",
+    "logoFile": "rechiseled.png",
+    "screenshots": [],
+    "dependencies": []
+  }
+]

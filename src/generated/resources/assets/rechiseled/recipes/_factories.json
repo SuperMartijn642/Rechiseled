@@ -1,0 +1,5 @@
+{
+  "recipes": {
+    "chiseling": "com.supermartijn642.rechiseled.chiseling.ChiselingRecipeFactory"
+  }
+}

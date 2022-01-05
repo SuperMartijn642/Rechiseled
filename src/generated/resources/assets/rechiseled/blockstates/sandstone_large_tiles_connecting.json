@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/sandstone_large_tiles_connecting"
+    "normal": {
+      "model": "rechiseled:sandstone_large_tiles_connecting"
     }
   }
 }

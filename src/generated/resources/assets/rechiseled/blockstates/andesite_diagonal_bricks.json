@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/andesite_diagonal_bricks"
+    "normal": {
+      "model": "rechiseled:andesite_diagonal_bricks"
     }
   }
 }

@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.0.0-mc1.14'
+version = '1.0.0-mc1.12'
 group = 'com.supermartijn642.rechiseled' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'rechiseled'
 
@@ -22,9 +22,9 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(8) // Mojang ships Java 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
 minecraft {
-    mappings channel: 'official', version: '1.14.4'
+    mappings channel: 'snapshot', version: '20171003-1.12'
 
-    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+//     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     runs {
         client {
@@ -50,21 +50,6 @@ minecraft {
                 }
             }
         }
-
-        data {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'rechiseled', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-
-            mods {
-                rechiseled {
-                    source sourceSets.main
-                }
-            }
-        }
     }
 }
 
@@ -78,13 +63,15 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.14.4-28.2.23'
+    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2855'
 
     // Core lib
-    implementation fg.deobf('curse.maven:supermartijn642s-core-lib-454372:3543823')
+    implementation fg.deobf('curse.maven:supermartijn642s-core-lib-454372:3544931')
     // Config lib
-    implementation fg.deobf('curse.maven:supermartijn642s-config-lib-438332:3413934')
+    implementation fg.deobf('curse.maven:supermartijn642s-config-lib-438332:3413933')
 
     // Just Enough Items
-    implementation fg.deobf('curse.maven:jei-238222:3039707')
+    implementation fg.deobf('curse.maven:jei-238222:3043174')
 }
+
+sourceSets.main.output.resourcesDir = sourceSets.main.output.classesDirs.asPath

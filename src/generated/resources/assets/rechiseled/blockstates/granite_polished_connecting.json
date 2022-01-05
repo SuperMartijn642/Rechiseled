@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/granite_polished_connecting"
+    "normal": {
+      "model": "rechiseled:granite_polished_connecting"
     }
   }
 }

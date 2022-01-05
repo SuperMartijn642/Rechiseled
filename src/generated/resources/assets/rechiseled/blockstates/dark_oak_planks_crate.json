@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/dark_oak_planks_crate"
+    "normal": {
+      "model": "rechiseled:dark_oak_planks_crate"
     }
   }
 }

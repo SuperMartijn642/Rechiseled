@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/cobblestone_inverted_dented_connecting"
+    "normal": {
+      "model": "rechiseled:cobblestone_inverted_dented_connecting"
     }
   }
 }

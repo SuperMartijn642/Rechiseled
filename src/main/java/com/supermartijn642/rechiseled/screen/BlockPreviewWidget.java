@@ -1,7 +1,7 @@
 package com.supermartijn642.rechiseled.screen;
 
 import com.supermartijn642.core.gui.widget.Widget;
-import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 
@@ -14,7 +14,7 @@ public class BlockPreviewWidget extends Widget {
 
     private static final int ROTATION_TIME = 10000;
 
-    private final Supplier<Block> block;
+    private final Supplier<IBlockState> block;
     private final Supplier<Integer> previewMode;
 
     private float yaw = 0.35f, pitch = 30;
@@ -23,7 +23,7 @@ public class BlockPreviewWidget extends Widget {
     private int mouseStartX, mouseStartY;
 
     public BlockPreviewWidget(int x, int y, int width, int height,
-                              Supplier<Block> block,
+                              Supplier<IBlockState> block,
                               Supplier<Integer> previewMode){
         super(x, y, width, height);
         this.block = block;
@@ -40,7 +40,7 @@ public class BlockPreviewWidget extends Widget {
     public void render(int mouseX, int mouseY, float partialTicks){
         long now = System.currentTimeMillis();
 
-        Block block = this.block.get();
+        IBlockState block = this.block.get();
         int previewMode = this.previewMode.get();
         if(block != null && previewMode >= 0 && previewMode <= 2){
             if(this.dragging){

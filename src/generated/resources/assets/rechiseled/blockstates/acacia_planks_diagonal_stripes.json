@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/acacia_planks_diagonal_stripes"
+    "normal": {
+      "model": "rechiseled:acacia_planks_diagonal_stripes"
     }
   }
 }

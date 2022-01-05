@@ -1,26 +1,22 @@
 package com.supermartijn642.rechiseled;
 
 import com.supermartijn642.core.network.PacketChannel;
-import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
-import com.supermartijn642.rechiseled.data.*;
+import com.supermartijn642.rechiseled.chiseling.ChiselingRecipes;
 import com.supermartijn642.rechiseled.packet.PacketChiselAll;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
 import com.supermartijn642.rechiseled.packet.PacketToggleConnecting;
-import com.supermartijn642.rechiseled.screen.ChiselContainer;
+import com.supermartijn642.rechiseled.screen.RechiseledGuiHandler;
 import net.minecraft.block.Block;
-import net.minecraft.inventory.container.ContainerType;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.util.Hand;
 import net.minecraft.util.NonNullList;
-import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
-import net.minecraftforge.registries.ObjectHolder;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -28,19 +24,24 @@ import java.util.List;
 /**
  * Created 7/7/2020 by SuperMartijn642
  */
-@Mod("rechiseled")
+@Mod(modid = Rechiseled.MODID, name = Rechiseled.NAME, version = Rechiseled.VERSION, dependencies = Rechiseled.DEPENDENCIES)
 public class Rechiseled {
+
+    public static final String MODID = "rechiseled";
+    public static final String NAME = "Rechiseled";
+    public static final String VERSION = "1.0.0";
+    public static final String DEPENDENCIES = "required-after:supermartijn642corelib@[1.0.15,);required-after:supermartijn642configlib@[1.0.9,)";
 
     public static final PacketChannel CHANNEL = PacketChannel.create("rechiseled");
 
-    public static final ItemGroup GROUP = new ItemGroup("rechiseled") {
+    public static final CreativeTabs GROUP = new CreativeTabs("rechiseled") {
         @Override
-        public ItemStack makeIcon(){
+        public ItemStack getTabIconItem(){
             return new ItemStack(chisel);
         }
 
         @Override
-        public void fillItemList(NonNullList<ItemStack> stacks){
+        public void displayAllRelevantItems(NonNullList<ItemStack> stacks){
             List<Item> items = new LinkedList<>();
             items.add(chisel);
             for(RechiseledBlockType type : RechiseledBlockType.values()){
@@ -52,11 +53,11 @@ public class Rechiseled {
         }
     };
 
-    @ObjectHolder("rechiseled:chisel")
-    public static ChiselItem chisel;
+    @Mod.Instance
+    public static Rechiseled instance;
 
-    @ObjectHolder("rechiseled:chisel_container")
-    public static ContainerType<ChiselContainer> chisel_container;
+    @GameRegistry.ObjectHolder("rechiseled:chisel")
+    public static ChiselItem chisel;
 
     public Rechiseled(){
         CHANNEL.registerMessage(PacketSelectEntry.class, PacketSelectEntry::new, true);
@@ -64,7 +65,13 @@ public class Rechiseled {
         CHANNEL.registerMessage(PacketChiselAll.class, PacketChiselAll::new, true);
     }
 
-    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+    @Mod.EventHandler
+    public void init(FMLInitializationEvent e){
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, new RechiseledGuiHandler());
+        ChiselingRecipes.collectRecipes();
+    }
+
+    @Mod.EventBusSubscriber
     public static class ModEvents {
 
         @SubscribeEvent
@@ -89,30 +96,6 @@ public class Rechiseled {
                 if(type.getConnectingItem() != null)
                     e.getRegistry().register(type.getConnectingItem());
             }
-        }
-
-        @SubscribeEvent
-        public static void onContainerRegistry(RegistryEvent.Register<ContainerType<?>> e){
-            e.getRegistry().register(IForgeContainerType.create(
-                (id, inventory, data) -> new ChiselContainer(chisel_container, id, inventory.player, data.readBoolean() ? Hand.MAIN_HAND : Hand.OFF_HAND)
-            ).setRegistryName("chisel_container"));
-        }
-
-        @SubscribeEvent
-        public static void onRecipeSerializerRegistry(RegistryEvent.Register<IRecipeSerializer<?>> e){
-            e.getRegistry().register(new ChiselingRecipe.Serializer().setRegistryName("chiseling"));
-        }
-
-        @SubscribeEvent
-        public static void onGatherData(GatherDataEvent e){
-            e.getGenerator().addProvider(new RechiseledBlockModelProvider(e));
-            e.getGenerator().addProvider(new RechiseledItemModelProvider(e));
-            e.getGenerator().addProvider(new RechiseledBlockStateProvider(e));
-            e.getGenerator().addProvider(new RechiseledLanguageProvider(e));
-            e.getGenerator().addProvider(new RechiseledLootTableProvider(e));
-            e.getGenerator().addProvider(new RechiseledAdvancementProvider(e));
-            e.getGenerator().addProvider(new RechiseledChiselingRecipeProvider(e));
-            e.getGenerator().addProvider(new RechiseledRecipeProvider(e));
         }
     }
 }

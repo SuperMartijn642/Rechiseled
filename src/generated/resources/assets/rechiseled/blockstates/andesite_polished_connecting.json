@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/andesite_polished_connecting"
+    "normal": {
+      "model": "rechiseled:andesite_polished_connecting"
     }
   }
 }

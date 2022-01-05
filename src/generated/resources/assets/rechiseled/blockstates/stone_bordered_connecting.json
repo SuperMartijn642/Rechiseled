@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/stone_bordered_connecting"
+    "normal": {
+      "model": "rechiseled:stone_bordered_connecting"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/birch_planks_wavy_connecting"
+    "normal": {
+      "model": "rechiseled:birch_planks_wavy_connecting"
     }
   }
 }

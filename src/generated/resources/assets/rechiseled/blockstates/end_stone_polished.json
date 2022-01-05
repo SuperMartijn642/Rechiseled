@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/end_stone_polished"
+    "normal": {
+      "model": "rechiseled:end_stone_polished"
     }
   }
 }

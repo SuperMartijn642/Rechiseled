@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/oak_planks_bricks"
+    "normal": {
+      "model": "rechiseled:oak_planks_bricks"
     }
   }
 }

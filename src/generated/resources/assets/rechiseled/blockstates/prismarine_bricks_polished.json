@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/prismarine_bricks_polished"
+    "normal": {
+      "model": "rechiseled:prismarine_bricks_polished"
     }
   }
 }

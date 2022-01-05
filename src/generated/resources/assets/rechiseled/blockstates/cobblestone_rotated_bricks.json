@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/cobblestone_rotated_bricks"
+    "normal": {
+      "model": "rechiseled:cobblestone_rotated_bricks"
     }
   }
 }

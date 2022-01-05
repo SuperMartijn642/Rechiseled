@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/spruce_planks_woven_connecting"
+    "normal": {
+      "model": "rechiseled:spruce_planks_woven_connecting"
     }
   }
 }

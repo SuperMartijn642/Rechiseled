@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/acacia_planks_small_bricks"
+    "normal": {
+      "model": "rechiseled:acacia_planks_small_bricks"
     }
   }
 }

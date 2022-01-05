@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/diorite_bricks_connecting"
+    "normal": {
+      "model": "rechiseled:diorite_bricks_connecting"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/glowstone_large_tiles"
+    "normal": {
+      "model": "rechiseled:glowstone_large_tiles"
     }
   }
 }

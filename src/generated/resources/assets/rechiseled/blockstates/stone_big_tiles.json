@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/stone_big_tiles"
+    "normal": {
+      "model": "rechiseled:stone_big_tiles"
     }
   }
 }

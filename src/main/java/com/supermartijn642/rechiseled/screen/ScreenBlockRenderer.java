@@ -1,36 +1,28 @@
 package com.supermartijn642.rechiseled.screen;
 
-import com.mojang.blaze3d.platform.GLX;
-import com.mojang.blaze3d.platform.GlStateManager;
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.gui.ScreenUtils;
+import com.supermartijn642.rechiseled.model.RechiseledBakedModel;
 import com.supermartijn642.rechiseled.model.RechiseledConnectedBakedModel;
 import com.supermartijn642.rechiseled.model.RechiseledModelData;
-import net.minecraft.block.BlockState;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.RenderHelper;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.model.BakedQuad;
-import net.minecraft.client.renderer.model.IBakedModel;
-import net.minecraft.client.renderer.texture.AtlasTexture;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.vertex.VertexFormat;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Direction;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraftforge.client.model.data.EmptyModelData;
-import net.minecraftforge.client.model.data.IModelData;
-import net.minecraftforge.client.model.data.ModelDataMap;
 import net.minecraftforge.client.model.pipeline.QuadGatheringTransformer;
+import org.lwjgl.opengl.GL11;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
-
-import static org.lwjgl.opengl.GL11.GL_QUADS;
 
 /**
  * Created 25/12/2021 by SuperMartijn642
@@ -39,59 +31,58 @@ public class ScreenBlockRenderer {
 
     public static void drawBlock(BlockCapture capture, double x, double y, double scale, float yaw, float pitch, boolean doShading){
         AxisAlignedBB bounds = capture.getBounds();
-        double span = Math.sqrt(bounds.getXsize() * bounds.getXsize() + bounds.getYsize() * bounds.getYsize() + bounds.getZsize() * bounds.getZsize());
+        double sizeX = bounds.maxX - bounds.minX, sizeY = bounds.maxY - bounds.minY, sizeZ = bounds.maxZ - bounds.minZ;
+        double span = Math.sqrt(sizeX * sizeX + sizeY * sizeY + sizeZ * sizeZ);
         scale /= span;
 
-        ScreenUtils.bindTexture(AtlasTexture.LOCATION_BLOCKS);
-        ClientUtils.getTextureManager().getTexture(AtlasTexture.LOCATION_BLOCKS).pushFilter(false, false);
+        ScreenUtils.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
+        ClientUtils.getTextureManager().getTexture(TextureMap.LOCATION_BLOCKS_TEXTURE).setBlurMipmap(false, false);
         GlStateManager.enableRescaleNormal();
-        GlStateManager.enableAlphaTest();
+        GlStateManager.enableAlpha();
         GlStateManager.alphaFunc(516, 0.1F);
         GlStateManager.enableBlend();
         GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
-        GlStateManager.color4f(1, 1, 1, 1);
+        GlStateManager.color(1, 1, 1, 1);
 
         if(doShading)
-            RenderHelper.turnOnGui();
+            RenderHelper.enableGUIStandardItemLighting();
         else
             GlStateManager.disableLighting();
 
         GlStateManager.pushMatrix();
-        GlStateManager.translated(x, y, 350);
-        GlStateManager.scalef(1, -1, 1);
-        GlStateManager.scaled(scale, scale, scale);
+        GlStateManager.translate(x, y, 350);
+        GlStateManager.scale(1, -1, 1);
+        GlStateManager.scale(scale, scale, scale);
 
-        GlStateManager.rotated(pitch, 1, 0, 0);
-        GlStateManager.rotated(yaw, 0, 1, 0);
+        GlStateManager.rotate(pitch, 1, 0, 0);
+        GlStateManager.rotate(yaw, 0, 1, 0);
 
-        for(Map.Entry<BlockPos,BlockState> entry : capture.getBlocks())
+        for(Map.Entry<BlockPos,IBlockState> entry : capture.getBlocks())
             renderBlock(capture, entry.getKey(), entry.getValue());
 
-        GlStateManager.enableDepthTest();
+        GlStateManager.enableDepth();
         if(doShading)
             GlStateManager.disableLighting();
 
         GlStateManager.popMatrix();
 
-        ClientUtils.getTextureManager().getTexture(AtlasTexture.LOCATION_BLOCKS).popFilter();
-        GlStateManager.disableAlphaTest();
+        ClientUtils.getTextureManager().getTexture(TextureMap.LOCATION_BLOCKS_TEXTURE).restoreLastBlurMipmap();
+        GlStateManager.disableAlpha();
         GlStateManager.disableRescaleNormal();
     }
 
-    private static void renderBlock(BlockCapture capture, BlockPos pos, BlockState state){
+    private static void renderBlock(BlockCapture capture, BlockPos pos, IBlockState state){
         GlStateManager.pushMatrix();
-        GlStateManager.translated(pos.getX() - 0.5, pos.getY() - 0.5, pos.getZ() - 0.5);
+        GlStateManager.translate(pos.getX() - 0.5, pos.getY() - 0.5, pos.getZ() - 0.5);
 
-        IBakedModel model = ClientUtils.getBlockRenderer().getBlockModel(state);
-        IModelData modelData = EmptyModelData.INSTANCE;
+        IBakedModel model = ClientUtils.getBlockRenderer().getModelForState(state);
+        RechiseledModelData data = new RechiseledModelData();
         if(model instanceof RechiseledConnectedBakedModel){
-            RechiseledModelData data = new RechiseledModelData();
-            for(Direction direction : Direction.values())
+            for(EnumFacing direction : EnumFacing.values())
                 data.sides.put(direction, new RechiseledModelData.SideData(direction, capture::getBlock, pos, state.getBlock()));
-            modelData = new ModelDataMap.Builder().withInitial(RechiseledModelData.PROPERTY, data).build();
         }
 
-        renderLitItem(model, modelData);
+        renderLitItem(model, data);
 
         GlStateManager.popMatrix();
     }
@@ -102,7 +93,7 @@ public class ScreenBlockRenderer {
 
     private static class LightGatheringTransformer extends QuadGatheringTransformer {
 
-        private static final VertexFormat FORMAT = new VertexFormat().addElement(DefaultVertexFormats.ELEMENT_UV0).addElement(DefaultVertexFormats.ELEMENT_UV1);
+        private static final VertexFormat FORMAT = new VertexFormat().addElement(DefaultVertexFormats.TEX_2F).addElement(DefaultVertexFormats.TEX_2S);
 
         int blockLight, skyLight;
 
@@ -134,7 +125,7 @@ public class ScreenBlockRenderer {
         }
 
         @Override
-        public void setQuadOrientation(Direction orientation){
+        public void setQuadOrientation(EnumFacing orientation){
         }
 
         @Override
@@ -148,18 +139,20 @@ public class ScreenBlockRenderer {
 
     private static final LightGatheringTransformer lightGatherer = new LightGatheringTransformer();
 
-    public static void renderLitItem(IBakedModel model, IModelData modelData){
+    public static void renderLitItem(IBakedModel model, RechiseledModelData modelData){
         List<BakedQuad> allquads = new ArrayList<>();
-        Random random = new Random();
-        long seed = 42L;
 
-        for(Direction enumfacing : Direction.values()){
-            random.setSeed(seed);
-            allquads.addAll(model.getQuads(null, enumfacing, random, modelData));
+        for(EnumFacing enumfacing : EnumFacing.values()){
+            if(model instanceof RechiseledBakedModel)
+                allquads.addAll(((RechiseledBakedModel)model).getQuads(null, enumfacing, 0, modelData));
+            else
+                allquads.addAll(model.getQuads(null, enumfacing, 0));
         }
 
-        random.setSeed(seed);
-        allquads.addAll(model.getQuads(null, null, random, modelData));
+        if(model instanceof RechiseledBakedModel)
+            allquads.addAll(((RechiseledBakedModel)model).getQuads(null, null, 0, modelData));
+        else
+            allquads.addAll(model.getQuads(null, null, 0));
 
         if(allquads.isEmpty()) return;
 
@@ -185,7 +178,7 @@ public class ScreenBlockRenderer {
             int sl = 0;
 
             // Fail-fast on ITEM, as it cannot have light data
-            if(q.getFormat() != DefaultVertexFormats.BLOCK_NORMALS && q.getFormat().hasUv(1)){
+            if(q.getFormat() != DefaultVertexFormats.ITEM && q.getFormat().hasUvOffset(1)){
                 q.pipe(lightGatherer);
                 if(lightGatherer.hasLighting()){
                     bl = lightGatherer.blockLight;
@@ -219,17 +212,17 @@ public class ScreenBlockRenderer {
 
         // Clean up render state if necessary
         if(hasLighting){
-            GLX.glMultiTexCoord2f(GLX.GL_TEXTURE1, GLX.lastBrightnessX, GLX.lastBrightnessY);
+            OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, OpenGlHelper.lastBrightnessX, OpenGlHelper.lastBrightnessY);
             GlStateManager.enableLighting();
         }
     }
 
     private static void drawSegment(List<BakedQuad> segment, int bl, int sl, boolean shade, boolean updateLighting, boolean updateShading){
-        BufferBuilder bufferbuilder = Tessellator.getInstance().getBuilder();
-        bufferbuilder.begin(GL_QUADS, DefaultVertexFormats.BLOCK_NORMALS);
+        BufferBuilder bufferbuilder = Tessellator.getInstance().getBuffer();
+        bufferbuilder.begin(GL11.GL_QUADS, DefaultVertexFormats.ITEM);
 
-        float lastBl = GLX.lastBrightnessX;
-        float lastSl = GLX.lastBrightnessY;
+        float lastBl = OpenGlHelper.lastBrightnessX;
+        float lastSl = OpenGlHelper.lastBrightnessY;
 
         if(updateShading){
             if(shade){
@@ -243,15 +236,15 @@ public class ScreenBlockRenderer {
 
         if(updateLighting){
             // Force lightmap coords to simulate synthetic lighting
-            GLX.glMultiTexCoord2f(GLX.GL_TEXTURE1, Math.max(bl, lastBl), Math.max(sl, lastSl));
+            OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, Math.max(bl, lastBl), Math.max(sl, lastSl));
         }
 
-        ClientUtils.getItemRenderer().renderQuadList(bufferbuilder, segment, -1, ItemStack.EMPTY);
-        Tessellator.getInstance().end();
+        ClientUtils.getItemRenderer().renderQuads(bufferbuilder, segment, -1, ItemStack.EMPTY);
+        Tessellator.getInstance().draw();
 
         // Preserve this as it represents the "world" lighting
-        GLX.lastBrightnessX = lastBl;
-        GLX.lastBrightnessY = lastSl;
+        OpenGlHelper.lastBrightnessX = lastBl;
+        OpenGlHelper.lastBrightnessY = lastSl;
 
         segment.clear();
     }

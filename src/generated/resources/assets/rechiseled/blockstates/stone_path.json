@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/stone_path"
+    "normal": {
+      "model": "rechiseled:stone_path"
     }
   }
 }

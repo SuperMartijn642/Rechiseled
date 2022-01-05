@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/sandstone_diagonal_bricks"
+    "normal": {
+      "model": "rechiseled:sandstone_diagonal_bricks"
     }
   }
 }

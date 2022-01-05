@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/glowstone_bricks"
+    "normal": {
+      "model": "rechiseled:glowstone_bricks"
     }
   }
 }

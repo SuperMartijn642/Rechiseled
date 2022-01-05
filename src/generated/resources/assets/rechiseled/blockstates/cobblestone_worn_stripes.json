@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/cobblestone_worn_stripes"
+    "normal": {
+      "model": "rechiseled:cobblestone_worn_stripes"
     }
   }
 }

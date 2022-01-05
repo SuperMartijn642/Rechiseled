@@ -2,13 +2,13 @@ package com.supermartijn642.rechiseled.model.serialization;
 
 import com.google.common.collect.Maps;
 import com.google.gson.*;
-import net.minecraft.client.renderer.Vector3f;
-import net.minecraft.client.renderer.model.BlockPart;
-import net.minecraft.client.renderer.model.BlockPartFace;
-import net.minecraft.client.renderer.model.BlockPartRotation;
-import net.minecraft.util.Direction;
-import net.minecraft.util.JSONUtils;
+import net.minecraft.client.renderer.block.model.BlockPart;
+import net.minecraft.client.renderer.block.model.BlockPartFace;
+import net.minecraft.client.renderer.block.model.BlockPartRotation;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.JsonUtils;
 import net.minecraft.util.math.MathHelper;
+import org.lwjgl.util.vector.Vector3f;
 
 import javax.annotation.Nullable;
 import java.util.Locale;
@@ -19,14 +19,14 @@ import java.util.Map;
  */
 public class RechiseledBlockPartDeserializer {
 
-    public static BlockPart deserialize(JsonObject json, JsonDeserializationContext context){
+    public static BlockPart deserialize(JsonObject json, Gson context){
         Vector3f from = getVector3f(json, "from", true);
         Vector3f to = getVector3f(json, "to", true);
         BlockPartRotation rotation = getRotation(json);
-        Map<Direction,BlockPartFace> faces = getFaces(context, json);
-        if(json.has("shade") && !JSONUtils.isBooleanValue(json, "shade"))
+        Map<EnumFacing,BlockPartFace> faces = getFaces(json, context);
+        if(json.has("shade") && !JsonUtils.isBoolean(json, "shade"))
             throw new JsonParseException("Expected shade to be a Boolean");
-        boolean shading = JSONUtils.getAsBoolean(json, "shade", true);
+        boolean shading = JsonUtils.getBoolean(json, "shade", true);
         return new BlockPart(from, to, faces, rotation, shading);
     }
 
@@ -34,25 +34,25 @@ public class RechiseledBlockPartDeserializer {
     private static BlockPartRotation getRotation(JsonObject json){
         BlockPartRotation partRotation = null;
         if(json.has("rotation")){
-            JsonObject rotation = JSONUtils.getAsJsonObject(json, "rotation");
+            JsonObject rotation = JsonUtils.getJsonObject(json, "rotation");
 
             // origin
             Vector3f origin = getVector3f(rotation, "origin", false);
-            origin.mul(0.0625f);
+            origin.scale(0.0625f);
 
             // axis
-            String axisName = JSONUtils.getAsString(json, "axis");
-            Direction.Axis axis = Direction.Axis.byName(axisName.toLowerCase(Locale.ROOT));
+            String axisName = JsonUtils.getString(json, "axis");
+            EnumFacing.Axis axis = EnumFacing.Axis.byName(axisName.toLowerCase(Locale.ROOT));
             if(axis == null)
                 throw new JsonParseException("Invalid rotation axis: " + axisName);
 
             // angle
-            float angle = JSONUtils.getAsFloat(json, "angle");
+            float angle = JsonUtils.getFloat(json, "angle");
             if(angle != 0 && MathHelper.abs(angle) != 22.5F && MathHelper.abs(angle) != 45)
                 throw new JsonParseException("Invalid rotation " + angle + " found, only -45/-22.5/0/22.5/45 allowed");
 
             // scale
-            boolean scale = JSONUtils.getAsBoolean(rotation, "rescale", false);
+            boolean scale = JsonUtils.getBoolean(rotation, "rescale", false);
 
             partRotation = new BlockPartRotation(origin, axis, angle, scale);
         }
@@ -60,12 +60,12 @@ public class RechiseledBlockPartDeserializer {
         return partRotation;
     }
 
-    private static Map<Direction,BlockPartFace> getFaces(JsonDeserializationContext context, JsonObject json){
-        Map<Direction,BlockPartFace> faces = Maps.newEnumMap(Direction.class);
-        JsonObject object = JSONUtils.getAsJsonObject(json, "faces");
+    private static Map<EnumFacing,BlockPartFace> getFaces(JsonObject json, Gson context){
+        Map<EnumFacing,BlockPartFace> faces = Maps.newEnumMap(EnumFacing.class);
+        JsonObject object = JsonUtils.getJsonObject(json, "faces");
 
         for(Map.Entry<String,JsonElement> entry : object.entrySet()){
-            Direction direction = Direction.byName(entry.getKey());
+            EnumFacing direction = EnumFacing.byName(entry.getKey());
             if(direction == null)
                 throw new JsonParseException("Unknown facing: " + entry.getKey());
 
@@ -80,13 +80,13 @@ public class RechiseledBlockPartDeserializer {
     }
 
     private static Vector3f getVector3f(JsonObject json, String key, boolean restricted){
-        JsonArray jsonarray = JSONUtils.getAsJsonArray(json, key);
+        JsonArray jsonarray = JsonUtils.getJsonArray(json, key);
         if(jsonarray.size() != 3)
             throw new JsonParseException("Expected 3 " + key + " values, found: " + jsonarray.size());
 
-        float x = JSONUtils.convertToFloat(jsonarray.get(0), key + "[0]");
-        float y = JSONUtils.convertToFloat(jsonarray.get(1), key + "[1]");
-        float z = JSONUtils.convertToFloat(jsonarray.get(2), key + "[2]");
+        float x = JsonUtils.getFloat(jsonarray.get(0), key + "[0]");
+        float y = JsonUtils.getFloat(jsonarray.get(1), key + "[1]");
+        float z = JsonUtils.getFloat(jsonarray.get(2), key + "[2]");
         if(restricted && (x < -16 || y < -16 || z < -16 || x > 32 || y > 32 || z > 32))
             throw new JsonParseException("'" + key + "' specifier exceeds the allowed boundaries: [" + x + ", " + y + ", " + z + "]");
 

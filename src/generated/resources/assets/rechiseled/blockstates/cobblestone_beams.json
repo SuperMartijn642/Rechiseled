@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/cobblestone_beams"
+    "normal": {
+      "model": "rechiseled:cobblestone_beams"
     }
   }
 }

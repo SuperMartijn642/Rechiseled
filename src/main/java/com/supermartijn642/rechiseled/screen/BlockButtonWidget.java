@@ -4,8 +4,10 @@ import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.Widget;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
-import net.minecraft.item.BlockItem;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
@@ -40,8 +42,8 @@ public class BlockButtonWidget extends Widget {
         ChiselingEntry entry = this.entry.get();
         if(entry == null)
             return null;
-        Item item = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
-        return TextComponents.translation("rechiseled.chiseling.select_block", TextComponents.item(item).get()).get();
+        ItemStack item = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItemStack() : entry.getRegularItemStack();
+        return TextComponents.translation("rechiseled.chiseling.select_block", TextComponents.itemStack(item).get()).get();
     }
 
     @Override
@@ -57,8 +59,10 @@ public class BlockButtonWidget extends Widget {
 
         if(hasEntry){
             Item item = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
-            if(item instanceof BlockItem){
-                BlockCapture capture = new BlockCapture(((BlockItem)item).getBlock());
+            int data = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItemData() : entry.getRegularItemData();
+            if(item instanceof ItemBlock){
+                Block block = ((ItemBlock)item).getBlock();
+                BlockCapture capture = new BlockCapture(item.getHasSubtypes() ? block.getStateFromMeta(data) : block.getDefaultState());
                 ScreenBlockRenderer.drawBlock(capture, this.x + this.width / 2d, this.y + this.height / 2d, this.width, 135, 40, true);
             }
         }

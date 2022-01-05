@@ -1,11 +1,11 @@
 package com.supermartijn642.rechiseled.screen;
 
-import com.mojang.blaze3d.platform.GlStateManager;
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.AbstractButtonWidget;
 import com.supermartijn642.core.gui.widget.IHoverTextWidget;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
@@ -52,7 +52,7 @@ public class ConnectingToggleWidget extends AbstractButtonWidget implements IHov
         ScreenUtils.bindTexture(GREY_BUTTONS);
         ScreenUtils.drawTexture(this.x, this.y, this.width, this.height, 0, (canSwitch ? this.hovered ? 2 : 0 : 1) / 3f, 1, 1 / 3f);
 
-        GlStateManager.enableAlphaTest();
+        GlStateManager.enableAlpha();
         ScreenUtils.bindTexture(this.connecting.get() ? ICON_CONNECTED_ON : ICON_CONNECTED_OFF);
         ScreenUtils.drawTexture(this.x + 1, this.y + 2, this.width - 2, this.height - 4);
     }

@@ -2,11 +2,10 @@ package com.supermartijn642.rechiseled.model;
 
 import com.google.common.collect.Maps;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.util.Direction;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
-import net.minecraftforge.client.model.data.ModelProperty;
+import net.minecraft.world.IBlockAccess;
 
 import java.util.Map;
 import java.util.function.Function;
@@ -16,9 +15,7 @@ import java.util.function.Function;
  */
 public class RechiseledModelData {
 
-    public static final ModelProperty<RechiseledModelData> PROPERTY = new ModelProperty<>();
-
-    public Map<Direction,SideData> sides = Maps.newEnumMap(Direction.class);
+    public Map<EnumFacing,SideData> sides = Maps.newEnumMap(EnumFacing.class);
 
     public static class SideData {
 
@@ -31,38 +28,38 @@ public class RechiseledModelData {
         public boolean down_left;
         public boolean down_right;
 
-        public SideData(Direction side, Function<BlockPos,BlockState> blockGetter, BlockPos pos, Block block){
-            Direction left;
-            Direction right;
-            Direction up;
-            Direction down;
-            if(side.getAxis() == Direction.Axis.Y){
-                left = Direction.WEST;
-                right = Direction.EAST;
-                up = side == Direction.UP ? Direction.NORTH : Direction.SOUTH;
-                down = side == Direction.UP ? Direction.SOUTH : Direction.NORTH;
+        public SideData(EnumFacing side, Function<BlockPos,IBlockState> blockGetter, BlockPos pos, Block block){
+            EnumFacing left;
+            EnumFacing right;
+            EnumFacing up;
+            EnumFacing down;
+            if(side.getAxis() == EnumFacing.Axis.Y){
+                left = EnumFacing.WEST;
+                right = EnumFacing.EAST;
+                up = side == EnumFacing.UP ? EnumFacing.NORTH : EnumFacing.SOUTH;
+                down = side == EnumFacing.UP ? EnumFacing.SOUTH : EnumFacing.NORTH;
             }else{
-                left = side.getClockWise();
-                right = side.getCounterClockWise();
-                up = Direction.UP;
-                down = Direction.DOWN;
+                left = side.rotateY();
+                right = side.rotateYCCW();
+                up = EnumFacing.UP;
+                down = EnumFacing.DOWN;
             }
 
-            this.left = isSameBlock(blockGetter, block, pos.relative(left));
-            this.right = isSameBlock(blockGetter, block, pos.relative(right));
-            this.up = isSameBlock(blockGetter, block, pos.relative(up));
-            this.up_left = isSameBlock(blockGetter, block, pos.relative(up).relative(left));
-            this.up_right = isSameBlock(blockGetter, block, pos.relative(up).relative(right));
-            this.down = isSameBlock(blockGetter, block, pos.relative(down));
-            this.down_left = isSameBlock(blockGetter, block, pos.relative(down).relative(left));
-            this.down_right = isSameBlock(blockGetter, block, pos.relative(down).relative(right));
+            this.left = isSameBlock(blockGetter, block, pos.offset(left));
+            this.right = isSameBlock(blockGetter, block, pos.offset(right));
+            this.up = isSameBlock(blockGetter, block, pos.offset(up));
+            this.up_left = isSameBlock(blockGetter, block, pos.offset(up).offset(left));
+            this.up_right = isSameBlock(blockGetter, block, pos.offset(up).offset(right));
+            this.down = isSameBlock(blockGetter, block, pos.offset(down));
+            this.down_left = isSameBlock(blockGetter, block, pos.offset(down).offset(left));
+            this.down_right = isSameBlock(blockGetter, block, pos.offset(down).offset(right));
         }
 
-        public SideData(Direction side, IBlockReader world, BlockPos pos, Block block){
+        public SideData(EnumFacing side, IBlockAccess world, BlockPos pos, Block block){
             this(side, world::getBlockState, pos, block);
         }
 
-        private static boolean isSameBlock(Function<BlockPos,BlockState> blockGetter, Block block, BlockPos pos){
+        private static boolean isSameBlock(Function<BlockPos,IBlockState> blockGetter, Block block, BlockPos pos){
             return blockGetter.apply(pos).getBlock() == block;
         }
     }

@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/spruce_planks_pattern"
+    "normal": {
+      "model": "rechiseled:spruce_planks_pattern"
     }
   }
 }

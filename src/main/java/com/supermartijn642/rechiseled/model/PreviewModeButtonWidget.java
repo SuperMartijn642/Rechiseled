@@ -1,9 +1,9 @@
 package com.supermartijn642.rechiseled.model;
 
-import com.mojang.blaze3d.platform.GlStateManager;
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.AbstractButtonWidget;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
@@ -52,7 +52,7 @@ public class PreviewModeButtonWidget extends AbstractButtonWidget {
         ScreenUtils.bindTexture(GREY_BUTTONS);
         ScreenUtils.drawTexture(this.x, this.y, this.width, this.height, 0, (selected ? 1 : this.hovered ? 2 : 0) / 3f, 1, 1 / 3f);
 
-        GlStateManager.enableAlphaTest();
+        GlStateManager.enableAlpha();
         ScreenUtils.bindTexture(ICONS[this.mode][selected ? 1 : 0]);
         ScreenUtils.drawTexture(this.x + 1, this.y + 2, this.width - 2, this.height - 4);
     }

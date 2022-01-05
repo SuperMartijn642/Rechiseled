@@ -1,0 +1,53 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "item": "minecraft:stone",
+      "item_data": 0
+    },
+    {
+      "item": "minecraft:stonebrick",
+      "item_data": 0
+    },
+    {
+      "item": "minecraft:stonebrick",
+      "item_data": 1
+    },
+    {
+      "item": "minecraft:stonebrick",
+      "item_data": 2
+    },
+    {
+      "item": "rechiseled:stone_big_tiles",
+      "connecting_item": "rechiseled:stone_big_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:stone_bordered",
+      "connecting_item": "rechiseled:stone_bordered_connecting"
+    },
+    {
+      "item": "minecraft:stonebrick",
+      "item_data": 3,
+      "connecting_item": "rechiseled:stone_chiseled_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:stone_diagonal_bricks",
+      "connecting_item": "rechiseled:stone_diagonal_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:stone_path",
+      "connecting_item": "rechiseled:stone_path_connecting"
+    },
+    {
+      "item": "rechiseled:stone_small_bricks",
+      "connecting_item": "rechiseled:stone_small_bricks_connecting"
+    },
+    {
+      "connecting_item": "rechiseled:stone_smooth_connecting"
+    },
+    {
+      "item": "rechiseled:stone_tiles",
+      "connecting_item": "rechiseled:stone_tiles_connecting"
+    }
+  ]
+}

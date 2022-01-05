@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/netherrack_dented_connecting"
+    "normal": {
+      "model": "rechiseled:netherrack_dented_connecting"
     }
   }
 }

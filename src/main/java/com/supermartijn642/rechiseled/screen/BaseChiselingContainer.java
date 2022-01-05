@@ -4,10 +4,9 @@ import com.supermartijn642.core.gui.BaseContainer;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
 import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
 import com.supermartijn642.rechiseled.chiseling.ChiselingRecipes;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.inventory.container.Slot;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.IItemHandlerModifiable;
@@ -24,13 +23,13 @@ public abstract class BaseChiselingContainer extends BaseContainer {
     public ChiselingEntry currentEntry = null;
     public boolean connecting = false;
 
-    public BaseChiselingContainer(ContainerType<?> type, int id, PlayerEntity player){
-        super(type, id, player);
+    public BaseChiselingContainer(EntityPlayer player){
+        super(player);
         this.addSlots();
     }
 
     @Override
-    protected void addSlots(PlayerEntity playerEntity){
+    protected void addSlots(EntityPlayer playerEntity){
         this.addSlot(new SlotItemHandler(new IItemHandlerModifiable() {
             @Override
             public void setStackInSlot(int slot, @Nonnull ItemStack stack){
@@ -58,7 +57,7 @@ public abstract class BaseChiselingContainer extends BaseContainer {
                     return stack.copy();
 
                 ItemStack currentStack = BaseChiselingContainer.this.getCurrentStack();
-                if(!currentStack.isEmpty() && !ItemStack.matches(currentStack, stack))
+                if(!currentStack.isEmpty() && !ItemStack.areItemStackTagsEqual(currentStack, stack))
                     return stack.copy();
 
                 int count = Math.min(stack.getCount(), stack.getMaxStackSize() - currentStack.getCount());
@@ -101,14 +100,14 @@ public abstract class BaseChiselingContainer extends BaseContainer {
 
             @Override
             public boolean isItemValid(int slot, @Nonnull ItemStack stack){
-                return slot == 0 && ChiselingRecipes.getRecipe(BaseChiselingContainer.this.player.level.getRecipeManager(), stack) != null;
+                return slot == 0 && ChiselingRecipes.getRecipe(stack) != null;
             }
         }, 0, 154, 102));
         this.addPlayerSlots(31, 144);
     }
 
     @Override
-    public boolean stillValid(PlayerEntity playerIn){
+    public boolean canInteractWith(EntityPlayer playerIn){
         return !this.shouldBeClosed();
     }
 
@@ -119,14 +118,14 @@ public abstract class BaseChiselingContainer extends BaseContainer {
             this.currentEntry = null;
             this.connecting = false;
         }else{
-            this.currentRecipe = ChiselingRecipes.getRecipe(BaseChiselingContainer.this.player.level.getRecipeManager(), stack);
+            this.currentRecipe = ChiselingRecipes.getRecipe(stack);
             if(this.currentRecipe != null){
                 for(ChiselingEntry entry : this.currentRecipe.getEntries()){
-                    if(entry.hasRegularItem() && entry.getRegularItem() == stack.getItem()){
+                    if(entry.hasRegularItem() && entry.getRegularItem() == stack.getItem() && (!entry.getRegularItem().getHasSubtypes() || entry.getRegularItemData() == stack.getMetadata())){
                         this.currentEntry = entry;
                         this.connecting = false;
                         return;
-                    }else if(entry.hasConnectingItem() && entry.getConnectingItem() == stack.getItem()){
+                    }else if(entry.hasConnectingItem() && entry.getConnectingItem() == stack.getItem() && (!entry.getConnectingItem().getHasSubtypes() || entry.getConnectingItemData() == stack.getMetadata())){
                         this.currentEntry = entry;
                         this.connecting = true;
                         return;
@@ -144,8 +143,8 @@ public abstract class BaseChiselingContainer extends BaseContainer {
             return;
 
         ChiselingEntry entry = this.currentRecipe.getEntries().get(index);
-        Item item = (this.connecting && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
-        ItemStack stack = new ItemStack(item, this.getCurrentStack().getCount());
+        ItemStack stack = (this.connecting && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItemStack() : entry.getRegularItemStack();
+        stack.setCount(this.getCurrentStack().getCount());
         this.setCurrentStack(stack);
         this.updateRecipe();
     }
@@ -156,13 +155,13 @@ public abstract class BaseChiselingContainer extends BaseContainer {
 
         if(this.connecting){
             if(this.currentEntry.hasRegularItem()){
-                ItemStack stack = new ItemStack(this.currentEntry.getRegularItem(), this.getCurrentStack().getCount());
+                ItemStack stack = new ItemStack(this.currentEntry.getRegularItem(), this.getCurrentStack().getCount(), this.currentEntry.getRegularItemData());
                 this.setCurrentStack(stack);
                 this.updateRecipe();
             }
         }else{
             if(this.currentEntry.hasConnectingItem()){
-                ItemStack stack = new ItemStack(this.currentEntry.getConnectingItem(), this.getCurrentStack().getCount());
+                ItemStack stack = new ItemStack(this.currentEntry.getConnectingItem(), this.getCurrentStack().getCount(), this.currentEntry.getConnectingItemData());
                 this.setCurrentStack(stack);
                 this.updateRecipe();
             }
@@ -173,19 +172,20 @@ public abstract class BaseChiselingContainer extends BaseContainer {
         if(this.currentRecipe == null)
             return;
 
-        PlayerInventory inventory = this.player.inventory;
-        for(int index = 0; index < inventory.getContainerSize(); index++){
-            ItemStack stack = inventory.getItem(index);
+        InventoryPlayer inventory = this.player.inventory;
+        for(int index = 0; index < inventory.getSizeInventory(); index++){
+            ItemStack stack = inventory.getStackInSlot(index);
             Item item = this.connecting ? this.currentEntry.getConnectingItem() : this.currentEntry.getRegularItem();
-            if(stack.getCount() > item.getMaxStackSize())
+            int data = this.connecting ? this.currentEntry.getConnectingItemData() : this.currentEntry.getRegularItemData();
+            if(stack.getCount() > item.getItemStackLimit())
                 continue;
 
             for(ChiselingEntry entry : this.currentRecipe.getEntries()){
-                if((!stack.hasTag() || stack.getTag().isEmpty())
-                    && ((entry.hasConnectingItem() && stack.getItem() == entry.getConnectingItem())
-                    || (entry.hasRegularItem() && stack.getItem() == entry.getRegularItem()))){
-                    stack = new ItemStack(item, stack.getCount());
-                    inventory.setItem(index, stack);
+                if((!stack.hasTagCompound() || stack.getTagCompound().hasNoTags())
+                    && ((entry.hasConnectingItem() && stack.getItem() == entry.getConnectingItem() && (!entry.getConnectingItem().getHasSubtypes() || entry.getConnectingItemData() == stack.getMetadata()))
+                    || (entry.hasRegularItem() && stack.getItem() == entry.getRegularItem() && (!entry.getRegularItem().getHasSubtypes() || entry.getRegularItemData() == stack.getMetadata())))){
+                    stack = new ItemStack(item, stack.getCount(), data);
+                    inventory.setInventorySlotContents(index, stack);
                 }
             }
         }
@@ -198,13 +198,13 @@ public abstract class BaseChiselingContainer extends BaseContainer {
     public abstract boolean shouldBeClosed();
 
     @Override
-    public ItemStack quickMoveStack(PlayerEntity player, int index){
-        ItemStack stack = this.getSlot(index).getItem();
+    public ItemStack transferStackInSlot(EntityPlayer player, int index){
+        ItemStack stack = this.getSlot(index).getStack();
         if(stack.isEmpty())
             return stack;
 
         if(index == 0){
-            if(!this.moveItemStackTo(stack, 1, this.slots.size(), true))
+            if(!this.moveItemStackTo(stack, 1, this.inventorySlots.size(), true))
                 return ItemStack.EMPTY;
         }else{
             if(!this.moveItemStackTo(stack, 0, 1, true))
@@ -212,7 +212,7 @@ public abstract class BaseChiselingContainer extends BaseContainer {
         }
 
         if(stack.isEmpty())
-            this.slots.get(index).set(stack);
+            this.inventorySlots.get(index).putStack(stack);
         return stack;
     }
 
@@ -232,20 +232,20 @@ public abstract class BaseChiselingContainer extends BaseContainer {
                     break;
                 }
 
-                Slot slot = this.slots.get(index);
-                ItemStack slotStack = slot.getItem();
-                if(!slotStack.isEmpty() && consideredTheSameItem(stack, slotStack)){
+                Slot slot = this.inventorySlots.get(index);
+                ItemStack slotStack = slot.getStack();
+                if(!slotStack.isEmpty() && slotStack.getItem() == stack.getItem() && (!stack.getHasSubtypes() || stack.getMetadata() == slotStack.getMetadata()) && ItemStack.areItemStackTagsEqual(stack, slotStack)){
                     int sumCount = slotStack.getCount() + stack.getCount();
-                    int maxSize = Math.min(slot.getMaxStackSize(), stack.getMaxStackSize());
+                    int maxSize = Math.min(slot.getSlotStackLimit(), stack.getMaxStackSize());
                     if(sumCount <= maxSize){
                         stack.setCount(0);
                         slotStack.setCount(sumCount);
-                        slot.set(slotStack);
+                        slot.putStack(slotStack);
                         changed = true;
                     }else if(slotStack.getCount() < maxSize){
                         stack.shrink(maxSize - slotStack.getCount());
                         slotStack.setCount(maxSize);
-                        slot.set(slotStack);
+                        slot.putStack(slotStack);
                         changed = true;
                     }
                 }
@@ -272,13 +272,13 @@ public abstract class BaseChiselingContainer extends BaseContainer {
                     break;
                 }
 
-                Slot slot = this.slots.get(index);
-                ItemStack slotStack = slot.getItem();
-                if(slotStack.isEmpty() && slot.mayPlace(stack)){
-                    if(stack.getCount() > slot.getMaxStackSize())
-                        slot.set(stack.split(slot.getMaxStackSize()));
+                Slot slot = this.inventorySlots.get(index);
+                ItemStack slotStack = slot.getStack();
+                if(slotStack.isEmpty() && slot.isItemValid(stack)){
+                    if(stack.getCount() > slot.getSlotStackLimit())
+                        slot.putStack(stack.splitStack(slot.getSlotStackLimit()));
                     else
-                        slot.set(stack.split(stack.getCount()));
+                        slot.putStack(stack.splitStack(stack.getCount()));
 
                     changed = true;
                     break;

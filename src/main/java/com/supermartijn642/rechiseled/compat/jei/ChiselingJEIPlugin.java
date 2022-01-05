@@ -1,26 +1,19 @@
 package com.supermartijn642.rechiseled.compat.jei;
 
-import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.rechiseled.Rechiseled;
+import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
 import com.supermartijn642.rechiseled.chiseling.ChiselingRecipes;
 import mezz.jei.api.IModPlugin;
-import mezz.jei.api.JeiPlugin;
-import mezz.jei.api.registration.IRecipeCatalystRegistration;
-import mezz.jei.api.registration.IRecipeCategoryRegistration;
-import mezz.jei.api.registration.IRecipeRegistration;
+import mezz.jei.api.IModRegistry;
+import mezz.jei.api.JEIPlugin;
+import mezz.jei.api.recipe.IRecipeCategoryRegistration;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 
 /**
  * Created 28/12/2021 by SuperMartijn642
  */
-@JeiPlugin
+@JEIPlugin
 public class ChiselingJEIPlugin implements IModPlugin {
-
-    @Override
-    public ResourceLocation getPluginUid(){
-        return new ResourceLocation("rechiseled", "chiseling_plugin");
-    }
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration){
@@ -28,12 +21,9 @@ public class ChiselingJEIPlugin implements IModPlugin {
     }
 
     @Override
-    public void registerRecipes(IRecipeRegistration registration){
-        registration.addRecipes(ChiselingRecipes.getAllRecipes(ClientUtils.getWorld().getRecipeManager()), new ResourceLocation("rechiseled", "chiseling"));
-    }
-
-    @Override
-    public void registerRecipeCatalysts(IRecipeCatalystRegistration registration){
-        registration.addRecipeCatalyst(new ItemStack(Rechiseled.chisel), new ResourceLocation("rechiseled", "chiseling"));
+    public void register(IModRegistry registry){
+        registry.addRecipes(ChiselingRecipes.getAllRecipes(), "rechiseled:chiseling");
+        registry.handleRecipes(ChiselingRecipe.class, ChiselingRecipeCategory.ChiselingRecipeWrapper::new, "rechiseled:chiseling");
+        registry.addRecipeCatalyst(new ItemStack(Rechiseled.chisel), "rechiseled:chiseling");
     }
 }

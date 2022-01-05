@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/jungle_planks_crate"
+    "normal": {
+      "model": "rechiseled:jungle_planks_crate"
     }
   }
 }

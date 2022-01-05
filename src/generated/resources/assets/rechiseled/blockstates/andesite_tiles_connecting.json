@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/andesite_tiles_connecting"
+    "normal": {
+      "model": "rechiseled:andesite_tiles_connecting"
     }
   }
 }

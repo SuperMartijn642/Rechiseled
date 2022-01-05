@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/red_sandstone_bricks_connecting"
+    "normal": {
+      "model": "rechiseled:red_sandstone_bricks_connecting"
     }
   }
 }

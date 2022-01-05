@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/netherrack_beams"
+    "normal": {
+      "model": "rechiseled:netherrack_beams"
     }
   }
 }

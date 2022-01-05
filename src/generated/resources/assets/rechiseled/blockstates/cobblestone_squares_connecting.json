@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/cobblestone_squares_connecting"
+    "normal": {
+      "model": "rechiseled:cobblestone_squares_connecting"
     }
   }
 }

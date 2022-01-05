@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "rechiseled:block/cobblestone_pulverized"
+    "normal": {
+      "model": "rechiseled:cobblestone_pulverized"
     }
   }
 }

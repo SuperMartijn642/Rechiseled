@@ -1,0 +1,37 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "item": "minecraft:red_sandstone",
+      "item_data": 0
+    },
+    {
+      "item": "minecraft:red_sandstone",
+      "item_data": 1
+    },
+    {
+      "item": "minecraft:red_sandstone",
+      "item_data": 2
+    },
+    {
+      "item": "rechiseled:red_sandstone_bricks",
+      "connecting_item": "rechiseled:red_sandstone_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:red_sandstone_diagonal_bricks",
+      "connecting_item": "rechiseled:red_sandstone_diagonal_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:red_sandstone_large_tiles",
+      "connecting_item": "rechiseled:red_sandstone_large_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:red_sandstone_polished",
+      "connecting_item": "rechiseled:red_sandstone_polished_connecting"
+    },
+    {
+      "item": "rechiseled:red_sandstone_tiles",
+      "connecting_item": "rechiseled:red_sandstone_tiles_connecting"
+    }
+  ]
+}
