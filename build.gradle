@@ -91,3 +91,7 @@ dependencies {
     // Block Renderer
     runtimeOnly fg.deobf('curse.maven:block-renderer-380456:3294692')
 }
+
+mixin {
+    disableAnnotationProcessorCheck()
+}
