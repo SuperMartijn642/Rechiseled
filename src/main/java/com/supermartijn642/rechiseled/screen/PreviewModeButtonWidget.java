@@ -1,4 +1,4 @@
-package com.supermartijn642.rechiseled.model;
+package com.supermartijn642.rechiseled.screen;
 
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
