@@ -100,7 +100,7 @@ public class Rechiseled {
 
         @SubscribeEvent
         public static void onRecipeSerializerRegistry(RegistryEvent.Register<RecipeSerializer<?>> e){
-            e.getRegistry().register(new ChiselingRecipe.Serializer().setRegistryName("chiseling"));
+            e.getRegistry().register(ChiselingRecipe.SERIALIZER.setRegistryName("chiseling"));
         }
 
         @SubscribeEvent
