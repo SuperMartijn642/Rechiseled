@@ -9,6 +9,22 @@
     },
     {
       "item": "minecraft:cracked_nether_bricks"
+    },
+    {
+      "item": "rechiseled:nether_bricks_large_bricks",
+      "connecting_item": "rechiseled:nether_bricks_large_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:nether_bricks_large_tiles",
+      "connecting_item": "rechiseled:nether_bricks_large_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:nether_bricks_small_tiles",
+      "connecting_item": "rechiseled:nether_bricks_small_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:nether_bricks_tiles",
+      "connecting_item": "rechiseled:nether_bricks_tiles_connecting"
     }
   ]
 }

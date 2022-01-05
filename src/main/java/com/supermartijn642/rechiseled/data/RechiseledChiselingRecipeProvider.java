@@ -60,6 +60,8 @@ public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
             .addRegularItem(Items.OAK_PLANKS);
         builders.computeIfAbsent(RechiseledTagGroups.PRISMARINE_BRICKS, this::beginRecipe)
             .addRegularItem(Items.PRISMARINE_BRICKS);
+        builders.computeIfAbsent(RechiseledTagGroups.RED_NETHER_BRICKS, this::beginRecipe)
+            .addRegularItem(Items.RED_NETHER_BRICKS);
         builders.computeIfAbsent(RechiseledTagGroups.RED_SANDSTONE, this::beginRecipe)
             .addRegularItem(Items.RED_SANDSTONE)
             .addRegularItem(Items.CHISELED_RED_SANDSTONE)
