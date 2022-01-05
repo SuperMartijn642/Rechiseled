@@ -1,0 +1,7 @@
+{
+  "parent": "rechiseled:block/connecting_cube_all",
+  "textures": {
+    "all": "rechiseled:block/cobbled_deepslate_pulverized"
+  },
+  "loader": "rechiseled:connecting_model"
+}
