@@ -1,0 +1,70 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "item": "minecraft:cobbled_deepslate"
+    },
+    {
+      "item": "minecraft:polished_deepslate"
+    },
+    {
+      "item": "minecraft:deepslate_bricks"
+    },
+    {
+      "item": "minecraft:cracked_deepslate_bricks"
+    },
+    {
+      "item": "minecraft:deepslate_tiles"
+    },
+    {
+      "item": "minecraft:cracked_deepslate_tiles"
+    },
+    {
+      "item": "minecraft:chiseled_deepslate"
+    },
+    {
+      "item": "rechiseled:cobbled_deepslate_beams",
+      "connecting_item": "rechiseled:cobbled_deepslate_beams_connecting"
+    },
+    {
+      "item": "rechiseled:cobbled_deepslate_bricks",
+      "connecting_item": "rechiseled:cobbled_deepslate_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:cobbled_deepslate_large_tiles",
+      "connecting_item": "rechiseled:cobbled_deepslate_large_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:cobbled_deepslate_paving",
+      "connecting_item": "rechiseled:cobbled_deepslate_paving_connecting"
+    },
+    {
+      "item": "rechiseled:cobbled_deepslate_pulverized",
+      "connecting_item": "rechiseled:cobbled_deepslate_pulverized_connecting"
+    },
+    {
+      "item": "rechiseled:cobbled_deepslate_rotated_bricks",
+      "connecting_item": "rechiseled:cobbled_deepslate_rotated_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:cobbled_deepslate_small_tiles",
+      "connecting_item": "rechiseled:cobbled_deepslate_small_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:cobbled_deepslate_squares",
+      "connecting_item": "rechiseled:cobbled_deepslate_squares_connecting"
+    },
+    {
+      "item": "rechiseled:cobbled_deepslate_stripes",
+      "connecting_item": "rechiseled:cobbled_deepslate_stripes_connecting"
+    },
+    {
+      "item": "rechiseled:cobbled_deepslate_tiles",
+      "connecting_item": "rechiseled:cobbled_deepslate_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:cobbled_deepslate_worn_stripes",
+      "connecting_item": "rechiseled:cobbled_deepslate_worn_stripes_connecting"
+    }
+  ]
+}

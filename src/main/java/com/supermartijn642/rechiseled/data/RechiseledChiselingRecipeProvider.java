@@ -32,6 +32,14 @@ public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
             .addRegularItem(Items.POLISHED_BLACKSTONE_BRICKS)
             .addRegularItem(Items.CRACKED_POLISHED_BLACKSTONE_BRICKS)
             .addRegularItem(Items.CHISELED_POLISHED_BLACKSTONE);
+        builders.computeIfAbsent(RechiseledTagGroups.COBBLED_DEEPSLATE, this::beginRecipe)
+            .addRegularItem(Items.COBBLED_DEEPSLATE)
+            .addRegularItem(Items.POLISHED_DEEPSLATE)
+            .addRegularItem(Items.DEEPSLATE_BRICKS)
+            .addRegularItem(Items.CRACKED_DEEPSLATE_BRICKS)
+            .addRegularItem(Items.DEEPSLATE_TILES)
+            .addRegularItem(Items.CRACKED_DEEPSLATE_TILES)
+            .addRegularItem(Items.CHISELED_DEEPSLATE);
         builders.computeIfAbsent(RechiseledTagGroups.COBBLESTONE, this::beginRecipe)
             .addRegularItem(Items.COBBLESTONE)
             .addRegularItem(Items.MOSSY_COBBLESTONE);
@@ -60,6 +68,8 @@ public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
             .addRegularItem(Items.OAK_PLANKS);
         builders.computeIfAbsent(RechiseledTagGroups.PRISMARINE_BRICKS, this::beginRecipe)
             .addRegularItem(Items.PRISMARINE_BRICKS);
+        builders.computeIfAbsent(RechiseledTagGroups.RED_NETHER_BRICKS, this::beginRecipe)
+            .addRegularItem(Items.RED_NETHER_BRICKS);
         builders.computeIfAbsent(RechiseledTagGroups.RED_SANDSTONE, this::beginRecipe)
             .addRegularItem(Items.RED_SANDSTONE)
             .addRegularItem(Items.CHISELED_RED_SANDSTONE)
