@@ -5,6 +5,18 @@
       "item": "minecraft:red_nether_brick"
     },
     {
+      "item": "rechiseled:red_nether_bricks_beams",
+      "connecting_item": "rechiseled:red_nether_bricks_beams_connecting"
+    },
+    {
+      "item": "rechiseled:red_nether_bricks_chiseled_squares",
+      "connecting_item": "rechiseled:red_nether_bricks_chiseled_squares_connecting"
+    },
+    {
+      "item": "rechiseled:red_nether_bricks_diagonal_bricks",
+      "connecting_item": "rechiseled:red_nether_bricks_diagonal_bricks_connecting"
+    },
+    {
       "item": "rechiseled:red_nether_bricks_large_bricks",
       "connecting_item": "rechiseled:red_nether_bricks_large_bricks_connecting"
     },
@@ -13,8 +25,20 @@
       "connecting_item": "rechiseled:red_nether_bricks_large_tiles_connecting"
     },
     {
+      "item": "rechiseled:red_nether_bricks_rotated_bricks",
+      "connecting_item": "rechiseled:red_nether_bricks_rotated_bricks_connecting"
+    },
+    {
       "item": "rechiseled:red_nether_bricks_small_tiles",
       "connecting_item": "rechiseled:red_nether_bricks_small_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:red_nether_bricks_smooth",
+      "connecting_item": "rechiseled:red_nether_bricks_smooth_connecting"
+    },
+    {
+      "item": "rechiseled:red_nether_bricks_squares",
+      "connecting_item": "rechiseled:red_nether_bricks_squares_connecting"
     },
     {
       "item": "rechiseled:red_nether_bricks_tiles",
