@@ -1,0 +1,48 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "item": "minecraft:dark_prismarine"
+    },
+    {
+      "item": "rechiseled:dark_prismarine_beams",
+      "connecting_item": "rechiseled:dark_prismarine_beams_connecting"
+    },
+    {
+      "item": "rechiseled:dark_prismarine_bricks",
+      "connecting_item": "rechiseled:dark_prismarine_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:dark_prismarine_dotted",
+      "connecting_item": "rechiseled:dark_prismarine_dotted_connecting"
+    },
+    {
+      "item": "rechiseled:dark_prismarine_fabric",
+      "connecting_item": "rechiseled:dark_prismarine_fabric_connecting"
+    },
+    {
+      "item": "rechiseled:dark_prismarine_large_tiles",
+      "connecting_item": "rechiseled:dark_prismarine_large_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:dark_prismarine_rows",
+      "connecting_item": "rechiseled:dark_prismarine_rows_connecting"
+    },
+    {
+      "item": "rechiseled:dark_prismarine_squares",
+      "connecting_item": "rechiseled:dark_prismarine_squares_connecting"
+    },
+    {
+      "item": "rechiseled:dark_prismarine_tiles",
+      "connecting_item": "rechiseled:dark_prismarine_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:dark_prismarine_wavy",
+      "connecting_item": "rechiseled:dark_prismarine_wavy_connecting"
+    },
+    {
+      "item": "rechiseled:dark_prismarine_woven",
+      "connecting_item": "rechiseled:dark_prismarine_woven_connecting"
+    }
+  ]
+}
