@@ -1,0 +1,7 @@
+{
+  "parent": "rechiseled:block/connecting_cube_all",
+  "textures": {
+    "all": "rechiseled:block/prismarine_bricks_beams"
+  },
+  "loader": "rechiseled:connecting_model"
+}
