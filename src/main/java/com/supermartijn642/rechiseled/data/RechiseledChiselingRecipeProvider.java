@@ -47,6 +47,8 @@ public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
             .addRegularItem(Items.CRIMSON_PLANKS);
         builders.computeIfAbsent(RechiseledTagGroups.DARK_OAK_PLANKS, this::beginRecipe)
             .addRegularItem(Items.DARK_OAK_PLANKS);
+        builders.computeIfAbsent(RechiseledTagGroups.DARK_PRISMARINE, this::beginRecipe)
+            .addRegularItem(Items.DARK_PRISMARINE);
         builders.computeIfAbsent(RechiseledTagGroups.DIORITE, this::beginRecipe)
             .addRegularItem(Items.DIORITE);
         builders.computeIfAbsent(RechiseledTagGroups.END_STONE, this::beginRecipe)
