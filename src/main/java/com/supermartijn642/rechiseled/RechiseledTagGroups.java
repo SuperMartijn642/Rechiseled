@@ -15,6 +15,7 @@ public class RechiseledTagGroups {
     public static final String COBBLESTONE = "cobblestone";
     public static final String CRIMSON_PLANKS = "crimson_planks";
     public static final String DARK_OAK_PLANKS = "dark_oak_planks";
+    public static final String DARK_PRISMARINE = "dark_prismarine";
     public static final String DIORITE = "diorite";
     public static final String END_STONE = "end_stone";
     public static final String GLOWSTONE = "glowstone";
