@@ -7,6 +7,9 @@ import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.block.model.ItemOverrideList;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.renderer.vertex.VertexFormat;
+import net.minecraft.client.renderer.vertex.VertexFormatElement;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Tuple;
 import net.minecraft.util.math.BlockPos;
@@ -64,7 +67,7 @@ public class RechiseledBakedModel implements IBakedModel {
 
                 // Adjust the uv
                 int[] uv = this.getUV(quad.getFace(), modelData);
-                adjustVertexDataUV(vertexData, uv[0], uv[1], quad.getSprite());
+                adjustVertexDataUV(vertexData, uv[0], uv[1], quad.getSprite(), DefaultVertexFormats.BLOCK);
 
                 quads.add(new BakedQuad(vertexData, quad.getTintIndex(), quad.getFace(), quad.getSprite(), quad.shouldApplyDiffuseLighting(), quad.getFormat()));
             }else
@@ -82,17 +85,42 @@ public class RechiseledBakedModel implements IBakedModel {
         return null;
     }
 
-    private static int[] adjustVertexDataUV(int[] vertexData, int newU, int newV, TextureAtlasSprite sprite){
-        for(int i = 0; i < 4; i++){
+    private static int[] adjustVertexDataUV(int[] vertexData, int newU, int newV, TextureAtlasSprite sprite, VertexFormat vertexFormat){
+        int vertexSize = vertexFormat.getIntegerSize();
+        int vertices = vertexData.length / vertexSize;
+        int uvOffset = findUVOffset(vertexFormat) / 4;
+
+        for(int i = 0; i < vertices; i++){
+            int offset = i * vertexSize + uvOffset;
+
             float width = sprite.getMaxU() - sprite.getMinU();
-            float u = (newU + (Float.intBitsToFloat(vertexData[i * 7 + 4]) - sprite.getMinU()) / width) * 2;
-            vertexData[i * 7 + 4] = Float.floatToRawIntBits(sprite.getInterpolatedU(u));
+            float u = (newU + (Float.intBitsToFloat(vertexData[offset]) - sprite.getMinU()) / width) * 2;
+            vertexData[offset] = Float.floatToRawIntBits(sprite.getInterpolatedU(u));
 
             float height = sprite.getMaxV() - sprite.getMinV();
-            float v = (newV + (Float.intBitsToFloat(vertexData[i * 7 + 5]) - sprite.getMinV()) / height) * 2;
-            vertexData[i * 7 + 5] = Float.floatToRawIntBits(sprite.getInterpolatedV(v));
+            float v = (newV + (Float.intBitsToFloat(vertexData[offset + 1]) - sprite.getMinV()) / height) * 2;
+            vertexData[offset + 1] = Float.floatToRawIntBits(sprite.getInterpolatedV(v));
         }
         return vertexData;
+    }
+
+    private static int findUVOffset(VertexFormat vertexFormat){
+        int index;
+        VertexFormatElement element = null;
+        for(index = 0; index < vertexFormat.getElements().size(); index++){
+            VertexFormatElement el = vertexFormat.getElements().get(index);
+            if(el.getUsage() == VertexFormatElement.EnumUsage.UV){
+                element = el;
+                break;
+            }
+        }
+        if(index == vertexFormat.getElements().size() || element == null)
+            throw new RuntimeException("Expected vertex format to have a UV attribute");
+        if(element.getType() != VertexFormatElement.EnumType.FLOAT)
+            throw new RuntimeException("Expected UV attribute to have data type FLOAT");
+        if(element.getSize() < 4)
+            throw new RuntimeException("Expected UV attribute to have at least 4 dimensions");
+        return vertexFormat.getOffset(index);
     }
 
     @Override
