@@ -17,7 +17,7 @@ license="All rights reserved"
 # The modid of the mod
 modId="rechiseled" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
-version="1.0.3" #mandatory
+version="1.0.4" #mandatory
  # A display name for the mod
 displayName="rechiseled" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
@@ -55,7 +55,7 @@ description='''Rechiseled allows you to exchange between various decorative bloc
 [[dependencies.rechiseled]]
     modId="supermartijn642corelib"
     mandatory=true
-    versionRange="[1.0.15,1.1.0)"
+    versionRange="[1.0.16,1.1.0)"
     ordering="NONE"
     side="BOTH"
 # Add a dependency on SuperMartijn642's Config Lib
