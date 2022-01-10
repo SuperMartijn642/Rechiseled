@@ -1,5 +1,8 @@
 package com.supermartijn642.rechiseled.model;
 
+import com.mojang.blaze3d.vertex.DefaultVertexFormat;
+import com.mojang.blaze3d.vertex.VertexFormat;
+import com.mojang.blaze3d.vertex.VertexFormatElement;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
@@ -56,7 +59,7 @@ public class RechiseledBakedModel implements IDynamicBakedModel {
 
                 // Adjust the uv
                 int[] uv = this.getUV(quad.getDirection(), extraData);
-                adjustVertexDataUV(vertexData, uv[0], uv[1], quad.getSprite());
+                adjustVertexDataUV(vertexData, uv[0], uv[1], quad.getSprite(), DefaultVertexFormat.BLOCK);
 
                 quads.add(new BakedQuad(vertexData, quad.getTintIndex(), quad.getDirection(), quad.getSprite(), quad.isShade()));
             }else
@@ -70,17 +73,42 @@ public class RechiseledBakedModel implements IDynamicBakedModel {
         return new int[]{0, 0};
     }
 
-    private static int[] adjustVertexDataUV(int[] vertexData, int newU, int newV, TextureAtlasSprite sprite){
-        for(int i = 0; i < 4; i++){
+    private static int[] adjustVertexDataUV(int[] vertexData, int newU, int newV, TextureAtlasSprite sprite, VertexFormat vertexFormat){
+        int vertexSize = vertexFormat.getIntegerSize();
+        int vertices = vertexData.length / vertexSize;
+        int uvOffset = findUVOffset(vertexFormat) / 4;
+
+        for(int i = 0; i < vertices; i++){
+            int offset = i * vertexSize + uvOffset;
+
             float width = sprite.getU1() - sprite.getU0();
-            float u = (newU + (Float.intBitsToFloat(vertexData[i * 8 + 4]) - sprite.getU0()) / width) * 2;
-            vertexData[i * 8 + 4] = Float.floatToRawIntBits(sprite.getU(u));
+            float u = (newU + (Float.intBitsToFloat(vertexData[offset]) - sprite.getU0()) / width) * 2;
+            vertexData[offset] = Float.floatToRawIntBits(sprite.getU(u));
 
             float height = sprite.getV1() - sprite.getV0();
-            float v = (newV + (Float.intBitsToFloat(vertexData[i * 8 + 5]) - sprite.getV0()) / height) * 2;
-            vertexData[i * 8 + 5] = Float.floatToRawIntBits(sprite.getV(v));
+            float v = (newV + (Float.intBitsToFloat(vertexData[offset + 1]) - sprite.getV0()) / height) * 2;
+            vertexData[offset + 1] = Float.floatToRawIntBits(sprite.getV(v));
         }
         return vertexData;
+    }
+
+    private static int findUVOffset(VertexFormat vertexFormat){
+        int index;
+        VertexFormatElement element = null;
+        for(index = 0; index < vertexFormat.getElements().size(); index++){
+            VertexFormatElement el = vertexFormat.getElements().get(index);
+            if(el.getUsage() == VertexFormatElement.Usage.UV){
+                element = el;
+                break;
+            }
+        }
+        if(index == vertexFormat.getElements().size() || element == null)
+            throw new RuntimeException("Expected vertex format to have a UV attribute");
+        if(element.getType() != VertexFormatElement.Type.FLOAT)
+            throw new RuntimeException("Expected UV attribute to have data type FLOAT");
+        if(element.getByteSize() < 4)
+            throw new RuntimeException("Expected UV attribute to have at least 4 dimensions");
+        return vertexFormat.getOffset(index);
     }
 
     @Nonnull
