@@ -50,16 +50,16 @@ public class RechiseledBlockTagsProvider extends BlockTagsProvider {
         for(RechiseledBlockType type : RechiseledBlockType.values()){
             for(Map.Entry<Predicate<Block>,TagAppender<Block>> entry : tagAppenderMap.entrySet()){
                 if(entry.getKey().test(type.parentBlock.get())){
-                    if(type.getRegularBlock() != null)
+                    if(type.hasCreatedRegularBlock())
                         entry.getValue().add(type.getRegularBlock());
-                    if(type.getConnectingBlock() != null)
+                    if(type.hasCreatedConnectingBlock())
                         entry.getValue().add(type.getConnectingBlock());
                 }
             }
         }
     }
 
-    private Map<ResourceLocation,List<Block>> loadedTags = Maps.newHashMap();
+    private final Map<ResourceLocation,List<Block>> loadedTags = Maps.newHashMap();
 
     private List<Block> loadVanillaTag(ResourceLocation location){
         if(this.loadedTags.containsKey(location))
