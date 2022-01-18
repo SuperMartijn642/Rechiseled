@@ -5,6 +5,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.ModelProvider;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 
+import static com.supermartijn642.rechiseled.RechiseledBlockType.BlockOption.*;
+
 /**
  * Created 21/12/2021 by SuperMartijn642
  */
@@ -17,9 +19,18 @@ public class RechiseledBlockModelProvider extends ModelProvider<RechiseledBlockM
     @Override
     protected void registerModels(){
         for(RechiseledBlockType type : RechiseledBlockType.values()){
-            if(type.getRegularBlock() != null)
+            if(type.regularBlockMode == NORMAL)
+                this.cubeAll("block/" + type.regularRegistryName, new ResourceLocation("rechiseled", "block/" + type.regularRegistryName));
+            else if(type.regularBlockMode == NON_CONNECTING)
                 this.regularCubeAll("block/" + type.regularRegistryName, new ResourceLocation("rechiseled", "block/" + type.regularRegistryName));
-            if(type.getConnectingBlock() != null)
+            else if(type.regularBlockMode == CONNECTING)
+                this.connectingCubeAll("block/" + type.regularRegistryName, new ResourceLocation("rechiseled", "block/" + type.regularRegistryName));
+
+            if(type.connectingBlockMode == NORMAL)
+                this.cubeAll("block/" + type.connectingRegistryName, new ResourceLocation("rechiseled", "block/" + type.regularRegistryName));
+            else if(type.connectingBlockMode == NON_CONNECTING)
+                this.regularCubeAll("block/" + type.connectingRegistryName, new ResourceLocation("rechiseled", "block/" + type.regularRegistryName));
+            else if(type.connectingBlockMode == CONNECTING)
                 this.connectingCubeAll("block/" + type.connectingRegistryName, new ResourceLocation("rechiseled", "block/" + type.regularRegistryName));
         }
     }
