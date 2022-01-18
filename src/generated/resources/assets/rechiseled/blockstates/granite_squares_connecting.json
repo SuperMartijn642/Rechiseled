@@ -1,6 +1,6 @@
 {
   "variants": {
-    "": {
+    "normal": {
       "model": "rechiseled:granite_squares_connecting"
     }
   }

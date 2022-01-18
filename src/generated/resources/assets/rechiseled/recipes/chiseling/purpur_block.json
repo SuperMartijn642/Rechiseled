@@ -1,0 +1,72 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "item": "minecraft:purpur_pillar"
+    },
+    {
+      "item": "rechiseled:purpur_bricks",
+      "connecting_item": "rechiseled:purpur_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:purpur_diagonal_bricks",
+      "connecting_item": "rechiseled:purpur_diagonal_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:purpur_diagonal_tiles",
+      "connecting_item": "rechiseled:purpur_diagonal_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:purpur_dotted",
+      "connecting_item": "rechiseled:purpur_dotted_connecting"
+    },
+    {
+      "item": "rechiseled:purpur_fabric",
+      "connecting_item": "rechiseled:purpur_fabric_connecting"
+    },
+    {
+      "item": "rechiseled:purpur_jagged_pattern",
+      "connecting_item": "rechiseled:purpur_jagged_pattern_connecting"
+    },
+    {
+      "item": "rechiseled:purpur_large_tiles",
+      "connecting_item": "rechiseled:purpur_large_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:purpur_organic_pattern",
+      "connecting_item": "rechiseled:purpur_organic_pattern_connecting"
+    },
+    {
+      "item": "rechiseled:purpur_pillar",
+      "connecting_item": "rechiseled:purpur_pillar_connecting"
+    },
+    {
+      "item": "rechiseled:purpur_rotated_bricks",
+      "connecting_item": "rechiseled:purpur_rotated_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:purpur_slanted_tiles",
+      "connecting_item": "rechiseled:purpur_slanted_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:purpur_small_tiles",
+      "connecting_item": "rechiseled:purpur_small_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:purpur_spiral_pattern",
+      "connecting_item": "rechiseled:purpur_spiral_pattern_connecting"
+    },
+    {
+      "item": "rechiseled:purpur_squares",
+      "connecting_item": "rechiseled:purpur_squares_connecting"
+    },
+    {
+      "item": "minecraft:purpur_block",
+      "connecting_item": "rechiseled:purpur_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:purpur_woven",
+      "connecting_item": "rechiseled:purpur_woven_connecting"
+    }
+  ]
+}

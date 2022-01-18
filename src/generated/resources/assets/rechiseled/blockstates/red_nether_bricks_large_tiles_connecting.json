@@ -1,6 +1,6 @@
 {
   "variants": {
-    "": {
+    "normal": {
       "model": "rechiseled:red_nether_bricks_large_tiles_connecting"
     }
   }

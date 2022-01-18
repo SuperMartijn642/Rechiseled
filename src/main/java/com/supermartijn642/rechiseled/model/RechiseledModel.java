@@ -62,7 +62,7 @@ public class RechiseledModel implements IModel {
                 BlockPartFace face = part.mapFaces.get(direction);
 
                 TextureAtlasSprite sprite = spriteGetter.apply(this.getTexture(face.texture, modelGetter));
-                boolean connecting = ((RechiseledBlockPartFace)face).connecting;
+                boolean connecting = face instanceof RechiseledBlockPartFace && ((RechiseledBlockPartFace)face).connecting;
                 BakedQuad quad = faceBakery.makeBakedQuad(part.positionFrom, part.positionTo, face, sprite, direction, ModelRotation.X0_Y0, part.partRotation, false, part.shade);
                 EnumFacing cullFace = state.apply(java.util.Optional.empty()).map(transform -> transform.rotate(face.cullFace)).orElse(face.cullFace);
 

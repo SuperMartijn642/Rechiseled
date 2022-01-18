@@ -1,6 +1,6 @@
 {
   "variants": {
-    "": {
+    "normal": {
       "model": "rechiseled:diorite_dotted_connecting"
     }
   }

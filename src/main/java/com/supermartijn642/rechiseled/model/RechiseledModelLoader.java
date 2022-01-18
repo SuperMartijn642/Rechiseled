@@ -7,9 +7,11 @@ import com.supermartijn642.rechiseled.model.serialization.RechiseledModelDeseria
 import net.minecraft.client.renderer.block.model.ModelBlock;
 import net.minecraft.client.resources.IResource;
 import net.minecraft.client.resources.IResourceManager;
+import net.minecraft.util.JsonUtils;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ICustomModelLoader;
 import net.minecraftforge.client.model.IModel;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import org.apache.commons.io.IOUtils;
 
@@ -22,6 +24,7 @@ import java.lang.reflect.Field;
 public class RechiseledModelLoader implements ICustomModelLoader {
 
     private static final Gson GSON;
+    private static final ICustomModelLoader vanillaModelLoader;
 
     static{
         Gson serializer = null;
@@ -36,6 +39,23 @@ public class RechiseledModelLoader implements ICustomModelLoader {
             e.printStackTrace();
         }
         GSON = serializer;
+
+        ICustomModelLoader modelLoader = null;
+        System.out.println("CLASSESSS:");
+        loop:
+        for(Class<?> declaredClass : ModelLoader.class.getDeclaredClasses()){
+            System.out.println("declared class: " + declaredClass.getSimpleName());
+            if(declaredClass.getSimpleName().equals("VanillaLoader")){
+                for(Object object : declaredClass.getEnumConstants()){
+                    System.out.println("object: " + object);
+                    if(((Enum<?>)object).name().equals("INSTANCE")){
+                        modelLoader = (ICustomModelLoader)object;
+                        break loop;
+                    }
+                }
+            }
+        }
+        vanillaModelLoader = modelLoader;
     }
 
     private IResourceManager manager;
@@ -62,7 +82,10 @@ public class RechiseledModelLoader implements ICustomModelLoader {
             resource = this.manager.getResource(file);
             JsonReader reader = GSON.newJsonReader(new InputStreamReader(resource.getInputStream()));
             JsonObject json = GSON.fromJson(reader, JsonObject.class);
-            model = RechiseledModelDeserializer.deserialize(file, json, GSON);
+            if(JsonUtils.getString(json, "loader", "").equals("rechiseled:connecting_model"))
+                model = RechiseledModelDeserializer.deserialize(file, json, GSON);
+            else // Load vanilla model
+                model = vanillaModelLoader.loadModel(new ResourceLocation(file.getResourceDomain(), file.getResourcePath().substring(0,file.getResourcePath().length() - ".json".length())));
         }finally{
             IOUtils.closeQuietly(resource);
         }

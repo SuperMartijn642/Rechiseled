@@ -1,6 +1,6 @@
 {
   "variants": {
-    "": {
+    "normal": {
       "model": "rechiseled:prismarine_bricks_diagonal_tiles_connecting"
     }
   }

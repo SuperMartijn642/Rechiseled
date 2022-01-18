@@ -1,6 +1,6 @@
 {
   "variants": {
-    "": {
+    "normal": {
       "model": "rechiseled:nether_bricks_diagonal_bricks_connecting"
     }
   }

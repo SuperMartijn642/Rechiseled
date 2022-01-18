@@ -1,6 +1,6 @@
 {
   "variants": {
-    "": {
+    "normal": {
       "model": "rechiseled:dark_prismarine_dotted_connecting"
     }
   }
