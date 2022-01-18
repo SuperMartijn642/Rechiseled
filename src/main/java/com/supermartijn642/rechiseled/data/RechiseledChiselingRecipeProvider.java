@@ -43,6 +43,8 @@ public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
             .addRegularItem(Items.DARK_PRISMARINE);
         builders.computeIfAbsent(RechiseledTagGroups.DIORITE, this::beginRecipe)
             .addRegularItem(Items.DIORITE);
+        builders.computeIfAbsent(RechiseledTagGroups.DIRT, this::beginRecipe)
+            .addRegularItem(Items.DIRT);
         builders.computeIfAbsent(RechiseledTagGroups.END_STONE, this::beginRecipe)
             .addRegularItem(Items.END_STONE)
             .addRegularItem(Items.END_STONE_BRICKS);
@@ -62,6 +64,8 @@ public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
             .addRegularItem(Items.OAK_PLANKS);
         builders.computeIfAbsent(RechiseledTagGroups.PRISMARINE_BRICKS, this::beginRecipe)
             .addRegularItem(Items.PRISMARINE_BRICKS);
+        builders.computeIfAbsent(RechiseledTagGroups.PURPUR_BLOCK, this::beginRecipe)
+            .addRegularItem(Items.PURPUR_PILLAR);
         builders.computeIfAbsent(RechiseledTagGroups.RED_NETHER_BRICKS, this::beginRecipe)
             .addRegularItem(Items.RED_NETHER_BRICKS);
         builders.computeIfAbsent(RechiseledTagGroups.RED_SANDSTONE, this::beginRecipe)
@@ -87,7 +91,7 @@ public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
         for(RechiseledBlockType type : RechiseledBlockType.values()){
             for(String tag : type.tags){
                 ChiselingRecipeBuilder builder = builders.computeIfAbsent(tag, this::beginRecipe);
-                builder.add(type.useParent ? type.parentBlock.get().asItem() : type.getRegularItem(), type.getConnectingItem());
+                builder.add(type.getRegularItem(), type.getConnectingItem());
             }
         }
     }
