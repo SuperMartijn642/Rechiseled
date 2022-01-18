@@ -34,9 +34,9 @@ public class RechiseledLanguageProvider extends LanguageProvider {
         this.add(Rechiseled.chisel, "Chisel");
 
         for(RechiseledBlockType type : RechiseledBlockType.values()){
-            if(type.getRegularBlock() != null)
+            if(type.hasCreatedRegularBlock())
                 this.add(type.getRegularBlock(), type.englishTranslation);
-            if(type.getConnectingBlock() != null)
+            if(type.hasCreatedConnectingBlock())
                 this.add(type.getConnectingBlock(), type.englishTranslation);
         }
     }

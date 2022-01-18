@@ -13,10 +13,6 @@
       "connecting_item": "rechiseled:prismarine_bricks_bricks_connecting"
     },
     {
-      "item": "rechiseled:prismarine_bricks_dotted",
-      "connecting_item": "rechiseled:prismarine_bricks_dotted_connecting"
-    },
-    {
       "item": "rechiseled:prismarine_bricks_chiseled_circles",
       "connecting_item": "rechiseled:prismarine_bricks_chiseled_circles_connecting"
     },
@@ -31,6 +27,10 @@
     {
       "item": "rechiseled:prismarine_bricks_diagonal_tiles",
       "connecting_item": "rechiseled:prismarine_bricks_diagonal_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:prismarine_bricks_dotted",
+      "connecting_item": "rechiseled:prismarine_bricks_dotted_connecting"
     },
     {
       "item": "rechiseled:prismarine_bricks_pillars",

@@ -8,12 +8,48 @@
       "item": "minecraft:end_stone_bricks"
     },
     {
+      "item": "rechiseled:end_stone_blobs",
+      "connecting_item": "rechiseled:end_stone_blobs_connecting"
+    },
+    {
+      "item": "rechiseled:end_stone_chiseled",
+      "connecting_item": "rechiseled:end_stone_chiseled_connecting"
+    },
+    {
+      "item": "rechiseled:end_stone_crushed",
+      "connecting_item": "rechiseled:end_stone_crushed_connecting"
+    },
+    {
       "item": "rechiseled:end_stone_diagonal_bricks",
       "connecting_item": "rechiseled:end_stone_diagonal_bricks_connecting"
     },
     {
+      "item": "rechiseled:end_stone_mesh",
+      "connecting_item": "rechiseled:end_stone_mesh_connecting"
+    },
+    {
+      "item": "rechiseled:end_stone_paving",
+      "connecting_item": "rechiseled:end_stone_paving_connecting"
+    },
+    {
       "item": "rechiseled:end_stone_polished",
       "connecting_item": "rechiseled:end_stone_polished_connecting"
+    },
+    {
+      "item": "rechiseled:end_stone_scales",
+      "connecting_item": "rechiseled:end_stone_scales_connecting"
+    },
+    {
+      "item": "rechiseled:end_stone_small_tiles",
+      "connecting_item": "rechiseled:end_stone_small_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:end_stone_spiral_pattern",
+      "connecting_item": "rechiseled:end_stone_spiral_pattern_connecting"
+    },
+    {
+      "item": "rechiseled:end_stone_squares",
+      "connecting_item": "rechiseled:end_stone_squares_connecting"
     },
     {
       "item": "rechiseled:end_stone_tiles",

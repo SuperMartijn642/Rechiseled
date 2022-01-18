@@ -1,0 +1,65 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "item": "minecraft:dirt"
+    },
+    {
+      "item": "rechiseled:dirt_blobs",
+      "connecting_item": "rechiseled:dirt_blobs_connecting"
+    },
+    {
+      "item": "rechiseled:dirt_bricks",
+      "connecting_item": "rechiseled:dirt_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:dirt_chunks",
+      "connecting_item": "rechiseled:dirt_chunks_connecting"
+    },
+    {
+      "item": "rechiseled:dirt_clumps",
+      "connecting_item": "rechiseled:dirt_clumps_connecting"
+    },
+    {
+      "item": "rechiseled:dirt_cobbled"
+    },
+    {
+      "item": "rechiseled:dirt_grooves"
+    },
+    {
+      "item": "rechiseled:dirt_large_tiles",
+      "connecting_item": "rechiseled:dirt_large_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:dirt_muddy"
+    },
+    {
+      "item": "rechiseled:dirt_small_bricks",
+      "connecting_item": "rechiseled:dirt_small_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:dirt_small_tiles",
+      "connecting_item": "rechiseled:dirt_small_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:dirt_smooth_clumps",
+      "connecting_item": "rechiseled:dirt_smooth_clumps_connecting"
+    },
+    {
+      "item": "rechiseled:dirt_soil",
+      "connecting_item": "rechiseled:dirt_soil_connecting"
+    },
+    {
+      "item": "rechiseled:dirt_squares",
+      "connecting_item": "rechiseled:dirt_squares_connecting"
+    },
+    {
+      "item": "rechiseled:dirt_tiles",
+      "connecting_item": "rechiseled:dirt_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:dirt_tilled",
+      "connecting_item": "rechiseled:dirt_tilled_connecting"
+    }
+  ]
+}

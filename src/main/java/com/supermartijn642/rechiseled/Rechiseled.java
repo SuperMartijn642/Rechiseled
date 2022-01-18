@@ -44,9 +44,10 @@ public class Rechiseled {
             List<Item> items = new LinkedList<>();
             items.add(chisel);
             for(RechiseledBlockType type : RechiseledBlockType.values()){
-                if(!type.useParent)
+                if(type.hasCreatedRegularBlock())
                     items.add(type.getRegularItem());
-                items.add(type.getConnectingItem());
+                if(type.hasCreatedConnectingBlock())
+                    items.add(type.getConnectingItem());
             }
             items.stream().map(ItemStack::new).forEach(stacks::add);
         }
@@ -71,9 +72,9 @@ public class Rechiseled {
         public static void onBlockRegistry(RegistryEvent.Register<Block> e){
             for(RechiseledBlockType type : RechiseledBlockType.values()){
                 type.createBlocks();
-                if(type.getRegularBlock() != null)
+                if(type.hasCreatedRegularBlock())
                     e.getRegistry().register(type.getRegularBlock());
-                if(type.getConnectingBlock() != null)
+                if(type.hasCreatedConnectingBlock())
                     e.getRegistry().register(type.getConnectingBlock());
             }
         }
@@ -84,9 +85,9 @@ public class Rechiseled {
 
             for(RechiseledBlockType type : RechiseledBlockType.values()){
                 type.createItems();
-                if(type.getRegularItem() != null)
+                if(type.hasCreatedRegularBlock())
                     e.getRegistry().register(type.getRegularItem());
-                if(type.getConnectingItem() != null)
+                if(type.hasCreatedConnectingBlock())
                     e.getRegistry().register(type.getConnectingItem());
             }
         }

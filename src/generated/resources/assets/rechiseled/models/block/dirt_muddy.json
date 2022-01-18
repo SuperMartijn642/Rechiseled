@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "rechiseled:block/dirt_muddy"
+  },
+  "loader": "rechiseled:connecting_model"
+}
