@@ -1,7 +1,7 @@
 package com.supermartijn642.rechiseled;
 
 import com.supermartijn642.core.network.PacketChannel;
-import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
+import com.supermartijn642.rechiseled.chiseling.PacketChiselingRecipes;
 import com.supermartijn642.rechiseled.data.*;
 import com.supermartijn642.rechiseled.packet.PacketChiselAll;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
@@ -12,7 +12,6 @@ import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.util.Hand;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.common.extensions.IForgeContainerType;
@@ -63,6 +62,7 @@ public class Rechiseled {
         CHANNEL.registerMessage(PacketSelectEntry.class, PacketSelectEntry::new, true);
         CHANNEL.registerMessage(PacketToggleConnecting.class, PacketToggleConnecting::new, true);
         CHANNEL.registerMessage(PacketChiselAll.class, PacketChiselAll::new, true);
+        CHANNEL.registerMessage(PacketChiselingRecipes.class, PacketChiselingRecipes::new, true);
     }
 
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -97,11 +97,6 @@ public class Rechiseled {
             e.getRegistry().register(IForgeContainerType.create(
                 (id, inventory, data) -> new ChiselContainer(chisel_container, id, inventory.player, data.readBoolean() ? Hand.MAIN_HAND : Hand.OFF_HAND)
             ).setRegistryName("chisel_container"));
-        }
-
-        @SubscribeEvent
-        public static void onRecipeSerializerRegistry(RegistryEvent.Register<IRecipeSerializer<?>> e){
-            e.getRegistry().register(ChiselingRecipe.SERIALIZER.setRegistryName("chiseling"));
         }
 
         @SubscribeEvent

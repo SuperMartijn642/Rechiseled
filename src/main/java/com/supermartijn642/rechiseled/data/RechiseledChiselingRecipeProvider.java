@@ -1,13 +1,10 @@
 package com.supermartijn642.rechiseled.data;
 
-import com.google.common.collect.Maps;
 import com.supermartijn642.rechiseled.RechiseledBlockType;
-import com.supermartijn642.rechiseled.RechiseledTagGroups;
+import com.supermartijn642.rechiseled.api.BaseChiselingRecipes;
 import com.supermartijn642.rechiseled.api.ChiselingRecipeProvider;
 import net.minecraft.item.Items;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
-
-import java.util.Map;
 
 /**
  * Created 24/12/2021 by SuperMartijn642
@@ -15,83 +12,81 @@ import java.util.Map;
 public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
 
     public RechiseledChiselingRecipeProvider(GatherDataEvent e){
-        super("rechiseled", e.getGenerator());
+        super("rechiseled", e.getGenerator(), e.getExistingFileHelper());
     }
 
     @Override
     protected void buildRecipes(){
-        Map<String,ChiselingRecipeBuilder> builders = Maps.newHashMap();
-        builders.computeIfAbsent(RechiseledTagGroups.ACACIA_PLANKS, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.ACACIA_PLANKS.getPath())
             .addRegularItem(Items.ACACIA_PLANKS);
-        builders.computeIfAbsent(RechiseledTagGroups.ANDESITE, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.ANDESITE.getPath())
             .addRegularItem(Items.ANDESITE);
-        builders.computeIfAbsent(RechiseledTagGroups.BIRCH_PLANKS, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.BIRCH_PLANKS.getPath())
             .addRegularItem(Items.BIRCH_PLANKS);
-        builders.computeIfAbsent(RechiseledTagGroups.BLACKSTONE, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.BLACKSTONE.getPath())
             .addRegularItem(Items.BLACKSTONE)
             .addRegularItem(Items.POLISHED_BLACKSTONE_BRICKS)
             .addRegularItem(Items.CRACKED_POLISHED_BLACKSTONE_BRICKS)
             .addRegularItem(Items.CHISELED_POLISHED_BLACKSTONE);
-        builders.computeIfAbsent(RechiseledTagGroups.COBBLESTONE, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.COBBLESTONE.getPath())
             .addRegularItem(Items.COBBLESTONE)
             .addRegularItem(Items.MOSSY_COBBLESTONE);
-        builders.computeIfAbsent(RechiseledTagGroups.CRIMSON_PLANKS, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.CRIMSON_PLANKS.getPath())
             .addRegularItem(Items.CRIMSON_PLANKS);
-        builders.computeIfAbsent(RechiseledTagGroups.DARK_OAK_PLANKS, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.DARK_OAK_PLANKS.getPath())
             .addRegularItem(Items.DARK_OAK_PLANKS);
-        builders.computeIfAbsent(RechiseledTagGroups.DARK_PRISMARINE, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.DARK_PRISMARINE.getPath())
             .addRegularItem(Items.DARK_PRISMARINE);
-        builders.computeIfAbsent(RechiseledTagGroups.DIORITE, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.DIORITE.getPath())
             .addRegularItem(Items.DIORITE);
-        builders.computeIfAbsent(RechiseledTagGroups.DIRT, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.DIRT.getPath())
             .addRegularItem(Items.DIRT);
-        builders.computeIfAbsent(RechiseledTagGroups.END_STONE, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.END_STONE.getPath())
             .addRegularItem(Items.END_STONE)
             .addRegularItem(Items.END_STONE_BRICKS);
-        builders.computeIfAbsent(RechiseledTagGroups.GLOWSTONE, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.GLOWSTONE.getPath())
             .addRegularItem(Items.GLOWSTONE);
-        builders.computeIfAbsent(RechiseledTagGroups.GRANITE, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.GRANITE.getPath())
             .addRegularItem(Items.GRANITE);
-        builders.computeIfAbsent(RechiseledTagGroups.JUNGLE_PLANKS, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.JUNGLE_PLANKS.getPath())
             .addRegularItem(Items.JUNGLE_PLANKS);
-        builders.computeIfAbsent(RechiseledTagGroups.NETHERRACK, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.NETHERRACK.getPath())
             .addRegularItem(Items.NETHERRACK);
-        builders.computeIfAbsent(RechiseledTagGroups.NETHER_BRICKS, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.NETHER_BRICKS.getPath())
             .addRegularItem(Items.NETHER_BRICKS)
             .addRegularItem(Items.CHISELED_NETHER_BRICKS)
             .addRegularItem(Items.CRACKED_NETHER_BRICKS);
-        builders.computeIfAbsent(RechiseledTagGroups.OAK_PLANKS, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.OAK_PLANKS.getPath())
             .addRegularItem(Items.OAK_PLANKS);
-        builders.computeIfAbsent(RechiseledTagGroups.PRISMARINE_BRICKS, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.PRISMARINE_BRICKS.getPath())
             .addRegularItem(Items.PRISMARINE_BRICKS);
-        builders.computeIfAbsent(RechiseledTagGroups.PURPUR_BLOCK, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.PURPUR_BLOCK.getPath())
             .addRegularItem(Items.PURPUR_PILLAR);
-        builders.computeIfAbsent(RechiseledTagGroups.RED_NETHER_BRICKS, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.RED_NETHER_BRICKS.getPath())
             .addRegularItem(Items.RED_NETHER_BRICKS);
-        builders.computeIfAbsent(RechiseledTagGroups.RED_SANDSTONE, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.RED_SANDSTONE.getPath())
             .addRegularItem(Items.RED_SANDSTONE)
             .addRegularItem(Items.CHISELED_RED_SANDSTONE)
             .addRegularItem(Items.CUT_RED_SANDSTONE)
             .addRegularItem(Items.SMOOTH_RED_SANDSTONE);
-        builders.computeIfAbsent(RechiseledTagGroups.SANDSTONE, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.SANDSTONE.getPath())
             .addRegularItem(Items.SANDSTONE)
             .addRegularItem(Items.CHISELED_SANDSTONE)
             .addRegularItem(Items.CUT_SANDSTONE)
             .addRegularItem(Items.SMOOTH_SANDSTONE);
-        builders.computeIfAbsent(RechiseledTagGroups.SPRUCE_PLANKS, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.SPRUCE_PLANKS.getPath())
             .addRegularItem(Items.SPRUCE_PLANKS);
-        builders.computeIfAbsent(RechiseledTagGroups.STONE, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.STONE.getPath())
             .addRegularItem(Items.STONE)
             .addRegularItem(Items.STONE_BRICKS)
             .addRegularItem(Items.MOSSY_STONE_BRICKS)
             .addRegularItem(Items.CRACKED_STONE_BRICKS);
-        builders.computeIfAbsent(RechiseledTagGroups.WARPED_PLANKS, this::beginRecipe)
+        this.beginRecipe(BaseChiselingRecipes.WARPED_PLANKS.getPath())
             .addRegularItem(Items.WARPED_PLANKS);
 
         for(RechiseledBlockType type : RechiseledBlockType.values()){
             for(String tag : type.tags){
-                ChiselingRecipeBuilder builder = builders.computeIfAbsent(tag, this::beginRecipe);
-                builder.add(type.getRegularItem(), type.getConnectingItem());
+                this.beginRecipe(tag).add(type.getRegularItem(), type.getConnectingItem());
             }
         }
     }

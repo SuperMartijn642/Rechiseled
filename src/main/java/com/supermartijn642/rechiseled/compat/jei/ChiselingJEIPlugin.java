@@ -1,6 +1,5 @@
 package com.supermartijn642.rechiseled.compat.jei;
 
-import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.chiseling.ChiselingRecipes;
 import mezz.jei.api.IModPlugin;
@@ -29,7 +28,7 @@ public class ChiselingJEIPlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration){
-        registration.addRecipes(ChiselingRecipes.getAllRecipes(ClientUtils.getWorld().getRecipeManager()), new ResourceLocation("rechiseled", "chiseling"));
+        registration.addRecipes(ChiselingRecipes.getAllRecipes(), new ResourceLocation("rechiseled", "chiseling"));
     }
 
     @Override

@@ -101,7 +101,7 @@ public abstract class BaseChiselingContainer extends BaseContainer {
 
             @Override
             public boolean isItemValid(int slot, @Nonnull ItemStack stack){
-                return slot == 0 && ChiselingRecipes.getRecipe(BaseChiselingContainer.this.player.level.getRecipeManager(), stack) != null;
+                return slot == 0 && ChiselingRecipes.getRecipe(stack) != null;
             }
         }, 0, 154, 102));
         this.addPlayerSlots(31, 144);
@@ -119,7 +119,7 @@ public abstract class BaseChiselingContainer extends BaseContainer {
             this.currentEntry = null;
             this.connecting = false;
         }else{
-            this.currentRecipe = ChiselingRecipes.getRecipe(BaseChiselingContainer.this.player.level.getRecipeManager(), stack);
+            this.currentRecipe = ChiselingRecipes.getRecipe(stack);
             if(this.currentRecipe != null){
                 for(ChiselingEntry entry : this.currentRecipe.getEntries()){
                     if(entry.hasRegularItem() && entry.getRegularItem() == stack.getItem()){
