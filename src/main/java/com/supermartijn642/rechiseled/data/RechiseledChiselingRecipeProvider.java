@@ -3,6 +3,7 @@ package com.supermartijn642.rechiseled.data;
 import com.supermartijn642.rechiseled.RechiseledBlockType;
 import com.supermartijn642.rechiseled.api.BaseChiselingRecipes;
 import com.supermartijn642.rechiseled.api.ChiselingRecipeProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
@@ -93,8 +94,11 @@ public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
             .addRegularItem(Items.WARPED_PLANKS);
 
         for(RechiseledBlockType type : RechiseledBlockType.values()){
-            for(String tag : type.tags){
-                this.beginRecipe(tag).add(type.getRegularItem(), type.getConnectingItem());
+            for(ResourceLocation recipe : type.recipes){
+                if(recipe.getNamespace().equals("rechiseled"))
+                    this.beginRecipe(recipe.getPath()).add(type.getRegularItem(), type.getConnectingItem());
+                else
+                    this.beginRecipe(recipe.getNamespace() + "/" + recipe.getPath()).parent(recipe).add(type.getRegularItem(), type.getConnectingItem());
             }
         }
     }

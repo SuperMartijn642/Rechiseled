@@ -1,5 +1,6 @@
 package com.supermartijn642.rechiseled;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -9,7 +10,7 @@ import java.util.Locale;
 import java.util.function.Supplier;
 
 import static com.supermartijn642.rechiseled.RechiseledBlockType.BlockOption.*;
-import static com.supermartijn642.rechiseled.RechiseledTagGroups.*;
+import static com.supermartijn642.rechiseled.api.BaseChiselingRecipes.*;
 
 /**
  * Created 21/12/2021 by SuperMartijn642
@@ -329,21 +330,21 @@ public enum RechiseledBlockType {
     public final Supplier<Block> parentBlock;
     public final BlockOption regularBlockMode;
     public final BlockOption connectingBlockMode;
-    public final String[] tags;
+    public final ResourceLocation[] recipes;
 
     private Block regularBlock;
     private Block connectingBlock;
     private BlockItem regularItem;
     private BlockItem connectingItem;
 
-    RechiseledBlockType(String englishTranslation, Supplier<Block> parentBlock, BlockOption regularBlockMode, BlockOption connectingBlockMode, String... tags){
+    RechiseledBlockType(String englishTranslation, Supplier<Block> parentBlock, BlockOption regularBlockMode, BlockOption connectingBlockMode, ResourceLocation... recipes){
         this.regularRegistryName = this.name().toLowerCase(Locale.ROOT);
         this.connectingRegistryName = this.name().toLowerCase(Locale.ROOT) + "_connecting";
         this.englishTranslation = englishTranslation;
         this.parentBlock = parentBlock;
         this.regularBlockMode = regularBlockMode;
         this.connectingBlockMode = connectingBlockMode;
-        this.tags = tags;
+        this.recipes = recipes;
     }
 
     public void createBlocks(){
