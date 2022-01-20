@@ -75,6 +75,9 @@ repositories {
     maven {
         url "https://www.cursemaven.com"
     }
+    maven {
+        url = "https://repo.spongepowered.org/maven"
+    }
 }
 
 dependencies {
@@ -87,4 +90,20 @@ dependencies {
 
     // Just Enough Items
     implementation fg.deobf('curse.maven:jei-238222:3039707')
+
+    // SpongePowered Mixin
+    compile('org.spongepowered:mixin:0.8.3-SNAPSHOT') {
+        exclude module: 'guava'
+        exclude module: 'commons-io'
+        exclude module: 'gson'
+    }
+}
+
+mixin {
+    // MixinGradle Settings
+    add sourceSets.main, 'mixins.rechiseled.refmap.json'
+    config 'mixins.rechiseled.json'
+
+    debug.verbose = true
+    debug.export = true
 }
