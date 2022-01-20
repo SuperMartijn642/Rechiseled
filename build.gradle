@@ -87,8 +87,16 @@ dependencies {
 
     // Just Enough Items
     implementation fg.deobf('curse.maven:jei-238222:3272032')
+
+    // SpongePowered Mixin
+    annotationProcessor 'org.spongepowered:mixin:0.8.4:processor'
 }
 
 mixin {
-    disableAnnotationProcessorCheck()
+    // MixinGradle Settings
+    add sourceSets.main, 'mixins.rechiseled.refmap.json'
+    config 'mixins.rechiseled.json'
+
+    debug.verbose = true
+    debug.export = true
 }

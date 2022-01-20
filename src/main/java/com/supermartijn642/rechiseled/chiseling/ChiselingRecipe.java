@@ -4,20 +4,13 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.JSONUtils;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 
-import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -25,20 +18,24 @@ import java.util.List;
 /**
  * Created 24/12/2021 by SuperMartijn642
  */
-public class ChiselingRecipe implements IRecipe<IInventory> {
-
-    public static final Serializer SERIALIZER = new Serializer();
+public class ChiselingRecipe {
 
     private final ResourceLocation recipeId;
+    final ResourceLocation parentRecipeId;
     private final List<ChiselingEntry> entries;
 
-    public ChiselingRecipe(ResourceLocation recipeId, List<ChiselingEntry> entries){
+    private ChiselingRecipe(ResourceLocation recipeId, ResourceLocation parentRecipeId, List<ChiselingEntry> entries){
         this.recipeId = recipeId;
-        this.entries = Collections.unmodifiableList(entries);
+        this.parentRecipeId = parentRecipeId;
+        this.entries = new ArrayList<>(entries);
     }
 
     public List<ChiselingEntry> getEntries(){
-        return this.entries;
+        return Collections.unmodifiableList(this.entries);
+    }
+
+    void addEntries(List<ChiselingEntry> entries){
+        this.entries.addAll(entries);
     }
 
     public boolean contains(ItemStack stack){
@@ -50,46 +47,18 @@ public class ChiselingRecipe implements IRecipe<IInventory> {
         return false;
     }
 
-    @Override
-    public boolean matches(IInventory inventory, World world){
-        return false;
-    }
-
-    @Override
-    public ItemStack assemble(IInventory inventory){
-        return ItemStack.EMPTY;
-    }
-
-    @Override
-    public boolean canCraftInDimensions(int width, int height){
-        return false;
-    }
-
-    @Override
-    public ItemStack getResultItem(){
-        return ItemStack.EMPTY;
-    }
-
-    @Override
-    public ResourceLocation getId(){
+    public ResourceLocation getRecipeId(){
         return this.recipeId;
     }
 
-    @Override
-    public IRecipeSerializer<?> getSerializer(){
-        return SERIALIZER;
-    }
+    public static class Serializer {
 
-    @Override
-    public IRecipeType<?> getType(){
-        return ChiselingRecipes.CHISELING;
-    }
-
-    public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<ChiselingRecipe> {
-
-        @Override
-        public ChiselingRecipe fromJson(ResourceLocation resourceLocation, JsonObject json){
+        public static ChiselingRecipe fromJson(ResourceLocation resourceLocation, JsonObject json){
             List<ChiselingEntry> chiselingEntries = new ArrayList<>();
+
+            // read parent id
+            String parentRecipeString = JSONUtils.getAsString(json, "parent", null);
+            ResourceLocation parentRecipe = parentRecipeString == null ? null : new ResourceLocation(parentRecipeString);
 
             // read entries
             if(!JSONUtils.isArrayNode(json, "entries"))
@@ -129,13 +98,13 @@ public class ChiselingRecipe implements IRecipe<IInventory> {
                 chiselingEntries.add(new ChiselingEntry(regularItem, connectingItem));
             }
 
-            return new ChiselingRecipe(resourceLocation, chiselingEntries);
+            return new ChiselingRecipe(resourceLocation, parentRecipe, chiselingEntries);
         }
 
-        @Nullable
-        @Override
-        public ChiselingRecipe fromNetwork(ResourceLocation resourceLocation, PacketBuffer buffer){
+        public static ChiselingRecipe fromNetwork(PacketBuffer buffer){
             List<ChiselingEntry> chiselingEntries = new ArrayList<>();
+
+            ResourceLocation recipeId = buffer.readResourceLocation();
 
             int entries = buffer.readInt();
             for(int i = 0; i < entries; i++)
@@ -146,11 +115,11 @@ public class ChiselingRecipe implements IRecipe<IInventory> {
                     )
                 );
 
-            return new ChiselingRecipe(resourceLocation, chiselingEntries);
+            return new ChiselingRecipe(recipeId, null, chiselingEntries);
         }
 
-        @Override
-        public void toNetwork(PacketBuffer buffer, ChiselingRecipe recipe){
+        public static void toNetwork(PacketBuffer buffer, ChiselingRecipe recipe){
+            buffer.writeResourceLocation(recipe.recipeId);
             buffer.writeInt(recipe.entries.size());
             for(ChiselingEntry entry : recipe.entries){
                 buffer.writeBoolean(entry.getRegularItem() != null);
