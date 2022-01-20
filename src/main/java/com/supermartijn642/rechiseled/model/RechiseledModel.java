@@ -50,7 +50,7 @@ public class RechiseledModel implements IModelGeometry<RechiseledModel> {
                 BlockPartFace face = part.faces.get(direction);
 
                 TextureAtlasSprite sprite = spriteGetter.apply(this.getTexture(face.texture, bakery::getModel));
-                boolean connecting = ((RechiseledBlockPartFace)face).connecting;
+                boolean connecting = face instanceof RechiseledBlockPartFace && ((RechiseledBlockPartFace)face).connecting;
                 BakedQuad quad = BlockModel.makeBakedQuad(part, face, sprite, direction, iSprite);
                 Direction cullFace = iSprite.getState().apply(java.util.Optional.empty()).map(transform -> transform.rotateTransform(face.cullForDirection)).orElse(face.cullForDirection);
 
