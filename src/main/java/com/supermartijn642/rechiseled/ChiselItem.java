@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
 public class ChiselItem extends Item {
 
     public ChiselItem(){
-        super(new Properties().tab(Rechiseled.GROUP).durability(512));
+        super(new Properties().tab(Rechiseled.GROUP));
     }
 
     @Override
