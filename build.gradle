@@ -92,7 +92,7 @@ dependencies {
     implementation fg.deobf('curse.maven:jei-238222:3039707')
 
     // SpongePowered Mixin
-    compile('org.spongepowered:mixin:0.8.3-SNAPSHOT') {
+    compile('org.spongepowered:mixin:0.8.3-SNAPSHOT:processor') {
         exclude module: 'guava'
         exclude module: 'commons-io'
         exclude module: 'gson'
