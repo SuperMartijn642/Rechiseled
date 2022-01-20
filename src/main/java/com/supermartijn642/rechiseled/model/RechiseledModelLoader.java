@@ -41,13 +41,10 @@ public class RechiseledModelLoader implements ICustomModelLoader {
         GSON = serializer;
 
         ICustomModelLoader modelLoader = null;
-        System.out.println("CLASSESSS:");
         loop:
         for(Class<?> declaredClass : ModelLoader.class.getDeclaredClasses()){
-            System.out.println("declared class: " + declaredClass.getSimpleName());
             if(declaredClass.getSimpleName().equals("VanillaLoader")){
                 for(Object object : declaredClass.getEnumConstants()){
-                    System.out.println("object: " + object);
                     if(((Enum<?>)object).name().equals("INSTANCE")){
                         modelLoader = (ICustomModelLoader)object;
                         break loop;

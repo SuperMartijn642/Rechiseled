@@ -24,7 +24,7 @@ println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getPro
 minecraft {
     mappings channel: 'snapshot', version: '20171003-1.12'
 
-//     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     runs {
         client {
@@ -59,6 +59,9 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 repositories {
     maven {
         url "https://www.cursemaven.com"
+    }
+    maven {
+        url = "https://repo.spongepowered.org/maven"
     }
 }
 

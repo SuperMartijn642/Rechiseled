@@ -4,16 +4,11 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.JsonUtils;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
-import net.minecraftforge.common.crafting.JsonContext;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,18 +17,24 @@ import java.util.List;
 /**
  * Created 24/12/2021 by SuperMartijn642
  */
-public class ChiselingRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
+public class ChiselingRecipe {
 
-    public static final Serializer SERIALIZER = new Serializer();
-
+    private final ResourceLocation recipeId;
+    final ResourceLocation parentRecipeId;
     private final List<ChiselingEntry> entries;
 
-    public ChiselingRecipe(List<ChiselingEntry> entries){
-        this.entries = Collections.unmodifiableList(entries);
+    private ChiselingRecipe(ResourceLocation recipeId, ResourceLocation parentRecipeId, List<ChiselingEntry> entries){
+        this.recipeId = recipeId;
+        this.parentRecipeId = parentRecipeId;
+        this.entries = new ArrayList<>(entries);
     }
 
     public List<ChiselingEntry> getEntries(){
-        return this.entries;
+        return Collections.unmodifiableList(this.entries);
+    }
+
+    void addEntries(List<ChiselingEntry> entries){
+        this.entries.addAll(entries);
     }
 
     public boolean contains(ItemStack stack){
@@ -45,30 +46,18 @@ public class ChiselingRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
         return false;
     }
 
-    @Override
-    public boolean matches(InventoryCrafting inventory, World world){
-        return false;
-    }
-
-    @Override
-    public ItemStack getCraftingResult(InventoryCrafting inv){
-        return ItemStack.EMPTY;
-    }
-
-    @Override
-    public boolean canFit(int width, int height){
-        return false;
-    }
-
-    @Override
-    public ItemStack getRecipeOutput(){
-        return ItemStack.EMPTY;
+    public ResourceLocation getRecipeId(){
+        return this.recipeId;
     }
 
     public static class Serializer {
 
-        public ChiselingRecipe fromJson(JsonContext context, JsonObject json){
+        public static ChiselingRecipe fromJson(ResourceLocation resourceLocation, JsonObject json){
             List<ChiselingEntry> chiselingEntries = new ArrayList<>();
+
+            // read parent id
+            String parentRecipeString = JsonUtils.getString(json, "parent", null);
+            ResourceLocation parentRecipe = parentRecipeString == null ? null : new ResourceLocation(parentRecipeString);
 
             // read entries
             if(!JsonUtils.isJsonArray(json, "entries"))
@@ -118,7 +107,7 @@ public class ChiselingRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
                 chiselingEntries.add(new ChiselingEntry(regularItem, regularItemData, connectingItem, connectingItemData));
             }
 
-            return new ChiselingRecipe(chiselingEntries);
+            return new ChiselingRecipe(resourceLocation, parentRecipe, chiselingEntries);
         }
     }
 }

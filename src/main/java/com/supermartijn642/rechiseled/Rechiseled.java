@@ -1,7 +1,6 @@
 package com.supermartijn642.rechiseled;
 
 import com.supermartijn642.core.network.PacketChannel;
-import com.supermartijn642.rechiseled.chiseling.ChiselingRecipes;
 import com.supermartijn642.rechiseled.packet.PacketChiselAll;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
 import com.supermartijn642.rechiseled.packet.PacketToggleConnecting;
@@ -69,7 +68,6 @@ public class Rechiseled {
     @Mod.EventHandler
     public void init(FMLInitializationEvent e){
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new RechiseledGuiHandler());
-        ChiselingRecipes.collectRecipes();
     }
 
     @Mod.EventBusSubscriber
