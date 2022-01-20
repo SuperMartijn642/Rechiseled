@@ -34,7 +34,7 @@ public class ChiselingRecipeLoader extends JsonReloadListener {
             Rechiseled.CHANNEL.sendToPlayer(player, new PacketChiselingRecipes(ChiselingRecipes.getAllRecipes()));
     }
 
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private static final Gson GSON = new GsonBuilder().setLenient().create();
 
     public ChiselingRecipeLoader(){
         super(GSON, "chiseling_recipes");
