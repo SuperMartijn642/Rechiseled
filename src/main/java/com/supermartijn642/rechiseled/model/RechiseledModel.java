@@ -57,7 +57,7 @@ public class RechiseledModel implements IModelGeometry<RechiseledModel> {
                 BlockElementFace face = part.faces.get(direction);
 
                 TextureAtlasSprite sprite = spriteGetter.apply(owner.resolveTexture(face.texture));
-                boolean connecting = ((RechiseledBlockPartFace)face).connecting;
+                boolean connecting = face instanceof RechiseledBlockPartFace && ((RechiseledBlockPartFace)face).connecting;
                 BakedQuad quad = BlockModel.makeBakedQuad(part, face, sprite, direction, modelTransform, modelLocation);
                 Direction cullFace = face.cullForDirection == null ? null : Direction.rotate(modelTransform.getRotation().getMatrix(), face.cullForDirection);
 
