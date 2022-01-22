@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 /**
  * Created 2/3/2021 by SuperMartijn642
  */
-public class BlockButtonWidget extends Widget {
+public class EntryButtonWidget extends Widget {
 
     private static final ResourceLocation TEXTURE = new ResourceLocation("rechiseled", "textures/screen/buttons.png");
 
@@ -25,7 +25,7 @@ public class BlockButtonWidget extends Widget {
     private final Supplier<Boolean> connecting;
     private final Supplier<Integer> guiLeft, guiTop;
 
-    public BlockButtonWidget(int x, int y, int width, int height,
+    public EntryButtonWidget(int x, int y, int width, int height,
                              Supplier<ChiselingEntry> entrySupplier,
                              Supplier<ChiselingEntry> selectedEntrySupplier,
                              Runnable onClick,
@@ -66,7 +66,8 @@ public class BlockButtonWidget extends Widget {
             if(item instanceof BlockItem){
                 BlockCapture capture = new BlockCapture(((BlockItem)item).getBlock());
                 ScreenBlockRenderer.drawBlock(capture, this.guiLeft.get() + this.x + this.width / 2d, this.guiTop.get() + this.y + this.height / 2d, this.width, 135, 40, true);
-            }
+            }else
+                ScreenItemRender.drawItem(item, this.guiLeft.get() + this.x + this.width / 2d, this.guiTop.get() + this.y + this.height / 2d, (this.width - 4) * 1.416, 0, 0, false);
         }
     }
 
