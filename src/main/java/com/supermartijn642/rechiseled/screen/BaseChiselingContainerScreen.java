@@ -9,13 +9,14 @@ import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
 import com.supermartijn642.rechiseled.packet.PacketChiselAll;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
 import com.supermartijn642.rechiseled.packet.PacketToggleConnecting;
-import net.minecraft.block.Block;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
+
+import java.util.function.Supplier;
 
 /**
  * Created 23/12/2021 by SuperMartijn642
@@ -55,7 +56,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
                 int index = row * 5 + column;
                 int x = 9 + 20 * column;
                 int y = 17 + 22 * row;
-                this.addWidget(new BlockButtonWidget(x, y, 20, 22,
+                this.addWidget(new EntryButtonWidget(x, y, 20, 22,
                     () -> this.getEntry(index),
                     () -> this.container.currentEntry,
                     () -> this.selectEntry(index),
@@ -63,18 +64,22 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
             }
         }
 
-        this.addWidget(new BlockPreviewWidget(117, 17, 68, 69, () -> {
+        this.addWidget(new EntryPreviewWidget(117, 17, 68, 69, () -> {
             ChiselingEntry entry = this.container.currentEntry;
             if(entry == null)
                 return null;
-            Item item = (this.container.connecting && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
-            int data = (this.container.connecting && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItemData() : entry.getRegularItemData();
-            Block block = item instanceof ItemBlock ? ((ItemBlock)item).getBlock() : null;
-            return block == null ? null : item.getHasSubtypes() ? block.getStateFromMeta(data) : block.getDefaultState();
+            return (this.container.connecting && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItemStack() : entry.getRegularItemStack();
         }, () -> previewMode));
-        this.addWidget(new PreviewModeButtonWidget(193, 18, 19, 21, 2, () -> previewMode, () -> previewMode = 2));
-        this.addWidget(new PreviewModeButtonWidget(193, 41, 19, 21, 1, () -> previewMode, () -> previewMode = 1));
-        this.addWidget(new PreviewModeButtonWidget(193, 64, 19, 21, 0, () -> previewMode, () -> previewMode = 0));
+        Supplier<Boolean> enablePreviewButtons = () -> {
+            ChiselingEntry entry = this.container.currentEntry;
+            if(entry == null)
+                return false;
+            Item currentItem = (this.container.connecting && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
+            return currentItem instanceof ItemBlock;
+        };
+        this.addWidget(new PreviewModeButtonWidget(193, 18, 19, 21, 2, () -> previewMode, enablePreviewButtons, () -> previewMode = 2));
+        this.addWidget(new PreviewModeButtonWidget(193, 41, 19, 21, 1, () -> previewMode, enablePreviewButtons, () -> previewMode = 1));
+        this.addWidget(new PreviewModeButtonWidget(193, 64, 19, 21, 0, () -> previewMode, enablePreviewButtons, () -> previewMode = 0));
         this.addWidget(new ConnectingToggleWidget(193, 99, 19, 21, () -> this.container.connecting, () -> this.container.currentEntry, this::toggleConnecting));
         this.chiselAllWidget = this.addWidget(new ChiselAllWidget(127, 99, 19, 21, () -> this.container.currentEntry, this::chiselAll));
     }
