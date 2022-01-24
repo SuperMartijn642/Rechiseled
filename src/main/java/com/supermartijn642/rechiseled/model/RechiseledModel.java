@@ -49,8 +49,8 @@ public class RechiseledModel implements IModelGeometry<RechiseledModel> {
     public BakedModel bake(IModelConfiguration owner, ModelBakery bakery, Function<Material,TextureAtlasSprite> spriteGetter, ModelState modelTransform, ItemOverrides overrides, ResourceLocation modelLocation){
         Function<ResourceLocation,UnbakedModel> modelGetter = bakery::getModel;
 
-        TextureAtlasSprite particle = spriteGetter.apply(owner.resolveTexture("particle"));
-        List<BlockElement> elements = this.getElements(bakery::getModel);
+        TextureAtlasSprite particle = spriteGetter.apply(this.getTexture("particle", modelGetter).getFirst());
+        List<BlockElement> elements = this.getElements(modelGetter);
         ItemTransforms transforms = this.getTransforms(modelGetter);
 
         Map<Direction,List<Tuple<BakedQuad,Boolean>>> quads = Maps.newEnumMap(Direction.class);
@@ -78,6 +78,10 @@ public class RechiseledModel implements IModelGeometry<RechiseledModel> {
     @Override
     public Collection<Material> getTextures(IModelConfiguration owner, Function<ResourceLocation,UnbakedModel> modelGetter, Set<Pair<String,String>> missingTextureErrors){
         Set<Material> textures = Sets.newHashSet();
+
+        Material particles = this.getTexture("particle", modelGetter).getFirst();
+        if(Objects.equals(particles.texture(), MissingTextureAtlasSprite.getLocation()))
+            missingTextureErrors.add(Pair.of("particle", owner.getModelName()));
 
         for(BlockElement part : this.getElements(modelGetter)){
             for(BlockElementFace face : part.faces.values()){
