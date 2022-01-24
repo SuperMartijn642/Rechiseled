@@ -1,4 +1,4 @@
-package com.supermartijn642.rechiseled.model.serialization;
+package com.supermartijn642.rechiseled.model;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -8,7 +8,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.mojang.datafixers.util.Either;
 import com.mojang.datafixers.util.Pair;
-import com.supermartijn642.rechiseled.model.RechiseledModel;
 import net.minecraft.client.renderer.model.*;
 import net.minecraft.client.renderer.texture.AtlasTexture;
 import net.minecraft.util.JSONUtils;
