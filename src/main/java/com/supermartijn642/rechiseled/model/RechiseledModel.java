@@ -1,11 +1,14 @@
 package com.supermartijn642.rechiseled.model;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.mojang.datafixers.util.Either;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.client.renderer.block.model.*;
 import net.minecraft.client.renderer.texture.MissingTextureAtlasSprite;
+import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.*;
 import net.minecraft.core.Direction;
@@ -25,13 +28,13 @@ public class RechiseledModel implements IModelGeometry<RechiseledModel> {
     private final boolean shouldConnect;
     private final ResourceLocation parent;
     private final List<BlockElement> elements;
-    private final Map<String,Either<Material,String>> textureMap;
+    private final Map<String,Either<Pair<Material,Boolean>,String>> textureMap;
     private final boolean ambientOcclusion;
     private final BlockModel.GuiLight guiLight;
     private final ItemTransforms cameraTransforms;
     private final List<ItemOverride> itemOverrides;
 
-    public RechiseledModel(boolean shouldConnect, ResourceLocation parent, List<BlockElement> elements, Map<String,Either<Material,String>> textureMap, boolean ambientOcclusion, BlockModel.GuiLight guiLight, ItemTransforms cameraTransforms, List<ItemOverride> itemOverrides){
+    public RechiseledModel(boolean shouldConnect, ResourceLocation parent, List<BlockElement> elements, Map<String,Either<Pair<Material,Boolean>,String>> textureMap, boolean ambientOcclusion, BlockModel.GuiLight guiLight, ItemTransforms cameraTransforms, List<ItemOverride> itemOverrides){
         this.shouldConnect = shouldConnect;
         this.parent = parent;
         this.elements = elements;
@@ -56,8 +59,9 @@ public class RechiseledModel implements IModelGeometry<RechiseledModel> {
             for(Direction direction : part.faces.keySet()){
                 BlockElementFace face = part.faces.get(direction);
 
-                TextureAtlasSprite sprite = spriteGetter.apply(owner.resolveTexture(face.texture));
-                boolean connecting = face instanceof RechiseledBlockPartFace && ((RechiseledBlockPartFace)face).connecting;
+                Pair<Material,Boolean> texture = this.getTexture(face.texture, modelGetter);
+                TextureAtlasSprite sprite = spriteGetter.apply(texture.getFirst());
+                boolean connecting = texture.getSecond();
                 BakedQuad quad = BlockModel.makeBakedQuad(part, face, sprite, direction, modelTransform, modelLocation);
                 Direction cullFace = face.cullForDirection == null ? null : Direction.rotate(modelTransform.getRotation().getMatrix(), face.cullForDirection);
 
@@ -77,8 +81,8 @@ public class RechiseledModel implements IModelGeometry<RechiseledModel> {
 
         for(BlockElement part : this.getElements(modelGetter)){
             for(BlockElementFace face : part.faces.values()){
-                Material texture = owner.resolveTexture(face.texture);
-                if(Objects.equals(texture, MissingTextureAtlasSprite.getLocation().toString()))
+                Material texture = this.getTexture(face.texture, modelGetter).getFirst();
+                if(Objects.equals(texture.texture(), MissingTextureAtlasSprite.getLocation()))
                     missingTextureErrors.add(Pair.of(face.texture, owner.getModelName()));
 
                 textures.add(texture);
@@ -88,16 +92,56 @@ public class RechiseledModel implements IModelGeometry<RechiseledModel> {
         return textures;
     }
 
+    private Pair<Material,Boolean> getTexture(String texture, Function<ResourceLocation,UnbakedModel> modelGetter){
+        if(texture.charAt(0) == '#')
+            texture = texture.substring(1);
+
+        List<String> list = Lists.newArrayList();
+
+        while(true){
+            Either<Pair<Material,Boolean>,String> either = this.findTextureEntry(texture, modelGetter);
+            Optional<Pair<Material,Boolean>> optional = either.left();
+            if(optional.isPresent())
+                return optional.get();
+
+            texture = either.right().get();
+            if(list.contains(texture)){
+                System.err.printf("Unable to resolve texture due to reference chain %s->%s%n", Joiner.on("->").join(list), texture);
+                return Pair.of(new Material(TextureAtlas.LOCATION_BLOCKS, MissingTextureAtlasSprite.getLocation()), false);
+            }
+
+            list.add(texture);
+        }
+    }
+
+    private Either<Pair<Material,Boolean>,String> findTextureEntry(String texture, Function<ResourceLocation,UnbakedModel> modelGetter){
+        if(this.textureMap.containsKey(texture))
+            return this.textureMap.get(texture);
+
+        UnbakedModel parent = this.parent == null ? null : modelGetter.apply(this.parent);
+        if(parent instanceof BlockModel){
+            if(((BlockModel)parent).customData.hasCustomGeometry() && ((BlockModel)parent).customData.getCustomGeometry() instanceof RechiseledModel)
+                return ((RechiseledModel)((BlockModel)parent).customData.getCustomGeometry()).findTextureEntry(texture, modelGetter);
+            else{
+                for(BlockModel blockmodel = (BlockModel)parent; blockmodel != null; blockmodel = blockmodel.parent){
+                    Either<Material,String> either = blockmodel.textureMap.get(texture);
+                    if(either != null)
+                        return either.mapLeft(material -> Pair.of(material, false));
+                }
+            }
+        }
+
+        return Either.left(Pair.of(new Material(TextureAtlas.LOCATION_BLOCKS, MissingTextureAtlasSprite.getLocation()), false));
+    }
+
     private List<BlockElement> getElements(Function<ResourceLocation,UnbakedModel> modelGetter){
         List<BlockElement> elements = this.elements;
         if(this.elements.isEmpty()){
             UnbakedModel parent = this.parent == null ? null : modelGetter.apply(this.parent);
             if(parent instanceof BlockModel){
-                if(((BlockModel)parent).customData.hasCustomGeometry()){
-                    IModelGeometry<?> geometry = ((BlockModel)parent).customData.getCustomGeometry();
-                    if(geometry instanceof RechiseledModel)
-                        elements = ((RechiseledModel)geometry).getElements(modelGetter);
-                }else
+                if(((BlockModel)parent).customData.hasCustomGeometry() && ((BlockModel)parent).customData.getCustomGeometry() instanceof RechiseledModel)
+                    elements = ((RechiseledModel)((BlockModel)parent).customData.getCustomGeometry()).getElements(modelGetter);
+                else
                     elements = ((BlockModel)parent).getElements();
             }
         }
@@ -123,10 +167,8 @@ public class RechiseledModel implements IModelGeometry<RechiseledModel> {
 
         UnbakedModel parent = this.parent == null ? null : modelGetter.apply(this.parent);
         if(parent instanceof BlockModel){
-            if(((BlockModel)parent).customData.hasCustomGeometry()){
-                IModelGeometry<?> geometry = ((BlockModel)parent).customData.getCustomGeometry();
-                if(geometry instanceof RechiseledModel)
-                    return ((RechiseledModel)geometry).getTransform(transformType, modelGetter);
+            if(((BlockModel)parent).customData.hasCustomGeometry() && ((BlockModel)parent).customData.getCustomGeometry() instanceof RechiseledModel){
+                return ((RechiseledModel)((BlockModel)parent).customData.getCustomGeometry()).getTransform(transformType, modelGetter);
             }else
                 return ((BlockModel)parent).getTransforms().getTransform(transformType);
         }

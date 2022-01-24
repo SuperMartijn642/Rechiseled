@@ -2,7 +2,6 @@ package com.supermartijn642.rechiseled.model;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
-import com.supermartijn642.rechiseled.model.serialization.RechiseledModelDeserializer;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraftforge.client.model.IModelLoader;
 
