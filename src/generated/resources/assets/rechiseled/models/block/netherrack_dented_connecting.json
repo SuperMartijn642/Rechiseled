@@ -1,8 +1,11 @@
 {
-  "parent": "rechiseled:block/connecting_cube_all",
-  "textures": {
-    "all": "rechiseled:block/netherrack_dented"
-  },
+  "parent": "block/cube_all",
   "loader": "rechiseled:connecting_model",
-  "should_connect": true
+  "should_connect": true,
+  "model_textures": {
+    "all": {
+      "location": "rechiseled:block/netherrack_dented",
+      "connecting": true
+    }
+  }
 }

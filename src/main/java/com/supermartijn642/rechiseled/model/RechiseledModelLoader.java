@@ -3,7 +3,6 @@ package com.supermartijn642.rechiseled.model;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
-import com.supermartijn642.rechiseled.model.serialization.RechiseledModelDeserializer;
 import net.minecraft.client.renderer.block.model.ModelBlock;
 import net.minecraft.client.resources.IResource;
 import net.minecraft.client.resources.IResourceManager;
@@ -82,7 +81,7 @@ public class RechiseledModelLoader implements ICustomModelLoader {
             if(JsonUtils.getString(json, "loader", "").equals("rechiseled:connecting_model"))
                 model = RechiseledModelDeserializer.deserialize(file, json, GSON);
             else // Load vanilla model
-                model = vanillaModelLoader.loadModel(new ResourceLocation(file.getResourceDomain(), file.getResourcePath().substring(0,file.getResourcePath().length() - ".json".length())));
+                model = vanillaModelLoader.loadModel(new ResourceLocation(file.getResourceDomain(), file.getResourcePath().substring(0, file.getResourcePath().length() - ".json".length())));
         }finally{
             IOUtils.closeQuietly(resource);
         }

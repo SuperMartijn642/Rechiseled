@@ -1,8 +1,11 @@
 {
-  "parent": "rechiseled:block/connecting_cube_all",
-  "textures": {
-    "all": "rechiseled:block/end_stone_paving"
-  },
+  "parent": "block/cube_all",
   "loader": "rechiseled:connecting_model",
-  "should_connect": true
+  "should_connect": true,
+  "model_textures": {
+    "all": {
+      "location": "rechiseled:block/end_stone_paving",
+      "connecting": true
+    }
+  }
 }
