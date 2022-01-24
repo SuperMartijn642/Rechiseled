@@ -1,7 +1,10 @@
 {
-  "parent": "rechiseled:block/connecting_cube_all",
-  "textures": {
-    "all": "rechiseled:block/purpur_spiral_pattern"
-  },
-  "loader": "rechiseled:connecting_model"
+  "parent": "minecraft:block/cube_all",
+  "loader": "rechiseled:connecting_model",
+  "model_textures": {
+    "all": {
+      "location": "rechiseled:block/purpur_spiral_pattern",
+      "connecting": true
+    }
+  }
 }

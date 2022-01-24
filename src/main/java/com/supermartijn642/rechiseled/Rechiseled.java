@@ -101,7 +101,8 @@ public class Rechiseled {
 
         @SubscribeEvent
         public static void onGatherData(GatherDataEvent e){
-            e.getGenerator().addProvider(new RechiseledBlockModelProvider(e));
+            e.getGenerator().addProvider(new RechiseledTextureProvider(e));
+            e.getGenerator().addProvider(new RechiseledConnectingBlockModelProvider(e));
             e.getGenerator().addProvider(new RechiseledItemModelProvider(e));
             e.getGenerator().addProvider(new RechiseledBlockStateProvider(e));
             e.getGenerator().addProvider(new RechiseledLanguageProvider(e));
