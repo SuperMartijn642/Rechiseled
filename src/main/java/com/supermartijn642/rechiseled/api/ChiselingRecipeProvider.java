@@ -42,7 +42,7 @@ public abstract class ChiselingRecipeProvider implements IDataProvider {
 
     @Override
     public String getName(){
-        return "Chiseling Recipes";
+        return "Chiseling Recipes: " + this.modid;
     }
 
     @Override
@@ -141,7 +141,7 @@ public abstract class ChiselingRecipeProvider implements IDataProvider {
         return this.recipes.computeIfAbsent(recipeName, s -> new ChiselingRecipeBuilder());
     }
 
-    protected static class ChiselingRecipeBuilder {
+    protected class ChiselingRecipeBuilder {
 
         private final List<Triple<Item,Item,Boolean>> entries = new LinkedList<>();
         private ResourceLocation parent;

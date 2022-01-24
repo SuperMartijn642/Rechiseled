@@ -1,7 +1,10 @@
 {
-  "parent": "rechiseled:block/connecting_cube_all",
-  "textures": {
-    "all": "rechiseled:block/prismarine_bricks_rows"
-  },
-  "loader": "rechiseled:connecting_model"
+  "parent": "block/cube_all",
+  "loader": "rechiseled:connecting_model",
+  "model_textures": {
+    "all": {
+      "location": "rechiseled:block/prismarine_bricks_rows",
+      "connecting": true
+    }
+  }
 }
