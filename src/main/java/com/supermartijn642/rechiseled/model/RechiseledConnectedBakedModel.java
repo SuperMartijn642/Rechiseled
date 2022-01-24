@@ -121,37 +121,37 @@ public class RechiseledConnectedBakedModel extends RechiseledBakedModel {
                             uv = new int[]{2, 2};
                         else{
                             if(!blocks.up_left && blocks.up_right && blocks.down_left && blocks.down_right)
-                                uv = new int[]{7, 7};
+                                uv = new int[]{7, 5};
                             else if(blocks.up_left && !blocks.up_right && blocks.down_left && blocks.down_right)
-                                uv = new int[]{6, 7};
+                                uv = new int[]{6, 5};
                             else if(blocks.up_left && blocks.up_right && !blocks.down_left && blocks.down_right)
-                                uv = new int[]{7, 6};
+                                uv = new int[]{7, 4};
                             else if(blocks.up_left && blocks.up_right && blocks.down_left && !blocks.down_right)
-                                uv = new int[]{6, 6};
+                                uv = new int[]{6, 4};
                             else{
                                 if(!blocks.up_left && blocks.up_right && !blocks.down_right && blocks.down_left)
                                     uv = new int[]{0, 4};
                                 else if(blocks.up_left && !blocks.up_right && blocks.down_right && !blocks.down_left)
                                     uv = new int[]{0, 5};
                                 else if(!blocks.up_left && !blocks.up_right && blocks.down_right && blocks.down_left)
-                                    uv = new int[]{3, 6};
+                                    uv = new int[]{3, 4};
                                 else if(blocks.up_left && !blocks.up_right && !blocks.down_right && blocks.down_left)
-                                    uv = new int[]{3, 7};
+                                    uv = new int[]{3, 5};
                                 else if(blocks.up_left && blocks.up_right && !blocks.down_right && !blocks.down_left)
-                                    uv = new int[]{2, 7};
+                                    uv = new int[]{2, 5};
                                 else if(!blocks.up_left && blocks.up_right && blocks.down_right && !blocks.down_left)
-                                    uv = new int[]{2, 6};
+                                    uv = new int[]{2, 4};
                                 else{
                                     if(blocks.up_left)
-                                        uv = new int[]{5, 7};
+                                        uv = new int[]{5, 5};
                                     else if(blocks.up_right)
-                                        uv = new int[]{4, 7};
+                                        uv = new int[]{4, 5};
                                     else if(blocks.down_right)
-                                        uv = new int[]{4, 6};
+                                        uv = new int[]{4, 4};
                                     else if(blocks.down_left)
-                                        uv = new int[]{5, 6};
+                                        uv = new int[]{5, 4};
                                     else
-                                        uv = new int[]{0, 6};
+                                        uv = new int[]{1, 4};
                                 }
                             }
                         }
