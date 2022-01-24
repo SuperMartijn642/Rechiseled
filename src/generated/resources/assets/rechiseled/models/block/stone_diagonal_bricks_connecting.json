@@ -1,8 +1,11 @@
 {
-  "parent": "rechiseled:block/connecting_cube_all",
-  "textures": {
-    "all": "rechiseled:block/stone_diagonal_bricks"
-  },
+  "parent": "block/cube_all",
   "loader": "rechiseled:connecting_model",
-  "should_connect": true
+  "should_connect": true,
+  "model_textures": {
+    "all": {
+      "location": "rechiseled:block/stone_diagonal_bricks",
+      "connecting": true
+    }
+  }
 }

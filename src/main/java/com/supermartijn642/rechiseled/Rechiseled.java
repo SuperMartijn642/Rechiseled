@@ -14,6 +14,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.util.NonNullList;
+import net.minecraftforge.client.model.generators.ExistingFileHelper;
 import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -101,9 +102,11 @@ public class Rechiseled {
 
         @SubscribeEvent
         public static void onGatherData(GatherDataEvent e){
-            e.getGenerator().addProvider(new RechiseledBlockModelProvider(e));
-            e.getGenerator().addProvider(new RechiseledItemModelProvider(e));
-            e.getGenerator().addProvider(new RechiseledBlockStateProvider(e));
+            ExistingFileHelper existingFileHelper = new TrackingExistingFileHelper(e.getExistingFileHelper());
+            e.getGenerator().addProvider(new RechiseledTextureProvider(e, existingFileHelper));
+            e.getGenerator().addProvider(new RechiseledConnectingBlockModelProvider(e, existingFileHelper));
+            e.getGenerator().addProvider(new RechiseledItemModelProvider(e, existingFileHelper));
+            e.getGenerator().addProvider(new RechiseledBlockStateProvider(e, existingFileHelper));
             e.getGenerator().addProvider(new RechiseledLanguageProvider(e));
             e.getGenerator().addProvider(new RechiseledLootTableProvider(e));
             e.getGenerator().addProvider(new RechiseledAdvancementProvider(e));
