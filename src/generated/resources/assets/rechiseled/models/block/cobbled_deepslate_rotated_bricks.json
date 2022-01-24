@@ -1,7 +1,10 @@
 {
-  "parent": "rechiseled:block/connecting_cube_all",
-  "textures": {
-    "all": "rechiseled:block/cobbled_deepslate_rotated_bricks"
-  },
-  "loader": "rechiseled:connecting_model"
+  "parent": "minecraft:block/cube_all",
+  "loader": "rechiseled:connecting_model",
+  "model_textures": {
+    "all": {
+      "location": "rechiseled:block/cobbled_deepslate_rotated_bricks",
+      "connecting": true
+    }
+  }
 }

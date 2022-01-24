@@ -1,8 +1,11 @@
 {
-  "parent": "rechiseled:block/connecting_cube_all",
-  "textures": {
-    "all": "rechiseled:block/stone_big_tiles"
-  },
+  "parent": "minecraft:block/cube_all",
   "loader": "rechiseled:connecting_model",
-  "should_connect": true
+  "should_connect": true,
+  "model_textures": {
+    "all": {
+      "location": "rechiseled:block/stone_big_tiles",
+      "connecting": true
+    }
+  }
 }

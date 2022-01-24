@@ -57,7 +57,7 @@ public class ChiselingRecipeLoader extends SimpleJsonResourceReloadListener {
             try{
                 recipe = ChiselingRecipe.Serializer.fromJson(entry.getKey(), json);
             }catch(Exception e){
-                System.out.println("Encountered an exception when trying to load chiseling recipe: " + recipeId);
+                System.err.println("Encountered an exception when trying to load chiseling recipe: " + recipeId);
                 e.printStackTrace();
                 continue;
             }

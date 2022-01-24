@@ -1,7 +1,10 @@
 {
-  "parent": "rechiseled:block/connecting_cube_all",
-  "textures": {
-    "all": "rechiseled:block/spruce_planks_woven"
-  },
-  "loader": "rechiseled:connecting_model"
+  "parent": "minecraft:block/cube_all",
+  "loader": "rechiseled:connecting_model",
+  "model_textures": {
+    "all": {
+      "location": "rechiseled:block/spruce_planks_woven",
+      "connecting": true
+    }
+  }
 }

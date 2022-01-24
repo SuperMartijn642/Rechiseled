@@ -4,7 +4,7 @@ import net.minecraft.resources.ResourceLocation;
 
 /**
  * Created 19/01/2022 by SuperMartijn642
- * 
+ * <p>
  * All default recipe locations in rechiseled.
  * Can be used for the parent argument in {@link ChiselingRecipeProvider}.
  */
@@ -36,7 +36,7 @@ public class BaseChiselingRecipes {
     public static final ResourceLocation SPRUCE_PLANKS = location("spruce_planks");
     public static final ResourceLocation STONE = location("stone");
     public static final ResourceLocation WARPED_PLANKS = location("warped_planks");
-    
+
     private static ResourceLocation location(String name){
         return new ResourceLocation("rechiseled", name);
     }

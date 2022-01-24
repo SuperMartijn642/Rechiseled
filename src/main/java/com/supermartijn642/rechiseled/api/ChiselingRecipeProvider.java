@@ -42,7 +42,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
 
     @Override
     public String getName(){
-        return "Chiseling Recipes";
+        return "Chiseling Recipes: " + this.modid;
     }
 
     @Override
@@ -126,6 +126,14 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
         }
     }
 
+    private boolean validateRecipe(ResourceLocation recipe){
+        return this.existingFileHelper.exists(recipe, PackType.SERVER_DATA, ".json", "chiseling_recipes");
+    }
+
+    private void trackRecipe(String recipe){
+        this.existingFileHelper.trackGenerated(new ResourceLocation(this.modid, recipe), PackType.SERVER_DATA, ".json", "chiseling_recipes");
+    }
+
     /**
      * Recipes can be created using a recipe builder obtained from {@link #beginRecipe(String)}.
      * All recipe builders will be saved and written to file automatically.
@@ -138,10 +146,11 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
      * @return a chiseling recipe builder for the given recipe name
      */
     protected ChiselingRecipeBuilder beginRecipe(String recipeName){
+        this.trackRecipe(recipeName);
         return this.recipes.computeIfAbsent(recipeName, s -> new ChiselingRecipeBuilder());
     }
 
-    protected static class ChiselingRecipeBuilder {
+    protected class ChiselingRecipeBuilder {
 
         private final List<Triple<Item,Item,Boolean>> entries = new LinkedList<>();
         private ResourceLocation parent;
@@ -154,8 +163,12 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
          * All entries from this recipe builder will be combined with the parent recipe.
          * {@link BaseChiselingRecipes} contains recipe locations for the default rechiseled recipes.
          * @param parent the parent recipe location
+         * @throws IllegalArgumentException when {@code parent} recipe does not exist
          */
         public ChiselingRecipeBuilder parent(ResourceLocation parent){
+            if(!ChiselingRecipeProvider.this.validateRecipe(parent))
+                throw new IllegalArgumentException("Could not find parent recipe '" + parent + "'!");
+
             this.parent = parent;
             return this;
         }
