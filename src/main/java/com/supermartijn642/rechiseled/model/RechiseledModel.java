@@ -87,7 +87,7 @@ public class RechiseledModel implements IModel {
     public Collection<ResourceLocation> getTextures(){
         Set<ResourceLocation> textures = Sets.newHashSet();
 
-        textures.add(this.getTexture("#particle", RechiseledModel::getModel).first());
+        textures.add(this.getTexture("particle", RechiseledModel::getModel).first());
 
         for(BlockPart part : this.getElements(RechiseledModel::getModel)){
             for(BlockPartFace face : part.mapFaces.values()){
