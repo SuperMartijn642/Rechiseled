@@ -13,12 +13,14 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import org.apache.commons.lang3.tuple.Pair;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.*;
 
 /**
@@ -78,11 +80,23 @@ public abstract class ChiseledTextureProvider implements DataProvider {
         if(!this.existingFileHelper.exists(location, PackType.CLIENT_RESOURCES, ".png", "textures"))
             throw new IllegalStateException("Could not find existing texture: " + location);
 
+        BufferedImage image;
         try(Resource resource = this.existingFileHelper.getResource(location, PackType.CLIENT_RESOURCES, ".png", "textures")){
-            return ImageIO.read(resource.getInputStream());
+            image = ImageIO.read(resource.getInputStream());
         }catch(Exception e){
             throw new RuntimeException("Encountered an exception when trying to load texture: " + location, e);
         }
+
+        // Convert image to ARGB
+        if(image.getType() != BufferedImage.TYPE_INT_ARGB){
+            BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+            Graphics2D graphics = newImage.createGraphics();
+            graphics.drawImage(image, 0, 0, null);
+            graphics.dispose();
+            image = newImage;
+        }
+
+        return image;
     }
 
     private static void saveTexture(HashCache cache, BufferedImage image, Path path){
