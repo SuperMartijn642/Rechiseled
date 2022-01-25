@@ -44,7 +44,7 @@ public class RechiseledModel implements IModelGeometry<RechiseledModel> {
         Function<ResourceLocation,IUnbakedModel> modelGetter = bakery::getModel;
 
         TextureAtlasSprite particle = spriteGetter.apply(this.getTexture("particle", modelGetter).getFirst());
-        List<BlockPart> elements = this.getElements(bakery::getModel);
+        List<BlockPart> elements = this.getElements(modelGetter);
         ItemCameraTransforms transforms = this.getTransforms(modelGetter);
 
         Map<Direction,List<Tuple<BakedQuad,Boolean>>> quads = Maps.newEnumMap(Direction.class);
@@ -73,13 +73,15 @@ public class RechiseledModel implements IModelGeometry<RechiseledModel> {
     public Collection<ResourceLocation> getTextureDependencies(IModelConfiguration owner, Function<ResourceLocation,IUnbakedModel> modelGetter, Set<String> missingTextureErrors){
         Set<ResourceLocation> textures = Sets.newHashSet();
 
-        textures.add(this.getTexture("#particle", modelGetter).getFirst());
+        ResourceLocation particles = this.getTexture("particle", modelGetter).getFirst();
+        if(Objects.equals(particles, MissingTextureSprite.getLocation()))
+            missingTextureErrors.add(String.format("%s in %s", particles, owner.getModelName()));
 
         for(BlockPart part : this.getElements(modelGetter)){
             for(BlockPartFace face : part.faces.values()){
                 ResourceLocation texture = this.getTexture(face.texture, modelGetter).getFirst();
                 if(Objects.equals(texture, MissingTextureSprite.getLocation()))
-                    missingTextureErrors.add(String.format("%s in ?", face.texture));
+                    missingTextureErrors.add(String.format("%s in %s", face.texture, owner.getModelName()));
 
                 textures.add(texture);
             }
