@@ -28,7 +28,7 @@ public class Rechiseled {
 
     public static final String MODID = "rechiseled";
     public static final String NAME = "Rechiseled";
-    public static final String VERSION = "1.0.7";
+    public static final String VERSION = "1.0.8";
     public static final String DEPENDENCIES = "required-after:supermartijn642corelib@[1.0.16,);required-after:supermartijn642configlib@[1.0.9,)";
 
     public static final PacketChannel CHANNEL = PacketChannel.create("rechiseled");
