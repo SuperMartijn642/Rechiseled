@@ -71,6 +71,11 @@ public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
             .addRegularItem(Items.PRISMARINE_BRICKS);
         this.beginRecipe(BaseChiselingRecipes.PURPUR_BLOCK.getPath())
             .addRegularItem(Items.PURPUR_PILLAR);
+        this.beginRecipe(BaseChiselingRecipes.QUARTZ_BLOCK.getPath())
+            .addRegularItem(Items.QUARTZ_BRICKS)
+            .addRegularItem(Items.QUARTZ_PILLAR)
+            .addRegularItem(Items.CHISELED_QUARTZ_BLOCK)
+            .addRegularItem(Items.SMOOTH_QUARTZ);
         this.beginRecipe(BaseChiselingRecipes.RED_NETHER_BRICKS.getPath())
             .addRegularItem(Items.RED_NETHER_BRICKS);
         this.beginRecipe(BaseChiselingRecipes.RED_SANDSTONE.getPath())
