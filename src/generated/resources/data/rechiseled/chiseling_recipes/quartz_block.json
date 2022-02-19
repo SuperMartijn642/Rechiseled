@@ -1,0 +1,65 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "item": "minecraft:quartz_pillar"
+    },
+    {
+      "item": "minecraft:chiseled_quartz_block"
+    },
+    {
+      "item": "minecraft:smooth_quartz"
+    },
+    {
+      "item": "rechiseled:quartz_block_bordered",
+      "connecting_item": "rechiseled:quartz_block_bordered_connecting"
+    },
+    {
+      "item": "rechiseled:quartz_block_chiseled_pillar",
+      "connecting_item": "rechiseled:quartz_block_chiseled_pillar_connecting"
+    },
+    {
+      "item": "rechiseled:quartz_block_chiseled_squares"
+    },
+    {
+      "item": "minecraft:quartz_block",
+      "connecting_item": "rechiseled:quartz_block_connecting_connecting"
+    },
+    {
+      "item": "rechiseled:quartz_block_crosses",
+      "connecting_item": "rechiseled:quartz_block_crosses_connecting"
+    },
+    {
+      "item": "rechiseled:quartz_block_diagonal_tiles",
+      "connecting_item": "rechiseled:quartz_block_diagonal_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:quartz_block_pattern",
+      "connecting_item": "rechiseled:quartz_block_pattern_connecting"
+    },
+    {
+      "item": "rechiseled:quartz_block_rows",
+      "connecting_item": "rechiseled:quartz_block_rows_connecting"
+    },
+    {
+      "item": "rechiseled:quartz_block_scales",
+      "connecting_item": "rechiseled:quartz_block_scales_connecting"
+    },
+    {
+      "item": "rechiseled:quartz_block_small_tiles",
+      "connecting_item": "rechiseled:quartz_block_small_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:quartz_block_squares",
+      "connecting_item": "rechiseled:quartz_block_squares_connecting"
+    },
+    {
+      "item": "rechiseled:quartz_block_stripes",
+      "connecting_item": "rechiseled:quartz_block_stripes_connecting"
+    },
+    {
+      "item": "rechiseled:quartz_block_tiles",
+      "connecting_item": "rechiseled:quartz_block_tiles_connecting"
+    }
+  ]
+}
