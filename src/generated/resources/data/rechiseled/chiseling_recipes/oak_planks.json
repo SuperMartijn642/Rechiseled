@@ -63,55 +63,6 @@
     {
       "item": "rechiseled:oak_planks_woven",
       "connecting_item": "rechiseled:oak_planks_woven_connecting"
-    },
-    {
-      "item": "rechiseled:obsidian_squares",
-      "connecting_item": "rechiseled:obsidian_squares_connecting"
-    },
-    {
-      "item": "rechiseled:obsidian_bricks",
-      "connecting_item": "rechiseled:obsidian_bricks_connecting"
-    },
-    {
-      "item": "rechiseled:obsidian_tiles",
-      "connecting_item": "rechiseled:obsidian_tiles_connecting"
-    },
-    {
-      "item": "rechiseled:obsidian_pillars",
-      "connecting_item": "rechiseled:obsidian_pillars_connecting"
-    },
-    {
-      "item": "rechiseled:obsidian_spots",
-      "connecting_item": "rechiseled:obsidian_spots_connecting"
-    },
-    {
-      "item": "rechiseled:obsidian_large_tiles"
-    },
-    {
-      "item": "rechiseled:obsidian_bordered",
-      "connecting_item": "rechiseled:obsidian_bordered_connecting"
-    },
-    {
-      "item": "rechiseled:obsidian_chiseled",
-      "connecting_item": "rechiseled:obsidian_chiseled_connecting"
-    },
-    {
-      "item": "rechiseled:obsidian_chiseled_circles",
-      "connecting_item": "rechiseled:obsidian_chiseled_circles_connecting"
-    },
-    {
-      "item": "rechiseled:obsidian_stripes",
-      "connecting_item": "rechiseled:obsidian_stripes_connecting"
-    },
-    {
-      "item": "rechiseled:obsidian_dark",
-      "connecting_item": "rechiseled:obsidian_dark_connecting"
-    },
-    {
-      "item": "rechiseled:obsidian_chiseled_creeper"
-    },
-    {
-      "item": "rechiseled:obsidian_chiseled_skeleton"
     }
   ]
 }
