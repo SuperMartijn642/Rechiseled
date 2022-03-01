@@ -59,6 +59,8 @@ public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
             .addRegularItem(Items.CRACKED_NETHER_BRICKS);
         this.beginRecipe(BaseChiselingRecipes.OAK_PLANKS.getPath())
             .addRegularItem(Items.OAK_PLANKS);
+        this.beginRecipe(BaseChiselingRecipes.OBSIDIAN.getPath())
+            .addRegularItem(Items.OBSIDIAN);
         this.beginRecipe(BaseChiselingRecipes.PRISMARINE_BRICKS.getPath())
             .addRegularItem(Items.PRISMARINE_BRICKS);
         this.beginRecipe(BaseChiselingRecipes.PURPUR_BLOCK.getPath())
