@@ -8,7 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -43,9 +43,9 @@ public class RechiseledBlockTagsProvider extends BlockTagsProvider {
             BlockTags.NEEDS_STONE_TOOL,
             BlockTags.NEEDS_IRON_TOOL,
             BlockTags.NEEDS_DIAMOND_TOOL
-        ).map(Tag.Named::getName).collect(Collectors.toList());
+        ).map(TagKey::location).collect(Collectors.toList());
         Map<Predicate<Block>,TagAppender<Block>> tagAppenderMap = Maps.newHashMap();
-        tags.forEach(tag -> tagAppenderMap.put(this.loadVanillaTag(tag)::contains, this.tag(BlockTags.bind(tag.toString()))));
+        tags.forEach(tag -> tagAppenderMap.put(this.loadVanillaTag(tag)::contains, this.tag(BlockTags.create(tag))));
 
         for(RechiseledBlockType type : RechiseledBlockType.values()){
             for(Map.Entry<Predicate<Block>,TagAppender<Block>> entry : tagAppenderMap.entrySet()){

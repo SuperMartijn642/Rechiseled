@@ -1,8 +1,8 @@
 package com.supermartijn642.rechiseled.texture;
 
 import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.resources.MultiPackResourceManager;
 import net.minecraft.server.packs.resources.ResourceManager;
-import net.minecraft.server.packs.resources.SimpleReloadableResourceManager;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.awt.*;
@@ -65,7 +65,7 @@ public class TextureMappingTool {
         ResourceManager resourceManager;
         try{
             clientResources.setAccessible(true);
-            resourceManager = (SimpleReloadableResourceManager)clientResources.get(existingFileHelper);
+            resourceManager = (MultiPackResourceManager)clientResources.get(existingFileHelper);
         }catch(IllegalAccessException e){
             e.printStackTrace();
             return Collections.emptyList();
