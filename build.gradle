@@ -46,11 +46,11 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:block-renderer-380456:${project.block_renderer_file}")
 
     // SpongePowered Mixin
-    annotationProcessor 'org.spongepowered:mixin:0.8.3-SNAPSHOT:processor'
-    implementation('org.spongepowered:mixin:0.8.3-SNAPSHOT') {
-        exclude module: 'guava'
-        exclude module: 'commons-io'
-        exclude module: 'gson'
+    annotationProcessor "org.spongepowered:mixin:0.8.3-SNAPSHOT:processor"
+    implementation("org.spongepowered:mixin:0.8.3-SNAPSHOT") {
+        exclude module: "guava"
+        exclude module: "commons-io"
+        exclude module: "gson"
     }
 }
 
@@ -110,8 +110,8 @@ minecraft {
 
 mixin {
     // MixinGradle Settings
-    add sourceSets.main, 'mixins.rechiseled.refmap.json'
-    config 'mixins.rechiseled.json'
+    add sourceSets.main, "${project.mod_id}.mixins.refmap.json"
+    config "${project.mod_id}.mixins.json"
 
     debug.verbose = true
     debug.export = true
