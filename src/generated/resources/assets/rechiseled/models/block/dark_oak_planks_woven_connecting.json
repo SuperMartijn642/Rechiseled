@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:block/cube_all",
   "loader": "rechiseled:connecting_model",
-  "should_connect": true,
   "model_textures": {
     "all": {
-      "location": "rechiseled:block/dark_oak_planks_woven",
-      "connecting": true
+      "connecting": true,
+      "location": "rechiseled:block/dark_oak_planks_woven"
     }
-  }
+  },
+  "should_connect": true
 }

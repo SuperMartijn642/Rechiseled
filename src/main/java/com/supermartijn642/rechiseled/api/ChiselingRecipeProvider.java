@@ -5,20 +5,19 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
-import net.minecraft.data.HashCache;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
 
 import javax.annotation.Nullable;
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
@@ -46,7 +45,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
     }
 
     @Override
-    public void run(HashCache cache){
+    public void run(CachedOutput cache){
         this.buildRecipes();
 
         Path path = this.generator.getOutputFolder();
@@ -90,13 +89,13 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
             JsonObject object = new JsonObject();
             if(entry.getLeft() != null){
                 if(!items.add(entry.getLeft()))
-                    throw new IllegalStateException("Duplicate item '" + entry.getLeft().getRegistryName() + "' in chiseling recipe '" + recipeName + "'");
-                object.addProperty("item", entry.getLeft().getRegistryName().toString());
+                    throw new IllegalStateException("Duplicate item '" + ForgeRegistries.ITEMS.getKey(entry.getLeft()) + "' in chiseling recipe '" + recipeName + "'");
+                object.addProperty("item", ForgeRegistries.ITEMS.getKey(entry.getLeft()).toString());
             }
             if(entry.getMiddle() != null){
                 if(!items.add(entry.getMiddle()))
-                    throw new IllegalStateException("Duplicate item '" + entry.getMiddle().getRegistryName() + "' in chiseling recipe '" + recipeName + "'");
-                object.addProperty("connecting_item", entry.getMiddle().getRegistryName().toString());
+                    throw new IllegalStateException("Duplicate item '" + ForgeRegistries.ITEMS.getKey(entry.getMiddle()) + "' in chiseling recipe '" + recipeName + "'");
+                object.addProperty("connecting_item", ForgeRegistries.ITEMS.getKey(entry.getMiddle()).toString());
             }
             if(entry.getRight())
                 object.addProperty("optional", true);
@@ -107,19 +106,9 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
         return json;
     }
 
-    private static void saveRecipe(HashCache cache, JsonObject json, Path path){
+    private static void saveRecipe(CachedOutput cache, JsonObject json, Path path){
         try{
-            String jsonString = GSON.toJson(json);
-            String hash = SHA1.hashUnencodedChars(jsonString).toString();
-            if(!Objects.equals(cache.getHash(path), hash) || !Files.exists(path)){
-                Files.createDirectories(path.getParent());
-
-                try(BufferedWriter bufferedwriter = Files.newBufferedWriter(path)){
-                    bufferedwriter.write(jsonString);
-                }
-            }
-
-            cache.putNew(path, hash);
+            DataProvider.saveStable(cache, json, path);
         }catch(IOException exception){
             System.err.println("Couldn't save recipe '" + path + "'");
             exception.printStackTrace();

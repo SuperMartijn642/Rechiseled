@@ -76,7 +76,7 @@ public class TextureMappingTool {
             pack -> pack.getNamespaces(PackType.CLIENT_RESOURCES).size() == 1 && pack.getNamespaces(PackType.CLIENT_RESOURCES).contains("rechiseled")
         ).forEach(
             pack -> {
-                pack.getResources(PackType.CLIENT_RESOURCES, "rechiseled", "textures/block", Integer.MAX_VALUE, s -> s.startsWith(name) && s.endsWith(".png"))
+                pack.getResources(PackType.CLIENT_RESOURCES, "rechiseled", "textures/block", s -> s.getPath().startsWith("textures/block/" + name) && s.getPath().endsWith(".png"))
                     .stream()
                     .map(
                         s -> {

@@ -14,64 +14,64 @@
       "item": "minecraft:cracked_stone_bricks"
     },
     {
-      "item": "rechiseled:stone_big_tiles",
-      "connecting_item": "rechiseled:stone_big_tiles_connecting"
+      "connecting_item": "rechiseled:stone_big_tiles_connecting",
+      "item": "rechiseled:stone_big_tiles"
     },
     {
-      "item": "rechiseled:stone_bordered",
-      "connecting_item": "rechiseled:stone_bordered_connecting"
+      "connecting_item": "rechiseled:stone_bordered_connecting",
+      "item": "rechiseled:stone_bordered"
     },
     {
-      "item": "minecraft:chiseled_stone_bricks",
-      "connecting_item": "rechiseled:stone_chiseled_bricks_connecting"
+      "connecting_item": "rechiseled:stone_chiseled_bricks_connecting",
+      "item": "minecraft:chiseled_stone_bricks"
     },
     {
-      "item": "rechiseled:stone_crushed",
-      "connecting_item": "rechiseled:stone_crushed_connecting"
+      "connecting_item": "rechiseled:stone_crushed_connecting",
+      "item": "rechiseled:stone_crushed"
     },
     {
-      "item": "rechiseled:stone_diagonal_bricks",
-      "connecting_item": "rechiseled:stone_diagonal_bricks_connecting"
+      "connecting_item": "rechiseled:stone_diagonal_bricks_connecting",
+      "item": "rechiseled:stone_diagonal_bricks"
     },
     {
-      "item": "rechiseled:stone_path",
-      "connecting_item": "rechiseled:stone_path_connecting"
+      "connecting_item": "rechiseled:stone_path_connecting",
+      "item": "rechiseled:stone_path"
     },
     {
-      "item": "rechiseled:stone_rotated_bricks",
-      "connecting_item": "rechiseled:stone_rotated_bricks_connecting"
+      "connecting_item": "rechiseled:stone_rotated_bricks_connecting",
+      "item": "rechiseled:stone_rotated_bricks"
     },
     {
-      "item": "rechiseled:stone_small_bricks",
-      "connecting_item": "rechiseled:stone_small_bricks_connecting"
+      "connecting_item": "rechiseled:stone_small_bricks_connecting",
+      "item": "rechiseled:stone_small_bricks"
     },
     {
-      "item": "rechiseled:stone_small_tiles",
-      "connecting_item": "rechiseled:stone_small_tiles_connecting"
+      "connecting_item": "rechiseled:stone_small_tiles_connecting",
+      "item": "rechiseled:stone_small_tiles"
     },
     {
-      "item": "minecraft:smooth_stone",
-      "connecting_item": "rechiseled:stone_smooth_connecting"
+      "connecting_item": "rechiseled:stone_smooth_connecting",
+      "item": "minecraft:smooth_stone"
     },
     {
-      "item": "rechiseled:stone_smooth_large_tiles",
-      "connecting_item": "rechiseled:stone_smooth_large_tiles_connecting"
+      "connecting_item": "rechiseled:stone_smooth_large_tiles_connecting",
+      "item": "rechiseled:stone_smooth_large_tiles"
     },
     {
-      "item": "rechiseled:stone_smooth_tiles",
-      "connecting_item": "rechiseled:stone_smooth_tiles_connecting"
+      "connecting_item": "rechiseled:stone_smooth_tiles_connecting",
+      "item": "rechiseled:stone_smooth_tiles"
     },
     {
-      "item": "rechiseled:stone_squares",
-      "connecting_item": "rechiseled:stone_squares_connecting"
+      "connecting_item": "rechiseled:stone_squares_connecting",
+      "item": "rechiseled:stone_squares"
     },
     {
-      "item": "rechiseled:stone_tiles",
-      "connecting_item": "rechiseled:stone_tiles_connecting"
+      "connecting_item": "rechiseled:stone_tiles_connecting",
+      "item": "rechiseled:stone_tiles"
     },
     {
-      "item": "rechiseled:stone_waves",
-      "connecting_item": "rechiseled:stone_waves_connecting"
+      "connecting_item": "rechiseled:stone_waves_connecting",
+      "item": "rechiseled:stone_waves"
     }
   ]
 }

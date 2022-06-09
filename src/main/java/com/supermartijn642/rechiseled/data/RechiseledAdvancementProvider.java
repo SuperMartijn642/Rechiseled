@@ -1,12 +1,10 @@
 package com.supermartijn642.rechiseled.data;
 
 import com.google.common.collect.Sets;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import net.minecraft.advancements.Advancement;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
-import net.minecraft.data.HashCache;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import org.apache.logging.log4j.LogManager;
@@ -23,14 +21,13 @@ import java.util.function.Consumer;
 public class RechiseledAdvancementProvider implements DataProvider {
 
     private static final Logger LOGGER = LogManager.getLogger();
-    private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().create();
     private final DataGenerator generator;
 
     public RechiseledAdvancementProvider(GatherDataEvent e){
         this.generator = e.getGenerator();
     }
 
-    public void run(HashCache hashCache){
+    public void run(CachedOutput hashCache){
         Path path = this.generator.getOutputFolder();
         Set<ResourceLocation> set = Sets.newHashSet();
         Consumer<Advancement> consumer = (advancement) -> {
@@ -39,7 +36,7 @@ public class RechiseledAdvancementProvider implements DataProvider {
             }else{
                 Path advancementPath = createPath(path, advancement);
                 try{
-                    DataProvider.save(GSON, hashCache, advancement.deconstruct().serializeToJson(), advancementPath);
+                    DataProvider.saveStable(hashCache, advancement.deconstruct().serializeToJson(), advancementPath);
                 }catch(IOException ioexception){
                     LOGGER.error("Couldn't save advancement {}", advancementPath, ioexception);
                 }

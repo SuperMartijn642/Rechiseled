@@ -5,28 +5,28 @@
       "item": "minecraft:glowstone"
     },
     {
-      "item": "rechiseled:glowstone_bricks",
-      "connecting_item": "rechiseled:glowstone_bricks_connecting"
+      "connecting_item": "rechiseled:glowstone_bricks_connecting",
+      "item": "rechiseled:glowstone_bricks"
     },
     {
-      "item": "rechiseled:glowstone_crushed",
-      "connecting_item": "rechiseled:glowstone_crushed_connecting"
+      "connecting_item": "rechiseled:glowstone_crushed_connecting",
+      "item": "rechiseled:glowstone_crushed"
     },
     {
-      "item": "rechiseled:glowstone_large_tiles",
-      "connecting_item": "rechiseled:glowstone_large_tiles_connecting"
+      "connecting_item": "rechiseled:glowstone_large_tiles_connecting",
+      "item": "rechiseled:glowstone_large_tiles"
     },
     {
-      "item": "rechiseled:glowstone_small_tiles",
-      "connecting_item": "rechiseled:glowstone_small_tiles_connecting"
+      "connecting_item": "rechiseled:glowstone_small_tiles_connecting",
+      "item": "rechiseled:glowstone_small_tiles"
     },
     {
-      "item": "rechiseled:glowstone_smooth",
-      "connecting_item": "rechiseled:glowstone_smooth_connecting"
+      "connecting_item": "rechiseled:glowstone_smooth_connecting",
+      "item": "rechiseled:glowstone_smooth"
     },
     {
-      "item": "rechiseled:glowstone_tiles",
-      "connecting_item": "rechiseled:glowstone_tiles_connecting"
+      "connecting_item": "rechiseled:glowstone_tiles_connecting",
+      "item": "rechiseled:glowstone_tiles"
     }
   ]
 }

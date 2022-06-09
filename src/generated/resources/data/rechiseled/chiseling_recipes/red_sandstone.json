@@ -14,24 +14,24 @@
       "item": "minecraft:smooth_red_sandstone"
     },
     {
-      "item": "rechiseled:red_sandstone_bricks",
-      "connecting_item": "rechiseled:red_sandstone_bricks_connecting"
+      "connecting_item": "rechiseled:red_sandstone_bricks_connecting",
+      "item": "rechiseled:red_sandstone_bricks"
     },
     {
-      "item": "rechiseled:red_sandstone_diagonal_bricks",
-      "connecting_item": "rechiseled:red_sandstone_diagonal_bricks_connecting"
+      "connecting_item": "rechiseled:red_sandstone_diagonal_bricks_connecting",
+      "item": "rechiseled:red_sandstone_diagonal_bricks"
     },
     {
-      "item": "rechiseled:red_sandstone_large_tiles",
-      "connecting_item": "rechiseled:red_sandstone_large_tiles_connecting"
+      "connecting_item": "rechiseled:red_sandstone_large_tiles_connecting",
+      "item": "rechiseled:red_sandstone_large_tiles"
     },
     {
-      "item": "rechiseled:red_sandstone_polished",
-      "connecting_item": "rechiseled:red_sandstone_polished_connecting"
+      "connecting_item": "rechiseled:red_sandstone_polished_connecting",
+      "item": "rechiseled:red_sandstone_polished"
     },
     {
-      "item": "rechiseled:red_sandstone_tiles",
-      "connecting_item": "rechiseled:red_sandstone_tiles_connecting"
+      "connecting_item": "rechiseled:red_sandstone_tiles_connecting",
+      "item": "rechiseled:red_sandstone_tiles"
     }
   ]
 }

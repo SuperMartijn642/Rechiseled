@@ -35,15 +35,17 @@ public class RechiseledLootTableProvider extends LootTableProvider {
         BlockLoot lootTables = new BlockLoot() {
             @Override
             protected Iterable<Block> getKnownBlocks(){
-                return ForgeRegistries.BLOCKS.getValues().stream()
-                    .filter(block -> block.getRegistryName().getNamespace().equals("rechiseled"))
+                return ForgeRegistries.BLOCKS.getEntries().stream()
+                    .filter(entry -> entry.getKey().location().getNamespace().equals("rechiseled"))
+                    .map(Map.Entry::getValue)
                     .collect(Collectors.toList());
             }
 
             @Override
             protected void addTables(){
-                ForgeRegistries.BLOCKS.getValues().stream()
-                    .filter(block -> block.getRegistryName().getNamespace().equals("rechiseled"))
+                ForgeRegistries.BLOCKS.getEntries().stream()
+                    .filter(entry -> entry.getKey().location().getNamespace().equals("rechiseled"))
+                    .map(Map.Entry::getValue)
                     .forEach(this::dropSelf);
             }
         };

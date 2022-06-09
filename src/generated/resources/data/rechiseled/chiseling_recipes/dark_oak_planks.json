@@ -5,64 +5,64 @@
       "item": "minecraft:dark_oak_planks"
     },
     {
-      "item": "rechiseled:dark_oak_planks_beams",
-      "connecting_item": "rechiseled:dark_oak_planks_beams_connecting"
+      "connecting_item": "rechiseled:dark_oak_planks_beams_connecting",
+      "item": "rechiseled:dark_oak_planks_beams"
     },
     {
-      "item": "rechiseled:dark_oak_planks_bricks",
-      "connecting_item": "rechiseled:dark_oak_planks_bricks_connecting"
+      "connecting_item": "rechiseled:dark_oak_planks_bricks_connecting",
+      "item": "rechiseled:dark_oak_planks_bricks"
     },
     {
-      "item": "rechiseled:dark_oak_planks_crate",
-      "connecting_item": "rechiseled:dark_oak_planks_crate_connecting"
+      "connecting_item": "rechiseled:dark_oak_planks_crate_connecting",
+      "item": "rechiseled:dark_oak_planks_crate"
     },
     {
-      "item": "rechiseled:dark_oak_planks_diagonal_stripes",
-      "connecting_item": "rechiseled:dark_oak_planks_diagonal_stripes_connecting"
+      "connecting_item": "rechiseled:dark_oak_planks_diagonal_stripes_connecting",
+      "item": "rechiseled:dark_oak_planks_diagonal_stripes"
     },
     {
-      "item": "rechiseled:dark_oak_planks_diagonal_tiles",
-      "connecting_item": "rechiseled:dark_oak_planks_diagonal_tiles_connecting"
+      "connecting_item": "rechiseled:dark_oak_planks_diagonal_tiles_connecting",
+      "item": "rechiseled:dark_oak_planks_diagonal_tiles"
     },
     {
-      "item": "rechiseled:dark_oak_planks_dotted",
-      "connecting_item": "rechiseled:dark_oak_planks_dotted_connecting"
+      "connecting_item": "rechiseled:dark_oak_planks_dotted_connecting",
+      "item": "rechiseled:dark_oak_planks_dotted"
     },
     {
-      "item": "rechiseled:dark_oak_planks_flooring",
-      "connecting_item": "rechiseled:dark_oak_planks_flooring_connecting"
+      "connecting_item": "rechiseled:dark_oak_planks_flooring_connecting",
+      "item": "rechiseled:dark_oak_planks_flooring"
     },
     {
-      "item": "rechiseled:dark_oak_planks_large_tiles",
-      "connecting_item": "rechiseled:dark_oak_planks_large_tiles_connecting"
+      "connecting_item": "rechiseled:dark_oak_planks_large_tiles_connecting",
+      "item": "rechiseled:dark_oak_planks_large_tiles"
     },
     {
-      "item": "rechiseled:dark_oak_planks_pattern",
-      "connecting_item": "rechiseled:dark_oak_planks_pattern_connecting"
+      "connecting_item": "rechiseled:dark_oak_planks_pattern_connecting",
+      "item": "rechiseled:dark_oak_planks_pattern"
     },
     {
-      "item": "rechiseled:dark_oak_planks_small_bricks",
-      "connecting_item": "rechiseled:dark_oak_planks_small_bricks_connecting"
+      "connecting_item": "rechiseled:dark_oak_planks_small_bricks_connecting",
+      "item": "rechiseled:dark_oak_planks_small_bricks"
     },
     {
-      "item": "rechiseled:dark_oak_planks_small_tiles",
-      "connecting_item": "rechiseled:dark_oak_planks_small_tiles_connecting"
+      "connecting_item": "rechiseled:dark_oak_planks_small_tiles_connecting",
+      "item": "rechiseled:dark_oak_planks_small_tiles"
     },
     {
-      "item": "rechiseled:dark_oak_planks_squares",
-      "connecting_item": "rechiseled:dark_oak_planks_squares_connecting"
+      "connecting_item": "rechiseled:dark_oak_planks_squares_connecting",
+      "item": "rechiseled:dark_oak_planks_squares"
     },
     {
-      "item": "rechiseled:dark_oak_planks_tiles",
-      "connecting_item": "rechiseled:dark_oak_planks_tiles_connecting"
+      "connecting_item": "rechiseled:dark_oak_planks_tiles_connecting",
+      "item": "rechiseled:dark_oak_planks_tiles"
     },
     {
-      "item": "rechiseled:dark_oak_planks_wavy",
-      "connecting_item": "rechiseled:dark_oak_planks_wavy_connecting"
+      "connecting_item": "rechiseled:dark_oak_planks_wavy_connecting",
+      "item": "rechiseled:dark_oak_planks_wavy"
     },
     {
-      "item": "rechiseled:dark_oak_planks_woven",
-      "connecting_item": "rechiseled:dark_oak_planks_woven_connecting"
+      "connecting_item": "rechiseled:dark_oak_planks_woven_connecting",
+      "item": "rechiseled:dark_oak_planks_woven"
     }
   ]
 }

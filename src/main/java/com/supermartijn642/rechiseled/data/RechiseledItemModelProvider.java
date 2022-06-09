@@ -16,12 +16,12 @@ public class RechiseledItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels(){
-        ForgeRegistries.BLOCKS.getValues().stream()
-            .filter(block -> block.getRegistryName().getNamespace().equals("rechiseled"))
+        ForgeRegistries.BLOCKS.getEntries().stream()
+            .filter(entry -> entry.getKey().location().getNamespace().equals("rechiseled"))
             .forEach(
-                block -> this.withExistingParent(
-                    "item/" + block.getRegistryName().getPath(),
-                    new ResourceLocation("rechiseled", "block/" + block.getRegistryName().getPath())
+                entry -> this.withExistingParent(
+                    "item/" + entry.getKey().location().getPath(),
+                    new ResourceLocation("rechiseled", "block/" + entry.getKey().location().getPath())
                 )
             );
     }

@@ -15,14 +15,17 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.extensions.IForgeMenuType;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.ObjectHolder;
+import net.minecraftforge.registries.RegisterEvent;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created 7/7/2020 by SuperMartijn642
@@ -52,10 +55,10 @@ public class Rechiseled {
         }
     };
 
-    @ObjectHolder("rechiseled:chisel")
+    @ObjectHolder(value = "rechiseled:chisel", registryName = "minecraft:item")
     public static ChiselItem chisel;
 
-    @ObjectHolder("rechiseled:chisel_container")
+    @ObjectHolder(value = "rechiseled:chisel_container", registryName = "minecraft:menu")
     public static MenuType<ChiselContainer> chisel_container;
 
     public Rechiseled(){
@@ -69,48 +72,55 @@ public class Rechiseled {
     public static class ModEvents {
 
         @SubscribeEvent
-        public static void onBlockRegistry(RegistryEvent.Register<Block> e){
+        public static void onRegisterEvent(RegisterEvent e){
+            if(e.getRegistryKey().equals(ForgeRegistries.Keys.BLOCKS))
+                onBlockRegistry(Objects.requireNonNull(e.getForgeRegistry()));
+            else if(e.getRegistryKey().equals(ForgeRegistries.Keys.ITEMS))
+                onItemRegistry(Objects.requireNonNull(e.getForgeRegistry()));
+            else if(e.getRegistryKey().equals(ForgeRegistries.Keys.CONTAINER_TYPES))
+                onContainerRegistry(Objects.requireNonNull(e.getForgeRegistry()));
+        }
+
+        public static void onBlockRegistry(IForgeRegistry<Block> registry){
             for(RechiseledBlockType type : RechiseledBlockType.values()){
                 type.createBlocks();
                 if(type.hasCreatedRegularBlock())
-                    e.getRegistry().register(type.getRegularBlock());
+                    registry.register(type.regularRegistryName, type.getRegularBlock());
                 if(type.hasCreatedConnectingBlock())
-                    e.getRegistry().register(type.getConnectingBlock());
+                    registry.register(type.connectingRegistryName, type.getConnectingBlock());
             }
         }
 
-        @SubscribeEvent
-        public static void onItemRegistry(RegistryEvent.Register<Item> e){
-            e.getRegistry().register(new ChiselItem().setRegistryName("chisel"));
+        public static void onItemRegistry(IForgeRegistry<Item> registry){
+            registry.register("chisel", new ChiselItem());
 
             for(RechiseledBlockType type : RechiseledBlockType.values()){
                 type.createItems();
                 if(type.hasCreatedRegularBlock())
-                    e.getRegistry().register(type.getRegularItem());
+                    registry.register(type.regularRegistryName, type.getRegularItem());
                 if(type.hasCreatedConnectingBlock())
-                    e.getRegistry().register(type.getConnectingItem());
+                    registry.register(type.connectingRegistryName, type.getConnectingItem());
             }
         }
 
-        @SubscribeEvent
-        public static void onContainerRegistry(RegistryEvent.Register<MenuType<?>> e){
-            e.getRegistry().register(IForgeMenuType.create(
+        public static void onContainerRegistry(IForgeRegistry<MenuType<?>> registry){
+            registry.register("chisel_container", IForgeMenuType.create(
                 (id, inventory, data) -> new ChiselContainer(chisel_container, id, inventory.player, data.readBoolean() ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND)
-            ).setRegistryName("chisel_container"));
+            ));
         }
 
         @SubscribeEvent
         public static void onGatherData(GatherDataEvent e){
-            e.getGenerator().addProvider(new RechiseledTextureProvider(e));
-            e.getGenerator().addProvider(new RechiseledConnectingBlockModelProvider(e));
-            e.getGenerator().addProvider(new RechiseledItemModelProvider(e));
-            e.getGenerator().addProvider(new RechiseledBlockStateProvider(e));
-            e.getGenerator().addProvider(new RechiseledLanguageProvider(e));
-            e.getGenerator().addProvider(new RechiseledLootTableProvider(e));
-            e.getGenerator().addProvider(new RechiseledAdvancementProvider(e));
-            e.getGenerator().addProvider(new RechiseledChiselingRecipeProvider(e));
-            e.getGenerator().addProvider(new RechiseledRecipeProvider(e));
-            e.getGenerator().addProvider(new RechiseledBlockTagsProvider(e));
+            e.getGenerator().addProvider(e.includeClient(), new RechiseledTextureProvider(e));
+            e.getGenerator().addProvider(e.includeClient(), new RechiseledConnectingBlockModelProvider(e));
+            e.getGenerator().addProvider(e.includeClient(), new RechiseledItemModelProvider(e));
+            e.getGenerator().addProvider(e.includeClient(), new RechiseledBlockStateProvider(e));
+            e.getGenerator().addProvider(e.includeClient(), new RechiseledLanguageProvider(e));
+            e.getGenerator().addProvider(e.includeServer(), new RechiseledLootTableProvider(e));
+            e.getGenerator().addProvider(e.includeServer(), new RechiseledAdvancementProvider(e));
+            e.getGenerator().addProvider(e.includeServer(), new RechiseledChiselingRecipeProvider(e));
+            e.getGenerator().addProvider(e.includeServer(), new RechiseledRecipeProvider(e));
+            e.getGenerator().addProvider(e.includeServer(), new RechiseledBlockTagsProvider(e));
         }
     }
 }

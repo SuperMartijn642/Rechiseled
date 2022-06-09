@@ -6,13 +6,13 @@ import com.supermartijn642.rechiseled.RechiseledBlockType;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
-import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -65,9 +65,8 @@ public class RechiseledBlockTagsProvider extends BlockTagsProvider {
         if(this.loadedTags.containsKey(location))
             return this.loadedTags.get(location);
 
-        try{
-            Resource resource = this.existingFileHelper.getResource(location, PackType.SERVER_DATA, ".json", "tags/blocks");
-            JsonObject json = GSON.fromJson(new InputStreamReader(resource.getInputStream()), JsonObject.class);
+        try(InputStream resource = this.existingFileHelper.getResource(location, PackType.SERVER_DATA, ".json", "tags/blocks").open()){
+            JsonObject json = GSON.fromJson(new InputStreamReader(resource), JsonObject.class);
             JsonArray array = json.getAsJsonArray("values");
             List<Block> blocks = new ArrayList<>();
             for(JsonElement element : array){

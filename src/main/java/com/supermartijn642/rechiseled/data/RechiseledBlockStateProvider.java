@@ -17,11 +17,11 @@ public class RechiseledBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels(){
-        ForgeRegistries.BLOCKS.getValues().stream()
-            .filter(block -> block.getRegistryName().getNamespace().equals("rechiseled"))
+        ForgeRegistries.BLOCKS.getEntries().stream()
+            .filter(entry -> entry.getKey().location().getNamespace().equals("rechiseled"))
             .forEach(
-                block -> this.getVariantBuilder(block).forAllStates(
-                    state -> new ConfiguredModel[]{new ConfiguredModel(this.models().getExistingFile(new ResourceLocation("rechiseled", "block/" + block.getRegistryName().getPath())))}
+                entry -> this.getVariantBuilder(entry.getValue()).forAllStates(
+                    state -> new ConfiguredModel[]{new ConfiguredModel(this.models().getExistingFile(new ResourceLocation("rechiseled", "block/" + entry.getKey().location().getPath())))}
                 )
             );
     }

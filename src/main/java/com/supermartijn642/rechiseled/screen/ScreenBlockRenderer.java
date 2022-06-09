@@ -17,6 +17,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.client.model.data.EmptyModelData;
@@ -25,7 +26,6 @@ import net.minecraftforge.client.model.data.ModelDataMap;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 /**
  * Created 25/12/2021 by SuperMartijn642
@@ -83,7 +83,7 @@ public class ScreenBlockRenderer {
     }
 
     private static void renderModel(BakedModel modelIn, BlockState state, PoseStack matrixStackIn, VertexConsumer bufferIn, IModelData modelData){
-        Random random = new Random();
+        RandomSource random = RandomSource.create();
 
         for(Direction direction : Direction.values()){
             random.setSeed(42L);

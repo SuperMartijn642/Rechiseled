@@ -5,28 +5,28 @@
       "item": "minecraft:netherrack"
     },
     {
-      "item": "rechiseled:netherrack_beams",
-      "connecting_item": "rechiseled:netherrack_beams_connecting"
+      "connecting_item": "rechiseled:netherrack_beams_connecting",
+      "item": "rechiseled:netherrack_beams"
     },
     {
-      "item": "rechiseled:netherrack_bricks",
-      "connecting_item": "rechiseled:netherrack_bricks_connecting"
+      "connecting_item": "rechiseled:netherrack_bricks_connecting",
+      "item": "rechiseled:netherrack_bricks"
     },
     {
-      "item": "rechiseled:netherrack_dented",
-      "connecting_item": "rechiseled:netherrack_dented_connecting"
+      "connecting_item": "rechiseled:netherrack_dented_connecting",
+      "item": "rechiseled:netherrack_dented"
     },
     {
-      "item": "rechiseled:netherrack_small_tiles",
-      "connecting_item": "rechiseled:netherrack_small_tiles_connecting"
+      "connecting_item": "rechiseled:netherrack_small_tiles_connecting",
+      "item": "rechiseled:netherrack_small_tiles"
     },
     {
-      "item": "rechiseled:netherrack_stripes",
-      "connecting_item": "rechiseled:netherrack_stripes_connecting"
+      "connecting_item": "rechiseled:netherrack_stripes_connecting",
+      "item": "rechiseled:netherrack_stripes"
     },
     {
-      "item": "rechiseled:netherrack_tiles",
-      "connecting_item": "rechiseled:netherrack_tiles_connecting"
+      "connecting_item": "rechiseled:netherrack_tiles_connecting",
+      "item": "rechiseled:netherrack_tiles"
     }
   ]
 }

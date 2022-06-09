@@ -5,40 +5,40 @@
       "item": "minecraft:andesite"
     },
     {
-      "item": "rechiseled:andesite_bricks",
-      "connecting_item": "rechiseled:andesite_bricks_connecting"
+      "connecting_item": "rechiseled:andesite_bricks_connecting",
+      "item": "rechiseled:andesite_bricks"
     },
     {
-      "item": "rechiseled:andesite_diagonal_bricks",
-      "connecting_item": "rechiseled:andesite_diagonal_bricks_connecting"
+      "connecting_item": "rechiseled:andesite_diagonal_bricks_connecting",
+      "item": "rechiseled:andesite_diagonal_bricks"
     },
     {
-      "item": "rechiseled:andesite_dotted",
-      "connecting_item": "rechiseled:andesite_dotted_connecting"
+      "connecting_item": "rechiseled:andesite_dotted_connecting",
+      "item": "rechiseled:andesite_dotted"
     },
     {
-      "item": "rechiseled:andesite_paving",
-      "connecting_item": "rechiseled:andesite_paving_connecting"
+      "connecting_item": "rechiseled:andesite_paving_connecting",
+      "item": "rechiseled:andesite_paving"
     },
     {
-      "item": "minecraft:polished_andesite",
-      "connecting_item": "rechiseled:andesite_polished_connecting"
+      "connecting_item": "rechiseled:andesite_polished_connecting",
+      "item": "minecraft:polished_andesite"
     },
     {
-      "item": "rechiseled:andesite_rotated_bricks",
-      "connecting_item": "rechiseled:andesite_rotated_bricks_connecting"
+      "connecting_item": "rechiseled:andesite_rotated_bricks_connecting",
+      "item": "rechiseled:andesite_rotated_bricks"
     },
     {
-      "item": "rechiseled:andesite_squares",
-      "connecting_item": "rechiseled:andesite_squares_connecting"
+      "connecting_item": "rechiseled:andesite_squares_connecting",
+      "item": "rechiseled:andesite_squares"
     },
     {
-      "item": "rechiseled:andesite_tiles",
-      "connecting_item": "rechiseled:andesite_tiles_connecting"
+      "connecting_item": "rechiseled:andesite_tiles_connecting",
+      "item": "rechiseled:andesite_tiles"
     },
     {
-      "item": "rechiseled:andesite_wavy",
-      "connecting_item": "rechiseled:andesite_wavy_connecting"
+      "connecting_item": "rechiseled:andesite_wavy_connecting",
+      "item": "rechiseled:andesite_wavy"
     }
   ]
 }

@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " A",
-    "B "
-  ],
   "key": {
     "A": {
       "tag": "forge:ingots/iron"
@@ -12,6 +8,10 @@
       "tag": "forge:rods/wooden"
     }
   },
+  "pattern": [
+    " A",
+    "B "
+  ],
   "result": {
     "item": "rechiseled:chisel"
   }

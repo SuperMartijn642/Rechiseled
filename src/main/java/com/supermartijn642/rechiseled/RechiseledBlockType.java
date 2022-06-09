@@ -397,12 +397,10 @@ public enum RechiseledBlockType {
 
         if(this.regularBlockMode.createNewBlock){
             this.regularItem = new BlockItem(this.regularBlock, new Item.Properties().tab(Rechiseled.GROUP));
-            this.regularItem.setRegistryName(this.regularRegistryName);
         }else if(this.regularBlockMode == USE_PARENT)
             this.regularItem = (BlockItem)this.regularBlock.asItem();
         if(this.connectingBlockMode.createNewBlock){
             this.connectingItem = new BlockItem(this.connectingBlock, new Item.Properties().tab(Rechiseled.GROUP));
-            this.connectingItem.setRegistryName(this.connectingRegistryName);
         }else if(this.connectingBlockMode == USE_PARENT)
             this.connectingItem = (BlockItem)this.connectingBlock.asItem();
     }
