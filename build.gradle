@@ -50,6 +50,8 @@ processResources {
         expand project.properties
     }
 
+    exclude "**/*.pdn"
+
     rename "^modid.mixins.json\$", "${project.mod_id}.mixins.json"
     rename "^icon.png\$", "${project.mod_id}.png"
 }
