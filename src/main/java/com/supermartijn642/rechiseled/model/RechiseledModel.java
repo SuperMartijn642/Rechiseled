@@ -14,8 +14,9 @@ import net.minecraft.client.resources.model.*;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Tuple;
-import net.minecraftforge.client.model.IModelConfiguration;
-import net.minecraftforge.client.model.geometry.IModelGeometry;
+import net.minecraftforge.client.RenderTypeGroup;
+import net.minecraftforge.client.model.geometry.IGeometryBakingContext;
+import net.minecraftforge.client.model.geometry.IUnbakedGeometry;
 
 import java.util.*;
 import java.util.function.Function;
@@ -23,7 +24,7 @@ import java.util.function.Function;
 /**
  * Created 21/12/2021 by SuperMartijn642
  */
-public class RechiseledModel implements IModelGeometry<RechiseledModel> {
+public class RechiseledModel implements IUnbakedGeometry<RechiseledModel> {
 
     private final boolean shouldConnect;
     private final ResourceLocation parent;
@@ -33,8 +34,9 @@ public class RechiseledModel implements IModelGeometry<RechiseledModel> {
     private final BlockModel.GuiLight guiLight;
     private final ItemTransforms cameraTransforms;
     private final List<ItemOverride> itemOverrides;
+    private final ResourceLocation renderTypeHint;
 
-    public RechiseledModel(boolean shouldConnect, ResourceLocation parent, List<BlockElement> elements, Map<String,Either<Pair<Material,Boolean>,String>> textureMap, boolean ambientOcclusion, BlockModel.GuiLight guiLight, ItemTransforms cameraTransforms, List<ItemOverride> itemOverrides){
+    public RechiseledModel(boolean shouldConnect, ResourceLocation parent, List<BlockElement> elements, Map<String,Either<Pair<Material,Boolean>,String>> textureMap, boolean ambientOcclusion, BlockModel.GuiLight guiLight, ItemTransforms cameraTransforms, List<ItemOverride> itemOverrides, ResourceLocation renderTypeHint){
         this.shouldConnect = shouldConnect;
         this.parent = parent;
         this.elements = elements;
@@ -43,15 +45,19 @@ public class RechiseledModel implements IModelGeometry<RechiseledModel> {
         this.guiLight = guiLight;
         this.cameraTransforms = cameraTransforms;
         this.itemOverrides = itemOverrides;
+        this.renderTypeHint = renderTypeHint;
     }
 
     @Override
-    public BakedModel bake(IModelConfiguration owner, ModelBakery bakery, Function<Material,TextureAtlasSprite> spriteGetter, ModelState modelTransform, ItemOverrides overrides, ResourceLocation modelLocation){
+    public BakedModel bake(IGeometryBakingContext owner, ModelBakery bakery, Function<Material,TextureAtlasSprite> spriteGetter, ModelState modelTransform, ItemOverrides overrides, ResourceLocation modelLocation){
         Function<ResourceLocation,UnbakedModel> modelGetter = bakery::getModel;
 
         TextureAtlasSprite particle = spriteGetter.apply(this.getTexture("particle", modelGetter).getFirst());
         List<BlockElement> elements = this.getElements(modelGetter);
         ItemTransforms transforms = this.getTransforms(modelGetter);
+        ResourceLocation renderTypeHint = this.getRenderTypeHint(modelGetter);
+
+        RenderTypeGroup renderTypes = renderTypeHint == null ? RenderTypeGroup.EMPTY : owner.getRenderType(renderTypeHint);
 
         Map<Direction,List<Tuple<BakedQuad,Boolean>>> quads = Maps.newEnumMap(Direction.class);
 
@@ -62,7 +68,7 @@ public class RechiseledModel implements IModelGeometry<RechiseledModel> {
                 Pair<Material,Boolean> texture = this.getTexture(face.texture, modelGetter);
                 TextureAtlasSprite sprite = spriteGetter.apply(texture.getFirst());
                 boolean connecting = texture.getSecond();
-                BakedQuad quad = BlockModel.makeBakedQuad(part, face, sprite, direction, modelTransform, modelLocation);
+                BakedQuad quad = BlockModel.bakeFace(part, face, sprite, direction, modelTransform, modelLocation);
                 Direction cullFace = face.cullForDirection == null ? null : Direction.rotate(modelTransform.getRotation().getMatrix(), face.cullForDirection);
 
                 quads.putIfAbsent(cullFace, new ArrayList<>());
@@ -71,12 +77,12 @@ public class RechiseledModel implements IModelGeometry<RechiseledModel> {
         }
 
         return this.shouldConnect ?
-            new RechiseledConnectedBakedModel(quads, owner.useSmoothLighting(), owner.isShadedInGui(), owner.isSideLit(), false, particle, overrides, transforms) :
-            new RechiseledBakedModel(quads, owner.useSmoothLighting(), owner.isShadedInGui(), owner.isSideLit(), false, particle, overrides, transforms);
+            new RechiseledConnectedBakedModel(quads, owner.useAmbientOcclusion(), owner.isGui3d(), owner.useBlockLight(), false, particle, overrides, transforms, renderTypes) :
+            new RechiseledBakedModel(quads, owner.useAmbientOcclusion(), owner.isGui3d(), owner.useBlockLight(), false, particle, overrides, transforms, renderTypes);
     }
 
     @Override
-    public Collection<Material> getTextures(IModelConfiguration owner, Function<ResourceLocation,UnbakedModel> modelGetter, Set<Pair<String,String>> missingTextureErrors){
+    public Collection<Material> getMaterials(IGeometryBakingContext owner, Function<ResourceLocation,UnbakedModel> modelGetter, Set<Pair<String,String>> missingTextureErrors){
         Set<Material> textures = Sets.newHashSet();
 
         Material particles = this.getTexture("particle", modelGetter).getFirst();
@@ -177,5 +183,20 @@ public class RechiseledModel implements IModelGeometry<RechiseledModel> {
                 return ((BlockModel)parent).getTransforms().getTransform(transformType);
         }
         return this.cameraTransforms.getTransform(transformType);
+    }
+
+    private ResourceLocation getRenderTypeHint(Function<ResourceLocation,UnbakedModel> modelGetter){
+        ResourceLocation renderTypeHint = this.renderTypeHint;
+        if(this.renderTypeHint == null){
+            UnbakedModel parent = this.parent == null ? null : modelGetter.apply(this.parent);
+            if(parent instanceof BlockModel){
+                if(((BlockModel)parent).customData.hasCustomGeometry() && ((BlockModel)parent).customData.getCustomGeometry() instanceof RechiseledModel)
+                    renderTypeHint = ((RechiseledModel)((BlockModel)parent).customData.getCustomGeometry()).getRenderTypeHint(modelGetter);
+                else
+                    renderTypeHint = ((BlockModel)parent).customData.getRenderTypeHint();
+            }
+        }
+
+        return renderTypeHint;
     }
 }

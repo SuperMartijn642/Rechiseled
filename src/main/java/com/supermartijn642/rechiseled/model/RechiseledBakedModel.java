@@ -3,6 +3,7 @@ package com.supermartijn642.rechiseled.model;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormatElement;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
@@ -11,10 +12,14 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Tuple;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.client.model.data.IDynamicBakedModel;
-import net.minecraftforge.client.model.data.IModelData;
+import net.minecraftforge.client.ChunkRenderTypeSet;
+import net.minecraftforge.client.RenderTypeGroup;
+import net.minecraftforge.client.model.IDynamicBakedModel;
+import net.minecraftforge.client.model.data.ModelData;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -33,8 +38,11 @@ public class RechiseledBakedModel implements IDynamicBakedModel {
     private final TextureAtlasSprite particles;
     private final ItemOverrides itemOverrides;
     private final ItemTransforms transforms;
+    private final ChunkRenderTypeSet blockRenderTypes;
+    private final List<RenderType> itemRenderTypes;
+    private final List<RenderType> fabulousItemRenderTypes;
 
-    public RechiseledBakedModel(Map<Direction,List<Tuple<BakedQuad,Boolean>>> quads, boolean ambientOcclusion, boolean gui3d, boolean blockLighting, boolean customRenderer, TextureAtlasSprite particles, ItemOverrides itemOverrides, ItemTransforms transforms){
+    public RechiseledBakedModel(Map<Direction,List<Tuple<BakedQuad,Boolean>>> quads, boolean ambientOcclusion, boolean gui3d, boolean blockLighting, boolean customRenderer, TextureAtlasSprite particles, ItemOverrides itemOverrides, ItemTransforms transforms, RenderTypeGroup renderTypes){
         this.quads = quads;
         this.ambientOcclusion = ambientOcclusion;
         this.gui3d = gui3d;
@@ -43,11 +51,14 @@ public class RechiseledBakedModel implements IDynamicBakedModel {
         this.particles = particles;
         this.itemOverrides = itemOverrides;
         this.transforms = transforms;
+        this.blockRenderTypes = !renderTypes.isEmpty() ? ChunkRenderTypeSet.of(renderTypes.block()) : null;
+        this.itemRenderTypes = !renderTypes.isEmpty() ? Collections.singletonList(renderTypes.entity()) : null;
+        this.fabulousItemRenderTypes = !renderTypes.isEmpty() ? Collections.singletonList(renderTypes.entityFabulous()) : null;
     }
 
     @Nonnull
     @Override
-    public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, @Nonnull RandomSource rand, @Nonnull IModelData extraData){
+    public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, @Nonnull RandomSource rand, @Nonnull ModelData extraData, RenderType renderType){
         List<BakedQuad> quads = new ArrayList<>();
         List<Tuple<BakedQuad,Boolean>> unconnectedQuads = this.quads.getOrDefault(side, Collections.emptyList());
 
@@ -70,7 +81,7 @@ public class RechiseledBakedModel implements IDynamicBakedModel {
         return quads;
     }
 
-    protected int[] getUV(Direction side, IModelData modelData){
+    protected int[] getUV(Direction side, ModelData modelData){
         return new int[]{0, 0};
     }
 
@@ -114,8 +125,27 @@ public class RechiseledBakedModel implements IDynamicBakedModel {
 
     @Nonnull
     @Override
-    public IModelData getModelData(@Nonnull BlockAndTintGetter world, @Nonnull BlockPos pos, @Nonnull BlockState state, @Nonnull IModelData tileData){
+    public ModelData getModelData(@Nonnull BlockAndTintGetter world, @Nonnull BlockPos pos, @Nonnull BlockState state, @Nonnull ModelData tileData){
         return IDynamicBakedModel.super.getModelData(world, pos, state, tileData);
+    }
+
+    @Override
+    public ChunkRenderTypeSet getRenderTypes(@NotNull BlockState state, @NotNull RandomSource rand, @NotNull ModelData data){
+        if(this.blockRenderTypes != null)
+            return this.blockRenderTypes;
+        return IDynamicBakedModel.super.getRenderTypes(state, rand, data);
+    }
+
+    @Override
+    public List<RenderType> getRenderTypes(ItemStack itemStack, boolean fabulous){
+        if(!fabulous){
+            if(this.itemRenderTypes != null)
+                return this.itemRenderTypes;
+        }else{
+            if(this.fabulousItemRenderTypes != null)
+                return this.fabulousItemRenderTypes;
+        }
+        return IDynamicBakedModel.super.getRenderTypes(itemStack, fabulous);
     }
 
     @Override

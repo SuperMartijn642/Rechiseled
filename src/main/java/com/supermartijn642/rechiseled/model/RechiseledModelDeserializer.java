@@ -46,8 +46,9 @@ public class RechiseledModelDeserializer {
         BlockModel.GuiLight guiLighting = null;
         if(json.has("gui_light"))
             guiLighting = BlockModel.GuiLight.getByName(GsonHelper.getAsString(json, "gui_light"));
+        ResourceLocation renderTypeHint = json.has("render_type") ? new ResourceLocation(GsonHelper.getAsString(json, "render_type")) : null;
 
-        return new RechiseledModel(shouldConnect, parent, elements, map, ambientOcclusion, guiLighting, cameraTransforms, overrides);
+        return new RechiseledModel(shouldConnect, parent, elements, map, ambientOcclusion, guiLighting, cameraTransforms, overrides, renderTypeHint);
     }
 
     private static List<BlockElement> deserializeElements(JsonObject json, JsonDeserializationContext context){

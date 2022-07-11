@@ -20,9 +20,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
-import net.minecraftforge.client.model.data.EmptyModelData;
-import net.minecraftforge.client.model.data.IModelData;
-import net.minecraftforge.client.model.data.ModelDataMap;
+import net.minecraftforge.client.model.data.ModelData;
 
 import java.util.List;
 import java.util.Map;
@@ -68,30 +66,30 @@ public class ScreenBlockRenderer {
         matrixStack.translate(pos.getX() - 0.5, pos.getY() - 0.5, pos.getZ() - 0.5);
 
         BakedModel model = ClientUtils.getBlockRenderer().getBlockModel(state);
-        IModelData modelData = EmptyModelData.INSTANCE;
+        ModelData modelData = ModelData.EMPTY;
         if(model instanceof RechiseledConnectedBakedModel){
             RechiseledModelData data = new RechiseledModelData();
             for(Direction direction : Direction.values())
                 data.sides.put(direction, new RechiseledModelData.SideData(direction, capture::getBlock, pos, state.getBlock()));
-            modelData = new ModelDataMap.Builder().withInitial(RechiseledModelData.PROPERTY, data).build();
+            modelData = ModelData.builder().with(RechiseledModelData.PROPERTY, data).build();
         }
 
         RenderType renderType = ItemBlockRenderTypes.getRenderType(state, true);
-        renderModel(model, state, matrixStack, renderTypeBuffer.getBuffer(renderType), modelData);
+        renderModel(model, state, matrixStack, renderTypeBuffer.getBuffer(renderType), modelData, renderType);
 
         matrixStack.popPose();
     }
 
-    private static void renderModel(BakedModel modelIn, BlockState state, PoseStack matrixStackIn, VertexConsumer bufferIn, IModelData modelData){
+    private static void renderModel(BakedModel modelIn, BlockState state, PoseStack matrixStackIn, VertexConsumer bufferIn, ModelData modelData, RenderType renderType){
         RandomSource random = RandomSource.create();
 
         for(Direction direction : Direction.values()){
             random.setSeed(42L);
-            renderQuads(matrixStackIn, bufferIn, modelIn.getQuads(state, direction, random, modelData));
+            renderQuads(matrixStackIn, bufferIn, modelIn.getQuads(state, direction, random, modelData, renderType));
         }
 
         random.setSeed(42L);
-        renderQuads(matrixStackIn, bufferIn, modelIn.getQuads(state, null, random, modelData));
+        renderQuads(matrixStackIn, bufferIn, modelIn.getQuads(state, null, random, modelData, renderType));
     }
 
     private static void renderQuads(PoseStack matrixStackIn, VertexConsumer bufferIn, List<BakedQuad> quadsIn){

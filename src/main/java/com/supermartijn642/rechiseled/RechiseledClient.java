@@ -4,10 +4,8 @@ import com.supermartijn642.rechiseled.model.RechiseledModelLoader;
 import com.supermartijn642.rechiseled.screen.BaseChiselingContainerScreen;
 import com.supermartijn642.rechiseled.screen.ChiselContainer;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.client.model.ModelLoaderRegistry;
+import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -19,8 +17,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 public class RechiseledClient {
 
     @SubscribeEvent
-    public static void onModelRegistry(ModelRegistryEvent e){
-        ModelLoaderRegistry.registerLoader(new ResourceLocation("rechiseled", "connecting_model"), new RechiseledModelLoader());
+    public static void onModelRegistry(ModelEvent.RegisterGeometryLoaders e){
+        e.register("connecting_model", new RechiseledModelLoader());
     }
 
     @SubscribeEvent
