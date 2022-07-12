@@ -3,7 +3,7 @@ package com.supermartijn642.rechiseled.data;
 import com.supermartijn642.rechiseled.RechiseledBlockType;
 import com.supermartijn642.rechiseled.api.ConnectingBlockModelProvider;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.data.event.GatherDataEvent;
 
 import static com.supermartijn642.rechiseled.RechiseledBlockType.BlockOption.*;
 

@@ -2,7 +2,7 @@ package com.supermartijn642.rechiseled.data;
 
 import com.supermartijn642.rechiseled.api.ChiseledTextureProvider;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.data.event.GatherDataEvent;
 
 /**
  * Created 24/01/2022 by SuperMartijn642

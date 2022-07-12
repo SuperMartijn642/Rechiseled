@@ -5,7 +5,7 @@ import com.supermartijn642.rechiseled.api.BaseChiselingRecipes;
 import com.supermartijn642.rechiseled.api.ChiselingRecipeProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.data.event.GatherDataEvent;
 
 /**
  * Created 24/12/2021 by SuperMartijn642

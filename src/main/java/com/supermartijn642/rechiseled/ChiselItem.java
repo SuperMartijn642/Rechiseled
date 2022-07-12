@@ -31,7 +31,7 @@ public class ChiselItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand){
         ItemStack stack = player.getItemInHand(hand);
         if(!world.isClientSide){
-            NetworkHooks.openGui((ServerPlayer)player, new MenuProvider() {
+            NetworkHooks.openScreen((ServerPlayer)player, new MenuProvider() {
                 @Override
                 public Component getDisplayName(){
                     return TextComponents.item(stack.getItem()).get();

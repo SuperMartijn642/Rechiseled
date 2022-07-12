@@ -15,9 +15,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.extensions.IForgeMenuType;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.ObjectHolder;
@@ -77,7 +77,7 @@ public class Rechiseled {
                 onBlockRegistry(Objects.requireNonNull(e.getForgeRegistry()));
             else if(e.getRegistryKey().equals(ForgeRegistries.Keys.ITEMS))
                 onItemRegistry(Objects.requireNonNull(e.getForgeRegistry()));
-            else if(e.getRegistryKey().equals(ForgeRegistries.Keys.CONTAINER_TYPES))
+            else if(e.getRegistryKey().equals(ForgeRegistries.Keys.MENU_TYPES))
                 onContainerRegistry(Objects.requireNonNull(e.getForgeRegistry()));
         }
 

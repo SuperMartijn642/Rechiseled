@@ -3,7 +3,7 @@ package com.supermartijn642.rechiseled.data;
 import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.RechiseledBlockType;
 import net.minecraftforge.common.data.LanguageProvider;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.data.event.GatherDataEvent;
 
 /**
  * Created 7/8/2021 by SuperMartijn642
