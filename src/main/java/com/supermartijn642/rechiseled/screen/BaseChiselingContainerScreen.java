@@ -57,30 +57,30 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
                 int y = 17 + 22 * row;
                 this.addWidget(new EntryButtonWidget(x, y, 20, 22,
                     () -> this.getEntry(index),
-                    () -> this.menu.currentEntry,
+                    () -> this.container.currentEntry,
                     () -> this.selectEntry(index),
-                    () -> this.menu.connecting));
+                    () -> this.container.connecting));
             }
         }
 
         this.addWidget(new EntryPreviewWidget(117, 17, 68, 69, () -> {
-            ChiselingEntry entry = this.menu.currentEntry;
+            ChiselingEntry entry = this.container.currentEntry;
             if(entry == null)
                 return null;
-            return (this.menu.connecting && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
+            return (this.container.connecting && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
         }, () -> previewMode));
         Supplier<Boolean> enablePreviewButtons = () -> {
-            ChiselingEntry entry = this.menu.currentEntry;
+            ChiselingEntry entry = this.container.currentEntry;
             if(entry == null)
                 return false;
-            Item currentItem = (this.menu.connecting && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
+            Item currentItem = (this.container.connecting && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
             return currentItem instanceof BlockItem;
         };
         this.addWidget(new PreviewModeButtonWidget(193, 18, 19, 21, 2, () -> previewMode, enablePreviewButtons, () -> previewMode = 2));
         this.addWidget(new PreviewModeButtonWidget(193, 41, 19, 21, 1, () -> previewMode, enablePreviewButtons, () -> previewMode = 1));
         this.addWidget(new PreviewModeButtonWidget(193, 64, 19, 21, 0, () -> previewMode, enablePreviewButtons, () -> previewMode = 0));
-        this.addWidget(new ConnectingToggleWidget(193, 99, 19, 21, () -> this.menu.connecting, () -> this.menu.currentEntry, this::toggleConnecting));
-        this.chiselAllWidget = this.addWidget(new ChiselAllWidget(127, 99, 19, 21, () -> this.menu.currentEntry, this::chiselAll));
+        this.addWidget(new ConnectingToggleWidget(193, 99, 19, 21, () -> this.container.connecting, () -> this.container.currentEntry, this::toggleConnecting));
+        this.chiselAllWidget = this.addWidget(new ChiselAllWidget(127, 99, 19, 21, () -> this.container.currentEntry, this::chiselAll));
     }
 
     @Override
@@ -92,12 +92,12 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
     @Override
     protected void renderForeground(int mouseX, int mouseY){
         // Render chisel all slot overlays
-        if(this.menu.currentRecipe != null && this.chiselAllWidget != null && this.chiselAllWidget.hovered){
-            for(int index = 1; index < this.menu.slots.size(); index++){
-                Slot slot = this.menu.getSlot(index);
+        if(this.container.currentRecipe != null && this.chiselAllWidget != null && this.chiselAllWidget.hovered){
+            for(int index = 1; index < this.container.slots.size(); index++){
+                Slot slot = this.container.getSlot(index);
                 ItemStack stack = slot.getItem();
 
-                for(ChiselingEntry entry : this.menu.currentRecipe.getEntries()){
+                for(ChiselingEntry entry : this.container.currentRecipe.getEntries()){
                     if((!stack.hasTag() || stack.getTag().isEmpty())
                         && ((entry.hasConnectingItem() && stack.getItem() == entry.getConnectingItem())
                         || (entry.hasRegularItem() && stack.getItem() == entry.getRegularItem()))){
@@ -112,7 +112,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
     }
 
     private ChiselingEntry getEntry(int index){
-        ChiselingRecipe recipe = this.menu.currentRecipe;
+        ChiselingRecipe recipe = this.container.currentRecipe;
         if(recipe == null)
             return null;
         return index >= 0 && index < recipe.getEntries().size() ? recipe.getEntries().get(index) : null;
