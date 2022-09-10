@@ -4,12 +4,12 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+import com.supermartijn642.core.registry.Registries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -78,7 +78,7 @@ public class ChiselingRecipe {
                 if(regularItemName.isEmpty())
                     regularItem = null;
                 else{
-                    regularItem = ForgeRegistries.ITEMS.getValue(new ResourceLocation(regularItemName));
+                    regularItem = Registries.ITEMS.getValue(new ResourceLocation(regularItemName));
                     if(regularItem == null && !optional)
                         throw new JsonParseException("Unknown item '" + regularItemName + "'");
                 }
@@ -87,7 +87,7 @@ public class ChiselingRecipe {
                 if(connectingItemName.isEmpty())
                     connectingItem = null;
                 else{
-                    connectingItem = ForgeRegistries.ITEMS.getValue(new ResourceLocation(connectingItemName));
+                    connectingItem = Registries.ITEMS.getValue(new ResourceLocation(connectingItemName));
                     if(connectingItem == null && !optional)
                         throw new JsonParseException("Unknown item '" + connectingItemName + "'");
                 }

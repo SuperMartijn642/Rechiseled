@@ -3,7 +3,7 @@ package com.supermartijn642.rechiseled.screen;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
-import com.supermartijn642.core.gui.widget.AbstractButtonWidget;
+import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
@@ -42,20 +42,20 @@ public class PreviewModeButtonWidget extends AbstractButtonWidget {
     }
 
     @Override
-    protected Component getNarrationMessage(){
+    public Component getNarrationMessage(){
         return TextComponents.translation("rechiseled.chiseling.preview").get();
     }
 
     @Override
-    public void render(PoseStack matrixStack, int mouseX, int mouseY, float partialTicks){
+    public void render(PoseStack poseStack, int mouseX, int mouseY){
         int currentMode = this.currentMode.get();
         boolean selected = this.mode == currentMode;
 
         boolean enabled = this.enabled.get();
         ScreenUtils.bindTexture(GREY_BUTTONS);
-        ScreenUtils.drawTexture(matrixStack, this.x, this.y, this.width, this.height, 0, ((!enabled || selected) ? 1 : this.hovered ? 2 : 0) / 3f, 1, 1 / 3f);
+        ScreenUtils.drawTexture(poseStack, this.x, this.y, this.width, this.height, 0, ((!enabled || selected) ? 1 : this.isFocused() ? 2 : 0) / 3f, 1, 1 / 3f);
 
         ScreenUtils.bindTexture(ICONS[this.mode][selected ? 1 : 0]);
-        ScreenUtils.drawTexture(matrixStack, this.x + 1, this.y + 2, this.width - 2, this.height - 4);
+        ScreenUtils.drawTexture(poseStack, this.x + 1, this.y + 2, this.width - 2, this.height - 4);
     }
 }

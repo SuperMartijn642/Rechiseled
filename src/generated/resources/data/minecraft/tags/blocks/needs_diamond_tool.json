@@ -1,27 +1,18 @@
 {
+  "replace": false,
   "values": [
-    "rechiseled:obsidian_squares",
-    "rechiseled:obsidian_squares_connecting",
-    "rechiseled:obsidian_bricks",
-    "rechiseled:obsidian_bricks_connecting",
-    "rechiseled:obsidian_tiles",
-    "rechiseled:obsidian_tiles_connecting",
-    "rechiseled:obsidian_pillars",
-    "rechiseled:obsidian_pillars_connecting",
     "rechiseled:obsidian_spots",
-    "rechiseled:obsidian_spots_connecting",
+    "rechiseled:obsidian_chiseled",
+    "rechiseled:obsidian_stripes",
+    "rechiseled:obsidian_dark",
     "rechiseled:obsidian_large_tiles",
     "rechiseled:obsidian_bordered",
-    "rechiseled:obsidian_bordered_connecting",
-    "rechiseled:obsidian_chiseled",
-    "rechiseled:obsidian_chiseled_connecting",
+    "rechiseled:obsidian_pillars",
+    "rechiseled:obsidian_chiseled_skeleton",
     "rechiseled:obsidian_chiseled_circles",
-    "rechiseled:obsidian_chiseled_circles_connecting",
-    "rechiseled:obsidian_stripes",
-    "rechiseled:obsidian_stripes_connecting",
-    "rechiseled:obsidian_dark",
-    "rechiseled:obsidian_dark_connecting",
     "rechiseled:obsidian_chiseled_creeper",
-    "rechiseled:obsidian_chiseled_skeleton"
+    "rechiseled:obsidian_tiles",
+    "rechiseled:obsidian_bricks",
+    "rechiseled:obsidian_squares"
   ]
 }

@@ -4,7 +4,6 @@ import com.supermartijn642.rechiseled.ChiselItem;
 import com.supermartijn642.rechiseled.Rechiseled;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.ItemStack;
 
 /**
@@ -12,10 +11,10 @@ import net.minecraft.world.item.ItemStack;
  */
 public class ChiselContainer extends BaseChiselingContainer {
 
-    private final InteractionHand hand;
+    public final InteractionHand hand;
 
-    public ChiselContainer(MenuType<?> type, int id, Player player, InteractionHand hand){
-        super(type, id, player);
+    public ChiselContainer(Player player, InteractionHand hand){
+        super(Rechiseled.chisel_container, player);
         this.hand = hand;
         super.updateRecipe();
     }

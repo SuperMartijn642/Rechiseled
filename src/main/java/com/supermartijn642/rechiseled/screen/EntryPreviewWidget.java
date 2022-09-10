@@ -1,7 +1,7 @@
 package com.supermartijn642.rechiseled.screen;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.supermartijn642.core.gui.widget.Widget;
+import com.supermartijn642.core.gui.widget.BaseWidget;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
@@ -13,7 +13,7 @@ import java.util.function.Supplier;
 /**
  * Created 25/12/2021 by SuperMartijn642
  */
-public class EntryPreviewWidget extends Widget {
+public class EntryPreviewWidget extends BaseWidget {
 
     private static final int ROTATION_TIME = 10000;
 
@@ -40,12 +40,12 @@ public class EntryPreviewWidget extends Widget {
     }
 
     @Override
-    protected Component getNarrationMessage(){
+    public Component getNarrationMessage(){
         return null;
     }
 
     @Override
-    public void render(PoseStack matrixStack, int mouseX, int mouseY, float partialTicks){
+    public void render(PoseStack poseStack, int mouseX, int mouseY){
         long now = System.currentTimeMillis();
 
         Item item = this.item.get();
@@ -79,7 +79,7 @@ public class EntryPreviewWidget extends Widget {
                 ScreenBlockRenderer.drawBlock(capture, this.guiLeft.get() + this.x + this.width / 2d, this.guiTop.get() + this.y + this.height / 2d, this.width, this.yaw, this.pitch, false);
             }else{
                 // Render item
-                ScreenItemRender.drawItem(item, this.guiLeft.get() + this.x + this.width / 2d, this.guiTop.get() + this.y + this.height / 2d, this.width, this.yaw, this.pitch, true);
+                ScreenItemRender.drawItem(poseStack, item, this.guiLeft.get() + this.x + this.width / 2d, this.guiTop.get() + this.y + this.height / 2d, this.width, this.yaw, this.pitch, true);
             }
         }
 
@@ -87,16 +87,19 @@ public class EntryPreviewWidget extends Widget {
     }
 
     @Override
-    public void mouseClicked(int mouseX, int mouseY, int button){
-        if(mouseX >= this.x && mouseX < this.x + this.width && mouseY >= this.y && mouseY < this.y + this.height){
+    public boolean mousePressed(int mouseX, int mouseY, int button, boolean hasBeenHandled){
+        if(!hasBeenHandled && mouseX >= this.x && mouseX < this.x + this.width && mouseY >= this.y && mouseY < this.y + this.height){
             this.dragging = true;
             this.mouseStartX = mouseX;
             this.mouseStartY = mouseY;
+            return true;
         }
+        return super.mousePressed(mouseX, mouseY, button, hasBeenHandled);
     }
 
     @Override
-    public void mouseReleased(int mouseX, int mouseY, int button){
+    public boolean mouseReleased(int mouseX, int mouseY, int button, boolean hasBeenHandled){
         this.dragging = false;
+        return super.mouseReleased(mouseX, mouseY, button, hasBeenHandled);
     }
 }

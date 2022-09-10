@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.supermartijn642.core.registry.Registries;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
@@ -12,7 +13,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
 
@@ -89,13 +89,13 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
             JsonObject object = new JsonObject();
             if(entry.getLeft() != null){
                 if(!items.add(entry.getLeft()))
-                    throw new IllegalStateException("Duplicate item '" + ForgeRegistries.ITEMS.getKey(entry.getLeft()) + "' in chiseling recipe '" + recipeName + "'");
-                object.addProperty("item", ForgeRegistries.ITEMS.getKey(entry.getLeft()).toString());
+                    throw new IllegalStateException("Duplicate item '" + Registries.ITEMS.getIdentifier(entry.getLeft()) + "' in chiseling recipe '" + recipeName + "'");
+                object.addProperty("item", Registries.ITEMS.getIdentifier(entry.getLeft()).toString());
             }
             if(entry.getMiddle() != null){
                 if(!items.add(entry.getMiddle()))
-                    throw new IllegalStateException("Duplicate item '" + ForgeRegistries.ITEMS.getKey(entry.getMiddle()) + "' in chiseling recipe '" + recipeName + "'");
-                object.addProperty("connecting_item", ForgeRegistries.ITEMS.getKey(entry.getMiddle()).toString());
+                    throw new IllegalStateException("Duplicate item '" + Registries.ITEMS.getIdentifier(entry.getMiddle()) + "' in chiseling recipe '" + recipeName + "'");
+                object.addProperty("connecting_item", Registries.ITEMS.getIdentifier(entry.getMiddle()).toString());
             }
             if(entry.getRight())
                 object.addProperty("optional", true);
