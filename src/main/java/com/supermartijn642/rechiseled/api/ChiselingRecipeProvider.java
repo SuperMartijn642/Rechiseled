@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.supermartijn642.core.registry.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.HashCache;
@@ -90,13 +91,13 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
             JsonObject object = new JsonObject();
             if(entry.getLeft() != null){
                 if(!items.add(entry.getLeft()))
-                    throw new IllegalStateException("Duplicate item '" + entry.getLeft().getRegistryName() + "' in chiseling recipe '" + recipeName + "'");
-                object.addProperty("item", entry.getLeft().getRegistryName().toString());
+                    throw new IllegalStateException("Duplicate item '" + Registries.ITEMS.getIdentifier(entry.getLeft()) + "' in chiseling recipe '" + recipeName + "'");
+                object.addProperty("item", Registries.ITEMS.getIdentifier(entry.getLeft()).toString());
             }
             if(entry.getMiddle() != null){
                 if(!items.add(entry.getMiddle()))
-                    throw new IllegalStateException("Duplicate item '" + entry.getMiddle().getRegistryName() + "' in chiseling recipe '" + recipeName + "'");
-                object.addProperty("connecting_item", entry.getMiddle().getRegistryName().toString());
+                    throw new IllegalStateException("Duplicate item '" + Registries.ITEMS.getIdentifier(entry.getMiddle()) + "' in chiseling recipe '" + recipeName + "'");
+                object.addProperty("connecting_item", Registries.ITEMS.getIdentifier(entry.getMiddle()).toString());
             }
             if(entry.getRight())
                 object.addProperty("optional", true);

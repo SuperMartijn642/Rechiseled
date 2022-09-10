@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.Block;
  */
 public class InheritingRechiseledBlock extends RechiseledBlock {
 
-    public InheritingRechiseledBlock(String registryName, boolean connecting, Block parent){
-        super(registryName, connecting, Properties.copy(parent));
+    public InheritingRechiseledBlock(boolean connecting, Block parent){
+        super(connecting, Properties.copy(parent));
     }
 }

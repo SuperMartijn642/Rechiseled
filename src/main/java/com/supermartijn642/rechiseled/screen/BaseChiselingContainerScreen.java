@@ -1,8 +1,9 @@
 package com.supermartijn642.rechiseled.screen;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.supermartijn642.core.gui.BaseContainerScreen;
+import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.gui.ScreenUtils;
+import com.supermartijn642.core.gui.widget.BaseContainerWidget;
 import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
 import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
@@ -21,7 +22,7 @@ import java.util.function.Supplier;
 /**
  * Created 23/12/2021 by SuperMartijn642
  */
-public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> extends BaseContainerScreen<T> {
+public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> extends BaseContainerWidget<T> {
 
     private static final ResourceLocation BACKGROUND = new ResourceLocation("rechiseled", "textures/screen/chiseling_background.png");
 
@@ -32,21 +33,14 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
      */
     public static int previewMode = 0;
 
+    private final Component title;
     private ChiselAllWidget chiselAllWidget;
 
-    public BaseChiselingContainerScreen(T screenContainer, Component title){
-        super(screenContainer, title);
-        this.setDrawSlots(false);
-    }
+    public int offsetLeft, offsetTop;
 
-    @Override
-    protected int sizeX(){
-        return 222;
-    }
-
-    @Override
-    protected int sizeY(){
-        return 226;
+    public BaseChiselingContainerScreen(Component title){
+        super(0, 0, 222, 226);
+        this.title = title;
     }
 
     @Override
@@ -61,8 +55,8 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
                     () -> this.container.currentEntry,
                     () -> this.selectEntry(index),
                     () -> this.container.connecting,
-                    this::left,
-                    this::top));
+                    () -> this.offsetLeft,
+                    () -> this.offsetTop));
             }
         }
 
@@ -71,7 +65,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
             if(entry == null)
                 return null;
             return (this.container.connecting && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
-        }, () -> previewMode, this::left, this::top));
+        }, () -> previewMode, () -> this.offsetLeft, () -> this.offsetTop));
         Supplier<Boolean> enablePreviewButtons = () -> {
             ChiselingEntry entry = this.container.currentEntry;
             if(entry == null)
@@ -87,15 +81,21 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
     }
 
     @Override
-    protected void renderBackground(PoseStack matrixStack, int mouseX, int mouseY){
-        ScreenUtils.bindTexture(BACKGROUND);
-        ScreenUtils.drawTexture(matrixStack, 0, 0, this.sizeX(), this.sizeY());
+    public Component getNarrationMessage(){
+        return this.title;
     }
 
     @Override
-    protected void renderForeground(PoseStack matrixStack, int mouseX, int mouseY){
+    public void renderBackground(PoseStack poseStack, int mouseX, int mouseY){
+        ScreenUtils.bindTexture(BACKGROUND);
+        ScreenUtils.drawTexture(poseStack, 0, 0, this.width, this.height);
+        super.renderBackground(poseStack, mouseX, mouseY);
+    }
+
+    @Override
+    public void renderForeground(PoseStack matrixStack, int mouseX, int mouseY){
         // Render chisel all slot overlays
-        if(this.container.currentRecipe != null && this.chiselAllWidget != null && this.chiselAllWidget.hovered){
+        if(this.container.currentRecipe != null && this.chiselAllWidget != null && this.chiselAllWidget.isFocused()){
             for(int index = 1; index < this.container.slots.size(); index++){
                 Slot slot = this.container.getSlot(index);
                 ItemStack stack = slot.getItem();
@@ -111,7 +111,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
         }
 
         super.renderForeground(matrixStack, mouseX, mouseY);
-        ScreenUtils.drawString(matrixStack, this.playerInventoryTitle, 31, 133);
+        ScreenUtils.drawString(matrixStack, ClientUtils.getPlayer().getInventory().getName(), 31, 133);
     }
 
     private ChiselingEntry getEntry(int index){

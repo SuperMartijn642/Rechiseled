@@ -3,17 +3,18 @@ package com.supermartijn642.rechiseled.data;
 import com.supermartijn642.rechiseled.RechiseledBlockType;
 import com.supermartijn642.rechiseled.api.BaseChiselingRecipes;
 import com.supermartijn642.rechiseled.api.ChiselingRecipeProvider;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.common.data.ExistingFileHelper;
 
 /**
  * Created 24/12/2021 by SuperMartijn642
  */
 public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
 
-    public RechiseledChiselingRecipeProvider(GatherDataEvent e){
-        super("rechiseled", e.getGenerator(), e.getExistingFileHelper());
+    public RechiseledChiselingRecipeProvider(DataGenerator generator, ExistingFileHelper existingFileHelper){
+        super("rechiseled", generator, existingFileHelper);
     }
 
     @Override
