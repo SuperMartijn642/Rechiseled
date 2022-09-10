@@ -1,9 +1,10 @@
 package com.supermartijn642.rechiseled;
 
+import com.supermartijn642.core.TextComponents;
+import com.supermartijn642.core.gui.WidgetContainerScreen;
+import com.supermartijn642.core.registry.ClientRegistrationHandler;
 import com.supermartijn642.rechiseled.model.RechiseledModelLoader;
 import com.supermartijn642.rechiseled.screen.BaseChiselingContainerScreen;
-import com.supermartijn642.rechiseled.screen.ChiselContainer;
-import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.model.ModelLoaderRegistry2;
@@ -17,9 +18,13 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 @Mod.EventBusSubscriber(value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class RechiseledClient {
 
+    public static void register(){
+        ClientRegistrationHandler handler = ClientRegistrationHandler.get("rechiseled");
+        handler.registerContainerScreen(() -> Rechiseled.chisel_container, container -> new WidgetContainerScreen<>(new BaseChiselingContainerScreen<>(TextComponents.item(Rechiseled.chisel).get()), container, false));
+    }
+
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent e){
         ModelLoaderRegistry2.registerLoader(new ResourceLocation("rechiseled", "connecting_model"), new RechiseledModelLoader());
-        ScreenManager.register(Rechiseled.chisel_container, (ScreenManager.IScreenFactory<ChiselContainer,BaseChiselingContainerScreen<ChiselContainer>>)((container, inventory, name) -> new BaseChiselingContainerScreen<>(container, name)));
     }
 }
