@@ -1,9 +1,10 @@
 package com.supermartijn642.rechiseled;
 
+import com.supermartijn642.core.item.BaseBlockItem;
+import com.supermartijn642.core.item.ItemProperties;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.Locale;
@@ -369,11 +370,11 @@ public enum RechiseledBlockType {
             throw new IllegalStateException("Blocks for '" + this.regularRegistryName + "' have already been created!");
 
         if(this.regularBlockMode.createNewBlock)
-            this.regularBlock = new InheritingRechiseledBlock(this.regularRegistryName, this.regularBlockMode == CONNECTING, this.parentBlock.get());
+            this.regularBlock = new InheritingRechiseledBlock(this.regularBlockMode == CONNECTING, this.parentBlock.get());
         else if(this.regularBlockMode == USE_PARENT)
             this.regularBlock = this.parentBlock.get();
         if(this.connectingBlockMode.createNewBlock)
-            this.connectingBlock = new InheritingRechiseledBlock(this.connectingRegistryName, this.connectingBlockMode == CONNECTING, this.parentBlock.get());
+            this.connectingBlock = new InheritingRechiseledBlock(this.connectingBlockMode == CONNECTING, this.parentBlock.get());
         else if(this.connectingBlockMode == USE_PARENT)
             this.connectingBlock = this.parentBlock.get();
     }
@@ -385,13 +386,11 @@ public enum RechiseledBlockType {
             throw new IllegalStateException("Items for '" + this.regularRegistryName + "' have already been created!");
 
         if(this.regularBlockMode.createNewBlock){
-            this.regularItem = new BlockItem(this.regularBlock, new Item.Properties().tab(Rechiseled.GROUP));
-            this.regularItem.setRegistryName(this.regularRegistryName);
+            this.regularItem = new BaseBlockItem(this.regularBlock, ItemProperties.create().group(Rechiseled.GROUP));
         }else if(this.regularBlockMode == USE_PARENT)
             this.regularItem = (BlockItem)this.regularBlock.asItem();
         if(this.connectingBlockMode.createNewBlock){
-            this.connectingItem = new BlockItem(this.connectingBlock, new Item.Properties().tab(Rechiseled.GROUP));
-            this.connectingItem.setRegistryName(this.connectingRegistryName);
+            this.connectingItem = new BaseBlockItem(this.connectingBlock, ItemProperties.create().group(Rechiseled.GROUP));
         }else if(this.connectingBlockMode == USE_PARENT)
             this.connectingItem = (BlockItem)this.connectingBlock.asItem();
     }

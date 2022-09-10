@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:obsidian_spots",
+    "rechiseled:obsidian_chiseled",
+    "rechiseled:obsidian_stripes",
+    "rechiseled:obsidian_dark",
+    "rechiseled:obsidian_large_tiles",
+    "rechiseled:obsidian_bordered",
+    "rechiseled:obsidian_pillars",
+    "rechiseled:obsidian_chiseled_skeleton",
+    "rechiseled:obsidian_chiseled_circles",
+    "rechiseled:obsidian_chiseled_creeper",
+    "rechiseled:obsidian_tiles",
+    "rechiseled:obsidian_bricks",
+    "rechiseled:obsidian_squares"
+  ]
+}

@@ -32,6 +32,8 @@ import java.util.Random;
  */
 public class ScreenBlockRenderer {
 
+    private static final MatrixStack POSE_STACK = new MatrixStack();
+
     public static void drawBlock(BlockCapture capture, double x, double y, double scale, float yaw, float pitch, boolean doShading){
         AxisAlignedBB bounds = capture.getBounds();
         double span = Math.sqrt(bounds.getXsize() * bounds.getXsize() + bounds.getYsize() * bounds.getYsize() + bounds.getZsize() * bounds.getZsize());
@@ -48,21 +50,22 @@ public class ScreenBlockRenderer {
         RenderSystem.scalef(1, -1, 1);
         RenderSystem.scaled(scale, scale, scale);
 
-        MatrixStack matrixstack = new MatrixStack();
-        matrixstack.mulPose(new Quaternion(pitch, yaw, 0, true));
+        POSE_STACK.pushPose();
+        POSE_STACK.mulPose(new Quaternion(pitch, yaw, 0, true));
 
         if(doShading)
             RenderSystem.enableLighting();
 
         IRenderTypeBuffer.Impl renderTypeBuffer = RenderUtils.getMainBufferSource();
         for(Map.Entry<BlockPos,BlockState> entry : capture.getBlocks())
-            renderBlock(capture, entry.getKey(), entry.getValue(), matrixstack, renderTypeBuffer);
+            renderBlock(capture, entry.getKey(), entry.getValue(), POSE_STACK, renderTypeBuffer);
         renderTypeBuffer.endBatch();
 
         RenderSystem.enableDepthTest();
         if(doShading)
             RenderSystem.disableLighting();
 
+        POSE_STACK.popPose();
         RenderSystem.popMatrix();
 
         RenderSystem.disableAlphaTest();

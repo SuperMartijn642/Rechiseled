@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:dirt_cobbled",
+    "rechiseled:dirt_squares",
+    "rechiseled:dirt_bricks",
+    "rechiseled:dirt_chunks",
+    "rechiseled:dirt_clumps",
+    "rechiseled:dirt_large_tiles",
+    "rechiseled:dirt_muddy",
+    "rechiseled:dirt_small_tiles",
+    "rechiseled:dirt_tilled",
+    "rechiseled:dirt_soil",
+    "rechiseled:dirt_blobs",
+    "rechiseled:dirt_small_bricks",
+    "rechiseled:dirt_smooth_clumps",
+    "rechiseled:dirt_tiles",
+    "rechiseled:dirt_grooves"
+  ]
+}

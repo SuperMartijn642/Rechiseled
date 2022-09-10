@@ -3,7 +3,6 @@ package com.supermartijn642.rechiseled.screen;
 import com.supermartijn642.rechiseled.ChiselItem;
 import com.supermartijn642.rechiseled.Rechiseled;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 
@@ -12,10 +11,10 @@ import net.minecraft.util.Hand;
  */
 public class ChiselContainer extends BaseChiselingContainer {
 
-    private final Hand hand;
+    public final Hand hand;
 
-    public ChiselContainer(ContainerType<?> type, int id, PlayerEntity player, Hand hand){
-        super(type, id, player);
+    public ChiselContainer(PlayerEntity player, Hand hand){
+        super(Rechiseled.chisel_container, player);
         this.hand = hand;
         super.updateRecipe();
     }

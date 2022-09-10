@@ -2,7 +2,6 @@ package com.supermartijn642.rechiseled.texture;
 
 import net.minecraft.resources.IResourceManager;
 import net.minecraft.resources.ResourcePackType;
-import net.minecraft.resources.SimpleReloadableResourceManager;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.awt.*;
@@ -19,6 +18,7 @@ public class TextureMappingTool {
     /**
      * {@link ExistingFileHelper#clientResources}
      */
+    @SuppressWarnings("JavadocReference")
     private static final Field clientResources;
 
     static{
@@ -65,7 +65,7 @@ public class TextureMappingTool {
         IResourceManager resourceManager;
         try{
             clientResources.setAccessible(true);
-            resourceManager = (SimpleReloadableResourceManager)clientResources.get(existingFileHelper);
+            resourceManager = (IResourceManager)clientResources.get(existingFileHelper);
         }catch(IllegalAccessException e){
             e.printStackTrace();
             return Collections.emptyList();

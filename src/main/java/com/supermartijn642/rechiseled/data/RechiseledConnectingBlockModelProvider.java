@@ -2,8 +2,9 @@ package com.supermartijn642.rechiseled.data;
 
 import com.supermartijn642.rechiseled.RechiseledBlockType;
 import com.supermartijn642.rechiseled.api.ConnectingBlockModelProvider;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.common.data.ExistingFileHelper;
 
 import static com.supermartijn642.rechiseled.RechiseledBlockType.BlockOption.*;
 
@@ -12,8 +13,8 @@ import static com.supermartijn642.rechiseled.RechiseledBlockType.BlockOption.*;
  */
 public class RechiseledConnectingBlockModelProvider extends ConnectingBlockModelProvider {
 
-    public RechiseledConnectingBlockModelProvider(GatherDataEvent e){
-        super("rechiseled", e.getGenerator(), e.getExistingFileHelper());
+    public RechiseledConnectingBlockModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper){
+        super("rechiseled", generator, existingFileHelper);
     }
 
     @Override
