@@ -1,6 +1,7 @@
 package com.supermartijn642.rechiseled.screen;
 
-import com.supermartijn642.core.gui.widget.Widget;
+import com.mojang.blaze3d.matrix.MatrixStack;
+import com.supermartijn642.core.gui.widget.BaseWidget;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -12,12 +13,13 @@ import java.util.function.Supplier;
 /**
  * Created 25/12/2021 by SuperMartijn642
  */
-public class EntryPreviewWidget extends Widget {
+public class EntryPreviewWidget extends BaseWidget {
 
     private static final int ROTATION_TIME = 10000;
 
     private final Supplier<Item> item;
     private final Supplier<Integer> previewMode;
+    private final Supplier<Integer> guiLeft, guiTop;
 
     private float yaw = 0.35f, pitch = 30;
     private long lastRotationTime;
@@ -26,20 +28,24 @@ public class EntryPreviewWidget extends Widget {
 
     public EntryPreviewWidget(int x, int y, int width, int height,
                               Supplier<Item> item,
-                              Supplier<Integer> previewMode){
+                              Supplier<Integer> previewMode,
+                              Supplier<Integer> guiLeft,
+                              Supplier<Integer> guiTop){
         super(x, y, width, height);
         this.item = item;
         this.previewMode = previewMode;
+        this.guiLeft = guiLeft;
+        this.guiTop = guiTop;
         this.lastRotationTime = System.currentTimeMillis();
     }
 
     @Override
-    protected ITextComponent getNarrationMessage(){
+    public ITextComponent getNarrationMessage(){
         return null;
     }
 
     @Override
-    public void render(int mouseX, int mouseY, float partialTicks){
+    public void render(MatrixStack poseStack, int mouseX, int mouseY){
         long now = System.currentTimeMillis();
 
         Item item = this.item.get();
@@ -70,10 +76,10 @@ public class EntryPreviewWidget extends Widget {
                     for(int i = 0; i < 9; i++)
                         capture.putBlock(new BlockPos(i / 3 - 1, i % 3 - 1, 0), block);
                 }
-                ScreenBlockRenderer.drawBlock(capture, this.x + this.width / 2d, this.y + this.height / 2d, this.width, this.yaw, this.pitch, false);
+                ScreenBlockRenderer.drawBlock(capture, this.guiLeft.get() + this.x + this.width / 2d, this.guiTop.get() + this.y + this.height / 2d, this.width, this.yaw, this.pitch, false);
             }else{
                 // Render item
-                ScreenItemRender.drawItem(item, this.x + this.width / 2d, this.y + this.height / 2d, this.width, this.yaw, this.pitch, true);
+                ScreenItemRender.drawItem(item, this.guiLeft.get() + this.x + this.width / 2d, this.guiTop.get() + this.y + this.height / 2d, this.width, this.yaw, this.pitch, true);
             }
         }
 
@@ -81,16 +87,19 @@ public class EntryPreviewWidget extends Widget {
     }
 
     @Override
-    public void mouseClicked(int mouseX, int mouseY, int button){
-        if(mouseX >= this.x && mouseX < this.x + this.width && mouseY >= this.y && mouseY < this.y + this.height){
+    public boolean mousePressed(int mouseX, int mouseY, int button, boolean hasBeenHandled){
+        if(!hasBeenHandled && mouseX >= this.x && mouseX < this.x + this.width && mouseY >= this.y && mouseY < this.y + this.height){
             this.dragging = true;
             this.mouseStartX = mouseX;
             this.mouseStartY = mouseY;
+            return true;
         }
+        return super.mousePressed(mouseX, mouseY, button, hasBeenHandled);
     }
 
     @Override
-    public void mouseReleased(int mouseX, int mouseY, int button){
+    public boolean mouseReleased(int mouseX, int mouseY, int button, boolean hasBeenHandled){
         this.dragging = false;
+        return super.mouseReleased(mouseX, mouseY, button, hasBeenHandled);
     }
 }

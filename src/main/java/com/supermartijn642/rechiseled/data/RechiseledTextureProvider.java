@@ -1,17 +1,17 @@
 package com.supermartijn642.rechiseled.data;
 
 import com.supermartijn642.rechiseled.api.ChiseledTextureProvider;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.ExistingFileHelper;
-import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 
 /**
  * Created 24/01/2022 by SuperMartijn642
  */
 public class RechiseledTextureProvider extends ChiseledTextureProvider {
 
-    public RechiseledTextureProvider(GatherDataEvent e, ExistingFileHelper existingFileHelper){
-        super("rechiseled", e.getGenerator(), existingFileHelper);
+    public RechiseledTextureProvider(DataGenerator generator, ExistingFileHelper existingFileHelper){
+        super("rechiseled", generator, existingFileHelper);
     }
 
     @Override
