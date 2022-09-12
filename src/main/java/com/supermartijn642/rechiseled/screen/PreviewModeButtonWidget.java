@@ -2,7 +2,7 @@ package com.supermartijn642.rechiseled.screen;
 
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
-import com.supermartijn642.core.gui.widget.AbstractButtonWidget;
+import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
@@ -42,18 +42,18 @@ public class PreviewModeButtonWidget extends AbstractButtonWidget {
     }
 
     @Override
-    protected ITextComponent getNarrationMessage(){
+    public ITextComponent getNarrationMessage(){
         return TextComponents.translation("rechiseled.chiseling.preview").get();
     }
 
     @Override
-    public void render(int mouseX, int mouseY, float partialTicks){
+    public void render(int mouseX, int mouseY){
         int currentMode = this.currentMode.get();
         boolean selected = this.mode == currentMode;
 
         boolean enabled = this.enabled.get();
         ScreenUtils.bindTexture(GREY_BUTTONS);
-        ScreenUtils.drawTexture(this.x, this.y, this.width, this.height, 0, ((!enabled || selected) ? 1 : this.hovered ? 2 : 0) / 3f, 1, 1 / 3f);
+        ScreenUtils.drawTexture(this.x, this.y, this.width, this.height, 0, ((!enabled || selected) ? 1 : this.isFocused() ? 2 : 0) / 3f, 1, 1 / 3f);
 
         GlStateManager.enableAlpha();
         ScreenUtils.bindTexture(ICONS[this.mode][selected ? 1 : 0]);

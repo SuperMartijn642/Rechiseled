@@ -2,7 +2,7 @@ package com.supermartijn642.rechiseled.screen;
 
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
-import com.supermartijn642.core.gui.widget.Widget;
+import com.supermartijn642.core.gui.widget.BaseWidget;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 /**
  * Created 2/3/2021 by SuperMartijn642
  */
-public class EntryButtonWidget extends Widget {
+public class EntryButtonWidget extends BaseWidget {
 
     private static final ResourceLocation TEXTURE = new ResourceLocation("rechiseled", "textures/screen/buttons.png");
 
@@ -38,7 +38,7 @@ public class EntryButtonWidget extends Widget {
     }
 
     @Override
-    protected ITextComponent getNarrationMessage(){
+    public ITextComponent getNarrationMessage(){
         ChiselingEntry entry = this.entry.get();
         if(entry == null)
             return null;
@@ -47,7 +47,7 @@ public class EntryButtonWidget extends Widget {
     }
 
     @Override
-    public void render(int mouseX, int mouseY, float partialTicks){
+    public void render(int mouseX, int mouseY){
         ChiselingEntry entry = this.entry.get();
 
         boolean hasEntry = entry != null;
@@ -55,7 +55,7 @@ public class EntryButtonWidget extends Widget {
         boolean hasCorrectItem = hasEntry && (this.connecting.get() ? entry.hasConnectingItem() : entry.hasRegularItem());
 
         ScreenUtils.bindTexture(TEXTURE);
-        ScreenUtils.drawTexture(this.x, this.y, this.width, this.height, 0, (selected ? 1 : hasEntry ? hasCorrectItem ? this.hovered ? 2 : 0 : this.hovered ? 4 : 3 : 0) / 5f, 1, 1 / 5f);
+        ScreenUtils.drawTexture(this.x, this.y, this.width, this.height, 0, (selected ? 1 : hasEntry ? hasCorrectItem ? this.isFocused() ? 2 : 0 : this.isFocused() ? 4 : 3 : 0) / 5f, 1, 1 / 5f);
 
         if(hasEntry){
             Item item = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
@@ -70,11 +70,13 @@ public class EntryButtonWidget extends Widget {
     }
 
     @Override
-    public void mouseClicked(int mouseX, int mouseY, int button){
-        if(mouseX >= this.x && mouseX < this.x + this.width && mouseY >= this.y && mouseY < this.y + this.height){
+    public boolean mousePressed(int mouseX, int mouseY, int button, boolean hasBeenHandled){
+        if(!hasBeenHandled && mouseX >= this.x && mouseX < this.x + this.width && mouseY >= this.y && mouseY < this.y + this.height){
             ChiselingEntry entry = this.entry.get();
             if(entry != null)
                 this.onClick.run();
+            return true;
         }
+        return super.mousePressed(mouseX, mouseY, button, hasBeenHandled);
     }
 }

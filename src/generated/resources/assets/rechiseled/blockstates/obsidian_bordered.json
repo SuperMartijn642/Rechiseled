@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "rechiseled:block/obsidian_bordered"
+      "model": "rechiseled:obsidian_bordered"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "rechiseled:block/obsidian_spots_connecting"
+      "model": "rechiseled:obsidian_spots_connecting"
     }
   }
 }

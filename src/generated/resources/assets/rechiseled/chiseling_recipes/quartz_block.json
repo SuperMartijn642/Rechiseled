@@ -3,11 +3,11 @@
   "entries": [
     {
       "item": "minecraft:quartz_block",
-      "item_data": 2
+      "item_data": 1
     },
     {
       "item": "minecraft:quartz_block",
-      "item_data": 1
+      "item_data": 2
     },
     {
       "item": "rechiseled:quartz_block_bordered",

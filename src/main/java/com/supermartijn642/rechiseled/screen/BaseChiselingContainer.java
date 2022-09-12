@@ -1,6 +1,7 @@
 package com.supermartijn642.rechiseled.screen;
 
 import com.supermartijn642.core.gui.BaseContainer;
+import com.supermartijn642.core.gui.BaseContainerType;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
 import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
 import com.supermartijn642.rechiseled.chiseling.ChiselingRecipes;
@@ -23,8 +24,8 @@ public abstract class BaseChiselingContainer extends BaseContainer {
     public ChiselingEntry currentEntry = null;
     public boolean connecting = false;
 
-    public BaseChiselingContainer(EntityPlayer player){
-        super(player);
+    public BaseChiselingContainer(BaseContainerType<?> type, EntityPlayer player){
+        super(type, player);
         this.addSlots();
     }
 

@@ -26,8 +26,7 @@
       "connecting_item": "rechiseled:stone_bordered_connecting"
     },
     {
-      "item": "minecraft:stonebrick",
-      "item_data": 3,
+      "item": "rechiseled:stone_chiseled_bricks",
       "connecting_item": "rechiseled:stone_chiseled_bricks_connecting"
     },
     {

@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "rechiseled:block/obsidian_tiles_connecting"
+      "model": "rechiseled:obsidian_tiles_connecting"
     }
   }
 }

@@ -11,10 +11,10 @@ import net.minecraft.util.EnumHand;
  */
 public class ChiselContainer extends BaseChiselingContainer {
 
-    private final EnumHand hand;
+    public final EnumHand hand;
 
     public ChiselContainer(EntityPlayer player, EnumHand hand){
-        super(player);
+        super(Rechiseled.chisel_container, player);
         this.hand = hand;
         super.updateRecipe();
     }

@@ -1,5 +1,5 @@
 {
-  "parent": "block/cube_all",
+  "parent": "minecraft:block/cube_all",
   "loader": "rechiseled:connecting_model",
   "model_textures": {
     "all": {

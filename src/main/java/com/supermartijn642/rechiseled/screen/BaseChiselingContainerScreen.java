@@ -1,8 +1,8 @@
 package com.supermartijn642.rechiseled.screen;
 
 import com.supermartijn642.core.ClientUtils;
-import com.supermartijn642.core.gui.BaseContainerScreen;
 import com.supermartijn642.core.gui.ScreenUtils;
+import com.supermartijn642.core.gui.widget.BaseContainerWidget;
 import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
 import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
@@ -21,7 +21,7 @@ import java.util.function.Supplier;
 /**
  * Created 23/12/2021 by SuperMartijn642
  */
-public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> extends BaseContainerScreen<T> {
+public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> extends BaseContainerWidget<T> {
 
     private static final ResourceLocation BACKGROUND = new ResourceLocation("rechiseled", "textures/screen/chiseling_background.png");
 
@@ -32,21 +32,12 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
      */
     public static int previewMode = 0;
 
+    private final ITextComponent title;
     private ChiselAllWidget chiselAllWidget;
 
-    public BaseChiselingContainerScreen(T screenContainer, ITextComponent title){
-        super(screenContainer, title);
-        this.setDrawSlots(false);
-    }
-
-    @Override
-    protected int sizeX(){
-        return 222;
-    }
-
-    @Override
-    protected int sizeY(){
-        return 226;
+    public BaseChiselingContainerScreen(ITextComponent title){
+        super(0, 0, 222, 226);
+        this.title = title;
     }
 
     @Override
@@ -85,15 +76,21 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
     }
 
     @Override
-    protected void renderBackground(int mouseX, int mouseY){
-        ScreenUtils.bindTexture(BACKGROUND);
-        ScreenUtils.drawTexture(0, 0, this.sizeX(), this.sizeY());
+    public ITextComponent getNarrationMessage(){
+        return this.title;
     }
 
     @Override
-    protected void renderForeground(int mouseX, int mouseY){
+    public void renderBackground(int mouseX, int mouseY){
+        ScreenUtils.bindTexture(BACKGROUND);
+        ScreenUtils.drawTexture(0, 0, this.width, this.height);
+        super.renderBackground(mouseX, mouseY);
+    }
+
+    @Override
+    public void renderForeground(int mouseX, int mouseY){
         // Render chisel all slot overlays
-        if(this.container.currentRecipe != null && this.chiselAllWidget != null && this.chiselAllWidget.hovered){
+        if(this.container.currentRecipe != null && this.chiselAllWidget != null && this.chiselAllWidget.isFocused()){
             for(int index = 1; index < this.container.inventorySlots.size(); index++){
                 Slot slot = this.container.getSlot(index);
                 ItemStack stack = slot.getStack();

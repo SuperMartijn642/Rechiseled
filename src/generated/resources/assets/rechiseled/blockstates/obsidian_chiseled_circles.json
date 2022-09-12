@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "rechiseled:block/obsidian_chiseled_circles"
+      "model": "rechiseled:obsidian_chiseled_circles"
     }
   }
 }

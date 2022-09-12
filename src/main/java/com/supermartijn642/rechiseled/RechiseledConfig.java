@@ -1,6 +1,7 @@
 package com.supermartijn642.rechiseled;
 
-import com.supermartijn642.configlib.ModConfigBuilder;
+import com.supermartijn642.configlib.api.ConfigBuilders;
+import com.supermartijn642.configlib.api.IConfigBuilder;
 
 /**
  * Created 1/25/2021 by SuperMartijn642
@@ -8,7 +9,7 @@ import com.supermartijn642.configlib.ModConfigBuilder;
 public class RechiseledConfig {
 
     static{
-        ModConfigBuilder builder = new ModConfigBuilder("rechiseled");
+        IConfigBuilder builder = ConfigBuilders.newTomlConfig("rechiseled", null, false);
 
         builder.push("General");
 
