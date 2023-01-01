@@ -16,25 +16,25 @@
     "hidden": false
   },
   "criteria": {
-    "can_unlock_recipe": {
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "rechiseled:chisel"
+      }
+    },
+    "recipe_condition": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           null
         ]
       }
-    },
-    "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
-      "conditions": {
-        "recipe": "rechiseled:chisel"
-      }
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "can_unlock_recipe"
+      "recipe_condition"
     ]
   ],
   "rewards": {
