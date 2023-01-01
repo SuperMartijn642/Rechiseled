@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 public class ChiselItem extends BaseItem {
 
     public ChiselItem(){
-        super(ItemProperties.create().group(Rechiseled.GROUP));
+        super(ItemProperties.create().maxStackSize(1).group(Rechiseled.GROUP));
     }
 
     @Override
