@@ -77,7 +77,7 @@ public class RechiseledBlockTagsGenerator extends TagGenerator {
             if(type.hasCreatedRegularBlock())
                 tags.forEach(consumer -> consumer.accept(type.parentBlock.get(), type.getRegularBlock()));
             if(type.hasCreatedConnectingBlock())
-                tags.forEach(consumer -> consumer.accept(type.parentBlock.get(), type.getRegularBlock()));
+                tags.forEach(consumer -> consumer.accept(type.parentBlock.get(), type.getConnectingBlock()));
         }
     }
 
