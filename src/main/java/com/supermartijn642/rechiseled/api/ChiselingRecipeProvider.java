@@ -1,8 +1,6 @@
 package com.supermartijn642.rechiseled.api;
 
 import com.google.common.collect.Sets;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.supermartijn642.core.registry.Registries;
@@ -17,16 +15,14 @@ import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
 
 import javax.annotation.Nullable;
-import java.io.IOException;
 import java.nio.file.Path;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * Created 24/12/2021 by SuperMartijn642
  */
 public abstract class ChiselingRecipeProvider implements DataProvider {
-
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     private final String modid;
     private final DataGenerator generator;
@@ -45,10 +41,11 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
     }
 
     @Override
-    public void run(CachedOutput cache){
+    public CompletableFuture<?> run(CachedOutput cache){
         this.buildRecipes();
 
-        Path path = this.generator.getOutputFolder();
+        Path path = this.generator.getPackOutput().getOutputFolder();
+        List<CompletableFuture<?>> tasks = new ArrayList<>();
         for(Map.Entry<String,ChiselingRecipeBuilder> entry : this.recipes.entrySet()){
             String recipeName = entry.getKey();
             ChiselingRecipeBuilder builder = entry.getValue();
@@ -71,8 +68,10 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
             // Write the recipe
             JsonObject json = serializeRecipe(recipeName, builder);
             Path recipePath = path.resolve("data/" + this.modid + "/chiseling_recipes/" + recipeName + ".json");
-            saveRecipe(cache, json, recipePath);
+            tasks.add(saveRecipe(cache, json, recipePath));
         }
+
+        return CompletableFuture.allOf(tasks.toArray(CompletableFuture[]::new));
     }
 
     private static JsonObject serializeRecipe(String recipeName, ChiselingRecipeBuilder recipe){
@@ -106,13 +105,8 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
         return json;
     }
 
-    private static void saveRecipe(CachedOutput cache, JsonObject json, Path path){
-        try{
-            DataProvider.saveStable(cache, json, path);
-        }catch(IOException exception){
-            System.err.println("Couldn't save recipe '" + path + "'");
-            exception.printStackTrace();
-        }
+    private static CompletableFuture<?> saveRecipe(CachedOutput cache, JsonObject json, Path path){
+        return DataProvider.saveStable(cache, json, path);
     }
 
     private boolean validateRecipe(ResourceLocation recipe){

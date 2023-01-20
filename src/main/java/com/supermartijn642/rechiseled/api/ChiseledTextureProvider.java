@@ -2,8 +2,6 @@ package com.supermartijn642.rechiseled.api;
 
 import com.google.common.hash.HashCode;
 import com.google.common.hash.Hashing;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.supermartijn642.rechiseled.texture.TextureMappingTool;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
@@ -22,13 +20,12 @@ import java.io.InputStream;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * Created 24/01/2022 by SuperMartijn642
  */
 public abstract class ChiseledTextureProvider implements DataProvider {
-
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     private final String modid;
     private final DataGenerator generator;
@@ -50,10 +47,10 @@ public abstract class ChiseledTextureProvider implements DataProvider {
     }
 
     @Override
-    public void run(CachedOutput cache){
+    public CompletableFuture<?> run(CachedOutput cache){
         this.createTextures();
 
-        Path path = this.generator.getOutputFolder();
+        Path path = this.generator.getPackOutput().getOutputFolder();
         for(Map.Entry<Pair<ResourceLocation,ResourceLocation>,PaletteMap> entry : this.textures.entrySet()){
             if(entry.getValue().targets.isEmpty())
                 continue;
@@ -74,6 +71,7 @@ public abstract class ChiseledTextureProvider implements DataProvider {
                 saveTexture(cache, targetTexture, texturePath);
             }
         }
+        return CompletableFuture.completedFuture(null);
     }
 
     private BufferedImage loadTexture(ResourceLocation location){

@@ -19,6 +19,7 @@ public class TextureMappingTool {
     /**
      * {@link ExistingFileHelper#clientResources}
      */
+    @SuppressWarnings("JavadocReference")
     private static final Field clientResources;
 
     static{
@@ -76,16 +77,13 @@ public class TextureMappingTool {
             pack -> pack.getNamespaces(PackType.CLIENT_RESOURCES).size() == 1 && pack.getNamespaces(PackType.CLIENT_RESOURCES).contains("rechiseled")
         ).forEach(
             pack -> {
-                pack.getResources(PackType.CLIENT_RESOURCES, "rechiseled", "textures/block", s -> s.getPath().startsWith("textures/block/" + name) && s.getPath().endsWith(".png"))
-                    .stream()
-                    .map(
-                        s -> {
-                            int beginOffset = s.getPath().indexOf(name) + name.length();
-                            int end = s.getPath().length() - ".png".length();
-                            return s.getPath().substring(beginOffset, end);
-                        }
-                    )
-                    .forEach(suffixes::add);
+                pack.listResources(PackType.CLIENT_RESOURCES, "rechiseled", "textures/block", (s, stream) -> {
+                    if(s.getPath().startsWith("textures/block/" + name) && s.getPath().endsWith(".png")){
+                        int beginOffset = s.getPath().indexOf(name) + name.length();
+                        int end = s.getPath().length() - ".png".length();
+                        suffixes.add(s.getPath().substring(beginOffset, end));
+                    }
+                });
             }
         );
         return suffixes;

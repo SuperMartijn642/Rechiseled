@@ -5,10 +5,10 @@
       "item": "rechiseled:chisel"
     },
     "title": {
-      "translate": "rechiseled.advancement.recipes/rechiseled/chisel.title"
+      "translate": "rechiseled.advancement.recipes/misc/chisel.title"
     },
     "description": {
-      "translate": "rechiseled.advancement.recipes/rechiseled/chisel.description"
+      "translate": "rechiseled.advancement.recipes/misc/chisel.description"
     },
     "frame": "task",
     "show_toast": false,

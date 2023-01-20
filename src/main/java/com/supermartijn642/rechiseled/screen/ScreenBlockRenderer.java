@@ -4,7 +4,6 @@ import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Quaternion;
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.render.RenderUtils;
 import com.supermartijn642.rechiseled.model.RechiseledConnectedBakedModel;
@@ -21,6 +20,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.client.model.data.ModelData;
+import org.joml.Quaternionf;
 
 import java.util.List;
 import java.util.Map;
@@ -44,7 +44,8 @@ public class ScreenBlockRenderer {
         POSE_STACK.pushPose();
         POSE_STACK.translate(x, -y, 350);
         POSE_STACK.scale((float)scale, (float)scale, (float)scale);
-        POSE_STACK.mulPose(new Quaternion(pitch, yaw, 0, true));
+        POSE_STACK.mulPose(new Quaternionf().setAngleAxis(pitch / 180 * (float)Math.PI, 1, 0, 0));
+        POSE_STACK.mulPose(new Quaternionf().setAngleAxis(yaw / 180 * (float)Math.PI, 0, 1, 0));
 
         if(doShading)
             Lighting.setupFor3DItems();

@@ -3,7 +3,6 @@ package com.supermartijn642.rechiseled.model;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
 import com.mojang.datafixers.util.Either;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.client.renderer.block.model.*;
@@ -18,7 +17,10 @@ import net.minecraftforge.client.RenderTypeGroup;
 import net.minecraftforge.client.model.geometry.IGeometryBakingContext;
 import net.minecraftforge.client.model.geometry.IUnbakedGeometry;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.function.Function;
 
 /**
@@ -49,7 +51,7 @@ public class RechiseledModel implements IUnbakedGeometry<RechiseledModel> {
     }
 
     @Override
-    public BakedModel bake(IGeometryBakingContext owner, ModelBakery bakery, Function<Material,TextureAtlasSprite> spriteGetter, ModelState modelTransform, ItemOverrides overrides, ResourceLocation modelLocation){
+    public BakedModel bake(IGeometryBakingContext owner, ModelBaker bakery, Function<Material,TextureAtlasSprite> spriteGetter, ModelState modelTransform, ItemOverrides overrides, ResourceLocation modelLocation){
         Function<ResourceLocation,UnbakedModel> modelGetter = bakery::getModel;
 
         TextureAtlasSprite particle = spriteGetter.apply(this.getTexture("particle", modelGetter).getFirst());
@@ -79,27 +81,6 @@ public class RechiseledModel implements IUnbakedGeometry<RechiseledModel> {
         return this.shouldConnect ?
             new RechiseledConnectedBakedModel(quads, owner.useAmbientOcclusion(), owner.isGui3d(), owner.useBlockLight(), false, particle, overrides, transforms, renderTypes) :
             new RechiseledBakedModel(quads, owner.useAmbientOcclusion(), owner.isGui3d(), owner.useBlockLight(), false, particle, overrides, transforms, renderTypes);
-    }
-
-    @Override
-    public Collection<Material> getMaterials(IGeometryBakingContext owner, Function<ResourceLocation,UnbakedModel> modelGetter, Set<Pair<String,String>> missingTextureErrors){
-        Set<Material> textures = Sets.newHashSet();
-
-        Material particles = this.getTexture("particle", modelGetter).getFirst();
-        if(Objects.equals(particles.texture(), MissingTextureAtlasSprite.getLocation()))
-            missingTextureErrors.add(Pair.of("particle", owner.getModelName()));
-
-        for(BlockElement part : this.getElements(modelGetter)){
-            for(BlockElementFace face : part.faces.values()){
-                Material texture = this.getTexture(face.texture, modelGetter).getFirst();
-                if(Objects.equals(texture.texture(), MissingTextureAtlasSprite.getLocation()))
-                    missingTextureErrors.add(Pair.of(face.texture, owner.getModelName()));
-
-                textures.add(texture);
-            }
-        }
-
-        return textures;
     }
 
     private Pair<Material,Boolean> getTexture(String texture, Function<ResourceLocation,UnbakedModel> modelGetter){

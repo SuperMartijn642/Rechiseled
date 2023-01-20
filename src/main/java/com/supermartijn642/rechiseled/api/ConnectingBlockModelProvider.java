@@ -11,7 +11,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 public abstract class ConnectingBlockModelProvider extends ModelProvider<ConnectingModelBuilder> {
 
     public ConnectingBlockModelProvider(String modid, DataGenerator generator, ExistingFileHelper existingFileHelper){
-        super(generator, modid, BLOCK_FOLDER, ConnectingModelBuilder::new, existingFileHelper);
+        super(generator.getPackOutput(), modid, BLOCK_FOLDER, ConnectingModelBuilder::new, existingFileHelper);
     }
 
     @Override
