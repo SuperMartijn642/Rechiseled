@@ -4,9 +4,7 @@ import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.WidgetContainerScreen;
 import com.supermartijn642.core.registry.ClientRegistrationHandler;
 import com.supermartijn642.rechiseled.model.RechiseledModelLoader;
-import com.supermartijn642.rechiseled.screen.BaseChiselingContainer;
 import com.supermartijn642.rechiseled.screen.BaseChiselingContainerScreen;
-import com.supermartijn642.rechiseled.screen.ChiselContainer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -22,14 +20,7 @@ public class RechiseledClient {
 
     public static void register(){
         ClientRegistrationHandler handler = ClientRegistrationHandler.get("rechiseled");
-        handler.registerContainerScreen(() -> Rechiseled.chisel_container, container -> new WidgetContainerScreen<BaseChiselingContainerScreen<BaseChiselingContainer>,ChiselContainer>(new BaseChiselingContainerScreen<>(TextComponents.item(Rechiseled.chisel).get()), container, false) {
-            @Override
-            public void render(int mouseX, int mouseY, float partialTicks){
-                this.widget.offsetLeft = (this.width - this.widget.width()) / 2;
-                this.widget.offsetTop = (this.height - this.widget.height()) / 2;
-                super.render(mouseX, mouseY, partialTicks);
-            }
-        });
+        handler.registerContainerScreen(() -> Rechiseled.chisel_container, container -> WidgetContainerScreen.of(new BaseChiselingContainerScreen<>(TextComponents.item(Rechiseled.chisel).get()), container, false));
     }
 
     @SubscribeEvent
