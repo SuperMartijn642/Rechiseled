@@ -19,7 +19,6 @@ public class EntryPreviewWidget extends BaseWidget {
 
     private final Supplier<Item> item;
     private final Supplier<Integer> previewMode;
-    private final Supplier<Integer> guiLeft, guiTop;
 
     private float yaw = 0.35f, pitch = 30;
     private long lastRotationTime;
@@ -28,14 +27,10 @@ public class EntryPreviewWidget extends BaseWidget {
 
     public EntryPreviewWidget(int x, int y, int width, int height,
                               Supplier<Item> item,
-                              Supplier<Integer> previewMode,
-                              Supplier<Integer> guiLeft,
-                              Supplier<Integer> guiTop){
+                              Supplier<Integer> previewMode){
         super(x, y, width, height);
         this.item = item;
         this.previewMode = previewMode;
-        this.guiLeft = guiLeft;
-        this.guiTop = guiTop;
         this.lastRotationTime = System.currentTimeMillis();
     }
 
@@ -76,10 +71,10 @@ public class EntryPreviewWidget extends BaseWidget {
                     for(int i = 0; i < 9; i++)
                         capture.putBlock(new BlockPos(i / 3 - 1, i % 3 - 1, 0), block);
                 }
-                ScreenBlockRenderer.drawBlock(capture, this.guiLeft.get() + this.x + this.width / 2d, this.guiTop.get() + this.y + this.height / 2d, this.width, this.yaw, this.pitch, false);
+                ScreenBlockRenderer.drawBlock(capture, this.x + this.width / 2d, this.y + this.height / 2d, this.width, this.yaw, this.pitch, false);
             }else{
                 // Render item
-                ScreenItemRender.drawItem(item, this.guiLeft.get() + this.x + this.width / 2d, this.guiTop.get() + this.y + this.height / 2d, this.width, this.yaw, this.pitch, true);
+                ScreenItemRender.drawItem(item, this.x + this.width / 2d, this.y + this.height / 2d, this.width, this.yaw, this.pitch, true);
             }
         }
 
