@@ -23,22 +23,17 @@ public class EntryButtonWidget extends BaseWidget {
     private final Supplier<ChiselingEntry> selectedEntry;
     private final Runnable onClick;
     private final Supplier<Boolean> connecting;
-    private final Supplier<Integer> guiLeft, guiTop;
 
     public EntryButtonWidget(int x, int y, int width, int height,
                              Supplier<ChiselingEntry> entrySupplier,
                              Supplier<ChiselingEntry> selectedEntrySupplier,
                              Runnable onClick,
-                             Supplier<Boolean> connecting,
-                             Supplier<Integer> guiLeft,
-                             Supplier<Integer> guiTop){
+                             Supplier<Boolean> connecting){
         super(x, y, width, height);
         this.entry = entrySupplier;
         this.selectedEntry = selectedEntrySupplier;
         this.onClick = onClick;
         this.connecting = connecting;
-        this.guiLeft = guiLeft;
-        this.guiTop = guiTop;
     }
 
     @Override
@@ -65,9 +60,9 @@ public class EntryButtonWidget extends BaseWidget {
             Item item = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
             if(item instanceof BlockItem){
                 BlockCapture capture = new BlockCapture(((BlockItem)item).getBlock());
-                ScreenBlockRenderer.drawBlock(capture, this.guiLeft.get() + this.x + this.width / 2d, this.guiTop.get() + this.y + this.height / 2d, this.width, 135, 40, true);
+                ScreenBlockRenderer.drawBlock(capture, this.x + this.width / 2d, this.y + this.height / 2d, this.width, 135, 40, true);
             }else
-                ScreenItemRender.drawItem(poseStack, item, this.guiLeft.get() + this.x + this.width / 2d, this.guiTop.get() + this.y + this.height / 2d, (this.width - 4) * 1.416, 0, 0, false);
+                ScreenItemRender.drawItem(poseStack, item, this.x + this.width / 2d, this.y + this.height / 2d, (this.width - 4) * 1.416, 0, 0, false);
         }
     }
 
