@@ -36,8 +36,6 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
     private final ITextComponent title;
     private ChiselAllWidget chiselAllWidget;
 
-    public int offsetLeft, offsetTop;
-
     public BaseChiselingContainerScreen(ITextComponent title){
         super(0, 0, 222, 226);
         this.title = title;
@@ -54,9 +52,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
                     () -> this.getEntry(index),
                     () -> this.container.currentEntry,
                     () -> this.selectEntry(index),
-                    () -> this.container.connecting,
-                    () -> this.offsetLeft,
-                    () -> this.offsetTop));
+                    () -> this.container.connecting));
             }
         }
 
@@ -65,7 +61,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
             if(entry == null)
                 return null;
             return (this.container.connecting && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
-        }, () -> previewMode, () -> this.offsetLeft, () -> this.offsetTop));
+        }, () -> previewMode));
         Supplier<Boolean> enablePreviewButtons = () -> {
             ChiselingEntry entry = this.container.currentEntry;
             if(entry == null)

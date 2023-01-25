@@ -1,6 +1,5 @@
 package com.supermartijn642.rechiseled;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.WidgetContainerScreen;
 import com.supermartijn642.core.registry.ClientRegistrationHandler;
@@ -21,14 +20,7 @@ public class RechiseledClient {
 
     public static void register(){
         ClientRegistrationHandler handler = ClientRegistrationHandler.get("rechiseled");
-        handler.registerContainerScreen(() -> Rechiseled.chisel_container, container -> new WidgetContainerScreen<BaseChiselingContainerScreen<com.supermartijn642.rechiseled.screen.BaseChiselingContainer>,com.supermartijn642.rechiseled.screen.ChiselContainer>(new BaseChiselingContainerScreen<>(TextComponents.item(Rechiseled.chisel).get()), container, false) {
-            @Override
-            public void render(MatrixStack poseStack, int mouseX, int mouseY, float partialTicks){
-                this.widget.offsetLeft = (this.width - this.widget.width()) / 2;
-                this.widget.offsetTop = (this.height - this.widget.height()) / 2;
-                super.render(poseStack, mouseX, mouseY, partialTicks);
-            }
-        });
+        handler.registerContainerScreen(() -> Rechiseled.chisel_container, container -> WidgetContainerScreen.of(new BaseChiselingContainerScreen<>(TextComponents.item(Rechiseled.chisel).get()), container, false));
     }
 
     @SubscribeEvent
