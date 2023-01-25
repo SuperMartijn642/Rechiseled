@@ -1,3 +1,6 @@
+### Rechiseled 1.0.12a
+- Fix rendering offsets inside the chisel's gui
+
 ### Rechiseled 1.0.12
 - Fix connecting variants of blocks taking forever to break
 
