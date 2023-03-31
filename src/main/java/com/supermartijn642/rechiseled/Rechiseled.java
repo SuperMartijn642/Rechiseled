@@ -1,22 +1,22 @@
 package com.supermartijn642.rechiseled;
 
-import com.supermartijn642.core.CommonUtils;
 import com.supermartijn642.core.gui.BaseContainerType;
 import com.supermartijn642.core.item.CreativeItemGroup;
 import com.supermartijn642.core.network.PacketChannel;
 import com.supermartijn642.core.registry.GeneratorRegistrationHandler;
 import com.supermartijn642.core.registry.RegistrationHandler;
 import com.supermartijn642.core.registry.RegistryEntryAcceptor;
+import com.supermartijn642.rechiseled.chiseling.ChiselingRecipeLoader;
 import com.supermartijn642.rechiseled.chiseling.PacketChiselingRecipes;
 import com.supermartijn642.rechiseled.data.*;
 import com.supermartijn642.rechiseled.packet.PacketChiselAll;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
 import com.supermartijn642.rechiseled.packet.PacketToggleConnecting;
 import com.supermartijn642.rechiseled.screen.ChiselContainer;
+import net.fabricmc.api.ModInitializer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.fml.common.Mod;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -24,8 +24,7 @@ import java.util.List;
 /**
  * Created 7/7/2020 by SuperMartijn642
  */
-@Mod("rechiseled")
-public class Rechiseled {
+public class Rechiseled implements ModInitializer {
 
     public static final PacketChannel CHANNEL = PacketChannel.create("rechiseled");
 
@@ -48,15 +47,16 @@ public class Rechiseled {
             items.stream().map(ItemStack::new).forEach(stackConsumer);
         });
 
-    public Rechiseled(){
+    @Override
+    public void onInitialize(){
         CHANNEL.registerMessage(PacketSelectEntry.class, PacketSelectEntry::new, true);
         CHANNEL.registerMessage(PacketToggleConnecting.class, PacketToggleConnecting::new, true);
         CHANNEL.registerMessage(PacketChiselAll.class, PacketChiselAll::new, true);
         CHANNEL.registerMessage(PacketChiselingRecipes.class, PacketChiselingRecipes::new, true);
 
+        ChiselingRecipeLoader.addListeners();
+
         register();
-        if(CommonUtils.getEnvironmentSide().isClient())
-            RechiseledClient.register();
         registerGenerators();
     }
 

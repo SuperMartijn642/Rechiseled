@@ -3,28 +3,30 @@ package com.supermartijn642.rechiseled.model;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormatElement;
+import com.supermartijn642.core.util.Pair;
+import net.fabricmc.fabric.api.renderer.v1.model.FabricBakedModel;
+import net.fabricmc.fabric.api.renderer.v1.render.RenderContext;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.util.Tuple;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.client.model.data.IDynamicBakedModel;
-import net.minecraftforge.client.model.data.IModelData;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.util.*;
+import java.util.function.Supplier;
 
 /**
  * Created 21/12/2021 by SuperMartijn642
  */
-public class RechiseledBakedModel implements IDynamicBakedModel {
+public class RechiseledBakedModel implements BakedModel, FabricBakedModel {
 
-    private final Map<Direction,List<Tuple<BakedQuad,Boolean>>> quads;
+    private final Map<Direction,List<Pair<BakedQuad,Boolean>>> quads;
     private final boolean ambientOcclusion;
     private final boolean gui3d;
     private final boolean blockLighting;
@@ -32,8 +34,9 @@ public class RechiseledBakedModel implements IDynamicBakedModel {
     private final TextureAtlasSprite particles;
     private final ItemOverrides itemOverrides;
     private final ItemTransforms transforms;
+    private final ThreadLocal<Pair<BlockAndTintGetter,BlockPos>> levelCapture = new ThreadLocal<>();
 
-    public RechiseledBakedModel(Map<Direction,List<Tuple<BakedQuad,Boolean>>> quads, boolean ambientOcclusion, boolean gui3d, boolean blockLighting, boolean customRenderer, TextureAtlasSprite particles, ItemOverrides itemOverrides, ItemTransforms transforms){
+    public RechiseledBakedModel(Map<Direction,List<Pair<BakedQuad,Boolean>>> quads, boolean ambientOcclusion, boolean gui3d, boolean blockLighting, boolean customRenderer, TextureAtlasSprite particles, ItemOverrides itemOverrides, ItemTransforms transforms){
         this.quads = quads;
         this.ambientOcclusion = ambientOcclusion;
         this.gui3d = gui3d;
@@ -44,21 +47,37 @@ public class RechiseledBakedModel implements IDynamicBakedModel {
         this.transforms = transforms;
     }
 
-    @Nonnull
     @Override
-    public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, @Nonnull Random rand, @Nonnull IModelData extraData){
-        List<BakedQuad> quads = new ArrayList<>();
-        List<Tuple<BakedQuad,Boolean>> unconnectedQuads = this.quads.getOrDefault(side, Collections.emptyList());
+    public void emitBlockQuads(BlockAndTintGetter blockView, BlockState state, BlockPos pos, Supplier<Random> randomSupplier, RenderContext context){
+        this.levelCapture.set(Pair.of(blockView, pos));
+        context.fallbackConsumer().accept(this);
+        this.levelCapture.set(null);
+    }
 
-        for(Tuple<BakedQuad,Boolean> entry : unconnectedQuads){
-            BakedQuad quad = entry.getA();
-            if(entry.getB()){
+    @Override
+    public void emitItemQuads(ItemStack stack, Supplier<Random> randomSupplier, RenderContext context){
+        context.fallbackConsumer().accept(this);
+    }
+
+    @Override
+    public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, Random random){
+        List<BakedQuad> quads = new ArrayList<>();
+        List<Pair<BakedQuad,Boolean>> unconnectedQuads = this.quads.getOrDefault(side, Collections.emptyList());
+        RechiseledModelData modelData = null;
+
+        for(Pair<BakedQuad,Boolean> entry : unconnectedQuads){
+            BakedQuad quad = entry.left();
+            if(entry.right()){
                 int[] vertexData = quad.getVertices();
                 // Make sure we don't change the original quad
                 vertexData = Arrays.copyOf(vertexData, vertexData.length);
 
+                // Get the model data
+                if(modelData == null && this.levelCapture.get() != null)
+                    modelData = this.getModelData(this.levelCapture.get().left(), this.levelCapture.get().right(), state);
+
                 // Adjust the uv
-                int[] uv = this.getUV(quad.getDirection(), extraData);
+                int[] uv = this.getUV(quad.getDirection(), modelData);
                 adjustVertexDataUV(vertexData, uv[0], uv[1], quad.getSprite(), DefaultVertexFormat.BLOCK);
 
                 quads.add(new BakedQuad(vertexData, quad.getTintIndex(), quad.getDirection(), quad.getSprite(), quad.isShade()));
@@ -69,7 +88,7 @@ public class RechiseledBakedModel implements IDynamicBakedModel {
         return quads;
     }
 
-    protected int[] getUV(Direction side, IModelData modelData){
+    protected int[] getUV(Direction side, RechiseledModelData modelData){
         return new int[]{0, 0};
     }
 
@@ -108,13 +127,11 @@ public class RechiseledBakedModel implements IDynamicBakedModel {
             throw new RuntimeException("Expected UV attribute to have data type FLOAT");
         if(element.getByteSize() < 4)
             throw new RuntimeException("Expected UV attribute to have at least 4 dimensions");
-        return vertexFormat.getOffset(index);
+        return vertexFormat.offsets.getInt(index);
     }
 
-    @Nonnull
-    @Override
-    public IModelData getModelData(@Nonnull BlockAndTintGetter world, @Nonnull BlockPos pos, @Nonnull BlockState state, @Nonnull IModelData tileData){
-        return IDynamicBakedModel.super.getModelData(world, pos, state, tileData);
+    public RechiseledModelData getModelData(BlockAndTintGetter world, BlockPos pos, BlockState state){
+        return null;
     }
 
     @Override
@@ -150,5 +167,10 @@ public class RechiseledBakedModel implements IDynamicBakedModel {
     @Override
     public ItemTransforms getTransforms(){
         return this.transforms;
+    }
+
+    @Override
+    public boolean isVanillaAdapter(){
+        return false;
     }
 }

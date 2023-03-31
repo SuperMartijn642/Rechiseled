@@ -1,15 +1,11 @@
 package com.supermartijn642.rechiseled.api;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.supermartijn642.rechiseled.texture.TextureMappingTool;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.HashCache;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.resources.Resource;
-import net.minecraftforge.common.data.ExistingFileHelper;
 import org.apache.commons.lang3.tuple.Pair;
 
 import javax.imageio.ImageIO;
@@ -28,20 +24,16 @@ import java.util.*;
  */
 public abstract class ChiseledTextureProvider implements DataProvider {
 
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-
     private final String modid;
     private final DataGenerator generator;
-    private final ExistingFileHelper existingFileHelper;
     private final Map<Pair<ResourceLocation,ResourceLocation>,PaletteMap> textures = new HashMap<>();
     private final Set<String> outputLocations = new HashSet<>();
     private final List<String> oakPlankSuffixes;
 
-    public ChiseledTextureProvider(String modid, DataGenerator generator, ExistingFileHelper existingFileHelper){
+    public ChiseledTextureProvider(String modid, DataGenerator generator){
         this.modid = modid;
         this.generator = generator;
-        this.existingFileHelper = existingFileHelper;
-        this.oakPlankSuffixes = TextureMappingTool.getSuffixes("oak_planks", existingFileHelper);
+        this.oakPlankSuffixes = TextureMappingTool.getSuffixes("oak_planks");
     }
 
     @Override
@@ -77,11 +69,12 @@ public abstract class ChiseledTextureProvider implements DataProvider {
     }
 
     private BufferedImage loadTexture(ResourceLocation location){
-        if(!this.existingFileHelper.exists(location, PackType.CLIENT_RESOURCES, ".png", "textures"))
+        ResourceLocation fullLocation = new ResourceLocation(location.getNamespace(), "textures/" + location.getPath() + ".png");
+        if(!TextureMappingTool.exists(fullLocation))
             throw new IllegalStateException("Could not find existing texture: " + location);
 
         BufferedImage image;
-        try(Resource resource = this.existingFileHelper.getResource(location, PackType.CLIENT_RESOURCES, ".png", "textures")){
+        try(Resource resource = TextureMappingTool.getResource(fullLocation)){
             image = ImageIO.read(resource.getInputStream());
         }catch(Exception e){
             throw new RuntimeException("Encountered an exception when trying to load texture: " + location, e);
@@ -121,11 +114,8 @@ public abstract class ChiseledTextureProvider implements DataProvider {
     }
 
     private boolean validateTexture(ResourceLocation texture){
-        return this.existingFileHelper.exists(texture, PackType.CLIENT_RESOURCES, ".png", "textures");
-    }
-
-    private void trackTexture(String outputLocation){
-        this.existingFileHelper.trackGenerated(new ResourceLocation(this.modid, outputLocation), PackType.CLIENT_RESOURCES, ".png", "textures");
+        ResourceLocation fullLocation = new ResourceLocation(texture.getNamespace(), "textures/" + texture.getPath() + ".png");
+        return TextureMappingTool.exists(fullLocation);
     }
 
     /**
@@ -212,7 +202,6 @@ public abstract class ChiseledTextureProvider implements DataProvider {
                 throw new IllegalStateException("Two or more textures have the same output location: " + outputLocation);
 
             this.targets.put(outputLocation.toLowerCase(Locale.ROOT).trim(), texture);
-            ChiseledTextureProvider.this.trackTexture(outputLocation);
             return this;
         }
     }

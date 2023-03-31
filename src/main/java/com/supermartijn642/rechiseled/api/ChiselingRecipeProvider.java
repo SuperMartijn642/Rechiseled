@@ -10,16 +10,12 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.HashCache;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.common.data.ExistingFileHelper;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nullable;
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
@@ -32,13 +28,11 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
 
     private final String modid;
     private final DataGenerator generator;
-    private final ExistingFileHelper existingFileHelper;
     private final Map<String,ChiselingRecipeBuilder> recipes = new HashMap<>();
 
-    public ChiselingRecipeProvider(String modid, DataGenerator generator, ExistingFileHelper existingFileHelper){
+    public ChiselingRecipeProvider(String modid, DataGenerator generator){
         this.modid = modid;
         this.generator = generator;
-        this.existingFileHelper = existingFileHelper;
     }
 
     @Override
@@ -47,7 +41,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
     }
 
     @Override
-    public void run(HashCache cache){
+    public void run(HashCache cache) throws IOException{
         this.buildRecipes();
 
         Path path = this.generator.getOutputFolder();
@@ -62,18 +56,12 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
                 while(parent != null && parent.getNamespace().equals(this.modid) && this.recipes.containsKey(parent.getPath())){
                     parent = this.recipes.get(parent.getPath()).parent;
                 }
-                // If not found in this recipe provider, check existing files
-                if(parent != null){
-                    ResourceLocation parentLocation = new ResourceLocation(parent.getNamespace(), "chiseling_recipes/" + (parent.getPath().endsWith(".json") ? parent.getPath() : parent.getPath() + ".json"));
-                    if(!this.existingFileHelper.exists(parentLocation, PackType.SERVER_DATA))
-                        throw new IllegalStateException("Could not find upward parent '" + parent + "' at '/data/" + parentLocation.getNamespace() + "/" + parentLocation.getPath() + "' for chiseling recipe: " + recipeName);
-                }
             }
 
             // Write the recipe
             JsonObject json = serializeRecipe(recipeName, builder);
             Path recipePath = path.resolve("data/" + this.modid + "/chiseling_recipes/" + recipeName + ".json");
-            saveRecipe(cache, json, recipePath);
+            DataProvider.save(GSON, cache, json, recipePath);
         }
     }
 
@@ -108,33 +96,6 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
         return json;
     }
 
-    private static void saveRecipe(HashCache cache, JsonObject json, Path path){
-        try{
-            String jsonString = GSON.toJson(json);
-            String hash = SHA1.hashUnencodedChars(jsonString).toString();
-            if(!Objects.equals(cache.getHash(path), hash) || !Files.exists(path)){
-                Files.createDirectories(path.getParent());
-
-                try(BufferedWriter bufferedwriter = Files.newBufferedWriter(path)){
-                    bufferedwriter.write(jsonString);
-                }
-            }
-
-            cache.putNew(path, hash);
-        }catch(IOException exception){
-            System.err.println("Couldn't save recipe '" + path + "'");
-            exception.printStackTrace();
-        }
-    }
-
-    private boolean validateRecipe(ResourceLocation recipe){
-        return this.existingFileHelper.exists(recipe, PackType.SERVER_DATA, ".json", "chiseling_recipes");
-    }
-
-    private void trackRecipe(String recipe){
-        this.existingFileHelper.trackGenerated(new ResourceLocation(this.modid, recipe), PackType.SERVER_DATA, ".json", "chiseling_recipes");
-    }
-
     /**
      * Recipes can be created using a recipe builder obtained from {@link #beginRecipe(String)}.
      * All recipe builders will be saved and written to file automatically.
@@ -147,7 +108,6 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
      * @return a chiseling recipe builder for the given recipe name
      */
     protected ChiselingRecipeBuilder beginRecipe(String recipeName){
-        this.trackRecipe(recipeName);
         return this.recipes.computeIfAbsent(recipeName, s -> new ChiselingRecipeBuilder());
     }
 
@@ -167,9 +127,6 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
          * @throws IllegalArgumentException when {@code parent} recipe does not exist
          */
         public ChiselingRecipeBuilder parent(ResourceLocation parent){
-            if(!ChiselingRecipeProvider.this.validateRecipe(parent))
-                throw new IllegalArgumentException("Could not find parent recipe '" + parent + "'!");
-
             this.parent = parent;
             return this;
         }

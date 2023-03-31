@@ -6,7 +6,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.client.model.data.ModelProperty;
 
 import java.util.Map;
 import java.util.function.Function;
@@ -15,8 +14,6 @@ import java.util.function.Function;
  * Created 21/12/2021 by SuperMartijn642
  */
 public class RechiseledModelData {
-
-    public static final ModelProperty<RechiseledModelData> PROPERTY = new ModelProperty<>();
 
     public Map<Direction,SideData> sides = Maps.newEnumMap(Direction.class);
 

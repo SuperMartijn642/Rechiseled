@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/obsidian_chiseled_circles"
+  "parent": "rechiseled:block/obsidian_chiseled_circles",
+  "loader": "rechiseled:connecting_model"
 }

@@ -6,15 +6,14 @@ import com.supermartijn642.rechiseled.api.ChiselingRecipeProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
-import net.minecraftforge.common.data.ExistingFileHelper;
 
 /**
  * Created 24/12/2021 by SuperMartijn642
  */
 public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
 
-    public RechiseledChiselingRecipeProvider(DataGenerator generator, ExistingFileHelper existingFileHelper){
-        super("rechiseled", generator, existingFileHelper);
+    public RechiseledChiselingRecipeProvider(DataGenerator generator){
+        super("rechiseled", generator);
     }
 
     @Override

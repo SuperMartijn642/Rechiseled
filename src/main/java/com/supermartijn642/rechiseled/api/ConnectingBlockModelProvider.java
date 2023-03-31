@@ -1,17 +1,32 @@
 package com.supermartijn642.rechiseled.api;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.DataProvider;
+import net.minecraft.data.HashCache;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.client.model.generators.ModelProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
+
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created 24/01/2022 by SuperMartijn642
  */
-public abstract class ConnectingBlockModelProvider extends ModelProvider<ConnectingModelBuilder> {
+public abstract class ConnectingBlockModelProvider implements DataProvider {
 
-    public ConnectingBlockModelProvider(String modid, DataGenerator generator, ExistingFileHelper existingFileHelper){
-        super(generator, modid, BLOCK_FOLDER, ConnectingModelBuilder::new, existingFileHelper);
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+
+    private final String modid;
+    private final DataGenerator generator;
+    private final Map<ResourceLocation,ConnectingModelBuilder> models = new HashMap<>();
+
+    public ConnectingBlockModelProvider(String modid, DataGenerator generator){
+        this.modid = modid;
+        this.generator = generator;
     }
 
     @Override
@@ -20,12 +35,23 @@ public abstract class ConnectingBlockModelProvider extends ModelProvider<Connect
     }
 
     @Override
-    protected final void registerModels(){
+    public void run(HashCache cache) throws IOException{
         this.createModels();
+
+        Path path = this.generator.getOutputFolder();
+        for(Map.Entry<ResourceLocation,ConnectingModelBuilder> entry : this.models.entrySet()){
+            ResourceLocation identifier = entry.getKey();
+            ConnectingModelBuilder builder = entry.getValue();
+
+            // Write the recipe
+            JsonObject json = builder.toJson();
+            Path modelPath = path.resolve("assets/" + identifier.getNamespace() + "/models/" + identifier.getPath() + ".json");
+            DataProvider.save(GSON, cache, json, modelPath);
+        }
     }
 
     /**
-     * All functions in {@link net.minecraftforge.client.model.generators.ModelBuilder}
+     * All functions in {@link com.supermartijn642.core.generator.ModelGenerator.ModelBuilder}
      * have been adapted to also have an 'isConnectingTexture' argument. The
      * 'isConnectingTexture' argument can be used for connecting textures.
      *
@@ -36,8 +62,78 @@ public abstract class ConnectingBlockModelProvider extends ModelProvider<Connect
      */
     protected abstract void createModels();
 
-    public ConnectingModelBuilder cube(String name, ResourceLocation down, boolean downConnecting, ResourceLocation up, boolean upConnecting, ResourceLocation north, boolean northConnecting, ResourceLocation south, boolean southConnecting, ResourceLocation east, boolean eastConnecting, ResourceLocation west, boolean westConnecting){
-        return this.withExistingParent(name, "cube")
+    /**
+     * Gets a model builder for the given location. The returned model builder may be a new model builder or an existing one if requested before.
+     * @param location resource location of the model
+     */
+    protected ConnectingModelBuilder model(ResourceLocation location){
+        return this.models.computeIfAbsent(location, i -> new ConnectingModelBuilder(this.modid, i));
+    }
+
+    /**
+     * Gets a model builder for the given location. The returned model builder may be a new model builder or an existing one if requested before.
+     * @param namespace namespace of the model location
+     * @param path      path of the model location
+     */
+    protected ConnectingModelBuilder model(String namespace, String path){
+        return this.model(new ResourceLocation(namespace, path));
+    }
+
+    /**
+     * Gets a model builder for the given location. The returned model builder may be a new model builder or an existing one if requested before.
+     * @param location path of the model location
+     */
+    protected ConnectingModelBuilder model(String location){
+        return this.model(this.modid, location);
+    }
+
+
+    /**
+     * Creates a new model with parent 'minecraft:block/cube' and the given textures for the faces.
+     * @param location resource location of the model
+     * @param up       resource location of the texture for the top face
+     * @param down     resource location of the texture for the bottom face
+     * @param north    resource location of the texture for the north face
+     * @param east     resource location of the texture for the east face
+     * @param south    resource location of the texture for the south face
+     * @param west     resource location of the texture for the west face
+     */
+    protected ConnectingModelBuilder cube(ResourceLocation location, ResourceLocation up, ResourceLocation down, ResourceLocation north, ResourceLocation east, ResourceLocation south, ResourceLocation west){
+        return this.model(location).parent("minecraft", "block/cube").texture("up", up).texture("down", down).texture("north", north).texture("east", east).texture("south", south).texture("west", west);
+    }
+
+    /**
+     * Creates a new model with parent 'minecraft:block/cube' and the given textures for the faces.
+     * @param namespace namespace of the model location
+     * @param path      path of the model location
+     * @param up        resource location of the texture for the top face
+     * @param down      resource location of the texture for the bottom face
+     * @param north     resource location of the texture for the north face
+     * @param east      resource location of the texture for the east face
+     * @param south     resource location of the texture for the south face
+     * @param west      resource location of the texture for the west face
+     */
+    protected ConnectingModelBuilder cube(String namespace, String path, ResourceLocation up, ResourceLocation down, ResourceLocation north, ResourceLocation east, ResourceLocation south, ResourceLocation west){
+        return this.model(namespace, path).parent("minecraft", "block/cube").texture("up", up).texture("down", down).texture("north", north).texture("east", east).texture("south", south).texture("west", west);
+    }
+
+    /**
+     * Creates a new model with parent 'minecraft:block/cube' and the given textures for the faces.
+     * @param location resource location of the model
+     * @param up       resource location of the texture for the top face
+     * @param down     resource location of the texture for the bottom face
+     * @param north    resource location of the texture for the north face
+     * @param east     resource location of the texture for the east face
+     * @param south    resource location of the texture for the south face
+     * @param west     resource location of the texture for the west face
+     */
+    protected ConnectingModelBuilder cube(String location, ResourceLocation up, ResourceLocation down, ResourceLocation north, ResourceLocation east, ResourceLocation south, ResourceLocation west){
+        return this.model(location).parent("minecraft", "block/cube").texture("up", up).texture("down", down).texture("north", north).texture("east", east).texture("south", south).texture("west", west);
+    }
+
+    public ConnectingModelBuilder cube(String location, ResourceLocation down, boolean downConnecting, ResourceLocation up, boolean upConnecting, ResourceLocation north, boolean northConnecting, ResourceLocation south, boolean southConnecting, ResourceLocation east, boolean eastConnecting, ResourceLocation west, boolean westConnecting){
+        return this.model(location)
+            .parent("minecraft", "block/cube")
             .texture("down", down, downConnecting)
             .texture("up", up, upConnecting)
             .texture("north", north, northConnecting)
@@ -46,206 +142,37 @@ public abstract class ConnectingBlockModelProvider extends ModelProvider<Connect
             .texture("west", west, westConnecting);
     }
 
-    private ConnectingModelBuilder singleTexture(String name, String parent, ResourceLocation texture, boolean isConnectingTexture){
-        return this.singleTexture(name, this.mcLoc(parent), texture, isConnectingTexture);
+    /**
+     * Creates a new model with parent 'minecraft:block/cube_all' and the given texture for '#all'.
+     * @param location resource location of the model
+     * @param texture  resource location of the texture for the cube's sides
+     */
+    protected ConnectingModelBuilder cubeAll(ResourceLocation location, ResourceLocation texture){
+        return this.model(location).parent("minecraft", "block/cube_all").texture("all", texture);
     }
 
-    public ConnectingModelBuilder singleTexture(String name, ResourceLocation parent, ResourceLocation texture, boolean isConnectingTexture){
-        return this.singleTexture(name, parent, "texture", texture, isConnectingTexture);
+    /**
+     * Creates a new model with parent 'minecraft:block/cube_all' and the given texture for '#all'.
+     * @param namespace namespace of the model location
+     * @param path      path of the model location
+     * @param texture   resource location of the texture for the cube's sides
+     */
+    protected ConnectingModelBuilder cubeAll(String namespace, String path, ResourceLocation texture){
+        return this.model(namespace, path).parent("minecraft", "block/cube_all").texture("all", texture);
     }
 
-    private ConnectingModelBuilder singleTexture(String name, String parent, String textureKey, ResourceLocation texture, boolean isConnectingTexture){
-        return this.singleTexture(name, this.mcLoc(parent), textureKey, texture, isConnectingTexture);
+    /**
+     * Creates a new model with parent 'minecraft:block/cube_all' and the given texture for '#all'.
+     * @param location resource location of the model
+     * @param texture  resource location of the texture for the cube's sides
+     */
+    protected ConnectingModelBuilder cubeAll(String location, ResourceLocation texture){
+        return this.model(location).parent("minecraft", "block/cube_all").texture("all", texture);
     }
 
-    public ConnectingModelBuilder singleTexture(String name, ResourceLocation parent, String textureKey, ResourceLocation texture, boolean isConnectingTexture){
-        return this.withExistingParent(name, parent)
-            .texture(textureKey, texture, isConnectingTexture);
-    }
-
-    public ConnectingModelBuilder cubeAll(String name, ResourceLocation texture, boolean isConnectingTexture){
-        return this.singleTexture(name, BLOCK_FOLDER + "/cube_all", "all", texture, isConnectingTexture);
-    }
-
-    public ConnectingModelBuilder cubeTop(String name, ResourceLocation side, boolean sideConnecting, ResourceLocation top, boolean topConnecting){
-        return this.withExistingParent(name, BLOCK_FOLDER + "/cube_top")
-            .texture("side", side, sideConnecting)
-            .texture("top", top, topConnecting);
-    }
-
-    private ConnectingModelBuilder sideBottomTop(String name, String parent, ResourceLocation side, boolean sideConnecting, ResourceLocation bottom, boolean bottomConnecting, ResourceLocation top, boolean topConnecting){
-        return this.withExistingParent(name, parent)
-            .texture("side", side, sideConnecting)
-            .texture("bottom", bottom, bottomConnecting)
-            .texture("top", top, topConnecting);
-    }
-
-    public ConnectingModelBuilder cubeBottomTop(String name, ResourceLocation side, boolean sideConnecting, ResourceLocation bottom, boolean bottomConnecting, ResourceLocation top, boolean topConnecting){
-        return this.sideBottomTop(name, BLOCK_FOLDER + "/cube_bottom_top", side, sideConnecting, bottom, bottomConnecting, top, topConnecting);
-    }
-
-    public ConnectingModelBuilder cubeColumn(String name, ResourceLocation side, boolean sideConnecting, ResourceLocation end, boolean endConnecting){
-        return this.withExistingParent(name, BLOCK_FOLDER + "/cube_column")
-            .texture("side", side, sideConnecting)
-            .texture("end", end, endConnecting);
-    }
-
-    public ConnectingModelBuilder cubeColumnHorizontal(String name, ResourceLocation side, boolean sideConnecting, ResourceLocation end, boolean endConnecting){
-        return this.withExistingParent(name, BLOCK_FOLDER + "/cube_column_horizontal")
-            .texture("side", side, sideConnecting)
-            .texture("end", end, endConnecting);
-    }
-
-    public ConnectingModelBuilder orientableVertical(String name, ResourceLocation side, boolean sideConnecting, ResourceLocation front, boolean frontConnecting){
-        return this.withExistingParent(name, BLOCK_FOLDER + "/orientable_vertical")
-            .texture("side", side, sideConnecting)
-            .texture("front", front, frontConnecting);
-    }
-
-    public ConnectingModelBuilder orientableWithBottom(String name, ResourceLocation side, boolean sideConnecting, ResourceLocation front, boolean frontConnecting, ResourceLocation bottom, boolean bottomConnecting, ResourceLocation top, boolean topConnecting){
-        return this.withExistingParent(name, BLOCK_FOLDER + "/orientable_with_bottom")
-            .texture("side", side, sideConnecting)
-            .texture("front", front, frontConnecting)
-            .texture("bottom", bottom, bottomConnecting)
-            .texture("top", top, topConnecting);
-    }
-
-    public ConnectingModelBuilder orientable(String name, ResourceLocation side, boolean sideConnecting, ResourceLocation front, boolean frontConnecting, ResourceLocation top, boolean topConnecting){
-        return this.withExistingParent(name, BLOCK_FOLDER + "/orientable")
-            .texture("side", side, sideConnecting)
-            .texture("front", front, frontConnecting)
-            .texture("top", top, topConnecting);
-    }
-
-    public ConnectingModelBuilder stairs(String name, ResourceLocation side, boolean sideConnecting, ResourceLocation bottom, boolean bottomConnecting, ResourceLocation top, boolean topConnecting){
-        return this.sideBottomTop(name, BLOCK_FOLDER + "/stairs", side, sideConnecting, bottom, bottomConnecting, top, topConnecting);
-    }
-
-    public ConnectingModelBuilder stairsOuter(String name, ResourceLocation side, boolean sideConnecting, ResourceLocation bottom, boolean bottomConnecting, ResourceLocation top, boolean topConnecting){
-        return this.sideBottomTop(name, BLOCK_FOLDER + "/outer_stairs", side, sideConnecting, bottom, bottomConnecting, top, topConnecting);
-    }
-
-    public ConnectingModelBuilder stairsInner(String name, ResourceLocation side, boolean sideConnecting, ResourceLocation bottom, boolean bottomConnecting, ResourceLocation top, boolean topConnecting){
-        return this.sideBottomTop(name, BLOCK_FOLDER + "/inner_stairs", side, sideConnecting, bottom, bottomConnecting, top, topConnecting);
-    }
-
-    public ConnectingModelBuilder slab(String name, ResourceLocation side, boolean sideConnecting, ResourceLocation bottom, boolean bottomConnecting, ResourceLocation top, boolean topConnecting){
-        return this.sideBottomTop(name, BLOCK_FOLDER + "/slab", side, sideConnecting, bottom, bottomConnecting, top, topConnecting);
-    }
-
-    public ConnectingModelBuilder slabTop(String name, ResourceLocation side, boolean sideConnecting, ResourceLocation bottom, boolean bottomConnecting, ResourceLocation top, boolean topConnecting){
-        return this.sideBottomTop(name, BLOCK_FOLDER + "/slab_top", side, sideConnecting, bottom, bottomConnecting, top, topConnecting);
-    }
-
-    public ConnectingModelBuilder fencePost(String name, ResourceLocation texture, boolean isConnectingTexture){
-        return this.singleTexture(name, BLOCK_FOLDER + "/fence_post", texture, isConnectingTexture);
-    }
-
-    public ConnectingModelBuilder fenceSide(String name, ResourceLocation texture, boolean isConnectingTexture){
-        return this.singleTexture(name, BLOCK_FOLDER + "/fence_side", texture, isConnectingTexture);
-    }
-
-    public ConnectingModelBuilder fenceGate(String name, ResourceLocation texture, boolean isConnectingTexture){
-        return this.singleTexture(name, BLOCK_FOLDER + "/template_fence_gate", texture, isConnectingTexture);
-    }
-
-    public ConnectingModelBuilder fenceGateOpen(String name, ResourceLocation texture, boolean isConnectingTexture){
-        return this.singleTexture(name, BLOCK_FOLDER + "/template_fence_gate_open", texture, isConnectingTexture);
-    }
-
-    public ConnectingModelBuilder fenceGateWall(String name, ResourceLocation texture, boolean isConnectingTexture){
-        return this.singleTexture(name, BLOCK_FOLDER + "/template_fence_gate_wall", texture, isConnectingTexture);
-    }
-
-    public ConnectingModelBuilder fenceGateWallOpen(String name, ResourceLocation texture, boolean isConnectingTexture){
-        return this.singleTexture(name, BLOCK_FOLDER + "/template_fence_gate_wall_open", texture, isConnectingTexture);
-    }
-
-    public ConnectingModelBuilder wallPost(String name, ResourceLocation wall, boolean isConnectingTexture){
-        return this.singleTexture(name, BLOCK_FOLDER + "/template_wall_post", "wall", wall, isConnectingTexture);
-    }
-
-    public ConnectingModelBuilder wallSide(String name, ResourceLocation wall, boolean isConnectingTexture){
-        return this.singleTexture(name, BLOCK_FOLDER + "/template_wall_side", "wall", wall, isConnectingTexture);
-    }
-
-    public ConnectingModelBuilder wallSideTall(String name, ResourceLocation wall, boolean isConnectingTexture){
-        return this.singleTexture(name, BLOCK_FOLDER + "/template_wall_side_tall", "wall", wall, isConnectingTexture);
-    }
-
-    private ConnectingModelBuilder pane(String name, String parent, ResourceLocation pane, boolean paneConnecting, ResourceLocation edge, boolean edgeConnecting){
-        return this.withExistingParent(name, BLOCK_FOLDER + "/" + parent)
-            .texture("pane", pane, paneConnecting)
-            .texture("edge", edge, edgeConnecting);
-    }
-
-    public ConnectingModelBuilder panePost(String name, ResourceLocation pane, boolean paneConnecting, ResourceLocation edge, boolean edgeConnecting){
-        return this.pane(name, "template_glass_pane_post", pane, paneConnecting, edge, edgeConnecting);
-    }
-
-    public ConnectingModelBuilder paneSide(String name, ResourceLocation pane, boolean paneConnecting, ResourceLocation edge, boolean edgeConnecting){
-        return this.pane(name, "template_glass_pane_side", pane, paneConnecting, edge, edgeConnecting);
-    }
-
-    public ConnectingModelBuilder paneSideAlt(String name, ResourceLocation pane, boolean paneConnecting, ResourceLocation edge, boolean edgeConnecting){
-        return this.pane(name, "template_glass_pane_side_alt", pane, paneConnecting, edge, edgeConnecting);
-    }
-
-    public ConnectingModelBuilder paneNoSide(String name, ResourceLocation pane, boolean isConnectingTexture){
-        return this.singleTexture(name, BLOCK_FOLDER + "/template_glass_pane_noside", "pane", pane, isConnectingTexture);
-    }
-
-    public ConnectingModelBuilder paneNoSideAlt(String name, ResourceLocation pane, boolean isConnectingTexture){
-        return this.singleTexture(name, BLOCK_FOLDER + "/template_glass_pane_noside_alt", "pane", pane, isConnectingTexture);
-    }
-
-    private ConnectingModelBuilder door(String name, String model, ResourceLocation bottom, boolean bottomConnecting, ResourceLocation top, boolean topConnecting){
-        return this.withExistingParent(name, BLOCK_FOLDER + "/" + model)
-            .texture("bottom", bottom, bottomConnecting)
-            .texture("top", top, topConnecting);
-    }
-
-    public ConnectingModelBuilder doorBottomLeft(String name, ResourceLocation bottom, boolean bottomConnecting, ResourceLocation top, boolean topConnecting){
-        return this.door(name, "door_bottom", bottom, bottomConnecting, top, topConnecting);
-    }
-
-    public ConnectingModelBuilder doorBottomRight(String name, ResourceLocation bottom, boolean bottomConnecting, ResourceLocation top, boolean topConnecting){
-        return this.door(name, "door_bottom_rh", bottom, bottomConnecting, top, topConnecting);
-    }
-
-    public ConnectingModelBuilder doorTopLeft(String name, ResourceLocation bottom, boolean bottomConnecting, ResourceLocation top, boolean topConnecting){
-        return this.door(name, "door_top", bottom, bottomConnecting, top, topConnecting);
-    }
-
-    public ConnectingModelBuilder doorTopRight(String name, ResourceLocation bottom, boolean bottomConnecting, ResourceLocation top, boolean topConnecting){
-        return this.door(name, "door_top_rh", bottom, bottomConnecting, top, topConnecting);
-    }
-
-    public ConnectingModelBuilder trapdoorBottom(String name, ResourceLocation texture, boolean isConnectingTexture){
-        return this.singleTexture(name, BLOCK_FOLDER + "/template_trapdoor_bottom", texture, isConnectingTexture);
-    }
-
-    public ConnectingModelBuilder trapdoorTop(String name, ResourceLocation texture, boolean isConnectingTexture){
-        return this.singleTexture(name, BLOCK_FOLDER + "/template_trapdoor_top", texture, isConnectingTexture);
-    }
-
-    public ConnectingModelBuilder trapdoorOpen(String name, ResourceLocation texture, boolean isConnectingTexture){
-        return this.singleTexture(name, BLOCK_FOLDER + "/template_trapdoor_open", texture, isConnectingTexture);
-    }
-
-    public ConnectingModelBuilder trapdoorOrientableBottom(String name, ResourceLocation texture, boolean isConnectingTexture){
-        return this.singleTexture(name, BLOCK_FOLDER + "/template_orientable_trapdoor_bottom", texture, isConnectingTexture);
-    }
-
-    public ConnectingModelBuilder trapdoorOrientableTop(String name, ResourceLocation texture, boolean isConnectingTexture){
-        return this.singleTexture(name, BLOCK_FOLDER + "/template_orientable_trapdoor_top", texture, isConnectingTexture);
-    }
-
-    public ConnectingModelBuilder trapdoorOrientableOpen(String name, ResourceLocation texture, boolean isConnectingTexture){
-        return this.singleTexture(name, BLOCK_FOLDER + "/template_orientable_trapdoor_open", texture, isConnectingTexture);
-    }
-
-    public ConnectingModelBuilder carpet(String name, ResourceLocation wool, boolean isConnectingTexture){
-        return this.singleTexture(name, BLOCK_FOLDER + "/carpet", "wool", wool, isConnectingTexture);
+    public ConnectingModelBuilder cubeAll(String location, ResourceLocation texture, boolean connecting){
+        return this.model(location)
+            .parent("minecraft", "block/cube_all")
+            .texture("all", texture, connecting);
     }
 }

@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/purpur_spiral_pattern_connecting"
+  "parent": "rechiseled:block/purpur_spiral_pattern_connecting",
+  "loader": "rechiseled:connecting_model"
 }

@@ -6,10 +6,10 @@
   ],
   "key": {
     "A": {
-      "tag": "forge:ingots/iron"
+      "tag": "c:iron_ingots"
     },
     "B": {
-      "tag": "forge:rods/wooden"
+      "item": "minecraft:stick"
     }
   },
   "result": {

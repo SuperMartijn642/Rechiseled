@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/diorite_tiles"
+  "parent": "rechiseled:block/diorite_tiles",
+  "loader": "rechiseled:connecting_model"
 }

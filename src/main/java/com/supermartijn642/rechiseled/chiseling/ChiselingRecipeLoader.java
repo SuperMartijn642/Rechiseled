@@ -6,34 +6,33 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.supermartijn642.rechiseled.Rechiseled;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
 import net.minecraft.util.profiling.ProfilerFiller;
-import net.minecraftforge.event.AddReloadListenerEvent;
-import net.minecraftforge.event.OnDatapackSyncEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraft.world.entity.player.Player;
 
 import java.util.*;
 
 /**
  * Created 18/01/2022 by SuperMartijn642
  */
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
-public class ChiselingRecipeLoader extends SimpleJsonResourceReloadListener {
+public class ChiselingRecipeLoader extends SimpleJsonResourceReloadListener implements IdentifiableResourceReloadListener {
 
-    @SubscribeEvent
-    public static void onAddReloadListener(AddReloadListenerEvent e){
-        e.addListener(new ChiselingRecipeLoader());
+    public static void addListeners(){
+        ServerLifecycleEvents.SYNC_DATA_PACK_CONTENTS.register((player, joined) -> onDataPackSync(player));
+        ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new ChiselingRecipeLoader());
     }
 
-    @SubscribeEvent
-    public static void onDataPackSync(OnDatapackSyncEvent e){
-        if(e.getPlayer() == null)
+    public static void onDataPackSync(Player player){
+        if(player == null)
             Rechiseled.CHANNEL.sendToAllPlayers(new PacketChiselingRecipes(ChiselingRecipes.getAllRecipes()));
         else
-            Rechiseled.CHANNEL.sendToPlayer(e.getPlayer(), new PacketChiselingRecipes(ChiselingRecipes.getAllRecipes()));
+            Rechiseled.CHANNEL.sendToPlayer(player, new PacketChiselingRecipes(ChiselingRecipes.getAllRecipes()));
     }
 
     private static final Gson GSON = new GsonBuilder().setLenient().create();
@@ -105,5 +104,10 @@ public class ChiselingRecipeLoader extends SimpleJsonResourceReloadListener {
         // Apply the loaded recipes
         System.out.println("Loaded " + successfullyLoadedRecipes + " chiseling recipes");
         ChiselingRecipes.setRecipes(Collections.unmodifiableList(recipesWithoutParent));
+    }
+
+    @Override
+    public ResourceLocation getFabricId(){
+        return new ResourceLocation("rechiseled", "chiseling_recipe_loader");
     }
 }

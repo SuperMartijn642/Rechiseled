@@ -1,34 +1,32 @@
 package com.supermartijn642.rechiseled.texture;
 
+import com.supermartijn642.core.ClientUtils;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.repository.PackRepository;
 import net.minecraft.server.packs.resources.MultiPackResourceManager;
+import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceManager;
-import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.lang.reflect.Field;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.*;
+import java.util.Map;
 
 /**
  * Created 24/01/2022 by SuperMartijn642
  */
 public class TextureMappingTool {
 
-    /**
-     * {@link ExistingFileHelper#clientResources}
-     */
-    private static final Field clientResources;
+    private static final ResourceManager RESOURCE_MANAGER;
 
     static{
-        Field clientResources_ = null;
-        try{
-            clientResources_ = ExistingFileHelper.class.getDeclaredField("clientResources");
-        }catch(NoSuchFieldException e){
-            e.printStackTrace();
-        }
-        clientResources = clientResources_;
+        PackRepository packRepository = ClientUtils.getMinecraft().resourcePackRepository;
+        packRepository.reload();
+        RESOURCE_MANAGER = new MultiPackResourceManager(PackType.CLIENT_RESOURCES, packRepository.openAllSelected());
     }
 
     public static Map<Integer,Integer> createPaletteMap(BufferedImage from, BufferedImage to){
@@ -61,19 +59,10 @@ public class TextureMappingTool {
     /**
      * Finds the suffixes of all rechiseled textures whose names start with {@code name}
      */
-    public static List<String> getSuffixes(String name, ExistingFileHelper existingFileHelper){
-        ResourceManager resourceManager;
-        try{
-            clientResources.setAccessible(true);
-            resourceManager = (MultiPackResourceManager)clientResources.get(existingFileHelper);
-        }catch(IllegalAccessException e){
-            e.printStackTrace();
-            return Collections.emptyList();
-        }
-
+    public static List<String> getSuffixes(String name){
         List<String> suffixes = new ArrayList<>();
-        resourceManager.listPacks().filter(
-            pack -> pack.getNamespaces(PackType.CLIENT_RESOURCES).size() == 1 && pack.getNamespaces(PackType.CLIENT_RESOURCES).contains("rechiseled")
+        RESOURCE_MANAGER.listPacks().filter(
+            pack -> pack.getNamespaces(PackType.CLIENT_RESOURCES).contains("rechiseled")
         ).forEach(
             pack -> {
                 pack.getResources(PackType.CLIENT_RESOURCES, "rechiseled", "textures/block", Integer.MAX_VALUE, s -> s.startsWith(name) && s.endsWith(".png"))
@@ -89,5 +78,13 @@ public class TextureMappingTool {
             }
         );
         return suffixes;
+    }
+
+    public static boolean exists(ResourceLocation location){
+        return RESOURCE_MANAGER.hasResource(location);
+    }
+
+    public static Resource getResource(ResourceLocation location) throws IOException{
+        return RESOURCE_MANAGER.getResource(location);
     }
 }

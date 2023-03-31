@@ -1,18 +1,15 @@
 package com.supermartijn642.rechiseled.model;
 
+import com.supermartijn642.core.util.Pair;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.util.Tuple;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.client.model.data.IModelData;
-import net.minecraftforge.client.model.data.ModelDataMap;
 
-import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Map;
 
@@ -21,23 +18,21 @@ import java.util.Map;
  */
 public class RechiseledConnectedBakedModel extends RechiseledBakedModel {
 
-    public RechiseledConnectedBakedModel(Map<Direction,List<Tuple<BakedQuad,Boolean>>> quads, boolean ambientOcclusion, boolean gui3d, boolean blockLighting, boolean customRenderer, TextureAtlasSprite particles, ItemOverrides itemOverrides, ItemTransforms transforms){
+    public RechiseledConnectedBakedModel(Map<Direction,List<Pair<BakedQuad,Boolean>>> quads, boolean ambientOcclusion, boolean gui3d, boolean blockLighting, boolean customRenderer, TextureAtlasSprite particles, ItemOverrides itemOverrides, ItemTransforms transforms){
         super(quads, ambientOcclusion, gui3d, blockLighting, customRenderer, particles, itemOverrides, transforms);
     }
 
-    @Nonnull
     @Override
-    public IModelData getModelData(@Nonnull BlockAndTintGetter world, @Nonnull BlockPos pos, @Nonnull BlockState state, @Nonnull IModelData tileData){
+    public RechiseledModelData getModelData(BlockAndTintGetter world, BlockPos pos, BlockState state){
         RechiseledModelData data = new RechiseledModelData();
         for(Direction direction : Direction.values())
             data.sides.put(direction, new RechiseledModelData.SideData(direction, world, pos, state.getBlock()));
-        return new ModelDataMap.Builder().withInitial(RechiseledModelData.PROPERTY, data).build();
+        return data;
     }
 
     @Override
-    protected int[] getUV(Direction side, IModelData modelData){
-        RechiseledModelData data;
-        if(!modelData.hasProperty(RechiseledModelData.PROPERTY) || (data = modelData.getData(RechiseledModelData.PROPERTY)) == null)
+    protected int[] getUV(Direction side, RechiseledModelData data){
+        if(data == null)
             return new int[]{0, 0};
 
         RechiseledModelData.SideData blocks = data.sides.get(side);

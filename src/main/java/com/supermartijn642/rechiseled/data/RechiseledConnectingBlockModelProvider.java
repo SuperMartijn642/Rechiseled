@@ -1,10 +1,10 @@
 package com.supermartijn642.rechiseled.data;
 
+import com.supermartijn642.core.registry.Registries;
 import com.supermartijn642.rechiseled.RechiseledBlockType;
 import com.supermartijn642.rechiseled.api.ConnectingBlockModelProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.common.data.ExistingFileHelper;
 
 import static com.supermartijn642.rechiseled.RechiseledBlockType.BlockOption.*;
 
@@ -13,8 +13,8 @@ import static com.supermartijn642.rechiseled.RechiseledBlockType.BlockOption.*;
  */
 public class RechiseledConnectingBlockModelProvider extends ConnectingBlockModelProvider {
 
-    public RechiseledConnectingBlockModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper){
-        super("rechiseled", generator, existingFileHelper);
+    public RechiseledConnectingBlockModelProvider(DataGenerator generator){
+        super("rechiseled", generator);
     }
 
     @Override
@@ -34,5 +34,10 @@ public class RechiseledConnectingBlockModelProvider extends ConnectingBlockModel
             else if(type.connectingBlockMode == CONNECTING)
                 this.cubeAll("block/" + type.connectingRegistryName, new ResourceLocation("rechiseled", "block/" + type.regularRegistryName), true).connectToOtherBlocks();
         }
+
+        // Item models for all the blocks
+        Registries.BLOCKS.getIdentifiers().stream()
+            .filter(identifier -> identifier.getNamespace().equals("rechiseled"))
+            .forEach(identifier -> this.model("item/" + identifier.getPath()).parent("block/" + identifier.getPath()));
     }
 }

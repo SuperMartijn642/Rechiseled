@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/nether_bricks_smooth"
+  "parent": "rechiseled:block/nether_bricks_smooth",
+  "loader": "rechiseled:connecting_model"
 }

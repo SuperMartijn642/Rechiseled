@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/sandstone_tiles"
+  "parent": "rechiseled:block/sandstone_tiles",
+  "loader": "rechiseled:connecting_model"
 }

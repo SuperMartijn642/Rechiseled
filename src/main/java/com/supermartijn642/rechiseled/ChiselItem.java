@@ -38,6 +38,6 @@ public class ChiselItem extends BaseItem {
         if(stack == null || stack.isEmpty())
             tag.remove("stack");
         else
-            tag.put("stack", stack.serializeNBT());
+            tag.put("stack", stack.save(new CompoundTag()));
     }
 }
