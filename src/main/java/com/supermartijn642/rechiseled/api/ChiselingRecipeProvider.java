@@ -1,36 +1,32 @@
 package com.supermartijn642.rechiseled.api;
 
 import com.google.common.collect.Sets;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.supermartijn642.core.registry.Registries;
-import net.minecraft.data.DataGenerator;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
-import net.minecraft.data.HashCache;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
 import org.jetbrains.annotations.Nullable;
 
-import java.io.IOException;
 import java.nio.file.Path;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * Created 24/12/2021 by SuperMartijn642
  */
 public abstract class ChiselingRecipeProvider implements DataProvider {
 
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-
     private final String modid;
-    private final DataGenerator generator;
+    private final FabricDataOutput generator;
     private final Map<String,ChiselingRecipeBuilder> recipes = new HashMap<>();
 
-    public ChiselingRecipeProvider(String modid, DataGenerator generator){
+    public ChiselingRecipeProvider(String modid, FabricDataOutput generator){
         this.modid = modid;
         this.generator = generator;
     }
@@ -41,9 +37,10 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
     }
 
     @Override
-    public void run(HashCache cache) throws IOException{
+    public CompletableFuture<?> run(CachedOutput cache){
         this.buildRecipes();
 
+        List<CompletableFuture<?>> tasks = new ArrayList<>(this.recipes.size());
         Path path = this.generator.getOutputFolder();
         for(Map.Entry<String,ChiselingRecipeBuilder> entry : this.recipes.entrySet()){
             String recipeName = entry.getKey();
@@ -61,8 +58,9 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
             // Write the recipe
             JsonObject json = serializeRecipe(recipeName, builder);
             Path recipePath = path.resolve("data/" + this.modid + "/chiseling_recipes/" + recipeName + ".json");
-            DataProvider.save(GSON, cache, json, recipePath);
+            tasks.add(DataProvider.saveStable(cache, json, recipePath));
         }
+        return CompletableFuture.allOf(tasks.toArray(CompletableFuture[]::new));
     }
 
     private static JsonObject serializeRecipe(String recipeName, ChiselingRecipeBuilder recipe){

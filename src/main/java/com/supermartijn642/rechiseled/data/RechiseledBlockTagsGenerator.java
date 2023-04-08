@@ -28,6 +28,7 @@ import java.util.stream.Stream;
 public class RechiseledBlockTagsGenerator extends TagGenerator {
 
     private static final Gson GSON = new GsonBuilder().create();
+    private static final VanillaPackResources VANILLA_RESOURCES = ServerPacksSource.createVanillaPackSource();
 
     public RechiseledBlockTagsGenerator(ResourceCache cache){
         super("rechiseled", cache);
@@ -67,25 +68,23 @@ public class RechiseledBlockTagsGenerator extends TagGenerator {
         List<Block> blocks = new ArrayList<>();
 
         ResourceLocation tagLocation = new ResourceLocation(location.getNamespace(), "tags/blocks/" + location.getPath() + ".json");
-        try(VanillaPackResources resources = new VanillaPackResources(ServerPacksSource.BUILT_IN_METADATA, ServerPacksSource.VANILLA_ID)){
-            try(InputStream stream = resources.getResource(PackType.SERVER_DATA, tagLocation)){
-                JsonObject json = GSON.fromJson(new InputStreamReader(stream), JsonObject.class);
-                JsonArray array = json.getAsJsonArray("values");
-                for(JsonElement element : array){
-                    String name = element.getAsString();
-                    if(name.charAt(0) == '#'){
-                        blocks.addAll(this.loadVanillaTag(new ResourceLocation(name.substring(1))));
-                        continue;
-                    }
-                    ResourceLocation registryName = new ResourceLocation(name);
-                    Block block = Registries.BLOCKS.getValue(registryName);
-                    if(block == null)
-                        throw new JsonParseException("Unknown block '" + registryName + "' in '" + location + "'");
-                    blocks.add(block);
+        try(InputStream stream = VANILLA_RESOURCES.getResource(PackType.SERVER_DATA, tagLocation).get()){
+            JsonObject json = GSON.fromJson(new InputStreamReader(stream), JsonObject.class);
+            JsonArray array = json.getAsJsonArray("values");
+            for(JsonElement element : array){
+                String name = element.getAsString();
+                if(name.charAt(0) == '#'){
+                    blocks.addAll(this.loadVanillaTag(new ResourceLocation(name.substring(1))));
+                    continue;
                 }
-            }catch(Exception e){
-                e.printStackTrace();
+                ResourceLocation registryName = new ResourceLocation(name);
+                Block block = Registries.BLOCKS.getValue(registryName);
+                if(block == null)
+                    throw new JsonParseException("Unknown block '" + registryName + "' in '" + location + "'");
+                blocks.add(block);
             }
+        }catch(Exception e){
+            e.printStackTrace();
         }
 
         this.loadedTags.put(location, blocks);

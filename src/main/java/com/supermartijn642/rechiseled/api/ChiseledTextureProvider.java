@@ -1,11 +1,13 @@
 package com.supermartijn642.rechiseled.api;
 
+import com.google.common.hash.Hashing;
+import com.google.common.hash.HashingOutputStream;
 import com.supermartijn642.rechiseled.texture.TextureMappingTool;
-import net.minecraft.data.DataGenerator;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.minecraft.Util;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
-import net.minecraft.data.HashCache;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.resources.Resource;
 import org.apache.commons.lang3.tuple.Pair;
 
 import javax.imageio.ImageIO;
@@ -13,11 +15,11 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.nio.file.Files;
+import java.io.InputStream;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * Created 24/01/2022 by SuperMartijn642
@@ -25,12 +27,12 @@ import java.util.*;
 public abstract class ChiseledTextureProvider implements DataProvider {
 
     private final String modid;
-    private final DataGenerator generator;
+    private final FabricDataOutput generator;
     private final Map<Pair<ResourceLocation,ResourceLocation>,PaletteMap> textures = new HashMap<>();
     private final Set<String> outputLocations = new HashSet<>();
     private final List<String> oakPlankSuffixes;
 
-    public ChiseledTextureProvider(String modid, DataGenerator generator){
+    public ChiseledTextureProvider(String modid, FabricDataOutput generator){
         this.modid = modid;
         this.generator = generator;
         this.oakPlankSuffixes = TextureMappingTool.getSuffixes("oak_planks");
@@ -42,9 +44,10 @@ public abstract class ChiseledTextureProvider implements DataProvider {
     }
 
     @Override
-    public void run(HashCache cache){
+    public CompletableFuture<?> run(CachedOutput cache){
         this.createTextures();
 
+        List<CompletableFuture<?>> tasks = new ArrayList<>();
         Path path = this.generator.getOutputFolder();
         for(Map.Entry<Pair<ResourceLocation,ResourceLocation>,PaletteMap> entry : this.textures.entrySet()){
             if(entry.getValue().targets.isEmpty())
@@ -63,9 +66,10 @@ public abstract class ChiseledTextureProvider implements DataProvider {
                 TextureMappingTool.applyPaletteMap(targetTexture, colorMap, outputLocation);
 
                 Path texturePath = path.resolve("assets/" + this.modid + "/textures/" + outputLocation + ".png");
-                saveTexture(cache, targetTexture, texturePath);
+                tasks.add(saveTexture(cache, targetTexture, texturePath));
             }
         }
+        return CompletableFuture.allOf(tasks.toArray(CompletableFuture[]::new));
     }
 
     private BufferedImage loadTexture(ResourceLocation location){
@@ -74,8 +78,8 @@ public abstract class ChiseledTextureProvider implements DataProvider {
             throw new IllegalStateException("Could not find existing texture: " + location);
 
         BufferedImage image;
-        try(Resource resource = TextureMappingTool.getResource(fullLocation)){
-            image = ImageIO.read(resource.getInputStream());
+        try(InputStream resource = TextureMappingTool.getResource(fullLocation).open()){
+            image = ImageIO.read(resource);
         }catch(Exception e){
             throw new RuntimeException("Encountered an exception when trying to load texture: " + location, e);
         }
@@ -92,25 +96,18 @@ public abstract class ChiseledTextureProvider implements DataProvider {
         return image;
     }
 
-    private static void saveTexture(HashCache cache, BufferedImage image, Path path){
-        try{
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            ImageIO.write(image, "png", byteArrayOutputStream);
-            byte[] bytes = byteArrayOutputStream.toByteArray();
-            String hash = SHA1.hashBytes(bytes).toString();
-            if(!Objects.equals(cache.getHash(path), hash) || !Files.exists(path)){
-                Files.createDirectories(path.getParent());
-
-                try(OutputStream outputStream = Files.newOutputStream(path)){
-                    outputStream.write(bytes);
-                }
+    @SuppressWarnings("UnstableApiUsage")
+    private static CompletableFuture<?> saveTexture(CachedOutput cache, BufferedImage image, Path path){
+        return CompletableFuture.runAsync(() -> {
+            try{
+                ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+                HashingOutputStream hashingStream = new HashingOutputStream(Hashing.sha1(), byteStream);
+                ImageIO.write(image, "png", hashingStream);
+                cache.writeIfNeeded(path, byteStream.toByteArray(), hashingStream.hash());
+            }catch(IOException iOException){
+                LOGGER.error("Couldn't save texture to {}", path, iOException);
             }
-
-            cache.putNew(path, hash);
-        }catch(IOException exception){
-            System.err.println("Couldn't save texture '" + path + "'");
-            exception.printStackTrace();
-        }
+        }, Util.backgroundExecutor());
     }
 
     private boolean validateTexture(ResourceLocation texture){

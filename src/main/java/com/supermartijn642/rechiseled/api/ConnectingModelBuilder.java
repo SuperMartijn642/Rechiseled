@@ -2,7 +2,6 @@ package com.supermartijn642.rechiseled.api;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.mojang.math.Vector3f;
 import com.supermartijn642.core.registry.RegistryUtil;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.renderer.block.model.BlockModel;
@@ -10,6 +9,7 @@ import net.minecraft.client.renderer.block.model.ItemTransform;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
+import org.joml.Vector3f;
 
 import java.util.*;
 import java.util.function.BiConsumer;
@@ -374,9 +374,9 @@ public class ConnectingModelBuilder {
 
     public static class TransformBuilder {
 
-        private Vector3f rotation = ItemTransform.Deserializer.DEFAULT_ROTATION.copy();
-        private Vector3f translation = ItemTransform.Deserializer.DEFAULT_TRANSLATION.copy();
-        private Vector3f scale = ItemTransform.Deserializer.DEFAULT_SCALE.copy();
+        private Vector3f rotation = new Vector3f(ItemTransform.Deserializer.DEFAULT_ROTATION);
+        private Vector3f translation = new Vector3f(ItemTransform.Deserializer.DEFAULT_TRANSLATION);
+        private Vector3f scale = new Vector3f(ItemTransform.Deserializer.DEFAULT_SCALE);
 
         protected TransformBuilder(){
         }

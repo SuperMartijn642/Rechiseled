@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.Material;
-import net.minecraft.client.resources.model.ModelBakery;
+import net.minecraft.client.resources.model.ModelBaker;
 import net.minecraft.client.resources.model.ModelState;
 import net.minecraft.resources.ResourceLocation;
 
@@ -30,8 +30,8 @@ public class RechiseledBlockModel extends BlockModel {
     }
 
     @Override
-    public BakedModel bake(ModelBakery bakery, BlockModel blockModel, Function<Material,TextureAtlasSprite> spriteGetter, ModelState modelTransform, ResourceLocation modelLocation, boolean gui3d){
-        ItemOverrides itemOverrides = this.overrides.isEmpty() ? ItemOverrides.EMPTY : new ItemOverrides(bakery, this, bakery::getModel, this.overrides);
+    public BakedModel bake(ModelBaker bakery, BlockModel blockModel, Function<Material,TextureAtlasSprite> spriteGetter, ModelState modelTransform, ResourceLocation modelLocation, boolean gui3d){
+        ItemOverrides itemOverrides = this.overrides.isEmpty() ? ItemOverrides.EMPTY : new ItemOverrides(bakery, this, this.overrides);
         return this.model.bake(this, bakery, spriteGetter, modelTransform, itemOverrides, modelLocation, gui3d);
     }
 

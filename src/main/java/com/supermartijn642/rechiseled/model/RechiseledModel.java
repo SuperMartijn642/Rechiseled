@@ -31,7 +31,7 @@ public class RechiseledModel {
         this.textureMap = textureMap;
     }
 
-    public BakedModel bake(RechiseledBlockModel owner, ModelBakery bakery, Function<Material,TextureAtlasSprite> spriteGetter, ModelState modelTransform, ItemOverrides overrides, ResourceLocation modelLocation, boolean gui3d){
+    public BakedModel bake(RechiseledBlockModel owner, ModelBaker bakery, Function<Material,TextureAtlasSprite> spriteGetter, ModelState modelTransform, ItemOverrides overrides, ResourceLocation modelLocation, boolean gui3d){
         Function<ResourceLocation,UnbakedModel> modelGetter = bakery::getModel;
 
         TextureAtlasSprite particle = spriteGetter.apply(this.getTexture(owner, "particle", modelGetter).left());

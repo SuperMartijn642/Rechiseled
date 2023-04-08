@@ -3,7 +3,7 @@ package com.supermartijn642.rechiseled.data;
 import com.supermartijn642.rechiseled.RechiseledBlockType;
 import com.supermartijn642.rechiseled.api.BaseChiselingRecipes;
 import com.supermartijn642.rechiseled.api.ChiselingRecipeProvider;
-import net.minecraft.data.DataGenerator;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 
@@ -12,7 +12,7 @@ import net.minecraft.world.item.Items;
  */
 public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
 
-    public RechiseledChiselingRecipeProvider(DataGenerator generator){
+    public RechiseledChiselingRecipeProvider(FabricDataOutput generator){
         super("rechiseled", generator);
     }
 

@@ -3,8 +3,12 @@ package com.supermartijn642.rechiseled.data;
 import com.supermartijn642.core.registry.Registries;
 import com.supermartijn642.rechiseled.RechiseledBlockType;
 import com.supermartijn642.rechiseled.api.ConnectingBlockModelProvider;
-import net.minecraft.data.DataGenerator;
+import com.supermartijn642.rechiseled.api.ConnectingModelBuilder;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.resources.ResourceLocation;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import static com.supermartijn642.rechiseled.RechiseledBlockType.BlockOption.*;
 
@@ -13,7 +17,9 @@ import static com.supermartijn642.rechiseled.RechiseledBlockType.BlockOption.*;
  */
 public class RechiseledConnectingBlockModelProvider extends ConnectingBlockModelProvider {
 
-    public RechiseledConnectingBlockModelProvider(DataGenerator generator){
+    public static final Set<ResourceLocation> TEXTURES = new HashSet<>();
+
+    public RechiseledConnectingBlockModelProvider(FabricDataOutput generator){
         super("rechiseled", generator);
     }
 
@@ -39,5 +45,17 @@ public class RechiseledConnectingBlockModelProvider extends ConnectingBlockModel
         Registries.BLOCKS.getIdentifiers().stream()
             .filter(identifier -> identifier.getNamespace().equals("rechiseled"))
             .forEach(identifier -> this.model("item/" + identifier.getPath()).parent("block/" + identifier.getPath()));
+    }
+
+    @Override
+    protected ConnectingModelBuilder cubeAll(String location, ResourceLocation texture){
+        TEXTURES.add(texture);
+        return super.cubeAll(location, texture);
+    }
+
+    @Override
+    public ConnectingModelBuilder cubeAll(String location, ResourceLocation texture, boolean connecting){
+        TEXTURES.add(texture);
+        return super.cubeAll(location, texture, connecting);
     }
 }

@@ -3,8 +3,8 @@
   "loader": "rechiseled:connecting_model",
   "model_textures": {
     "all": {
-      "location": "rechiseled:block/granite_paving",
-      "connecting": true
+      "connecting": true,
+      "location": "rechiseled:block/granite_paving"
     }
   }
 }

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:block/cube_all",
   "loader": "rechiseled:connecting_model",
-  "should_connect": true,
   "model_textures": {
     "all": {
-      "location": "rechiseled:block/red_nether_bricks_beams",
-      "connecting": true
+      "connecting": true,
+      "location": "rechiseled:block/red_nether_bricks_beams"
     }
-  }
+  },
+  "should_connect": true
 }

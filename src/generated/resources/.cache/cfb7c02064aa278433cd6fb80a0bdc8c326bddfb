@@ -1,0 +1,5 @@
+// 1.19.3	2023-04-08T02:01:39.3651332	Rechiseled/Rechiseled Tag Generator
+0192365b8ac8bb500de4a74af1937b5a328576eb data\minecraft\tags\blocks\mineable\axe.json
+422e316d734120e05ed8659adceac0ee74162f6e data\minecraft\tags\blocks\mineable\pickaxe.json
+b7dc098f88b1404db55f9e349f8fedfd9a0ae47e data\minecraft\tags\blocks\mineable\shovel.json
+bca9da8a24bdbc25fcfca7a10b7fb81d73eac75f data\minecraft\tags\blocks\needs_diamond_tool.json

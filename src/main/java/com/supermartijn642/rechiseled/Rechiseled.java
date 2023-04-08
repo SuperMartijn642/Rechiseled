@@ -98,5 +98,6 @@ public class Rechiseled implements ModInitializer {
         handler.addGenerator(RechiseledLanguageGenerator::new);
         handler.addGenerator(RechiseledLootTableGenerator::new);
         handler.addGenerator(RechiseledRecipeGenerator::new);
+        handler.addGenerator(RechiseledAtlasSourceGenerator::new);
     }
 }
