@@ -13,6 +13,7 @@ import net.minecraft.client.resources.model.*;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Tuple;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraftforge.client.RenderTypeGroup;
 import net.minecraftforge.client.model.geometry.IGeometryBakingContext;
 import net.minecraftforge.client.model.geometry.IUnbakedGeometry;
@@ -141,18 +142,18 @@ public class RechiseledModel implements IUnbakedGeometry<RechiseledModel> {
     }
 
     public ItemTransforms getTransforms(Function<ResourceLocation,UnbakedModel> modelGetter){
-        ItemTransform thirdPersonLeftHand = this.getTransform(ItemTransforms.TransformType.THIRD_PERSON_LEFT_HAND, modelGetter);
-        ItemTransform thirdPersonRightHand = this.getTransform(ItemTransforms.TransformType.THIRD_PERSON_RIGHT_HAND, modelGetter);
-        ItemTransform firstPersonLeftHand = this.getTransform(ItemTransforms.TransformType.FIRST_PERSON_LEFT_HAND, modelGetter);
-        ItemTransform firstPersonRightHand = this.getTransform(ItemTransforms.TransformType.FIRST_PERSON_RIGHT_HAND, modelGetter);
-        ItemTransform head = this.getTransform(ItemTransforms.TransformType.HEAD, modelGetter);
-        ItemTransform gui = this.getTransform(ItemTransforms.TransformType.GUI, modelGetter);
-        ItemTransform ground = this.getTransform(ItemTransforms.TransformType.GROUND, modelGetter);
-        ItemTransform fixed = this.getTransform(ItemTransforms.TransformType.FIXED, modelGetter); // For item frames
+        ItemTransform thirdPersonLeftHand = this.getTransform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND, modelGetter);
+        ItemTransform thirdPersonRightHand = this.getTransform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, modelGetter);
+        ItemTransform firstPersonLeftHand = this.getTransform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, modelGetter);
+        ItemTransform firstPersonRightHand = this.getTransform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, modelGetter);
+        ItemTransform head = this.getTransform(ItemDisplayContext.HEAD, modelGetter);
+        ItemTransform gui = this.getTransform(ItemDisplayContext.GUI, modelGetter);
+        ItemTransform ground = this.getTransform(ItemDisplayContext.GROUND, modelGetter);
+        ItemTransform fixed = this.getTransform(ItemDisplayContext.FIXED, modelGetter); // For item frames
         return new ItemTransforms(thirdPersonLeftHand, thirdPersonRightHand, firstPersonLeftHand, firstPersonRightHand, head, gui, ground, fixed);
     }
 
-    private ItemTransform getTransform(ItemTransforms.TransformType transformType, Function<ResourceLocation,UnbakedModel> modelGetter){
+    private ItemTransform getTransform(ItemDisplayContext transformType, Function<ResourceLocation,UnbakedModel> modelGetter){
         if(this.cameraTransforms.hasTransform(transformType))
             return this.cameraTransforms.getTransform(transformType);
 

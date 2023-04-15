@@ -6,10 +6,10 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.render.RenderUtils;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemDisplayContext;
 import org.joml.Quaternionf;
 
 /**
@@ -38,7 +38,7 @@ public class ScreenItemRender {
         MultiBufferSource.BufferSource renderTypeBuffer = RenderUtils.getMainBufferSource();
         BakedModel model = ClientUtils.getItemRenderer().getItemModelShaper().getItemModel(item);
         if(model != null)
-            ClientUtils.getItemRenderer().render(item.getDefaultInstance(), ItemTransforms.TransformType.GUI, false, poseStack, renderTypeBuffer, 15728880, OverlayTexture.NO_OVERLAY, model);
+            ClientUtils.getItemRenderer().render(item.getDefaultInstance(), ItemDisplayContext.GUI, false, poseStack, renderTypeBuffer, 15728880, OverlayTexture.NO_OVERLAY, model);
         renderTypeBuffer.endBatch();
 
         RenderSystem.enableDepthTest();
