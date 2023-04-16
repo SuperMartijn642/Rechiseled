@@ -3,7 +3,7 @@ accessWidener v1 named
 # BlockModel
 accessible field net/minecraft/client/renderer/block/model/BlockModel elements Ljava/util/List;
 accessible field net/minecraft/client/renderer/block/model/BlockModel guiLight Lnet/minecraft/client/renderer/block/model/BlockModel$GuiLight;
-accessible field net/minecraft/client/renderer/block/model/BlockModel hasAmbientOcclusion Z
+accessible field net/minecraft/client/renderer/block/model/BlockModel hasAmbientOcclusion Ljava/lang/Boolean;
 accessible field net/minecraft/client/renderer/block/model/BlockModel overrides Ljava/util/List;
 accessible field net/minecraft/client/renderer/block/model/BlockModel parent Lnet/minecraft/client/renderer/block/model/BlockModel;
 accessible field net/minecraft/client/renderer/block/model/BlockModel parentLocation Lnet/minecraft/resources/ResourceLocation;
