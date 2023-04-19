@@ -1,16 +1,27 @@
 package com.supermartijn642.rechiseled.data;
 
-import com.supermartijn642.rechiseled.RechiseledBlockType;
+import com.supermartijn642.core.util.Triple;
 import com.supermartijn642.rechiseled.api.BaseChiselingRecipes;
 import com.supermartijn642.rechiseled.api.ChiselingRecipeProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
 
 /**
  * Created 24/12/2021 by SuperMartijn642
  */
 public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
+
+    private static final List<Triple<ResourceLocation,Supplier<Item>,Supplier<Item>>> ENTRIES = new ArrayList<>();
+
+    public static void addRecipeEntry(ResourceLocation recipe, Supplier<Item> regular, Supplier<Item> connecting){
+        ENTRIES.add(Triple.of(recipe, regular, connecting));
+    }
 
     public RechiseledChiselingRecipeProvider(DataGenerator generator){
         super("rechiseled", generator);
@@ -100,13 +111,9 @@ public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
         this.beginRecipe(BaseChiselingRecipes.WARPED_PLANKS.getPath())
             .addRegularItem(Items.WARPED_PLANKS);
 
-        for(RechiseledBlockType type : RechiseledBlockType.values()){
-            for(ResourceLocation recipe : type.recipes){
-                if(recipe.getNamespace().equals("rechiseled"))
-                    this.beginRecipe(recipe.getPath()).add(type.getRegularItem(), type.getConnectingItem());
-                else
-                    this.beginRecipe(recipe.getNamespace() + "/" + recipe.getPath()).parent(recipe).add(type.getRegularItem(), type.getConnectingItem());
-            }
+        for(Triple<ResourceLocation,Supplier<Item>,Supplier<Item>> recipe : ENTRIES){
+            String path = recipe.left().getNamespace().equals("rechiseled") ? recipe.left().getPath() : recipe.left().getNamespace() + "/" + recipe.left().getPath();
+            this.beginRecipe(path).add(recipe.middle().get(), recipe.right().get()); // TODO Make this work for other namespaces
         }
     }
 }
