@@ -25,6 +25,7 @@ public class BaseChiselingRecipes {
     public static final ResourceLocation GLOWSTONE = location("glowstone");
     public static final ResourceLocation GRANITE = location("granite");
     public static final ResourceLocation JUNGLE_PLANKS = location("jungle_planks");
+    public static final ResourceLocation MANGROVE_PLANKS = location("mangrove_planks");
     public static final ResourceLocation NETHERRACK = location("netherrack");
     public static final ResourceLocation NETHER_BRICKS = location("nether_bricks");
     public static final ResourceLocation OAK_PLANKS = location("oak_planks");
