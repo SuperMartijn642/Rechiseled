@@ -166,7 +166,7 @@ public abstract class ChiseledTextureProvider extends ResourceGenerator {
         if(ChiseledTextureProvider.this.outputLocations.contains(outputLocation))
             throw new IllegalStateException("Two or more textures have the same output location: " + outputLocation);
 
-        PaletteMap paletteMap = this.createPaletteMap(new ResourceLocation("minecraft", "block/oak_planks"), plankTexture);
+        PaletteMap paletteMap = this.createPaletteMap(new ResourceLocation("rechiseled", "vanilla/oak_planks"), plankTexture);
 
         for(String suffix : this.oakPlankSuffixes){
             paletteMap.applyToTexture(new ResourceLocation("rechiseled", "block/oak_planks" + suffix), outputLocation + suffix);

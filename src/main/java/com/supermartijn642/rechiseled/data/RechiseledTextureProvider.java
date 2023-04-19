@@ -15,10 +15,10 @@ public class RechiseledTextureProvider extends ChiseledTextureProvider {
 
     @Override
     protected void createTextures(){
-        this.createPlankTextures(new ResourceLocation("minecraft", "block/acacia_planks"), "block/acacia_planks");
-        this.createPlankTextures(new ResourceLocation("minecraft", "block/birch_planks"), "block/birch_planks");
-        this.createPlankTextures(new ResourceLocation("minecraft", "block/dark_oak_planks"), "block/dark_oak_planks");
-        this.createPlankTextures(new ResourceLocation("minecraft", "block/jungle_planks"), "block/jungle_planks");
-        this.createPlankTextures(new ResourceLocation("minecraft", "block/spruce_planks"), "block/spruce_planks");
+        this.createPlankTextures(new ResourceLocation("rechiseled", "vanilla/acacia_planks"), "block/acacia_planks");
+        this.createPlankTextures(new ResourceLocation("rechiseled", "vanilla/birch_planks"), "block/birch_planks");
+        this.createPlankTextures(new ResourceLocation("rechiseled", "vanilla/dark_oak_planks"), "block/dark_oak_planks");
+        this.createPlankTextures(new ResourceLocation("rechiseled", "vanilla/jungle_planks"), "block/jungle_planks");
+        this.createPlankTextures(new ResourceLocation("rechiseled", "vanilla/spruce_planks"), "block/spruce_planks");
     }
 }
