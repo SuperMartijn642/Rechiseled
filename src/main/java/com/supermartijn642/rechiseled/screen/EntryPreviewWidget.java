@@ -35,6 +35,12 @@ public class EntryPreviewWidget extends BaseWidget {
     }
 
     @Override
+    protected void addWidgets(){
+        this.addWidget(new ToggleRotationButton(this.x, this.y, 11, 11));
+        super.addWidgets();
+    }
+
+    @Override
     public ITextComponent getNarrationMessage(){
         return null;
     }
@@ -52,7 +58,7 @@ public class EntryPreviewWidget extends BaseWidget {
                 this.pitch += (mouseY - this.mouseStartY) / 100d * 360;
                 this.mouseStartX = mouseX;
                 this.mouseStartY = mouseY;
-            }else
+            }else if(ToggleRotationButton.rotate)
                 this.yaw += (double)(now - this.lastRotationTime) / ROTATION_TIME * 360;
 
             // Render the item or block
@@ -79,17 +85,20 @@ public class EntryPreviewWidget extends BaseWidget {
         }
 
         this.lastRotationTime = now;
+
+        super.render(poseStack, mouseX, mouseY);
     }
 
     @Override
     public boolean mousePressed(int mouseX, int mouseY, int button, boolean hasBeenHandled){
+        hasBeenHandled |= super.mousePressed(mouseX, mouseY, button, hasBeenHandled);
         if(!hasBeenHandled && mouseX >= this.x && mouseX < this.x + this.width && mouseY >= this.y && mouseY < this.y + this.height){
             this.dragging = true;
             this.mouseStartX = mouseX;
             this.mouseStartY = mouseY;
             return true;
         }
-        return super.mousePressed(mouseX, mouseY, button, hasBeenHandled);
+        return hasBeenHandled;
     }
 
     @Override
