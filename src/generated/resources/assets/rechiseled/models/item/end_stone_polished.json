@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/end_stone_polished"
+  "parent": "rechiseled:block/end_stone_polished",
+  "loader": "rechiseled:connecting_model"
 }

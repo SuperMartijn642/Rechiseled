@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/stone_small_bricks"
+  "parent": "rechiseled:block/stone_small_bricks",
+  "loader": "rechiseled:connecting_model"
 }

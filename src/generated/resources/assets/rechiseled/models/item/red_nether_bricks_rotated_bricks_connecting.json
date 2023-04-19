@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/red_nether_bricks_rotated_bricks_connecting"
+  "parent": "rechiseled:block/red_nether_bricks_rotated_bricks_connecting",
+  "loader": "rechiseled:connecting_model"
 }

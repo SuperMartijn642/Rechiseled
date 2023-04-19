@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/glowstone_smooth"
+  "parent": "rechiseled:block/glowstone_smooth",
+  "loader": "rechiseled:connecting_model"
 }

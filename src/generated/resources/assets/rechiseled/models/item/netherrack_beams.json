@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/netherrack_beams"
+  "parent": "rechiseled:block/netherrack_beams",
+  "loader": "rechiseled:connecting_model"
 }
