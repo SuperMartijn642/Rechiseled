@@ -1,3 +1,6 @@
+### Rechiseled 1.0.13
+- Added a button to toggle whether the preview rotates
+
 ### Rechiseled 1.0.12
 - Fix connecting variants of blocks taking forever to break
 
