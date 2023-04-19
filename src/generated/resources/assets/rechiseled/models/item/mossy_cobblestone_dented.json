@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/mossy_cobblestone_dented"
+  "parent": "rechiseled:block/mossy_cobblestone_dented",
+  "loader": "rechiseled:connecting_model"
 }

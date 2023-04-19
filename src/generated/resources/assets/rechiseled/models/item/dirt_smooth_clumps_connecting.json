@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/dirt_smooth_clumps_connecting"
+  "parent": "rechiseled:block/dirt_smooth_clumps_connecting",
+  "loader": "rechiseled:connecting_model"
 }

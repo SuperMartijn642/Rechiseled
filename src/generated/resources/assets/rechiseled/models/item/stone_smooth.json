@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/stone_smooth"
+  "parent": "rechiseled:block/stone_smooth",
+  "loader": "rechiseled:connecting_model"
 }

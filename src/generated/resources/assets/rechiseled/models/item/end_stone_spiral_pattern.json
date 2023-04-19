@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/end_stone_spiral_pattern"
+  "parent": "rechiseled:block/end_stone_spiral_pattern",
+  "loader": "rechiseled:connecting_model"
 }

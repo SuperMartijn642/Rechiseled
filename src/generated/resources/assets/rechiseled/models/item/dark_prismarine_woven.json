@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/dark_prismarine_woven"
+  "parent": "rechiseled:block/dark_prismarine_woven",
+  "loader": "rechiseled:connecting_model"
 }

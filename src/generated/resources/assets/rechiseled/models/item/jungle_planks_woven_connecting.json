@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/jungle_planks_woven_connecting"
+  "parent": "rechiseled:block/jungle_planks_woven_connecting",
+  "loader": "rechiseled:connecting_model"
 }

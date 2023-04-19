@@ -1,4 +1,4 @@
-package com.supermartijn642.rechiseled;
+package com.supermartijn642.rechiseled.block;
 
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.block.BaseBlock;

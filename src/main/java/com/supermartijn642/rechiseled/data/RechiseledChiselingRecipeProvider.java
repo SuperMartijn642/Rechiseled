@@ -1,17 +1,28 @@
 package com.supermartijn642.rechiseled.data;
 
 import com.supermartijn642.core.generator.ResourceCache;
-import com.supermartijn642.rechiseled.RechiseledBlockType;
+import com.supermartijn642.core.util.Pair;
+import com.supermartijn642.core.util.Triple;
 import com.supermartijn642.rechiseled.api.BaseChiselingRecipes;
 import com.supermartijn642.rechiseled.api.ChiselingRecipeProvider;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
+
 /**
  * Created 24/12/2021 by SuperMartijn642
  */
 public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
+
+    private static final List<Triple<ResourceLocation,Pair<Supplier<Item>,Integer>,Pair<Supplier<Item>,Integer>>> ENTRIES = new ArrayList<>();
+
+    public static void addRecipeEntry(ResourceLocation recipe, Supplier<Item> regular, int regularData, Supplier<Item> connecting, int connectingData){
+        ENTRIES.add(Triple.of(recipe, Pair.of(regular, regularData), Pair.of(connecting, connectingData)));
+    }
 
     public RechiseledChiselingRecipeProvider(ResourceCache cache){
         super("rechiseled", cache);
@@ -78,13 +89,9 @@ public class RechiseledChiselingRecipeProvider extends ChiselingRecipeProvider {
             .addRegularItem(Item.getItemFromBlock(Blocks.STONEBRICK), 1)
             .addRegularItem(Item.getItemFromBlock(Blocks.STONEBRICK), 2);
 
-        for(RechiseledBlockType type : RechiseledBlockType.values()){
-            for(ResourceLocation recipe : type.recipes){
-                if(recipe.getResourceDomain().equals("rechiseled"))
-                    this.beginRecipe(recipe.getResourcePath()).add(type.getRegularItem(), type.getRegularItemDamage(), type.getConnectingItem(), type.getConnectingItemDamage());
-                else
-                    this.beginRecipe(recipe.getResourceDomain() + "/" + recipe.getResourcePath()).parent(recipe).add(type.getRegularItem(), type.getConnectingItem());
-            }
+        for(Triple<ResourceLocation,Pair<Supplier<Item>,Integer>,Pair<Supplier<Item>,Integer>> recipe : ENTRIES){
+            String path = recipe.left().getResourceDomain().equals("rechiseled") ? recipe.left().getResourcePath() : recipe.left().getResourceDomain() + "/" + recipe.left().getResourcePath();
+            this.beginRecipe(path).add(recipe.middle().left().get(), recipe.middle().right(), recipe.right().left().get(), recipe.right().right()); // TODO Make this work for other namespaces
         }
     }
 }

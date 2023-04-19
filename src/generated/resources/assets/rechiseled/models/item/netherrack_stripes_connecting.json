@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/netherrack_stripes_connecting"
+  "parent": "rechiseled:block/netherrack_stripes_connecting",
+  "loader": "rechiseled:connecting_model"
 }

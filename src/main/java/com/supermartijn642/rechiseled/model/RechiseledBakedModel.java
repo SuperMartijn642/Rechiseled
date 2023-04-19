@@ -1,6 +1,6 @@
 package com.supermartijn642.rechiseled.model;
 
-import com.supermartijn642.rechiseled.RechiseledBlock;
+import com.supermartijn642.rechiseled.block.RechiseledBlock;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.IBakedModel;

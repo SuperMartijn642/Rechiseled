@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/dark_oak_planks_beams_connecting"
+  "parent": "rechiseled:block/dark_oak_planks_beams_connecting",
+  "loader": "rechiseled:connecting_model"
 }

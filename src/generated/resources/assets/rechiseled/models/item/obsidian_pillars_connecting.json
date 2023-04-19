@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/obsidian_pillars_connecting"
+  "parent": "rechiseled:block/obsidian_pillars_connecting",
+  "loader": "rechiseled:connecting_model"
 }

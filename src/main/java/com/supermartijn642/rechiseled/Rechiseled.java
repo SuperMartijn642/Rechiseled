@@ -7,6 +7,8 @@ import com.supermartijn642.core.network.PacketChannel;
 import com.supermartijn642.core.registry.GeneratorRegistrationHandler;
 import com.supermartijn642.core.registry.RegistrationHandler;
 import com.supermartijn642.core.registry.RegistryEntryAcceptor;
+import com.supermartijn642.rechiseled.block.RechiseledBlockType;
+import com.supermartijn642.rechiseled.block.RechiseledBlocks;
 import com.supermartijn642.rechiseled.data.*;
 import com.supermartijn642.rechiseled.packet.PacketChiselAll;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
@@ -19,6 +21,7 @@ import net.minecraftforge.fml.common.Mod;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created 7/7/2020 by SuperMartijn642
@@ -38,13 +41,11 @@ public class Rechiseled {
         .filler(stackConsumer -> {
             List<Item> items = new LinkedList<>();
             items.add(chisel);
-            for(RechiseledBlockType type : RechiseledBlockType.values()){
-                if(type.hasCreatedRegularBlock())
-                    items.add(type.getRegularItem());
-                if(type.hasCreatedConnectingBlock())
-                    items.add(type.getConnectingItem());
+            for(RechiseledBlockType type : RechiseledBlocks.ALL_BLOCKS){
+                items.add(type.getRegularItem());
+                items.add(type.getConnectingItem());
             }
-            items.stream().map(ItemStack::new).forEach(stackConsumer);
+            items.stream().filter(Objects::nonNull).map(ItemStack::new).forEach(stackConsumer);
         });
 
     public Rechiseled(){
@@ -52,6 +53,7 @@ public class Rechiseled {
         CHANNEL.registerMessage(PacketToggleConnecting.class, PacketToggleConnecting::new, true);
         CHANNEL.registerMessage(PacketChiselAll.class, PacketChiselAll::new, true);
 
+        RechiseledBlocks.init();
         register();
         if(CommonUtils.getEnvironmentSide().isClient())
             RechiseledClient.register();
@@ -60,27 +62,8 @@ public class Rechiseled {
 
     public static void register(){
         RegistrationHandler handler = RegistrationHandler.get("rechiseled");
-        // Blocks
-        handler.registerBlockCallback(helper -> {
-            for(RechiseledBlockType type : RechiseledBlockType.values()){
-                type.createBlocks();
-                if(type.hasCreatedRegularBlock())
-                    helper.register(type.regularRegistryName, type.getRegularBlock());
-                if(type.hasCreatedConnectingBlock())
-                    helper.register(type.connectingRegistryName, type.getConnectingBlock());
-            }
-        });
-        // Items
+        // Chisel item
         handler.registerItem("chisel", ChiselItem::new);
-        handler.registerItemCallback(helper -> {
-            for(RechiseledBlockType type : RechiseledBlockType.values()){
-                type.createItems();
-                if(type.hasCreatedRegularBlock())
-                    helper.register(type.regularRegistryName, type.getRegularItem());
-                if(type.hasCreatedConnectingBlock())
-                    helper.register(type.connectingRegistryName, type.getConnectingItem());
-            }
-        });
         // Container type
         handler.registerMenuType("chisel_container", BaseContainerType.create((container, buffer) -> buffer.writeBoolean(container.hand == EnumHand.MAIN_HAND), ((player, buffer) -> new ChiselContainer(player, buffer.readBoolean() ? EnumHand.MAIN_HAND : EnumHand.OFF_HAND))));
     }
