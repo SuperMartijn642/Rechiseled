@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/red_nether_bricks_small_tiles_connecting"
+  "parent": "rechiseled:block/red_nether_bricks_small_tiles_connecting",
+  "loader": "rechiseled:connecting_model"
 }

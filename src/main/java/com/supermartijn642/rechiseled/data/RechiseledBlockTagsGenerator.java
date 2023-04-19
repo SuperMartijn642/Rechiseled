@@ -5,7 +5,7 @@ import com.google.gson.*;
 import com.supermartijn642.core.generator.ResourceCache;
 import com.supermartijn642.core.generator.TagGenerator;
 import com.supermartijn642.core.registry.Registries;
-import com.supermartijn642.rechiseled.RechiseledBlockType;
+import com.supermartijn642.core.util.Pair;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.MultiPackResourceManager;
 import net.minecraft.server.packs.resources.Resource;
@@ -22,8 +22,9 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.function.BiConsumer;
+import java.util.Set;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -53,13 +54,32 @@ public class RechiseledBlockTagsGenerator extends TagGenerator {
 
     private static final Gson GSON = new GsonBuilder().create();
 
+    private static final List<Pair<Supplier<Block>,Set<ResourceLocation>>> TAGS = new ArrayList<>();
+    private static final List<Pair<Supplier<Block>,Supplier<Block>>> TAGS_FROM_BLOCKS = new ArrayList<>();
+
+    public static void addBlockTags(Supplier<Block> blockSupplier, Set<ResourceLocation> tags){
+        TAGS.add(Pair.of(blockSupplier, tags));
+    }
+
+    public static void addBlockTagsFromOtherBlock(Supplier<Block> blockSupplier, Supplier<Block> otherBlock){
+        TAGS_FROM_BLOCKS.add(Pair.of(blockSupplier, otherBlock));
+    }
+
     public RechiseledBlockTagsGenerator(ResourceCache cache){
         super("rechiseled", cache);
     }
 
     @Override
     public void generate(){
-        List<BiConsumer<Block,Block>> tags = Stream.of(
+        TAGS_FROM_BLOCKS.stream().map(pair -> pair.mapRight(this::getTagsForBlock)).forEach(TAGS::add);
+        TAGS.stream()
+            .flatMap(pair -> pair.right().stream().map(tag -> Pair.of(pair.left(), tag)))
+            .map(pair -> pair.mapLeft(Supplier::get))
+            .forEach(pair -> this.blockTag(pair.right()).add(pair.left()));
+    }
+
+    private Set<ResourceLocation> getTagsForBlock(Supplier<Block> block){
+        return Stream.of(
                 BlockTags.MINEABLE_WITH_AXE,
                 BlockTags.MINEABLE_WITH_HOE,
                 BlockTags.MINEABLE_WITH_PICKAXE,
@@ -69,17 +89,8 @@ public class RechiseledBlockTagsGenerator extends TagGenerator {
                 BlockTags.NEEDS_DIAMOND_TOOL
             )
             .map(TagKey::location)
-            .map(tag -> (BiConsumer<Block,Block>)(parent, block) -> {
-                if(this.loadVanillaTag(tag).contains(parent))
-                    this.blockTag(tag).add(block);
-            }).toList();
-
-        for(RechiseledBlockType type : RechiseledBlockType.values()){
-            if(type.hasCreatedRegularBlock())
-                tags.forEach(consumer -> consumer.accept(type.parentBlock.get(), type.getRegularBlock()));
-            if(type.hasCreatedConnectingBlock())
-                tags.forEach(consumer -> consumer.accept(type.parentBlock.get(), type.getConnectingBlock()));
-        }
+            .filter(tag -> this.loadVanillaTag(tag).contains(block.get()))
+            .collect(Collectors.toSet());
     }
 
     private final Map<ResourceLocation,List<Block>> loadedTags = Maps.newHashMap();

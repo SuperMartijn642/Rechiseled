@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/stone_big_tiles"
+  "parent": "rechiseled:block/stone_big_tiles",
+  "loader": "rechiseled:connecting_model"
 }

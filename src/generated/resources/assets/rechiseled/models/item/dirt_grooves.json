@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/dirt_grooves"
+  "parent": "rechiseled:block/dirt_grooves",
+  "loader": "rechiseled:connecting_model"
 }

@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/oak_planks_diagonal_stripes"
+  "parent": "rechiseled:block/oak_planks_diagonal_stripes",
+  "loader": "rechiseled:connecting_model"
 }

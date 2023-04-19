@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/mossy_cobblestone_worn_stripes"
+  "parent": "rechiseled:block/mossy_cobblestone_worn_stripes",
+  "loader": "rechiseled:connecting_model"
 }

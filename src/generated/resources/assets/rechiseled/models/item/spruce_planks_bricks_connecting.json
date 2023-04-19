@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/spruce_planks_bricks_connecting"
+  "parent": "rechiseled:block/spruce_planks_bricks_connecting",
+  "loader": "rechiseled:connecting_model"
 }

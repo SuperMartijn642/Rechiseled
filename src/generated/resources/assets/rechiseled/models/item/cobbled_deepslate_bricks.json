@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/cobbled_deepslate_bricks"
+  "parent": "rechiseled:block/cobbled_deepslate_bricks",
+  "loader": "rechiseled:connecting_model"
 }

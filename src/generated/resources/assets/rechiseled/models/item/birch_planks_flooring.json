@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/birch_planks_flooring"
+  "parent": "rechiseled:block/birch_planks_flooring",
+  "loader": "rechiseled:connecting_model"
 }

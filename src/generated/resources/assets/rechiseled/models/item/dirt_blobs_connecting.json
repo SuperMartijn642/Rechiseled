@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/dirt_blobs_connecting"
+  "parent": "rechiseled:block/dirt_blobs_connecting",
+  "loader": "rechiseled:connecting_model"
 }

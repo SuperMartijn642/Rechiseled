@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/nether_bricks_tiles"
+  "parent": "rechiseled:block/nether_bricks_tiles",
+  "loader": "rechiseled:connecting_model"
 }

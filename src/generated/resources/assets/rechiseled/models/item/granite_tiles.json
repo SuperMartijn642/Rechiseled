@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/granite_tiles"
+  "parent": "rechiseled:block/granite_tiles",
+  "loader": "rechiseled:connecting_model"
 }
