@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/stone_crushed"
+  "parent": "rechiseled:block/stone_crushed",
+  "loader": "rechiseled:connecting_model"
 }

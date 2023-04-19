@@ -1,4 +1,4 @@
-// 1.19.3	2023-01-20T22:15:00.9303286	Chiseling Recipes: rechiseled
+// 1.19.4	2023-04-19T18:32:17.8637206	Chiseling Recipes: rechiseled
 44b2d282cf8597b4c6bf70c32e1fb35c8be67f4c data/rechiseled/chiseling_recipes/acacia_planks.json
 b0cd67416b35e44f4ab16041be2700ea0f415dd4 data/rechiseled/chiseling_recipes/andesite.json
 13987320b68ef2c304ec10d242f602c4eb31322f data/rechiseled/chiseling_recipes/birch_planks.json
@@ -14,10 +14,11 @@ d4a3f6adefcb950757cd78ade425615f20b7da4e data/rechiseled/chiseling_recipes/dirt.
 172e70c41caaf9fd0c9efa9997a6f0bf5b8f1cf7 data/rechiseled/chiseling_recipes/glowstone.json
 91711cf28fc7de5869ee125c051b36e9998e668f data/rechiseled/chiseling_recipes/granite.json
 2afa540e9244796508b5c04f33eccfe465db88c2 data/rechiseled/chiseling_recipes/jungle_planks.json
+6ee480da36c0e985b0b0d50184d8a8c5b2a8284b data/rechiseled/chiseling_recipes/mangrove_planks.json
 ef1870073c4d0da02264d06bb90cf1193396cbb1 data/rechiseled/chiseling_recipes/netherrack.json
 a5d6bdd85b556cc6c813ad89e0d7941c4d5a4f29 data/rechiseled/chiseling_recipes/nether_bricks.json
 9bab9b15187532ea85905a9d6e3087fe9f725467 data/rechiseled/chiseling_recipes/oak_planks.json
-79f0ea63b8b1c6c115b34bef8621b4a9feea37ad data/rechiseled/chiseling_recipes/obsidian.json
+974ce2872e57cf4f0d5587c7d84864fcefa52a57 data/rechiseled/chiseling_recipes/obsidian.json
 927248ac460bee8553d9501ea2ada553363a9752 data/rechiseled/chiseling_recipes/prismarine_bricks.json
 20f7039f7a2e1665e9dd288f0a24383dd2e2ad04 data/rechiseled/chiseling_recipes/purpur_block.json
 e85fa6eccd60bf262e7f310ab3ca778c37d0167c data/rechiseled/chiseling_recipes/quartz_block.json

@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/diorite_squares_connecting"
+  "parent": "rechiseled:block/diorite_squares_connecting",
+  "loader": "rechiseled:connecting_model"
 }

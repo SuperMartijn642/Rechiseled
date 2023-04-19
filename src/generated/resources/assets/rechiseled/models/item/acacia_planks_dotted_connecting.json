@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/acacia_planks_dotted_connecting"
+  "parent": "rechiseled:block/acacia_planks_dotted_connecting",
+  "loader": "rechiseled:connecting_model"
 }

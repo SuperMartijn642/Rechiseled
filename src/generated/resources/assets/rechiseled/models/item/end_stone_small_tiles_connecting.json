@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/end_stone_small_tiles_connecting"
+  "parent": "rechiseled:block/end_stone_small_tiles_connecting",
+  "loader": "rechiseled:connecting_model"
 }

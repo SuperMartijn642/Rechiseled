@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/acacia_planks_crate"
+  "parent": "rechiseled:block/acacia_planks_crate",
+  "loader": "rechiseled:connecting_model"
 }
