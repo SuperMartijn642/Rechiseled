@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/netherrack_dented"
+  "parent": "rechiseled:block/netherrack_dented",
+  "loader": "rechiseled:connecting_model"
 }

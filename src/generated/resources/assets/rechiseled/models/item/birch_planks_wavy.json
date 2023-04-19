@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/birch_planks_wavy"
+  "parent": "rechiseled:block/birch_planks_wavy",
+  "loader": "rechiseled:connecting_model"
 }

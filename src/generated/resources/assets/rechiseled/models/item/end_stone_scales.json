@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/end_stone_scales"
+  "parent": "rechiseled:block/end_stone_scales",
+  "loader": "rechiseled:connecting_model"
 }

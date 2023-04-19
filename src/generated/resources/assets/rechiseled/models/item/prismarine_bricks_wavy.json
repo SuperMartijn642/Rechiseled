@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/prismarine_bricks_wavy"
+  "parent": "rechiseled:block/prismarine_bricks_wavy",
+  "loader": "rechiseled:connecting_model"
 }

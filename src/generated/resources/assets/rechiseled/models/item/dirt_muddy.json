@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/dirt_muddy"
+  "parent": "rechiseled:block/dirt_muddy",
+  "loader": "rechiseled:connecting_model"
 }

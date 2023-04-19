@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/andesite_polished_connecting"
+  "parent": "rechiseled:block/andesite_polished_connecting",
+  "loader": "rechiseled:connecting_model"
 }

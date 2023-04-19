@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/netherrack_bricks"
+  "parent": "rechiseled:block/netherrack_bricks",
+  "loader": "rechiseled:connecting_model"
 }

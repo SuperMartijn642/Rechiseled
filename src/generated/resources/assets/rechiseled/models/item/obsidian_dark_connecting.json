@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/obsidian_dark_connecting"
+  "parent": "rechiseled:block/obsidian_dark_connecting",
+  "loader": "rechiseled:connecting_model"
 }
