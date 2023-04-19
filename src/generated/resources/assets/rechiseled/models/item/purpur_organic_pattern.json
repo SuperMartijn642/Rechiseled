@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/purpur_organic_pattern"
+  "parent": "rechiseled:block/purpur_organic_pattern",
+  "loader": "rechiseled:connecting_model"
 }

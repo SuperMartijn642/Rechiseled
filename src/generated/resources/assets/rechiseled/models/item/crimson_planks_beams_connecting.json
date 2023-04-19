@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/crimson_planks_beams_connecting"
+  "parent": "rechiseled:block/crimson_planks_beams_connecting",
+  "loader": "rechiseled:connecting_model"
 }

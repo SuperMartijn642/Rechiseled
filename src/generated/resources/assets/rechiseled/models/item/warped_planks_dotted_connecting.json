@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/warped_planks_dotted_connecting"
+  "parent": "rechiseled:block/warped_planks_dotted_connecting",
+  "loader": "rechiseled:connecting_model"
 }

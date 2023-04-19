@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/granite_wavy_connecting"
+  "parent": "rechiseled:block/granite_wavy_connecting",
+  "loader": "rechiseled:connecting_model"
 }

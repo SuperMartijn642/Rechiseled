@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/cobbled_deepslate_beams_connecting"
+  "parent": "rechiseled:block/cobbled_deepslate_beams_connecting",
+  "loader": "rechiseled:connecting_model"
 }

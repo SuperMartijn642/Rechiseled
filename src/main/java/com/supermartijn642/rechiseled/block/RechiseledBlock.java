@@ -1,7 +1,8 @@
-package com.supermartijn642.rechiseled;
+package com.supermartijn642.rechiseled.block;
 
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.block.BaseBlock;
+import com.supermartijn642.core.block.BlockProperties;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -17,7 +18,7 @@ public class RechiseledBlock extends BaseBlock {
 
     public final boolean connecting;
 
-    public RechiseledBlock(boolean connecting, Properties properties){
+    public RechiseledBlock(boolean connecting, BlockProperties properties){
         super(false, properties);
         this.connecting = connecting;
     }

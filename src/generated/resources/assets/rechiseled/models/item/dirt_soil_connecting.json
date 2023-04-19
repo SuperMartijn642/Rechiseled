@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/dirt_soil_connecting"
+  "parent": "rechiseled:block/dirt_soil_connecting",
+  "loader": "rechiseled:connecting_model"
 }

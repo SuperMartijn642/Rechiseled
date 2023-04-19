@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/red_sandstone_polished"
+  "parent": "rechiseled:block/red_sandstone_polished",
+  "loader": "rechiseled:connecting_model"
 }

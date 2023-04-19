@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/dark_oak_planks_crate"
+  "parent": "rechiseled:block/dark_oak_planks_crate",
+  "loader": "rechiseled:connecting_model"
 }
