@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/blackstone_diagonal_bricks_connecting"
+  "parent": "rechiseled:block/blackstone_diagonal_bricks_connecting",
+  "loader": "rechiseled:connecting_model"
 }

@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/stone_path"
+  "parent": "rechiseled:block/stone_path",
+  "loader": "rechiseled:connecting_model"
 }

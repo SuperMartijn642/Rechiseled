@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/quartz_block_pattern"
+  "parent": "rechiseled:block/quartz_block_pattern",
+  "loader": "rechiseled:connecting_model"
 }

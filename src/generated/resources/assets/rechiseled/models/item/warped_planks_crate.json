@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/warped_planks_crate"
+  "parent": "rechiseled:block/warped_planks_crate",
+  "loader": "rechiseled:connecting_model"
 }

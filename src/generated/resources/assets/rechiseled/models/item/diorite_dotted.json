@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/diorite_dotted"
+  "parent": "rechiseled:block/diorite_dotted",
+  "loader": "rechiseled:connecting_model"
 }

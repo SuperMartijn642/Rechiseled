@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/birch_planks_crate_connecting"
+  "parent": "rechiseled:block/birch_planks_crate_connecting",
+  "loader": "rechiseled:connecting_model"
 }
