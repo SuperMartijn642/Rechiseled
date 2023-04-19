@@ -1,0 +1,4 @@
+{
+  "parent": "rechiseled:block/mangrove_planks_small_tiles_connecting",
+  "loader": "rechiseled:connecting_model"
+}

@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "loader": "rechiseled:connecting_model",
+  "model_textures": {
+    "all": {
+      "connecting": true,
+      "location": "rechiseled:block/mangrove_planks_wavy"
+    }
+  },
+  "should_connect": true
+}

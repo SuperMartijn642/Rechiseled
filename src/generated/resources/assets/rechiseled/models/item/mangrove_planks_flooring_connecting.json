@@ -1,0 +1,4 @@
+{
+  "parent": "rechiseled:block/mangrove_planks_flooring_connecting",
+  "loader": "rechiseled:connecting_model"
+}

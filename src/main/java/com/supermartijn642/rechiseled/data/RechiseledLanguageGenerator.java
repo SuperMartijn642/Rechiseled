@@ -2,13 +2,24 @@ package com.supermartijn642.rechiseled.data;
 
 import com.supermartijn642.core.generator.LanguageGenerator;
 import com.supermartijn642.core.generator.ResourceCache;
+import com.supermartijn642.core.util.Pair;
 import com.supermartijn642.rechiseled.Rechiseled;
-import com.supermartijn642.rechiseled.RechiseledBlockType;
+import net.minecraft.world.level.block.Block;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
 
 /**
  * Created 7/8/2021 by SuperMartijn642
  */
 public class RechiseledLanguageGenerator extends LanguageGenerator {
+
+    private static final List<Pair<Supplier<Block>,String>> BLOCKS = new ArrayList<>();
+
+    public static void addBlockTranslation(Supplier<Block> blockSupplier, String translation){
+        BLOCKS.add(Pair.of(blockSupplier, translation));
+    }
 
     public RechiseledLanguageGenerator(ResourceCache cache){
         super("rechiseled", cache, "en_us");
@@ -38,11 +49,7 @@ public class RechiseledLanguageGenerator extends LanguageGenerator {
         this.item(Rechiseled.chisel, "Chisel");
 
         // All the blocks
-        for(RechiseledBlockType type : RechiseledBlockType.values()){
-            if(type.hasCreatedRegularBlock())
-                this.block(type.getRegularBlock(), type.englishTranslation);
-            if(type.hasCreatedConnectingBlock())
-                this.block(type.getConnectingBlock(), type.englishTranslation);
-        }
+        for(Pair<Supplier<Block>,String> pair : BLOCKS)
+            this.block(pair.left().get(), pair.right());
     }
 }
