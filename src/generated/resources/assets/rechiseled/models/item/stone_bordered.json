@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/stone_bordered"
+  "parent": "rechiseled:block/stone_bordered",
+  "loader": "rechiseled:connecting_model"
 }

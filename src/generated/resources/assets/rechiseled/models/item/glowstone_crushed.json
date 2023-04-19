@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/glowstone_crushed"
+  "parent": "rechiseled:block/glowstone_crushed",
+  "loader": "rechiseled:connecting_model"
 }

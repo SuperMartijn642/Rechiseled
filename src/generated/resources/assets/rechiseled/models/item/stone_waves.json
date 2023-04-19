@@ -1,3 +1,4 @@
 {
-  "parent": "rechiseled:block/stone_waves"
+  "parent": "rechiseled:block/stone_waves",
+  "loader": "rechiseled:connecting_model"
 }
