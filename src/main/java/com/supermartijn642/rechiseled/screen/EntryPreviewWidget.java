@@ -86,7 +86,7 @@ public class EntryPreviewWidget extends BaseWidget {
 
         this.lastRotationTime = now;
 
-        super.render(mouseX, mouseY);
+        super.render(poseStack, mouseX, mouseY);
     }
 
     @Override
