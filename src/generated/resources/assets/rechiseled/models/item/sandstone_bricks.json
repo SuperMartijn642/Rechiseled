@@ -1,4 +1,5 @@
 {
   "parent": "rechiseled:block/sandstone_bricks",
-  "loader": "rechiseled:connecting_model"
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }

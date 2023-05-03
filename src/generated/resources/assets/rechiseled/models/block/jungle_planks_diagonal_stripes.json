@@ -1,10 +1,8 @@
 {
   "parent": "minecraft:block/cube_all",
-  "loader": "rechiseled:connecting_model",
-  "model_textures": {
-    "all": {
-      "location": "rechiseled:block/jungle_planks_diagonal_stripes",
-      "connecting": true
-    }
-  }
+  "textures": {
+    "all": "rechiseled:block/jungle_planks_diagonal_stripes"
+  },
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }

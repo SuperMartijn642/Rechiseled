@@ -1,4 +1,5 @@
 {
   "parent": "rechiseled:block/quartz_block_connecting_connecting",
-  "loader": "rechiseled:connecting_model"
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }

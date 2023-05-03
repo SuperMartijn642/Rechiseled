@@ -1,4 +1,5 @@
 {
   "parent": "rechiseled:block/dirt_muddy",
-  "loader": "rechiseled:connecting_model"
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }

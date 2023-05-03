@@ -1,10 +1,8 @@
 {
   "parent": "minecraft:block/cube_all",
-  "loader": "rechiseled:connecting_model",
-  "model_textures": {
-    "all": {
-      "location": "rechiseled:block/glowstone_tiles",
-      "connecting": true
-    }
-  }
+  "textures": {
+    "all": "rechiseled:block/glowstone_tiles"
+  },
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }

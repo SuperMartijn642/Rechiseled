@@ -1,4 +1,5 @@
 {
   "parent": "rechiseled:block/acacia_planks_beams",
-  "loader": "rechiseled:connecting_model"
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }

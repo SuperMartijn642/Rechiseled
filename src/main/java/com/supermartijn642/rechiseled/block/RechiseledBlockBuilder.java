@@ -162,7 +162,7 @@ public class RechiseledBlockBuilder {
             RechiseledBlockTagsGenerator.addBlockTags(regularBlockHolder::get, this.tags);
             if(this.tagsFromBlock != null)
                 RechiseledBlockTagsGenerator.addBlockTagsFromOtherBlock(regularBlockHolder::get, this.tagsFromBlock);
-            RechiseledConnectingBlockModelProvider.addBlock(regularBlockHolder::get, this.specification, this.regularTextureType, new ResourceLocation(this.namespace, "block/" + this.identifier));
+            RechiseledFusionModelProvider.addBlock(regularBlockHolder::get, this.specification, this.regularTextureType, new ResourceLocation(this.namespace, "block/" + this.identifier));
             RechiseledLanguageGenerator.addBlockTranslation(regularBlockHolder::get, this.translation);
             RechiseledLootTableGenerator.addDropSelfBlock(regularBlockHolder::get);
         }
@@ -171,7 +171,7 @@ public class RechiseledBlockBuilder {
             RechiseledBlockTagsGenerator.addBlockTags(connectingBlockHolder::get, this.tags);
             if(this.tagsFromBlock != null)
                 RechiseledBlockTagsGenerator.addBlockTagsFromOtherBlock(connectingBlockHolder::get, this.tagsFromBlock);
-            RechiseledConnectingBlockModelProvider.addBlock(connectingBlockHolder::get, this.specification, this.connectingTextureType, new ResourceLocation(this.namespace, "block/" + this.identifier));
+            RechiseledFusionModelProvider.addBlock(connectingBlockHolder::get, this.specification, this.connectingTextureType, new ResourceLocation(this.namespace, "block/" + this.identifier));
             RechiseledLanguageGenerator.addBlockTranslation(connectingBlockHolder::get, this.translation);
             RechiseledLootTableGenerator.addDropSelfBlock(connectingBlockHolder::get);
         }

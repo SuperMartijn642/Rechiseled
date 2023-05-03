@@ -1,4 +1,5 @@
 {
   "parent": "rechiseled:block/jungle_planks_pattern_connecting",
-  "loader": "rechiseled:connecting_model"
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }

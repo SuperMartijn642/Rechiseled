@@ -1,4 +1,5 @@
 {
   "parent": "rechiseled:block/spruce_planks_wavy_connecting",
-  "loader": "rechiseled:connecting_model"
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }

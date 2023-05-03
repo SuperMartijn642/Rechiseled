@@ -1,4 +1,5 @@
 {
   "parent": "rechiseled:block/purpur_organic_pattern",
-  "loader": "rechiseled:connecting_model"
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }

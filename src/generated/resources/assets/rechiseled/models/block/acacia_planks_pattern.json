@@ -1,10 +1,8 @@
 {
   "parent": "minecraft:block/cube_all",
-  "loader": "rechiseled:connecting_model",
-  "model_textures": {
-    "all": {
-      "location": "rechiseled:block/acacia_planks_pattern",
-      "connecting": true
-    }
-  }
+  "textures": {
+    "all": "rechiseled:block/acacia_planks_pattern"
+  },
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }

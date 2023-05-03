@@ -1,10 +1,8 @@
 {
   "parent": "minecraft:block/cube_all",
-  "loader": "rechiseled:connecting_model",
-  "model_textures": {
-    "all": {
-      "location": "rechiseled:block/obsidian_spots",
-      "connecting": true
-    }
-  }
+  "textures": {
+    "all": "rechiseled:block/obsidian_spots"
+  },
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }

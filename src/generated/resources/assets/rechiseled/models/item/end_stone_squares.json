@@ -1,4 +1,5 @@
 {
   "parent": "rechiseled:block/end_stone_squares",
-  "loader": "rechiseled:connecting_model"
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }

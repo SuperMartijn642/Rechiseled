@@ -18,5 +18,7 @@ accessible field net/minecraft/client/renderer/block/model/ItemTransform$Deseria
 accessible class net/minecraft/client/renderer/block/model/ItemTransform$Deserializer
 # Minecraft
 accessible field net/minecraft/client/Minecraft resourcePackRepository Lnet/minecraft/server/packs/repository/PackRepository;
+# SimpleResource
+accessible field net/minecraft/server/packs/resources/SimpleResource metadata Lcom/google/gson/JsonObject;
 # VertexFormat
 accessible field com/mojang/blaze3d/vertex/VertexFormat offsets Lit/unimi/dsi/fastutil/ints/IntList;

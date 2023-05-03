@@ -1,10 +1,8 @@
 {
   "parent": "minecraft:block/cube_all",
-  "loader": "rechiseled:connecting_model",
-  "model_textures": {
-    "all": {
-      "location": "rechiseled:block/purpur_woven",
-      "connecting": true
-    }
-  }
+  "textures": {
+    "all": "rechiseled:block/purpur_woven"
+  },
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }

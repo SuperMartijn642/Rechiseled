@@ -74,7 +74,7 @@ public class Rechiseled implements ModInitializer {
         GeneratorRegistrationHandler handler = GeneratorRegistrationHandler.get("rechiseled");
         handler.addProvider(RechiseledTextureProvider::new);
         handler.addProvider(RechiseledChiselingRecipeProvider::new);
-        handler.addProvider(RechiseledConnectingBlockModelProvider::new);
+        handler.addProvider(RechiseledFusionModelProvider::new);
         handler.addGenerator(RechiseledBlockStateGenerator::new);
         handler.addGenerator(RechiseledBlockTagsGenerator::new);
         handler.addGenerator(RechiseledItemModelGenerator::new);

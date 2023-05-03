@@ -1,4 +1,5 @@
 {
   "parent": "rechiseled:block/cobbled_deepslate_tiles_connecting",
-  "loader": "rechiseled:connecting_model"
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }

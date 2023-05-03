@@ -1,4 +1,5 @@
 {
   "parent": "rechiseled:block/red_nether_bricks_tiles",
-  "loader": "rechiseled:connecting_model"
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }

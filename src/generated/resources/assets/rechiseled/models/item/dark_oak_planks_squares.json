@@ -1,4 +1,5 @@
 {
   "parent": "rechiseled:block/dark_oak_planks_squares",
-  "loader": "rechiseled:connecting_model"
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }

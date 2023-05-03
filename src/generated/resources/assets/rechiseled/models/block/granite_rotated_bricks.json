@@ -1,10 +1,8 @@
 {
   "parent": "minecraft:block/cube_all",
-  "loader": "rechiseled:connecting_model",
-  "model_textures": {
-    "all": {
-      "location": "rechiseled:block/granite_rotated_bricks",
-      "connecting": true
-    }
-  }
+  "textures": {
+    "all": "rechiseled:block/granite_rotated_bricks"
+  },
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }

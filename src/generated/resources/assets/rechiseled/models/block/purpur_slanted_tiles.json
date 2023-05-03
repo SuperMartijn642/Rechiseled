@@ -1,10 +1,8 @@
 {
   "parent": "minecraft:block/cube_all",
-  "loader": "rechiseled:connecting_model",
-  "model_textures": {
-    "all": {
-      "location": "rechiseled:block/purpur_slanted_tiles",
-      "connecting": true
-    }
-  }
+  "textures": {
+    "all": "rechiseled:block/purpur_slanted_tiles"
+  },
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }

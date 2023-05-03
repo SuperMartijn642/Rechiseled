@@ -1,4 +1,5 @@
 {
   "parent": "rechiseled:block/red_sandstone_polished",
-  "loader": "rechiseled:connecting_model"
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }

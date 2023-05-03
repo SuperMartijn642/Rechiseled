@@ -1,4 +1,5 @@
 {
   "parent": "rechiseled:block/prismarine_bricks_chiseled_squares",
-  "loader": "rechiseled:connecting_model"
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }

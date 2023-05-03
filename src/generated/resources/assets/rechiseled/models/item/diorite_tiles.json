@@ -1,4 +1,5 @@
 {
   "parent": "rechiseled:block/diorite_tiles",
-  "loader": "rechiseled:connecting_model"
+  "loader": "fusion:model",
+  "type": "fusion:vanilla"
 }
