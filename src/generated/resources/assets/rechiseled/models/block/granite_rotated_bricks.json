@@ -2,7 +2,5 @@
   "parent": "minecraft:block/cube_all",
   "textures": {
     "all": "rechiseled:block/granite_rotated_bricks"
-  },
-  "loader": "fusion:model",
-  "type": "fusion:vanilla"
+  }
 }

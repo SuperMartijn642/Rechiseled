@@ -1,5 +1,3 @@
 {
-  "parent": "rechiseled:block/end_stone_scales_connecting",
-  "loader": "fusion:model",
-  "type": "fusion:vanilla"
+  "parent": "rechiseled:block/end_stone_scales_connecting"
 }

@@ -2,7 +2,5 @@
   "parent": "minecraft:block/cube_all",
   "textures": {
     "all": "rechiseled:block/end_stone_small_tiles"
-  },
-  "loader": "fusion:model",
-  "type": "fusion:vanilla"
+  }
 }

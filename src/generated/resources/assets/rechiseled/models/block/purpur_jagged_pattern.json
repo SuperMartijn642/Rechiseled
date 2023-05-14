@@ -2,7 +2,5 @@
   "parent": "minecraft:block/cube_all",
   "textures": {
     "all": "rechiseled:block/purpur_jagged_pattern"
-  },
-  "loader": "fusion:model",
-  "type": "fusion:vanilla"
+  }
 }

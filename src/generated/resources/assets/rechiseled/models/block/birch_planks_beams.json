@@ -2,7 +2,5 @@
   "parent": "minecraft:block/cube_all",
   "textures": {
     "all": "rechiseled:block/birch_planks_beams"
-  },
-  "loader": "fusion:model",
-  "type": "fusion:vanilla"
+  }
 }

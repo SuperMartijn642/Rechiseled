@@ -2,7 +2,5 @@
   "parent": "minecraft:block/cube_all",
   "textures": {
     "all": "rechiseled:block/purpur_slanted_tiles"
-  },
-  "loader": "fusion:model",
-  "type": "fusion:vanilla"
+  }
 }

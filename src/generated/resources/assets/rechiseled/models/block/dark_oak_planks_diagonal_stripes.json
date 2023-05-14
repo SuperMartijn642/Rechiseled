@@ -2,7 +2,5 @@
   "parent": "minecraft:block/cube_all",
   "textures": {
     "all": "rechiseled:block/dark_oak_planks_diagonal_stripes"
-  },
-  "loader": "fusion:model",
-  "type": "fusion:vanilla"
+  }
 }
