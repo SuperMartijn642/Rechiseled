@@ -28,7 +28,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
 
     private final String modid;
     private final DataGenerator generator;
-    private final Map<String,ChiselingRecipeBuilder> recipes = new HashMap<>();
+    private final Map<ResourceLocation,ChiselingRecipeBuilder> recipes = new HashMap<>();
 
     public ChiselingRecipeProvider(String modid, DataGenerator generator){
         this.modid = modid;
@@ -45,27 +45,27 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
         this.buildRecipes();
 
         Path path = this.generator.getOutputFolder();
-        for(Map.Entry<String,ChiselingRecipeBuilder> entry : this.recipes.entrySet()){
-            String recipeName = entry.getKey();
+        for(Map.Entry<ResourceLocation,ChiselingRecipeBuilder> entry : this.recipes.entrySet()){
+            ResourceLocation recipeName = entry.getKey();
             ChiselingRecipeBuilder builder = entry.getValue();
 
             // Check if parent exists
             if(builder.parent != null){
                 ResourceLocation parent = builder.parent;
                 // Find greater parents in the current recipe provider
-                while(parent != null && parent.getNamespace().equals(this.modid) && this.recipes.containsKey(parent.getPath())){
-                    parent = this.recipes.get(parent.getPath()).parent;
+                while(parent != null && parent.getNamespace().equals(this.modid) && this.recipes.containsKey(parent)){
+                    parent = this.recipes.get(parent).parent;
                 }
             }
 
             // Write the recipe
             JsonObject json = serializeRecipe(recipeName, builder);
-            Path recipePath = path.resolve("data/" + this.modid + "/chiseling_recipes/" + recipeName + ".json");
+            Path recipePath = path.resolve("data/" + recipeName.getNamespace() + "/chiseling_recipes/" + recipeName.getPath() + ".json");
             DataProvider.save(GSON, cache, json, recipePath);
         }
     }
 
-    private static JsonObject serializeRecipe(String recipeName, ChiselingRecipeBuilder recipe){
+    private static JsonObject serializeRecipe(ResourceLocation recipeName, ChiselingRecipeBuilder recipe){
         JsonObject json = new JsonObject();
 
         json.addProperty("type", "rechiseled:chiseling");
@@ -108,7 +108,11 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
      * @return a chiseling recipe builder for the given recipe name
      */
     protected ChiselingRecipeBuilder beginRecipe(String recipeName){
-        return this.recipes.computeIfAbsent(recipeName, s -> new ChiselingRecipeBuilder());
+        return this.recipes.computeIfAbsent(new ResourceLocation(this.modid, recipeName), s -> new ChiselingRecipeBuilder());
+    }
+
+    protected ChiselingRecipeBuilder beginRecipe(ResourceLocation recipe){
+        return this.recipes.computeIfAbsent(recipe, s -> new ChiselingRecipeBuilder());
     }
 
     protected class ChiselingRecipeBuilder {

@@ -1,11 +1,13 @@
-package com.supermartijn642.rechiseled.data;
+package com.supermartijn642.rechiseled.registration.data;
 
 import com.google.common.collect.Maps;
 import com.google.gson.*;
 import com.supermartijn642.core.generator.ResourceCache;
 import com.supermartijn642.core.generator.TagGenerator;
 import com.supermartijn642.core.registry.Registries;
-import com.supermartijn642.core.util.Pair;
+import com.supermartijn642.rechiseled.blocks.RechiseledBlockBuilderImpl;
+import com.supermartijn642.rechiseled.blocks.RechiseledBlockTypeImpl;
+import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.VanillaPackResources;
@@ -25,34 +27,39 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * Created 05/01/2022 by SuperMartijn642
+ * Created 04/05/2023 by SuperMartijn642
  */
-public class RechiseledBlockTagsGenerator extends TagGenerator {
+public class RegistrationTagsGenerator extends TagGenerator {
 
     private static final Gson GSON = new GsonBuilder().create();
 
-    private static final List<Pair<Supplier<Block>,Set<ResourceLocation>>> TAGS = new ArrayList<>();
-    private static final List<Pair<Supplier<Block>,Supplier<Block>>> TAGS_FROM_BLOCKS = new ArrayList<>();
+    private final RechiseledRegistrationImpl registration;
 
-    public static void addBlockTags(Supplier<Block> blockSupplier, Set<ResourceLocation> tags){
-        TAGS.add(Pair.of(blockSupplier, tags));
-    }
-
-    public static void addBlockTagsFromOtherBlock(Supplier<Block> blockSupplier, Supplier<Block> otherBlock){
-        TAGS_FROM_BLOCKS.add(Pair.of(blockSupplier, otherBlock));
-    }
-
-    public RechiseledBlockTagsGenerator(ResourceCache cache){
-        super("rechiseled", cache);
+    public RegistrationTagsGenerator(RechiseledRegistrationImpl registration, ResourceCache cache){
+        super(registration.getModid(), cache);
+        this.registration = registration;
     }
 
     @Override
     public void generate(){
-        TAGS_FROM_BLOCKS.stream().map(pair -> pair.mapRight(this::getTagsForBlock)).forEach(TAGS::add);
-        TAGS.stream()
-            .flatMap(pair -> pair.right().stream().map(tag -> Pair.of(pair.left(), tag)))
-            .map(pair -> pair.mapLeft(Supplier::get))
-            .forEach(pair -> this.blockTag(pair.right()).add(pair.left()));
+        if(!this.registration.providersRegistered)
+            return;
+        this.registration.getBlockBuilders().forEach(
+            pair -> {
+                RechiseledBlockBuilderImpl builder = pair.left();
+                RechiseledBlockTypeImpl type = pair.right();
+                if(type.hasRegularVariant())
+                    this.addTags(builder, type.getRegularBlock());
+                if(type.hasConnectingVariant())
+                    this.addTags(builder, type.getConnectingBlock());
+            }
+        );
+    }
+
+    private void addTags(RechiseledBlockBuilderImpl builder, Block block){
+        builder.tags.stream().map(this::blockTag).forEach(tag -> tag.add(block));
+        if(builder.miningTagsFromBlock != null)
+            this.getTagsForBlock(builder.miningTagsFromBlock).stream().map(this::blockTag).forEach(tag -> tag.add(block));
     }
 
     private Set<ResourceLocation> getTagsForBlock(Supplier<Block> block){
@@ -79,7 +86,7 @@ public class RechiseledBlockTagsGenerator extends TagGenerator {
         List<Block> blocks = new ArrayList<>();
 
         ResourceLocation tagLocation = new ResourceLocation(location.getNamespace(), "tags/blocks/" + location.getPath() + ".json");
-        try(VanillaPackResources resources = new VanillaPackResources(ServerPacksSource.BUILT_IN_METADATA, ServerPacksSource.VANILLA_ID)){
+        try(VanillaPackResources resources = new VanillaPackResources(ServerPacksSource.BUILT_IN_METADATA, ServerPacksSource.VANILLA_ID)){ // Properly load tags
             try(InputStream stream = resources.getResource(PackType.SERVER_DATA, tagLocation)){
                 JsonObject json = GSON.fromJson(new InputStreamReader(stream), JsonObject.class);
                 JsonArray array = json.getAsJsonArray("values");
