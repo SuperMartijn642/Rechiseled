@@ -1,11 +1,9 @@
 package com.supermartijn642.rechiseled.api;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
-import net.minecraft.data.HashCache;
 import net.minecraft.resources.ResourceLocation;
 
 import java.io.IOException;
@@ -17,8 +15,6 @@ import java.util.Map;
  * Created 24/01/2022 by SuperMartijn642
  */
 public abstract class ConnectingBlockModelProvider implements DataProvider {
-
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     private final String modid;
     private final DataGenerator generator;
@@ -35,7 +31,7 @@ public abstract class ConnectingBlockModelProvider implements DataProvider {
     }
 
     @Override
-    public void run(HashCache cache) throws IOException{
+    public void run(CachedOutput cache) throws IOException{
         this.createModels();
 
         Path path = this.generator.getOutputFolder();
@@ -46,7 +42,7 @@ public abstract class ConnectingBlockModelProvider implements DataProvider {
             // Write the recipe
             JsonObject json = builder.toJson();
             Path modelPath = path.resolve("assets/" + identifier.getNamespace() + "/models/" + identifier.getPath() + ".json");
-            DataProvider.save(GSON, cache, json, modelPath);
+            DataProvider.saveStable(cache, json, modelPath);
         }
     }
 

@@ -1,11 +1,14 @@
 package com.supermartijn642.rechiseled.api;
 
+import com.google.common.hash.HashCode;
+import com.google.common.hash.Hashing;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.supermartijn642.rechiseled.texture.TextureMappingTool;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
-import net.minecraft.data.HashCache;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.resources.Resource;
 import org.apache.commons.lang3.tuple.Pair;
 
 import javax.imageio.ImageIO;
@@ -13,8 +16,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.nio.file.Files;
+import java.io.InputStream;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.*;
@@ -23,6 +25,8 @@ import java.util.*;
  * Created 24/01/2022 by SuperMartijn642
  */
 public abstract class ChiseledTextureProvider implements DataProvider {
+
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     private final String modid;
     private final DataGenerator generator;
@@ -42,7 +46,7 @@ public abstract class ChiseledTextureProvider implements DataProvider {
     }
 
     @Override
-    public void run(HashCache cache){
+    public void run(CachedOutput cache){
         this.createTextures();
 
         Path path = this.generator.getOutputFolder();
@@ -74,8 +78,8 @@ public abstract class ChiseledTextureProvider implements DataProvider {
             throw new IllegalStateException("Could not find existing texture: " + location);
 
         BufferedImage image;
-        try(Resource resource = TextureMappingTool.getResource(fullLocation)){
-            image = ImageIO.read(resource.getInputStream());
+        try(InputStream resource = TextureMappingTool.getResource(fullLocation).open()){
+            image = ImageIO.read(resource);
         }catch(Exception e){
             throw new RuntimeException("Encountered an exception when trying to load texture: " + location, e);
         }
@@ -92,21 +96,13 @@ public abstract class ChiseledTextureProvider implements DataProvider {
         return image;
     }
 
-    private static void saveTexture(HashCache cache, BufferedImage image, Path path){
+    private static void saveTexture(CachedOutput cache, BufferedImage image, Path path){
         try{
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             ImageIO.write(image, "png", byteArrayOutputStream);
             byte[] bytes = byteArrayOutputStream.toByteArray();
-            String hash = SHA1.hashBytes(bytes).toString();
-            if(!Objects.equals(cache.getHash(path), hash) || !Files.exists(path)){
-                Files.createDirectories(path.getParent());
-
-                try(OutputStream outputStream = Files.newOutputStream(path)){
-                    outputStream.write(bytes);
-                }
-            }
-
-            cache.putNew(path, hash);
+            HashCode hash = Hashing.sha1().hashBytes(bytes);
+            cache.writeIfNeeded(path, bytes, hash);
         }catch(IOException exception){
             System.err.println("Couldn't save texture '" + path + "'");
             exception.printStackTrace();

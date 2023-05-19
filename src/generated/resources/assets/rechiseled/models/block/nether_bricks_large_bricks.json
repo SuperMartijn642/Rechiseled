@@ -3,8 +3,8 @@
   "loader": "rechiseled:connecting_model",
   "model_textures": {
     "all": {
-      "location": "rechiseled:block/nether_bricks_large_bricks",
-      "connecting": true
+      "connecting": true,
+      "location": "rechiseled:block/nether_bricks_large_bricks"
     }
   }
 }

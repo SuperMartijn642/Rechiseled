@@ -3,8 +3,8 @@
   "loader": "rechiseled:connecting_model",
   "model_textures": {
     "all": {
-      "location": "rechiseled:block/dirt_small_tiles",
-      "connecting": true
+      "connecting": true,
+      "location": "rechiseled:block/dirt_small_tiles"
     }
   }
 }

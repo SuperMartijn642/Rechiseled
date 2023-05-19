@@ -8,84 +8,84 @@
       "item": "minecraft:mossy_cobblestone"
     },
     {
-      "item": "rechiseled:cobblestone_beams",
-      "connecting_item": "rechiseled:cobblestone_beams_connecting"
+      "connecting_item": "rechiseled:cobblestone_beams_connecting",
+      "item": "rechiseled:cobblestone_beams"
     },
     {
-      "item": "rechiseled:cobblestone_crosses",
-      "connecting_item": "rechiseled:cobblestone_crosses_connecting"
+      "connecting_item": "rechiseled:cobblestone_crosses_connecting",
+      "item": "rechiseled:cobblestone_crosses"
     },
     {
-      "item": "rechiseled:cobblestone_dented",
-      "connecting_item": "rechiseled:cobblestone_dented_connecting"
+      "connecting_item": "rechiseled:cobblestone_dented_connecting",
+      "item": "rechiseled:cobblestone_dented"
     },
     {
-      "item": "rechiseled:cobblestone_inverted_dented",
-      "connecting_item": "rechiseled:cobblestone_inverted_dented_connecting"
+      "connecting_item": "rechiseled:cobblestone_inverted_dented_connecting",
+      "item": "rechiseled:cobblestone_inverted_dented"
     },
     {
-      "item": "rechiseled:cobblestone_paving",
-      "connecting_item": "rechiseled:cobblestone_paving_connecting"
+      "connecting_item": "rechiseled:cobblestone_paving_connecting",
+      "item": "rechiseled:cobblestone_paving"
     },
     {
-      "item": "rechiseled:cobblestone_pulverized",
-      "connecting_item": "rechiseled:cobblestone_pulverized_connecting"
+      "connecting_item": "rechiseled:cobblestone_pulverized_connecting",
+      "item": "rechiseled:cobblestone_pulverized"
     },
     {
-      "item": "rechiseled:cobblestone_rotated_bricks",
-      "connecting_item": "rechiseled:cobblestone_rotated_bricks_connecting"
+      "connecting_item": "rechiseled:cobblestone_rotated_bricks_connecting",
+      "item": "rechiseled:cobblestone_rotated_bricks"
     },
     {
-      "item": "rechiseled:cobblestone_small_tiles",
-      "connecting_item": "rechiseled:cobblestone_small_tiles_connecting"
+      "connecting_item": "rechiseled:cobblestone_small_tiles_connecting",
+      "item": "rechiseled:cobblestone_small_tiles"
     },
     {
-      "item": "rechiseled:cobblestone_squares",
-      "connecting_item": "rechiseled:cobblestone_squares_connecting"
+      "connecting_item": "rechiseled:cobblestone_squares_connecting",
+      "item": "rechiseled:cobblestone_squares"
     },
     {
-      "item": "rechiseled:cobblestone_stripes",
-      "connecting_item": "rechiseled:cobblestone_stripes_connecting"
+      "connecting_item": "rechiseled:cobblestone_stripes_connecting",
+      "item": "rechiseled:cobblestone_stripes"
     },
     {
-      "item": "rechiseled:cobblestone_tiles",
-      "connecting_item": "rechiseled:cobblestone_tiles_connecting"
+      "connecting_item": "rechiseled:cobblestone_tiles_connecting",
+      "item": "rechiseled:cobblestone_tiles"
     },
     {
-      "item": "rechiseled:cobblestone_worn_stripes",
-      "connecting_item": "rechiseled:cobblestone_worn_stripes_connecting"
+      "connecting_item": "rechiseled:cobblestone_worn_stripes_connecting",
+      "item": "rechiseled:cobblestone_worn_stripes"
     },
     {
-      "item": "rechiseled:mossy_cobblestone_beams",
-      "connecting_item": "rechiseled:mossy_cobblestone_beams_connecting"
+      "connecting_item": "rechiseled:mossy_cobblestone_beams_connecting",
+      "item": "rechiseled:mossy_cobblestone_beams"
     },
     {
-      "item": "rechiseled:mossy_cobblestone_dented",
-      "connecting_item": "rechiseled:mossy_cobblestone_dented_connecting"
+      "connecting_item": "rechiseled:mossy_cobblestone_dented_connecting",
+      "item": "rechiseled:mossy_cobblestone_dented"
     },
     {
-      "item": "rechiseled:mossy_cobblestone_inverted_dented",
-      "connecting_item": "rechiseled:mossy_cobblestone_inverted_dented_connecting"
+      "connecting_item": "rechiseled:mossy_cobblestone_inverted_dented_connecting",
+      "item": "rechiseled:mossy_cobblestone_inverted_dented"
     },
     {
-      "item": "rechiseled:mossy_cobblestone_paving",
-      "connecting_item": "rechiseled:mossy_cobblestone_paving_connecting"
+      "connecting_item": "rechiseled:mossy_cobblestone_paving_connecting",
+      "item": "rechiseled:mossy_cobblestone_paving"
     },
     {
-      "item": "rechiseled:mossy_cobblestone_small_tiles",
-      "connecting_item": "rechiseled:mossy_cobblestone_small_tiles_connecting"
+      "connecting_item": "rechiseled:mossy_cobblestone_small_tiles_connecting",
+      "item": "rechiseled:mossy_cobblestone_small_tiles"
     },
     {
-      "item": "rechiseled:mossy_cobblestone_squares",
-      "connecting_item": "rechiseled:mossy_cobblestone_squares_connecting"
+      "connecting_item": "rechiseled:mossy_cobblestone_squares_connecting",
+      "item": "rechiseled:mossy_cobblestone_squares"
     },
     {
-      "item": "rechiseled:mossy_cobblestone_stripes",
-      "connecting_item": "rechiseled:mossy_cobblestone_stripes_connecting"
+      "connecting_item": "rechiseled:mossy_cobblestone_stripes_connecting",
+      "item": "rechiseled:mossy_cobblestone_stripes"
     },
     {
-      "item": "rechiseled:mossy_cobblestone_worn_stripes",
-      "connecting_item": "rechiseled:mossy_cobblestone_worn_stripes_connecting"
+      "connecting_item": "rechiseled:mossy_cobblestone_worn_stripes_connecting",
+      "item": "rechiseled:mossy_cobblestone_worn_stripes"
     }
   ]
 }

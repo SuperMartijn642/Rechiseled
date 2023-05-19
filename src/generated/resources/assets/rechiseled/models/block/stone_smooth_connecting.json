@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:block/cube_all",
   "loader": "rechiseled:connecting_model",
-  "should_connect": true,
   "model_textures": {
     "all": {
-      "location": "rechiseled:block/stone_smooth",
-      "connecting": true
+      "connecting": true,
+      "location": "rechiseled:block/stone_smooth"
     }
-  }
+  },
+  "should_connect": true
 }

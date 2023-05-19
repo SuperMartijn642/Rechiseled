@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:block/cube_all",
   "loader": "rechiseled:connecting_model",
-  "should_connect": true,
   "model_textures": {
     "all": {
-      "location": "rechiseled:block/jungle_planks_large_tiles",
-      "connecting": true
+      "connecting": true,
+      "location": "rechiseled:block/jungle_planks_large_tiles"
     }
-  }
+  },
+  "should_connect": true
 }

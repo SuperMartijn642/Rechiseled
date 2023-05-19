@@ -3,8 +3,8 @@
   "loader": "rechiseled:connecting_model",
   "model_textures": {
     "all": {
-      "location": "rechiseled:block/dark_oak_planks_flooring",
-      "connecting": true
+      "connecting": true,
+      "location": "rechiseled:block/dark_oak_planks_flooring"
     }
   }
 }

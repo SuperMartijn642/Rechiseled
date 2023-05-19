@@ -5,18 +5,18 @@ import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
 import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
 import mezz.jei.api.constants.VanillaTypes;
-import mezz.jei.api.gui.IRecipeLayout;
+import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
-import mezz.jei.api.gui.ingredient.IGuiItemStackGroup;
 import mezz.jei.api.helpers.IGuiHelper;
-import mezz.jei.api.ingredients.IIngredients;
+import mezz.jei.api.recipe.IFocusGroup;
+import mezz.jei.api.recipe.RecipeIngredientRole;
+import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -29,17 +29,12 @@ public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipe>
 
     public ChiselingRecipeCategory(IGuiHelper guiHelper){
         this.backgrounds = guiHelper.createDrawable(new ResourceLocation("rechiseled", "textures/screen/jei_category_background.png"), 0, 0, 174, 72);
-        this.icon = guiHelper.createDrawableIngredient(new ItemStack(Rechiseled.chisel));
+        this.icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(Rechiseled.chisel));
     }
 
     @Override
-    public ResourceLocation getUid(){
-        return new ResourceLocation("rechiseled", "chiseling");
-    }
-
-    @Override
-    public Class<? extends ChiselingRecipe> getRecipeClass(){
-        return ChiselingRecipe.class;
+    public RecipeType<ChiselingRecipe> getRecipeType(){
+        return ChiselingJEIPlugin.CHISELING_RECIPE_TYPE;
     }
 
     @Override
@@ -58,7 +53,7 @@ public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipe>
     }
 
     @Override
-    public void setIngredients(ChiselingRecipe recipe, IIngredients ingredients){
+    public void setRecipe(IRecipeLayoutBuilder recipeLayoutBuilder, ChiselingRecipe recipe, IFocusGroup focusGroup){
         List<ItemStack> inputs = new ArrayList<>();
         List<List<ItemStack>> outputs = new ArrayList<>();
 
@@ -75,22 +70,14 @@ public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipe>
             outputs.add(output);
         }
 
-        ingredients.setInputLists(VanillaTypes.ITEM, Collections.singletonList(inputs));
-        ingredients.setOutputLists(VanillaTypes.ITEM, outputs);
-    }
+        // Input slot
+        recipeLayoutBuilder.addSlot(RecipeIngredientRole.INPUT, 1, 28).addItemStacks(inputs);
 
-    @Override
-    public void setRecipe(IRecipeLayout recipeLayout, ChiselingRecipe recipe, IIngredients ingredients){
-        IGuiItemStackGroup guiItemStacks = recipeLayout.getItemStacks();
-        guiItemStacks.init(0, true, 0, 27);
-        guiItemStacks.set(0, ingredients.getInputs(VanillaTypes.ITEM).get(0));
-
-        List<List<ItemStack>> outputs = ingredients.getOutputs(VanillaTypes.ITEM);
+        // Output slots
         for(int i = 0; i < outputs.size(); i++){
-            int x = 48 + 18 * (i % 7);
-            int y = 18 * (i / 7);
-            guiItemStacks.init(i + 1, false, x, y);
-            guiItemStacks.set(i + 1, outputs.get(i));
+            int x = 49 + 18 * (i % 7);
+            int y = 1 + 18 * (i / 7);
+            recipeLayoutBuilder.addSlot(RecipeIngredientRole.OUTPUT, x, y).addItemStacks(outputs.get(i));
         }
     }
 }

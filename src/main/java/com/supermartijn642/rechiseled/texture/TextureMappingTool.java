@@ -10,11 +10,8 @@ import net.minecraft.server.packs.resources.ResourceManager;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created 24/01/2022 by SuperMartijn642
@@ -65,7 +62,7 @@ public class TextureMappingTool {
             pack -> pack.getNamespaces(PackType.CLIENT_RESOURCES).contains("rechiseled")
         ).forEach(
             pack -> {
-                pack.getResources(PackType.CLIENT_RESOURCES, "rechiseled", "textures/block", Integer.MAX_VALUE, s -> s.startsWith(name) && s.endsWith(".png"))
+                pack.getResources(PackType.CLIENT_RESOURCES, "rechiseled", "textures/block", s -> s.getPath().startsWith("textures/block/" + name) && s.getPath().endsWith(".png"))
                     .stream()
                     .map(
                         s -> {
@@ -81,10 +78,11 @@ public class TextureMappingTool {
     }
 
     public static boolean exists(ResourceLocation location){
-        return RESOURCE_MANAGER.hasResource(location);
+        return RESOURCE_MANAGER.getResource(location).isPresent();
     }
 
-    public static Resource getResource(ResourceLocation location) throws IOException{
-        return RESOURCE_MANAGER.getResource(location);
+    public static Resource getResource(ResourceLocation location) throws NoSuchElementException{
+        //noinspection OptionalGetWithoutIsPresent
+        return RESOURCE_MANAGER.getResource(location).get();
     }
 }

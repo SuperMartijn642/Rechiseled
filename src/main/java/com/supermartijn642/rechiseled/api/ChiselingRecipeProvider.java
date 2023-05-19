@@ -1,14 +1,12 @@
 package com.supermartijn642.rechiseled.api;
 
 import com.google.common.collect.Sets;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.supermartijn642.core.registry.Registries;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
-import net.minecraft.data.HashCache;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
@@ -23,8 +21,6 @@ import java.util.*;
  * Created 24/12/2021 by SuperMartijn642
  */
 public abstract class ChiselingRecipeProvider implements DataProvider {
-
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     private final String modid;
     private final DataGenerator generator;
@@ -41,7 +37,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
     }
 
     @Override
-    public void run(HashCache cache) throws IOException{
+    public void run(CachedOutput cache) throws IOException{
         this.buildRecipes();
 
         Path path = this.generator.getOutputFolder();
@@ -61,7 +57,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
             // Write the recipe
             JsonObject json = serializeRecipe(recipeName, builder);
             Path recipePath = path.resolve("data/" + this.modid + "/chiseling_recipes/" + recipeName + ".json");
-            DataProvider.save(GSON, cache, json, recipePath);
+            DataProvider.saveStable(cache, json, recipePath);
         }
     }
 

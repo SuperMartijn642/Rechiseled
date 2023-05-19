@@ -14,16 +14,16 @@
       "item": "minecraft:chiseled_polished_blackstone"
     },
     {
-      "item": "rechiseled:blackstone_diagonal_bricks",
-      "connecting_item": "rechiseled:blackstone_diagonal_bricks_connecting"
+      "connecting_item": "rechiseled:blackstone_diagonal_bricks_connecting",
+      "item": "rechiseled:blackstone_diagonal_bricks"
     },
     {
-      "item": "minecraft:polished_blackstone",
-      "connecting_item": "rechiseled:blackstone_polished_connecting"
+      "connecting_item": "rechiseled:blackstone_polished_connecting",
+      "item": "minecraft:polished_blackstone"
     },
     {
-      "item": "rechiseled:blackstone_tiles",
-      "connecting_item": "rechiseled:blackstone_tiles_connecting"
+      "connecting_item": "rechiseled:blackstone_tiles_connecting",
+      "item": "rechiseled:blackstone_tiles"
     }
   ]
 }

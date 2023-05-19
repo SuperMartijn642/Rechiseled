@@ -14,24 +14,24 @@
       "item": "minecraft:smooth_sandstone"
     },
     {
-      "item": "rechiseled:sandstone_bricks",
-      "connecting_item": "rechiseled:sandstone_bricks_connecting"
+      "connecting_item": "rechiseled:sandstone_bricks_connecting",
+      "item": "rechiseled:sandstone_bricks"
     },
     {
-      "item": "rechiseled:sandstone_diagonal_bricks",
-      "connecting_item": "rechiseled:sandstone_diagonal_bricks_connecting"
+      "connecting_item": "rechiseled:sandstone_diagonal_bricks_connecting",
+      "item": "rechiseled:sandstone_diagonal_bricks"
     },
     {
-      "item": "rechiseled:sandstone_large_tiles",
-      "connecting_item": "rechiseled:sandstone_large_tiles_connecting"
+      "connecting_item": "rechiseled:sandstone_large_tiles_connecting",
+      "item": "rechiseled:sandstone_large_tiles"
     },
     {
-      "item": "rechiseled:sandstone_polished",
-      "connecting_item": "rechiseled:sandstone_polished_connecting"
+      "connecting_item": "rechiseled:sandstone_polished_connecting",
+      "item": "rechiseled:sandstone_polished"
     },
     {
-      "item": "rechiseled:sandstone_tiles",
-      "connecting_item": "rechiseled:sandstone_tiles_connecting"
+      "connecting_item": "rechiseled:sandstone_tiles_connecting",
+      "item": "rechiseled:sandstone_tiles"
     }
   ]
 }
