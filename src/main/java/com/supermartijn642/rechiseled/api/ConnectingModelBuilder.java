@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.block.model.ItemTransform;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.ApiStatus;
 
 import java.util.*;
 import java.util.function.BiConsumer;
@@ -19,6 +20,8 @@ import java.util.function.Consumer;
 /**
  * Created 24/01/2022 by SuperMartijn642
  */
+@Deprecated(forRemoval = true)
+@ApiStatus.ScheduledForRemoval(inVersion = "1.2.0")
 public class ConnectingModelBuilder {
 
     protected final String modid;

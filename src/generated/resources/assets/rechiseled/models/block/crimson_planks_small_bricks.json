@@ -1,10 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
-  "loader": "rechiseled:connecting_model",
-  "model_textures": {
-    "all": {
-      "connecting": true,
-      "location": "rechiseled:block/crimson_planks_small_bricks"
-    }
+  "textures": {
+    "all": "rechiseled:block/crimson_planks_small_bricks"
   }
 }

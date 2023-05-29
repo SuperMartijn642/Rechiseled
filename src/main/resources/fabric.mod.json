@@ -35,6 +35,7 @@
     "minecraft": "${minecraft_dependency}",
     "java": "${java_dependency}",
     "supermartijn642corelib": "${core_library_dependency}",
-    "supermartijn642configlib": "${config_library_dependency}"
+    "supermartijn642configlib": "${config_library_dependency}",
+    "fusion": "${fusion_dependency}"
   }
 }

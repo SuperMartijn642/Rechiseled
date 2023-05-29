@@ -1,11 +1,13 @@
 {
+  "type": "fusion:connecting",
   "parent": "minecraft:block/cube_all",
-  "loader": "rechiseled:connecting_model",
-  "model_textures": {
-    "all": {
-      "connecting": true,
-      "location": "rechiseled:block/acacia_planks_diagonal_tiles"
+  "connections": [
+    {
+      "type": "fusion:is_same_block"
     }
-  },
-  "should_connect": true
+  ],
+  "loader": "fusion:model",
+  "textures": {
+    "all": "rechiseled:block/acacia_planks_diagonal_tiles"
+  }
 }

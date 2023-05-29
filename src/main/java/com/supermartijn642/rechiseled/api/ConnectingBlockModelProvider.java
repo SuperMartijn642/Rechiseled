@@ -5,6 +5,7 @@ import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.ApiStatus;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -13,7 +14,10 @@ import java.util.Map;
 
 /**
  * Created 24/01/2022 by SuperMartijn642
+ * @deprecated use Fusion instead
  */
+@Deprecated(forRemoval = true)
+@ApiStatus.ScheduledForRemoval(inVersion = "1.2.0")
 public abstract class ConnectingBlockModelProvider implements DataProvider {
 
     private final String modid;
