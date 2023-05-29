@@ -2,15 +2,18 @@ package com.supermartijn642.rechiseled.api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.supermartijn642.core.util.Pair;
 import com.supermartijn642.rechiseled.texture.TextureMappingTool;
+import net.minecraft.client.resources.metadata.animation.AnimationMetadataSection;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.HashCache;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.resources.Resource;
+import net.minecraft.server.packs.resources.SimpleResource;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import org.apache.commons.lang3.tuple.Pair;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -28,7 +31,7 @@ import java.util.*;
  */
 public abstract class ChiseledTextureProvider implements DataProvider {
 
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private static final Gson GSON = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
 
     private final String modid;
     private final DataGenerator generator;
@@ -50,7 +53,7 @@ public abstract class ChiseledTextureProvider implements DataProvider {
     }
 
     @Override
-    public void run(HashCache cache){
+    public void run(HashCache cache) throws IOException{
         this.createTextures();
 
         Path path = this.generator.getOutputFolder();
@@ -58,31 +61,37 @@ public abstract class ChiseledTextureProvider implements DataProvider {
             if(entry.getValue().targets.isEmpty())
                 continue;
 
-            BufferedImage oldPalette = this.loadTexture(entry.getKey().getLeft());
-            BufferedImage newPalette = this.loadTexture(entry.getKey().getRight());
+            Pair<BufferedImage,JsonObject> oldPalette = this.loadTexture(entry.getKey().left());
+            Pair<BufferedImage,JsonObject> newPalette = this.loadTexture(entry.getKey().right());
             Map<String,ResourceLocation> targets = entry.getValue().targets;
 
-            Map<Integer,Integer> colorMap = TextureMappingTool.createPaletteMap(oldPalette, newPalette);
+            Map<Integer,Integer> colorMap = TextureMappingTool.createPaletteMap(oldPalette.left(), newPalette.left());
 
             for(Map.Entry<String,ResourceLocation> target : targets.entrySet()){
-                BufferedImage targetTexture = this.loadTexture(target.getValue());
+                Pair<BufferedImage,JsonObject> targetTexture = this.loadTexture(target.getValue());
                 String outputLocation = target.getKey();
 
-                TextureMappingTool.applyPaletteMap(targetTexture, colorMap, outputLocation);
+                TextureMappingTool.applyPaletteMap(targetTexture.left(), colorMap, outputLocation);
 
                 Path texturePath = path.resolve("assets/" + this.modid + "/textures/" + outputLocation + ".png");
-                saveTexture(cache, targetTexture, texturePath);
+                saveTexture(cache, targetTexture.left(), texturePath);
+                Path textureMetadataPath = path.resolve("assets/" + this.modid + "/textures/" + outputLocation + ".png.mcmeta");
+                DataProvider.save(GSON, cache, targetTexture.right(), textureMetadataPath);
             }
         }
     }
 
-    private BufferedImage loadTexture(ResourceLocation location){
+    private Pair<BufferedImage,JsonObject> loadTexture(ResourceLocation location){
+        ResourceLocation fullLocation = new ResourceLocation(location.getNamespace(), "textures/" + location.getPath() + ".png");
         if(!this.existingFileHelper.exists(location, PackType.CLIENT_RESOURCES, ".png", "textures"))
             throw new IllegalStateException("Could not find existing texture: " + location);
 
         BufferedImage image;
+        JsonObject metadata;
         try(Resource resource = this.existingFileHelper.getResource(location, PackType.CLIENT_RESOURCES, ".png", "textures")){
             image = ImageIO.read(resource.getInputStream());
+            resource.getMetadata(AnimationMetadataSection.SERIALIZER);
+            metadata = resource instanceof SimpleResource ? ((SimpleResource)resource).metadata : null;
         }catch(Exception e){
             throw new RuntimeException("Encountered an exception when trying to load texture: " + location, e);
         }
@@ -96,7 +105,7 @@ public abstract class ChiseledTextureProvider implements DataProvider {
             image = newImage;
         }
 
-        return image;
+        return Pair.of(image, metadata);
     }
 
     private static void saveTexture(HashCache cache, BufferedImage image, Path path){

@@ -11,6 +11,7 @@ import java.util.Map;
 /**
  * Created 24/01/2022 by SuperMartijn642
  */
+@Deprecated(forRemoval = true)
 public class ConnectingModelBuilder extends ModelBuilder<ConnectingModelBuilder> {
 
     // whether a texture is a texture sheet or a regular texture
