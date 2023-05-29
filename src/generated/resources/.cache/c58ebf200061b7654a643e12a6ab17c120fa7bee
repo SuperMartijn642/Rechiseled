@@ -1,4 +1,4 @@
-// 1.19.2	2023-05-29T12:41:23.4871169	Chiseling Recipes: rechiseled
+// 1.19.2	2023-05-29T14:53:30.5407813	Chiseling Recipes: rechiseled
 69f46f28f611fd8324eb8df421580e4ba7c4cfac data\rechiseled\chiseling_recipes\dark_oak_planks.json
 a5d6bdd85b556cc6c813ad89e0d7941c4d5a4f29 data\rechiseled\chiseling_recipes\nether_bricks.json
 13987320b68ef2c304ec10d242f602c4eb31322f data\rechiseled\chiseling_recipes\birch_planks.json
@@ -22,6 +22,7 @@ e85fa6eccd60bf262e7f310ab3ca778c37d0167c data\rechiseled\chiseling_recipes\quart
 9bab9b15187532ea85905a9d6e3087fe9f725467 data\rechiseled\chiseling_recipes\oak_planks.json
 5deca313d83eaecc375128f19a3dd91b96736fe9 data\rechiseled\chiseling_recipes\end_stone.json
 b0cd67416b35e44f4ab16041be2700ea0f415dd4 data\rechiseled\chiseling_recipes\andesite.json
+583cbf9663399d2557f9da31c217e220228bdc3b data\rechiseled\chiseling_recipes\mangrove_planks.json
 d4a3f6adefcb950757cd78ade425615f20b7da4e data\rechiseled\chiseling_recipes\dirt.json
 975638f0b14209287fd80698da610604cee9098f data\rechiseled\chiseling_recipes\spruce_planks.json
 a9d0738c0d249412e964bc6d93a077d29ad35b09 data\rechiseled\chiseling_recipes\crimson_planks.json

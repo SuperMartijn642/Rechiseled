@@ -200,6 +200,22 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType JUNGLE_PLANKS_TILES = create("jungle_planks_tiles", "Jungle Plank Tiles", () -> Blocks.JUNGLE_PLANKS).recipe(BaseChiselingRecipes.JUNGLE_PLANKS).build();
     public static final RechiseledBlockType JUNGLE_PLANKS_WAVY = create("jungle_planks_wavy", "Wavy Jungle Planks", () -> Blocks.JUNGLE_PLANKS).recipe(BaseChiselingRecipes.JUNGLE_PLANKS).build();
     public static final RechiseledBlockType JUNGLE_PLANKS_WOVEN = create("jungle_planks_woven", "Woven Jungle Planks", () -> Blocks.JUNGLE_PLANKS).recipe(BaseChiselingRecipes.JUNGLE_PLANKS).build();
+    // Mangrove planks
+    public static final RechiseledBlockType MANGROVE_PLANKS_BEAMS = create("mangrove_planks_beams", "Mangrove Plank Beams", () -> Blocks.MANGROVE_PLANKS).recipe(BaseChiselingRecipes.MANGROVE_PLANKS).build();
+    public static final RechiseledBlockType MANGROVE_PLANKS_BRICKS = create("mangrove_planks_bricks", "Mangrove Plank Bricks", () -> Blocks.MANGROVE_PLANKS).recipe(BaseChiselingRecipes.MANGROVE_PLANKS).build();
+    public static final RechiseledBlockType MANGROVE_PLANKS_CRATE = create("mangrove_planks_crate", "Mangrove Planks Crate", () -> Blocks.MANGROVE_PLANKS).recipe(BaseChiselingRecipes.MANGROVE_PLANKS).build();
+    public static final RechiseledBlockType MANGROVE_PLANKS_DIAGONAL_STRIPES = create("mangrove_planks_diagonal_stripes", "Diagonal Mangrove Plank Stripes", () -> Blocks.MANGROVE_PLANKS).recipe(BaseChiselingRecipes.MANGROVE_PLANKS).build();
+    public static final RechiseledBlockType MANGROVE_PLANKS_DIAGONAL_TILES = create("mangrove_planks_diagonal_tiles", "Diagonal Mangrove Plank Tiles", () -> Blocks.MANGROVE_PLANKS).recipe(BaseChiselingRecipes.MANGROVE_PLANKS).build();
+    public static final RechiseledBlockType MANGROVE_PLANKS_DOTTED = create("mangrove_planks_dotted", "Dotted Mangrove Planks", () -> Blocks.MANGROVE_PLANKS).recipe(BaseChiselingRecipes.MANGROVE_PLANKS).build();
+    public static final RechiseledBlockType MANGROVE_PLANKS_FLOORING = create("mangrove_planks_flooring", "Mangrove Plank Flooring", () -> Blocks.MANGROVE_PLANKS).recipe(BaseChiselingRecipes.MANGROVE_PLANKS).build();
+    public static final RechiseledBlockType MANGROVE_PLANKS_LARGE_TILES = create("mangrove_planks_large_tiles", "Large Mangrove Plank Tiles", () -> Blocks.MANGROVE_PLANKS).recipe(BaseChiselingRecipes.MANGROVE_PLANKS).build();
+    public static final RechiseledBlockType MANGROVE_PLANKS_PATTERN = create("mangrove_planks_pattern", "Mangrove Plank Pattern", () -> Blocks.MANGROVE_PLANKS).recipe(BaseChiselingRecipes.MANGROVE_PLANKS).build();
+    public static final RechiseledBlockType MANGROVE_PLANKS_SMALL_BRICKS = create("mangrove_planks_small_bricks", "Small Mangrove Plank Bricks", () -> Blocks.MANGROVE_PLANKS).recipe(BaseChiselingRecipes.MANGROVE_PLANKS).build();
+    public static final RechiseledBlockType MANGROVE_PLANKS_SMALL_TILES = create("mangrove_planks_small_tiles", "Small Mangrove Plank Tiles", () -> Blocks.MANGROVE_PLANKS).recipe(BaseChiselingRecipes.MANGROVE_PLANKS).build();
+    public static final RechiseledBlockType MANGROVE_PLANKS_SQUARES = create("mangrove_planks_squares", "Mangrove Plank Squares", () -> Blocks.MANGROVE_PLANKS).recipe(BaseChiselingRecipes.MANGROVE_PLANKS).build();
+    public static final RechiseledBlockType MANGROVE_PLANKS_TILES = create("mangrove_planks_tiles", "Mangrove Plank Tiles", () -> Blocks.MANGROVE_PLANKS).recipe(BaseChiselingRecipes.MANGROVE_PLANKS).build();
+    public static final RechiseledBlockType MANGROVE_PLANKS_WAVY = create("mangrove_planks_wavy", "Wavy Mangrove Planks", () -> Blocks.MANGROVE_PLANKS).recipe(BaseChiselingRecipes.MANGROVE_PLANKS).build();
+    public static final RechiseledBlockType MANGROVE_PLANKS_WOVEN = create("mangrove_planks_woven", "Woven Mangrove Planks", () -> Blocks.MANGROVE_PLANKS).recipe(BaseChiselingRecipes.MANGROVE_PLANKS).build();
     // Mossy cobblestone
     public static final RechiseledBlockType MOSSY_COBBLESTONE_BEAMS = create("mossy_cobblestone_beams", "Mossy Cobblestone Beams", () -> Blocks.MOSSY_COBBLESTONE).recipe(BaseChiselingRecipes.COBBLESTONE).build();
     public static final RechiseledBlockType MOSSY_COBBLESTONE_DENTED = create("mossy_cobblestone_dented", "Dented Mossy Cobblestone", () -> Blocks.MOSSY_COBBLESTONE).recipe(BaseChiselingRecipes.COBBLESTONE).build();
