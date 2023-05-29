@@ -21,7 +21,11 @@ public class RechiseledClient {
         handler.registerContainerScreen(() -> Rechiseled.chisel_container, container -> WidgetContainerScreen.of(new BaseChiselingContainerScreen<>(TextComponents.item(Rechiseled.chisel).get()), container, false));
     }
 
+    /**
+     * TODO: remove in 1.2
+     */
     @SubscribeEvent
+    @Deprecated
     public static void onModelRegistry(ModelEvent.RegisterGeometryLoaders e){
         e.register("connecting_model", new RechiseledModelLoader());
     }
