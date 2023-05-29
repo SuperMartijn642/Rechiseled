@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import org.jetbrains.annotations.ApiStatus;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -11,6 +12,8 @@ import java.util.Map;
 /**
  * Created 24/01/2022 by SuperMartijn642
  */
+@Deprecated(forRemoval = true)
+@ApiStatus.ScheduledForRemoval(inVersion = "1.2.0")
 public class ConnectingModelBuilder extends ModelBuilder<ConnectingModelBuilder> {
 
     // whether a texture is a texture sheet or a regular texture

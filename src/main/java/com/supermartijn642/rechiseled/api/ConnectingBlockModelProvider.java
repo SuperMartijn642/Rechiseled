@@ -4,10 +4,15 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.ModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Created 24/01/2022 by SuperMartijn642
+ * @deprecated use Fusion instead
  */
+@SuppressWarnings("removal")
+@Deprecated(forRemoval = true)
+@ApiStatus.ScheduledForRemoval(inVersion = "1.2.0")
 public abstract class ConnectingBlockModelProvider extends ModelProvider<ConnectingModelBuilder> {
 
     public ConnectingBlockModelProvider(String modid, DataGenerator generator, ExistingFileHelper existingFileHelper){
