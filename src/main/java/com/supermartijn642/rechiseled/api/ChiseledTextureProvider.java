@@ -2,17 +2,21 @@ package com.supermartijn642.rechiseled.api;
 
 import com.google.common.hash.Hashing;
 import com.google.common.hash.HashingOutputStream;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.supermartijn642.core.util.Pair;
 import com.supermartijn642.rechiseled.texture.TextureMappingTool;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.Util;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.resources.ResourceLocation;
-import org.apache.commons.lang3.tuple.Pair;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,6 +29,8 @@ import java.util.concurrent.CompletableFuture;
  * Created 24/01/2022 by SuperMartijn642
  */
 public abstract class ChiseledTextureProvider implements DataProvider {
+
+    private static final Gson GSON = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
 
     private final String modid;
     private final FabricDataOutput generator;
@@ -53,33 +59,48 @@ public abstract class ChiseledTextureProvider implements DataProvider {
             if(entry.getValue().targets.isEmpty())
                 continue;
 
-            BufferedImage oldPalette = this.loadTexture(entry.getKey().getLeft());
-            BufferedImage newPalette = this.loadTexture(entry.getKey().getRight());
+            Pair<BufferedImage,JsonObject> oldPalette = this.loadTexture(entry.getKey().left());
+            Pair<BufferedImage,JsonObject> newPalette = this.loadTexture(entry.getKey().right());
             Map<String,ResourceLocation> targets = entry.getValue().targets;
 
-            Map<Integer,Integer> colorMap = TextureMappingTool.createPaletteMap(oldPalette, newPalette);
+            Map<Integer,Integer> colorMap = TextureMappingTool.createPaletteMap(oldPalette.left(), newPalette.left());
 
             for(Map.Entry<String,ResourceLocation> target : targets.entrySet()){
-                BufferedImage targetTexture = this.loadTexture(target.getValue());
+                Pair<BufferedImage,JsonObject> targetTexture = this.loadTexture(target.getValue());
                 String outputLocation = target.getKey();
 
-                TextureMappingTool.applyPaletteMap(targetTexture, colorMap, outputLocation);
+                TextureMappingTool.applyPaletteMap(targetTexture.left(), colorMap, outputLocation);
 
                 Path texturePath = path.resolve("assets/" + this.modid + "/textures/" + outputLocation + ".png");
-                tasks.add(saveTexture(cache, targetTexture, texturePath));
+                tasks.add(saveTexture(cache, targetTexture.left(), texturePath));
+                Path textureMetadataPath = path.resolve("assets/" + this.modid + "/textures/" + outputLocation + ".png.mcmeta");
+                tasks.add(DataProvider.saveStable(cache, targetTexture.right(), textureMetadataPath));
             }
         }
         return CompletableFuture.allOf(tasks.toArray(CompletableFuture[]::new));
     }
 
-    private BufferedImage loadTexture(ResourceLocation location){
+    private Pair<BufferedImage,JsonObject> loadTexture(ResourceLocation location){
         ResourceLocation fullLocation = new ResourceLocation(location.getNamespace(), "textures/" + location.getPath() + ".png");
         if(!TextureMappingTool.exists(fullLocation))
             throw new IllegalStateException("Could not find existing texture: " + location);
 
+        // Get the metadata
+        ResourceLocation metadataLocation = new ResourceLocation(location.getNamespace(), "textures/" + location.getPath() + ".png.mcmeta");
+        boolean hasMetadata = TextureMappingTool.exists(metadataLocation);
+        JsonObject metadata = null;
+        if(hasMetadata){
+            try(BufferedReader reader = TextureMappingTool.getResource(metadataLocation).openAsReader()){
+                metadata = GSON.fromJson(reader, JsonObject.class);
+            }catch(Exception e){
+                throw new RuntimeException("Encountered an exception when trying to load texture metadata: " + metadataLocation, e);
+            }
+        }
+
+        // Get the texture
         BufferedImage image;
-        try(InputStream resource = TextureMappingTool.getResource(fullLocation).open()){
-            image = ImageIO.read(resource);
+        try(InputStream stream = TextureMappingTool.getResource(fullLocation).open()){
+            image = ImageIO.read(stream);
         }catch(Exception e){
             throw new RuntimeException("Encountered an exception when trying to load texture: " + location, e);
         }
@@ -93,7 +114,7 @@ public abstract class ChiseledTextureProvider implements DataProvider {
             image = newImage;
         }
 
-        return image;
+        return Pair.of(image, metadata);
     }
 
     @SuppressWarnings("UnstableApiUsage")

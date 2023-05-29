@@ -1,11 +1,13 @@
 {
+  "type": "fusion:connecting",
   "parent": "minecraft:block/cube_all",
-  "loader": "rechiseled:connecting_model",
-  "model_textures": {
-    "all": {
-      "connecting": true,
-      "location": "rechiseled:block/red_nether_bricks_rotated_bricks"
+  "connections": [
+    {
+      "type": "fusion:is_same_block"
     }
-  },
-  "should_connect": true
+  ],
+  "loader": "fusion:model",
+  "textures": {
+    "all": "rechiseled:block/red_nether_bricks_rotated_bricks"
+  }
 }

@@ -18,6 +18,7 @@ import java.lang.reflect.Type;
 /**
  * Created 31/03/2023 by SuperMartijn642
  */
+@Deprecated
 @Mixin(BlockModel.Deserializer.class)
 public class BlockModelDeserializerMixin {
 

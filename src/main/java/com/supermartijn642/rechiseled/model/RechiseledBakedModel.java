@@ -25,6 +25,7 @@ import java.util.function.Supplier;
 /**
  * Created 21/12/2021 by SuperMartijn642
  */
+@Deprecated
 public class RechiseledBakedModel implements BakedModel, FabricBakedModel {
 
     private final Map<Direction,List<Pair<BakedQuad,Boolean>>> quads;

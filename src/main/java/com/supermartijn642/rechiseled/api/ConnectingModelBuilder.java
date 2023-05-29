@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.block.model.ItemTransform;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemDisplayContext;
+import org.jetbrains.annotations.ApiStatus;
 import org.joml.Vector3f;
 
 import java.util.*;
@@ -19,6 +20,8 @@ import java.util.function.Consumer;
 /**
  * Created 24/01/2022 by SuperMartijn642
  */
+@Deprecated(forRemoval = true)
+@ApiStatus.ScheduledForRemoval(inVersion = "1.2.0")
 public class ConnectingModelBuilder {
 
     protected final String modid;

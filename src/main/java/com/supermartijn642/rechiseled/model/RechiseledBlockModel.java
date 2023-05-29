@@ -15,6 +15,7 @@ import java.util.function.Function;
 /**
  * Created 31/03/2023 by SuperMartijn642
  */
+@Deprecated
 public class RechiseledBlockModel extends BlockModel {
 
     private final RechiseledModel model;

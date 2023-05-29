@@ -13,6 +13,7 @@ import java.util.function.Function;
 /**
  * Created 21/12/2021 by SuperMartijn642
  */
+@Deprecated
 public class RechiseledModelData {
 
     public Map<Direction,SideData> sides = Maps.newEnumMap(Direction.class);

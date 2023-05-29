@@ -1,4 +1,3 @@
 {
-  "parent": "rechiseled:block/mangrove_planks_squares_connecting",
-  "loader": "rechiseled:connecting_model"
+  "parent": "rechiseled:block/mangrove_planks_squares_connecting"
 }
