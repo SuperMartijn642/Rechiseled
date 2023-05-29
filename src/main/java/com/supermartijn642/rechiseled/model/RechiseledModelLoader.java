@@ -8,6 +8,7 @@ import net.minecraftforge.client.model.IModelLoader;
 /**
  * Created 21/12/2021 by SuperMartijn642
  */
+@Deprecated
 public class RechiseledModelLoader implements IModelLoader<RechiseledModel> {
 
     @Override

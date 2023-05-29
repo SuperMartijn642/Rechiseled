@@ -1,11 +1,13 @@
 {
   "parent": "minecraft:block/cube_all",
-  "loader": "rechiseled:connecting_model",
-  "should_connect": true,
-  "model_textures": {
-    "all": {
-      "location": "rechiseled:block/obsidian_pillars",
-      "connecting": true
+  "textures": {
+    "all": "rechiseled:block/obsidian_pillars"
+  },
+  "connections": [
+    {
+      "type": "fusion:is_same_block"
     }
-  }
+  ],
+  "loader": "fusion:model",
+  "type": "fusion:connecting"
 }

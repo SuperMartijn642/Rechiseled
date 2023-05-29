@@ -15,11 +15,9 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nullable;
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
@@ -33,7 +31,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
     private final String modid;
     private final DataGenerator generator;
     private final ExistingFileHelper existingFileHelper;
-    private final Map<String,ChiselingRecipeBuilder> recipes = new HashMap<>();
+    private final Map<ResourceLocation,ChiselingRecipeBuilder> recipes = new HashMap<>();
 
     public ChiselingRecipeProvider(String modid, DataGenerator generator, ExistingFileHelper existingFileHelper){
         this.modid = modid;
@@ -47,20 +45,20 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
     }
 
     @Override
-    public void run(HashCache cache){
+    public void run(HashCache cache) throws IOException{
         this.buildRecipes();
 
         Path path = this.generator.getOutputFolder();
-        for(Map.Entry<String,ChiselingRecipeBuilder> entry : this.recipes.entrySet()){
-            String recipeName = entry.getKey();
+        for(Map.Entry<ResourceLocation,ChiselingRecipeBuilder> entry : this.recipes.entrySet()){
+            ResourceLocation recipeName = entry.getKey();
             ChiselingRecipeBuilder builder = entry.getValue();
 
             // Check if parent exists
             if(builder.parent != null){
                 ResourceLocation parent = builder.parent;
                 // Find greater parents in the current recipe provider
-                while(parent != null && parent.getNamespace().equals(this.modid) && this.recipes.containsKey(parent.getPath())){
-                    parent = this.recipes.get(parent.getPath()).parent;
+                while(parent != null && parent.getNamespace().equals(this.modid) && this.recipes.containsKey(parent)){
+                    parent = this.recipes.get(parent).parent;
                 }
                 // If not found in this recipe provider, check existing files
                 if(parent != null){
@@ -72,12 +70,12 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
 
             // Write the recipe
             JsonObject json = serializeRecipe(recipeName, builder);
-            Path recipePath = path.resolve("data/" + this.modid + "/chiseling_recipes/" + recipeName + ".json");
-            saveRecipe(cache, json, recipePath);
+            Path recipePath = path.resolve("data/" + recipeName.getNamespace() + "/chiseling_recipes/" + recipeName.getPath() + ".json");
+            DataProvider.save(GSON, cache, json, recipePath);
         }
     }
 
-    private static JsonObject serializeRecipe(String recipeName, ChiselingRecipeBuilder recipe){
+    private static JsonObject serializeRecipe(ResourceLocation recipeName, ChiselingRecipeBuilder recipe){
         JsonObject json = new JsonObject();
 
         json.addProperty("type", "rechiseled:chiseling");
@@ -108,31 +106,8 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
         return json;
     }
 
-    private static void saveRecipe(HashCache cache, JsonObject json, Path path){
-        try{
-            String jsonString = GSON.toJson(json);
-            String hash = SHA1.hashUnencodedChars(jsonString).toString();
-            if(!Objects.equals(cache.getHash(path), hash) || !Files.exists(path)){
-                Files.createDirectories(path.getParent());
-
-                try(BufferedWriter bufferedwriter = Files.newBufferedWriter(path)){
-                    bufferedwriter.write(jsonString);
-                }
-            }
-
-            cache.putNew(path, hash);
-        }catch(IOException exception){
-            System.err.println("Couldn't save recipe '" + path + "'");
-            exception.printStackTrace();
-        }
-    }
-
-    private boolean validateRecipe(ResourceLocation recipe){
-        return this.existingFileHelper.exists(recipe, PackType.SERVER_DATA, ".json", "chiseling_recipes");
-    }
-
-    private void trackRecipe(String recipe){
-        this.existingFileHelper.trackGenerated(new ResourceLocation(this.modid, recipe), PackType.SERVER_DATA, ".json", "chiseling_recipes");
+    private void trackRecipe(ResourceLocation recipe){
+        this.existingFileHelper.trackGenerated(recipe, PackType.SERVER_DATA, ".json", "chiseling_recipes");
     }
 
     /**
@@ -147,8 +122,13 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
      * @return a chiseling recipe builder for the given recipe name
      */
     protected ChiselingRecipeBuilder beginRecipe(String recipeName){
-        this.trackRecipe(recipeName);
-        return this.recipes.computeIfAbsent(recipeName, s -> new ChiselingRecipeBuilder());
+        this.trackRecipe(new ResourceLocation(this.modid, recipeName));
+        return this.recipes.computeIfAbsent(new ResourceLocation(this.modid, recipeName), s -> new ChiselingRecipeBuilder());
+    }
+
+    protected ChiselingRecipeBuilder beginRecipe(ResourceLocation recipe){
+        this.trackRecipe(recipe);
+        return this.recipes.computeIfAbsent(recipe, s -> new ChiselingRecipeBuilder());
     }
 
     protected class ChiselingRecipeBuilder {
@@ -167,9 +147,6 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
          * @throws IllegalArgumentException when {@code parent} recipe does not exist
          */
         public ChiselingRecipeBuilder parent(ResourceLocation parent){
-            if(!ChiselingRecipeProvider.this.validateRecipe(parent))
-                throw new IllegalArgumentException("Could not find parent recipe '" + parent + "'!");
-
             this.parent = parent;
             return this;
         }

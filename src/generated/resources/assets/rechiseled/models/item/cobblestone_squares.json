@@ -1,4 +1,3 @@
 {
-  "parent": "rechiseled:block/cobblestone_squares",
-  "loader": "rechiseled:connecting_model"
+  "parent": "rechiseled:block/cobblestone_squares"
 }
