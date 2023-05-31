@@ -71,8 +71,10 @@ public abstract class ChiseledTextureProvider implements DataProvider {
 
                 Path texturePath = path.resolve("assets/" + this.modid + "/textures/" + outputLocation + ".png");
                 saveTexture(cache, targetTexture.left(), texturePath);
-                Path textureMetadataPath = path.resolve("assets/" + this.modid + "/textures/" + outputLocation + ".png.mcmeta");
-                DataProvider.save(GSON, cache, targetTexture.right(), textureMetadataPath);
+                if(targetTexture.right() != null){
+                    Path textureMetadataPath = path.resolve("assets/" + this.modid + "/textures/" + outputLocation + ".png.mcmeta");
+                    DataProvider.save(GSON, cache, targetTexture.right(), textureMetadataPath);
+                }
             }
         }
     }
