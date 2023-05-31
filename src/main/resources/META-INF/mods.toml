@@ -59,3 +59,10 @@ description='''${mod_description}'''
     versionRange="${config_library_dependency}"
     ordering="NONE"
     side="BOTH"
+# Add a dependency on Fusion
+[[dependencies.${mod_id}]]
+    modId="fusion"
+    mandatory=true
+    versionRange="${fusion_dependency}"
+    ordering="NONE"
+    side="CLIENT"
