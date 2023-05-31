@@ -75,14 +75,15 @@ public abstract class ChiseledTextureProvider implements DataProvider {
 
                 Path texturePath = path.resolve("assets/" + this.modid + "/textures/" + outputLocation + ".png");
                 saveTexture(cache, targetTexture.left(), texturePath);
-                Path textureMetadataPath = path.resolve("assets/" + this.modid + "/textures/" + outputLocation + ".png.mcmeta");
-                DataProvider.save(GSON, cache, targetTexture.right(), textureMetadataPath);
+                if(targetTexture.right() != null){
+                    Path textureMetadataPath = path.resolve("assets/" + this.modid + "/textures/" + outputLocation + ".png.mcmeta");
+                    DataProvider.save(GSON, cache, targetTexture.right(), textureMetadataPath);
+                }
             }
         }
     }
 
     private Pair<BufferedImage,JsonObject> loadTexture(ResourceLocation location){
-        ResourceLocation fullLocation = new ResourceLocation(location.getNamespace(), "textures/" + location.getPath() + ".png");
         if(!this.existingFileHelper.exists(location, PackType.CLIENT_RESOURCES, ".png", "textures"))
             throw new IllegalStateException("Could not find existing texture: " + location);
 
