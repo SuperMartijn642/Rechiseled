@@ -52,6 +52,8 @@ public class RechiseledChiselingRecipes {
         REGISTRATION.chiselingEntry(GRANITE, () -> Items.GRANITE, null);
         // Jungle planks
         REGISTRATION.chiselingEntry(JUNGLE_PLANKS, () -> Items.JUNGLE_PLANKS, null);
+        // Mangrove planks
+        REGISTRATION.chiselingEntry(MANGROVE_PLANKS, () -> Items.MANGROVE_PLANKS, null);
         // Netherrack
         REGISTRATION.chiselingEntry(NETHERRACK, () -> Items.NETHERRACK, null);
         // Nether bricks
