@@ -7,7 +7,9 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 /**
  * Created 24/01/2022 by SuperMartijn642
+ * @deprecated use Fusion instead
  */
+@Deprecated
 public abstract class ConnectingBlockModelProvider extends ModelProvider<ConnectingModelBuilder> {
 
     public ConnectingBlockModelProvider(String modid, DataGenerator generator, ExistingFileHelper existingFileHelper){

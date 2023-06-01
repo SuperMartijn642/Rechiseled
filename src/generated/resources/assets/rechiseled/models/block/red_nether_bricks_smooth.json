@@ -1,10 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
-  "loader": "rechiseled:connecting_model",
-  "model_textures": {
-    "all": {
-      "location": "rechiseled:block/red_nether_bricks_smooth",
-      "connecting": true
-    }
+  "textures": {
+    "all": "rechiseled:block/red_nether_bricks_smooth"
   }
 }

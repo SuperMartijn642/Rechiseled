@@ -1,10 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
-  "loader": "rechiseled:connecting_model",
-  "model_textures": {
-    "all": {
-      "location": "rechiseled:block/obsidian_large_tiles",
-      "connecting": false
-    }
+  "textures": {
+    "all": "rechiseled:block/obsidian_large_tiles"
   }
 }

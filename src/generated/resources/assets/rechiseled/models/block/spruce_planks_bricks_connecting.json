@@ -1,11 +1,13 @@
 {
   "parent": "minecraft:block/cube_all",
-  "loader": "rechiseled:connecting_model",
-  "should_connect": true,
-  "model_textures": {
-    "all": {
-      "location": "rechiseled:block/spruce_planks_bricks",
-      "connecting": true
+  "textures": {
+    "all": "rechiseled:block/spruce_planks_bricks"
+  },
+  "connections": [
+    {
+      "type": "fusion:is_same_block"
     }
-  }
+  ],
+  "loader": "fusion:model",
+  "type": "fusion:connecting"
 }

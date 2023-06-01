@@ -19,6 +19,7 @@ import java.util.Map;
 /**
  * Created 21/12/2021 by SuperMartijn642
  */
+@Deprecated
 public class RechiseledModelDeserializer {
 
     public static RechiseledModel deserialize(JsonObject json, JsonDeserializationContext context){

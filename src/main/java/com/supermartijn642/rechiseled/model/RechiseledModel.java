@@ -22,6 +22,7 @@ import java.util.function.Function;
 /**
  * Created 21/12/2021 by SuperMartijn642
  */
+@Deprecated
 public class RechiseledModel implements IModelGeometry<RechiseledModel> {
 
     private final boolean shouldConnect;
