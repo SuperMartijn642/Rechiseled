@@ -19,6 +19,7 @@ import java.util.Map;
 /**
  * Created 21/12/2021 by SuperMartijn642
  */
+@Deprecated
 public class RechiseledConnectedBakedModel extends RechiseledBakedModel {
 
     public RechiseledConnectedBakedModel(Map<Direction,List<Tuple<BakedQuad,Boolean>>> quads, boolean ambientOcclusion, boolean gui3d, boolean blockLighting, boolean customRenderer, TextureAtlasSprite particles, ItemOverrideList itemOverrides, ItemCameraTransforms transforms){

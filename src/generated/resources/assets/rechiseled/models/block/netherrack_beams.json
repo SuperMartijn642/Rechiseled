@@ -1,10 +1,6 @@
 {
-  "parent": "block/cube_all",
-  "loader": "rechiseled:connecting_model",
-  "model_textures": {
-    "all": {
-      "location": "rechiseled:block/netherrack_beams",
-      "connecting": true
-    }
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "rechiseled:block/netherrack_beams"
   }
 }

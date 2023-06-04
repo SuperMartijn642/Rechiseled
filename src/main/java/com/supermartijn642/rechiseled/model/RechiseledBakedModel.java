@@ -22,6 +22,7 @@ import java.util.*;
 /**
  * Created 21/12/2021 by SuperMartijn642
  */
+@Deprecated
 public class RechiseledBakedModel implements IDynamicBakedModel {
 
     private final Map<Direction,List<Tuple<BakedQuad,Boolean>>> quads;
