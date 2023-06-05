@@ -1,23 +1,19 @@
 package com.supermartijn642.rechiseled.api;
 
-import com.supermartijn642.rechiseled.data.TrackingExistingFileHelper;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.resources.ResourcePackType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.ExistingFileHelper;
 import net.minecraftforge.client.model.generators.ModelProvider;
 
 /**
  * Created 24/01/2022 by SuperMartijn642
+ * @deprecated use Fusion instead
  */
+@Deprecated
 public abstract class ConnectingBlockModelProvider extends ModelProvider<ConnectingModelBuilder> {
-
-    private TrackingExistingFileHelper trackingExistingFileHelper;
 
     public ConnectingBlockModelProvider(String modid, DataGenerator generator, ExistingFileHelper existingFileHelper){
         super(generator, modid, BLOCK_FOLDER, ConnectingModelBuilder::new, existingFileHelper);
-        if(existingFileHelper instanceof TrackingExistingFileHelper)
-            this.trackingExistingFileHelper = (TrackingExistingFileHelper)existingFileHelper;
     }
 
     @Override
@@ -41,22 +37,6 @@ public abstract class ConnectingBlockModelProvider extends ModelProvider<Connect
      * bordered one).
      */
     protected abstract void createModels();
-
-    @Override
-    public ConnectingModelBuilder getBuilder(String path){
-        ConnectingModelBuilder builder = super.getBuilder(path);
-        if(this.trackingExistingFileHelper != null){
-            ResourceLocation outputLoc = this.extendWithFolder(path.contains(":") ? new ResourceLocation(path) : new ResourceLocation(this.modid, path));
-            this.trackingExistingFileHelper.trackGenerated(outputLoc, ResourcePackType.CLIENT_RESOURCES, ".json", "models");
-        }
-        return builder;
-    }
-
-    private ResourceLocation extendWithFolder(ResourceLocation rl){
-        if(rl.getPath().contains("/"))
-            return rl;
-        return new ResourceLocation(rl.getNamespace(), this.folder + "/" + rl.getPath());
-    }
 
     public ConnectingModelBuilder cube(String name, ResourceLocation down, boolean downConnecting, ResourceLocation up, boolean upConnecting, ResourceLocation north, boolean northConnecting, ResourceLocation south, boolean southConnecting, ResourceLocation east, boolean eastConnecting, ResourceLocation west, boolean westConnecting){
         return this.withExistingParent(name, "cube")

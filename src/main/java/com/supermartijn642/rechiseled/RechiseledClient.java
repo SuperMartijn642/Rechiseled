@@ -20,10 +20,14 @@ public class RechiseledClient {
 
     public static void register(){
         ClientRegistrationHandler handler = ClientRegistrationHandler.get("rechiseled");
-        handler.registerContainerScreen(() -> Rechiseled.chisel_container, container -> new WidgetContainerScreen<>(new BaseChiselingContainerScreen<>(TextComponents.item(Rechiseled.chisel).get()), container, false));
+        handler.registerContainerScreen(() -> Rechiseled.chisel_container, container -> WidgetContainerScreen.of(new BaseChiselingContainerScreen<>(TextComponents.item(Rechiseled.chisel).get()), container, false));
     }
 
+    /**
+     * TODO: remove in 1.2
+     */
     @SubscribeEvent
+    @Deprecated
     public static void onClientSetup(FMLClientSetupEvent e){
         ModelLoaderRegistry2.registerLoader(new ResourceLocation("rechiseled", "connecting_model"), new RechiseledModelLoader());
     }

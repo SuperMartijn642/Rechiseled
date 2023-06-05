@@ -42,12 +42,15 @@ repositories {
 dependencies {
     // Forge
     minecraft "net.minecraftforge:forge:${project.minecraft_version}-${project.forge_version}"
+    // SpongePowered Mixin
+    annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 
     // Core library
     implementation fg.deobf("curse.maven:supermartijn642s-core-lib-454372:${project.core_library_file}")
     // Config library
     implementation fg.deobf("curse.maven:supermartijn642s-config-lib-438332:${project.config_library_file}")
-
+    // Fusion
+    implementation fg.deobf("com.supermartijn642:fusion:1.0.0-forge-mc1.14")
     // Just Enough Items
     implementation fg.deobf("curse.maven:jei-238222:${project.just_enough_items_file}")
 
@@ -55,7 +58,6 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:block-renderer-380456:${project.block_renderer_file}")
 
     // SpongePowered Mixin
-    annotationProcessor "org.spongepowered:mixin:0.8.3-SNAPSHOT:processor"
     implementation("org.spongepowered:mixin:0.8.3-SNAPSHOT") {
         exclude module: "guava"
         exclude module: "commons-io"
@@ -82,7 +84,7 @@ processResources {
 minecraft {
     mappings channel: "official", version: project.minecraft_version
 
-    // accessTransformer = file("src/main/resources/META-INF/accesstransformer.cfg")
+    accessTransformer = file("src/main/resources/META-INF/accesstransformer.cfg")
 
     runs {
         client {

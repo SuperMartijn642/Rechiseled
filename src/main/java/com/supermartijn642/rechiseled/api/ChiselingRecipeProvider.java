@@ -17,9 +17,7 @@ import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
 
 import javax.annotation.Nullable;
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
@@ -33,7 +31,7 @@ public abstract class ChiselingRecipeProvider implements IDataProvider {
     private final String modid;
     private final DataGenerator generator;
     private final ExistingFileHelper existingFileHelper;
-    private final Map<String,ChiselingRecipeBuilder> recipes = new HashMap<>();
+    private final Map<ResourceLocation,ChiselingRecipeBuilder> recipes = new HashMap<>();
 
     public ChiselingRecipeProvider(String modid, DataGenerator generator, ExistingFileHelper existingFileHelper){
         this.modid = modid;
@@ -47,37 +45,34 @@ public abstract class ChiselingRecipeProvider implements IDataProvider {
     }
 
     @Override
-    public void run(DirectoryCache cache){
+    public void run(DirectoryCache cache) throws IOException{
         this.buildRecipes();
 
         Path path = this.generator.getOutputFolder();
-        for(Map.Entry<String,ChiselingRecipeBuilder> entry : this.recipes.entrySet()){
-            String recipeName = entry.getKey();
+        for(Map.Entry<ResourceLocation,ChiselingRecipeBuilder> entry : this.recipes.entrySet()){
+            ResourceLocation recipeName = entry.getKey();
             ChiselingRecipeBuilder builder = entry.getValue();
 
             // Check if parent exists
             if(builder.parent != null){
                 ResourceLocation parent = builder.parent;
                 // Find greater parents in the current recipe provider
-                while(parent != null && parent.getNamespace().equals(this.modid) && this.recipes.containsKey(parent.getPath())){
-                    parent = this.recipes.get(parent.getPath()).parent;
+                while(parent != null && parent.getNamespace().equals(this.modid) && this.recipes.containsKey(parent)){
+                    parent = this.recipes.get(parent).parent;
                 }
                 // If not found in this recipe provider, check existing files
-                if(parent != null){
-                    ResourceLocation parentLocation = new ResourceLocation(parent.getNamespace(), "chiseling_recipes/" + (parent.getPath().endsWith(".json") ? parent.getPath() : parent.getPath() + ".json"));
-                    if(!this.existingFileHelper.exists(parentLocation, ResourcePackType.SERVER_DATA, "", ""))
-                        throw new IllegalStateException("Could not find upward parent '" + parent + "' at '/data/" + parentLocation.getNamespace() + "/" + parentLocation.getPath() + "' for chiseling recipe: " + recipeName);
-                }
+                if(parent != null && !this.existingFileHelper.exists(parent, ResourcePackType.SERVER_DATA, ".json", "chiseling_recipes"))
+                    throw new IllegalStateException("Could not find upward parent '" + parent + "' at '/data/" + parent.getNamespace() + "/chiseling_recipes/" + parent.getPath() + ".json' for chiseling recipe: " + recipeName);
             }
 
             // Write the recipe
             JsonObject json = serializeRecipe(recipeName, builder);
-            Path recipePath = path.resolve("data/" + this.modid + "/chiseling_recipes/" + recipeName + ".json");
-            saveRecipe(cache, json, recipePath);
+            Path recipePath = path.resolve("data/" + recipeName.getNamespace() + "/chiseling_recipes/" + recipeName.getPath() + ".json");
+            IDataProvider.save(GSON, cache, json, recipePath);
         }
     }
 
-    private static JsonObject serializeRecipe(String recipeName, ChiselingRecipeBuilder recipe){
+    private static JsonObject serializeRecipe(ResourceLocation recipeName, ChiselingRecipeBuilder recipe){
         JsonObject json = new JsonObject();
 
         json.addProperty("type", "rechiseled:chiseling");
@@ -108,25 +103,6 @@ public abstract class ChiselingRecipeProvider implements IDataProvider {
         return json;
     }
 
-    private static void saveRecipe(DirectoryCache cache, JsonObject json, Path path){
-        try{
-            String jsonString = GSON.toJson(json);
-            String hash = SHA1.hashUnencodedChars(jsonString).toString();
-            if(!Objects.equals(cache.getHash(path), hash) || !Files.exists(path)){
-                Files.createDirectories(path.getParent());
-
-                try(BufferedWriter bufferedwriter = Files.newBufferedWriter(path)){
-                    bufferedwriter.write(jsonString);
-                }
-            }
-
-            cache.putNew(path, hash);
-        }catch(IOException exception){
-            System.err.println("Couldn't save recipe '" + path + "'");
-            exception.printStackTrace();
-        }
-    }
-
     /**
      * Recipes can be created using a recipe builder obtained from {@link #beginRecipe(String)}.
      * All recipe builders will be saved and written to file automatically.
@@ -139,7 +115,11 @@ public abstract class ChiselingRecipeProvider implements IDataProvider {
      * @return a chiseling recipe builder for the given recipe name
      */
     protected ChiselingRecipeBuilder beginRecipe(String recipeName){
-        return this.recipes.computeIfAbsent(recipeName, s -> new ChiselingRecipeBuilder());
+        return this.recipes.computeIfAbsent(new ResourceLocation(this.modid, recipeName), s -> new ChiselingRecipeBuilder());
+    }
+
+    protected ChiselingRecipeBuilder beginRecipe(ResourceLocation recipe){
+        return this.recipes.computeIfAbsent(recipe, s -> new ChiselingRecipeBuilder());
     }
 
     protected class ChiselingRecipeBuilder {
@@ -155,6 +135,7 @@ public abstract class ChiselingRecipeProvider implements IDataProvider {
          * All entries from this recipe builder will be combined with the parent recipe.
          * {@link BaseChiselingRecipes} contains recipe locations for the default rechiseled recipes.
          * @param parent the parent recipe location
+         * @throws IllegalArgumentException when {@code parent} recipe does not exist
          */
         public ChiselingRecipeBuilder parent(ResourceLocation parent){
             this.parent = parent;

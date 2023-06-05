@@ -1,6 +1,5 @@
 package com.supermartijn642.rechiseled.texture;
 
-import com.supermartijn642.rechiseled.data.TrackingExistingFileHelper;
 import net.minecraft.resources.IResourceManager;
 import net.minecraftforge.client.model.generators.ExistingFileHelper;
 
@@ -62,9 +61,6 @@ public class TextureMappingTool {
      * Finds the suffixes of all rechiseled textures whose names start with {@code name}
      */
     public static List<String> getSuffixes(String name, ExistingFileHelper existingFileHelper){
-        while(existingFileHelper instanceof TrackingExistingFileHelper)
-            existingFileHelper = ((TrackingExistingFileHelper)existingFileHelper).getParent();
-
         IResourceManager resourceManager;
         try{
             clientResources.setAccessible(true);

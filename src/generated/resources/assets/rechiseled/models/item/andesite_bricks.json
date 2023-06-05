@@ -1,4 +1,3 @@
 {
-  "parent": "rechiseled:block/andesite_bricks",
-  "loader": "rechiseled:connecting_model"
+  "parent": "rechiseled:block/andesite_bricks"
 }

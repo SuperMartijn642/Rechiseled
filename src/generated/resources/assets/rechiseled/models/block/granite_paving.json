@@ -1,10 +1,6 @@
 {
-  "parent": "block/cube_all",
-  "loader": "rechiseled:connecting_model",
-  "model_textures": {
-    "all": {
-      "location": "rechiseled:block/granite_paving",
-      "connecting": true
-    }
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "rechiseled:block/granite_paving"
   }
 }

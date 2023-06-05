@@ -7,11 +7,13 @@ import com.supermartijn642.core.network.PacketChannel;
 import com.supermartijn642.core.registry.GeneratorRegistrationHandler;
 import com.supermartijn642.core.registry.RegistrationHandler;
 import com.supermartijn642.core.registry.RegistryEntryAcceptor;
-import com.supermartijn642.core.util.Holder;
-import com.supermartijn642.rechiseled.block.RechiseledBlockType;
-import com.supermartijn642.rechiseled.block.RechiseledBlocks;
+import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockType;
+import com.supermartijn642.rechiseled.api.registration.RechiseledRegistration;
 import com.supermartijn642.rechiseled.chiseling.PacketChiselingRecipes;
-import com.supermartijn642.rechiseled.data.*;
+import com.supermartijn642.rechiseled.data.RechiseledItemModelGenerator;
+import com.supermartijn642.rechiseled.data.RechiseledLanguageGenerator;
+import com.supermartijn642.rechiseled.data.RechiseledRecipeGenerator;
+import com.supermartijn642.rechiseled.data.RechiseledTextureProvider;
 import com.supermartijn642.rechiseled.packet.PacketChiselAll;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
 import com.supermartijn642.rechiseled.packet.PacketToggleConnecting;
@@ -31,6 +33,7 @@ import java.util.Objects;
 @Mod("rechiseled")
 public class Rechiseled {
 
+    public static final RechiseledRegistration REGISTRATION = RechiseledRegistration.get("rechiseled");
     public static final PacketChannel CHANNEL = PacketChannel.create("rechiseled");
 
     @RegistryEntryAcceptor(namespace = "rechiseled", identifier = "chisel", registry = RegistryEntryAcceptor.Registry.ITEMS)
@@ -43,7 +46,7 @@ public class Rechiseled {
         .filler(stackConsumer -> {
             List<Item> items = new LinkedList<>();
             items.add(chisel);
-            for(RechiseledBlockType type : RechiseledBlocks.ALL_BLOCKS){
+            for(RechiseledBlockType type : REGISTRATION.getAllBlockTypes()){
                 items.add(type.getRegularItem());
                 items.add(type.getConnectingItem());
             }
@@ -56,11 +59,12 @@ public class Rechiseled {
         CHANNEL.registerMessage(PacketChiselAll.class, PacketChiselAll::new, true);
         CHANNEL.registerMessage(PacketChiselingRecipes.class, PacketChiselingRecipes::new, true);
 
-        RechiseledBlocks.init();
         register();
         if(CommonUtils.getEnvironmentSide().isClient())
             RechiseledClient.register();
         registerGenerators();
+        RechiseledBlocks.init();
+        RechiseledChiselingRecipes.init();
     }
 
     public static void register(){
@@ -73,18 +77,10 @@ public class Rechiseled {
 
     private static void registerGenerators(){
         GeneratorRegistrationHandler handler = GeneratorRegistrationHandler.get("rechiseled");
-        Holder<TrackingExistingFileHelper> fileHelperHolder = new Holder<>();
-        handler.addProvider((dataGenerator, fileHelper) -> {
-            fileHelperHolder.set(new TrackingExistingFileHelper(fileHelper));
-            return new RechiseledTextureProvider(dataGenerator, fileHelperHolder.get());
-        });
-        handler.addProvider(dataGenerator -> new RechiseledChiselingRecipeProvider(dataGenerator, fileHelperHolder.get()));
-        handler.addProvider(dataGenerator -> new RechiseledConnectingBlockModelProvider(dataGenerator, fileHelperHolder.get()));
-        handler.addGenerator(RechiseledBlockStateGenerator::new);
-        handler.addGenerator(RechiseledBlockTagsGenerator::new);
+        handler.addProvider(RechiseledTextureProvider::new);
         handler.addGenerator(RechiseledItemModelGenerator::new);
         handler.addGenerator(RechiseledLanguageGenerator::new);
-        handler.addGenerator(RechiseledLootTableGenerator::new);
         handler.addGenerator(RechiseledRecipeGenerator::new);
+        REGISTRATION.registerDataProviders();
     }
 }
