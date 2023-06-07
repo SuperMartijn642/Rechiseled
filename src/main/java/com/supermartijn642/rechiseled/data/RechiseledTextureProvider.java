@@ -15,6 +15,7 @@ public class RechiseledTextureProvider extends ChiseledTextureProvider {
 
     @Override
     protected void createTextures(){
+        // Use the newer textures from 1.13+
         this.createPlankTextures(new ResourceLocation("rechiseled", "vanilla/acacia_planks"), "block/acacia_planks");
         this.createPlankTextures(new ResourceLocation("rechiseled", "vanilla/birch_planks"), "block/birch_planks");
         this.createPlankTextures(new ResourceLocation("rechiseled", "vanilla/dark_oak_planks"), "block/dark_oak_planks");

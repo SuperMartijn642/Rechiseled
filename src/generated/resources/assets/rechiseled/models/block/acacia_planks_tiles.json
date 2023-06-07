@@ -1,10 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
-  "loader": "rechiseled:connecting_model",
-  "model_textures": {
-    "all": {
-      "location": "rechiseled:block/acacia_planks_tiles",
-      "connecting": true
-    }
+  "textures": {
+    "all": "rechiseled:block/acacia_planks_tiles"
   }
 }

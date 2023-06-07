@@ -12,7 +12,9 @@ import java.util.Map;
 
 /**
  * Created 24/01/2022 by SuperMartijn642
+ * @deprecated use Fusion instead
  */
+@Deprecated
 public abstract class ConnectingBlockModelProvider extends ModelGenerator {
 
     private final Map<ResourceLocation,ConnectingModelBuilder> models = new HashMap();

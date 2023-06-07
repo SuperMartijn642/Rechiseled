@@ -23,7 +23,7 @@ import java.util.*;
  */
 public abstract class ChiselingRecipeProvider extends ResourceGenerator {
 
-    private final Map<String,ChiselingRecipeBuilder> recipes = new HashMap<>();
+    private final Map<ResourceLocation,ChiselingRecipeBuilder> recipes = new HashMap<>();
 
     public ChiselingRecipeProvider(String modid, ResourceCache cache){
         super(modid, cache);
@@ -41,16 +41,16 @@ public abstract class ChiselingRecipeProvider extends ResourceGenerator {
 
     @Override
     public void save(){
-        for(Map.Entry<String,ChiselingRecipeBuilder> entry : this.recipes.entrySet()){
-            String recipeName = entry.getKey();
+        for(Map.Entry<ResourceLocation,ChiselingRecipeBuilder> entry : this.recipes.entrySet()){
+            ResourceLocation recipeName = entry.getKey();
             ChiselingRecipeBuilder builder = entry.getValue();
 
             // Check if parent exists
             if(builder.parent != null){
                 ResourceLocation parent = builder.parent;
                 // Find greater parents in the current recipe provider
-                while(parent != null && parent.getResourceDomain().equals(this.modid) && this.recipes.containsKey(parent.getResourcePath()))
-                    parent = this.recipes.get(parent.getResourcePath()).parent;
+                while(parent != null && parent.getResourceDomain().equals(this.modid) && this.recipes.containsKey(parent))
+                    parent = this.recipes.get(parent).parent;
                 // If not found in this recipe provider, check existing files
                 if(parent != null && !this.cache.doesResourceExist(ResourceType.ASSET, parent.getResourceDomain(), "chiseling_recipes", parent.getResourcePath(), ".json"))
                     throw new IllegalStateException("Could not find upward parent '" + parent + "' at '/assets/" + parent.getResourceDomain() + "/" + parent.getResourcePath() + "' for chiseling recipe: " + recipeName);
@@ -58,11 +58,11 @@ public abstract class ChiselingRecipeProvider extends ResourceGenerator {
 
             // Write the recipe
             JsonObject json = serializeRecipe(recipeName, builder);
-            this.cache.saveJsonResource(ResourceType.ASSET, json, this.modid, "chiseling_recipes", recipeName);
+            this.cache.saveJsonResource(ResourceType.ASSET, json, recipeName.getResourceDomain(), "chiseling_recipes", recipeName.getResourcePath());
         }
     }
 
-    private static JsonObject serializeRecipe(String recipeName, ChiselingRecipeBuilder recipe){
+    private static JsonObject serializeRecipe(ResourceLocation recipeName, ChiselingRecipeBuilder recipe){
         JsonObject json = new JsonObject();
 
         json.addProperty("type", "rechiseled:chiseling");
@@ -115,7 +115,12 @@ public abstract class ChiselingRecipeProvider extends ResourceGenerator {
             throw new IllegalArgumentException("Recipe name must be a valid resource location path, not '" + recipeName + "'!");
 
         this.cache.trackToBeGeneratedResource(ResourceType.ASSET, this.modid, "chiseling_recipes", recipeName, ".json");
-        return this.recipes.computeIfAbsent(recipeName, s -> new ChiselingRecipeBuilder());
+        return this.recipes.computeIfAbsent(new ResourceLocation(this.modid, recipeName), s -> new ChiselingRecipeBuilder());
+    }
+
+    protected ChiselingRecipeBuilder beginRecipe(ResourceLocation recipe){
+        this.cache.trackToBeGeneratedResource(ResourceType.ASSET, recipe.getResourceDomain(), "chiseling_recipes", recipe.getResourcePath(), ".json");
+        return this.recipes.computeIfAbsent(recipe, s -> new ChiselingRecipeBuilder());
     }
 
     protected class ChiselingRecipeBuilder {
@@ -131,6 +136,7 @@ public abstract class ChiselingRecipeProvider extends ResourceGenerator {
          * All entries from this recipe builder will be combined with the parent recipe.
          * {@link BaseChiselingRecipes} contains recipe locations for the default rechiseled recipes.
          * @param parent the parent recipe location
+         * @throws IllegalArgumentException when {@code parent} recipe does not exist
          */
         public ChiselingRecipeBuilder parent(ResourceLocation parent){
             this.parent = parent;
