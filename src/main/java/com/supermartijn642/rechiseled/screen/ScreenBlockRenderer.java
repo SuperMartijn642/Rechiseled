@@ -6,8 +6,6 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.render.RenderUtils;
-import com.supermartijn642.rechiseled.model.RechiseledConnectedBakedModel;
-import com.supermartijn642.rechiseled.model.RechiseledModelData;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.RenderType;
@@ -21,7 +19,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Quaternion;
 import net.minecraftforge.client.model.data.EmptyModelData;
 import net.minecraftforge.client.model.data.IModelData;
-import net.minecraftforge.client.model.data.ModelDataMap;
 
 import java.util.List;
 import java.util.Map;
@@ -33,11 +30,16 @@ import java.util.Random;
 public class ScreenBlockRenderer {
 
     private static final MatrixStack POSE_STACK = new MatrixStack();
+    private static BlockCaptureLevel fakeLevel;
 
     public static void drawBlock(BlockCapture capture, double x, double y, double scale, float yaw, float pitch, boolean doShading){
         AxisAlignedBB bounds = capture.getBounds();
         double span = Math.sqrt(bounds.getXsize() * bounds.getXsize() + bounds.getYsize() * bounds.getYsize() + bounds.getZsize() * bounds.getZsize());
         scale /= span;
+
+        if(fakeLevel == null)
+            fakeLevel = new BlockCaptureLevel();
+        fakeLevel.setCapture(capture);
 
         RenderSystem.enableRescaleNormal();
         RenderSystem.enableAlphaTest();
@@ -58,7 +60,7 @@ public class ScreenBlockRenderer {
 
         IRenderTypeBuffer.Impl renderTypeBuffer = RenderUtils.getMainBufferSource();
         for(Map.Entry<BlockPos,BlockState> entry : capture.getBlocks())
-            renderBlock(capture, entry.getKey(), entry.getValue(), POSE_STACK, renderTypeBuffer);
+            renderBlock(entry.getKey(), entry.getValue(), POSE_STACK, renderTypeBuffer);
         renderTypeBuffer.endBatch();
 
         RenderSystem.enableDepthTest();
@@ -70,21 +72,16 @@ public class ScreenBlockRenderer {
 
         RenderSystem.disableAlphaTest();
         RenderSystem.disableRescaleNormal();
+
+        fakeLevel.setCapture(null);
     }
 
-    private static void renderBlock(BlockCapture capture, BlockPos pos, BlockState state, MatrixStack matrixStack, IRenderTypeBuffer renderTypeBuffer){
+    private static void renderBlock(BlockPos pos, BlockState state, MatrixStack matrixStack, IRenderTypeBuffer renderTypeBuffer){
         matrixStack.pushPose();
         matrixStack.translate(pos.getX() - 0.5, pos.getY() - 0.5, pos.getZ() - 0.5);
 
         IBakedModel model = ClientUtils.getBlockRenderer().getBlockModel(state);
-        IModelData modelData = EmptyModelData.INSTANCE;
-        if(model instanceof RechiseledConnectedBakedModel){
-            RechiseledModelData data = new RechiseledModelData();
-            for(Direction direction : Direction.values())
-                data.sides.put(direction, new RechiseledModelData.SideData(direction, capture::getBlock, pos, state.getBlock()));
-            modelData = new ModelDataMap.Builder().withInitial(RechiseledModelData.PROPERTY, data).build();
-        }
-
+        IModelData modelData = model.getModelData(fakeLevel, pos, state, EmptyModelData.INSTANCE);
         RenderType renderType = RenderTypeLookup.getRenderType(state, true);
         renderModel(model, state, matrixStack, renderTypeBuffer.getBuffer(renderType), modelData);
 
