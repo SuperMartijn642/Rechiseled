@@ -4,8 +4,6 @@ import com.mojang.blaze3d.platform.GLX;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.gui.ScreenUtils;
-import com.supermartijn642.rechiseled.model.RechiseledConnectedBakedModel;
-import com.supermartijn642.rechiseled.model.RechiseledModelData;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.RenderHelper;
@@ -22,7 +20,6 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.client.model.data.EmptyModelData;
 import net.minecraftforge.client.model.data.IModelData;
-import net.minecraftforge.client.model.data.ModelDataMap;
 import net.minecraftforge.client.model.pipeline.QuadGatheringTransformer;
 
 import java.util.ArrayList;
@@ -37,10 +34,16 @@ import static org.lwjgl.opengl.GL11.GL_QUADS;
  */
 public class ScreenBlockRenderer {
 
+    private static BlockCaptureLevel fakeLevel;
+
     public static void drawBlock(BlockCapture capture, double x, double y, double scale, float yaw, float pitch, boolean doShading){
         AxisAlignedBB bounds = capture.getBounds();
         double span = Math.sqrt(bounds.getXsize() * bounds.getXsize() + bounds.getYsize() * bounds.getYsize() + bounds.getZsize() * bounds.getZsize());
         scale /= span;
+
+        if(fakeLevel == null)
+            fakeLevel = new BlockCaptureLevel();
+        fakeLevel.setCapture(capture);
 
         ScreenUtils.bindTexture(AtlasTexture.LOCATION_BLOCKS);
         ClientUtils.getTextureManager().getTexture(AtlasTexture.LOCATION_BLOCKS).pushFilter(false, false);
@@ -65,7 +68,7 @@ public class ScreenBlockRenderer {
         GlStateManager.rotated(yaw, 0, 1, 0);
 
         for(Map.Entry<BlockPos,BlockState> entry : capture.getBlocks())
-            renderBlock(capture, entry.getKey(), entry.getValue());
+            renderBlock(entry.getKey(), entry.getValue());
 
         GlStateManager.enableDepthTest();
         if(doShading)
@@ -76,21 +79,16 @@ public class ScreenBlockRenderer {
         ClientUtils.getTextureManager().getTexture(AtlasTexture.LOCATION_BLOCKS).popFilter();
         GlStateManager.disableAlphaTest();
         GlStateManager.disableRescaleNormal();
+
+        fakeLevel.setCapture(null);
     }
 
-    private static void renderBlock(BlockCapture capture, BlockPos pos, BlockState state){
+    private static void renderBlock(BlockPos pos, BlockState state){
         GlStateManager.pushMatrix();
         GlStateManager.translated(pos.getX() - 0.5, pos.getY() - 0.5, pos.getZ() - 0.5);
 
         IBakedModel model = ClientUtils.getBlockRenderer().getBlockModel(state);
-        IModelData modelData = EmptyModelData.INSTANCE;
-        if(model instanceof RechiseledConnectedBakedModel){
-            RechiseledModelData data = new RechiseledModelData();
-            for(Direction direction : Direction.values())
-                data.sides.put(direction, new RechiseledModelData.SideData(direction, capture::getBlock, pos, state.getBlock()));
-            modelData = new ModelDataMap.Builder().withInitial(RechiseledModelData.PROPERTY, data).build();
-        }
-
+        IModelData modelData = model.getModelData(fakeLevel, pos, state, EmptyModelData.INSTANCE);
         renderLitItem(model, modelData);
 
         GlStateManager.popMatrix();
