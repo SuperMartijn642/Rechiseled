@@ -6,8 +6,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.render.RenderUtils;
-import com.supermartijn642.rechiseled.model.RechiseledConnectedBakedModel;
-import com.supermartijn642.rechiseled.model.RechiseledModelData;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -31,11 +29,16 @@ import java.util.Map;
 public class ScreenBlockRenderer {
 
     private static final PoseStack POSE_STACK = new PoseStack();
+    private static BlockCaptureLevel fakeLevel;
 
     public static void drawBlock(BlockCapture capture, double x, double y, double scale, float yaw, float pitch, boolean doShading){
         AABB bounds = capture.getBounds();
         double span = Math.sqrt(bounds.getXsize() * bounds.getXsize() + bounds.getYsize() * bounds.getYsize() + bounds.getZsize() * bounds.getZsize());
         scale /= span;
+
+        if(fakeLevel == null)
+            fakeLevel = new BlockCaptureLevel();
+        fakeLevel.setCapture(capture);
 
         RenderSystem.getModelViewStack().pushPose();
         RenderSystem.getModelViewStack().scale(1, -1, 1);
@@ -53,7 +56,7 @@ public class ScreenBlockRenderer {
 
         MultiBufferSource.BufferSource renderTypeBuffer = RenderUtils.getMainBufferSource();
         for(Map.Entry<BlockPos,BlockState> entry : capture.getBlocks())
-            renderBlock(capture, entry.getKey(), entry.getValue(), POSE_STACK, renderTypeBuffer);
+            renderBlock(entry.getKey(), entry.getValue(), POSE_STACK, renderTypeBuffer);
         renderTypeBuffer.endBatch();
 
         RenderSystem.enableDepthTest();
@@ -64,21 +67,16 @@ public class ScreenBlockRenderer {
 
         RenderSystem.getModelViewStack().popPose();
         RenderSystem.applyModelViewMatrix();
+
+        fakeLevel.setCapture(null);
     }
 
-    private static void renderBlock(BlockCapture capture, BlockPos pos, BlockState state, PoseStack matrixStack, MultiBufferSource renderTypeBuffer){
+    private static void renderBlock(BlockPos pos, BlockState state, PoseStack matrixStack, MultiBufferSource renderTypeBuffer){
         matrixStack.pushPose();
         matrixStack.translate(pos.getX() - 0.5, pos.getY() - 0.5, pos.getZ() - 0.5);
 
         BakedModel model = ClientUtils.getBlockRenderer().getBlockModel(state);
-        ModelData modelData = ModelData.EMPTY;
-        if(model instanceof RechiseledConnectedBakedModel){
-            RechiseledModelData data = new RechiseledModelData();
-            for(Direction direction : Direction.values())
-                data.sides.put(direction, new RechiseledModelData.SideData(direction, capture::getBlock, pos, state.getBlock()));
-            modelData = ModelData.builder().with(RechiseledModelData.PROPERTY, data).build();
-        }
-
+        ModelData modelData = model.getModelData(fakeLevel, pos, state, ModelData.EMPTY);
         RenderType renderType = ItemBlockRenderTypes.getRenderType(state, true);
         renderModel(model, state, matrixStack, renderTypeBuffer.getBuffer(renderType), modelData, renderType);
 
