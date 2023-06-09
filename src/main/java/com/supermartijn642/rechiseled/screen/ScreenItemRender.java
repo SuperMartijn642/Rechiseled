@@ -5,6 +5,7 @@ import com.supermartijn642.core.gui.ScreenUtils;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.block.model.IBakedModel;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.item.ItemStack;
 
@@ -36,12 +37,13 @@ public class ScreenItemRender {
         GlStateManager.pushMatrix();
         GlStateManager.translate(x, y, 350);
         GlStateManager.scale(1, -1, 1);
-        GlStateManager.scale(scale, scale, scale);
+        GlStateManager.scale(scale * 1.6, scale * 1.6, scale * 1.6);
 
         GlStateManager.rotate(pitch, 1, 0, 0);
         GlStateManager.rotate(yaw, 0, 1, 0);
 
         IBakedModel model = ClientUtils.getItemRenderer().getItemModelMesher().getItemModel(item);
+        model = net.minecraftforge.client.ForgeHooksClient.handleCameraTransforms(model, ItemCameraTransforms.TransformType.GUI, false);
         if(model != null)
             ClientUtils.getItemRenderer().renderItem(item, model);
 

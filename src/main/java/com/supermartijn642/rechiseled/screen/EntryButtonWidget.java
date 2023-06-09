@@ -4,9 +4,7 @@ import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.BaseWidget;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
-import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
@@ -60,12 +58,7 @@ public class EntryButtonWidget extends BaseWidget {
         if(hasEntry){
             Item item = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
             int data = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItemData() : entry.getRegularItemData();
-            if(item instanceof ItemBlock){
-                Block block = ((ItemBlock)item).getBlock();
-                BlockCapture capture = new BlockCapture(item.getHasSubtypes() ? block.getStateFromMeta(data) : block.getDefaultState());
-                ScreenBlockRenderer.drawBlock(capture, this.x + this.width / 2d, this.y + this.height / 2d, this.width, 135, 40, true);
-            }else
-                ScreenItemRender.drawItem(new ItemStack(item, 1, data), this.x + this.width / 2d, this.y + this.height / 2d, (this.width - 4) * 1.416, 0, 0, false);
+            ScreenItemRender.drawItem(new ItemStack(item, 1, data), this.x + this.width / 2d, this.y + this.height / 2d, (this.width - 4), 0, 0, true);
         }
     }
 
