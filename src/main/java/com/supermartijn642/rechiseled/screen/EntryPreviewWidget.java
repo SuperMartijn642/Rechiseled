@@ -1,7 +1,7 @@
 package com.supermartijn642.rechiseled.screen;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import com.supermartijn642.core.gui.widget.BaseWidget;
+import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
@@ -46,7 +46,7 @@ public class EntryPreviewWidget extends BaseWidget {
     }
 
     @Override
-    public void render(PoseStack poseStack, int mouseX, int mouseY){
+    public void render(WidgetRenderContext context, int mouseX, int mouseY){
         long now = System.currentTimeMillis();
 
         Item item = this.item.get();
@@ -77,16 +77,16 @@ public class EntryPreviewWidget extends BaseWidget {
                     for(int i = 0; i < 9; i++)
                         capture.putBlock(new BlockPos(i / 3 - 1, i % 3 - 1, 0), block);
                 }
-                ScreenBlockRenderer.drawBlock(capture, this.x + this.width / 2d, this.y + this.height / 2d, this.width, this.yaw, this.pitch, false);
+                ScreenBlockRenderer.drawBlock(context.poseStack(), capture, this.x + this.width / 2d, this.y + this.height / 2d, this.width, this.yaw, this.pitch, true);
             }else{
                 // Render item
-                ScreenItemRender.drawItem(poseStack, item, this.x + this.width / 2d, this.y + this.height / 2d, this.width, this.yaw, this.pitch, true);
+                ScreenItemRender.drawItem(context.poseStack(), item, this.x + this.width / 2d, this.y + this.height / 2d, this.width, this.yaw, this.pitch, true);
             }
         }
 
         this.lastRotationTime = now;
 
-        super.render(poseStack, mouseX, mouseY);
+        super.render(context, mouseX, mouseY);
     }
 
     @Override
