@@ -1,4 +1,4 @@
-// 1.19.4	2023-05-29T14:46:47.0282108	Rechiseled/Registration Fusion Model Generator: rechiseled
+// 1.20	2023-06-10T14:17:49.7419619	Rechiseled/Registration Fusion Model Generator: rechiseled
 0aa5860d36c5f1e2c0488535322af6f8d159396d assets\rechiseled\models\block\birch_planks_bricks_connecting.json
 616fb88195e5e4099882060b40bb3d7ca861a64f assets\rechiseled\models\block\obsidian_chiseled_connecting.json
 4194d15dfe6dd76427e817a3f4e379dc0323b435 assets\rechiseled\models\block\red_sandstone_tiles_connecting.json
@@ -134,8 +134,8 @@ e86f6908d78781fa1b4eb75d5db0ac90096ebe75 assets\rechiseled\models\block\purpur_o
 6dde48da0b2b34e75f215f0b719149e3f0256b13 assets\rechiseled\models\block\nether_bricks_squares_connecting.json
 99f64210d6e85541c72996497582db1cfdc71e4f assets\rechiseled\models\block\oak_planks_pattern_connecting.json
 3a5dd87ee9a04eab7d1d66cd170823b95b8eb12f assets\rechiseled\models\block\oak_planks_woven_connecting.json
-bf56d4a9b80332035184c02dc7756f48343334c2 assets\rechiseled\models\block\cobblestone_inverted_dented_connecting.json
 5286330654630f159b903bf39a57fa5dd65e064f assets\rechiseled\models\block\purpur_squares_connecting.json
+bf56d4a9b80332035184c02dc7756f48343334c2 assets\rechiseled\models\block\cobblestone_inverted_dented_connecting.json
 a9c2d1012aec9f7337353287fcb5c9c3d792832f assets\rechiseled\models\block\oak_planks_squares_connecting.json
 9e8099f8ad498a2954c2b9b5857a7bb7db3777e5 assets\rechiseled\models\block\diorite_paving_connecting.json
 b9dbd71f776150e8293967d11b035d765b9e7014 assets\rechiseled\models\block\dark_oak_planks_bricks_connecting.json

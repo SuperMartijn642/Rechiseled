@@ -1,13 +1,12 @@
 package com.supermartijn642.rechiseled.screen;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.BaseWidget;
+import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 
 import java.util.function.Supplier;
@@ -46,7 +45,7 @@ public class EntryButtonWidget extends BaseWidget {
     }
 
     @Override
-    public void render(PoseStack poseStack, int mouseX, int mouseY){
+    public void render(WidgetRenderContext context, int mouseX, int mouseY){
         ChiselingEntry entry = this.entry.get();
 
         boolean hasEntry = entry != null;
@@ -54,15 +53,10 @@ public class EntryButtonWidget extends BaseWidget {
         boolean hasCorrectItem = hasEntry && (this.connecting.get() ? entry.hasConnectingItem() : entry.hasRegularItem());
 
         ScreenUtils.bindTexture(TEXTURE);
-        ScreenUtils.drawTexture(poseStack, this.x, this.y, this.width, this.height, 0, (selected ? 1 : hasEntry ? hasCorrectItem ? this.isFocused() ? 2 : 0 : this.isFocused() ? 4 : 3 : 0) / 5f, 1, 1 / 5f);
-
+        ScreenUtils.drawTexture(context.poseStack(), this.x, this.y, this.width, this.height, 0, (selected ? 1 : hasEntry ? hasCorrectItem ? this.isFocused() ? 2 : 0 : this.isFocused() ? 4 : 3 : 0) / 5f, 1, 1 / 5f);
         if(hasEntry){
             Item item = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
-            if(item instanceof BlockItem){
-                BlockCapture capture = new BlockCapture(((BlockItem)item).getBlock());
-                ScreenBlockRenderer.drawBlock(capture, this.x + this.width / 2d, this.y + this.height / 2d, this.width, 135, 40, true);
-            }else
-                ScreenItemRender.drawItem(item, this.x + this.width / 2d, this.y + this.height / 2d, (this.width - 4) * 1.416, 0, 0, false);
+            ScreenItemRender.drawItem(context.poseStack(), item, this.x + this.width / 2d, this.y + this.height / 2d, this.width - 4, 0, 0, false);
         }
     }
 

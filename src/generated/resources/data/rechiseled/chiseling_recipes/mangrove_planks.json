@@ -2,6 +2,9 @@
   "type": "rechiseled:chiseling",
   "entries": [
     {
+      "item": "minecraft:mangrove_planks"
+    },
+    {
       "connecting_item": "rechiseled:mangrove_planks_beams_connecting",
       "item": "rechiseled:mangrove_planks_beams"
     },

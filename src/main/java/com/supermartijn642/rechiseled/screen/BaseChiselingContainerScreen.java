@@ -1,9 +1,9 @@
 package com.supermartijn642.rechiseled.screen;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.BaseContainerWidget;
+import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
 import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
@@ -82,14 +82,14 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
     }
 
     @Override
-    public void renderBackground(PoseStack poseStack, int mouseX, int mouseY){
+    public void renderBackground(WidgetRenderContext context, int mouseX, int mouseY){
         ScreenUtils.bindTexture(BACKGROUND);
-        ScreenUtils.drawTexture(poseStack, 0, 0, this.width, this.height);
-        super.renderBackground(poseStack, mouseX, mouseY);
+        ScreenUtils.drawTexture(context.poseStack(), 0, 0, this.width, this.height);
+        super.renderBackground(context, mouseX, mouseY);
     }
 
     @Override
-    public void renderForeground(PoseStack matrixStack, int mouseX, int mouseY){
+    public void renderForeground(WidgetRenderContext context, int mouseX, int mouseY){
         // Render chisel all slot overlays
         if(this.container.currentRecipe != null && this.chiselAllWidget != null && this.chiselAllWidget.isFocused()){
             for(int index = 1; index < this.container.slots.size(); index++){
@@ -100,14 +100,14 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
                     if((!stack.hasTag() || stack.getTag().isEmpty())
                         && ((entry.hasConnectingItem() && stack.getItem() == entry.getConnectingItem())
                         || (entry.hasRegularItem() && stack.getItem() == entry.getRegularItem()))){
-                        ScreenUtils.fillRect(matrixStack, slot.x, slot.y, 16, 16, 0, 20, 100, 0.5f);
+                        ScreenUtils.fillRect(context.poseStack(), slot.x, slot.y, 16, 16, 0, 20, 100, 0.5f);
                     }
                 }
             }
         }
 
-        super.renderForeground(matrixStack, mouseX, mouseY);
-        ScreenUtils.drawString(matrixStack, ClientUtils.getPlayer().getInventory().getName(), 31, 133);
+        super.renderForeground(context, mouseX, mouseY);
+        ScreenUtils.drawString(context.poseStack(), ClientUtils.getPlayer().getInventory().getName(), 31, 133);
     }
 
     private ChiselingEntry getEntry(int index){

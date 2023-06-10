@@ -14,6 +14,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import org.joml.Matrix4f;
 import org.joml.Quaternionf;
 
 import java.util.Map;
@@ -23,10 +24,9 @@ import java.util.Map;
  */
 public class ScreenBlockRenderer {
 
-    private static final PoseStack POSE_STACK = new PoseStack();
     private static BlockCaptureLevel fakeLevel;
 
-    public static void drawBlock(BlockCapture capture, double x, double y, double scale, float yaw, float pitch, boolean doShading){
+    public static void drawBlock(PoseStack poseStack, BlockCapture capture, double x, double y, double scale, float yaw, float pitch, boolean doShading){
         AABB bounds = capture.getBounds();
         double span = Math.sqrt(bounds.getXsize() * bounds.getXsize() + bounds.getYsize() * bounds.getYsize() + bounds.getZsize() * bounds.getZsize());
         scale /= span;
@@ -35,32 +35,26 @@ public class ScreenBlockRenderer {
             fakeLevel = new BlockCaptureLevel();
         fakeLevel.setCapture(capture);
 
-        RenderSystem.getModelViewStack().pushPose();
-        RenderSystem.getModelViewStack().scale(1, -1, 1);
-        RenderSystem.applyModelViewMatrix();
-
-        POSE_STACK.pushPose();
-        POSE_STACK.translate(x, -y, 350);
-        POSE_STACK.scale((float)scale, (float)scale, (float)scale);
-        POSE_STACK.mulPose(new Quaternionf().setAngleAxis(pitch / 180 * (float)Math.PI, 1, 0, 0));
-        POSE_STACK.mulPose(new Quaternionf().setAngleAxis(yaw / 180 * (float)Math.PI, 0, 1, 0));
+        poseStack.pushPose();
+        poseStack.translate(x, y, 350);
+        poseStack.mulPoseMatrix(new Matrix4f().scaling(1.0F, -1.0F, 1.0F));
+        poseStack.scale((float)scale, (float)scale, (float)scale);
+        poseStack.mulPose(new Quaternionf().setAngleAxis(pitch / 180 * (float)Math.PI, 1, 0, 0));
+        poseStack.mulPose(new Quaternionf().setAngleAxis(yaw / 180 * (float)Math.PI, 0, 1, 0));
 
         if(doShading)
-            Lighting.setupFor3DItems();
+            Lighting.setupLevel(new Matrix4f().rotateX((float)(Math.PI / 3)).rotateY((float)(Math.PI / 2)));
 
         MultiBufferSource.BufferSource renderTypeBuffer = RenderUtils.getMainBufferSource();
         for(Map.Entry<BlockPos,BlockState> entry : capture.getBlocks())
-            renderBlock(entry.getKey(), entry.getValue(), POSE_STACK, renderTypeBuffer);
+            renderBlock(entry.getKey(), entry.getValue(), poseStack, renderTypeBuffer);
         renderTypeBuffer.endBatch();
 
         RenderSystem.enableDepthTest();
         if(doShading)
             Lighting.setupForFlatItems();
 
-        POSE_STACK.popPose();
-
-        RenderSystem.getModelViewStack().popPose();
-        RenderSystem.applyModelViewMatrix();
+        poseStack.popPose();
 
         fakeLevel.setCapture(null);
     }
