@@ -9,6 +9,14 @@
       "item": "rechiseled:red_nether_bricks_beams"
     },
     {
+      "connecting_item": "rechiseled:red_nether_bricks_brick_pattern_connecting",
+      "item": "rechiseled:red_nether_bricks_brick_pattern"
+    },
+    {
+      "connecting_item": "rechiseled:red_nether_bricks_brick_paving_connecting",
+      "item": "rechiseled:red_nether_bricks_brick_paving"
+    },
+    {
       "connecting_item": "rechiseled:red_nether_bricks_chiseled_squares_connecting",
       "item": "rechiseled:red_nether_bricks_chiseled_squares"
     },
