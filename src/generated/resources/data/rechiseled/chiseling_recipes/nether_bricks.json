@@ -15,6 +15,14 @@
       "connecting_item": "rechiseled:nether_bricks_beams_connecting"
     },
     {
+      "item": "rechiseled:nether_bricks_brick_pattern",
+      "connecting_item": "rechiseled:nether_bricks_brick_pattern_connecting"
+    },
+    {
+      "item": "rechiseled:nether_bricks_brick_paving",
+      "connecting_item": "rechiseled:nether_bricks_brick_paving_connecting"
+    },
+    {
       "item": "rechiseled:nether_bricks_chiseled_squares",
       "connecting_item": "rechiseled:nether_bricks_chiseled_squares_connecting"
     },

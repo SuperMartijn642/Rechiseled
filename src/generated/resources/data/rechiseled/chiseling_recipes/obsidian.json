@@ -9,6 +9,14 @@
       "connecting_item": "rechiseled:obsidian_bordered_connecting"
     },
     {
+      "item": "rechiseled:obsidian_brick_pattern",
+      "connecting_item": "rechiseled:obsidian_brick_pattern_connecting"
+    },
+    {
+      "item": "rechiseled:obsidian_brick_paving",
+      "connecting_item": "rechiseled:obsidian_brick_paving_connecting"
+    },
+    {
       "item": "rechiseled:obsidian_bricks",
       "connecting_item": "rechiseled:obsidian_bricks_connecting"
     },
@@ -36,6 +44,10 @@
     {
       "item": "rechiseled:obsidian_pillars",
       "connecting_item": "rechiseled:obsidian_pillars_connecting"
+    },
+    {
+      "item": "rechiseled:obsidian_rotated_bricks",
+      "connecting_item": "rechiseled:obsidian_rotated_bricks_connecting"
     },
     {
       "item": "rechiseled:obsidian_spots",
