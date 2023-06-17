@@ -9,12 +9,24 @@
       "connecting_item": "rechiseled:netherrack_beams_connecting"
     },
     {
+      "item": "rechiseled:netherrack_brick_pattern",
+      "connecting_item": "rechiseled:netherrack_brick_pattern_connecting"
+    },
+    {
+      "item": "rechiseled:netherrack_brick_paving",
+      "connecting_item": "rechiseled:netherrack_brick_paving_connecting"
+    },
+    {
       "item": "rechiseled:netherrack_bricks",
       "connecting_item": "rechiseled:netherrack_bricks_connecting"
     },
     {
       "item": "rechiseled:netherrack_dented",
       "connecting_item": "rechiseled:netherrack_dented_connecting"
+    },
+    {
+      "item": "rechiseled:netherrack_rotated_bricks",
+      "connecting_item": "rechiseled:netherrack_rotated_bricks_connecting"
     },
     {
       "item": "rechiseled:netherrack_small_tiles",

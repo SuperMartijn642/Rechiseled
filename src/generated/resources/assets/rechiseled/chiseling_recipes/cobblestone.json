@@ -12,6 +12,14 @@
       "connecting_item": "rechiseled:cobblestone_beams_connecting"
     },
     {
+      "item": "rechiseled:cobblestone_brick_pattern",
+      "connecting_item": "rechiseled:cobblestone_brick_pattern_connecting"
+    },
+    {
+      "item": "rechiseled:cobblestone_brick_paving",
+      "connecting_item": "rechiseled:cobblestone_brick_paving_connecting"
+    },
+    {
       "item": "rechiseled:cobblestone_crosses",
       "connecting_item": "rechiseled:cobblestone_crosses_connecting"
     },
