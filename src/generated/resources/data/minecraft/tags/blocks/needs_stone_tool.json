@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:copper_block_circles_connecting",
+    "rechiseled:copper_block_gears",
+    "rechiseled:copper_block_cone",
+    "rechiseled:copper_block_gears_connecting",
+    "rechiseled:copper_block_polished",
+    "rechiseled:copper_block_bars",
+    "rechiseled:copper_block_pattern_connecting",
+    "rechiseled:copper_block_bars_connecting",
+    "rechiseled:copper_block_shafts",
+    "rechiseled:copper_block_pillar_connecting",
+    "rechiseled:copper_block_circles",
+    "rechiseled:copper_block_polished_connecting",
+    "rechiseled:copper_block_small_bricks_connecting",
+    "rechiseled:copper_block_smooth",
+    "rechiseled:copper_block_pattern",
+    "rechiseled:copper_block_pillar",
+    "rechiseled:copper_block_shafts_connecting",
+    "rechiseled:copper_block_lines",
+    "rechiseled:copper_block_small_bricks",
+    "rechiseled:copper_block_lines_connecting"
+  ]
+}

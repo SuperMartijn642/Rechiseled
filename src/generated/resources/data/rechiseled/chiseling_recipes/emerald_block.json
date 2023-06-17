@@ -1,0 +1,61 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "item": "minecraft:emerald_block"
+    },
+    {
+      "connecting_item": "rechiseled:emerald_block_bordered_crosses_connecting",
+      "item": "rechiseled:emerald_block_bordered_crosses"
+    },
+    {
+      "connecting_item": "rechiseled:emerald_block_bordered_plating_connecting",
+      "item": "rechiseled:emerald_block_bordered_plating"
+    },
+    {
+      "connecting_item": "rechiseled:emerald_block_chiseled_connecting",
+      "item": "rechiseled:emerald_block_chiseled"
+    },
+    {
+      "connecting_item": "rechiseled:emerald_block_clovers_connecting",
+      "item": "rechiseled:emerald_block_clovers"
+    },
+    {
+      "item": "rechiseled:emerald_block_crosses"
+    },
+    {
+      "connecting_item": "rechiseled:emerald_block_crystal_connecting",
+      "item": "rechiseled:emerald_block_crystal"
+    },
+    {
+      "connecting_item": "rechiseled:emerald_block_patterned_connecting",
+      "item": "rechiseled:emerald_block_patterned"
+    },
+    {
+      "connecting_item": "rechiseled:emerald_block_patterned_squares_connecting",
+      "item": "rechiseled:emerald_block_patterned_squares"
+    },
+    {
+      "connecting_item": "rechiseled:emerald_block_pillar_connecting",
+      "item": "rechiseled:emerald_block_pillar"
+    },
+    {
+      "item": "rechiseled:emerald_block_plating"
+    },
+    {
+      "connecting_item": "rechiseled:emerald_block_polished_connecting",
+      "item": "rechiseled:emerald_block_polished"
+    },
+    {
+      "item": "rechiseled:emerald_block_smooth"
+    },
+    {
+      "connecting_item": "rechiseled:emerald_block_striped_connecting",
+      "item": "rechiseled:emerald_block_striped"
+    },
+    {
+      "connecting_item": "rechiseled:emerald_block_waxed_connecting",
+      "item": "rechiseled:emerald_block_waxed"
+    }
+  ]
+}
