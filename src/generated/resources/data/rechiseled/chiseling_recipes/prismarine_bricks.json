@@ -9,6 +9,14 @@
       "item": "rechiseled:prismarine_bricks_beams"
     },
     {
+      "connecting_item": "rechiseled:prismarine_bricks_brick_pattern_connecting",
+      "item": "rechiseled:prismarine_bricks_brick_pattern"
+    },
+    {
+      "connecting_item": "rechiseled:prismarine_bricks_brick_paving_connecting",
+      "item": "rechiseled:prismarine_bricks_brick_paving"
+    },
+    {
       "connecting_item": "rechiseled:prismarine_bricks_bricks_connecting",
       "item": "rechiseled:prismarine_bricks_bricks"
     },
@@ -39,6 +47,10 @@
     {
       "connecting_item": "rechiseled:prismarine_bricks_polished_connecting",
       "item": "rechiseled:prismarine_bricks_polished"
+    },
+    {
+      "connecting_item": "rechiseled:prismarine_bricks_rotated_bricks_connecting",
+      "item": "rechiseled:prismarine_bricks_rotated_bricks"
     },
     {
       "connecting_item": "rechiseled:prismarine_bricks_rows_connecting",

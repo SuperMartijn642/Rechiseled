@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "rechiseled:block/cobbled_deepslate_brick_paving"
+  }
+}

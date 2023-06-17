@@ -5,6 +5,14 @@
       "item": "minecraft:diorite"
     },
     {
+      "connecting_item": "rechiseled:diorite_brick_pattern_connecting",
+      "item": "rechiseled:diorite_brick_pattern"
+    },
+    {
+      "connecting_item": "rechiseled:diorite_brick_paving_connecting",
+      "item": "rechiseled:diorite_brick_paving"
+    },
+    {
       "connecting_item": "rechiseled:diorite_bricks_connecting",
       "item": "rechiseled:diorite_bricks"
     },
