@@ -5,6 +5,14 @@
       "item": "minecraft:andesite"
     },
     {
+      "item": "rechiseled:andesite_brick_pattern",
+      "connecting_item": "rechiseled:andesite_brick_pattern_connecting"
+    },
+    {
+      "item": "rechiseled:andesite_brick_paving",
+      "connecting_item": "rechiseled:andesite_brick_paving_connecting"
+    },
+    {
       "item": "rechiseled:andesite_bricks",
       "connecting_item": "rechiseled:andesite_bricks_connecting"
     },

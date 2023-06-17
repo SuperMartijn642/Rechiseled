@@ -9,6 +9,14 @@
       "connecting_item": "rechiseled:oak_planks_beams_connecting"
     },
     {
+      "item": "rechiseled:oak_planks_brick_pattern",
+      "connecting_item": "rechiseled:oak_planks_brick_pattern_connecting"
+    },
+    {
+      "item": "rechiseled:oak_planks_brick_paving",
+      "connecting_item": "rechiseled:oak_planks_brick_paving_connecting"
+    },
+    {
       "item": "rechiseled:oak_planks_bricks",
       "connecting_item": "rechiseled:oak_planks_bricks_connecting"
     },
@@ -37,8 +45,15 @@
       "connecting_item": "rechiseled:oak_planks_large_tiles_connecting"
     },
     {
+      "item": "rechiseled:oak_planks_mosaic"
+    },
+    {
       "item": "rechiseled:oak_planks_pattern",
       "connecting_item": "rechiseled:oak_planks_pattern_connecting"
+    },
+    {
+      "item": "rechiseled:oak_planks_rotated_bricks",
+      "connecting_item": "rechiseled:oak_planks_rotated_bricks_connecting"
     },
     {
       "item": "rechiseled:oak_planks_small_bricks",

@@ -12,6 +12,14 @@
       "connecting_item": "rechiseled:end_stone_blobs_connecting"
     },
     {
+      "item": "rechiseled:end_stone_brick_pattern",
+      "connecting_item": "rechiseled:end_stone_brick_pattern_connecting"
+    },
+    {
+      "item": "rechiseled:end_stone_brick_paving",
+      "connecting_item": "rechiseled:end_stone_brick_paving_connecting"
+    },
+    {
       "item": "rechiseled:end_stone_chiseled",
       "connecting_item": "rechiseled:end_stone_chiseled_connecting"
     },
@@ -34,6 +42,10 @@
     {
       "item": "rechiseled:end_stone_polished",
       "connecting_item": "rechiseled:end_stone_polished_connecting"
+    },
+    {
+      "item": "rechiseled:end_stone_rotated_bricks",
+      "connecting_item": "rechiseled:end_stone_rotated_bricks_connecting"
     },
     {
       "item": "rechiseled:end_stone_scales",
