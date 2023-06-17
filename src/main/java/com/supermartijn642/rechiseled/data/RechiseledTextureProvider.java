@@ -24,5 +24,7 @@ public class RechiseledTextureProvider extends ChiseledTextureProvider {
         this.createPlankTextures(new ResourceLocation("minecraft", "block/mangrove_planks"), "block/mangrove_planks");
         this.createPlankTextures(new ResourceLocation("minecraft", "block/spruce_planks"), "block/spruce_planks");
         this.createPlankTextures(new ResourceLocation("minecraft", "block/warped_planks"), "block/warped_planks");
+        this.createPlankTextures(new ResourceLocation("minecraft", "block/bamboo_planks"), "block/bamboo_planks");
+        this.createPlankTextures(new ResourceLocation("minecraft", "block/cherry_planks"), "block/cherry_planks");
     }
 }
