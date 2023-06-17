@@ -5,6 +5,14 @@
       "item": "minecraft:purpur_pillar"
     },
     {
+      "item": "rechiseled:purpur_brick_pattern",
+      "connecting_item": "rechiseled:purpur_brick_pattern_connecting"
+    },
+    {
+      "item": "rechiseled:purpur_brick_paving",
+      "connecting_item": "rechiseled:purpur_brick_paving_connecting"
+    },
+    {
       "item": "rechiseled:purpur_bricks",
       "connecting_item": "rechiseled:purpur_bricks_connecting"
     },
