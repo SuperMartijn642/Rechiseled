@@ -1,0 +1,51 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "item": "minecraft:gold_block"
+    },
+    {
+      "item": "rechiseled:gold_block_beams",
+      "connecting_item": "rechiseled:gold_block_beams_connecting"
+    },
+    {
+      "item": "rechiseled:gold_block_bordered",
+      "connecting_item": "rechiseled:gold_block_bordered_connecting"
+    },
+    {
+      "item": "rechiseled:gold_block_lines",
+      "connecting_item": "rechiseled:gold_block_lines_connecting"
+    },
+    {
+      "item": "rechiseled:gold_block_pattern",
+      "connecting_item": "rechiseled:gold_block_pattern_connecting"
+    },
+    {
+      "item": "rechiseled:gold_block_polished",
+      "connecting_item": "rechiseled:gold_block_polished_connecting"
+    },
+    {
+      "item": "rechiseled:gold_block_scales",
+      "connecting_item": "rechiseled:gold_block_scales_connecting"
+    },
+    {
+      "item": "rechiseled:gold_block_small_bricks",
+      "connecting_item": "rechiseled:gold_block_small_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:gold_block_small_tiles",
+      "connecting_item": "rechiseled:gold_block_small_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:gold_block_striped",
+      "connecting_item": "rechiseled:gold_block_striped_connecting"
+    },
+    {
+      "item": "rechiseled:gold_block_smooth"
+    },
+    {
+      "item": "rechiseled:gold_block_tiles",
+      "connecting_item": "rechiseled:gold_block_tiles_connecting"
+    }
+  ]
+}

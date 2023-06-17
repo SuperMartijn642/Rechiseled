@@ -18,6 +18,8 @@ public class RechiseledChiselingRecipes {
         REGISTRATION.chiselingEntry(ANDESITE, () -> Item.getItemFromBlock(Blocks.STONE), 5, null, 0);
         // Birch planks
         REGISTRATION.chiselingEntry(BIRCH_PLANKS, () -> Item.getItemFromBlock(Blocks.PLANKS), 2, null, 0);
+        // Coal block
+        REGISTRATION.chiselingEntry(COAL_BLOCK, () -> Item.getItemFromBlock(Blocks.COAL_BLOCK), 0, null, 0);
         // Cobblestone
         REGISTRATION.chiselingEntry(COBBLESTONE, () -> Item.getItemFromBlock(Blocks.COBBLESTONE), 0, null, 0);
         REGISTRATION.chiselingEntry(COBBLESTONE, () -> Item.getItemFromBlock(Blocks.MOSSY_COBBLESTONE), 0, null, 0);
@@ -29,11 +31,15 @@ public class RechiseledChiselingRecipes {
         REGISTRATION.chiselingEntry(DIORITE, () -> Item.getItemFromBlock(Blocks.STONE), 3, null, 0);
         // Dirt
         REGISTRATION.chiselingEntry(DIRT, () -> Item.getItemFromBlock(Blocks.DIRT), 0, null, 0);
+        // Emerald block
+        REGISTRATION.chiselingEntry(EMERALD_BLOCK, () -> Item.getItemFromBlock(Blocks.EMERALD_BLOCK), 0, null, 0);
         // End stone
         REGISTRATION.chiselingEntry(END_STONE, () -> Item.getItemFromBlock(Blocks.END_STONE), 0, null, 0);
         REGISTRATION.chiselingEntry(END_STONE, () -> Item.getItemFromBlock(Blocks.END_BRICKS), 0, null, 0);
         // Glowstone
         REGISTRATION.chiselingEntry(GLOWSTONE, () -> Item.getItemFromBlock(Blocks.GLOWSTONE), 0, null, 0);
+        // Gold block
+        REGISTRATION.chiselingEntry(GOLD_BLOCK, () -> Item.getItemFromBlock(Blocks.GOLD_BLOCK), 0, null, 0);
         // Granite
         REGISTRATION.chiselingEntry(GRANITE, () -> Item.getItemFromBlock(Blocks.STONE), 1, null, 0);
         // Jungle planks

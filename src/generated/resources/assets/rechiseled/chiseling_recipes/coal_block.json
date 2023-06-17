@@ -1,0 +1,51 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "item": "minecraft:coal_block"
+    },
+    {
+      "item": "rechiseled:coal_block_carved",
+      "connecting_item": "rechiseled:coal_block_carved_connecting"
+    },
+    {
+      "item": "rechiseled:coal_block_chiseled",
+      "connecting_item": "rechiseled:coal_block_chiseled_connecting"
+    },
+    {
+      "item": "rechiseled:coal_block_circles",
+      "connecting_item": "rechiseled:coal_block_circles_connecting"
+    },
+    {
+      "item": "rechiseled:coal_block_compacted",
+      "connecting_item": "rechiseled:coal_block_compacted_connecting"
+    },
+    {
+      "item": "rechiseled:coal_block_ovals",
+      "connecting_item": "rechiseled:coal_block_ovals_connecting"
+    },
+    {
+      "item": "rechiseled:coal_block_pattern",
+      "connecting_item": "rechiseled:coal_block_pattern_connecting"
+    },
+    {
+      "item": "rechiseled:coal_block_pillar",
+      "connecting_item": "rechiseled:coal_block_pillar_connecting"
+    },
+    {
+      "item": "rechiseled:coal_block_polished"
+    },
+    {
+      "item": "rechiseled:coal_block_rotated_bricks",
+      "connecting_item": "rechiseled:coal_block_rotated_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:coal_block_small_tiles",
+      "connecting_item": "rechiseled:coal_block_small_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:coal_block_stripes",
+      "connecting_item": "rechiseled:coal_block_stripes_connecting"
+    }
+  ]
+}
