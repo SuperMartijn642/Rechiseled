@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "rechiseled:block/amethyst_block_pillar_connecting",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "rechiseled:block/amethyst_block_pillar_connecting"
+    },
+    "axis=z": {
+      "model": "rechiseled:block/amethyst_block_pillar_connecting",
+      "x": 90
+    }
+  }
+}
