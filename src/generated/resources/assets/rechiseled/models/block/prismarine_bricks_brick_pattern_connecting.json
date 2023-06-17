@@ -1,0 +1,13 @@
+{
+  "type": "fusion:connecting",
+  "parent": "minecraft:block/cube_all",
+  "connections": [
+    {
+      "type": "fusion:is_same_block"
+    }
+  ],
+  "loader": "fusion:model",
+  "textures": {
+    "all": "rechiseled:block/prismarine_bricks_brick_pattern"
+  }
+}

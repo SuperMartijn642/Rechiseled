@@ -12,8 +12,10 @@ public class BaseChiselingRecipes {
 
     public static final ResourceLocation ACACIA_PLANKS = location("acacia_planks");
     public static final ResourceLocation ANDESITE = location("andesite");
+    public static final ResourceLocation BAMBOO_PLANKS = location("bamboo_planks");
     public static final ResourceLocation BIRCH_PLANKS = location("birch_planks");
     public static final ResourceLocation BLACKSTONE = location("blackstone");
+    public static final ResourceLocation CHERRY_PLANKS = location("cherry_planks");
     public static final ResourceLocation COBBLED_DEEPSLATE = location("cobbled_deepslate");
     public static final ResourceLocation COBBLESTONE = location("cobblestone");
     public static final ResourceLocation CRIMSON_PLANKS = location("crimson_planks");
