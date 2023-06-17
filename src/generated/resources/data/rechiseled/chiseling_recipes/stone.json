@@ -22,6 +22,14 @@
       "connecting_item": "rechiseled:stone_bordered_connecting"
     },
     {
+      "item": "rechiseled:stone_brick_pattern",
+      "connecting_item": "rechiseled:stone_brick_pattern_connecting"
+    },
+    {
+      "item": "rechiseled:stone_brick_paving",
+      "connecting_item": "rechiseled:stone_brick_paving_connecting"
+    },
+    {
       "item": "minecraft:chiseled_stone_bricks",
       "connecting_item": "rechiseled:stone_chiseled_bricks_connecting"
     },
@@ -54,8 +62,16 @@
       "connecting_item": "rechiseled:stone_smooth_connecting"
     },
     {
+      "item": "rechiseled:stone_smooth_brick_paving",
+      "connecting_item": "rechiseled:stone_smooth_brick_paving_connecting"
+    },
+    {
       "item": "rechiseled:stone_smooth_large_tiles",
       "connecting_item": "rechiseled:stone_smooth_large_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:stone_smooth_rotated_bricks",
+      "connecting_item": "rechiseled:stone_smooth_rotated_bricks_connecting"
     },
     {
       "item": "rechiseled:stone_smooth_tiles",
