@@ -1,6 +1,7 @@
 package com.supermartijn642.rechiseled.screen;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.platform.GlStateManager;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import net.minecraft.util.ResourceLocation;
@@ -21,6 +22,7 @@ public class ToggleRotationButton extends AbstractButtonWidget {
 
     @Override
     public void render(MatrixStack poseStack, int mouseX, int mouseY){
+        GlStateManager._enableAlphaTest();
         ScreenUtils.bindTexture(TEXTURE);
         ScreenUtils.drawTexture(poseStack, this.x, this.y, this.width, this.height, rotate ? 0 : 0.5f, this.isFocused() ? 0.5f : 0, 0.5f, 0.5f);
         super.render(poseStack, mouseX, mouseY);
