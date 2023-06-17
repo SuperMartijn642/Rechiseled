@@ -1,6 +1,7 @@
 package com.supermartijn642.rechiseled;
 
 import com.supermartijn642.rechiseled.api.BaseChiselingRecipes;
+import com.supermartijn642.rechiseled.api.blocks.BlockSpecification;
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockBuilder;
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockType;
 import net.minecraft.block.Block;
@@ -46,6 +47,16 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType ANDESITE_SQUARES = create("andesite_squares", "Andesite Squares", () -> Blocks.POLISHED_ANDESITE).recipe(BaseChiselingRecipes.ANDESITE).build();
     public static final RechiseledBlockType ANDESITE_TILES = create("andesite_tiles", "Andesite Tiles", () -> Blocks.POLISHED_ANDESITE).recipe(BaseChiselingRecipes.ANDESITE).build();
     public static final RechiseledBlockType ANDESITE_WAVY = create("andesite_wavy", "Wavy Andesite", () -> Blocks.POLISHED_ANDESITE).recipe(BaseChiselingRecipes.ANDESITE).build();
+    // Basalt
+    public static final RechiseledBlockType BASALT_BEAMS = create("basalt_beams", "Basalt Beams", () -> Blocks.POLISHED_BASALT).recipe(BaseChiselingRecipes.BASALT).build();
+    public static final RechiseledBlockType BASALT_BORDERED = create("basalt_bordered", "Bordered Basalt", () -> Blocks.POLISHED_BASALT).recipe(BaseChiselingRecipes.BASALT).build();
+    public static final RechiseledBlockType BASALT_BORDERED_POLISHED = create("basalt_bordered_polished", "Bordered Polished Basalt", () -> Blocks.POLISHED_BASALT).recipe(BaseChiselingRecipes.BASALT).build();
+    public static final RechiseledBlockType BASALT_BRICKS = create("basalt_bricks", "Basalt Bricks", () -> Blocks.POLISHED_BASALT).recipe(BaseChiselingRecipes.BASALT).build();
+    public static final RechiseledBlockType BASALT_CHISELED_PIGLIN = create("basalt_chiseled_piglin", "Chiseled Basalt Piglin", () -> Blocks.POLISHED_BASALT).noConnectingVariant().recipe(BaseChiselingRecipes.BASALT).build();
+    public static final RechiseledBlockType BASALT_DIAGONAL_TILES = create("basalt_diagonal_tiles", "Diagonal Basalt Tiles", () -> Blocks.POLISHED_BASALT).recipe(BaseChiselingRecipes.BASALT).build();
+    public static final RechiseledBlockType BASALT_PATTERN = create("basalt_pattern", "Basalt Pattern", () -> Blocks.POLISHED_BASALT).recipe(BaseChiselingRecipes.BASALT).build();
+    public static final RechiseledBlockType BASALT_PATTERNED = create("basalt_patterned", "Patterned Basalt", () -> Blocks.POLISHED_BASALT).recipe(BaseChiselingRecipes.BASALT).build();
+    public static final RechiseledBlockType BASALT_TILES = create("basalt_tiles", "Basalt Tiles", () -> Blocks.POLISHED_BASALT).recipe(BaseChiselingRecipes.BASALT).build();
     // Birch planks
     public static final RechiseledBlockType BIRCH_PLANKS_BEAMS = create("birch_planks_beams", "Birch Plank Beams", () -> Blocks.BIRCH_PLANKS).recipe(BaseChiselingRecipes.BIRCH_PLANKS).build();
     public static final RechiseledBlockType BIRCH_PLANKS_BRICK_PATTERN = create("birch_planks_brick_pattern", "Birch Plank Brick Pattern", () -> Blocks.BIRCH_PLANKS).recipe(BaseChiselingRecipes.BIRCH_PLANKS).build();
@@ -73,6 +84,18 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType BLACKSTONE_POLISHED = create("blackstone_polished", "Polished Blackstone", () -> Blocks.POLISHED_BLACKSTONE).regularVariant(() -> Blocks.POLISHED_BLACKSTONE).recipe(BaseChiselingRecipes.BLACKSTONE).build();
     public static final RechiseledBlockType BLACKSTONE_TILES = create("blackstone_tiles", "Blackstone Tiles", () -> Blocks.POLISHED_BLACKSTONE).recipe(BaseChiselingRecipes.BLACKSTONE).build();
     public static final RechiseledBlockType BLACKSTONE_ROTATED_BRICKS = create("blackstone_rotated_bricks", "Rotated Blackstone Bricks", () -> Blocks.POLISHED_BLACKSTONE).recipe(BaseChiselingRecipes.BLACKSTONE).build();
+    // Coal block
+    public static final RechiseledBlockType COAL_BLOCK_CARVED = create("coal_block_carved", "Carved Block of Coal", () -> Blocks.COAL_BLOCK).recipe(BaseChiselingRecipes.COAL_BLOCK).build();
+    public static final RechiseledBlockType COAL_BLOCK_CHISELED = create("coal_block_chiseled", "Chiseled Block of Coal", () -> Blocks.COAL_BLOCK).recipe(BaseChiselingRecipes.COAL_BLOCK).build();
+    public static final RechiseledBlockType COAL_BLOCK_CIRCLES = create("coal_block_circles", "Coal Block Circles", () -> Blocks.COAL_BLOCK).recipe(BaseChiselingRecipes.COAL_BLOCK).build();
+    public static final RechiseledBlockType COAL_BLOCK_COMPACTED = create("coal_block_compacted", "Compacted Block of Coal", () -> Blocks.COAL_BLOCK).recipe(BaseChiselingRecipes.COAL_BLOCK).build();
+    public static final RechiseledBlockType COAL_BLOCK_OVALS = create("coal_block_ovals", "Coal Block Ovals", () -> Blocks.COAL_BLOCK).recipe(BaseChiselingRecipes.COAL_BLOCK).build();
+    public static final RechiseledBlockType COAL_BLOCK_PATTERN = create("coal_block_pattern", "Coal Block Pattern", () -> Blocks.COAL_BLOCK).recipe(BaseChiselingRecipes.COAL_BLOCK).build();
+    public static final RechiseledBlockType COAL_BLOCK_PILLAR = create("coal_block_pillar", "Coal Block Pillar", () -> Blocks.COAL_BLOCK).specification(BlockSpecification.PILLAR).recipe(BaseChiselingRecipes.COAL_BLOCK).build();
+    public static final RechiseledBlockType COAL_BLOCK_POLISHED = create("coal_block_polished", "Polished Block of Coal", () -> Blocks.COAL_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.COAL_BLOCK).build();
+    public static final RechiseledBlockType COAL_BLOCK_ROTATED_BRICKS = create("coal_block_rotated_bricks", "Rotated Coal Bricks", () -> Blocks.COAL_BLOCK).recipe(BaseChiselingRecipes.COAL_BLOCK).build();
+    public static final RechiseledBlockType COAL_BLOCK_SMALL_TILES = create("coal_block_small_tiles", "Small Coal Block Tiles", () -> Blocks.COAL_BLOCK).recipe(BaseChiselingRecipes.COAL_BLOCK).build();
+    public static final RechiseledBlockType COAL_BLOCK_STRIPES = create("coal_block_stripes", "Coal Block Stripes", () -> Blocks.COAL_BLOCK).recipe(BaseChiselingRecipes.COAL_BLOCK).build();
     // Cobblestone
     public static final RechiseledBlockType COBBLESTONE_BEAMS = create("cobblestone_beams", "Cobblestone Beams", () -> Blocks.COBBLESTONE).recipe(BaseChiselingRecipes.COBBLESTONE).build();
     public static final RechiseledBlockType COBBLESTONE_BRICK_PATTERN = create("cobblestone_brick_pattern", "Cobblestone Brick Pattern", () -> Blocks.COBBLESTONE).recipe(BaseChiselingRecipes.COBBLESTONE).build();
@@ -141,6 +164,19 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType DARK_PRISMARINE_TILES = create("dark_prismarine_tiles", "Dark Prismarine Tiles", () -> Blocks.DARK_PRISMARINE).recipe(BaseChiselingRecipes.DARK_PRISMARINE).build();
     public static final RechiseledBlockType DARK_PRISMARINE_WAVY = create("dark_prismarine_wavy", "Wavy Dark Prismarine", () -> Blocks.DARK_PRISMARINE).recipe(BaseChiselingRecipes.DARK_PRISMARINE).build();
     public static final RechiseledBlockType DARK_PRISMARINE_WOVEN = create("dark_prismarine_woven", "Woven Dark Prismarine", () -> Blocks.DARK_PRISMARINE).recipe(BaseChiselingRecipes.DARK_PRISMARINE).build();
+    // Diamond block
+    public static final RechiseledBlockType DIAMOND_BLOCK_CHISELED = create("diamond_block_chiseled", "Chiseled Block of Diamond", () -> Blocks.DIAMOND_BLOCK).recipe(BaseChiselingRecipes.DIAMOND_BLOCK).build();
+    public static final RechiseledBlockType DIAMOND_BLOCK_CHISELED_CUBES = create("diamond_block_chiseled_cubes", "Chiseled Diamond Block Cubes", () -> Blocks.DIAMOND_BLOCK).recipe(BaseChiselingRecipes.DIAMOND_BLOCK).build();
+    public static final RechiseledBlockType DIAMOND_BLOCK_CONNECTING = create("diamond_block_connecting", "Block of Diamonds", () -> Blocks.DIAMOND_BLOCK).regularVariant(() -> Blocks.DIAMOND_BLOCK).recipe(BaseChiselingRecipes.DIAMOND_BLOCK).build();
+    public static final RechiseledBlockType DIAMOND_BLOCK_DIAGONAL_TILES = create("diamond_block_diagonal_tiles", "Diagonal Diamond Tiles", () -> Blocks.DIAMOND_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.DIAMOND_BLOCK).build();
+    public static final RechiseledBlockType DIAMOND_BLOCK_GRID = create("diamond_block_grid", "Diamond Grid Block", () -> Blocks.DIAMOND_BLOCK).recipe(BaseChiselingRecipes.DIAMOND_BLOCK).build();
+    public static final RechiseledBlockType DIAMOND_BLOCK_JEWEL_BLOCK = create("diamond_block_jewel_block", "Diamond Jewel Block", () -> Blocks.DIAMOND_BLOCK).recipe(BaseChiselingRecipes.DIAMOND_BLOCK).build();
+    public static final RechiseledBlockType DIAMOND_BLOCK_POLISHED = create("diamond_block_polished", "Polished Block of Diamond", () -> Blocks.DIAMOND_BLOCK).recipe(BaseChiselingRecipes.DIAMOND_BLOCK).build();
+    public static final RechiseledBlockType DIAMOND_BLOCK_RHOMBUSES = create("diamond_block_rhombuses", "Diamond Block Rhombuses", () -> Blocks.DIAMOND_BLOCK).recipe(BaseChiselingRecipes.DIAMOND_BLOCK).build();
+    public static final RechiseledBlockType DIAMOND_BLOCK_SHINY = create("diamond_block_shiny", "Shiny Block of Diamond", () -> Blocks.DIAMOND_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.DIAMOND_BLOCK).build();
+    public static final RechiseledBlockType DIAMOND_BLOCK_SHINY_BORDERED = create("diamond_block_shiny_bordered", "Bordered Shiny Block of Diamond", () -> Blocks.DIAMOND_BLOCK).recipe(BaseChiselingRecipes.DIAMOND_BLOCK).build();
+    public static final RechiseledBlockType DIAMOND_BLOCK_SMALL_TILES = create("diamond_block_small_tiles", "Small Diamond Tiles", () -> Blocks.DIAMOND_BLOCK).recipe(BaseChiselingRecipes.DIAMOND_BLOCK).build();
+    public static final RechiseledBlockType DIAMOND_BLOCK_SMOOTH = create("diamond_block_smooth", "Smooth Block of Diamond", () -> Blocks.DIAMOND_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.DIAMOND_BLOCK).build();
     // Diorite
     public static final RechiseledBlockType DIORITE_BRICK_PATTERN = create("diorite_brick_pattern", "Diorite Brick Pattern", () -> Blocks.POLISHED_DIORITE).recipe(BaseChiselingRecipes.DIORITE).build();
     public static final RechiseledBlockType DIORITE_BRICK_PAVING = create("diorite_brick_paving", "Diorite Brick Paving", () -> Blocks.POLISHED_DIORITE).recipe(BaseChiselingRecipes.DIORITE).build();
@@ -169,6 +205,21 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType DIRT_SQUARES = create("dirt_squares", "Dirt Squares", () -> Blocks.DIRT).recipe(BaseChiselingRecipes.DIRT).build();
     public static final RechiseledBlockType DIRT_TILES = create("dirt_tiles", "Dirt Tiles", () -> Blocks.DIRT).recipe(BaseChiselingRecipes.DIRT).build();
     public static final RechiseledBlockType DIRT_TILLED = create("dirt_tilled", "Tilled Dirt", () -> Blocks.DIRT).recipe(BaseChiselingRecipes.DIRT).build();
+    // Emerald block
+    public static final RechiseledBlockType EMERALD_BLOCK_BORDERED_CROSSES = create("emerald_block_bordered_crosses", "Bordered Emerald Crosses Block", () -> Blocks.EMERALD_BLOCK).recipe(BaseChiselingRecipes.EMERALD_BLOCK).build();
+    public static final RechiseledBlockType EMERALD_BLOCK_BORDERED_PLATING = create("emerald_block_bordered_plating", "Bordered Emerald Plating Block", () -> Blocks.EMERALD_BLOCK).recipe(BaseChiselingRecipes.EMERALD_BLOCK).build();
+    public static final RechiseledBlockType EMERALD_BLOCK_CHISELED = create("emerald_block_chiseled", "Chiseled Block of Emerald", () -> Blocks.EMERALD_BLOCK).recipe(BaseChiselingRecipes.EMERALD_BLOCK).build();
+    public static final RechiseledBlockType EMERALD_BLOCK_CLOVERS = create("emerald_block_clovers", "Emerald Clovers Block", () -> Blocks.EMERALD_BLOCK).recipe(BaseChiselingRecipes.EMERALD_BLOCK).build();
+    public static final RechiseledBlockType EMERALD_BLOCK_CROSSES = create("emerald_block_crosses", "Emerald Crosses Block", () -> Blocks.EMERALD_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.EMERALD_BLOCK).build();
+    public static final RechiseledBlockType EMERALD_BLOCK_CRYSTAL = create("emerald_block_crystal", "Emerald Crystal Block", () -> Blocks.EMERALD_BLOCK).recipe(BaseChiselingRecipes.EMERALD_BLOCK).build();
+    public static final RechiseledBlockType EMERALD_BLOCK_PATTERNED = create("emerald_block_patterned", "Patterned Block of Emerald", () -> Blocks.EMERALD_BLOCK).recipe(BaseChiselingRecipes.EMERALD_BLOCK).build();
+    public static final RechiseledBlockType EMERALD_BLOCK_PATTERNED_SQUARES = create("emerald_block_patterned_squares", "Patterned Emerald Squares Block", () -> Blocks.EMERALD_BLOCK).recipe(BaseChiselingRecipes.EMERALD_BLOCK).build();
+    public static final RechiseledBlockType EMERALD_BLOCK_PILLAR = create("emerald_block_pillar", "Emerald Block Pillar", () -> Blocks.EMERALD_BLOCK).specification(BlockSpecification.PILLAR).recipe(BaseChiselingRecipes.EMERALD_BLOCK).build();
+    public static final RechiseledBlockType EMERALD_BLOCK_PLATING = create("emerald_block_plating", "Emerald Plating Block", () -> Blocks.EMERALD_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.EMERALD_BLOCK).build();
+    public static final RechiseledBlockType EMERALD_BLOCK_POLISHED = create("emerald_block_polished", "Polished Block of Emerald", () -> Blocks.EMERALD_BLOCK).recipe(BaseChiselingRecipes.EMERALD_BLOCK).build();
+    public static final RechiseledBlockType EMERALD_BLOCK_SMOOTH = create("emerald_block_smooth", "Smooth Block of Emerald", () -> Blocks.EMERALD_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.EMERALD_BLOCK).build();
+    public static final RechiseledBlockType EMERALD_BLOCK_STRIPED = create("emerald_block_striped", "Striped Block of Emerald", () -> Blocks.EMERALD_BLOCK).recipe(BaseChiselingRecipes.EMERALD_BLOCK).build();
+    public static final RechiseledBlockType EMERALD_BLOCK_WAXED = create("emerald_block_waxed", "Waxed Block of Emerald", () -> Blocks.EMERALD_BLOCK).recipe(BaseChiselingRecipes.EMERALD_BLOCK).build();
     // End stone
     public static final RechiseledBlockType END_STONE_BLOBS = create("end_stone_blobs", "End Stone Blobs", () -> Blocks.END_STONE).recipe(BaseChiselingRecipes.END_STONE).build();
     public static final RechiseledBlockType END_STONE_BRICK_PATTERN = create("end_stone_brick_pattern", "End Stone Brick Pattern", () -> Blocks.END_STONE_BRICKS).recipe(BaseChiselingRecipes.END_STONE).build();
@@ -195,6 +246,18 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType GLOWSTONE_SMALL_TILES = create("glowstone_small_tiles", "Small Glowstone Tiles", () -> Blocks.GLOWSTONE).recipe(BaseChiselingRecipes.GLOWSTONE).build();
     public static final RechiseledBlockType GLOWSTONE_SMOOTH = create("glowstone_smooth", "Smooth Glowstone", () -> Blocks.GLOWSTONE).recipe(BaseChiselingRecipes.GLOWSTONE).build();
     public static final RechiseledBlockType GLOWSTONE_TILES = create("glowstone_tiles", "Glowstone Tiles", () -> Blocks.GLOWSTONE).recipe(BaseChiselingRecipes.GLOWSTONE).build();
+    // Gold block
+    public static final RechiseledBlockType GOLD_BLOCK_BEAMS = create("gold_block_beams", "Gold Beams Block", () -> Blocks.GOLD_BLOCK).recipe(BaseChiselingRecipes.GOLD_BLOCK).build();
+    public static final RechiseledBlockType GOLD_BLOCK_BORDERED = create("gold_block_bordered", "Bordered Block of Gold", () -> Blocks.GOLD_BLOCK).recipe(BaseChiselingRecipes.GOLD_BLOCK).build();
+    public static final RechiseledBlockType GOLD_BLOCK_LINES = create("gold_block_lines", "Gold Lines Block", () -> Blocks.GOLD_BLOCK).recipe(BaseChiselingRecipes.GOLD_BLOCK).build();
+    public static final RechiseledBlockType GOLD_BLOCK_PATTERN = create("gold_block_pattern", "Gold Block Pattern", () -> Blocks.GOLD_BLOCK).recipe(BaseChiselingRecipes.GOLD_BLOCK).build();
+    public static final RechiseledBlockType GOLD_BLOCK_POLISHED = create("gold_block_polished", "Polished Block of Gold", () -> Blocks.GOLD_BLOCK).recipe(BaseChiselingRecipes.GOLD_BLOCK).build();
+    public static final RechiseledBlockType GOLD_BLOCK_SCALES = create("gold_block_scales", "Gold Scales Block", () -> Blocks.GOLD_BLOCK).recipe(BaseChiselingRecipes.GOLD_BLOCK).build();
+    public static final RechiseledBlockType GOLD_BLOCK_SMALL_BRICKS = create("gold_block_small_bricks", "Small Gold Bricks", () -> Blocks.GOLD_BLOCK).recipe(BaseChiselingRecipes.GOLD_BLOCK).build();
+    public static final RechiseledBlockType GOLD_BLOCK_SMALL_TILES = create("gold_block_small_tiles", "Small Gold Tiles", () -> Blocks.GOLD_BLOCK).recipe(BaseChiselingRecipes.GOLD_BLOCK).build();
+    public static final RechiseledBlockType GOLD_BLOCK_STRIPED = create("gold_block_striped", "Striped Block of Gold", () -> Blocks.GOLD_BLOCK).recipe(BaseChiselingRecipes.GOLD_BLOCK).build();
+    public static final RechiseledBlockType GOLD_BLOCK_SMOOTH = create("gold_block_smooth", "Smooth Block of Gold", () -> Blocks.GOLD_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.GOLD_BLOCK).build();
+    public static final RechiseledBlockType GOLD_BLOCK_TILES = create("gold_block_tiles", "Gold Tiles Block", () -> Blocks.GOLD_BLOCK).recipe(BaseChiselingRecipes.GOLD_BLOCK).build();
     // Granite
     public static final RechiseledBlockType GRANITE_BRICK_PATTERN = create("granite_brick_pattern", "Granite Brick Pattern", () -> Blocks.POLISHED_GRANITE).recipe(BaseChiselingRecipes.GRANITE).build();
     public static final RechiseledBlockType GRANITE_BRICK_PAVING = create("granite_brick_paving", "Granite Brick Paving", () -> Blocks.POLISHED_GRANITE).recipe(BaseChiselingRecipes.GRANITE).build();
