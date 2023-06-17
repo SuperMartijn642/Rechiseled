@@ -5,6 +5,14 @@
       "item": "minecraft:glowstone"
     },
     {
+      "item": "rechiseled:glowstone_brick_pattern",
+      "connecting_item": "rechiseled:glowstone_brick_pattern_connecting"
+    },
+    {
+      "item": "rechiseled:glowstone_brick_paving",
+      "connecting_item": "rechiseled:glowstone_brick_paving_connecting"
+    },
+    {
       "item": "rechiseled:glowstone_bricks",
       "connecting_item": "rechiseled:glowstone_bricks_connecting"
     },
@@ -15,6 +23,10 @@
     {
       "item": "rechiseled:glowstone_large_tiles",
       "connecting_item": "rechiseled:glowstone_large_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:glowstone_rotated_bricks",
+      "connecting_item": "rechiseled:glowstone_rotated_bricks_connecting"
     },
     {
       "item": "rechiseled:glowstone_small_tiles",
