@@ -1,0 +1,53 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "item": "minecraft:copper_block"
+    },
+    {
+      "item": "minecraft:cut_copper"
+    },
+    {
+      "item": "rechiseled:copper_block_bars",
+      "connecting_item": "rechiseled:copper_block_bars_connecting"
+    },
+    {
+      "item": "rechiseled:copper_block_circles",
+      "connecting_item": "rechiseled:copper_block_circles_connecting"
+    },
+    {
+      "item": "rechiseled:copper_block_cone"
+    },
+    {
+      "item": "rechiseled:copper_block_gears",
+      "connecting_item": "rechiseled:copper_block_gears_connecting"
+    },
+    {
+      "item": "rechiseled:copper_block_lines",
+      "connecting_item": "rechiseled:copper_block_lines_connecting"
+    },
+    {
+      "item": "rechiseled:copper_block_pattern",
+      "connecting_item": "rechiseled:copper_block_pattern_connecting"
+    },
+    {
+      "item": "rechiseled:copper_block_pillar",
+      "connecting_item": "rechiseled:copper_block_pillar_connecting"
+    },
+    {
+      "item": "rechiseled:copper_block_polished",
+      "connecting_item": "rechiseled:copper_block_polished_connecting"
+    },
+    {
+      "item": "rechiseled:copper_block_shafts",
+      "connecting_item": "rechiseled:copper_block_shafts_connecting"
+    },
+    {
+      "item": "rechiseled:copper_block_small_bricks",
+      "connecting_item": "rechiseled:copper_block_small_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:copper_block_smooth"
+    }
+  ]
+}

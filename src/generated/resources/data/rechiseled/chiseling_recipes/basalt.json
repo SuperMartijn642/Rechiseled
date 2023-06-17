@@ -1,0 +1,49 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "item": "minecraft:basalt"
+    },
+    {
+      "item": "minecraft:polished_basalt"
+    },
+    {
+      "item": "minecraft:smooth_basalt"
+    },
+    {
+      "item": "rechiseled:basalt_beams",
+      "connecting_item": "rechiseled:basalt_beams_connecting"
+    },
+    {
+      "item": "rechiseled:basalt_bordered",
+      "connecting_item": "rechiseled:basalt_bordered_connecting"
+    },
+    {
+      "item": "rechiseled:basalt_bordered_polished",
+      "connecting_item": "rechiseled:basalt_bordered_polished_connecting"
+    },
+    {
+      "item": "rechiseled:basalt_bricks",
+      "connecting_item": "rechiseled:basalt_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:basalt_chiseled_piglin"
+    },
+    {
+      "item": "rechiseled:basalt_diagonal_tiles",
+      "connecting_item": "rechiseled:basalt_diagonal_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:basalt_pattern",
+      "connecting_item": "rechiseled:basalt_pattern_connecting"
+    },
+    {
+      "item": "rechiseled:basalt_patterned",
+      "connecting_item": "rechiseled:basalt_patterned_connecting"
+    },
+    {
+      "item": "rechiseled:basalt_tiles",
+      "connecting_item": "rechiseled:basalt_tiles_connecting"
+    }
+  ]
+}
