@@ -11,10 +11,16 @@ import static com.supermartijn642.rechiseled.api.BaseChiselingRecipes.*;
 public class RechiseledChiselingRecipes {
 
     public static void init(){
+        // Amethyst block
+        REGISTRATION.chiselingEntry(AMETHYST_BLOCK, () -> Items.AMETHYST_BLOCK, null);
         // Acacia planks
         REGISTRATION.chiselingEntry(ACACIA_PLANKS, () -> Items.ACACIA_PLANKS, null);
         // Andesite
         REGISTRATION.chiselingEntry(ANDESITE, () -> Items.ANDESITE, null);
+        // Basalt
+        REGISTRATION.chiselingEntry(BASALT, () -> Items.BASALT, null);
+        REGISTRATION.chiselingEntry(BASALT, () -> Items.POLISHED_BASALT, null);
+        REGISTRATION.chiselingEntry(BASALT, () -> Items.SMOOTH_BASALT, null);
         // Bamboo planks
         REGISTRATION.chiselingEntry(BAMBOO_PLANKS, () -> Items.BAMBOO_PLANKS, null);
         REGISTRATION.chiselingEntry(BAMBOO_PLANKS, () -> Items.BAMBOO_MOSAIC, null);
@@ -27,6 +33,8 @@ public class RechiseledChiselingRecipes {
         REGISTRATION.chiselingEntry(BLACKSTONE, () -> Items.CHISELED_POLISHED_BLACKSTONE, null);
         // Cherry planks
         REGISTRATION.chiselingEntry(CHERRY_PLANKS, () -> Items.CHERRY_PLANKS, null);
+        // Coal block
+        REGISTRATION.chiselingEntry(COAL_BLOCK, () -> Items.COAL_BLOCK, null);
         // Cobbled deepslate
         REGISTRATION.chiselingEntry(COBBLED_DEEPSLATE, () -> Items.COBBLED_DEEPSLATE, null);
         REGISTRATION.chiselingEntry(COBBLED_DEEPSLATE, () -> Items.POLISHED_DEEPSLATE, null);
@@ -38,6 +46,9 @@ public class RechiseledChiselingRecipes {
         // Cobblestone
         REGISTRATION.chiselingEntry(COBBLESTONE, () -> Items.COBBLESTONE, null);
         REGISTRATION.chiselingEntry(COBBLESTONE, () -> Items.MOSSY_COBBLESTONE, null);
+        // Copper block
+        REGISTRATION.chiselingEntry(COPPER_BLOCK, () -> Items.COPPER_BLOCK, null);
+        REGISTRATION.chiselingEntry(COPPER_BLOCK, () -> Items.CUT_COPPER, null);
         // Crimson planks
         REGISTRATION.chiselingEntry(CRIMSON_PLANKS, () -> Items.CRIMSON_PLANKS, null);
         // Dark oak planks
@@ -48,11 +59,15 @@ public class RechiseledChiselingRecipes {
         REGISTRATION.chiselingEntry(DIORITE, () -> Items.DIORITE, null);
         // Dirt
         REGISTRATION.chiselingEntry(DIRT, () -> Items.DIRT, null);
+        // Emerald block
+        REGISTRATION.chiselingEntry(EMERALD_BLOCK, () -> Items.EMERALD_BLOCK, null);
         // End stone
         REGISTRATION.chiselingEntry(END_STONE, () -> Items.END_STONE, null);
         REGISTRATION.chiselingEntry(END_STONE, () -> Items.END_STONE_BRICKS, null);
         // Glowstone
         REGISTRATION.chiselingEntry(GLOWSTONE, () -> Items.GLOWSTONE, null);
+        // Gold block
+        REGISTRATION.chiselingEntry(GOLD_BLOCK, () -> Items.GOLD_BLOCK, null);
         // Granite
         REGISTRATION.chiselingEntry(GRANITE, () -> Items.GRANITE, null);
         // Jungle planks

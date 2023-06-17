@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "rechiseled:block/diamond_block_diagonal_tiles"
+    }
+  }
+}
