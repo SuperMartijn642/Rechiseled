@@ -1,0 +1,50 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "item": "rechiseled:diamond_block_chiseled",
+      "connecting_item": "rechiseled:diamond_block_chiseled_connecting"
+    },
+    {
+      "item": "rechiseled:diamond_block_chiseled_cubes",
+      "connecting_item": "rechiseled:diamond_block_chiseled_cubes_connecting"
+    },
+    {
+      "item": "minecraft:diamond_block",
+      "connecting_item": "rechiseled:diamond_block_connecting_connecting"
+    },
+    {
+      "item": "rechiseled:diamond_block_diagonal_tiles"
+    },
+    {
+      "item": "rechiseled:diamond_block_grid",
+      "connecting_item": "rechiseled:diamond_block_grid_connecting"
+    },
+    {
+      "item": "rechiseled:diamond_block_jewel_block",
+      "connecting_item": "rechiseled:diamond_block_jewel_block_connecting"
+    },
+    {
+      "item": "rechiseled:diamond_block_polished",
+      "connecting_item": "rechiseled:diamond_block_polished_connecting"
+    },
+    {
+      "item": "rechiseled:diamond_block_rhombuses",
+      "connecting_item": "rechiseled:diamond_block_rhombuses_connecting"
+    },
+    {
+      "item": "rechiseled:diamond_block_shiny"
+    },
+    {
+      "item": "rechiseled:diamond_block_shiny_bordered",
+      "connecting_item": "rechiseled:diamond_block_shiny_bordered_connecting"
+    },
+    {
+      "item": "rechiseled:diamond_block_small_tiles",
+      "connecting_item": "rechiseled:diamond_block_small_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:diamond_block_smooth"
+    }
+  ]
+}
