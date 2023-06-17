@@ -18,6 +18,10 @@
       "item": "rechiseled:quartz_block_bordered"
     },
     {
+      "connecting_item": "rechiseled:quartz_block_brick_paving_connecting",
+      "item": "rechiseled:quartz_block_brick_paving"
+    },
+    {
       "connecting_item": "rechiseled:quartz_block_chiseled_pillar_connecting",
       "item": "rechiseled:quartz_block_chiseled_pillar"
     },
@@ -39,6 +43,10 @@
     {
       "connecting_item": "rechiseled:quartz_block_pattern_connecting",
       "item": "rechiseled:quartz_block_pattern"
+    },
+    {
+      "connecting_item": "rechiseled:quartz_block_rotated_bricks_connecting",
+      "item": "rechiseled:quartz_block_rotated_bricks"
     },
     {
       "connecting_item": "rechiseled:quartz_block_rows_connecting",

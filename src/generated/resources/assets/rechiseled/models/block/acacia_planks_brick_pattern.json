@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "rechiseled:block/acacia_planks_brick_pattern"
+  }
+}

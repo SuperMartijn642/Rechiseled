@@ -1,0 +1,14 @@
+{
+  "type": "fusion:connecting",
+  "parent": "minecraft:block/cube_all",
+  "ambientocclusion": false,
+  "connections": [
+    {
+      "type": "fusion:is_same_block"
+    }
+  ],
+  "loader": "fusion:model",
+  "textures": {
+    "all": "rechiseled:block/bamboo_planks_small_tiles"
+  }
+}

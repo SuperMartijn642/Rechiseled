@@ -15,6 +15,9 @@ public class RechiseledChiselingRecipes {
         REGISTRATION.chiselingEntry(ACACIA_PLANKS, () -> Items.ACACIA_PLANKS, null);
         // Andesite
         REGISTRATION.chiselingEntry(ANDESITE, () -> Items.ANDESITE, null);
+        // Bamboo planks
+        REGISTRATION.chiselingEntry(BAMBOO_PLANKS, () -> Items.BAMBOO_PLANKS, null);
+        REGISTRATION.chiselingEntry(BAMBOO_PLANKS, () -> Items.BAMBOO_MOSAIC, null);
         // Birch planks
         REGISTRATION.chiselingEntry(BIRCH_PLANKS, () -> Items.BIRCH_PLANKS, null);
         // Blackstone
@@ -22,6 +25,8 @@ public class RechiseledChiselingRecipes {
         REGISTRATION.chiselingEntry(BLACKSTONE, () -> Items.POLISHED_BLACKSTONE_BRICKS, null);
         REGISTRATION.chiselingEntry(BLACKSTONE, () -> Items.CRACKED_POLISHED_BLACKSTONE_BRICKS, null);
         REGISTRATION.chiselingEntry(BLACKSTONE, () -> Items.CHISELED_POLISHED_BLACKSTONE, null);
+        // Cherry planks
+        REGISTRATION.chiselingEntry(CHERRY_PLANKS, () -> Items.CHERRY_PLANKS, null);
         // Cobbled deepslate
         REGISTRATION.chiselingEntry(COBBLED_DEEPSLATE, () -> Items.COBBLED_DEEPSLATE, null);
         REGISTRATION.chiselingEntry(COBBLED_DEEPSLATE, () -> Items.POLISHED_DEEPSLATE, null);

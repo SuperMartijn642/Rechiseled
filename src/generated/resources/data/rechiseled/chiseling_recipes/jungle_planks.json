@@ -9,6 +9,14 @@
       "item": "rechiseled:jungle_planks_beams"
     },
     {
+      "connecting_item": "rechiseled:jungle_planks_brick_pattern_connecting",
+      "item": "rechiseled:jungle_planks_brick_pattern"
+    },
+    {
+      "connecting_item": "rechiseled:jungle_planks_brick_paving_connecting",
+      "item": "rechiseled:jungle_planks_brick_paving"
+    },
+    {
       "connecting_item": "rechiseled:jungle_planks_bricks_connecting",
       "item": "rechiseled:jungle_planks_bricks"
     },
@@ -37,8 +45,15 @@
       "item": "rechiseled:jungle_planks_large_tiles"
     },
     {
+      "item": "rechiseled:jungle_planks_mosaic"
+    },
+    {
       "connecting_item": "rechiseled:jungle_planks_pattern_connecting",
       "item": "rechiseled:jungle_planks_pattern"
+    },
+    {
+      "connecting_item": "rechiseled:jungle_planks_rotated_bricks_connecting",
+      "item": "rechiseled:jungle_planks_rotated_bricks"
     },
     {
       "connecting_item": "rechiseled:jungle_planks_small_bricks_connecting",

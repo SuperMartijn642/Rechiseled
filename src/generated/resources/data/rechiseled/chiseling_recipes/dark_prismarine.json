@@ -9,6 +9,10 @@
       "item": "rechiseled:dark_prismarine_beams"
     },
     {
+      "connecting_item": "rechiseled:dark_prismarine_brick_paving_connecting",
+      "item": "rechiseled:dark_prismarine_brick_paving"
+    },
+    {
       "connecting_item": "rechiseled:dark_prismarine_bricks_connecting",
       "item": "rechiseled:dark_prismarine_bricks"
     },
@@ -23,6 +27,10 @@
     {
       "connecting_item": "rechiseled:dark_prismarine_large_tiles_connecting",
       "item": "rechiseled:dark_prismarine_large_tiles"
+    },
+    {
+      "connecting_item": "rechiseled:dark_prismarine_rotated_bricks_connecting",
+      "item": "rechiseled:dark_prismarine_rotated_bricks"
     },
     {
       "connecting_item": "rechiseled:dark_prismarine_rows_connecting",
