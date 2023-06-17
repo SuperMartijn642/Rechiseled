@@ -13,13 +13,17 @@ public class BaseChiselingRecipes {
     public static final ResourceLocation ACACIA_PLANKS = location("acacia_planks");
     public static final ResourceLocation ANDESITE = location("andesite");
     public static final ResourceLocation BIRCH_PLANKS = location("birch_planks");
+    public static final ResourceLocation COAL_BLOCK = location("coal_block");
     public static final ResourceLocation COBBLESTONE = location("cobblestone");
     public static final ResourceLocation DARK_OAK_PLANKS = location("dark_oak_planks");
     public static final ResourceLocation DARK_PRISMARINE = location("dark_prismarine");
+    public static final ResourceLocation DIAMOND_BLOCK = location("diamond_block");
     public static final ResourceLocation DIORITE = location("diorite");
     public static final ResourceLocation DIRT = location("dirt");
+    public static final ResourceLocation EMERALD_BLOCK = location("emerald_block");
     public static final ResourceLocation END_STONE = location("end_stone");
     public static final ResourceLocation GLOWSTONE = location("glowstone");
+    public static final ResourceLocation GOLD_BLOCK = location("gold_block");
     public static final ResourceLocation GRANITE = location("granite");
     public static final ResourceLocation JUNGLE_PLANKS = location("jungle_planks");
     public static final ResourceLocation NETHERRACK = location("netherrack");

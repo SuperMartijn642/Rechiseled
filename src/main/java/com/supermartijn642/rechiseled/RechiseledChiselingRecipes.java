@@ -17,6 +17,8 @@ public class RechiseledChiselingRecipes {
         REGISTRATION.chiselingEntry(ANDESITE, () -> Items.ANDESITE, null);
         // Birch planks
         REGISTRATION.chiselingEntry(BIRCH_PLANKS, () -> Items.BIRCH_PLANKS, null);
+        // Coal block
+        REGISTRATION.chiselingEntry(COAL_BLOCK, () -> Items.COAL_BLOCK, null);
         // Cobblestone
         REGISTRATION.chiselingEntry(COBBLESTONE, () -> Items.COBBLESTONE, null);
         REGISTRATION.chiselingEntry(COBBLESTONE, () -> Items.MOSSY_COBBLESTONE, null);
@@ -28,11 +30,15 @@ public class RechiseledChiselingRecipes {
         REGISTRATION.chiselingEntry(DIORITE, () -> Items.DIORITE, null);
         // Dirt
         REGISTRATION.chiselingEntry(DIRT, () -> Items.DIRT, null);
+        // Emerald block
+        REGISTRATION.chiselingEntry(EMERALD_BLOCK, () -> Items.EMERALD_BLOCK, null);
         // End stone
         REGISTRATION.chiselingEntry(END_STONE, () -> Items.END_STONE, null);
         REGISTRATION.chiselingEntry(END_STONE, () -> Items.END_STONE_BRICKS, null);
         // Glowstone
         REGISTRATION.chiselingEntry(GLOWSTONE, () -> Items.GLOWSTONE, null);
+        // Gold block
+        REGISTRATION.chiselingEntry(GOLD_BLOCK, () -> Items.GOLD_BLOCK, null);
         // Granite
         REGISTRATION.chiselingEntry(GRANITE, () -> Items.GRANITE, null);
         // Jungle planks
