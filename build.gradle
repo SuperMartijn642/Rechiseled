@@ -9,7 +9,7 @@ buildscript {
     }
 }
 plugins {
-    id "com.matthewprenger.cursegradle" version "1.4.0"
+    id "io.github.CDAGaming.cursegradle" version "1.6.1"
     id "com.modrinth.minotaur" version "2.+"
 }
 apply plugin: "net.minecraftforge.gradle"
@@ -129,8 +129,21 @@ task prepareDataResources(type: Sync) {
 
 // Run prepareDataResources before prepareRunData
 tasks.whenTaskAdded {
-    if(it.name == "prepareRunData")
+    if (it.name == "prepareRunData")
         it.dependsOn "prepareDataResources"
+}
+
+tasks.register('javadocJar', Jar) {
+    dependsOn(javadoc)
+    group = "documentation"
+    classifier = "javadoc"
+    from(javadoc.destinationDir)
+}
+
+tasks.register('sourcesJar', Jar) {
+    group = "documentation"
+    classifier = "sources"
+    from(sourceSets.main.allSource)
 }
 
 // CurseGradle settings for uploading to CurseForge
@@ -145,17 +158,25 @@ curseforge {
         // Point to 'changelog' setting to a the changelog file
         changelog = file("changelog.md")
         changelogType = "markdown"
-        relations {
-            // Required dependencies
-            if (!project.curseforge_required_dependency_ids.isEmpty())
-                project.curseforge_required_dependency_ids.split(" ").each it::requiredDependency
-            // Optional dependencies
-            if (!project.curseforge_optional_dependency_ids.isEmpty())
-                project.curseforge_optional_dependency_ids.split(" ").each it::optionalDependency
+        if (!project.curseforge_required_dependency_ids.isEmpty() || !project.curseforge_optional_dependency_ids.isEmpty()) {
+            relations {
+                // Required dependencies
+                if (!project.curseforge_required_dependency_ids.isEmpty())
+                    project.curseforge_required_dependency_ids.split(" ").each it::requiredDependency
+                // Optional dependencies
+                if (!project.curseforge_optional_dependency_ids.isEmpty())
+                    project.curseforge_optional_dependency_ids.split(" ").each it::optionalDependency
+            }
         }
 
         mainArtifact(jar) {
-            displayName = "${project.mod_name} ${project.mod_version} for Forge ${project.minecraft_suffix.substring(2)}"
+            it.displayName = "${project.mod_name} ${project.mod_version} for Forge ${project.minecraft_suffix.substring(2)}"
+        }
+        addArtifact(javadocJar) {
+            it.displayName = "${project.mod_name} ${project.mod_version} for Forge ${project.minecraft_suffix.substring(2)}"
+        }
+        addArtifact(sourcesJar) {
+            it.displayName = "${project.mod_name} ${project.mod_version} for Forge ${project.minecraft_suffix.substring(2)}"
         }
     }
     options {
@@ -182,14 +203,17 @@ modrinth {
     // Convert the changelog file to text
     changelog = file("changelog.md").text
     uploadFile = jar // With Loom, this MUST be set to `remapJar` instead of `jar`!
+    additionalFiles = [javadocJar, sourcesJar]
     loaders = ["forge"]
-    dependencies {
-        // Required dependencies
-        if (!project.modrinth_required_dependency_ids.isEmpty())
-            project.modrinth_required_dependency_ids.split(" ").each required::project
-        // Optional dependencies
-        if (!project.modrinth_optional_dependency_ids.isEmpty())
-            project.modrinth_optional_dependency_ids.split(" ").each optional::project
+    if (!project.modrinth_required_dependency_ids.isEmpty() || !project.modrinth_optional_dependency_ids.isEmpty()) {
+        dependencies {
+            // Required dependencies
+            if (!project.modrinth_required_dependency_ids.isEmpty())
+                project.modrinth_required_dependency_ids.split(" ").each required::project
+            // Optional dependencies
+            if (!project.modrinth_optional_dependency_ids.isEmpty())
+                project.modrinth_optional_dependency_ids.split(" ").each optional::project
+        }
     }
 }
 
