@@ -1,3 +1,6 @@
+### Rechiseled 1.1.0b
+- Fixed missing translations for some blocks
+
 ### Rechiseled 1.1.0a
 - Fixed crash with Create
 
