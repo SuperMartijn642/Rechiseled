@@ -6,7 +6,6 @@ import net.minecraft.resources.ResourceLocation;
  * Created 19/01/2022 by SuperMartijn642
  * <p>
  * All default recipe locations in rechiseled.
- * Can be used for the parent argument in {@link ChiselingRecipeProvider}.
  */
 public class BaseChiselingRecipes {
 
