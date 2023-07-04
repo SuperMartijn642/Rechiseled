@@ -1,26 +1,31 @@
 package com.supermartijn642.rechiseled.chiseling;
 
-import com.google.common.collect.Maps;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.supermartijn642.rechiseled.Rechiseled;
-import net.minecraft.client.resources.JsonReloadListener;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.profiler.IProfiler;
+import net.minecraft.resources.IFutureReloadListener;
+import net.minecraft.resources.IResource;
 import net.minecraft.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.server.FMLServerAboutToStartEvent;
 
+import java.io.InputStreamReader;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executor;
+import java.util.stream.Collectors;
 
 /**
  * Created 18/01/2022 by SuperMartijn642
  */
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
-public class ChiselingRecipeLoader extends JsonReloadListener {
+public class ChiselingRecipeLoader implements IFutureReloadListener {
 
     @SubscribeEvent
     public static void onAddReloadListener(FMLServerAboutToStartEvent e){
@@ -36,72 +41,145 @@ public class ChiselingRecipeLoader extends JsonReloadListener {
 
     private static final Gson GSON = new GsonBuilder().setLenient().create();
 
-    public ChiselingRecipeLoader(){
-        super(GSON, "chiseling_recipes");
+    @Override
+    public CompletableFuture<Void> reload(IStage preparationBarrier, IResourceManager resourceManager, IProfiler profilerFiller, IProfiler profilerFiller2, Executor executor, Executor executor2){
+        List<CompletableFuture<ChiselingRecipe>> recipes = resourceManager.listResources("chiseling_recipes", s -> s.endsWith(".json")).stream()
+            .map(location -> CompletableFuture.supplyAsync(() -> loadRecipe(resourceManager, location), executor))
+            .collect(Collectors.toList());
+        return CompletableFuture.allOf(recipes.toArray(new CompletableFuture[0]))
+            .thenApplyAsync(o -> mergeRecipes(recipes.stream().map(CompletableFuture::join).filter(Objects::nonNull).collect(Collectors.toList())), executor)
+            .thenCompose(preparationBarrier::wait)
+            .thenAcceptAsync(resolvedRecipes -> {
+                Rechiseled.LOGGER.info("Loaded " + resolvedRecipes.size() + " chiseling recipes");
+                ChiselingRecipes.setRecipes(resolvedRecipes);
+            }, executor2);
     }
 
-    @Override
-    protected void apply(Map<ResourceLocation,JsonObject> entries, IResourceManager resourceManager, IProfiler profilerFiller){
-        Map<ResourceLocation,ChiselingRecipe> recipes = Maps.newHashMap();
-        List<ChiselingRecipe> recipesWithoutParent = new ArrayList<>();
-        List<ChiselingRecipe> recipesWithParent = new ArrayList<>();
+    private static ChiselingRecipe loadRecipe(IResourceManager resourceManager, ResourceLocation recipeLocation){
+        ResourceLocation parentRecipe = null;
+        List<ChiselingEntry> entries = new ArrayList<>();
+        try{
+            // Loop over the resource stack for the recipe location
+            for(IResource resource : resourceManager.getResources(recipeLocation)){
+                JsonObject json;
+                try(InputStreamReader reader = new InputStreamReader(resource.getInputStream())){
+                    json = GSON.fromJson(reader, JsonObject.class);
+                }catch(Exception e){
+                    Rechiseled.LOGGER.error("Encountered an exception whilst trying to load chiseling recipe json '" + recipeLocation + "' from '" + resource.getSourceName() + "'!", e);
+                    break;
+                }
 
-        // Load all recipes from json
-        for(Map.Entry<ResourceLocation,JsonObject> entry : entries.entrySet()){
+                ChiselingRecipe recipe = ChiselingRecipe.Serializer.fromJson(recipeLocation, json);
+                // Check overwrite
+                if(recipe.overwrite)
+                    entries.clear();
+                // Add entries
+                entries.addAll(recipe.getEntries());
+                // Check parent
+                if(recipe.parentRecipeId != null){
+                    Rechiseled.LOGGER.warn("Chiseling recipe '" + recipe.getRecipeId() + "' from '" + resource.getSourceName() + "' uses the 'parent' field! This will be removed in Rechiseled 1.2.0. Recipes automatically get merged based on entries!");
+                    parentRecipe = recipe.parentRecipeId;
+                    break;
+                }
+            }
+        }catch(Exception e){
+            Rechiseled.LOGGER.error("Encountered an exception whilst trying to load chiseling recipe '" + recipeLocation + "'!", e);
+            return null;
+        }
+        return new ChiselingRecipe(recipeLocation, parentRecipe, entries);
+    }
 
-            ResourceLocation recipeId = entry.getKey();
-            JsonObject json = entry.getValue();
-            ChiselingRecipe recipe;
-            try{
-                recipe = ChiselingRecipe.Serializer.fromJson(entry.getKey(), json);
-            }catch(Exception e){
-                System.err.println("Encountered an exception when trying to load chiseling recipe: " + recipeId);
-                e.printStackTrace();
+    private static List<ChiselingRecipe> mergeRecipes(List<ChiselingRecipe> recipes){
+        // Keep track of the entries of all recipes
+        Map<ResourceLocation,Set<ChiselingEntry>> recipeEntries = new LinkedHashMap<>();
+        recipes.stream()
+            .sorted(Comparator.comparing(r -> r.getRecipeId().toString()))
+            .forEach(recipe -> recipeEntries.put(recipe.getRecipeId(), new LinkedHashSet<>(recipe.getEntries())));
+
+        // Merge parent recipes TODO remove in 1.2.0
+        Map<ResourceLocation,ChiselingRecipe> recipesWithParent = new LinkedHashMap<>();
+        for(ChiselingRecipe recipe : recipes){
+            if(recipe.parentRecipeId != null)
+                recipesWithParent.put(recipe.getRecipeId(), recipe);
+        }
+        loop:
+        for(ChiselingRecipe recipe : recipesWithParent.values()){
+            // Keep track of which recipe ids have been covered
+            Set<ResourceLocation> coveredRecipes = new HashSet<>();
+
+            ResourceLocation parentRecipe = recipe.parentRecipeId;
+            while(recipesWithParent.containsKey(parentRecipe)){
+                // Check for loop
+                coveredRecipes.add(parentRecipe);
+                if(coveredRecipes.contains(parentRecipe)){
+                    Rechiseled.LOGGER.error("Found circular parent references when trying to load chiseling recipe '" + recipe.getRecipeId() + "': " + coveredRecipes);
+                    continue loop;
+                }
+
+                parentRecipe = recipesWithParent.get(parentRecipe).parentRecipeId;
+            }
+
+            // Check if parent exists
+            if(parentRecipe == null){
+                Rechiseled.LOGGER.error("Could not find parent '" + parentRecipe + "' when trying to load chiseling recipe '" + recipe.getRecipeId() + "'!");
                 continue;
             }
 
-            recipes.put(recipeId, recipe);
-            if(recipe.parentRecipeId == null)
-                recipesWithoutParent.add(recipe);
-            else
-                recipesWithParent.add(recipe);
+            // Finally, add the entries to the greatest parent
+            recipeEntries.get(parentRecipe).addAll(recipe.getEntries());
         }
 
-        // Combine recipes
-        int successfullyLoadedRecipes = recipesWithoutParent.size();
+        // Merge recipes based on entries
+        Map<ResourceLocation,Set<Item>> itemsPerRecipe = new HashMap<>();
+        for(Map.Entry<ResourceLocation,Set<ChiselingEntry>> recipe : recipeEntries.entrySet()){
+            HashSet<Item> items = new HashSet<>();
+            recipe.getValue().forEach(e -> {
+                if(e.hasRegularItem())
+                    items.add(e.getRegularItem());
+                if(e.hasConnectingItem())
+                    items.add(e.getConnectingItem());
+            });
+            itemsPerRecipe.put(recipe.getKey(), items);
+        }
+        ResourceLocation[] locations = recipeEntries.keySet().toArray(new ResourceLocation[0]);
         loop:
-        for(ChiselingRecipe recipe : recipesWithParent){
-            // Keep track of which recipe ids have been covered
-            Set<ResourceLocation> coveredRecipes = new HashSet<>();
-            List<ChiselingEntry> chiselingEntries = recipe.getEntries();
-
-            ChiselingRecipe parentRecipe = recipe;
-
-            while(parentRecipe.parentRecipeId != null){
-                coveredRecipes.add(parentRecipe.getRecipeId());
-
-                ResourceLocation parentId = parentRecipe.parentRecipeId;
-                // Check for loop
-                if(coveredRecipes.contains(parentId)){
-                    System.err.println("Found circular parent references when trying to load chiseling recipe: " + recipe.getRecipeId());
-                    continue loop;
-                }
-
-                parentRecipe = recipes.get(parentId);
-                // Check if parent exists
-                if(parentRecipe == null){
-                    System.err.println("Could not find parent '" + parentId + "' when trying to load chiseling recipe: " + recipe.getRecipeId());
+        for(int i = 0; i < locations.length; i++){
+            for(int j = i + 1; j < locations.length; j++){
+                // Check if the recipes contain overlapping items
+                if(!Collections.disjoint(itemsPerRecipe.get(locations[i]), itemsPerRecipe.get(locations[j]))){
+                    // Merge the recipes
+                    recipeEntries.get(locations[j]).addAll(recipeEntries.get(locations[i]));
+                    recipeEntries.remove(locations[i]);
+                    itemsPerRecipe.get(locations[j]).addAll(itemsPerRecipe.get(locations[i]));
+                    itemsPerRecipe.remove(locations[i]);
                     continue loop;
                 }
             }
-
-            // Finally, add the entries to the greatest parent
-            parentRecipe.addEntries(chiselingEntries);
-            successfullyLoadedRecipes++;
         }
 
-        // Apply the loaded recipes
-        System.out.println("Loaded " + successfullyLoadedRecipes + " chiseling recipes");
-        ChiselingRecipes.setRecipes(Collections.unmodifiableList(recipesWithoutParent));
+        // Remove unnecessary entries
+        for(ResourceLocation location : recipeEntries.keySet()){
+            Set<ChiselingEntry> entries = recipeEntries.get(location);
+            HashMap<Item,Integer> itemCounts = new HashMap<>();
+            itemsPerRecipe.get(location).forEach(item -> itemCounts.compute(item, (i, c) -> c == null ? 1 : c + 1));
+
+            List<ChiselingEntry> toRemove = new LinkedList<>();
+            for(ChiselingEntry entry : entries){
+                if(!entry.hasRegularItem() && itemCounts.get(entry.getConnectingItem()) > 1){
+                    toRemove.add(entry);
+                    itemCounts.compute(entry.getConnectingItem(), (i, c) -> c - 1);
+                }else if(!entry.hasConnectingItem() && itemCounts.get(entry.getRegularItem()) > 1){
+                    toRemove.add(entry);
+                    itemCounts.compute(entry.getRegularItem(), (i, c) -> c - 1);
+                }
+            }
+            toRemove.forEach(entries::remove);
+        }
+
+        // Finally, create new recipes
+        recipes = recipeEntries.entrySet().stream()
+            .map(entry -> new ChiselingRecipe(entry.getKey(), null, entry.getValue()))
+            .collect(Collectors.toList());
+        return recipes;
     }
 }
