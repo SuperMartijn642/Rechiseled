@@ -13,6 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
+import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
@@ -73,6 +74,8 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
         if(recipe.parent != null)
             json.addProperty("parent", recipe.parent.toString());
 
+        json.addProperty("overwrite", recipe.overwrite);
+
         Set<Item> items = Sets.newHashSet();
         JsonArray entries = new JsonArray();
         for(Triple<Item,Item,Boolean> entry : recipe.entries){
@@ -119,6 +122,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
 
         private final List<Triple<Item,Item,Boolean>> entries = new LinkedList<>();
         private ResourceLocation parent;
+        private boolean overwrite = false;
 
         private ChiselingRecipeBuilder(){
         }
@@ -129,10 +133,23 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
          * {@link BaseChiselingRecipes} contains recipe locations for the default rechiseled recipes.
          * @param parent the parent recipe location
          * @throws IllegalArgumentException when {@code parent} recipe does not exist
+         * @deprecated
          */
+        @Deprecated(forRemoval = true)
+        @ApiStatus.ScheduledForRemoval(inVersion = "1.2.0")
         public ChiselingRecipeBuilder parent(ResourceLocation parent){
             this.parent = parent;
             return this;
+        }
+
+        /**
+         * Sets the overwrite flag for this recipe builder.
+         * If overwrite is true, any entries that came before this one in the resource stack will be discarded.
+         * The overwrite flag works similarly to the 'replace' key for tags.
+         * @param overwrite whether the lower level resources' entries should be overwritten
+         */
+        public void overwrite(boolean overwrite){
+            this.overwrite = overwrite;
         }
 
         /**

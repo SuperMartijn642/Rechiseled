@@ -11,9 +11,7 @@ import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created 24/12/2021 by SuperMartijn642
@@ -22,20 +20,22 @@ public class ChiselingRecipe {
 
     private final ResourceLocation recipeId;
     final ResourceLocation parentRecipeId;
+    final boolean overwrite;
     private final List<ChiselingEntry> entries;
 
-    private ChiselingRecipe(ResourceLocation recipeId, ResourceLocation parentRecipeId, List<ChiselingEntry> entries){
+    private ChiselingRecipe(ResourceLocation recipeId, ResourceLocation parentRecipeId, boolean overwrite, Collection<ChiselingEntry> entries){
         this.recipeId = recipeId;
         this.parentRecipeId = parentRecipeId;
-        this.entries = new ArrayList<>(entries);
+        this.overwrite = overwrite;
+        this.entries = Collections.unmodifiableList(Arrays.asList(entries.toArray(ChiselingEntry[]::new)));
+    }
+
+    ChiselingRecipe(ResourceLocation recipeId, ResourceLocation parentRecipeId, Collection<ChiselingEntry> entries){
+        this(recipeId, parentRecipeId, false, entries);
     }
 
     public List<ChiselingEntry> getEntries(){
-        return Collections.unmodifiableList(this.entries);
-    }
-
-    void addEntries(List<ChiselingEntry> entries){
-        this.entries.addAll(entries);
+        return this.entries;
     }
 
     public boolean contains(ItemStack stack){
@@ -57,8 +57,11 @@ public class ChiselingRecipe {
             List<ChiselingEntry> chiselingEntries = new ArrayList<>();
 
             // read parent id
-            String parentRecipeString = GsonHelper.getAsString(json, "parent", null);
+            String parentRecipeString = GsonHelper.getAsString(json, "parent", null); // TODO remove in 1.2.0
             ResourceLocation parentRecipe = parentRecipeString == null ? null : new ResourceLocation(parentRecipeString);
+
+            // Read overwrite value
+            boolean overwrite = GsonHelper.getAsBoolean(json, "overwrite", false);
 
             // read entries
             if(!GsonHelper.isArrayNode(json, "entries"))
@@ -98,7 +101,7 @@ public class ChiselingRecipe {
                 chiselingEntries.add(new ChiselingEntry(regularItem, connectingItem));
             }
 
-            return new ChiselingRecipe(resourceLocation, parentRecipe, chiselingEntries);
+            return new ChiselingRecipe(resourceLocation, parentRecipe, overwrite, chiselingEntries);
         }
 
         public static ChiselingRecipe fromNetwork(FriendlyByteBuf buffer){
@@ -115,7 +118,7 @@ public class ChiselingRecipe {
                     )
                 );
 
-            return new ChiselingRecipe(recipeId, null, chiselingEntries);
+            return new ChiselingRecipe(recipeId, null, false, chiselingEntries);
         }
 
         public static void toNetwork(FriendlyByteBuf buffer, ChiselingRecipe recipe){
