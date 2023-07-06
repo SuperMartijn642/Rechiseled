@@ -1,3 +1,8 @@
+### Rechiseled 1.1.1
+- Chiseling recipes now work in a similar manner to tags
+- Chiseling recipes with overlapping entries will now be merged automatically
+- Marked the 'parent' system for chiseling recipes as deprecated
+
 ### Rechiseled 1.1.0
 - Moved model stuff to Fusion
 - Added a new block registration API for addons
