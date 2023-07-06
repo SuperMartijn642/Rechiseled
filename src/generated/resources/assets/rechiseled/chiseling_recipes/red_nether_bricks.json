@@ -1,5 +1,6 @@
 {
   "type": "rechiseled:chiseling",
+  "overwrite": false,
   "entries": [
     {
       "item": "minecraft:red_nether_brick"
