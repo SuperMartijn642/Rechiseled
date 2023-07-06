@@ -48,5 +48,6 @@
       "connecting_item": "rechiseled:andesite_wavy_connecting",
       "item": "rechiseled:andesite_wavy"
     }
-  ]
+  ],
+  "overwrite": false
 }

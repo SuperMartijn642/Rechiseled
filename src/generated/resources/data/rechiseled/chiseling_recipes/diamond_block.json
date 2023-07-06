@@ -46,5 +46,6 @@
     {
       "item": "rechiseled:diamond_block_smooth"
     }
-  ]
+  ],
+  "overwrite": false
 }

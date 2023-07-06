@@ -40,5 +40,6 @@
       "connecting_item": "rechiseled:glowstone_tiles_connecting",
       "item": "rechiseled:glowstone_tiles"
     }
-  ]
+  ],
+  "overwrite": false
 }

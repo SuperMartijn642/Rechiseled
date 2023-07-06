@@ -65,5 +65,6 @@
       "connecting_item": "rechiseled:obsidian_tiles_connecting",
       "item": "rechiseled:obsidian_tiles"
     }
-  ]
+  ],
+  "overwrite": false
 }
