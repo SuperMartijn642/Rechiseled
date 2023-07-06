@@ -1,3 +1,6 @@
+### Rechiseled 1.1.1a
+- Fixed `TextureMapping#getSuffixes` not working when mod source is a jar file
+
 ### Rechiseled 1.1.1
 - Chiseling recipes now work in a similar manner to tags
 - Chiseling recipes with overlapping entries will now be merged automatically
