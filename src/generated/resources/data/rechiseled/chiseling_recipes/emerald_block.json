@@ -57,5 +57,6 @@
       "connecting_item": "rechiseled:emerald_block_waxed_connecting",
       "item": "rechiseled:emerald_block_waxed"
     }
-  ]
+  ],
+  "overwrite": false
 }

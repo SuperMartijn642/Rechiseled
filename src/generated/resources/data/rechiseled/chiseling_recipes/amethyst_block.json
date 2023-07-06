@@ -49,5 +49,6 @@
       "connecting_item": "rechiseled:amethyst_block_tiles_connecting",
       "item": "rechiseled:amethyst_block_tiles"
     }
-  ]
+  ],
+  "overwrite": false
 }
