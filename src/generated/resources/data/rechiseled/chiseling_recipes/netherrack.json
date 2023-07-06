@@ -40,5 +40,6 @@
       "connecting_item": "rechiseled:netherrack_tiles_connecting",
       "item": "rechiseled:netherrack_tiles"
     }
-  ]
+  ],
+  "overwrite": false
 }

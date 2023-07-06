@@ -47,5 +47,6 @@
       "connecting_item": "rechiseled:coal_block_stripes_connecting",
       "item": "rechiseled:coal_block_stripes"
     }
-  ]
+  ],
+  "overwrite": false
 }

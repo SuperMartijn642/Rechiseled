@@ -45,5 +45,6 @@
       "connecting_item": "rechiseled:basalt_tiles_connecting",
       "item": "rechiseled:basalt_tiles"
     }
-  ]
+  ],
+  "overwrite": false
 }
