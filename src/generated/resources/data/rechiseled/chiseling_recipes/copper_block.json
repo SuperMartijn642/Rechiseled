@@ -49,5 +49,6 @@
     {
       "item": "rechiseled:copper_block_smooth"
     }
-  ]
+  ],
+  "overwrite": false
 }

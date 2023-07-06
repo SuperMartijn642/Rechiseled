@@ -67,5 +67,6 @@
       "connecting_item": "rechiseled:end_stone_tiles_connecting",
       "item": "rechiseled:end_stone_tiles"
     }
-  ]
+  ],
+  "overwrite": false
 }
