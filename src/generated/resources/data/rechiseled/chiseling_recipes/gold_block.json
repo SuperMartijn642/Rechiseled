@@ -47,5 +47,6 @@
       "connecting_item": "rechiseled:gold_block_tiles_connecting",
       "item": "rechiseled:gold_block_tiles"
     }
-  ]
+  ],
+  "overwrite": false
 }

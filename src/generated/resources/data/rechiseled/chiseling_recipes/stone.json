@@ -89,5 +89,6 @@
       "connecting_item": "rechiseled:stone_waves_connecting",
       "item": "rechiseled:stone_waves"
     }
-  ]
+  ],
+  "overwrite": false
 }

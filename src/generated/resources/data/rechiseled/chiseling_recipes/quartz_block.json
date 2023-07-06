@@ -72,5 +72,6 @@
       "connecting_item": "rechiseled:quartz_block_tiles_connecting",
       "item": "rechiseled:quartz_block_tiles"
     }
-  ]
+  ],
+  "overwrite": false
 }

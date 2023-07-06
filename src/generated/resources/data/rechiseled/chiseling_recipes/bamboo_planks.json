@@ -79,5 +79,6 @@
       "connecting_item": "rechiseled:bamboo_planks_woven_connecting",
       "item": "rechiseled:bamboo_planks_woven"
     }
-  ]
+  ],
+  "overwrite": false
 }
