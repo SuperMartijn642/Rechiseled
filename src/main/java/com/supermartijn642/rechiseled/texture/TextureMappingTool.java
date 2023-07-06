@@ -1,17 +1,19 @@
 package com.supermartijn642.rechiseled.texture;
 
+import com.supermartijn642.rechiseled.Rechiseled;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ModContainer;
+import org.apache.commons.io.IOUtils;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Stream;
 
 /**
@@ -53,7 +55,20 @@ public class TextureMappingTool {
         List<String> suffixes = new ArrayList<>();
 
         ModContainer container = Loader.instance().getActiveModList().stream().filter(modContainer -> modContainer.getModId().equals("rechiseled")).findAny().orElse(null);
-        Path source = container.getSource().toPath().resolve("assets").resolve("rechiseled").resolve("textures").resolve("block");
+        FileSystem fs = null;
+        Path source;
+        if(container.getSource().isDirectory())
+            source = container.getSource().toPath().resolve("assets").resolve("rechiseled").resolve("textures").resolve("block");
+        else{
+            try{
+                fs = FileSystems.newFileSystem(container.getSource().toPath(), null);
+                source = fs.getPath("/assets").resolve("rechiseled").resolve("textures").resolve("block");
+            }catch(IOException e){
+                Rechiseled.LOGGER.error("Error loading FileSystem from jar: ", e);
+                return Collections.emptyList();
+            }
+        }
+
         try(Stream<Path> paths = Files.walk(source, 1)){
             paths
                 .map(Path::getFileName)
@@ -64,6 +79,8 @@ public class TextureMappingTool {
                 .forEach(suffixes::add);
         }catch(IOException e){
             throw new RuntimeException(e);
+        }finally{
+            IOUtils.closeQuietly(fs);
         }
         return suffixes;
     }
