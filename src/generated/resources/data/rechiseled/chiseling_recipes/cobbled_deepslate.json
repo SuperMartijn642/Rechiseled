@@ -74,5 +74,6 @@
       "connecting_item": "rechiseled:cobbled_deepslate_worn_stripes_connecting",
       "item": "rechiseled:cobbled_deepslate_worn_stripes"
     }
-  ]
+  ],
+  "overwrite": false
 }

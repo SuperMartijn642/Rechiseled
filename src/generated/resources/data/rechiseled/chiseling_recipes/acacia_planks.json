@@ -79,5 +79,6 @@
       "connecting_item": "rechiseled:acacia_planks_woven_connecting",
       "item": "rechiseled:acacia_planks_woven"
     }
-  ]
+  ],
+  "overwrite": false
 }

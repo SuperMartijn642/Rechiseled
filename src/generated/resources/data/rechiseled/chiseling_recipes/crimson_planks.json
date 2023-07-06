@@ -79,5 +79,6 @@
       "connecting_item": "rechiseled:crimson_planks_woven_connecting",
       "item": "rechiseled:crimson_planks_woven"
     }
-  ]
+  ],
+  "overwrite": false
 }

@@ -48,5 +48,6 @@
       "connecting_item": "rechiseled:granite_wavy_connecting",
       "item": "rechiseled:granite_wavy"
     }
-  ]
+  ],
+  "overwrite": false
 }

@@ -52,5 +52,6 @@
       "connecting_item": "rechiseled:red_nether_bricks_tiles_connecting",
       "item": "rechiseled:red_nether_bricks_tiles"
     }
-  ]
+  ],
+  "overwrite": false
 }

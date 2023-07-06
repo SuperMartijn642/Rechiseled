@@ -45,5 +45,6 @@
       "connecting_item": "rechiseled:sandstone_tiles_connecting",
       "item": "rechiseled:sandstone_tiles"
     }
-  ]
+  ],
+  "overwrite": false
 }

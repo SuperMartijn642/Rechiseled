@@ -76,5 +76,6 @@
       "connecting_item": "rechiseled:purpur_woven_connecting",
       "item": "rechiseled:purpur_woven"
     }
-  ]
+  ],
+  "overwrite": false
 }
