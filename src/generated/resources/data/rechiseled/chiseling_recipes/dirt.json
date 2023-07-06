@@ -61,5 +61,6 @@
       "connecting_item": "rechiseled:dirt_tilled_connecting",
       "item": "rechiseled:dirt_tilled"
     }
-  ]
+  ],
+  "overwrite": false
 }

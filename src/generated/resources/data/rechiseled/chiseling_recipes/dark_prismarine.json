@@ -52,5 +52,6 @@
       "connecting_item": "rechiseled:dark_prismarine_woven_connecting",
       "item": "rechiseled:dark_prismarine_woven"
     }
-  ]
+  ],
+  "overwrite": false
 }

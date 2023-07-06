@@ -48,5 +48,6 @@
       "connecting_item": "rechiseled:diorite_wavy_connecting",
       "item": "rechiseled:diorite_wavy"
     }
-  ]
+  ],
+  "overwrite": false
 }

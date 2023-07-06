@@ -37,5 +37,6 @@
       "connecting_item": "rechiseled:blackstone_rotated_bricks_connecting",
       "item": "rechiseled:blackstone_rotated_bricks"
     }
-  ]
+  ],
+  "overwrite": false
 }
