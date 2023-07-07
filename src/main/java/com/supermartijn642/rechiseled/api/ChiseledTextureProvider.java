@@ -60,6 +60,7 @@ public abstract class ChiseledTextureProvider implements DataProvider {
             Pair<BufferedImage,JsonObject> oldPalette = this.loadTexture(entry.getKey().left());
             Pair<BufferedImage,JsonObject> newPalette = this.loadTexture(entry.getKey().right());
             Map<String,ResourceLocation> targets = entry.getValue().targets;
+            boolean ignoreMissingColors = entry.getValue().ignoreMissingColors;
 
             Map<Integer,Integer> colorMap = TextureMappingTool.createPaletteMap(oldPalette.left(), newPalette.left());
 
@@ -67,7 +68,7 @@ public abstract class ChiseledTextureProvider implements DataProvider {
                 Pair<BufferedImage,JsonObject> targetTexture = this.loadTexture(target.getValue());
                 String outputLocation = target.getKey();
 
-                TextureMappingTool.applyPaletteMap(targetTexture.left(), colorMap, outputLocation);
+                TextureMappingTool.applyPaletteMap(targetTexture.left(), colorMap, ignoreMissingColors, outputLocation);
 
                 Path texturePath = path.resolve("assets/" + this.modid + "/textures/" + outputLocation + ".png");
                 saveTexture(cache, targetTexture.left(), texturePath);
@@ -191,6 +192,7 @@ public abstract class ChiseledTextureProvider implements DataProvider {
     protected class PaletteMap {
 
         private final Map<String,ResourceLocation> targets = new HashMap<>();
+        private boolean ignoreMissingColors = false;
 
         private PaletteMap(){
         }
@@ -216,6 +218,14 @@ public abstract class ChiseledTextureProvider implements DataProvider {
                 throw new IllegalStateException("Two or more textures have the same output location: " + outputLocation);
 
             this.targets.put(outputLocation.toLowerCase(Locale.ROOT).trim(), texture);
+            return this;
+        }
+
+        /**
+         * When the palette map is applied, any pixels with missing colors will be kept.
+         */
+        public PaletteMap ignoreMissing(){
+            this.ignoreMissingColors = true;
             return this;
         }
     }
