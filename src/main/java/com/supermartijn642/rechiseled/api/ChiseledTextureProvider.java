@@ -54,6 +54,7 @@ public abstract class ChiseledTextureProvider extends ResourceGenerator {
             Pair<BufferedImage,JsonObject> oldPalette = this.loadTexture(entry.getKey().left());
             Pair<BufferedImage,JsonObject> newPalette = this.loadTexture(entry.getKey().right());
             Map<String,ResourceLocation> targets = entry.getValue().targets;
+            boolean ignoreMissingColors = entry.getValue().ignoreMissingColors;
 
             Map<Integer,Integer> colorMap = TextureMappingTool.createPaletteMap(oldPalette.left(), newPalette.left());
 
@@ -61,7 +62,7 @@ public abstract class ChiseledTextureProvider extends ResourceGenerator {
                 Pair<BufferedImage,JsonObject> targetTexture = this.loadTexture(target.getValue());
                 String outputLocation = target.getKey();
 
-                TextureMappingTool.applyPaletteMap(targetTexture.left(), colorMap, outputLocation);
+                TextureMappingTool.applyPaletteMap(targetTexture.left(), colorMap, ignoreMissingColors, outputLocation);
 
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 try{
@@ -177,6 +178,7 @@ public abstract class ChiseledTextureProvider extends ResourceGenerator {
     protected class PaletteMap {
 
         private final Map<String,ResourceLocation> targets = new HashMap<>();
+        private boolean ignoreMissingColors = false;
 
         private PaletteMap(){
         }
@@ -203,6 +205,14 @@ public abstract class ChiseledTextureProvider extends ResourceGenerator {
 
             this.targets.put(outputLocation.toLowerCase(Locale.ROOT).trim(), texture);
             ChiseledTextureProvider.this.cache.trackToBeGeneratedResource(ResourceType.ASSET, ChiseledTextureProvider.this.modid, "textures", outputLocation, ".png");
+            return this;
+        }
+
+        /**
+         * When the palette map is applied, any pixels with missing colors will be kept.
+         */
+        public PaletteMap ignoreMissing(){
+            this.ignoreMissingColors = true;
             return this;
         }
     }
