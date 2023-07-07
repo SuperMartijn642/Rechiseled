@@ -39,16 +39,16 @@ public class TextureMappingTool {
         return palette;
     }
 
-    public static void applyPaletteMap(BufferedImage image, Map<Integer,Integer> palette, String name){
+    public static void applyPaletteMap(BufferedImage image, Map<Integer,Integer> palette, boolean ignoreMissingColors, String name){
         for(int x = 0; x < image.getWidth(); x++){
             for(int y = 0; y < image.getHeight(); y++){
                 int color = image.getRGB(x, y);
                 if(color == 0)
                     continue;
-                if(!palette.containsKey(color))
+                if(!ignoreMissingColors && !palette.containsKey(color))
                     throw new IllegalStateException("Palette is missing color '" + new Color(color) + "' for pattern '" + name + "'");
 
-                image.setRGB(x, y, palette.get(color));
+                image.setRGB(x, y, palette.getOrDefault(color, color));
             }
         }
     }
