@@ -1,3 +1,6 @@
+### Rechiseled 1.1.1b
+- Fusion is now only a client-side dependency
+
 ### Rechiseled 1.1.1a
 - Fixed `TextureMapping#getSuffixes` not working when mod source is a jar file
 
