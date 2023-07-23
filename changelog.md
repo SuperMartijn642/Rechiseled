@@ -1,3 +1,6 @@
+### Rechiseled 1.1.2
+- Added an option to ignore missing palette colors in `ChiseledTextureProvider`
+
 ### Rechiseled 1.1.1b
 - Fusion is now only a client-side dependency
 
