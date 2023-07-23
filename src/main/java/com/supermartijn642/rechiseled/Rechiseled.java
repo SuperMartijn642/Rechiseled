@@ -22,8 +22,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraftforge.fml.common.Mod;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -37,7 +37,7 @@ public class Rechiseled {
 
     public static final RechiseledRegistration REGISTRATION = RechiseledRegistration.get("rechiseled");
     public static final PacketChannel CHANNEL = PacketChannel.create("rechiseled");
-    public static final Logger LOGGER = LoggerFactory.getLogger("rechiseled");
+    public static final Logger LOGGER = LogManager.getLogger("rechiseled");
 
     @RegistryEntryAcceptor(namespace = "rechiseled", identifier = "chisel", registry = RegistryEntryAcceptor.Registry.ITEMS)
     public static ChiselItem chisel;
