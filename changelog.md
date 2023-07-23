@@ -1,3 +1,7 @@
+### Rechiseled 1.1.2
+- Added an option to ignore missing palette colors in `ChiseledTextureProvider`
+- Fixed crash due to missing `LoggerFactory` class
+
 ### Rechiseled 1.1.1
 - Chiseling recipes now work in a similar manner to tags
 - Chiseling recipes with overlapping entries will now be merged automatically
