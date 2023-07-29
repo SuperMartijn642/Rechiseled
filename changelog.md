@@ -1,3 +1,6 @@
+### Rechiseled 1.1.2a
+- Fixed lighting not looking correct for blocks with connecting models
+
 ### Rechiseled 1.1.2
 - Added an option to ignore missing palette colors in `ChiseledTextureProvider`
 
