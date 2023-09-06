@@ -1,3 +1,6 @@
+### Rechiseled 1.1.2a
+- Added workaround for opening chiseling screen when Ledger is installed
+
 ### Rechiseled 1.1.2
 - Added an option to ignore missing palette colors in `ChiseledTextureProvider`
 
