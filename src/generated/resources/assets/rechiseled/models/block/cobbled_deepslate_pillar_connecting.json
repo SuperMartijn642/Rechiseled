@@ -1,0 +1,19 @@
+{
+  "type": "fusion:connecting",
+  "parent": "minecraft:block/cube",
+  "connections": [
+    {
+      "type": "fusion:is_same_state"
+    }
+  ],
+  "loader": "fusion:model",
+  "textures": {
+    "down": "rechiseled:block/cobbled_deepslate_pillar_end",
+    "east": "rechiseled:block/cobbled_deepslate_pillar_side",
+    "north": "rechiseled:block/cobbled_deepslate_pillar_side",
+    "particle": "rechiseled:block/cobbled_deepslate_pillar_side",
+    "south": "rechiseled:block/cobbled_deepslate_pillar_side",
+    "up": "rechiseled:block/cobbled_deepslate_pillar_end",
+    "west": "rechiseled:block/cobbled_deepslate_pillar_side"
+  }
+}

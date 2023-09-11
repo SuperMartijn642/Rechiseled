@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "rechiseled:block/stone_slated_end",
+    "down": "rechiseled:block/stone_slated_end",
+    "north": "rechiseled:block/stone_slated_side",
+    "east": "rechiseled:block/stone_slated_side",
+    "south": "rechiseled:block/stone_slated_side",
+    "west": "rechiseled:block/stone_slated_side",
+    "particle": "rechiseled:block/stone_slated_side"
+  }
+}
