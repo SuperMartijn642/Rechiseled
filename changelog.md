@@ -1,3 +1,7 @@
+### Rechiseled 1.1.3
+- Added 94 variants for blue ice, bone block, iron block, lapis block, netherite block, and redstone block
+- Added some new variants for stone, cobblestone, and cobbled deepslate
+
 ### Rechiseled 1.1.2a
 - Fixed lighting not looking correct for blocks with connecting models
 
