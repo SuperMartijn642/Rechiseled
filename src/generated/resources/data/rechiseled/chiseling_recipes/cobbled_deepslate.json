@@ -48,6 +48,10 @@
       "connecting_item": "rechiseled:cobbled_deepslate_paving_connecting"
     },
     {
+      "item": "rechiseled:cobbled_deepslate_pillar",
+      "connecting_item": "rechiseled:cobbled_deepslate_pillar_connecting"
+    },
+    {
       "item": "rechiseled:cobbled_deepslate_pulverized",
       "connecting_item": "rechiseled:cobbled_deepslate_pulverized_connecting"
     },
