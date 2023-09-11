@@ -1,0 +1,74 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "connecting_item": "rechiseled:lapis_block_bordered_connecting",
+      "item": "rechiseled:lapis_block_bordered"
+    },
+    {
+      "connecting_item": "rechiseled:lapis_block_chiseled_connecting",
+      "item": "rechiseled:lapis_block_chiseled"
+    },
+    {
+      "item": "rechiseled:lapis_block_cobbled"
+    },
+    {
+      "connecting_item": "rechiseled:lapis_block_connecting_connecting",
+      "item": "minecraft:lapis_block"
+    },
+    {
+      "item": "rechiseled:lapis_block_crushed"
+    },
+    {
+      "connecting_item": "rechiseled:lapis_block_decorated_connecting",
+      "item": "rechiseled:lapis_block_decorated"
+    },
+    {
+      "connecting_item": "rechiseled:lapis_block_glossy_connecting",
+      "item": "rechiseled:lapis_block_glossy"
+    },
+    {
+      "connecting_item": "rechiseled:lapis_block_inverted_tiles_connecting",
+      "item": "rechiseled:lapis_block_inverted_tiles"
+    },
+    {
+      "connecting_item": "rechiseled:lapis_block_mosaic_connecting",
+      "item": "rechiseled:lapis_block_mosaic"
+    },
+    {
+      "connecting_item": "rechiseled:lapis_block_pattern_connecting",
+      "item": "rechiseled:lapis_block_pattern"
+    },
+    {
+      "connecting_item": "rechiseled:lapis_block_pillar_connecting",
+      "item": "rechiseled:lapis_block_pillar"
+    },
+    {
+      "connecting_item": "rechiseled:lapis_block_polished_connecting",
+      "item": "rechiseled:lapis_block_polished"
+    },
+    {
+      "connecting_item": "rechiseled:lapis_block_scales_connecting",
+      "item": "rechiseled:lapis_block_scales"
+    },
+    {
+      "connecting_item": "rechiseled:lapis_block_small_tiles_connecting",
+      "item": "rechiseled:lapis_block_small_tiles"
+    },
+    {
+      "item": "rechiseled:lapis_block_smooth"
+    },
+    {
+      "connecting_item": "rechiseled:lapis_block_stripes_connecting",
+      "item": "rechiseled:lapis_block_stripes"
+    },
+    {
+      "item": "rechiseled:lapis_block_swirling"
+    },
+    {
+      "connecting_item": "rechiseled:lapis_block_tiles_connecting",
+      "item": "rechiseled:lapis_block_tiles"
+    }
+  ],
+  "overwrite": false
+}
