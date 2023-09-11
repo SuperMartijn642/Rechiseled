@@ -1,0 +1,43 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "connecting_item": "rechiseled:blue_ice_bordered_connecting",
+      "item": "rechiseled:blue_ice_bordered"
+    },
+    {
+      "connecting_item": "rechiseled:blue_ice_bricks_connecting",
+      "item": "rechiseled:blue_ice_bricks"
+    },
+    {
+      "connecting_item": "rechiseled:blue_ice_chiseled_connecting",
+      "item": "rechiseled:blue_ice_chiseled"
+    },
+    {
+      "item": "rechiseled:blue_ice_cone"
+    },
+    {
+      "item": "rechiseled:blue_ice_cracked"
+    },
+    {
+      "connecting_item": "rechiseled:blue_ice_patterned_connecting",
+      "item": "rechiseled:blue_ice_patterned"
+    },
+    {
+      "connecting_item": "rechiseled:blue_ice_pillar_connecting",
+      "item": "rechiseled:blue_ice_pillar"
+    },
+    {
+      "item": "rechiseled:blue_ice_rocky"
+    },
+    {
+      "connecting_item": "rechiseled:blue_ice_slanted_tiles_connecting",
+      "item": "rechiseled:blue_ice_slanted_tiles"
+    },
+    {
+      "connecting_item": "rechiseled:blue_ice_tiles_connecting",
+      "item": "rechiseled:blue_ice_tiles"
+    }
+  ],
+  "overwrite": false
+}

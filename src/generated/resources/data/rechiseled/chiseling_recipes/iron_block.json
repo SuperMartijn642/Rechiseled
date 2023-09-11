@@ -1,0 +1,65 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "connecting_item": "rechiseled:iron_block_bordered_connecting",
+      "item": "rechiseled:iron_block_bordered"
+    },
+    {
+      "connecting_item": "rechiseled:iron_block_chiseled_connecting",
+      "item": "rechiseled:iron_block_chiseled"
+    },
+    {
+      "connecting_item": "rechiseled:iron_block_connecting_connecting",
+      "item": "minecraft:iron_block"
+    },
+    {
+      "connecting_item": "rechiseled:iron_block_framed_connecting",
+      "item": "rechiseled:iron_block_framed"
+    },
+    {
+      "connecting_item": "rechiseled:iron_block_gears_connecting",
+      "item": "rechiseled:iron_block_gears"
+    },
+    {
+      "connecting_item": "rechiseled:iron_block_lines_connecting",
+      "item": "rechiseled:iron_block_lines"
+    },
+    {
+      "connecting_item": "rechiseled:iron_block_patterned_connecting",
+      "item": "rechiseled:iron_block_patterned"
+    },
+    {
+      "connecting_item": "rechiseled:iron_block_pipes_connecting",
+      "item": "rechiseled:iron_block_pipes"
+    },
+    {
+      "item": "rechiseled:iron_block_plated"
+    },
+    {
+      "connecting_item": "rechiseled:iron_block_polished_connecting",
+      "item": "rechiseled:iron_block_polished"
+    },
+    {
+      "connecting_item": "rechiseled:iron_block_processed_connecting",
+      "item": "rechiseled:iron_block_processed"
+    },
+    {
+      "item": "rechiseled:iron_block_pulverized"
+    },
+    {
+      "item": "rechiseled:iron_block_reinforced"
+    },
+    {
+      "item": "rechiseled:iron_block_sheets"
+    },
+    {
+      "connecting_item": "rechiseled:iron_block_small_bricks_connecting",
+      "item": "rechiseled:iron_block_small_bricks"
+    },
+    {
+      "item": "rechiseled:iron_block_smooth"
+    }
+  ],
+  "overwrite": false
+}

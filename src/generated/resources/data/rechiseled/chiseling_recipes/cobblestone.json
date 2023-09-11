@@ -20,6 +20,10 @@
       "item": "rechiseled:cobblestone_brick_paving"
     },
     {
+      "connecting_item": "rechiseled:cobblestone_chiseled_border_connecting",
+      "item": "rechiseled:cobblestone_chiseled_border"
+    },
+    {
       "connecting_item": "rechiseled:cobblestone_crosses_connecting",
       "item": "rechiseled:cobblestone_crosses"
     },
@@ -32,8 +36,18 @@
       "item": "rechiseled:cobblestone_inverted_dented"
     },
     {
+      "item": "rechiseled:cobblestone_large_squares"
+    },
+    {
       "connecting_item": "rechiseled:cobblestone_paving_connecting",
       "item": "rechiseled:cobblestone_paving"
+    },
+    {
+      "connecting_item": "rechiseled:cobblestone_pillar_connecting",
+      "item": "rechiseled:cobblestone_pillar"
+    },
+    {
+      "item": "rechiseled:cobblestone_polished"
     },
     {
       "connecting_item": "rechiseled:cobblestone_pulverized_connecting",
@@ -42,6 +56,9 @@
     {
       "connecting_item": "rechiseled:cobblestone_rotated_bricks_connecting",
       "item": "rechiseled:cobblestone_rotated_bricks"
+    },
+    {
+      "item": "rechiseled:cobblestone_sheared"
     },
     {
       "connecting_item": "rechiseled:cobblestone_small_tiles_connecting",
