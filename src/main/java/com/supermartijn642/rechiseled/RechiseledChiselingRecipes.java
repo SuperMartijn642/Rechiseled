@@ -65,6 +65,8 @@ public class RechiseledChiselingRecipes {
         REGISTRATION.chiselingEntry(RED_SANDSTONE, () -> Item.getItemFromBlock(Blocks.RED_SANDSTONE), 0, null, 0);
         REGISTRATION.chiselingEntry(RED_SANDSTONE, () -> Item.getItemFromBlock(Blocks.RED_SANDSTONE), 1, null, 0);
         REGISTRATION.chiselingEntry(RED_SANDSTONE, () -> Item.getItemFromBlock(Blocks.RED_SANDSTONE), 2, null, 0);
+        // Redstone block
+        REGISTRATION.chiselingEntry(REDSTONE_BLOCK, () -> Item.getItemFromBlock(Blocks.REDSTONE_BLOCK), 0, null, 0);
         // Sandstone
         REGISTRATION.chiselingEntry(SANDSTONE, () -> Item.getItemFromBlock(Blocks.SANDSTONE), 0, null, 0);
         REGISTRATION.chiselingEntry(SANDSTONE, () -> Item.getItemFromBlock(Blocks.SANDSTONE), 1, null, 0);
