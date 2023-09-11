@@ -1,0 +1,52 @@
+{
+  "type": "rechiseled:chiseling",
+  "overwrite": false,
+  "entries": [
+    {
+      "item": "rechiseled:bone_block_bordered",
+      "connecting_item": "rechiseled:bone_block_bordered_connecting"
+    },
+    {
+      "item": "rechiseled:bone_block_bundled"
+    },
+    {
+      "item": "rechiseled:bone_block_chiseled",
+      "connecting_item": "rechiseled:bone_block_chiseled_connecting"
+    },
+    {
+      "item": "minecraft:bone_block",
+      "connecting_item": "rechiseled:bone_block_connecting_connecting"
+    },
+    {
+      "item": "rechiseled:bone_block_cracked"
+    },
+    {
+      "item": "rechiseled:bone_block_decorated"
+    },
+    {
+      "item": "rechiseled:bone_block_decorated_bordered",
+      "connecting_item": "rechiseled:bone_block_decorated_bordered_connecting"
+    },
+    {
+      "item": "rechiseled:bone_block_inverted_tiles",
+      "connecting_item": "rechiseled:bone_block_inverted_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:bone_block_patterned",
+      "connecting_item": "rechiseled:bone_block_patterned_connecting"
+    },
+    {
+      "item": "rechiseled:bone_block_pillar",
+      "connecting_item": "rechiseled:bone_block_pillar_connecting"
+    },
+    {
+      "item": "rechiseled:bone_block_rib"
+    },
+    {
+      "item": "rechiseled:bone_block_skull"
+    },
+    {
+      "item": "rechiseled:bone_block_smooth"
+    }
+  ]
+}
