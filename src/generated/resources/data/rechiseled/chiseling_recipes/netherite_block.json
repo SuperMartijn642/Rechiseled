@@ -1,0 +1,52 @@
+{
+  "type": "rechiseled:chiseling",
+  "overwrite": false,
+  "entries": [
+    {
+      "item": "rechiseled:netherite_block_beams",
+      "connecting_item": "rechiseled:netherite_block_beams_connecting"
+    },
+    {
+      "item": "rechiseled:netherite_block_bricks",
+      "connecting_item": "rechiseled:netherite_block_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:netherite_block_chiseled",
+      "connecting_item": "rechiseled:netherite_block_chiseled_connecting"
+    },
+    {
+      "item": "rechiseled:netherite_block_compacted",
+      "connecting_item": "rechiseled:netherite_block_compacted_connecting"
+    },
+    {
+      "item": "rechiseled:netherite_block_decorated",
+      "connecting_item": "rechiseled:netherite_block_decorated_connecting"
+    },
+    {
+      "item": "rechiseled:netherite_block_diagonal_tiles",
+      "connecting_item": "rechiseled:netherite_block_diagonal_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:netherite_block_indented",
+      "connecting_item": "rechiseled:netherite_block_indented_connecting"
+    },
+    {
+      "item": "rechiseled:netherite_block_meteoric"
+    },
+    {
+      "item": "rechiseled:netherite_block_patterned",
+      "connecting_item": "rechiseled:netherite_block_patterned_connecting"
+    },
+    {
+      "item": "rechiseled:netherite_block_pillar",
+      "connecting_item": "rechiseled:netherite_block_pillar_connecting"
+    },
+    {
+      "item": "rechiseled:netherite_block_small_tiles",
+      "connecting_item": "rechiseled:netherite_block_small_tiles_connecting"
+    },
+    {
+      "item": "rechiseled:netherite_block_smooth"
+    }
+  ]
+}

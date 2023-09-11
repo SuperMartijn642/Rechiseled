@@ -35,6 +35,9 @@
       "connecting_item": "rechiseled:stone_chiseled_bricks_connecting"
     },
     {
+      "item": "rechiseled:stone_cobbled"
+    },
+    {
       "item": "rechiseled:stone_crushed",
       "connecting_item": "rechiseled:stone_crushed_connecting"
     },
@@ -49,6 +52,9 @@
     {
       "item": "rechiseled:stone_rotated_bricks",
       "connecting_item": "rechiseled:stone_rotated_bricks_connecting"
+    },
+    {
+      "item": "rechiseled:stone_slated"
     },
     {
       "item": "rechiseled:stone_small_bricks",
