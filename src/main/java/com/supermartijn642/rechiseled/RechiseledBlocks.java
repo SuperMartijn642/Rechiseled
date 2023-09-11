@@ -120,6 +120,31 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType BLACKSTONE_POLISHED = create("blackstone_polished", "Polished Blackstone", () -> Blocks.POLISHED_BLACKSTONE).regularVariant(() -> Blocks.POLISHED_BLACKSTONE).recipe(BaseChiselingRecipes.BLACKSTONE).build();
     public static final RechiseledBlockType BLACKSTONE_TILES = create("blackstone_tiles", "Blackstone Tiles", () -> Blocks.POLISHED_BLACKSTONE).recipe(BaseChiselingRecipes.BLACKSTONE).build();
     public static final RechiseledBlockType BLACKSTONE_ROTATED_BRICKS = create("blackstone_rotated_bricks", "Rotated Blackstone Bricks", () -> Blocks.POLISHED_BLACKSTONE).recipe(BaseChiselingRecipes.BLACKSTONE).build();
+    // Blue ice
+    public static final RechiseledBlockType BLUE_ICE_BORDERED = create("blue_ice_bordered", "Bordered Blue Ice", () -> Blocks.BLUE_ICE).recipe(BaseChiselingRecipes.BLUE_ICE).build();
+    public static final RechiseledBlockType BLUE_ICE_BRICKS = create("blue_ice_bricks", "Blue Ice Bricks", () -> Blocks.BLUE_ICE).recipe(BaseChiselingRecipes.BLUE_ICE).build();
+    public static final RechiseledBlockType BLUE_ICE_CHISELED = create("blue_ice_chiseled", "Chiseled Blue Ice", () -> Blocks.BLUE_ICE).recipe(BaseChiselingRecipes.BLUE_ICE).build();
+    public static final RechiseledBlockType BLUE_ICE_CONE = create("blue_ice_cone", "Blue Ice Cone", () -> Blocks.BLUE_ICE).noConnectingVariant().recipe(BaseChiselingRecipes.BLUE_ICE).build();
+    public static final RechiseledBlockType BLUE_ICE_CRACKED = create("blue_ice_cracked", "Cracked Blue Ice", () -> Blocks.BLUE_ICE).noConnectingVariant().recipe(BaseChiselingRecipes.BLUE_ICE).build();
+    public static final RechiseledBlockType BLUE_ICE_PATTERNED = create("blue_ice_patterned", "Patterned Blue Ice", () -> Blocks.BLUE_ICE).recipe(BaseChiselingRecipes.BLUE_ICE).build();
+    public static final RechiseledBlockType BLUE_ICE_PILLAR = create("blue_ice_pillar", "Blue Ice Pillar", () -> Blocks.BLUE_ICE).specification(BlockSpecification.PILLAR).recipe(BaseChiselingRecipes.BLUE_ICE).build();
+    public static final RechiseledBlockType BLUE_ICE_ROCKY = create("blue_ice_rocky", "Rocky Blue Ice", () -> Blocks.BLUE_ICE).noConnectingVariant().recipe(BaseChiselingRecipes.BLUE_ICE).build();
+    public static final RechiseledBlockType BLUE_ICE_SLANTED_TILES = create("blue_ice_slanted_tiles", "Slanted Blue Ice Tiles", () -> Blocks.BLUE_ICE).recipe(BaseChiselingRecipes.BLUE_ICE).build();
+    public static final RechiseledBlockType BLUE_ICE_TILES = create("blue_ice_tiles", "Blue Ice Tiles", () -> Blocks.BLUE_ICE).recipe(BaseChiselingRecipes.BLUE_ICE).build();
+    // Bone block
+    public static final RechiseledBlockType BONE_BLOCK_BORDERED = create("bone_block_bordered", "Bordered Bone Block", () -> Blocks.BONE_BLOCK).recipe(BaseChiselingRecipes.BONE_BLOCK).build();
+    public static final RechiseledBlockType BONE_BLOCK_BUNDLED = create("bone_block_bundled", "Bundled Bone Block", () -> Blocks.BONE_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.BONE_BLOCK).build();
+    public static final RechiseledBlockType BONE_BLOCK_CHISELED = create("bone_block_chiseled", "Chiseled Bone Block", () -> Blocks.BONE_BLOCK).recipe(BaseChiselingRecipes.BONE_BLOCK).build();
+    public static final RechiseledBlockType BONE_BLOCK_CONNECTING = create("bone_block_connecting", "Bone Block", () -> Blocks.BONE_BLOCK).specification(BlockSpecification.PILLAR).regularVariant(() -> Blocks.BONE_BLOCK).recipe(BaseChiselingRecipes.BONE_BLOCK).build();
+    public static final RechiseledBlockType BONE_BLOCK_CRACKED = create("bone_block_cracked", "Cracked Bone Block", () -> Blocks.BONE_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.BONE_BLOCK).build();
+    public static final RechiseledBlockType BONE_BLOCK_DECORATED = create("bone_block_decorated", "Decorated Bone Block", () -> Blocks.BONE_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.BONE_BLOCK).build();
+    public static final RechiseledBlockType BONE_BLOCK_DECORATED_BORDERED = create("bone_block_decorated_bordered", "Bordered Decorated Bone Block", () -> Blocks.BONE_BLOCK).recipe(BaseChiselingRecipes.BONE_BLOCK).build();
+    public static final RechiseledBlockType BONE_BLOCK_INVERTED_TILES = create("bone_block_inverted_tiles", "Inverted Bone Block Tiles", () -> Blocks.BONE_BLOCK).recipe(BaseChiselingRecipes.BONE_BLOCK).build();
+    public static final RechiseledBlockType BONE_BLOCK_PATTERNED = create("bone_block_patterned", "Patterned Bone Block", () -> Blocks.BONE_BLOCK).recipe(BaseChiselingRecipes.BONE_BLOCK).build();
+    public static final RechiseledBlockType BONE_BLOCK_PILLAR = create("bone_block_pillar", "Bone Block Pillar", () -> Blocks.BONE_BLOCK).specification(BlockSpecification.PILLAR).recipe(BaseChiselingRecipes.BONE_BLOCK).build();
+    public static final RechiseledBlockType BONE_BLOCK_RIB = create("bone_block_rib", "Bone Block Ribs", () -> Blocks.BONE_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.BONE_BLOCK).build();
+    public static final RechiseledBlockType BONE_BLOCK_SKULL = create("bone_block_skull", "Bone Block Skull", () -> Blocks.BONE_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.BONE_BLOCK).build();
+    public static final RechiseledBlockType BONE_BLOCK_SMOOTH = create("bone_block_smooth", "Smooth Bone Block", () -> Blocks.BONE_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.BONE_BLOCK).build();
     // Cherry planks
     public static final RechiseledBlockType CHERRY_PLANKS_BEAMS = create("cherry_planks_beams", "Cherry Plank Beams", () -> Blocks.CHERRY_PLANKS).recipe(BaseChiselingRecipes.CHERRY_PLANKS).build();
     public static final RechiseledBlockType CHERRY_PLANKS_BRICK_PATTERN = create("cherry_planks_brick_pattern", "Cherry Plank Brick Pattern", () -> Blocks.CHERRY_PLANKS).recipe(BaseChiselingRecipes.CHERRY_PLANKS).build();
@@ -358,6 +383,23 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType GRANITE_SQUARES = create("granite_squares", "Granite Squares", () -> Blocks.POLISHED_GRANITE).recipe(BaseChiselingRecipes.GRANITE).build();
     public static final RechiseledBlockType GRANITE_TILES = create("granite_tiles", "Granite Tiles", () -> Blocks.POLISHED_GRANITE).recipe(BaseChiselingRecipes.GRANITE).build();
     public static final RechiseledBlockType GRANITE_WAVY = create("granite_wavy", "Wavy Granite", () -> Blocks.POLISHED_GRANITE).recipe(BaseChiselingRecipes.GRANITE).build();
+    // Iron block
+    public static final RechiseledBlockType IRON_BLOCK_BORDERED = create("iron_block_bordered", "Bordered Block of Iron", () -> Blocks.IRON_BLOCK).recipe(BaseChiselingRecipes.IRON_BLOCK).build();
+    public static final RechiseledBlockType IRON_BLOCK_CHISELED = create("iron_block_chiseled", "Chiseled Block of Iron", () -> Blocks.IRON_BLOCK).recipe(BaseChiselingRecipes.IRON_BLOCK).build();
+    public static final RechiseledBlockType IRON_BLOCK_CONNECTING = create("iron_block_connecting", "Block of Iron", () -> Blocks.IRON_BLOCK).regularVariant(() -> Blocks.IRON_BLOCK).recipe(BaseChiselingRecipes.IRON_BLOCK).build();
+    public static final RechiseledBlockType IRON_BLOCK_FRAMED = create("iron_block_framed", "Framed Block of Iron", () -> Blocks.IRON_BLOCK).recipe(BaseChiselingRecipes.IRON_BLOCK).build();
+    public static final RechiseledBlockType IRON_BLOCK_GEARS = create("iron_block_gears", "Iron Gears Block", () -> Blocks.IRON_BLOCK).recipe(BaseChiselingRecipes.IRON_BLOCK).build();
+    public static final RechiseledBlockType IRON_BLOCK_LINES = create("iron_block_lines", "Iron Block Lines", () -> Blocks.IRON_BLOCK).recipe(BaseChiselingRecipes.IRON_BLOCK).build();
+    public static final RechiseledBlockType IRON_BLOCK_PATTERNED = create("iron_block_patterned", "Patterned Block of Iron", () -> Blocks.IRON_BLOCK).recipe(BaseChiselingRecipes.IRON_BLOCK).build();
+    public static final RechiseledBlockType IRON_BLOCK_PIPES = create("iron_block_pipes", "Iron Block Pipes", () -> Blocks.IRON_BLOCK).recipe(BaseChiselingRecipes.IRON_BLOCK).build();
+    public static final RechiseledBlockType IRON_BLOCK_PLATED = create("iron_block_plated", "Plated Block of Iron", () -> Blocks.IRON_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.IRON_BLOCK).build();
+    public static final RechiseledBlockType IRON_BLOCK_POLISHED = create("iron_block_polished", "Polished Block of Iron", () -> Blocks.IRON_BLOCK).recipe(BaseChiselingRecipes.IRON_BLOCK).build();
+    public static final RechiseledBlockType IRON_BLOCK_PROCESSED = create("iron_block_processed", "Processed Block of Iron", () -> Blocks.IRON_BLOCK).recipe(BaseChiselingRecipes.IRON_BLOCK).build();
+    public static final RechiseledBlockType IRON_BLOCK_PULVERIZED = create("iron_block_pulverized", "Pulverized Block of Iron", () -> Blocks.IRON_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.IRON_BLOCK).build();
+    public static final RechiseledBlockType IRON_BLOCK_REINFORCED = create("iron_block_reinforced", "Reinforced Block of Iron", () -> Blocks.IRON_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.IRON_BLOCK).build();
+    public static final RechiseledBlockType IRON_BLOCK_SHEETS = create("iron_block_sheets", "Block of Iron Sheets", () -> Blocks.IRON_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.IRON_BLOCK).build();
+    public static final RechiseledBlockType IRON_BLOCK_SMALL_BRICKS = create("iron_block_small_bricks", "Small Iron Block Tiles", () -> Blocks.IRON_BLOCK).recipe(BaseChiselingRecipes.IRON_BLOCK).build();
+    public static final RechiseledBlockType IRON_BLOCK_SMOOTH = create("iron_block_smooth", "Smooth Block of Iron", () -> Blocks.IRON_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.IRON_BLOCK).build();
     // Jungle planks
     public static final RechiseledBlockType JUNGLE_PLANKS_BEAMS = create("jungle_planks_beams", "Jungle Plank Beams", () -> Blocks.JUNGLE_PLANKS).recipe(BaseChiselingRecipes.JUNGLE_PLANKS).build();
     public static final RechiseledBlockType JUNGLE_PLANKS_BRICK_PATTERN = create("jungle_planks_brick_pattern", "Jungle Plank Brick Pattern", () -> Blocks.JUNGLE_PLANKS).recipe(BaseChiselingRecipes.JUNGLE_PLANKS).build();
@@ -378,6 +420,25 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType JUNGLE_PLANKS_TILES = create("jungle_planks_tiles", "Jungle Plank Tiles", () -> Blocks.JUNGLE_PLANKS).recipe(BaseChiselingRecipes.JUNGLE_PLANKS).build();
     public static final RechiseledBlockType JUNGLE_PLANKS_WAVY = create("jungle_planks_wavy", "Wavy Jungle Planks", () -> Blocks.JUNGLE_PLANKS).recipe(BaseChiselingRecipes.JUNGLE_PLANKS).build();
     public static final RechiseledBlockType JUNGLE_PLANKS_WOVEN = create("jungle_planks_woven", "Woven Jungle Planks", () -> Blocks.JUNGLE_PLANKS).recipe(BaseChiselingRecipes.JUNGLE_PLANKS).build();
+    // Lapis block
+    public static final RechiseledBlockType LAPIS_BLOCK_BORDERED = create("lapis_block_bordered", "Bordered Block of Lapis Lazuli", () -> Blocks.LAPIS_BLOCK).recipe(BaseChiselingRecipes.LAPIS_BLOCK).build();
+    public static final RechiseledBlockType LAPIS_BLOCK_CHISELED = create("lapis_block_chiseled", "Chiseled Block of Lapis Lazuli", () -> Blocks.LAPIS_BLOCK).recipe(BaseChiselingRecipes.LAPIS_BLOCK).build();
+    public static final RechiseledBlockType LAPIS_BLOCK_COBBLED = create("lapis_block_cobbled", "Cobbled Block of Lapis Lazuli", () -> Blocks.LAPIS_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.LAPIS_BLOCK).build();
+    public static final RechiseledBlockType LAPIS_BLOCK_CONNECTING = create("lapis_block_connecting", "Block of Lapis Lazuli", () -> Blocks.LAPIS_BLOCK).regularVariant(() -> Blocks.LAPIS_BLOCK).recipe(BaseChiselingRecipes.LAPIS_BLOCK).build();
+    public static final RechiseledBlockType LAPIS_BLOCK_CRUSHED = create("lapis_block_crushed", "Crushed Block of Lapis Lazuli", () -> Blocks.LAPIS_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.LAPIS_BLOCK).build();
+    public static final RechiseledBlockType LAPIS_BLOCK_DECORATED = create("lapis_block_decorated", "Decorated Block of Lapis Lazuli", () -> Blocks.LAPIS_BLOCK).recipe(BaseChiselingRecipes.LAPIS_BLOCK).build();
+    public static final RechiseledBlockType LAPIS_BLOCK_GLOSSY = create("lapis_block_glossy", "Glossy Block of Lapis Lazuli", () -> Blocks.LAPIS_BLOCK).recipe(BaseChiselingRecipes.LAPIS_BLOCK).build();
+    public static final RechiseledBlockType LAPIS_BLOCK_INVERTED_TILES = create("lapis_block_inverted_tiles", "Inverted Lapis Lazuli Block Tiles", () -> Blocks.LAPIS_BLOCK).recipe(BaseChiselingRecipes.LAPIS_BLOCK).build();
+    public static final RechiseledBlockType LAPIS_BLOCK_MOSAIC = create("lapis_block_mosaic", "Mosaic Block of Lapis Lazuli", () -> Blocks.LAPIS_BLOCK).recipe(BaseChiselingRecipes.LAPIS_BLOCK).build();
+    public static final RechiseledBlockType LAPIS_BLOCK_PATTERN = create("lapis_block_pattern", "Patterned Block of Lapis Lazuli", () -> Blocks.LAPIS_BLOCK).recipe(BaseChiselingRecipes.LAPIS_BLOCK).build();
+    public static final RechiseledBlockType LAPIS_BLOCK_PILLAR = create("lapis_block_pillar", "Lapis Lazuli Block Pillar", () -> Blocks.LAPIS_BLOCK).specification(BlockSpecification.PILLAR).recipe(BaseChiselingRecipes.LAPIS_BLOCK).build();
+    public static final RechiseledBlockType LAPIS_BLOCK_POLISHED = create("lapis_block_polished", "Polished Block of Lapis Lazuli", () -> Blocks.LAPIS_BLOCK).recipe(BaseChiselingRecipes.LAPIS_BLOCK).build();
+    public static final RechiseledBlockType LAPIS_BLOCK_SCALES = create("lapis_block_scales", "Lapis Lazuli Block Scales", () -> Blocks.LAPIS_BLOCK).recipe(BaseChiselingRecipes.LAPIS_BLOCK).build();
+    public static final RechiseledBlockType LAPIS_BLOCK_SMALL_TILES = create("lapis_block_small_tiles", "Small Lapis Lazuli Block Tiles", () -> Blocks.LAPIS_BLOCK).recipe(BaseChiselingRecipes.LAPIS_BLOCK).build();
+    public static final RechiseledBlockType LAPIS_BLOCK_SMOOTH = create("lapis_block_smooth", "Smooth Block of Lapis Lazuli", () -> Blocks.LAPIS_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.LAPIS_BLOCK).build();
+    public static final RechiseledBlockType LAPIS_BLOCK_STRIPES = create("lapis_block_stripes", "Striped Block of Lapis Lazuli", () -> Blocks.LAPIS_BLOCK).recipe(BaseChiselingRecipes.LAPIS_BLOCK).build();
+    public static final RechiseledBlockType LAPIS_BLOCK_SWIRLING = create("lapis_block_swirling", "Swirling Block of Lapis Lazuli", () -> Blocks.LAPIS_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.LAPIS_BLOCK).build();
+    public static final RechiseledBlockType LAPIS_BLOCK_TILES = create("lapis_block_tiles", "Lapis Lazuli Block Tiles", () -> Blocks.LAPIS_BLOCK).recipe(BaseChiselingRecipes.LAPIS_BLOCK).build();
     // Mangrove planks
     public static final RechiseledBlockType MANGROVE_PLANKS_BEAMS = create("mangrove_planks_beams", "Mangrove Plank Beams", () -> Blocks.MANGROVE_PLANKS).recipe(BaseChiselingRecipes.MANGROVE_PLANKS).build();
     public static final RechiseledBlockType MANGROVE_PLANKS_BRICK_PATTERN = create("mangrove_planks_brick_pattern", "Mangrove Plank Brick Pattern", () -> Blocks.MANGROVE_PLANKS).recipe(BaseChiselingRecipes.MANGROVE_PLANKS).build();
@@ -430,6 +491,19 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType NETHER_BRICKS_SMOOTH = create("nether_bricks_smooth", "Nether Bricks Smooth", () -> Blocks.NETHER_BRICKS).recipe(BaseChiselingRecipes.NETHER_BRICKS).build();
     public static final RechiseledBlockType NETHER_BRICKS_SQUARES = create("nether_bricks_squares", "Nether Brick Squares", () -> Blocks.NETHER_BRICKS).recipe(BaseChiselingRecipes.NETHER_BRICKS).build();
     public static final RechiseledBlockType NETHER_BRICKS_TILES = create("nether_bricks_tiles", "Nether Brick Tiles", () -> Blocks.NETHER_BRICKS).recipe(BaseChiselingRecipes.NETHER_BRICKS).build();
+    // Netherite block
+    public static final RechiseledBlockType NETHERITE_BLOCK_BEAMS = create("netherite_block_beams", "Netherite Block Beams", () -> Blocks.NETHERITE_BLOCK).recipe(BaseChiselingRecipes.NETHERITE_BLOCK).build();
+    public static final RechiseledBlockType NETHERITE_BLOCK_BRICKS = create("netherite_block_bricks", "Netherite Block Bricks", () -> Blocks.NETHERITE_BLOCK).recipe(BaseChiselingRecipes.NETHERITE_BLOCK).build();
+    public static final RechiseledBlockType NETHERITE_BLOCK_CHISELED = create("netherite_block_chiseled", "Chiseled Block of Netherite", () -> Blocks.NETHERITE_BLOCK).recipe(BaseChiselingRecipes.NETHERITE_BLOCK).build();
+    public static final RechiseledBlockType NETHERITE_BLOCK_COMPACTED = create("netherite_block_compacted", "Compacted Block of Netherite", () -> Blocks.NETHERITE_BLOCK).recipe(BaseChiselingRecipes.NETHERITE_BLOCK).build();
+    public static final RechiseledBlockType NETHERITE_BLOCK_DECORATED = create("netherite_block_decorated", "Decorated Block of Netherite", () -> Blocks.NETHERITE_BLOCK).recipe(BaseChiselingRecipes.NETHERITE_BLOCK).build();
+    public static final RechiseledBlockType NETHERITE_BLOCK_DIAGONAL_TILES = create("netherite_block_diagonal_tiles", "Diagonal Netherite Block Tiles", () -> Blocks.NETHERITE_BLOCK).recipe(BaseChiselingRecipes.NETHERITE_BLOCK).build();
+    public static final RechiseledBlockType NETHERITE_BLOCK_INDENTED = create("netherite_block_indented", "Indented Block of Netherite", () -> Blocks.NETHERITE_BLOCK).recipe(BaseChiselingRecipes.NETHERITE_BLOCK).build();
+    public static final RechiseledBlockType NETHERITE_BLOCK_METEORIC = create("netherite_block_meteoric", "Meteoric Netherite Block", () -> Blocks.NETHERITE_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.NETHERITE_BLOCK).build();
+    public static final RechiseledBlockType NETHERITE_BLOCK_PATTERNED = create("netherite_block_patterned", "Patterned Block of Netherite", () -> Blocks.NETHERITE_BLOCK).recipe(BaseChiselingRecipes.NETHERITE_BLOCK).build();
+    public static final RechiseledBlockType NETHERITE_BLOCK_PILLAR = create("netherite_block_pillar", "Netherite Block Pillar", () -> Blocks.NETHERITE_BLOCK).specification(BlockSpecification.PILLAR).recipe(BaseChiselingRecipes.NETHERITE_BLOCK).build();
+    public static final RechiseledBlockType NETHERITE_BLOCK_SMALL_TILES = create("netherite_block_small_tiles", "Small Netherite Block Tiles", () -> Blocks.NETHERITE_BLOCK).recipe(BaseChiselingRecipes.NETHERITE_BLOCK).build();
+    public static final RechiseledBlockType NETHERITE_BLOCK_SMOOTH = create("netherite_block_smooth", "Smooth Block of Netherite", () -> Blocks.NETHERITE_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.NETHERITE_BLOCK).build();
     // Oak planks
     public static final RechiseledBlockType OAK_PLANKS_BEAMS = create("oak_planks_beams", "Oak Plank Beams", () -> Blocks.OAK_PLANKS).recipe(BaseChiselingRecipes.OAK_PLANKS).build();
     public static final RechiseledBlockType OAK_PLANKS_BRICK_PATTERN = create("oak_planks_brick_pattern", "Oak Plank Brick Pattern", () -> Blocks.OAK_PLANKS).recipe(BaseChiselingRecipes.OAK_PLANKS).build();
@@ -543,6 +617,22 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType RED_SANDSTONE_POLISHED = create("red_sandstone_polished", "Polished Red Sandstone", () -> Blocks.RED_SANDSTONE).recipe(BaseChiselingRecipes.RED_SANDSTONE).build();
     public static final RechiseledBlockType RED_SANDSTONE_ROTATED_BRICKS = create("red_sandstone_rotated_bricks", "Rotated Red Sandstone Bricks", () -> Blocks.RED_SANDSTONE).recipe(BaseChiselingRecipes.RED_SANDSTONE).build();
     public static final RechiseledBlockType RED_SANDSTONE_TILES = create("red_sandstone_tiles", "Red Sandstone Tiles", () -> Blocks.RED_SANDSTONE).recipe(BaseChiselingRecipes.RED_SANDSTONE).build();
+    // Redstone block
+    public static final RechiseledBlockType REDSTONE_BLOCK_BORDERED = create("redstone_block_bordered", "Bordered Block of Redstone", () -> Blocks.REDSTONE_BLOCK).recipe(BaseChiselingRecipes.REDSTONE_BLOCK).build();
+    public static final RechiseledBlockType REDSTONE_BLOCK_BRICKS = create("redstone_block_bricks", "Redstone Block Bricks", () -> Blocks.REDSTONE_BLOCK).recipe(BaseChiselingRecipes.REDSTONE_BLOCK).build();
+    public static final RechiseledBlockType REDSTONE_BLOCK_BRICK_BORDERED = create("redstone_block_brick_bordered", "Brick Bordered Block of Redstone", () -> Blocks.REDSTONE_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.REDSTONE_BLOCK).build();
+    public static final RechiseledBlockType REDSTONE_BLOCK_CHISELED_CLOVERS = create("redstone_block_chiseled_clovers", "Chiseled Redstone Block Clovers", () -> Blocks.REDSTONE_BLOCK).recipe(BaseChiselingRecipes.REDSTONE_BLOCK).build();
+    public static final RechiseledBlockType REDSTONE_BLOCK_CIRCLES = create("redstone_block_circles", "Redstone Block Circles", () -> Blocks.REDSTONE_BLOCK).recipe(BaseChiselingRecipes.REDSTONE_BLOCK).build();
+    public static final RechiseledBlockType REDSTONE_BLOCK_COMPRESSED = create("redstone_block_compressed", "Compressed Block of Redstone", () -> Blocks.REDSTONE_BLOCK).recipe(BaseChiselingRecipes.REDSTONE_BLOCK).build();
+    public static final RechiseledBlockType REDSTONE_BLOCK_CRUSHED = create("redstone_block_crushed", "Crushed Block of Redstone", () -> Blocks.REDSTONE_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.REDSTONE_BLOCK).build();
+    public static final RechiseledBlockType REDSTONE_BLOCK_DIAGONAL_TILES = create("redstone_block_diagonal_tiles", "Diagonal Redstone Block Tiles", () -> Blocks.REDSTONE_BLOCK).recipe(BaseChiselingRecipes.REDSTONE_BLOCK).build();
+    public static final RechiseledBlockType REDSTONE_BLOCK_PATTERNED = create("redstone_block_patterned", "Patterned Block of Redstone", () -> Blocks.REDSTONE_BLOCK).recipe(BaseChiselingRecipes.REDSTONE_BLOCK).build();
+    public static final RechiseledBlockType REDSTONE_BLOCK_PAVING = create("redstone_block_paving", "Redstone Block Paving", () -> Blocks.REDSTONE_BLOCK).recipe(BaseChiselingRecipes.REDSTONE_BLOCK).build();
+    public static final RechiseledBlockType REDSTONE_BLOCK_PILLAR = create("redstone_block_pillar", "Redstone Block Pillar", () -> Blocks.REDSTONE_BLOCK).specification(BlockSpecification.PILLAR).recipe(BaseChiselingRecipes.REDSTONE_BLOCK).build();
+    public static final RechiseledBlockType REDSTONE_BLOCK_POLISHED = create("redstone_block_polished", "Polished Block of Redstone", () -> Blocks.REDSTONE_BLOCK).recipe(BaseChiselingRecipes.REDSTONE_BLOCK).build();
+    public static final RechiseledBlockType REDSTONE_BLOCK_SCALES = create("redstone_block_scales", "Redstone Block Scales", () -> Blocks.REDSTONE_BLOCK).recipe(BaseChiselingRecipes.REDSTONE_BLOCK).build();
+    public static final RechiseledBlockType REDSTONE_BLOCK_SMALL_TILES = create("redstone_block_small_tiles", "Small Redstone Block Tiles", () -> Blocks.REDSTONE_BLOCK).recipe(BaseChiselingRecipes.REDSTONE_BLOCK).build();
+    public static final RechiseledBlockType REDSTONE_BLOCK_SMOOTH = create("redstone_block_smooth", "Smooth Block of Redstone", () -> Blocks.REDSTONE_BLOCK).noConnectingVariant().recipe(BaseChiselingRecipes.REDSTONE_BLOCK).build();
     // Sandstone
     public static final RechiseledBlockType SANDSTONE_BRICK_PATTERN = create("sandstone_brick_pattern", "Sandstone Brick Pattern", () -> Blocks.SANDSTONE).recipe(BaseChiselingRecipes.SANDSTONE).build();
     public static final RechiseledBlockType SANDSTONE_BRICK_PAVING = create("sandstone_brick_paving", "Sandstone Brick Paving", () -> Blocks.SANDSTONE).recipe(BaseChiselingRecipes.SANDSTONE).build();
