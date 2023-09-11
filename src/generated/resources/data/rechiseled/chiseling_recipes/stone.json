@@ -34,6 +34,9 @@
       "item": "minecraft:chiseled_stone_bricks"
     },
     {
+      "item": "rechiseled:stone_cobbled"
+    },
+    {
       "connecting_item": "rechiseled:stone_crushed_connecting",
       "item": "rechiseled:stone_crushed"
     },
@@ -48,6 +51,9 @@
     {
       "connecting_item": "rechiseled:stone_rotated_bricks_connecting",
       "item": "rechiseled:stone_rotated_bricks"
+    },
+    {
+      "item": "rechiseled:stone_slated"
     },
     {
       "connecting_item": "rechiseled:stone_small_bricks_connecting",
