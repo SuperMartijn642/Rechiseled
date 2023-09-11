@@ -1,0 +1,63 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "connecting_item": "rechiseled:redstone_block_bordered_connecting",
+      "item": "rechiseled:redstone_block_bordered"
+    },
+    {
+      "connecting_item": "rechiseled:redstone_block_bricks_connecting",
+      "item": "rechiseled:redstone_block_bricks"
+    },
+    {
+      "item": "rechiseled:redstone_block_brick_bordered"
+    },
+    {
+      "connecting_item": "rechiseled:redstone_block_chiseled_clovers_connecting",
+      "item": "rechiseled:redstone_block_chiseled_clovers"
+    },
+    {
+      "connecting_item": "rechiseled:redstone_block_circles_connecting",
+      "item": "rechiseled:redstone_block_circles"
+    },
+    {
+      "connecting_item": "rechiseled:redstone_block_compressed_connecting",
+      "item": "rechiseled:redstone_block_compressed"
+    },
+    {
+      "item": "rechiseled:redstone_block_crushed"
+    },
+    {
+      "connecting_item": "rechiseled:redstone_block_diagonal_tiles_connecting",
+      "item": "rechiseled:redstone_block_diagonal_tiles"
+    },
+    {
+      "connecting_item": "rechiseled:redstone_block_patterned_connecting",
+      "item": "rechiseled:redstone_block_patterned"
+    },
+    {
+      "connecting_item": "rechiseled:redstone_block_paving_connecting",
+      "item": "rechiseled:redstone_block_paving"
+    },
+    {
+      "connecting_item": "rechiseled:redstone_block_pillar_connecting",
+      "item": "rechiseled:redstone_block_pillar"
+    },
+    {
+      "connecting_item": "rechiseled:redstone_block_polished_connecting",
+      "item": "rechiseled:redstone_block_polished"
+    },
+    {
+      "connecting_item": "rechiseled:redstone_block_scales_connecting",
+      "item": "rechiseled:redstone_block_scales"
+    },
+    {
+      "connecting_item": "rechiseled:redstone_block_small_tiles_connecting",
+      "item": "rechiseled:redstone_block_small_tiles"
+    },
+    {
+      "item": "rechiseled:redstone_block_smooth"
+    }
+  ],
+  "overwrite": false
+}
