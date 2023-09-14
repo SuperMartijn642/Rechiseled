@@ -3,6 +3,9 @@
   "overwrite": false,
   "entries": [
     {
+      "item": "minecraft:redstone_block"
+    },
+    {
       "item": "rechiseled:redstone_block_bordered",
       "connecting_item": "rechiseled:redstone_block_bordered_connecting"
     },
