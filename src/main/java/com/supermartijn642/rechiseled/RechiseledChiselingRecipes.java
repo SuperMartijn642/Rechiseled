@@ -17,6 +17,8 @@ public class RechiseledChiselingRecipes {
         REGISTRATION.chiselingEntry(ANDESITE, () -> Items.ANDESITE, null);
         // Birch planks
         REGISTRATION.chiselingEntry(BIRCH_PLANKS, () -> Items.BIRCH_PLANKS, null);
+        // Blue ice
+        REGISTRATION.chiselingEntry(BLUE_ICE, () -> Items.BLUE_ICE, null);
         // Coal block
         REGISTRATION.chiselingEntry(COAL_BLOCK, () -> Items.COAL_BLOCK, null);
         // Cobblestone
@@ -66,6 +68,8 @@ public class RechiseledChiselingRecipes {
         REGISTRATION.chiselingEntry(RED_SANDSTONE, () -> Items.CHISELED_RED_SANDSTONE, null);
         REGISTRATION.chiselingEntry(RED_SANDSTONE, () -> Items.CUT_RED_SANDSTONE, null);
         REGISTRATION.chiselingEntry(RED_SANDSTONE, () -> Items.SMOOTH_RED_SANDSTONE, null);
+        // Redstone block
+        REGISTRATION.chiselingEntry(REDSTONE_BLOCK, () -> Items.REDSTONE_BLOCK, null);
         // Sandstone
         REGISTRATION.chiselingEntry(SANDSTONE, () -> Items.SANDSTONE, null);
         REGISTRATION.chiselingEntry(SANDSTONE, () -> Items.CHISELED_SANDSTONE, null);
