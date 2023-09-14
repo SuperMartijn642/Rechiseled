@@ -2,6 +2,9 @@
   "type": "rechiseled:chiseling",
   "entries": [
     {
+      "item": "minecraft:redstone_block"
+    },
+    {
       "connecting_item": "rechiseled:redstone_block_bordered_connecting",
       "item": "rechiseled:redstone_block_bordered"
     },
