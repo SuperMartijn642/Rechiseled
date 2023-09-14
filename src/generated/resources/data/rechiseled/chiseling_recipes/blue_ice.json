@@ -3,6 +3,9 @@
   "overwrite": false,
   "entries": [
     {
+      "item": "minecraft:blue_ice"
+    },
+    {
       "item": "rechiseled:blue_ice_bordered",
       "connecting_item": "rechiseled:blue_ice_bordered_connecting"
     },
