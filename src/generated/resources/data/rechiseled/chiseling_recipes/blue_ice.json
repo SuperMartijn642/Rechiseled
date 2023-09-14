@@ -2,6 +2,9 @@
   "type": "rechiseled:chiseling",
   "entries": [
     {
+      "item": "minecraft:blue_ice"
+    },
+    {
       "connecting_item": "rechiseled:blue_ice_bordered_connecting",
       "item": "rechiseled:blue_ice_bordered"
     },
