@@ -1,10 +1,18 @@
+### Rechiseled 1.1.4
+- Fixed redstone block and blue ice chiseling recipes
+
 ### Rechiseled 1.1.3
 - Added 94 variants for blue ice, bone block, iron block, lapis block, netherite block, and redstone block
 - Added some new variants for stone, cobblestone, and cobbled deepslate
 
 ### Rechiseled 1.1.2
 - Added an option to ignore missing palette colors in `ChiseledTextureProvider`
-- Fixed crash due to missing `LoggerFactory` class
+
+### Rechiseled 1.1.1b
+- Fusion is now only a client-side dependency
+
+### Rechiseled 1.1.1a
+- Fixed `TextureMapping#getSuffixes` not working when mod source is a jar file
 
 ### Rechiseled 1.1.1
 - Chiseling recipes now work in a similar manner to tags
