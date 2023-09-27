@@ -1,3 +1,6 @@
+### Rechiseled 1.1.4a
+- Fixed copper blocks not being mineable
+
 ### Rechiseled 1.1.4
 - Fixed redstone block and blue ice chiseling recipes
 
