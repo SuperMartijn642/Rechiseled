@@ -1,4 +1,4 @@
-// 1.19.4	2023-09-14T14:42:56.2205566	Core Lib Generators
+// 1.19.4	2023-10-05T20:25:32.5169967	Core Lib Generators
 bcc317b7afdbb0245929c73491c21fc37a80ea9e assets/minecraft/atlases/blocks.json
 6e360e1b0a77fa58f410338708454a83081843be assets/rechiseled/blockstates/acacia_planks_beams.json
 13ca1be21c1f1d13ceb05a96e2bdf9a33d866cda assets/rechiseled/blockstates/acacia_planks_beams_connecting.json
@@ -3049,11 +3049,11 @@ e979f611939746b92066a8fa7b239353047756b8 assets/rechiseled/models/item/warped_pl
 e6cd0054dba61ec2cd5307f4551e79664bff8b7b assets/rechiseled/models/item/warped_planks_woven.json
 432cc540e70365cdca261496c03403b650df4f8b assets/rechiseled/models/item/warped_planks_woven_connecting.json
 323065ec0f47bd4e2c48ef0df60b16aadb4d1c29 data/minecraft/tags/blocks/mineable/axe.json
-c56e91be2c8bda8315961c95fe92ed968512711f data/minecraft/tags/blocks/mineable/pickaxe.json
+127b27ae00869c8ef150044c2d6acf29f4373986 data/minecraft/tags/blocks/mineable/pickaxe.json
 b7dc098f88b1404db55f9e349f8fedfd9a0ae47e data/minecraft/tags/blocks/mineable/shovel.json
 bca378c2ece45ea220d3ba1de540176230d5602a data/minecraft/tags/blocks/needs_diamond_tool.json
 71c62b32deee1867107c6864b371d4a520df7936 data/minecraft/tags/blocks/needs_iron_tool.json
-a27a774595e93ff85f32694bca4a6fbe4bb5dc0b data/minecraft/tags/blocks/needs_stone_tool.json
+4dd846f81554926ef23dd391c5a9a50e92ad4e9c data/minecraft/tags/blocks/needs_stone_tool.json
 69e920a635059193143e9a15e2205fa7981056f1 data/rechiseled/advancements/recipes/misc/chisel.json
 da10e25a89ed3b09bbe65f74b607f920e1b86f55 data/rechiseled/loot_tables/blocks/acacia_planks_beams.json
 ccac8d5c1d1744bcb114c81f7dad9f17720c217f data/rechiseled/loot_tables/blocks/acacia_planks_beams_connecting.json
