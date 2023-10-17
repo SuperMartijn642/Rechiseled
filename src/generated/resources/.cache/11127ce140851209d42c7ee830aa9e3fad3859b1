@@ -1,4 +1,4 @@
-// 1.19.3	2023-10-05T20:27:26.6744983	Core Lib Generators
+// 1.19.3	2023-10-17T23:48:47.6421362	Core Lib Generators
 8552dd99a33e0907fe2c97a722e86793f81a522b assets/minecraft/atlases/blocks.json
 6e360e1b0a77fa58f410338708454a83081843be assets/rechiseled/blockstates/acacia_planks_beams.json
 13ca1be21c1f1d13ceb05a96e2bdf9a33d866cda assets/rechiseled/blockstates/acacia_planks_beams_connecting.json
@@ -1136,7 +1136,7 @@ e0650e56608d1bc671e270dfe1313e0664b517fe assets/rechiseled/blockstates/warped_pl
 bb9366d9588de37f545023fed374ad25f0021b61 assets/rechiseled/blockstates/warped_planks_wavy_connecting.json
 a4448e75d7d316da355b27271dd1cb1b29b6657b assets/rechiseled/blockstates/warped_planks_woven.json
 921ec0d7cb5307de175c10b37a70037946d0bf91 assets/rechiseled/blockstates/warped_planks_woven_connecting.json
-f30964d3a419c8460f022ca19a6e4fa7b5363eec assets/rechiseled/lang/en_us.json
+4b426ed83f93e0e2f35f32324aaef5332b4d410f assets/rechiseled/lang/en_us.json
 84ef81927cc2487c518db6691523d66149b33bb5 assets/rechiseled/models/block/acacia_planks_beams.json
 157721a831f5d795643264cd705cac701800d9db assets/rechiseled/models/block/acacia_planks_bricks.json
 e187e23efff42f5c93ed1e2cacc015179a09c05d assets/rechiseled/models/block/acacia_planks_brick_pattern.json
