@@ -6,9 +6,6 @@
       "item": "minecraft:copper_block"
     },
     {
-      "item": "minecraft:cut_copper"
-    },
-    {
       "item": "rechiseled:copper_block_bars",
       "connecting_item": "rechiseled:copper_block_bars_connecting"
     },
