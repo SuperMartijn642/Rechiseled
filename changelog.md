@@ -1,3 +1,6 @@
+### Rechiseled 1.1.5a
+- Removed cut copper from the copper block chiseling recipe
+
 ### Rechiseled 1.1.5
 - Added Ukrainian translations (thanks to Un roman!)
 - Fixed the names of the red nether brick variants
