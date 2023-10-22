@@ -45,7 +45,6 @@ public class RechiseledChiselingRecipes {
         REGISTRATION.chiselingEntry(COBBLESTONE, () -> Items.MOSSY_COBBLESTONE, null);
         // Copper block
         REGISTRATION.chiselingEntry(COPPER_BLOCK, () -> Items.COPPER_BLOCK, null);
-        REGISTRATION.chiselingEntry(COPPER_BLOCK, () -> Items.CUT_COPPER, null);
         // Crimson planks
         REGISTRATION.chiselingEntry(CRIMSON_PLANKS, () -> Items.CRIMSON_PLANKS, null);
         // Dark oak planks
