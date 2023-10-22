@@ -1,4 +1,4 @@
-// 1.19.3	2023-10-17T23:48:47.6811346	Registration Chiseling Recipe Provider: rechiseled
+// 1.19.3	2023-10-22T22:38:06.7705344	Registration Chiseling Recipe Provider: rechiseled
 782637a4dbe8490b9fabf8276f7cd924f163767a data/rechiseled/chiseling_recipes/acacia_planks.json
 94c7180c54cf181ae00b8a36229cca2a0c40a866 data/rechiseled/chiseling_recipes/amethyst_block.json
 e314aac4ca43e11e16901c80802562f41abd98ce data/rechiseled/chiseling_recipes/andesite.json
@@ -10,7 +10,7 @@ d95a57f1ff20fdebd6ab3e55499de95c63cacc09 data/rechiseled/chiseling_recipes/bone_
 6413eb95aa59473fd79857b6d6bc1dee6f8fed01 data/rechiseled/chiseling_recipes/coal_block.json
 f17cbc0e59b740a53860cd18e7f146859e05401f data/rechiseled/chiseling_recipes/cobbled_deepslate.json
 23aab83ca047b018b814775be83165f564ac73dd data/rechiseled/chiseling_recipes/cobblestone.json
-99cbc41dc185e80cbb669efafbb43eff3a49b30f data/rechiseled/chiseling_recipes/copper_block.json
+905eda3801e8f3532c0c72fc8bd549398d179b33 data/rechiseled/chiseling_recipes/copper_block.json
 9f47652113c966ede43af8a8b7db816144af30b1 data/rechiseled/chiseling_recipes/crimson_planks.json
 660f073c15c897b95355f41fe7b4c66eed31e8fe data/rechiseled/chiseling_recipes/dark_oak_planks.json
 ad56bb0ac56388ac64fa5665ca7c8eec21ea7283 data/rechiseled/chiseling_recipes/dark_prismarine.json
