@@ -2,6 +2,9 @@
   "type": "rechiseled:chiseling",
   "entries": [
     {
+      "item": "minecraft:netherite_block"
+    },
+    {
       "connecting_item": "rechiseled:netherite_block_beams_connecting",
       "item": "rechiseled:netherite_block_beams"
     },
