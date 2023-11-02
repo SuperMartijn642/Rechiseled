@@ -70,6 +70,8 @@ public class RechiseledChiselingRecipes {
         REGISTRATION.chiselingEntry(JUNGLE_PLANKS, () -> Items.JUNGLE_PLANKS, null);
         // Netherrack
         REGISTRATION.chiselingEntry(NETHERRACK, () -> Items.NETHERRACK, null);
+        // Netherite
+        REGISTRATION.chiselingEntry(NETHERITE_BLOCK, () -> Items.NETHERITE_BLOCK, null);
         // Nether bricks
         REGISTRATION.chiselingEntry(NETHER_BRICKS, () -> Items.NETHER_BRICKS, null);
         REGISTRATION.chiselingEntry(NETHER_BRICKS, () -> Items.CHISELED_NETHER_BRICKS, null);
