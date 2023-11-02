@@ -75,6 +75,8 @@ public class RechiseledChiselingRecipes {
         REGISTRATION.chiselingEntry(NETHER_BRICKS, () -> Items.NETHER_BRICKS, null);
         REGISTRATION.chiselingEntry(NETHER_BRICKS, () -> Items.CHISELED_NETHER_BRICKS, null);
         REGISTRATION.chiselingEntry(NETHER_BRICKS, () -> Items.CRACKED_NETHER_BRICKS, null);
+        // Netherite
+        REGISTRATION.chiselingEntry(NETHERITE_BLOCK, () -> Items.NETHERITE_BLOCK, null);
         // Oak planks
         REGISTRATION.chiselingEntry(OAK_PLANKS, () -> Items.OAK_PLANKS, null);
         // Obsidian
