@@ -1,3 +1,6 @@
+### Rechiseled 1.1.5b
+- Fix the regular netherite block missing from the netherite chiseling recipe
+
 ### Rechiseled 1.1.5a
 - Removed cut copper from the copper block chiseling recipe
 
