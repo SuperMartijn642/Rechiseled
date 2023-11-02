@@ -3,6 +3,9 @@
   "overwrite": false,
   "entries": [
     {
+      "item": "minecraft:netherite_block"
+    },
+    {
       "item": "rechiseled:netherite_block_beams",
       "connecting_item": "rechiseled:netherite_block_beams_connecting"
     },
