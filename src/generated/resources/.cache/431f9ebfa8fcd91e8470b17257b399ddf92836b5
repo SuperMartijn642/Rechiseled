@@ -1,4 +1,4 @@
-// 1.20	2023-10-22T22:44:11.7458811	Registration Chiseling Recipe Provider: rechiseled
+// 1.20	2023-11-02T21:13:49.6559454	Registration Chiseling Recipe Provider: rechiseled
 782637a4dbe8490b9fabf8276f7cd924f163767a data/rechiseled/chiseling_recipes/acacia_planks.json
 94c7180c54cf181ae00b8a36229cca2a0c40a866 data/rechiseled/chiseling_recipes/amethyst_block.json
 e314aac4ca43e11e16901c80802562f41abd98ce data/rechiseled/chiseling_recipes/andesite.json
@@ -28,7 +28,7 @@ a034b22a68dc342570cb52b53d6cef0d50850220 data/rechiseled/chiseling_recipes/glows
 305e8c6e766b580aac06c3d426aba503571cea35 data/rechiseled/chiseling_recipes/jungle_planks.json
 20943475d7dbc30e5138f15efdc59565f194cfc5 data/rechiseled/chiseling_recipes/lapis_block.json
 c25467d8e448e4ee38088431d9a052e7400f12f8 data/rechiseled/chiseling_recipes/mangrove_planks.json
-fa6cafd3da9904df08d4bc7ffda1f96311183841 data/rechiseled/chiseling_recipes/netherite_block.json
+f055e9b71385e5131645ee2d382eafa05ddcdfd0 data/rechiseled/chiseling_recipes/netherite_block.json
 2a5909a08054c7f923f3f2bf07bb8acab41f9c37 data/rechiseled/chiseling_recipes/netherrack.json
 78afc2efe11aa563af85e3ebc51d062b35ff0ae6 data/rechiseled/chiseling_recipes/nether_bricks.json
 3eba132378a83cbe2b7e284636b1127d82c612f0 data/rechiseled/chiseling_recipes/oak_planks.json
