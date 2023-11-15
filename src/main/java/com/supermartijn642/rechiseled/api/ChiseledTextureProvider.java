@@ -105,7 +105,7 @@ public abstract class ChiseledTextureProvider extends ResourceGenerator {
         // Metadata
         JsonObject metadata = null;
         if(this.cache.doesResourceExist(ResourceType.ASSET, location.getResourceDomain(), "textures", location.getResourcePath(), ".png.mcmeta")){
-            try(Reader reader = new InputStreamReader(this.cache.getExistingResource(ResourceType.ASSET, "rechiseled", "textures", location.getResourcePath(), ".png.mcmeta").get())){
+            try(Reader reader = new InputStreamReader(this.cache.getExistingResource(ResourceType.ASSET, location.getResourceDomain(), "textures", location.getResourcePath(), ".png.mcmeta").get())){
                 metadata = GSON.fromJson(reader, JsonObject.class);
             }catch(IOException e){
                 throw new RuntimeException("Encountered an exception whilst trying to load texture metadata: " + location, e);
