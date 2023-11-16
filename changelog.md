@@ -1,3 +1,7 @@
+### Rechiseled 1.1.5c
+- Fixed the blocks sometimes not rendering in the chisel gui
+- Fixed block lighting in the chisel gui
+
 ### Rechiseled 1.1.5b
 - Fix the regular netherite block missing from the netherite chiseling recipe
 
