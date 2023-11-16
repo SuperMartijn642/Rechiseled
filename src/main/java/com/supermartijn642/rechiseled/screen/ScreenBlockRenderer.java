@@ -7,9 +7,9 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Quaternion;
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.render.RenderUtils;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.model.BakedModel;
@@ -18,6 +18,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import net.minecraftforge.client.ChunkRenderTypeSet;
 import net.minecraftforge.client.model.data.ModelData;
 
 import java.util.List;
@@ -29,6 +30,7 @@ import java.util.Map;
 public class ScreenBlockRenderer {
 
     private static final PoseStack POSE_STACK = new PoseStack();
+    private static final RandomSource RANDOM = RandomSource.create();
     private static BlockCaptureLevel fakeLevel;
 
     public static void drawBlock(BlockCapture capture, double x, double y, double scale, float yaw, float pitch, boolean doShading){
@@ -76,22 +78,24 @@ public class ScreenBlockRenderer {
 
         BakedModel model = ClientUtils.getBlockRenderer().getBlockModel(state);
         ModelData modelData = model.getModelData(fakeLevel, pos, state, ModelData.EMPTY);
-        RenderType renderType = ItemBlockRenderTypes.getRenderType(state, true);
-        renderModel(model, state, matrixStack, renderTypeBuffer.getBuffer(renderType), modelData, renderType);
+        RANDOM.setSeed(42);
+        ChunkRenderTypeSet renderTypes = model.getRenderTypes(state, RANDOM, modelData);
+        for(RenderType renderType : renderTypes){
+            RenderType itemRenderType = renderType == RenderType.translucent() ? Sheets.translucentCullBlockSheet() : Sheets.cutoutBlockSheet();
+            renderModel(model, state, matrixStack, renderTypeBuffer.getBuffer(itemRenderType), modelData, renderType);
+        }
 
         matrixStack.popPose();
     }
 
     private static void renderModel(BakedModel modelIn, BlockState state, PoseStack matrixStackIn, VertexConsumer bufferIn, ModelData modelData, RenderType renderType){
-        RandomSource random = RandomSource.create();
-
         for(Direction direction : Direction.values()){
-            random.setSeed(42L);
-            renderQuads(matrixStackIn, bufferIn, modelIn.getQuads(state, direction, random, modelData, renderType));
+            RANDOM.setSeed(42);
+            renderQuads(matrixStackIn, bufferIn, modelIn.getQuads(state, direction, RANDOM, modelData, renderType));
         }
 
-        random.setSeed(42L);
-        renderQuads(matrixStackIn, bufferIn, modelIn.getQuads(state, null, random, modelData, renderType));
+        RANDOM.setSeed(42);
+        renderQuads(matrixStackIn, bufferIn, modelIn.getQuads(state, null, RANDOM, modelData, renderType));
     }
 
     private static void renderQuads(PoseStack matrixStackIn, VertexConsumer bufferIn, List<BakedQuad> quadsIn){
