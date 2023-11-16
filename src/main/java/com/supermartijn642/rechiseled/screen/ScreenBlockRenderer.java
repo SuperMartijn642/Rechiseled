@@ -3,20 +3,26 @@ package com.supermartijn642.rechiseled.screen;
 import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.render.RenderUtils;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import net.minecraftforge.client.ChunkRenderTypeSet;
 import net.minecraftforge.client.model.data.ModelData;
 import org.joml.Matrix4f;
 import org.joml.Quaternionf;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,6 +30,7 @@ import java.util.Map;
  */
 public class ScreenBlockRenderer {
 
+    private static final RandomSource RANDOM = RandomSource.create();
     private static BlockCaptureLevel fakeLevel;
 
     public static void drawBlock(PoseStack poseStack, BlockCapture capture, double x, double y, double scale, float yaw, float pitch, boolean doShading){
@@ -65,9 +72,30 @@ public class ScreenBlockRenderer {
 
         BakedModel model = ClientUtils.getBlockRenderer().getBlockModel(state);
         ModelData modelData = model.getModelData(fakeLevel, pos, state, ModelData.EMPTY);
-        for(RenderType renderType : model.getRenderTypes(state, RandomSource.create(42), modelData))
-            ClientUtils.getBlockRenderer().getModelRenderer().tesselateBlock(fakeLevel, model, state, pos, poseStack, renderTypeBuffer.getBuffer(renderType), true, RandomSource.create(42), 42, OverlayTexture.NO_OVERLAY, modelData, renderType);
+        RANDOM.setSeed(42);
+        ChunkRenderTypeSet renderTypes = model.getRenderTypes(state, RANDOM, modelData);
+        for(RenderType renderType : renderTypes){
+            RenderType itemRenderType = renderType == RenderType.translucent() ? Sheets.translucentCullBlockSheet() : Sheets.cutoutBlockSheet();
+            renderModel(model, state, poseStack, renderTypeBuffer.getBuffer(itemRenderType), modelData, renderType);
+        }
 
         poseStack.popPose();
+    }
+
+    private static void renderModel(BakedModel modelIn, BlockState state, PoseStack matrixStackIn, VertexConsumer bufferIn, ModelData modelData, RenderType renderType){
+        for(Direction direction : Direction.values()){
+            RANDOM.setSeed(42);
+            renderQuads(matrixStackIn, bufferIn, modelIn.getQuads(state, direction, RANDOM, modelData, renderType));
+        }
+
+        RANDOM.setSeed(42);
+        renderQuads(matrixStackIn, bufferIn, modelIn.getQuads(state, null, RANDOM, modelData, renderType));
+    }
+
+    private static void renderQuads(PoseStack matrixStackIn, VertexConsumer bufferIn, List<BakedQuad> quadsIn){
+        PoseStack.Pose matrix = matrixStackIn.last();
+
+        for(BakedQuad bakedquad : quadsIn)
+            bufferIn.putBulkData(matrix, bakedquad, 1, 1, 1, 1, 15728880, OverlayTexture.NO_OVERLAY, false);
     }
 }
