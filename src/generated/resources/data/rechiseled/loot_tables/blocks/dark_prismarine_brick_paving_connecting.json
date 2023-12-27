@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:dark_prismarine_brick_paving_connecting"
+          "name": "rechiseled:dark_prismarine_brick_paving_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

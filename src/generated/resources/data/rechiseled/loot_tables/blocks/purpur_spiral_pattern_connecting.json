@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:purpur_spiral_pattern_connecting"
+          "name": "rechiseled:purpur_spiral_pattern_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

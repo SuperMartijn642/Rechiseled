@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:nether_bricks_large_bricks"
+          "name": "rechiseled:nether_bricks_large_bricks",
+          "type": "minecraft:item"
         }
       ]
     }

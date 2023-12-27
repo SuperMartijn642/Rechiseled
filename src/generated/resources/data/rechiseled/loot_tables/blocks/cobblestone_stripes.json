@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:cobblestone_stripes"
+          "name": "rechiseled:cobblestone_stripes",
+          "type": "minecraft:item"
         }
       ]
     }

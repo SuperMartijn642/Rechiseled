@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:mossy_cobblestone_worn_stripes_connecting"
+          "name": "rechiseled:mossy_cobblestone_worn_stripes_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

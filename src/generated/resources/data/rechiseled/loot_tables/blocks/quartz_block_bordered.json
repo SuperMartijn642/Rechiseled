@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:quartz_block_bordered"
+          "name": "rechiseled:quartz_block_bordered",
+          "type": "minecraft:item"
         }
       ]
     }

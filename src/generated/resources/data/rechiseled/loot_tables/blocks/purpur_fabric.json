@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:purpur_fabric"
+          "name": "rechiseled:purpur_fabric",
+          "type": "minecraft:item"
         }
       ]
     }

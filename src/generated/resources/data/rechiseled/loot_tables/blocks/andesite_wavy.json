@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:andesite_wavy"
+          "name": "rechiseled:andesite_wavy",
+          "type": "minecraft:item"
         }
       ]
     }

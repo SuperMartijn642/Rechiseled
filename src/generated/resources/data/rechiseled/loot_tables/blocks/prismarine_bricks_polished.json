@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:prismarine_bricks_polished"
+          "name": "rechiseled:prismarine_bricks_polished",
+          "type": "minecraft:item"
         }
       ]
     }

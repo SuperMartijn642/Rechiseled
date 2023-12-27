@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:birch_planks_brick_paving_connecting"
+          "name": "rechiseled:birch_planks_brick_paving_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

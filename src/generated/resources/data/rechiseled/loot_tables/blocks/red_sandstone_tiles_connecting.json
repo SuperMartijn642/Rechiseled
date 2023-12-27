@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:red_sandstone_tiles_connecting"
+          "name": "rechiseled:red_sandstone_tiles_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

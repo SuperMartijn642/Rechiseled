@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:quartz_block_crosses"
+          "name": "rechiseled:quartz_block_crosses",
+          "type": "minecraft:item"
         }
       ]
     }

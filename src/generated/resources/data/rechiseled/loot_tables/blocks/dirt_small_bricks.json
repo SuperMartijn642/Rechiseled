@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:dirt_small_bricks"
+          "name": "rechiseled:dirt_small_bricks",
+          "type": "minecraft:item"
         }
       ]
     }

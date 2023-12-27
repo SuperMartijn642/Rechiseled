@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:cherry_planks_woven_connecting"
+          "name": "rechiseled:cherry_planks_woven_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

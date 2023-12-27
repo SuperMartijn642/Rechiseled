@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:obsidian_chiseled_circles_connecting"
+          "name": "rechiseled:obsidian_chiseled_circles_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

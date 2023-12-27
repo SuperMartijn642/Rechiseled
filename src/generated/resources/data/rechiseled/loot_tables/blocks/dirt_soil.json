@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:dirt_soil"
+          "name": "rechiseled:dirt_soil",
+          "type": "minecraft:item"
         }
       ]
     }

@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:basalt_patterned_connecting"
+          "name": "rechiseled:basalt_patterned_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

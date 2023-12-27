@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:dirt_tilled_connecting"
+          "name": "rechiseled:dirt_tilled_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

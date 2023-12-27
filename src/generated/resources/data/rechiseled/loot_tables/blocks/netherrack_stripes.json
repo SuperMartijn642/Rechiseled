@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:netherrack_stripes"
+          "name": "rechiseled:netherrack_stripes",
+          "type": "minecraft:item"
         }
       ]
     }

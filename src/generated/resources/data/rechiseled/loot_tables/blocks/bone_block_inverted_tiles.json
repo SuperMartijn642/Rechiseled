@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:bone_block_inverted_tiles"
+          "name": "rechiseled:bone_block_inverted_tiles",
+          "type": "minecraft:item"
         }
       ]
     }

@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:emerald_block_polished_connecting"
+          "name": "rechiseled:emerald_block_polished_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

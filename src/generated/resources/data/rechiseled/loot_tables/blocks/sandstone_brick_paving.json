@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:sandstone_brick_paving"
+          "name": "rechiseled:sandstone_brick_paving",
+          "type": "minecraft:item"
         }
       ]
     }

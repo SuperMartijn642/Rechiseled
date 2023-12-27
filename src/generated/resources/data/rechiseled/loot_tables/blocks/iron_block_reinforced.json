@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:iron_block_reinforced"
+          "name": "rechiseled:iron_block_reinforced",
+          "type": "minecraft:item"
         }
       ]
     }

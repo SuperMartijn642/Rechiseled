@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:glowstone_smooth_connecting"
+          "name": "rechiseled:glowstone_smooth_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

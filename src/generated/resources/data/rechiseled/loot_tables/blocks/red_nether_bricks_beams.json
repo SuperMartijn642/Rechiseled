@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:red_nether_bricks_beams"
+          "name": "rechiseled:red_nether_bricks_beams",
+          "type": "minecraft:item"
         }
       ]
     }

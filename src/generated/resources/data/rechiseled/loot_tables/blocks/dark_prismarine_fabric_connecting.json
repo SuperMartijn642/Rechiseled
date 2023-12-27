@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:dark_prismarine_fabric_connecting"
+          "name": "rechiseled:dark_prismarine_fabric_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

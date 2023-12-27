@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:redstone_block_brick_bordered"
+          "name": "rechiseled:redstone_block_brick_bordered",
+          "type": "minecraft:item"
         }
       ]
     }

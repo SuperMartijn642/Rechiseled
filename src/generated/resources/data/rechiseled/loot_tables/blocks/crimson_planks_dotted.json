@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:crimson_planks_dotted"
+          "name": "rechiseled:crimson_planks_dotted",
+          "type": "minecraft:item"
         }
       ]
     }

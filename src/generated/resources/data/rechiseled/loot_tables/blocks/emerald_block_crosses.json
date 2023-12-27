@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:emerald_block_crosses"
+          "name": "rechiseled:emerald_block_crosses",
+          "type": "minecraft:item"
         }
       ]
     }

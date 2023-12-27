@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:end_stone_scales"
+          "name": "rechiseled:end_stone_scales",
+          "type": "minecraft:item"
         }
       ]
     }

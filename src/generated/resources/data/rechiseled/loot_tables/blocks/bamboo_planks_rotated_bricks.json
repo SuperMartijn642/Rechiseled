@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:bamboo_planks_rotated_bricks"
+          "name": "rechiseled:bamboo_planks_rotated_bricks",
+          "type": "minecraft:item"
         }
       ]
     }

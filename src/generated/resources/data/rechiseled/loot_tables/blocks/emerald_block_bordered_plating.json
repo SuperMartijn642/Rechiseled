@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:emerald_block_bordered_plating"
+          "name": "rechiseled:emerald_block_bordered_plating",
+          "type": "minecraft:item"
         }
       ]
     }

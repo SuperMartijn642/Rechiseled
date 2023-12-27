@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:iron_block_pipes"
+          "name": "rechiseled:iron_block_pipes",
+          "type": "minecraft:item"
         }
       ]
     }

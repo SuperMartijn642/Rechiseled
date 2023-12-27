@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:diorite_paving"
+          "name": "rechiseled:diorite_paving",
+          "type": "minecraft:item"
         }
       ]
     }

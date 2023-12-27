@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:diorite_wavy_connecting"
+          "name": "rechiseled:diorite_wavy_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

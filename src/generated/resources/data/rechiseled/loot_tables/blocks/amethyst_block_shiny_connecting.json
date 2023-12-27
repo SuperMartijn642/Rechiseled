@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:amethyst_block_shiny_connecting"
+          "name": "rechiseled:amethyst_block_shiny_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

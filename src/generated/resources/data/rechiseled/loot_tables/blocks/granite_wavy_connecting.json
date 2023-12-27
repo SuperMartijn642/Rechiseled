@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:granite_wavy_connecting"
+          "name": "rechiseled:granite_wavy_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:diorite_diagonal_bricks_connecting"
+          "name": "rechiseled:diorite_diagonal_bricks_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

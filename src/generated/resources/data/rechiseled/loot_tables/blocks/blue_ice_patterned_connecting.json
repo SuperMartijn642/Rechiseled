@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:blue_ice_patterned_connecting"
+          "name": "rechiseled:blue_ice_patterned_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

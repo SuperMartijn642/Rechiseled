@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:redstone_block_chiseled_clovers"
+          "name": "rechiseled:redstone_block_chiseled_clovers",
+          "type": "minecraft:item"
         }
       ]
     }

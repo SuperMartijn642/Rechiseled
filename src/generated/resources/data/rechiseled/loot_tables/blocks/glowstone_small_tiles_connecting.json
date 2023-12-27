@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:glowstone_small_tiles_connecting"
+          "name": "rechiseled:glowstone_small_tiles_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:netherrack_tiles"
+          "name": "rechiseled:netherrack_tiles",
+          "type": "minecraft:item"
         }
       ]
     }

@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:lapis_block_swirling"
+          "name": "rechiseled:lapis_block_swirling",
+          "type": "minecraft:item"
         }
       ]
     }

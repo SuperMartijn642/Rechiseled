@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:netherite_block_compacted"
+          "name": "rechiseled:netherite_block_compacted",
+          "type": "minecraft:item"
         }
       ]
     }

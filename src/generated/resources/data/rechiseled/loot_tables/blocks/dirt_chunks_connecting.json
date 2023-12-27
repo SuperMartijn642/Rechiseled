@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:dirt_chunks_connecting"
+          "name": "rechiseled:dirt_chunks_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

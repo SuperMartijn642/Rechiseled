@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:end_stone_small_tiles"
+          "name": "rechiseled:end_stone_small_tiles",
+          "type": "minecraft:item"
         }
       ]
     }

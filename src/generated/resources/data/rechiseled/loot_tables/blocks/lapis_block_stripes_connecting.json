@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:lapis_block_stripes_connecting"
+          "name": "rechiseled:lapis_block_stripes_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

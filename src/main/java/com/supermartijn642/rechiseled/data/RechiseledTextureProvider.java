@@ -3,7 +3,7 @@ package com.supermartijn642.rechiseled.data;
 import com.supermartijn642.rechiseled.api.ChiseledTextureProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 /**
  * Created 24/01/2022 by SuperMartijn642

@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:obsidian_spots_connecting"
+          "name": "rechiseled:obsidian_spots_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

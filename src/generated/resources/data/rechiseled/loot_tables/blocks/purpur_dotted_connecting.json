@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:purpur_dotted_connecting"
+          "name": "rechiseled:purpur_dotted_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

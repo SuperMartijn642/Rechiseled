@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:gold_block_bordered"
+          "name": "rechiseled:gold_block_bordered",
+          "type": "minecraft:item"
         }
       ]
     }

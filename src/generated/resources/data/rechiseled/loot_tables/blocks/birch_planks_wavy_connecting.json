@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:birch_planks_wavy_connecting"
+          "name": "rechiseled:birch_planks_wavy_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

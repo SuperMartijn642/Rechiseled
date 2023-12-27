@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:oak_planks_flooring"
+          "name": "rechiseled:oak_planks_flooring",
+          "type": "minecraft:item"
         }
       ]
     }

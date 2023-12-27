@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:cobblestone_dented_connecting"
+          "name": "rechiseled:cobblestone_dented_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

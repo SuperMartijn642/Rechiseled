@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:diorite_dotted"
+          "name": "rechiseled:diorite_dotted",
+          "type": "minecraft:item"
         }
       ]
     }

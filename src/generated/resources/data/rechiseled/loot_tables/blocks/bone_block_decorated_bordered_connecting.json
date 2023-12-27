@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:bone_block_decorated_bordered_connecting"
+          "name": "rechiseled:bone_block_decorated_bordered_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

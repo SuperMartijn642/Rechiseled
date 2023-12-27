@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:gold_block_lines"
+          "name": "rechiseled:gold_block_lines",
+          "type": "minecraft:item"
         }
       ]
     }

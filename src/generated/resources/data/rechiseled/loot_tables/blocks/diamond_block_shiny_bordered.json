@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:diamond_block_shiny_bordered"
+          "name": "rechiseled:diamond_block_shiny_bordered",
+          "type": "minecraft:item"
         }
       ]
     }

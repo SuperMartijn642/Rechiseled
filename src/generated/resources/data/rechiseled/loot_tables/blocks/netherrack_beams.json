@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:netherrack_beams"
+          "name": "rechiseled:netherrack_beams",
+          "type": "minecraft:item"
         }
       ]
     }

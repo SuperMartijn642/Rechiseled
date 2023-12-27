@@ -14,8 +14,8 @@ import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.data.loading.DatagenModLoader;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.data.loading.DatagenModLoader;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;

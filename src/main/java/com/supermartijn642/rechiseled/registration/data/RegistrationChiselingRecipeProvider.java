@@ -6,7 +6,7 @@ import com.supermartijn642.rechiseled.blocks.RechiseledBlockTypeImpl;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 /**
  * Created 05/05/2023 by SuperMartijn642

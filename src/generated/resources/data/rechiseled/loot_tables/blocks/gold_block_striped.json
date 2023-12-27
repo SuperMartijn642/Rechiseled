@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:gold_block_striped"
+          "name": "rechiseled:gold_block_striped",
+          "type": "minecraft:item"
         }
       ]
     }

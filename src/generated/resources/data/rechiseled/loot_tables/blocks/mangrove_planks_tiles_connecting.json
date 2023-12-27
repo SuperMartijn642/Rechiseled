@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:mangrove_planks_tiles_connecting"
+          "name": "rechiseled:mangrove_planks_tiles_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

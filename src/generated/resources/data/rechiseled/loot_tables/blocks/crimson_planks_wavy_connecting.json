@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:crimson_planks_wavy_connecting"
+          "name": "rechiseled:crimson_planks_wavy_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

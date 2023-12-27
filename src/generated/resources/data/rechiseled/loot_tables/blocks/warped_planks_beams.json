@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:warped_planks_beams"
+          "name": "rechiseled:warped_planks_beams",
+          "type": "minecraft:item"
         }
       ]
     }

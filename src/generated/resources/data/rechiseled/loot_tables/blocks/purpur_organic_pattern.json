@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:purpur_organic_pattern"
+          "name": "rechiseled:purpur_organic_pattern",
+          "type": "minecraft:item"
         }
       ]
     }

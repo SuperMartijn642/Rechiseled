@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:diorite_wavy"
+          "name": "rechiseled:diorite_wavy",
+          "type": "minecraft:item"
         }
       ]
     }

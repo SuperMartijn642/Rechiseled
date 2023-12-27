@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:diamond_block_small_tiles"
+          "name": "rechiseled:diamond_block_small_tiles",
+          "type": "minecraft:item"
         }
       ]
     }

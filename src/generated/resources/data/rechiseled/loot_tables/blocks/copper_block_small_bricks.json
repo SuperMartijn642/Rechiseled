@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:copper_block_small_bricks"
+          "name": "rechiseled:copper_block_small_bricks",
+          "type": "minecraft:item"
         }
       ]
     }

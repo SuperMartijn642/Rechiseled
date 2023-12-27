@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:redstone_block_compressed"
+          "name": "rechiseled:redstone_block_compressed",
+          "type": "minecraft:item"
         }
       ]
     }
