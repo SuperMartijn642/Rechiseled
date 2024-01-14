@@ -82,7 +82,7 @@ public class ScrollWidget extends BaseWidget {
             float mouseYRelative = (mouseY - (float) this.y - handleHalfHeight) / Math.max(1, this.height - this.handleHeight);
 
             if(intSnapMax > 0)
-                mouseYRelative = (float) Math.round(mouseYRelative * intSnapMax) / intSnapMax;
+                mouseYRelative = (float) Math.floor(mouseYRelative * intSnapMax) / intSnapMax;
 
             setScrollRatio(mouseYRelative);
             if (onScrollChanged != null)
