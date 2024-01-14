@@ -36,6 +36,18 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
     private final Component title;
     private ChiselAllWidget chiselAllWidget;
 
+    private ScrollWidget scrollWidget;
+
+    private final int numColumns = 4;
+
+    private final int numRows = 5;
+
+    private int numScrolls;
+
+    private int currentScroll = 0;
+
+    private ChiselingRecipe previousRecipe;
+
     public BaseChiselingContainerScreen(Component title){
         super(0, 0, 222, 226);
         this.title = title;
@@ -43,16 +55,29 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
 
     @Override
     protected void addWidgets(){
-        for(int row = 0; row < 5; row++){
-            for(int column = 0; column < 5; column++){
-                int index = row * 5 + column;
-                int x = 9 + 20 * column;
-                int y = 17 + 22 * row;
-                this.addWidget(new EntryButtonWidget(x, y, 20, 22,
-                    () -> this.getEntry(index),
-                    () -> this.container.currentEntry,
-                    () -> this.selectEntry(index),
-                    () -> this.container.connecting));
+        this.scrollWidget = new ScrollWidget(96, 17, 14, 110, this::scrollChanged);
+        this.addWidget(this.scrollWidget);
+
+        this.previousRecipe = this.container.currentRecipe;
+        updateScrollData();
+
+        int offsetX = 9;
+        int offsetY = 17;
+        int entryWidth = 20;
+        int entryHeight = 22;
+        for (int row = 0; row < numRows; row++) {
+            for (int column = 0; column < numColumns; column++) {
+                int index = row * numColumns + column;
+                int x = offsetX + entryWidth * column;
+                int y = offsetY + entryHeight * row;
+
+                EntryButtonWidget entryWidget = new EntryButtonWidget(x, y, entryWidth, entryHeight,
+                        () -> this.getEntry((numColumns * currentScroll) + index),
+                        () -> this.container.currentEntry,
+                        () -> this.selectEntry((numColumns * currentScroll) + index),
+                        () -> this.container.connecting);
+
+                this.addWidget(entryWidget);
             }
         }
 
@@ -110,6 +135,29 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
         ScreenUtils.drawString(context.poseStack(), ClientUtils.getPlayer().getInventory().getName(), 31, 133);
     }
 
+
+    @Override
+    public void render(WidgetRenderContext context, int mouseX, int mouseY){
+        if(this.previousRecipe != this.container.currentRecipe){
+            updateScrollData();
+            this.previousRecipe = this.container.currentRecipe;
+        }
+
+        super.render(context, mouseX, mouseY);
+    }
+
+    @Override
+    public boolean mouseScrolled(int mouseX, int mouseY, double scrollAmount, boolean hasBeenHandled){
+        if(mouseX >= 8 && mouseX <= 110 && mouseY >= 16 && mouseY <= 127) {
+            this.currentScroll -= (int)scrollAmount;
+
+            clampCurrentScroll();
+
+            if (this.scrollWidget != null)
+                this.scrollWidget.setScrollRatio(this.numScrolls == 0 ? 0f : (float) this.currentScroll / this.numScrolls);
+        }
+        return super.mouseScrolled(mouseX, mouseY, scrollAmount, hasBeenHandled);
+    }
     private ChiselingEntry getEntry(int index){
         ChiselingRecipe recipe = this.container.currentRecipe;
         if(recipe == null)
@@ -127,5 +175,48 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
 
     private void chiselAll(){
         Rechiseled.CHANNEL.sendToServer(new PacketChiselAll());
+    }
+
+    private void scrollChanged(){
+        this.currentScroll = (int)(this.numScrolls * this.scrollWidget.getScrollRatio());
+        clampCurrentScroll();
+    }
+
+    private void updateScrollData(){
+        boolean hasRecipe = this.container.currentRecipe != null;
+        int numRecipes = hasRecipe ? this.container.currentRecipe.getEntries().size() : 0;
+        if(this.container.currentRecipe == null) {
+            numScrolls = 0;
+        }else{
+            numScrolls = (int) Math.ceil((double) numRecipes / numColumns) - numRows;
+            if(numScrolls < 0)
+                numScrolls = 0;
+        }
+
+        if(hasRecipe){
+            if(this.container.currentEntry != null){
+                int indexOfItem = this.container.currentRecipe.getEntries().indexOf(this.container.currentEntry);
+                int itemRow = (int) Math.ceil((double) (indexOfItem + 1) / this.numColumns);
+
+                this.currentScroll = itemRow - numRows;
+
+                clampCurrentScroll();
+            }
+        }else{
+            this.currentScroll = 0;
+        }
+
+        if(this.scrollWidget != null){
+            this.scrollWidget.setIntSnapMax(this.numScrolls);
+            this.scrollWidget.setIsActive(this.numScrolls > 0);
+            this.scrollWidget.setScrollRatio(this.numScrolls == 0f ? 0f : (float) this.currentScroll / this.numScrolls);
+        }
+    }
+
+    private void clampCurrentScroll(){
+        if(this.currentScroll < 0)
+            this.currentScroll = 0;
+        if(this.currentScroll > this.numScrolls)
+            this.currentScroll = this.numScrolls;
     }
 }
