@@ -9,6 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 /**
@@ -59,6 +60,19 @@ public class EntryButtonWidget extends BaseWidget {
             Item item = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
             ScreenItemRender.drawItem(context.poseStack(), item, this.x + this.width / 2d, this.y + this.height / 2d, this.width - 4, 0, 0, false);
         }
+    }
+
+    @Override
+    protected void getTooltips(Consumer<Component> tooltips) {
+        ChiselingEntry entry = this.entry.get();
+        if(entry == null)
+            return;
+
+        Item item = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
+        if(item == null)
+            return;
+
+        tooltips.accept(item.getDefaultInstance().getHoverName());
     }
 
     @Override
