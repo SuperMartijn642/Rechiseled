@@ -23,6 +23,7 @@ public abstract class BaseChiselingContainer extends BaseContainer {
     public ChiselingRecipe currentRecipe = null;
     public ChiselingEntry currentEntry = null;
     public boolean connecting = false;
+    public Runnable onUiDirtied;
 
     public BaseChiselingContainer(BaseContainerType<?> type, Player player){
         super(type, player);
@@ -137,6 +138,9 @@ public abstract class BaseChiselingContainer extends BaseContainer {
                 this.connecting = false;
             }
         }
+
+        if(onUiDirtied != null)
+            onUiDirtied.run();
     }
 
     public void setCurrentEntry(int index){

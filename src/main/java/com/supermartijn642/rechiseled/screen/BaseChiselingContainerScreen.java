@@ -46,7 +46,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
 
     private int currentScroll = 0;
 
-    private ChiselingRecipe previousRecipe;
+    private boolean uiIsDirty = true;
 
     public BaseChiselingContainerScreen(Component title){
         super(0, 0, 222, 226);
@@ -58,8 +58,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
         this.scrollWidget = new ScrollWidget(96, 17, 14, 110, this::scrollChanged);
         this.addWidget(this.scrollWidget);
 
-        this.previousRecipe = this.container.currentRecipe;
-        updateScrollData();
+        this.container.onUiDirtied = this::uiDirtied;
 
         int offsetX = 9;
         int offsetY = 17;
@@ -135,17 +134,6 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
         ScreenUtils.drawString(context.poseStack(), ClientUtils.getPlayer().getInventory().getName(), 31, 133);
     }
 
-
-    @Override
-    public void render(WidgetRenderContext context, int mouseX, int mouseY){
-        if(this.previousRecipe != this.container.currentRecipe){
-            updateScrollData();
-            this.previousRecipe = this.container.currentRecipe;
-        }
-
-        super.render(context, mouseX, mouseY);
-    }
-
     @Override
     public boolean mouseScrolled(int mouseX, int mouseY, double scrollAmount, boolean hasBeenHandled){
         if(mouseX >= 8 && mouseX <= 110 && mouseY >= 16 && mouseY <= 127) {
@@ -158,6 +146,17 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
         }
         return super.mouseScrolled(mouseX, mouseY, scrollAmount, hasBeenHandled);
     }
+
+    @Override
+    public void render(WidgetRenderContext context, int mouseX, int mouseY) {
+        super.render(context, mouseX, mouseY);
+
+        if(uiIsDirty){
+            updateScrollData(this.container.currentEntry);
+            uiIsDirty = false;
+        }
+    }
+
     private ChiselingEntry getEntry(int index){
         ChiselingRecipe recipe = this.container.currentRecipe;
         if(recipe == null)
@@ -182,7 +181,11 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
         clampCurrentScroll();
     }
 
-    private void updateScrollData(){
+    private void uiDirtied(){
+        uiIsDirty = true;
+    }
+
+    private void updateScrollData(ChiselingEntry entry){
         boolean hasRecipe = this.container.currentRecipe != null;
         int numRecipes = hasRecipe ? this.container.currentRecipe.getEntries().size() : 0;
         if(this.container.currentRecipe == null) {
@@ -194,8 +197,9 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
         }
 
         if(hasRecipe){
-            if(this.container.currentEntry != null){
-                int indexOfItem = this.container.currentRecipe.getEntries().indexOf(this.container.currentEntry);
+            var entries = container.currentRecipe.getEntries();
+            if(entry != null && entries.contains(entry)){
+                int indexOfItem = entries.indexOf(entry);
                 int itemRow = (int) Math.ceil((double) (indexOfItem + 1) / this.numColumns);
 
                 this.currentScroll = itemRow - numRows;

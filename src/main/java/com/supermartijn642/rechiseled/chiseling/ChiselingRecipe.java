@@ -47,6 +47,18 @@ public class ChiselingRecipe {
         return false;
     }
 
+    public int indexOf(ItemStack stack){
+        List<ChiselingEntry> entries = this.entries;
+        for(int i = 0; i < entries.size(); ++i){
+            ChiselingEntry entry = this.entries.get(i);
+
+            if((entry.hasRegularItem() && entry.getRegularItem() == stack.getItem())
+                    || (entry.hasConnectingItem() && entry.getConnectingItem() == stack.getItem()))
+                return i;
+        }
+        return -1;
+    }
+
     public ResourceLocation getRecipeId(){
         return this.recipeId;
     }
