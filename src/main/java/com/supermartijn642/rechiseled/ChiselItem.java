@@ -14,8 +14,10 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -115,7 +117,22 @@ public class ChiselItem extends BaseItem {
 
         // update the stack type or swap it out with a valid stack from the players inventory
         ItemStack chiselStack = getStoredStack(chisel);
-        if(!chiselStack.isEmpty() && recipeForBlock.contains(chiselStack)){
+        if(chiselStack.getItem() == blockItem) // we already have the item and don't need to do anything
+            return;
+
+        NonNullList<ItemStack> playerItems = player.getInventory().items; // try to grab matching item first
+        for(int i = 0; i < playerItems.size(); ++i){
+            ItemStack inventoryStack = playerItems.get(i);
+            Item item = inventoryStack.getItem();
+            if(item != blockItem)
+                continue;
+
+            pickChiselItemFromInventory(chisel, chiselStack, inventoryStack, blockItem, player.getInventory(), i);
+
+            return;
+        }
+
+        if(!chiselStack.isEmpty() && recipeForBlock.contains(chiselStack)){ // no stack in inventory, try setting the stack already in the chisel
             int indexOf = recipeForBlock.indexOf(defaultInstance);
             if(indexOf > -1){
                 ItemStack newStack = new ItemStack(blockItem);
@@ -127,29 +144,32 @@ public class ChiselItem extends BaseItem {
 
         }
 
-        NonNullList<ItemStack> playerItems = player.getInventory().items;
-        for(int i = 0; i < playerItems.size(); ++i){
+        for(int i = 0; i < playerItems.size(); ++i){ // grab an item which is part of the same recipe
             ItemStack inventoryStack = playerItems.get(i);
             if (!recipeForBlock.contains(inventoryStack))
                 continue;
 
-            if(!chiselStack.isEmpty()){
-                ItemStack newInventoryStack = chiselStack.copy();
-                ItemStack newChiselStack = new ItemStack(blockItem);
-                newChiselStack.setCount(inventoryStack.getCount());
+            pickChiselItemFromInventory(chisel, chiselStack, inventoryStack, blockItem, player.getInventory(), i);
+            return;
+        }
+    }
 
-                player.getInventory().setItem(i, newInventoryStack);
+    private void pickChiselItemFromInventory(ItemStack chisel, ItemStack chiselStack, ItemStack inventoryStack, Item blockItem,
+                                             Inventory playerInventory, int inventoryIndex){
+        if(!chiselStack.isEmpty()){
+            ItemStack newInventoryStack = chiselStack.copy();
+            ItemStack newChiselStack = new ItemStack(blockItem);
+            newChiselStack.setCount(inventoryStack.getCount());
 
-                setStoredStack(chisel, newChiselStack);
-                break;
-            }else{
-                ItemStack newChiselStack = new ItemStack(blockItem);
-                newChiselStack.setCount(inventoryStack.getCount());
-                player.getInventory().setItem(i, ItemStack.EMPTY);
+            playerInventory.setItem(inventoryIndex, newInventoryStack);
 
-                setStoredStack(chisel, newChiselStack);
-                break;
-            }
+            setStoredStack(chisel, newChiselStack);
+        }else{
+            ItemStack newChiselStack = new ItemStack(blockItem);
+            newChiselStack.setCount(inventoryStack.getCount());
+            playerInventory.setItem(inventoryIndex, ItemStack.EMPTY);
+
+            setStoredStack(chisel, newChiselStack);
         }
     }
 }
