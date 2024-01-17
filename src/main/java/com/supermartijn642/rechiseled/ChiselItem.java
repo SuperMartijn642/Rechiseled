@@ -93,7 +93,7 @@ public class ChiselItem extends BaseItem {
         if(chisel.getItem() != Rechiseled.chisel)
             return;
 
-        BlockItem blockItem = ChiselingWorld.pickBlockItemFromWorld();
+        BlockItem blockItem = ChiselingWorld.pickBlockItemFromWorld(player);
         if(blockItem == null)
             return;
 
