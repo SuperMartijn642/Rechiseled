@@ -21,4 +21,14 @@ public class ChiselingWorld {
 
         return null;
     }
+
+    public static BlockPos getPlayerLookingBlock(Player player){
+        double blockReach = player.getBlockReach();
+        HitResult hitBlock = player.pick(blockReach, 0f, false);
+        if(hitBlock.getType() == HitResult.Type.BLOCK){
+            return ((BlockHitResult)hitBlock).getBlockPos();
+        }
+
+        return null;
+    }
 }

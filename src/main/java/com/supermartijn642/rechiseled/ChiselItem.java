@@ -7,11 +7,8 @@ import com.supermartijn642.rechiseled.api.ChiselingWorld;
 import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
 import com.supermartijn642.rechiseled.chiseling.ChiselingRecipes;
 import com.supermartijn642.rechiseled.screen.ChiselContainer;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Inventory;
@@ -47,33 +44,8 @@ public class ChiselItem extends BaseItem {
     }
 
     @Override
-    public boolean onBlockStartBreak(ItemStack itemstack, BlockPos pos, Player player) {
-        if(player.isCrouching())
-            return true;
-
-        ItemStack storedStack = getStoredStack(itemstack);
-        if(storedStack.isEmpty())
-            return true;
-
-        ChiselingRecipe recipe = ChiselingRecipes.getRecipe(storedStack);
-        if (recipe == null)
-            return true;
-
-        Level level = player.level();
-        BlockState blockState = level.getBlockState(pos);
-        if (!(blockState.getBlock().asItem() instanceof BlockItem blockItem))
-            return true;
-
-        if(recipe.contains(blockItem.getDefaultInstance())){
-            if(!(storedStack.getItem() instanceof BlockItem stackBlockItem) || blockItem == stackBlockItem)
-                return true;
-
-            level.setBlock(pos, stackBlockItem.getBlock().defaultBlockState(), 1);
-            level.playSound(null, pos, SoundEvents.CALCITE_HIT, SoundSource.BLOCKS);
-            return true;
-        }
-
-        return true;
+    public float getDestroySpeed(ItemStack p_41425_, BlockState p_41426_) {
+        return 0f;
     }
 
     public static ItemStack getStoredStack(ItemStack chisel){
