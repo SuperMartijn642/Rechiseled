@@ -15,8 +15,8 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.FORGE)
-public class RechiseledClientForge {
+@Mod.EventBusSubscriber(value = {Dist.CLIENT, Dist.DEDICATED_SERVER}, bus = Mod.EventBusSubscriber.Bus.FORGE)
+public class RechiseledForgeHooks {
 
     @SubscribeEvent
     public static void onLeftClickBlock(PlayerInteractEvent.LeftClickBlock e){
@@ -51,7 +51,9 @@ public class RechiseledClientForge {
                 return;
 
             level.setBlock(pos, stackBlockItem.getBlock().defaultBlockState(), 1);
-            level.playSound(player, pos, SoundEvents.CALCITE_HIT, SoundSource.BLOCKS);
+
+            if(!level.isClientSide)
+                level.playSound(null, pos, SoundEvents.CALCITE_HIT, SoundSource.BLOCKS);
         }
     }
 }
