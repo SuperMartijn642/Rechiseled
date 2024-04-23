@@ -1,3 +1,7 @@
+### Rechiseled 1.1.6
+- Fixed `RechiseledBlockBuilder#miningTagsFrom` only copying entries from the vanilla data pack
+- Fixed datagen errors with newer Fusion versions
+
 ### Rechiseled 1.1.5b
 - Fix the regular netherite block missing from the netherite chiseling recipe
 
