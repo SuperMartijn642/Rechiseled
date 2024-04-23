@@ -1,3 +1,6 @@
+### Rechiseled 1.1.6
+- Fixed datagen errors with newer Fusion versions
+
 ### Rechiseled 1.1.5c
 - Fixed the blocks sometimes not rendering in the chisel gui
 - Fixed block lighting in the chisel gui
