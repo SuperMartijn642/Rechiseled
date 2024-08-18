@@ -28,7 +28,7 @@ public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipe>
     private final IDrawable icon;
 
     public ChiselingRecipeCategory(IGuiHelper guiHelper){
-        this.backgrounds = guiHelper.createDrawable(new ResourceLocation("rechiseled", "textures/screen/jei_category_background.png"), 0, 0, 174, 72);
+        this.backgrounds = guiHelper.createDrawable(ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/jei_category_background.png"), 0, 0, 174, 72);
         this.icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(Rechiseled.chisel));
     }
 

@@ -60,7 +60,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
                 }
                 // If not found in this recipe provider, check existing files
                 if(parent != null){
-                    ResourceLocation parentLocation = new ResourceLocation(parent.getNamespace(), "chiseling_recipes/" + (parent.getPath().endsWith(".json") ? parent.getPath() : parent.getPath() + ".json"));
+                    ResourceLocation parentLocation = ResourceLocation.fromNamespaceAndPath(parent.getNamespace(), "chiseling_recipes/" + (parent.getPath().endsWith(".json") ? parent.getPath() : parent.getPath() + ".json"));
                     if(!this.existingFileHelper.exists(parentLocation, PackType.SERVER_DATA))
                         throw new IllegalStateException("Could not find upward parent '" + parent + "' at '/data/" + parentLocation.getNamespace() + "/" + parentLocation.getPath() + "' for chiseling recipe: " + recipeName);
                 }
@@ -123,8 +123,8 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
      * @return a chiseling recipe builder for the given recipe name
      */
     protected ChiselingRecipeBuilder beginRecipe(String recipeName){
-        this.trackRecipe(new ResourceLocation(this.modid, recipeName));
-        return this.recipes.computeIfAbsent(new ResourceLocation(this.modid, recipeName), s -> new ChiselingRecipeBuilder());
+        this.trackRecipe(ResourceLocation.fromNamespaceAndPath(this.modid, recipeName));
+        return this.recipes.computeIfAbsent(ResourceLocation.fromNamespaceAndPath(this.modid, recipeName), s -> new ChiselingRecipeBuilder());
     }
 
     protected ChiselingRecipeBuilder beginRecipe(ResourceLocation recipe){

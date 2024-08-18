@@ -16,7 +16,7 @@ import java.util.function.Supplier;
  */
 public class EntryButtonWidget extends BaseWidget {
 
-    private static final ResourceLocation TEXTURE = new ResourceLocation("rechiseled", "textures/screen/buttons.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/buttons.png");
 
     private final Supplier<ChiselingEntry> entry;
     private final Supplier<ChiselingEntry> selectedEntry;

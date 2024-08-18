@@ -17,6 +17,6 @@ public class RechiseledItemModelGenerator extends ModelGenerator {
     @Override
     public void generate(){
         // Chisel
-        this.itemHandheld(Rechiseled.chisel, new ResourceLocation("rechiseled", "item/chisel"));
+        this.itemHandheld(Rechiseled.chisel, ResourceLocation.fromNamespaceAndPath("rechiseled", "item/chisel"));
     }
 }

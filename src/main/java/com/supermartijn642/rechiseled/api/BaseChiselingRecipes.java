@@ -55,6 +55,6 @@ public class BaseChiselingRecipes {
     public static final ResourceLocation WARPED_PLANKS = location("warped_planks");
 
     private static ResourceLocation location(String name){
-        return new ResourceLocation("rechiseled", name);
+        return ResourceLocation.fromNamespaceAndPath("rechiseled", name);
     }
 }

@@ -58,7 +58,7 @@ public class ChiselingRecipe {
 
             // read parent id
             String parentRecipeString = GsonHelper.getAsString(json, "parent", null); // TODO remove in 1.2.0
-            ResourceLocation parentRecipe = parentRecipeString == null ? null : new ResourceLocation(parentRecipeString);
+            ResourceLocation parentRecipe = parentRecipeString == null ? null : ResourceLocation.parse(parentRecipeString);
 
             // Read overwrite value
             boolean overwrite = GsonHelper.getAsBoolean(json, "overwrite", false);
@@ -81,7 +81,7 @@ public class ChiselingRecipe {
                 if(regularItemName.isEmpty())
                     regularItem = null;
                 else{
-                    regularItem = Registries.ITEMS.getValue(new ResourceLocation(regularItemName));
+                    regularItem = Registries.ITEMS.getValue(ResourceLocation.parse(regularItemName));
                     if(regularItem == null && !optional)
                         throw new JsonParseException("Unknown item '" + regularItemName + "'");
                 }
@@ -90,7 +90,7 @@ public class ChiselingRecipe {
                 if(connectingItemName.isEmpty())
                     connectingItem = null;
                 else{
-                    connectingItem = Registries.ITEMS.getValue(new ResourceLocation(connectingItemName));
+                    connectingItem = Registries.ITEMS.getValue(ResourceLocation.parse(connectingItemName));
                     if(connectingItem == null && !optional)
                         throw new JsonParseException("Unknown item '" + connectingItemName + "'");
                 }

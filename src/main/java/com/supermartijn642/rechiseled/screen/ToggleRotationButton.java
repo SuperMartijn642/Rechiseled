@@ -11,7 +11,7 @@ import net.minecraft.resources.ResourceLocation;
  */
 public class ToggleRotationButton extends AbstractButtonWidget {
 
-    private static final ResourceLocation TEXTURE = new ResourceLocation("rechiseled", "textures/screen/rotation_icon.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/rotation_icon.png");
 
     public static boolean rotate = true;
 

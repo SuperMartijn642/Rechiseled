@@ -22,7 +22,7 @@ public class ChiselingJEIPlugin implements IModPlugin {
 
     @Override
     public ResourceLocation getPluginUid(){
-        return new ResourceLocation("rechiseled", "chiseling_plugin");
+        return ResourceLocation.fromNamespaceAndPath("rechiseled", "chiseling_plugin");
     }
 
     @Override

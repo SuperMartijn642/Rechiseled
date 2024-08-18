@@ -147,7 +147,7 @@ public class RechiseledBlockBuilderImpl implements RechiseledBlockBuilder {
     public RechiseledBlockBuilderImpl blockTag(String namespace, String identifier){
         if(this.completed)
             throw new RuntimeException("Builder has already been build!");
-        this.tags.add(new ResourceLocation(namespace, identifier));
+        this.tags.add(ResourceLocation.fromNamespaceAndPath(namespace, identifier));
         return this;
     }
 
@@ -238,7 +238,7 @@ public class RechiseledBlockBuilderImpl implements RechiseledBlockBuilder {
 
         // Create the block type
         RechiseledBlockTypeImpl blockType = new RechiseledBlockTypeImpl(
-            new ResourceLocation(this.registration.getModid(), this.identifier),
+            ResourceLocation.fromNamespaceAndPath(this.registration.getModid(), this.identifier),
             this.specification,
             this.hasRegularVariant,
             this.hasConnectingVariant,
