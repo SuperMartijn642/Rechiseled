@@ -2,7 +2,6 @@ package com.supermartijn642.rechiseled;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.MatrixUtil;
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.render.CustomItemRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -36,18 +35,7 @@ public class ChiselItemRenderer implements CustomItemRenderer {
         BakedModel model = renderer.getModel(stack, null, null, 0);
         for(var subModel : model.getRenderPasses(stack, true)){
             for(var renderType : subModel.getRenderTypes(stack, true)){
-                VertexConsumer vertexConsumer;
-                if(stack.hasFoil()){
-                    poseStack.pushPose();
-                    PoseStack.Pose pose = poseStack.last();
-                    if(transformType == ItemDisplayContext.GUI)
-                        MatrixUtil.mulComponentWise(pose.pose(), 0.5f);
-                    else if(transformType.firstPerson())
-                        MatrixUtil.mulComponentWise(pose.pose(), 0.75f);
-                    vertexConsumer = ItemRenderer.getCompassFoilBufferDirect(bufferSource, renderType, pose);
-                    poseStack.popPose();
-                }else
-                    vertexConsumer = ItemRenderer.getFoilBufferDirect(bufferSource, renderType, true, stack.hasFoil());
+                VertexConsumer vertexConsumer = ItemRenderer.getFoilBuffer(bufferSource, renderType, true, stack.hasFoil());
                 renderer.renderModelLists(subModel, stack, combinedLight, combinedOverlay, poseStack, vertexConsumer);
             }
         }

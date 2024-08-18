@@ -141,7 +141,7 @@ public abstract class ChiseledTextureProvider implements DataProvider {
     }
 
     private void trackTexture(String outputLocation){
-        this.existingFileHelper.trackGenerated(new ResourceLocation(this.modid, outputLocation), PackType.CLIENT_RESOURCES, ".png", "textures");
+        this.existingFileHelper.trackGenerated(ResourceLocation.fromNamespaceAndPath(this.modid, outputLocation), PackType.CLIENT_RESOURCES, ".png", "textures");
     }
 
     /**
@@ -193,10 +193,10 @@ public abstract class ChiseledTextureProvider implements DataProvider {
         if(!ChiseledTextureProvider.this.outputLocations.add(outputLocation))
             throw new IllegalStateException("Two or more textures have the same output location: " + outputLocation);
 
-        PaletteMap paletteMap = this.createPaletteMap(new ResourceLocation("minecraft", "block/oak_planks"), plankTexture);
+        PaletteMap paletteMap = this.createPaletteMap(ResourceLocation.fromNamespaceAndPath("minecraft", "block/oak_planks"), plankTexture);
 
         for(String suffix : this.oakPlankSuffixes){
-            paletteMap.applyToTexture(new ResourceLocation("rechiseled", "block/oak_planks" + suffix), outputLocation + suffix);
+            paletteMap.applyToTexture(ResourceLocation.fromNamespaceAndPath("rechiseled", "block/oak_planks" + suffix), outputLocation + suffix);
         }
     }
 

@@ -18,9 +18,9 @@ import java.util.function.Supplier;
  */
 public class ConnectingToggleWidget extends AbstractButtonWidget {
 
-    private static final ResourceLocation GREY_BUTTONS = new ResourceLocation("rechiseled", "textures/screen/grey_buttons.png");
-    private static final ResourceLocation ICON_CONNECTED_ON = new ResourceLocation("rechiseled", "textures/screen/icon_connecting_true.png");
-    private static final ResourceLocation ICON_CONNECTED_OFF = new ResourceLocation("rechiseled", "textures/screen/icon_connecting_false.png");
+    private static final ResourceLocation GREY_BUTTONS = ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/grey_buttons.png");
+    private static final ResourceLocation ICON_CONNECTED_ON = ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/icon_connecting_true.png");
+    private static final ResourceLocation ICON_CONNECTED_OFF = ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/icon_connecting_false.png");
 
     private final Supplier<Boolean> connecting;
     private final Supplier<ChiselingEntry> currentEntry;

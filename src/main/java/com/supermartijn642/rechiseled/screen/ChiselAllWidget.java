@@ -17,8 +17,8 @@ import java.util.function.Supplier;
  */
 public class ChiselAllWidget extends AbstractButtonWidget {
 
-    private static final ResourceLocation GREY_BUTTONS = new ResourceLocation("rechiseled", "textures/screen/grey_buttons.png");
-    private static final ResourceLocation CHISEL_TEXTURE = new ResourceLocation("rechiseled", "textures/item/chisel.png");
+    private static final ResourceLocation GREY_BUTTONS = ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/grey_buttons.png");
+    private static final ResourceLocation CHISEL_TEXTURE = ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/item/chisel.png");
 
     private final Supplier<ChiselingEntry> currentEntry;
 

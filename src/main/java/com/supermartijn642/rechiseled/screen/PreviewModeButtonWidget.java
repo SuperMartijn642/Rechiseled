@@ -14,19 +14,19 @@ import java.util.function.Supplier;
  */
 public class PreviewModeButtonWidget extends AbstractButtonWidget {
 
-    private static final ResourceLocation GREY_BUTTONS = new ResourceLocation("rechiseled", "textures/screen/grey_buttons.png");
+    private static final ResourceLocation GREY_BUTTONS = ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/grey_buttons.png");
     private static final ResourceLocation[][] ICONS = {
         {
-            new ResourceLocation("rechiseled", "textures/screen/icon_1x1.png"),
-            new ResourceLocation("rechiseled", "textures/screen/icon_1x1_grey.png")
+            ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/icon_1x1.png"),
+            ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/icon_1x1_grey.png")
         },
         {
-            new ResourceLocation("rechiseled", "textures/screen/icon_3x1.png"),
-            new ResourceLocation("rechiseled", "textures/screen/icon_3x1_grey.png")
+            ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/icon_3x1.png"),
+            ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/icon_3x1_grey.png")
         },
         {
-            new ResourceLocation("rechiseled", "textures/screen/icon_3x3.png"),
-            new ResourceLocation("rechiseled", "textures/screen/icon_3x3_grey.png")
+            ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/icon_3x3.png"),
+            ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/icon_3x3_grey.png")
         }
     };
 

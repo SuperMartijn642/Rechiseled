@@ -39,7 +39,7 @@ dependencies {
     implementation "curse.maven:supermartijn642s-config-lib-438332:${config_library_file}"
     // Fusion
 //    implementation "curse.maven:fusion-854949:${fusion_file}"
-    implementation "com.supermartijn642:fusion:1.1.1-neoforge-mc1.20.6"
+    implementation "com.supermartijn642:fusion:1.1.1-neoforge-mc1.21"
     // Just Enough Items
     compileOnly "curse.maven:jei-238222:${just_enough_items_file}"
 }
