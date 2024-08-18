@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:blackstone_tiles"
+          "name": "rechiseled:blackstone_tiles",
+          "type": "minecraft:item"
         }
       ]
     }

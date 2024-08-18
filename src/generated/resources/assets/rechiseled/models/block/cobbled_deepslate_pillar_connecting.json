@@ -1,11 +1,14 @@
 {
   "type": "fusion:connecting",
   "parent": "minecraft:block/cube",
-  "connections": [
-    {
-      "type": "fusion:is_same_state"
-    }
-  ],
+  "connections": {
+    "type": "fusion:or",
+    "predicates": [
+      {
+        "type": "fusion:is_same_state"
+      }
+    ]
+  },
   "loader": "fusion:model",
   "textures": {
     "down": "rechiseled:block/cobbled_deepslate_pillar_end",

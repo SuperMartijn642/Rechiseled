@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:oak_planks_bricks_connecting"
+          "name": "rechiseled:oak_planks_bricks_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

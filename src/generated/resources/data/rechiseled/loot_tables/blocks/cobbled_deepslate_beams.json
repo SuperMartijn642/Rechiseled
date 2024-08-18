@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:cobbled_deepslate_beams"
+          "name": "rechiseled:cobbled_deepslate_beams",
+          "type": "minecraft:item"
         }
       ]
     }

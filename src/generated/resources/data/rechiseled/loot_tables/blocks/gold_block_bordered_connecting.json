@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:gold_block_bordered_connecting"
+          "name": "rechiseled:gold_block_bordered_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

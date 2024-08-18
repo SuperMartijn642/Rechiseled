@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "display": {
     "icon": {
-      "item": "rechiseled:chisel"
+      "id": "rechiseled:chisel"
     },
     "title": {
       "translate": "rechiseled.advancement.recipes/misc/chisel.title"
@@ -27,7 +27,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:ingots/iron"
+            "items": "#forge:ingots/iron"
           }
         ]
       }

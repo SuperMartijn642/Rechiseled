@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:bone_block_decorated_bordered"
+          "name": "rechiseled:bone_block_decorated_bordered",
+          "type": "minecraft:item"
         }
       ]
     }

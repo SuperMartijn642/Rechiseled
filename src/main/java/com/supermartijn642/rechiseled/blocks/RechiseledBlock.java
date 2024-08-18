@@ -6,8 +6,6 @@ import com.supermartijn642.core.block.BlockProperties;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.BlockGetter;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
@@ -24,7 +22,7 @@ public class RechiseledBlock extends BaseBlock {
     }
 
     @Override
-    protected void appendItemInformation(ItemStack stack, @Nullable BlockGetter level, Consumer<Component> info, boolean advanced){
+    protected void appendItemInformation(ItemStack stack, Consumer<Component> info, boolean advanced){
         if(this.connecting)
             info.accept(TextComponents.translation("rechiseled.tooltip.connecting").color(ChatFormatting.GRAY).get());
     }

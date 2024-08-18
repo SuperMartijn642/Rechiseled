@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:copper_block_gears"
+          "name": "rechiseled:copper_block_gears",
+          "type": "minecraft:item"
         }
       ]
     }

@@ -76,6 +76,8 @@ public class Rechiseled {
         handler.registerItem("chisel", ChiselItem::new);
         // Container type
         handler.registerMenuType("chisel_container", BaseContainerType.create((container, buffer) -> buffer.writeBoolean(container.hand == InteractionHand.MAIN_HAND), ((player, buffer) -> new ChiselContainer(player, buffer.readBoolean() ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND))));
+        // Chisel item held stack data component
+        handler.registerDataComponentType("chisel_held_stack", ChiselItem.HELD_STACK);
     }
 
     private static void registerGenerators(){

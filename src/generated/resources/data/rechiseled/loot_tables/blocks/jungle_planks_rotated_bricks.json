@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:jungle_planks_rotated_bricks"
+          "name": "rechiseled:jungle_planks_rotated_bricks",
+          "type": "minecraft:item"
         }
       ]
     }

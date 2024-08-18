@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:glowstone_brick_paving"
+          "name": "rechiseled:glowstone_brick_paving",
+          "type": "minecraft:item"
         }
       ]
     }

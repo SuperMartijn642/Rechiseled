@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:warped_planks_crate_connecting"
+          "name": "rechiseled:warped_planks_crate_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

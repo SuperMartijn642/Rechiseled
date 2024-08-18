@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:mossy_cobblestone_dented"
+          "name": "rechiseled:mossy_cobblestone_dented",
+          "type": "minecraft:item"
         }
       ]
     }

@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:obsidian_dark"
+          "name": "rechiseled:obsidian_dark",
+          "type": "minecraft:item"
         }
       ]
     }

@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:lapis_block_pattern"
+          "name": "rechiseled:lapis_block_pattern",
+          "type": "minecraft:item"
         }
       ]
     }

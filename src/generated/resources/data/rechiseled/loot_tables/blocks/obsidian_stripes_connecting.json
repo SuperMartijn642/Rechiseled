@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:obsidian_stripes_connecting"
+          "name": "rechiseled:obsidian_stripes_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

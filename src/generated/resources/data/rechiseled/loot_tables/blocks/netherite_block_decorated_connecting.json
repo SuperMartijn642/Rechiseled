@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:netherite_block_decorated_connecting"
+          "name": "rechiseled:netherite_block_decorated_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

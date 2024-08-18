@@ -44,13 +44,13 @@ public class ScreenBlockRenderer {
 
         poseStack.pushPose();
         poseStack.translate(x, y, 350);
-        poseStack.mulPoseMatrix(new Matrix4f().scaling(1.0F, -1.0F, 1.0F));
+        poseStack.mulPose(new Matrix4f().scaling(1.0F, -1.0F, 1.0F));
         poseStack.scale((float)scale, (float)scale, (float)scale);
         poseStack.mulPose(new Quaternionf().setAngleAxis(pitch / 180 * (float)Math.PI, 1, 0, 0));
         poseStack.mulPose(new Quaternionf().setAngleAxis(yaw / 180 * (float)Math.PI, 0, 1, 0));
 
         if(doShading)
-            Lighting.setupLevel(new Matrix4f().rotateX((float)(Math.PI / 3)).rotateY((float)(Math.PI / 2)));
+            Lighting.setupLevel();
 
         MultiBufferSource.BufferSource renderTypeBuffer = RenderUtils.getMainBufferSource();
         for(Map.Entry<BlockPos,BlockState> entry : capture.getBlocks())

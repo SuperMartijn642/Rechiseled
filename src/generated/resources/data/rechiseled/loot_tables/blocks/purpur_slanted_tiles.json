@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:purpur_slanted_tiles"
+          "name": "rechiseled:purpur_slanted_tiles",
+          "type": "minecraft:item"
         }
       ]
     }

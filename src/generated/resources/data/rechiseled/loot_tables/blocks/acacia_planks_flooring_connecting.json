@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:acacia_planks_flooring_connecting"
+          "name": "rechiseled:acacia_planks_flooring_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

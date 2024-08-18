@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:prismarine_bricks_chiseled_circles_connecting"
+          "name": "rechiseled:prismarine_bricks_chiseled_circles_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

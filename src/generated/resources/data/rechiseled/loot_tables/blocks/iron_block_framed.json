@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:iron_block_framed"
+          "name": "rechiseled:iron_block_framed",
+          "type": "minecraft:item"
         }
       ]
     }

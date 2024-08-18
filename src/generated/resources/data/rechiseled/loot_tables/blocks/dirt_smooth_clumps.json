@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:dirt_smooth_clumps"
+          "name": "rechiseled:dirt_smooth_clumps",
+          "type": "minecraft:item"
         }
       ]
     }

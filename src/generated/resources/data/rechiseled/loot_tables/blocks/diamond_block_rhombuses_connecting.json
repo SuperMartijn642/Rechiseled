@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:diamond_block_rhombuses_connecting"
+          "name": "rechiseled:diamond_block_rhombuses_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

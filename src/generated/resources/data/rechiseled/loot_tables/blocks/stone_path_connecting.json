@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:stone_path_connecting"
+          "name": "rechiseled:stone_path_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

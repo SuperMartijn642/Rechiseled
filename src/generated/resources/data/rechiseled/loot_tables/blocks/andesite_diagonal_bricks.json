@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:andesite_diagonal_bricks"
+          "name": "rechiseled:andesite_diagonal_bricks",
+          "type": "minecraft:item"
         }
       ]
     }
