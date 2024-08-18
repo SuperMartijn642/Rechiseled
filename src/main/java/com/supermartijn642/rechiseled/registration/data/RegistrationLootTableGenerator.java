@@ -36,8 +36,8 @@ public class RegistrationLootTableGenerator extends LootTableGenerator {
 
     private void addLootTable(Block block){
         ResourceLocation identifier = Registries.BLOCKS.getIdentifier(block);
-        ResourceLocation lootTable = block.getLootTable();
-        if(lootTable == null || (lootTable.getNamespace().equals(identifier.getNamespace()) && lootTable.getPath().equals("block/" + identifier.getPath())))
+        ResourceLocation lootTable = block.getLootTable().location();
+        if(lootTable.getNamespace().equals(identifier.getNamespace()) && lootTable.getPath().equals("block/" + identifier.getPath()))
             return;
         this.dropSelf(block);
     }
