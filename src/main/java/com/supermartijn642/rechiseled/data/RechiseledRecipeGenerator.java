@@ -3,8 +3,7 @@ package com.supermartijn642.rechiseled.data;
 import com.supermartijn642.core.generator.RecipeGenerator;
 import com.supermartijn642.core.generator.ResourceCache;
 import com.supermartijn642.rechiseled.Rechiseled;
-import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
-import net.minecraft.world.item.Items;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 
 /**
  * Created 26/12/2021 by SuperMartijn642
@@ -21,7 +20,7 @@ public class RechiseledRecipeGenerator extends RecipeGenerator {
             .pattern(" A")
             .pattern("B ")
             .input('A', ConventionalItemTags.IRON_INGOTS)
-            .input('B', Items.STICK)
+            .input('B', ConventionalItemTags.WOODEN_RODS)
             .unlockedBy(ConventionalItemTags.IRON_INGOTS);
     }
 }

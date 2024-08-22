@@ -1,4 +1,4 @@
-// 1.20.6	2024-08-17T21:54:23.5655767	Rechiseled/Registration Fusion Model Generator: rechiseled
+// 1.20.6	2024-08-22T20:00:30.6077925	Rechiseled/Registration Fusion Model Generator: rechiseled
 3e35d41864179428033699d9cbd2332b72b9c990 assets\rechiseled\models\block\birch_planks_bricks_connecting.json
 ad387176f29746571edf8682551b140c5eb1088b assets\rechiseled\models\block\lapis_block_chiseled_connecting.json
 b1766408c574f162af23d94a9efd193f0b2e7d11 assets\rechiseled\models\block\red_sandstone_tiles_connecting.json
@@ -489,8 +489,8 @@ fa8c6b81d0c2d26d6f0f8d511d49cf40828a4e2e assets\rechiseled\models\block\lapis_bl
 02deb6d7610872d94404cdf339523a5171986a12 assets\rechiseled\models\block\mossy_cobblestone_paving_connecting.json
 62436de63bc9c109d8af9e5e7ad21591b7586356 assets\rechiseled\models\block\cobblestone_pillar_connecting.json
 c9020526b05c44cb8589df6a66fc0053569ca318 assets\rechiseled\models\block\glowstone_tiles_connecting.json
-274fb95512777b2b317ee39b9f9265120aed04cd assets\rechiseled\models\block\quartz_block_bordered_connecting.json
 4f9ce89cdd38d32bdeff1228bcaac81d94fa676d assets\rechiseled\models\block\cherry_planks_bricks_connecting.json
+274fb95512777b2b317ee39b9f9265120aed04cd assets\rechiseled\models\block\quartz_block_bordered_connecting.json
 f8238d031cfa1e266d9a166e6f8f972313076c77 assets\rechiseled\models\block\coal_block_pattern_connecting.json
 7dedd547f7a40e04ec949a4c459c5eaa7e3eec6f assets\rechiseled\models\block\dark_oak_planks_brick_pattern_connecting.json
 629a8ced7363ee9306c22c3a98a5615f429b9165 assets\rechiseled\models\block\mangrove_planks_flooring_connecting.json
