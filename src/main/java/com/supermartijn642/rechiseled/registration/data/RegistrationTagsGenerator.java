@@ -109,7 +109,7 @@ public class RegistrationTagsGenerator extends TagGenerator {
 
         List<Block> blocks = new ArrayList<>();
 
-        ResourceLocation tagLocation = ResourceLocation.fromNamespaceAndPath(location.getNamespace(), "tags/blocks/" + location.getPath() + ".json");
+        ResourceLocation tagLocation = ResourceLocation.fromNamespaceAndPath(location.getNamespace(), "tags/block/" + location.getPath() + ".json");
         for(Resource resource : this.resources.getResourceStack(tagLocation)){
             try(InputStream stream = resource.open()){
                 JsonObject json = GSON.fromJson(new InputStreamReader(stream), JsonObject.class);
