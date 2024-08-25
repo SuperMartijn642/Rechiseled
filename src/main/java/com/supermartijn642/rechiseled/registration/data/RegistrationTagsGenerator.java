@@ -108,7 +108,7 @@ public class RegistrationTagsGenerator extends TagGenerator {
         List<Block> blocks = new ArrayList<>();
 
         MultiPackResourceManager resourceManager = SERVER_DATA_FIELD.get();
-        for(Resource resource : resourceManager.getResourceStack(ResourceLocation.fromNamespaceAndPath(location.getNamespace(), "tags/blocks/" + location.getPath() + ".json"))){
+        for(Resource resource : resourceManager.getResourceStack(ResourceLocation.fromNamespaceAndPath(location.getNamespace(), "tags/block/" + location.getPath() + ".json"))){
             try(InputStream stream = resource.open()){
                 JsonObject json = GSON.fromJson(new InputStreamReader(stream), JsonObject.class);
                 JsonArray array = json.getAsJsonArray("values");
