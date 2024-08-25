@@ -1,3 +1,6 @@
+### Rechiseled 1.1.6b
+- Fixed missing mining tags for chiseled blocks
+
 ### Rechiseled 1.1.6a
 - Fixed chisel recipe not working
 
