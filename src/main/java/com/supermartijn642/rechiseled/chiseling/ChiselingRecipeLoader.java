@@ -12,7 +12,6 @@ import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.resources.PreparableReloadListener;
 import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceManager;
-import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 
@@ -47,10 +46,10 @@ public class ChiselingRecipeLoader implements PreparableReloadListener, Identifi
     }
 
     @Override
-    public CompletableFuture<Void> reload(PreparationBarrier preparationBarrier, ResourceManager resourceManager, ProfilerFiller profilerFiller, ProfilerFiller profilerFiller2, Executor executor, Executor executor2){
+    public CompletableFuture<Void> reload(PreparationBarrier preparationBarrier, ResourceManager resourceManager, Executor executor, Executor executor2){
         List<CompletableFuture<ChiselingRecipe>> recipes = resourceManager.listResources("chiseling_recipes", r -> r.getPath().endsWith(".json")).keySet().stream()
             .map(location -> CompletableFuture.supplyAsync(() -> loadRecipe(resourceManager, location), executor))
-            .collect(Collectors.toList());
+            .toList();
         return CompletableFuture.allOf(recipes.toArray(CompletableFuture[]::new))
             .thenApplyAsync(o -> mergeRecipes(recipes.stream().map(CompletableFuture::join).filter(Objects::nonNull).collect(Collectors.toList())), executor)
             .thenCompose(preparationBarrier::wait)

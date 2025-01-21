@@ -6,7 +6,6 @@ import com.supermartijn642.core.item.ItemProperties;
 import com.supermartijn642.rechiseled.screen.ChiselContainer;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -23,11 +22,10 @@ public class ChiselItem extends BaseItem {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand){
-        ItemStack stack = player.getItemInHand(hand);
-        if(!world.isClientSide)
+    public ItemUseResult interact(ItemStack stack, Player player, InteractionHand hand, Level level){
+        if(!level.isClientSide)
             CommonUtils.openContainer(new ChiselContainer(player, hand));
-        return InteractionResultHolder.sidedSuccess(stack, world.isClientSide);
+        return ItemUseResult.success(stack);
     }
 
     public static ItemStack getStoredStack(ItemStack chisel){

@@ -43,7 +43,7 @@ public class ScreenBlockRenderer {
         poseStack.mulPose(new Quaternionf().setAngleAxis(yaw / 180 * (float)Math.PI, 0, 1, 0));
 
         if(doShading)
-            Lighting.setupForEntityInInventory(new Quaternionf().rotateX((float) (Math.PI / 2)).rotateZ((float) (Math.PI)));
+            Lighting.setupForEntityInInventory(new Quaternionf().rotateX((float)(Math.PI / 2)).rotateZ((float)(Math.PI)));
 
         MultiBufferSource.BufferSource renderTypeBuffer = RenderUtils.getMainBufferSource();
         for(Map.Entry<BlockPos,BlockState> entry : capture.getBlocks())
@@ -64,7 +64,7 @@ public class ScreenBlockRenderer {
         poseStack.translate(pos.getX() - 0.5, pos.getY() - 0.5, pos.getZ() - 0.5);
 
         BakedModel model = ClientUtils.getBlockRenderer().getBlockModel(state);
-        RenderType renderType = ItemBlockRenderTypes.getRenderType(state, true);
+        RenderType renderType = ItemBlockRenderTypes.getRenderType(state);
         ClientUtils.getBlockRenderer().getModelRenderer().tesselateBlock(fakeLevel, model, state, pos, poseStack, renderTypeBuffer.getBuffer(renderType), true, RandomSource.create(42), 42, OverlayTexture.NO_OVERLAY);
 
         poseStack.popPose();

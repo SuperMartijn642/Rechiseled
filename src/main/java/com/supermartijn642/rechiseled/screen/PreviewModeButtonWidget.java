@@ -52,10 +52,8 @@ public class PreviewModeButtonWidget extends AbstractButtonWidget {
         boolean selected = this.mode == currentMode;
 
         boolean enabled = this.enabled.get();
-        ScreenUtils.bindTexture(GREY_BUTTONS);
-        ScreenUtils.drawTexture(context.poseStack(), this.x, this.y, this.width, this.height, 0, ((!enabled || selected) ? 1 : this.isFocused() ? 2 : 0) / 3f, 1, 1 / 3f);
+        ScreenUtils.drawTexture(GREY_BUTTONS, context.poseStack(), this.x, this.y, this.width, this.height, 0, ((!enabled || selected) ? 1 : this.isFocused() ? 2 : 0) / 3f, 1, 1 / 3f);
 
-        ScreenUtils.bindTexture(ICONS[this.mode][selected ? 1 : 0]);
-        ScreenUtils.drawTexture(context.poseStack(), this.x + 1, this.y + 2, this.width - 2, this.height - 4);
+        ScreenUtils.drawTexture(ICONS[this.mode][selected ? 1 : 0], context.poseStack(), this.x + 1, this.y + 2, this.width - 2, this.height - 4);
     }
 }

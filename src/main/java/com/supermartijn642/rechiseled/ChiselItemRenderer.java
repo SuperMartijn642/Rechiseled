@@ -23,7 +23,7 @@ public class ChiselItemRenderer implements CustomItemRenderer {
             ItemStack storedStack = ChiselItem.getStoredStack(stack);
             if(!storedStack.isEmpty()){
                 poseStack.pushPose();
-                poseStack.translate(0.25,0.75,1);
+                poseStack.translate(0.25, 0.75, 1);
                 poseStack.scale(0.5f, 0.5f, 0.5f);
                 ClientUtils.getItemRenderer().renderStatic(storedStack, ItemDisplayContext.GUI, combinedLight, combinedOverlay, poseStack, bufferSource, null, 0);
                 poseStack.popPose();
@@ -32,7 +32,7 @@ public class ChiselItemRenderer implements CustomItemRenderer {
     }
 
     private static void renderChisel(ItemStack stack, ItemDisplayContext transformType, PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int combinedOverlay){
-        RenderType renderType = ItemBlockRenderTypes.getRenderType(stack, true);
+        RenderType renderType = ItemBlockRenderTypes.getRenderType(stack);
         VertexConsumer vertexConsumer = ItemRenderer.getFoilBuffer(bufferSource, renderType, true, stack.hasFoil());
         ItemRenderer renderer = ClientUtils.getItemRenderer();
         renderer.renderModelLists(renderer.getModel(stack, null, null, 0), stack, combinedLight, combinedOverlay, poseStack, vertexConsumer);

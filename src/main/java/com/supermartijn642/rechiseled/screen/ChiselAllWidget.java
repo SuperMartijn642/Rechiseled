@@ -45,10 +45,8 @@ public class ChiselAllWidget extends AbstractButtonWidget {
         ChiselingEntry currentEntry = this.currentEntry.get();
         boolean hasEntry = currentEntry != null;
 
-        ScreenUtils.bindTexture(GREY_BUTTONS);
-        ScreenUtils.drawTexture(context.poseStack(), this.x, this.y, this.width, this.height, 0, (hasEntry ? this.isFocused() ? 2 : 0 : 1) / 3f, 1, 1 / 3f);
+        ScreenUtils.drawTexture(GREY_BUTTONS, context.poseStack(), this.x, this.y, this.width, this.height, 0, (hasEntry ? this.isFocused() ? 2 : 0 : 1) / 3f, 1, 1 / 3f);
 
-        ScreenUtils.bindTexture(CHISEL_TEXTURE);
-        ScreenUtils.drawTexture(context.poseStack(), this.x + 1, this.y + 2, this.width - 2, this.height - 4);
+        ScreenUtils.drawTexture(CHISEL_TEXTURE, context.poseStack(), this.x + 1, this.y + 2, this.width - 2, this.height - 4);
     }
 }

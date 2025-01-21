@@ -62,17 +62,17 @@ public class BlockCaptureLevel implements BlockAndTintGetter {
     @Override
     public int getBlockTint(BlockPos pos, ColorResolver colorResolver){
         //noinspection unchecked
-        Registry<Biome> biomeRegistry = (Registry<Biome>)BuiltInRegistries.REGISTRY.get(Registries.BIOME.location());
-        return biomeRegistry == null ? 0 : colorResolver.getColor(biomeRegistry.get(Biomes.PLAINS), pos.getX(), pos.getZ());
+        Registry<Biome> biomeRegistry = (Registry<Biome>)BuiltInRegistries.REGISTRY.getOptional(Registries.BIOME.location()).orElse(null);
+        return biomeRegistry == null ? 0 : colorResolver.getColor(biomeRegistry.get(Biomes.PLAINS).orElseThrow().value(), pos.getX(), pos.getZ());
     }
 
     @Override
     public int getHeight(){
-        return -Integer.MAX_VALUE;
+        return Integer.MAX_VALUE;
     }
 
     @Override
-    public int getMinBuildHeight(){
-        return Integer.MAX_VALUE;
+    public int getMinY(){
+        return -Integer.MAX_VALUE;
     }
 }
