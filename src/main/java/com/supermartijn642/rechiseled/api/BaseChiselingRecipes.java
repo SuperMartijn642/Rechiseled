@@ -43,6 +43,7 @@ public class BaseChiselingRecipes {
     public static final ResourceLocation NETHERITE_BLOCK = location("netherite_block");
     public static final ResourceLocation OAK_PLANKS = location("oak_planks");
     public static final ResourceLocation OBSIDIAN = location("obsidian");
+    public static final ResourceLocation PALE_OAK_PLANKS = location("pale_oak_planks");
     public static final ResourceLocation PRISMARINE_BRICKS = location("prismarine_bricks");
     public static final ResourceLocation PURPUR_BLOCK = location("purpur_block");
     public static final ResourceLocation QUARTZ_BLOCK = location("quartz_block");
