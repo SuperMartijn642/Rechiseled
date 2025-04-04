@@ -1,40 +1,61 @@
 package com.supermartijn642.rechiseled;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.serialization.MapCodec;
 import com.supermartijn642.core.ClientUtils;
-import com.supermartijn642.core.render.CustomItemRenderer;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.ItemRenderer;
+import net.minecraft.client.renderer.item.ItemModel;
+import net.minecraft.client.renderer.special.SpecialModelRenderer;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.Nullable;
 
 /**
- * Created 18/06/2023 by SuperMartijn642
+ * Created 04/04/2025 by SuperMartijn642
  */
-public class ChiselItemRenderer implements CustomItemRenderer {
+public class ChiselItemRenderer implements ItemModel.Unbaked {
+
+    public static final MapCodec<ChiselItemRenderer> CODEC = MapCodec.unit(new ChiselItemRenderer());
+    private static final SpecialModelRenderer<ItemStack> ICON_RENDERER = new SpecialModelRenderer<>() {
+        private static final ThreadLocal<Boolean> RECURSION_GUARD = ThreadLocal.withInitial(() -> false);
+
+        @Override
+        public void render(ItemStack icon, ItemDisplayContext transformType, PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int combinedOverlay, boolean hasFoil){
+            // Render the icon
+            RECURSION_GUARD.set(true);
+            poseStack.pushPose();
+            poseStack.translate(0.25, 0.75, 1);
+            poseStack.scale(0.5f, 0.5f, 0.5f);
+            ClientUtils.getItemRenderer().renderStatic(icon, ItemDisplayContext.GUI, combinedLight, combinedOverlay, poseStack, bufferSource, null, 0);
+            poseStack.popPose();
+            RECURSION_GUARD.remove();
+        }
+
+        @Override
+        public @Nullable ItemStack extractArgument(ItemStack stack){
+            return null;
+        }
+    };
 
     @Override
-    public void render(ItemStack stack, ItemDisplayContext transformType, PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int combinedOverlay){
-        renderChisel(stack, transformType, poseStack, bufferSource, combinedLight, combinedOverlay);
-        if(transformType == ItemDisplayContext.GUI){
-            ItemStack storedStack = ChiselItem.getStoredStack(stack);
-            if(!storedStack.isEmpty()){
-                poseStack.pushPose();
-                poseStack.translate(0.25, 0.75, 1);
-                poseStack.scale(0.5f, 0.5f, 0.5f);
-                ClientUtils.getItemRenderer().renderStatic(storedStack, ItemDisplayContext.GUI, combinedLight, combinedOverlay, poseStack, bufferSource, null, 0);
-                poseStack.popPose();
-            }
-        }
+    public MapCodec<? extends ItemModel.Unbaked> type(){
+        return CODEC;
     }
 
-    private static void renderChisel(ItemStack stack, ItemDisplayContext transformType, PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int combinedOverlay){
-        RenderType renderType = ItemBlockRenderTypes.getRenderType(stack);
-        VertexConsumer vertexConsumer = ItemRenderer.getFoilBuffer(bufferSource, renderType, true, stack.hasFoil());
-        ItemRenderer renderer = ClientUtils.getItemRenderer();
-        renderer.renderModelLists(renderer.getModel(stack, null, null, 0), stack, combinedLight, combinedOverlay, poseStack, vertexConsumer);
+    @Override
+    public ItemModel bake(ItemModel.BakingContext bakingContext){
+        return (renderState, stack, modelResolver, transformType, level, entity, someRandomId) -> {
+            if(transformType != ItemDisplayContext.GUI)
+                return;
+            // Get the stored item
+            ItemStack storedStack = ChiselItem.getStoredStack(stack);
+            // Add the renderer for the stored item
+            if(!storedStack.isEmpty())
+                renderState.newLayer().setupSpecialModel(ICON_RENDERER, storedStack, null);
+        };
+    }
+
+    @Override
+    public void resolveDependencies(Resolver resolver){
     }
 }

@@ -30,12 +30,8 @@ public class RegistrationModelGenerator extends ModelGenerator {
                 RechiseledBlockBuilderImpl builder = pair.left();
                 RechiseledBlockTypeImpl type = pair.right();
                 BlockModelType modelType = builder.modelType == null ? type.getSpecification().getDefaultModelType() : builder.modelType;
-                if(type.hasRegularVariant()){
+                if(type.hasRegularVariant())
                     this.addModel(modelType, type.getRegularBlock(), type.getIdentifier().getPath());
-                    this.addItemModel(modelType, type.getRegularBlock());
-                }
-                if(type.hasConnectingVariant())
-                    this.addItemModel(modelType, type.getConnectingBlock());
             }
         );
     }
@@ -64,12 +60,6 @@ public class RegistrationModelGenerator extends ModelGenerator {
                 .texture("south", namespace, "block/" + texture + "_side")
                 .texture("west", namespace, "block/" + texture + "_side")
                 .texture("particle", namespace, "block/" + texture + "_side");
-    }
-
-    private void addItemModel(BlockModelType modelType, Block block){
-        String namespace = Registries.BLOCKS.getIdentifier(block).getNamespace();
-        String identifier = Registries.BLOCKS.getIdentifier(block).getPath();
-        this.model(namespace, "item/" + identifier).parent(namespace, "block/" + identifier);
     }
 
     @Override

@@ -1,0 +1,16 @@
+{
+  "type": "fusion:connecting",
+  "parent": "minecraft:block/cube_all",
+  "connections": {
+    "type": "fusion:or",
+    "predicates": [
+      {
+        "type": "fusion:is_same_block"
+      }
+    ]
+  },
+  "loader": "fusion:model",
+  "textures": {
+    "all": "rechiseled:block/pale_oak_planks_bricks"
+  }
+}

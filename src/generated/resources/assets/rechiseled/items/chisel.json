@@ -1,0 +1,14 @@
+{
+  "model": {
+    "models": [
+      {
+        "model": "rechiseled:item/chisel",
+        "type": "minecraft:model"
+      },
+      {
+        "type": "rechiseled:chisel_stack_renderer"
+      }
+    ],
+    "type": "minecraft:composite"
+  }
+}

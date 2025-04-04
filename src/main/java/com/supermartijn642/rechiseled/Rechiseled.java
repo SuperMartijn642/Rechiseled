@@ -10,10 +10,7 @@ import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockType;
 import com.supermartijn642.rechiseled.api.registration.RechiseledRegistration;
 import com.supermartijn642.rechiseled.chiseling.ChiselingRecipeLoader;
 import com.supermartijn642.rechiseled.chiseling.PacketChiselingRecipes;
-import com.supermartijn642.rechiseled.data.RechiseledItemModelGenerator;
-import com.supermartijn642.rechiseled.data.RechiseledLanguageGenerator;
-import com.supermartijn642.rechiseled.data.RechiseledRecipeGenerator;
-import com.supermartijn642.rechiseled.data.RechiseledTextureProvider;
+import com.supermartijn642.rechiseled.data.*;
 import com.supermartijn642.rechiseled.packet.PacketChiselAll;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
 import com.supermartijn642.rechiseled.packet.PacketToggleConnecting;
@@ -83,6 +80,8 @@ public class Rechiseled implements ModInitializer {
     private static void registerGenerators(){
         GeneratorRegistrationHandler handler = GeneratorRegistrationHandler.get("rechiseled");
         handler.addProvider(RechiseledTextureProvider::new);
+        //noinspection Convert2MethodRef
+        handler.addGenerator(cache -> new RechiseledItemInfoGenerator(cache));
         handler.addGenerator(RechiseledItemModelGenerator::new);
         handler.addGenerator(RechiseledLanguageGenerator::new);
         handler.addGenerator(RechiseledRecipeGenerator::new);

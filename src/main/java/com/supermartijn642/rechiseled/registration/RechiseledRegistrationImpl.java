@@ -121,6 +121,7 @@ public class RechiseledRegistrationImpl implements RechiseledRegistration {
         GeneratorRegistrationHandler handler = GeneratorRegistrationHandler.get(this.modid);
         handler.addProvider(generator -> new RegistrationFusionModelProvider(this, generator));
         handler.addGenerator(cache -> new RegistrationModelGenerator(this, cache));
+        handler.addGenerator(cache -> new RegistrationItemInfoGenerator(this, cache));
         handler.addGenerator(cache -> new RegistrationBlockStateGenerator(this, cache));
         handler.addProvider(generator -> new RegistrationChiselingRecipeProvider(this, generator));
         handler.addGenerator(cache -> new RegistrationLanguageGenerator(this, cache));
