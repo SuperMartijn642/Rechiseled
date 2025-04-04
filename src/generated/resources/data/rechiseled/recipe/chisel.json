@@ -5,12 +5,8 @@
     "B "
   ],
   "key": {
-    "A": {
-      "tag": "forge:ingots/iron"
-    },
-    "B": {
-      "tag": "forge:rods/wooden"
-    }
+    "A": "#c:ingots/iron",
+    "B": "#c:rods/wooden"
   },
   "result": {
     "id": "rechiseled:chisel"

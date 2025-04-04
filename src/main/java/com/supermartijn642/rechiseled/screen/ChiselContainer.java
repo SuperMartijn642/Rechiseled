@@ -21,6 +21,8 @@ public class ChiselContainer extends BaseChiselingContainer {
 
     @Override
     public ItemStack getCurrentStack(){
+        if(this.hand == null) // Ledger accesses slot contents immediately when added, so the 'hand' won't have been set yet
+            return ItemStack.EMPTY;
         ItemStack chisel = this.player.getItemInHand(this.hand);
         return chisel.getItem() == Rechiseled.chisel ? ChiselItem.getStoredStack(chisel) : ItemStack.EMPTY;
     }

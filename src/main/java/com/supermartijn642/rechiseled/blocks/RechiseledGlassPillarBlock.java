@@ -34,7 +34,7 @@ public class RechiseledGlassPillarBlock extends RechiseledPillarBlock {
     }
 
     @Override
-    public boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos){
+    protected boolean propagatesSkylightDown(BlockState state){
         return true;
     }
 }
