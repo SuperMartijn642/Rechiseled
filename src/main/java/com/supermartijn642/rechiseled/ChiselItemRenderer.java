@@ -33,8 +33,8 @@ public class ChiselItemRenderer implements CustomItemRenderer {
     private static void renderChisel(ItemStack stack, ItemDisplayContext transformType, PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int combinedOverlay){
         ItemRenderer renderer = ClientUtils.getItemRenderer();
         BakedModel model = renderer.getModel(stack, null, null, 0);
-        for(var subModel : model.getRenderPasses(stack, true)){
-            for(var renderType : subModel.getRenderTypes(stack, true)){
+        for(var subModel : model.getRenderPasses(stack)){
+            for(var renderType : subModel.getRenderTypes(stack)){
                 VertexConsumer vertexConsumer = ItemRenderer.getFoilBuffer(bufferSource, renderType, true, stack.hasFoil());
                 renderer.renderModelLists(subModel, stack, combinedLight, combinedOverlay, poseStack, vertexConsumer);
             }

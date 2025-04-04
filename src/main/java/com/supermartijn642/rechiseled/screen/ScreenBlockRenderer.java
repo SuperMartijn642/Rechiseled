@@ -50,7 +50,7 @@ public class ScreenBlockRenderer {
         poseStack.mulPose(new Quaternionf().setAngleAxis(yaw / 180 * (float)Math.PI, 0, 1, 0));
 
         if(doShading)
-            Lighting.setupForEntityInInventory(new Quaternionf().rotateX((float) (Math.PI / 2)).rotateZ((float) (Math.PI)));
+            Lighting.setupForEntityInInventory(new Quaternionf().rotateX((float)(Math.PI / 2)).rotateZ((float)(Math.PI)));
 
         MultiBufferSource.BufferSource renderTypeBuffer = RenderUtils.getMainBufferSource();
         for(Map.Entry<BlockPos,BlockState> entry : capture.getBlocks())
@@ -75,7 +75,7 @@ public class ScreenBlockRenderer {
         RANDOM.setSeed(42);
         ChunkRenderTypeSet renderTypes = model.getRenderTypes(state, RANDOM, modelData);
         for(RenderType renderType : renderTypes){
-            RenderType itemRenderType = renderType == RenderType.translucent() ? Sheets.translucentCullBlockSheet() : Sheets.cutoutBlockSheet();
+            RenderType itemRenderType = renderType == RenderType.translucent() ? Sheets.translucentItemSheet() : Sheets.cutoutBlockSheet();
             renderModel(model, state, poseStack, renderTypeBuffer.getBuffer(itemRenderType), modelData, renderType);
         }
 

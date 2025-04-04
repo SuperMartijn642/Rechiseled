@@ -21,8 +21,7 @@ public class ToggleRotationButton extends AbstractButtonWidget {
 
     @Override
     public void render(WidgetRenderContext context, int mouseX, int mouseY){
-        ScreenUtils.bindTexture(TEXTURE);
-        ScreenUtils.drawTexture(context.poseStack(), this.x, this.y, this.width, this.height, rotate ? 0 : 0.5f, this.isFocused() ? 0.5f : 0, 0.5f, 0.5f);
+        ScreenUtils.drawTexture(TEXTURE, context.poseStack(), this.x, this.y, this.width, this.height, rotate ? 0 : 0.5f, this.isFocused() ? 0.5f : 0, 0.5f, 0.5f);
         super.render(context, mouseX, mouseY);
     }
 

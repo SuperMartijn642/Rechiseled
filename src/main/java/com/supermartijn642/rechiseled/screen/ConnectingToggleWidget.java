@@ -52,10 +52,8 @@ public class ConnectingToggleWidget extends AbstractButtonWidget {
         ChiselingEntry currentEntry = this.currentEntry.get();
         boolean canSwitch = currentEntry != null && (connecting ? currentEntry.hasRegularItem() : currentEntry.hasConnectingItem());
 
-        ScreenUtils.bindTexture(GREY_BUTTONS);
-        ScreenUtils.drawTexture(context.poseStack(), this.x, this.y, this.width, this.height, 0, (canSwitch ? this.isFocused() ? 2 : 0 : 1) / 3f, 1, 1 / 3f);
+        ScreenUtils.drawTexture(GREY_BUTTONS, context.poseStack(), this.x, this.y, this.width, this.height, 0, (canSwitch ? this.isFocused() ? 2 : 0 : 1) / 3f, 1, 1 / 3f);
 
-        ScreenUtils.bindTexture(this.connecting.get() ? ICON_CONNECTED_ON : ICON_CONNECTED_OFF);
-        ScreenUtils.drawTexture(context.poseStack(), this.x + 1, this.y + 2, this.width - 2, this.height - 4);
+        ScreenUtils.drawTexture(this.connecting.get() ? ICON_CONNECTED_ON : ICON_CONNECTED_OFF, context.poseStack(), this.x + 1, this.y + 2, this.width - 2, this.height - 4);
     }
 }

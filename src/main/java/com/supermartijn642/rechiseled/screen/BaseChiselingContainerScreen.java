@@ -83,8 +83,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
 
     @Override
     public void renderBackground(WidgetRenderContext context, int mouseX, int mouseY){
-        ScreenUtils.bindTexture(BACKGROUND);
-        ScreenUtils.drawTexture(context.poseStack(), 0, 0, this.width, this.height);
+        ScreenUtils.drawTexture(BACKGROUND, context.poseStack(), 0, 0, this.width, this.height);
         super.renderBackground(context, mouseX, mouseY);
     }
 
