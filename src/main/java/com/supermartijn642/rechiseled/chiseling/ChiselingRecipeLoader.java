@@ -11,7 +11,7 @@ import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.AddReloadListenerEvent;
+import net.neoforged.neoforge.event.AddServerReloadListenersEvent;
 import net.neoforged.neoforge.event.OnDatapackSyncEvent;
 
 import java.io.Reader;
@@ -27,8 +27,11 @@ import java.util.stream.Collectors;
 public class ChiselingRecipeLoader implements PreparableReloadListener {
 
     @SubscribeEvent
-    public static void onAddReloadListener(AddReloadListenerEvent e){
-        e.addListener(new ChiselingRecipeLoader());
+    public static void onAddReloadListener(AddServerReloadListenersEvent e){
+        e.addListener(
+            ResourceLocation.fromNamespaceAndPath("rechiseled", "chiseling_recipe_loader"),
+            new ChiselingRecipeLoader()
+        );
     }
 
     @SubscribeEvent

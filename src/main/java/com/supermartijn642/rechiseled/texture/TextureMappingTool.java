@@ -1,13 +1,12 @@
 package com.supermartijn642.rechiseled.texture;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
-import net.minecraft.server.packs.resources.MultiPackResourceManager;
+import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceManager;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.lang.reflect.Field;
 import java.util.List;
 import java.util.*;
 
@@ -16,21 +15,7 @@ import java.util.*;
  */
 public class TextureMappingTool {
 
-    /**
-     * {@link ExistingFileHelper#clientResources}
-     */
-    @SuppressWarnings("JavadocReference")
-    private static final Field clientResources;
-
-    static{
-        Field clientResources_ = null;
-        try{
-            clientResources_ = ExistingFileHelper.class.getDeclaredField("clientResources");
-        }catch(NoSuchFieldException e){
-            e.printStackTrace();
-        }
-        clientResources = clientResources_;
-    }
+    public static ResourceManager RESOURCE_MANAGER;
 
     public static Map<Integer,Integer> createPaletteMap(BufferedImage from, BufferedImage to){
         if(from.getWidth() != to.getWidth() || from.getHeight() != to.getHeight())
@@ -62,19 +47,10 @@ public class TextureMappingTool {
     /**
      * Finds the suffixes of all rechiseled textures whose names start with {@code name}
      */
-    public static List<String> getSuffixes(String name, ExistingFileHelper existingFileHelper){
-        ResourceManager resourceManager;
-        try{
-            clientResources.setAccessible(true);
-            resourceManager = (MultiPackResourceManager)clientResources.get(existingFileHelper);
-        }catch(IllegalAccessException e){
-            e.printStackTrace();
-            return Collections.emptyList();
-        }
-
+    public static List<String> getSuffixes(String name){
         List<String> suffixes = new ArrayList<>();
-        resourceManager.listPacks().filter(
-            pack -> pack.getNamespaces(PackType.CLIENT_RESOURCES).size() == 1 && pack.getNamespaces(PackType.CLIENT_RESOURCES).contains("rechiseled")
+        RESOURCE_MANAGER.listPacks().filter(
+            pack -> pack.getNamespaces(PackType.CLIENT_RESOURCES).contains("rechiseled")
         ).forEach(
             pack -> {
                 pack.listResources(PackType.CLIENT_RESOURCES, "rechiseled", "textures/block", (s, stream) -> {
@@ -87,5 +63,14 @@ public class TextureMappingTool {
             }
         );
         return suffixes;
+    }
+
+    public static boolean exists(ResourceLocation location){
+        return RESOURCE_MANAGER.getResource(location).isPresent();
+    }
+
+    public static Resource getResource(ResourceLocation location) throws NoSuchElementException{
+        //noinspection OptionalGetWithoutIsPresent
+        return RESOURCE_MANAGER.getResource(location).get();
     }
 }

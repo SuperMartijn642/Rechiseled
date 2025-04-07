@@ -12,8 +12,6 @@ import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.PackType;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -36,16 +34,14 @@ public abstract class ChiseledTextureProvider implements DataProvider {
 
     private final String modid;
     private final DataGenerator generator;
-    private final ExistingFileHelper existingFileHelper;
     private final Map<Pair<ResourceLocation,ResourceLocation>,PaletteMap> textures = new HashMap<>();
     private final Set<String> outputLocations = new HashSet<>();
     private final List<String> oakPlankSuffixes;
 
-    public ChiseledTextureProvider(String modid, DataGenerator generator, ExistingFileHelper existingFileHelper){
+    public ChiseledTextureProvider(String modid, DataGenerator generator){
         this.modid = modid;
         this.generator = generator;
-        this.existingFileHelper = existingFileHelper;
-        this.oakPlankSuffixes = TextureMappingTool.getSuffixes("oak_planks", existingFileHelper);
+        this.oakPlankSuffixes = TextureMappingTool.getSuffixes("oak_planks");
     }
 
     @Override
@@ -88,14 +84,16 @@ public abstract class ChiseledTextureProvider implements DataProvider {
     }
 
     private Pair<BufferedImage,JsonObject> loadTexture(ResourceLocation location){
-        if(!this.existingFileHelper.exists(location, PackType.CLIENT_RESOURCES, ".png", "textures"))
+        ResourceLocation fullLocation = ResourceLocation.fromNamespaceAndPath(location.getNamespace(), "textures/" + location.getPath() + ".png");
+        if(!TextureMappingTool.exists(fullLocation))
             throw new IllegalStateException("Could not find existing texture: " + location);
 
         // Get the metadata
-        boolean hasMetadata = this.existingFileHelper.exists(location, PackType.CLIENT_RESOURCES, ".png.mcmeta", "textures");
+        ResourceLocation metadataLocation = ResourceLocation.fromNamespaceAndPath(location.getNamespace(), "textures/" + location.getPath() + ".png.mcmeta");
+        boolean hasMetadata = TextureMappingTool.exists(metadataLocation);
         JsonObject metadata = null;
         if(hasMetadata){
-            try(BufferedReader reader = this.existingFileHelper.getResource(location, PackType.CLIENT_RESOURCES, ".png.mcmeta", "textures").openAsReader()){
+            try(BufferedReader reader = TextureMappingTool.getResource(metadataLocation).openAsReader()){
                 metadata = GSON.fromJson(reader, JsonObject.class);
             }catch(Exception e){
                 throw new RuntimeException("Encountered an exception when trying to load texture metadata: " + location, e);
@@ -104,7 +102,7 @@ public abstract class ChiseledTextureProvider implements DataProvider {
 
         // Get the texture
         BufferedImage image;
-        try(InputStream stream = this.existingFileHelper.getResource(location, PackType.CLIENT_RESOURCES, ".png", "textures").open()){
+        try(InputStream stream = TextureMappingTool.getResource(fullLocation).open()){
             image = ImageIO.read(stream);
         }catch(Exception e){
             throw new RuntimeException("Encountered an exception when trying to load texture: " + location, e);
@@ -137,11 +135,8 @@ public abstract class ChiseledTextureProvider implements DataProvider {
     }
 
     private boolean validateTexture(ResourceLocation texture){
-        return this.existingFileHelper.exists(texture, PackType.CLIENT_RESOURCES, ".png", "textures");
-    }
-
-    private void trackTexture(String outputLocation){
-        this.existingFileHelper.trackGenerated(ResourceLocation.fromNamespaceAndPath(this.modid, outputLocation), PackType.CLIENT_RESOURCES, ".png", "textures");
+        ResourceLocation fullLocation = ResourceLocation.fromNamespaceAndPath(texture.getNamespace(), "textures/" + texture.getPath() + ".png");
+        return TextureMappingTool.exists(fullLocation);
     }
 
     /**
@@ -165,6 +160,7 @@ public abstract class ChiseledTextureProvider implements DataProvider {
      * Creates a map from colors in {@code oldPalette} to {@code newPalette}.
      * The palette map can be applied to any texture using the old palette
      * to generate a texture with the new palette.
+     *
      * @param oldPalette colors to map from
      * @param newPalette colors to map to
      * @throws IllegalArgumentException when {@code oldPalette} or {@code newPalette} is {@code null}
@@ -215,6 +211,7 @@ public abstract class ChiseledTextureProvider implements DataProvider {
          * 'from palette' of this palette map.
          * <p>
          * The mapped texture will be saved at <i>assets/<b>modid</b>/textures/<b>outputLocation</b>.png</i>.
+         *
          * @param texture        the texture to apply this palette map to
          * @param outputLocation location to save the mapped texture at
          * @throws IllegalArgumentException when {@code texture} is {@code null}, or when {@code outputLocation.trim()} is {@code null} or empty
@@ -229,7 +226,6 @@ public abstract class ChiseledTextureProvider implements DataProvider {
                 throw new IllegalStateException("Two or more textures have the same output location: " + outputLocation);
 
             this.targets.put(outputLocation.toLowerCase(Locale.ROOT).trim(), texture);
-            ChiseledTextureProvider.this.trackTexture(outputLocation);
             return this;
         }
 

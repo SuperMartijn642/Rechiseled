@@ -30,6 +30,10 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/pale_oak_planks_bricks"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/spruce_planks_beams"
     },
     {
@@ -51,6 +55,10 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/crimson_planks_diagonal_stripes"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/pale_oak_planks_beams"
     },
     {
       "type": "minecraft:single",
@@ -82,11 +90,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/amethyst_block_edged"
+      "resource": "rechiseled:block/redstone_block_scales"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/redstone_block_scales"
+      "resource": "rechiseled:block/amethyst_block_edged"
     },
     {
       "type": "minecraft:single",
@@ -102,11 +110,15 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/glowstone_bricks"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/bamboo_planks_brick_pattern"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/glowstone_bricks"
+      "resource": "rechiseled:block/warped_planks_rotated_bricks"
     },
     {
       "type": "minecraft:single",
@@ -118,10 +130,6 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/warped_planks_rotated_bricks"
-    },
-    {
-      "type": "minecraft:single",
       "resource": "rechiseled:block/birch_planks_crate"
     },
     {
@@ -130,11 +138,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/blue_ice_rocky"
+      "resource": "rechiseled:block/diorite_diagonal_bricks"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/diorite_diagonal_bricks"
+      "resource": "rechiseled:block/blue_ice_rocky"
     },
     {
       "type": "minecraft:single",
@@ -142,11 +150,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/dark_oak_planks_crate"
+      "resource": "rechiseled:block/stone_brick_paving"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/stone_brick_paving"
+      "resource": "rechiseled:block/dark_oak_planks_crate"
     },
     {
       "type": "minecraft:single",
@@ -190,23 +198,15 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/stone_slated_side"
-    },
-    {
-      "type": "minecraft:single",
       "resource": "rechiseled:block/sandstone_large_tiles"
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/stone_slated_side"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/netherrack_brick_paving"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "rechiseled:block/diorite_paving"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "rechiseled:block/amethyst_block_tiles"
     },
     {
       "type": "minecraft:single",
@@ -215,6 +215,14 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/lapis_block_crushed"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/diorite_paving"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/amethyst_block_tiles"
     },
     {
       "type": "minecraft:single",
@@ -234,11 +242,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/amethyst_block_pillar_side"
+      "resource": "rechiseled:block/obsidian_chiseled"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/obsidian_chiseled"
+      "resource": "rechiseled:block/amethyst_block_pillar_side"
     },
     {
       "type": "minecraft:single",
@@ -286,11 +294,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/dark_oak_planks_brick_paving"
+      "resource": "rechiseled:block/emerald_block_chiseled"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/emerald_block_chiseled"
+      "resource": "rechiseled:block/dark_oak_planks_brick_paving"
     },
     {
       "type": "minecraft:single",
@@ -298,11 +306,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/birch_planks_diagonal_tiles"
+      "resource": "rechiseled:block/end_stone_rotated_bricks"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/end_stone_rotated_bricks"
+      "resource": "rechiseled:block/birch_planks_diagonal_tiles"
     },
     {
       "type": "minecraft:single",
@@ -310,15 +318,19 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/pale_oak_planks_tiles"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/quartz_block_rows"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/mangrove_planks_pattern"
+      "resource": "rechiseled:block/red_nether_bricks_squares"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/red_nether_bricks_squares"
+      "resource": "rechiseled:block/mangrove_planks_pattern"
     },
     {
       "type": "minecraft:single",
@@ -334,10 +346,6 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/cobbled_deepslate_tiles"
-    },
-    {
-      "type": "minecraft:single",
       "resource": "rechiseled:block/granite_paving"
     },
     {
@@ -346,7 +354,7 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/cobblestone_paving"
+      "resource": "rechiseled:block/cobbled_deepslate_tiles"
     },
     {
       "type": "minecraft:single",
@@ -354,11 +362,15 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/cobblestone_paving"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/emerald_block_pillar_end"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/birch_planks_large_tiles"
+      "resource": "rechiseled:block/dirt_muddy"
     },
     {
       "type": "minecraft:single",
@@ -366,7 +378,7 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/dirt_muddy"
+      "resource": "rechiseled:block/birch_planks_large_tiles"
     },
     {
       "type": "minecraft:single",
@@ -382,11 +394,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/cobblestone_pillar_side"
+      "resource": "rechiseled:block/prismarine_bricks_chiseled_circles"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/prismarine_bricks_chiseled_circles"
+      "resource": "rechiseled:block/cobblestone_pillar_side"
     },
     {
       "type": "minecraft:single",
@@ -402,11 +414,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/bone_block_cracked"
+      "resource": "rechiseled:block/emerald_block_waxed"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/emerald_block_waxed"
+      "resource": "rechiseled:block/bone_block_cracked"
     },
     {
       "type": "minecraft:single",
@@ -506,11 +518,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/acacia_planks_brick_pattern"
+      "resource": "rechiseled:block/bamboo_planks_pattern"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/bamboo_planks_pattern"
+      "resource": "rechiseled:block/acacia_planks_brick_pattern"
     },
     {
       "type": "minecraft:single",
@@ -650,6 +662,10 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/pale_oak_planks_crate"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/obsidian_large_tiles"
     },
     {
@@ -658,11 +674,15 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/diorite_dotted"
+      "resource": "rechiseled:block/pale_oak_planks_squares"
     },
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/dirt_chunks"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/diorite_dotted"
     },
     {
       "type": "minecraft:single",
@@ -702,6 +722,14 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/pale_oak_planks_flooring"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/dirt_squares"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/crimson_planks_flooring"
     },
     {
@@ -711,10 +739,6 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/bamboo_planks_woven"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "rechiseled:block/dirt_squares"
     },
     {
       "type": "minecraft:single",
@@ -758,15 +782,19 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/netherite_block_pillar_end"
-    },
-    {
-      "type": "minecraft:single",
       "resource": "rechiseled:block/red_nether_bricks_rotated_bricks"
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/netherite_block_pillar_end"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/lapis_block_pillar_end"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/warped_planks_pattern"
     },
     {
       "type": "minecraft:single",
@@ -775,10 +803,6 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/cobblestone_chiseled_border"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "rechiseled:block/warped_planks_pattern"
     },
     {
       "type": "minecraft:single",
@@ -818,11 +842,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/cobblestone_pillar_end"
+      "resource": "rechiseled:block/end_stone_mesh"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/end_stone_mesh"
+      "resource": "rechiseled:block/cobblestone_pillar_end"
     },
     {
       "type": "minecraft:single",
@@ -878,11 +902,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/cobbled_deepslate_squares"
+      "resource": "rechiseled:block/stone_smooth_tiles"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/stone_smooth_tiles"
+      "resource": "rechiseled:block/cobbled_deepslate_squares"
     },
     {
       "type": "minecraft:single",
@@ -895,6 +919,10 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/bamboo_planks_brick_paving"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/pale_oak_planks_wavy"
     },
     {
       "type": "minecraft:single",
@@ -934,11 +962,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/cherry_planks_squares"
+      "resource": "rechiseled:block/gold_block_scales"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/gold_block_scales"
+      "resource": "rechiseled:block/cherry_planks_squares"
     },
     {
       "type": "minecraft:single",
@@ -954,15 +982,19 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/bamboo_planks_diagonal_tiles"
-    },
-    {
-      "type": "minecraft:single",
       "resource": "rechiseled:block/coal_block_small_tiles"
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/bamboo_planks_diagonal_tiles"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/diorite_rotated_bricks"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/stone_crushed"
     },
     {
       "type": "minecraft:single",
@@ -971,10 +1003,6 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/cherry_planks_wavy"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "rechiseled:block/stone_crushed"
     },
     {
       "type": "minecraft:single",
@@ -990,11 +1018,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/diamond_block_diagonal_tiles"
+      "resource": "rechiseled:block/mangrove_planks_diagonal_stripes"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/mangrove_planks_diagonal_stripes"
+      "resource": "rechiseled:block/diamond_block_diagonal_tiles"
     },
     {
       "type": "minecraft:single",
@@ -1026,6 +1054,10 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/granite_brick_paving"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/birch_planks_brick_pattern"
     },
     {
@@ -1034,15 +1066,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/granite_brick_paving"
+      "resource": "rechiseled:block/jungle_planks_pattern"
     },
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/jungle_planks_diagonal_stripes"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "rechiseled:block/jungle_planks_pattern"
     },
     {
       "type": "minecraft:single",
@@ -1102,11 +1130,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/dark_prismarine_wavy"
+      "resource": "rechiseled:block/jungle_planks_rotated_bricks"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/jungle_planks_rotated_bricks"
+      "resource": "rechiseled:block/dark_prismarine_wavy"
     },
     {
       "type": "minecraft:single",
@@ -1166,11 +1194,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/bone_block_bundled"
+      "resource": "rechiseled:block/dirt_grooves"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/dirt_grooves"
+      "resource": "rechiseled:block/bone_block_bundled"
     },
     {
       "type": "minecraft:single",
@@ -1179,6 +1207,10 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/obsidian_brick_pattern"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/redstone_block_patterned"
     },
     {
       "type": "minecraft:single",
@@ -1191,10 +1223,6 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/bamboo_planks_small_tiles"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "rechiseled:block/redstone_block_patterned"
     },
     {
       "type": "minecraft:single",
@@ -1258,6 +1286,10 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/pale_oak_planks_rotated_bricks"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/birch_planks_beams"
     },
     {
@@ -1274,6 +1306,10 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/pale_oak_planks_dotted"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/mangrove_planks_flooring"
     },
     {
@@ -1286,15 +1322,15 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/crimson_planks_large_tiles"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/cobbled_deepslate_rotated_bricks"
     },
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/acacia_planks_beams"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "rechiseled:block/crimson_planks_large_tiles"
     },
     {
       "type": "minecraft:single",
@@ -1346,19 +1382,19 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/andesite_dotted"
-    },
-    {
-      "type": "minecraft:single",
       "resource": "rechiseled:block/obsidian_tiles"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/cherry_planks_diagonal_stripes"
+      "resource": "rechiseled:block/andesite_dotted"
     },
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/obsidian_stripes"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/cherry_planks_diagonal_stripes"
     },
     {
       "type": "minecraft:single",
@@ -1367,6 +1403,14 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/lapis_block_chiseled"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/pale_oak_planks_woven"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/pale_oak_planks_small_bricks"
     },
     {
       "type": "minecraft:single",
@@ -1386,11 +1430,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/jungle_planks_dotted"
+      "resource": "rechiseled:block/spruce_planks_woven"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/spruce_planks_woven"
+      "resource": "rechiseled:block/jungle_planks_dotted"
     },
     {
       "type": "minecraft:single",
@@ -1406,15 +1450,15 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/gold_block_pattern"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/birch_planks_diagonal_stripes"
     },
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/emerald_block_pillar_side"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "rechiseled:block/gold_block_pattern"
     },
     {
       "type": "minecraft:single",
@@ -1470,15 +1514,15 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/spruce_planks_brick_pattern"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/glowstone_tiles"
     },
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/bamboo_planks_squares"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "rechiseled:block/spruce_planks_brick_pattern"
     },
     {
       "type": "minecraft:single",
@@ -1526,11 +1570,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/bone_block_patterned"
+      "resource": "rechiseled:block/iron_block_plated"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/iron_block_plated"
+      "resource": "rechiseled:block/bone_block_patterned"
     },
     {
       "type": "minecraft:single",
@@ -1562,11 +1606,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/glowstone_brick_pattern"
+      "resource": "rechiseled:block/obsidian_chiseled_creeper"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/obsidian_chiseled_creeper"
+      "resource": "rechiseled:block/glowstone_brick_pattern"
     },
     {
       "type": "minecraft:single",
@@ -1594,6 +1638,14 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/pale_oak_planks_large_tiles"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/pale_oak_planks_diagonal_stripes"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/diorite_bricks"
     },
     {
@@ -1614,11 +1666,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/cherry_planks_brick_paving"
+      "resource": "rechiseled:block/oak_planks_dotted"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/oak_planks_dotted"
+      "resource": "rechiseled:block/cherry_planks_brick_paving"
     },
     {
       "type": "minecraft:single",
@@ -1654,7 +1706,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/dark_prismarine_dotted"
+      "resource": "rechiseled:block/oak_planks_flooring"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/netherite_block_compacted"
     },
     {
       "type": "minecraft:single",
@@ -1662,15 +1718,11 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/dark_prismarine_dotted"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/birch_planks_bricks"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "rechiseled:block/oak_planks_flooring"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "rechiseled:block/netherite_block_compacted"
     },
     {
       "type": "minecraft:single",
@@ -1702,6 +1754,10 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/pale_oak_planks_brick_pattern"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/netherrack_small_tiles"
     },
     {
@@ -1730,11 +1786,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/dirt_small_tiles"
+      "resource": "rechiseled:block/granite_tiles"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/granite_tiles"
+      "resource": "rechiseled:block/dirt_small_tiles"
     },
     {
       "type": "minecraft:single",
@@ -1782,6 +1838,10 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/pale_oak_planks_brick_paving"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/granite_diagonal_bricks"
     },
     {
@@ -1790,15 +1850,15 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/lapis_block_swirling"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/bone_block_skull"
     },
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/acacia_planks_mosaic"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "rechiseled:block/lapis_block_swirling"
     },
     {
       "type": "minecraft:single",
@@ -1830,11 +1890,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/amethyst_block_smooth"
+      "resource": "rechiseled:block/cobblestone_beams"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/cobblestone_beams"
+      "resource": "rechiseled:block/amethyst_block_smooth"
     },
     {
       "type": "minecraft:single",
@@ -1846,11 +1906,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/copper_block_small_bricks"
+      "resource": "rechiseled:block/dark_oak_planks_tiles"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/dark_oak_planks_tiles"
+      "resource": "rechiseled:block/copper_block_small_bricks"
     },
     {
       "type": "minecraft:single",
@@ -1882,7 +1942,7 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/acacia_planks_flooring"
+      "resource": "rechiseled:block/red_sandstone_rotated_bricks"
     },
     {
       "type": "minecraft:single",
@@ -1890,11 +1950,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/red_sandstone_rotated_bricks"
+      "resource": "rechiseled:block/cobblestone_sheared"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/cobblestone_sheared"
+      "resource": "rechiseled:block/acacia_planks_flooring"
     },
     {
       "type": "minecraft:single",
@@ -1954,11 +2014,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/coal_block_stripes"
+      "resource": "rechiseled:block/nether_bricks_small_tiles"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/nether_bricks_small_tiles"
+      "resource": "rechiseled:block/coal_block_stripes"
     },
     {
       "type": "minecraft:single",
@@ -2010,7 +2070,7 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/emerald_block_crosses"
+      "resource": "rechiseled:block/jungle_planks_beams"
     },
     {
       "type": "minecraft:single",
@@ -2018,15 +2078,15 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/jungle_planks_beams"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "rechiseled:block/bone_block_rib"
+      "resource": "rechiseled:block/emerald_block_crosses"
     },
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/iron_block_framed"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/bone_block_rib"
     },
     {
       "type": "minecraft:single",
@@ -2114,15 +2174,15 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/basalt_pattern"
-    },
-    {
-      "type": "minecraft:single",
       "resource": "rechiseled:block/spruce_planks_crate"
     },
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/netherrack_rotated_bricks"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/basalt_pattern"
     },
     {
       "type": "minecraft:single",
@@ -2174,11 +2234,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/dark_prismarine_woven"
+      "resource": "rechiseled:block/stone_small_tiles"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/stone_small_tiles"
+      "resource": "rechiseled:block/dark_prismarine_woven"
     },
     {
       "type": "minecraft:single",
@@ -2198,11 +2258,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/stone_cobbled"
+      "resource": "rechiseled:block/stone_squares"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/stone_squares"
+      "resource": "rechiseled:block/stone_cobbled"
     },
     {
       "type": "minecraft:single",
@@ -2226,11 +2286,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/acacia_planks_rotated_bricks"
+      "resource": "rechiseled:block/spruce_planks_diagonal_stripes"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/spruce_planks_diagonal_stripes"
+      "resource": "rechiseled:block/acacia_planks_rotated_bricks"
     },
     {
       "type": "minecraft:single",
@@ -2282,11 +2342,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/cobbled_deepslate_brick_paving"
+      "resource": "rechiseled:block/jungle_planks_large_tiles"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/jungle_planks_large_tiles"
+      "resource": "rechiseled:block/cobbled_deepslate_brick_paving"
     },
     {
       "type": "minecraft:single",
@@ -2294,19 +2354,19 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/coal_block_pillar_end"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "rechiseled:block/jungle_planks_small_tiles"
-    },
-    {
-      "type": "minecraft:single",
       "resource": "rechiseled:block/blue_ice_pillar_side"
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/coal_block_pillar_end"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/mossy_cobblestone_worn_stripes"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/jungle_planks_small_tiles"
     },
     {
       "type": "minecraft:single",
@@ -2330,19 +2390,19 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/acacia_planks_diagonal_stripes"
-    },
-    {
-      "type": "minecraft:single",
       "resource": "rechiseled:block/oak_planks_small_tiles"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/bone_block_inverted_tiles"
+      "resource": "rechiseled:block/acacia_planks_diagonal_stripes"
     },
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/crimson_planks_brick_paving"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/bone_block_inverted_tiles"
     },
     {
       "type": "minecraft:single",
@@ -2355,6 +2415,10 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/end_stone_diagonal_bricks"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/pale_oak_planks_pattern"
     },
     {
       "type": "minecraft:single",
@@ -2375,6 +2439,10 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/spruce_planks_squares"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/pale_oak_planks_mosaic"
     },
     {
       "type": "minecraft:single",
@@ -2426,11 +2494,15 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/spruce_planks_small_bricks"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/iron_block_chiseled"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/spruce_planks_small_bricks"
+      "resource": "rechiseled:block/red_nether_bricks_tiles"
     },
     {
       "type": "minecraft:single",
@@ -2438,7 +2510,7 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/red_nether_bricks_tiles"
+      "resource": "rechiseled:block/pale_oak_planks_diagonal_tiles"
     },
     {
       "type": "minecraft:single",
@@ -2459,6 +2531,10 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/dark_prismarine_beams"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/pale_oak_planks_small_tiles"
     },
     {
       "type": "minecraft:single",
@@ -2502,11 +2578,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/purpur_brick_paving"
+      "resource": "rechiseled:block/warped_planks_beams"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/warped_planks_beams"
+      "resource": "rechiseled:block/purpur_brick_paving"
     },
     {
       "type": "minecraft:single",
@@ -2554,11 +2630,11 @@
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/acacia_planks_bricks"
+      "resource": "rechiseled:block/diorite_wavy"
     },
     {
       "type": "minecraft:single",
-      "resource": "rechiseled:block/diorite_wavy"
+      "resource": "rechiseled:block/acacia_planks_bricks"
     },
     {
       "type": "minecraft:single",

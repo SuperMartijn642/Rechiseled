@@ -6,7 +6,6 @@ import com.supermartijn642.rechiseled.blocks.RechiseledBlockTypeImpl;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 /**
  * Created 05/05/2023 by SuperMartijn642
@@ -15,8 +14,8 @@ public class RegistrationChiselingRecipeProvider extends ChiselingRecipeProvider
 
     private final RechiseledRegistrationImpl registration;
 
-    public RegistrationChiselingRecipeProvider(RechiseledRegistrationImpl registration, DataGenerator generator, ExistingFileHelper existingFileHelper){
-        super(registration.getModid(), generator, existingFileHelper);
+    public RegistrationChiselingRecipeProvider(RechiseledRegistrationImpl registration, DataGenerator generator){
+        super(registration.getModid(), generator);
         this.registration = registration;
     }
 

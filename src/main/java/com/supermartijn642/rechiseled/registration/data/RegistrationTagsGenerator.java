@@ -8,22 +8,26 @@ import com.supermartijn642.core.registry.Registries;
 import com.supermartijn642.rechiseled.blocks.RechiseledBlockBuilderImpl;
 import com.supermartijn642.rechiseled.blocks.RechiseledBlockTypeImpl;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackLocationInfo;
+import net.minecraft.server.packs.PackResources;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.repository.PackSource;
+import net.minecraft.server.packs.repository.ServerPacksSource;
 import net.minecraft.server.packs.resources.MultiPackResourceManager;
 import net.minecraft.server.packs.resources.Resource;
+import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.neoforged.neoforge.data.loading.DatagenModLoader;
+import net.neoforged.fml.ModList;
+import net.neoforged.neoforge.resource.ResourcePackLoader;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -33,33 +37,36 @@ import java.util.stream.Stream;
  */
 public class RegistrationTagsGenerator extends TagGenerator {
 
-    private static final Supplier<MultiPackResourceManager> SERVER_DATA_FIELD;
-
-    static{
-        try{
-            Field existingFileHelper = DatagenModLoader.class.getDeclaredField("existingFileHelper");
-            existingFileHelper.setAccessible(true);
-            Field serverData = ExistingFileHelper.class.getDeclaredField("serverData");
-            serverData.setAccessible(true);
-            SERVER_DATA_FIELD = () -> {
-                try{
-                    return (MultiPackResourceManager)serverData.get(existingFileHelper.get(null));
-                }catch(IllegalAccessException e){
-                    throw new RuntimeException(e);
-                }
-            };
-        }catch(NoSuchFieldException e){
-            throw new RuntimeException(e);
-        }
-    }
-
     private static final Gson GSON = new GsonBuilder().create();
 
     private final RechiseledRegistrationImpl registration;
+    private final ResourceManager resources;
 
     public RegistrationTagsGenerator(RechiseledRegistrationImpl registration, ResourceCache cache){
         super(registration.getModid(), cache);
         this.registration = registration;
+
+        List<PackResources> packs = new ArrayList<>();
+        packs.add(ServerPacksSource.createVanillaPackSource());
+        // include existing packs
+//        existingPacks.forEach(path -> {
+//            var packInfo = new PackLocationInfo(path.getFileName().toString(), Component.empty(), PackSource.BUILT_IN, Optional.empty());
+//            packs.add(new PathPackResources(packInfo, path));
+//        });
+        // include mod resources last
+        ModList.get().getSortedMods().stream()
+            .filter(Predicate.not(mod -> mod.getModId().equals("minecraft")))
+            .filter(Predicate.not(mod -> mod.getModId().equals(registration.getModid())))
+            .map(mod -> {
+                var owningFile = mod.getModInfo().getOwningFile();
+                var packInfo = new PackLocationInfo("mod/" + mod.getModId(), Component.empty(), PackSource.BUILT_IN, Optional.empty());
+                return ResourcePackLoader.createPackForMod(owningFile).openPrimary(packInfo);
+            })
+            .forEach(packs::add);
+        this.resources = new MultiPackResourceManager(
+            PackType.SERVER_DATA,
+            packs
+        );
     }
 
     @Override
@@ -107,8 +114,8 @@ public class RegistrationTagsGenerator extends TagGenerator {
 
         List<Block> blocks = new ArrayList<>();
 
-        MultiPackResourceManager resourceManager = SERVER_DATA_FIELD.get();
-        for(Resource resource : resourceManager.getResourceStack(ResourceLocation.fromNamespaceAndPath(location.getNamespace(), "tags/block/" + location.getPath() + ".json"))){
+        ResourceLocation tagLocation = ResourceLocation.fromNamespaceAndPath(location.getNamespace(), "tags/block/" + location.getPath() + ".json");
+        for(Resource resource : this.resources.getResourceStack(tagLocation)){
             try(InputStream stream = resource.open()){
                 JsonObject json = GSON.fromJson(new InputStreamReader(stream), JsonObject.class);
                 JsonArray array = json.getAsJsonArray("values");

@@ -8,9 +8,7 @@ import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.Item;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
 import org.jetbrains.annotations.ApiStatus;
@@ -27,13 +25,11 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
 
     private final String modid;
     private final DataGenerator generator;
-    private final ExistingFileHelper existingFileHelper;
     private final Map<ResourceLocation,ChiselingRecipeBuilder> recipes = new HashMap<>();
 
-    public ChiselingRecipeProvider(String modid, DataGenerator generator, ExistingFileHelper existingFileHelper){
+    public ChiselingRecipeProvider(String modid, DataGenerator generator){
         this.modid = modid;
         this.generator = generator;
-        this.existingFileHelper = existingFileHelper;
     }
 
     @Override
@@ -57,12 +53,6 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
                 // Find greater parents in the current recipe provider
                 while(parent != null && parent.getNamespace().equals(this.modid) && this.recipes.containsKey(parent)){
                     parent = this.recipes.get(parent).parent;
-                }
-                // If not found in this recipe provider, check existing files
-                if(parent != null){
-                    ResourceLocation parentLocation = ResourceLocation.fromNamespaceAndPath(parent.getNamespace(), "chiseling_recipes/" + (parent.getPath().endsWith(".json") ? parent.getPath() : parent.getPath() + ".json"));
-                    if(!this.existingFileHelper.exists(parentLocation, PackType.SERVER_DATA))
-                        throw new IllegalStateException("Could not find upward parent '" + parent + "' at '/data/" + parentLocation.getNamespace() + "/" + parentLocation.getPath() + "' for chiseling recipe: " + recipeName);
                 }
             }
 
@@ -107,10 +97,6 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
         return json;
     }
 
-    private void trackRecipe(ResourceLocation recipe){
-        this.existingFileHelper.trackGenerated(recipe, PackType.SERVER_DATA, ".json", "chiseling_recipes");
-    }
-
     /**
      * Recipes can be created using a recipe builder obtained from {@link #beginRecipe(String)}.
      * All recipe builders will be saved and written to file automatically.
@@ -119,16 +105,15 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
 
     /**
      * Creates a new chiseling recipe builder.
+     *
      * @param recipeName the name of the recipe
      * @return a chiseling recipe builder for the given recipe name
      */
     protected ChiselingRecipeBuilder beginRecipe(String recipeName){
-        this.trackRecipe(ResourceLocation.fromNamespaceAndPath(this.modid, recipeName));
         return this.recipes.computeIfAbsent(ResourceLocation.fromNamespaceAndPath(this.modid, recipeName), s -> new ChiselingRecipeBuilder());
     }
 
     protected ChiselingRecipeBuilder beginRecipe(ResourceLocation recipe){
-        this.trackRecipe(recipe);
         return this.recipes.computeIfAbsent(recipe, s -> new ChiselingRecipeBuilder());
     }
 
@@ -145,6 +130,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
          * Sets a parent recipe for this recipe builder.
          * All entries from this recipe builder will be combined with the parent recipe.
          * {@link BaseChiselingRecipes} contains recipe locations for the default rechiseled recipes.
+         *
          * @param parent the parent recipe location
          * @throws IllegalArgumentException when {@code parent} recipe does not exist
          * @deprecated
@@ -160,6 +146,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
          * Sets the overwrite flag for this recipe builder.
          * If overwrite is true, any entries that came before this one in the resource stack will be discarded.
          * The overwrite flag works similarly to the 'replace' key for tags.
+         *
          * @param overwrite whether the lower level resources' entries should be overwritten
          */
         public void overwrite(boolean overwrite){
@@ -169,6 +156,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
         /**
          * Add a new entry to this recipe builder.
          * Each entry can have a regular variant and a variant with connecting textures.
+         *
          * @param regularItem    the regular variant, i.e. without connecting textures
          * @param connectingItem the variant with connecting textures
          * @param optional       whether the recipe may ignore the entry when the entry's items are not present
@@ -185,6 +173,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
         /**
          * Adds a new entry to this recipe builder.
          * Each entry can have a regular variant and a variant with connecting textures.
+         *
          * @param regularItem    the regular variant, i.e. without connecting textures
          * @param connectingItem the variant with connecting textures
          * @throws IllegalArgumentException when both {@code regularItem} and {@code connectingItem} are {@code null}
@@ -195,6 +184,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
 
         /**
          * Adds a new entry to this recipe builder for an item without connecting textures.
+         *
          * @param item     an item without connecting textures
          * @param optional whether the recipe may ignore the entry when the entry's items are not present
          * @throws IllegalArgumentException when {@code item} is {@code null}
@@ -208,6 +198,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
 
         /**
          * Adds a new entry to this recipe builder for an item without connecting textures.
+         *
          * @param item an item without connecting textures
          * @throws IllegalArgumentException when {@code item} is {@code null}
          */
@@ -217,6 +208,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
 
         /**
          * Adds a new entry to this recipe builder for an item with connecting textures.
+         *
          * @param item     an item with connecting textures
          * @param optional whether the recipe may ignore the entry when the entry's items are not present
          * @throws IllegalArgumentException when {@code item} is {@code null}
