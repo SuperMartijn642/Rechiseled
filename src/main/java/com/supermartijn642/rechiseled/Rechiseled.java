@@ -15,21 +15,17 @@ import com.supermartijn642.rechiseled.packet.PacketChiselAll;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
 import com.supermartijn642.rechiseled.packet.PacketToggleConnecting;
 import com.supermartijn642.rechiseled.screen.ChiselContainer;
-import com.supermartijn642.rechiseled.texture.TextureMappingTool;
-import net.minecraft.server.packs.PackType;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Consumer;
 
 /**
  * Created 7/7/2020 by SuperMartijn642
@@ -63,8 +59,6 @@ public class Rechiseled {
         CHANNEL.registerMessage(PacketToggleConnecting.class, PacketToggleConnecting::new, true);
         CHANNEL.registerMessage(PacketChiselAll.class, PacketChiselAll::new, true);
         CHANNEL.registerMessage(PacketChiselingRecipes.class, PacketChiselingRecipes::new, true);
-
-        eventBus.addListener((Consumer<GatherDataEvent.Client>)e -> TextureMappingTool.RESOURCE_MANAGER = e.getResourceManager(PackType.CLIENT_RESOURCES));
 
         register();
         if(CommonUtils.getEnvironmentSide().isClient())

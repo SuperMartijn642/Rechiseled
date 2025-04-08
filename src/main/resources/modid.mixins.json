@@ -4,7 +4,9 @@
   "package": "${mod_package}.${mixin_package}",
   "compatibilityLevel": "${mixin_compatibility_level}",
   "mixins": [],
-  "client": [],
+  "client": [
+    "dev.DatagenModLoaderMixin"
+  ],
   "server": [],
   "injectors": {
     "defaultRequire": 1
