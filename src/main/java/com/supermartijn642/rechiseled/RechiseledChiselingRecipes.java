@@ -89,6 +89,8 @@ public class RechiseledChiselingRecipes {
         REGISTRATION.chiselingEntry(OBSIDIAN, () -> Items.OBSIDIAN, null);
         // Prismarine bricks
         REGISTRATION.chiselingEntry(PRISMARINE_BRICKS, () -> Items.PRISMARINE_BRICKS, null);
+        // Pale oak planks
+        REGISTRATION.chiselingEntry(PALE_OAK_PLANKS, () -> Items.PALE_OAK_PLANKS, null);
         // Purpur block
         REGISTRATION.chiselingEntry(PURPUR_BLOCK, () -> Items.PURPUR_PILLAR, null);
         // Quartz block
