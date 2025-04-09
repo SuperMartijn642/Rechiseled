@@ -1,4 +1,4 @@
-// 1.21.4	2025-04-04T22:21:31.2218164	Registration Chiseling Recipe Provider: rechiseled
+// 1.21.4	2025-04-09T21:12:03.5368455	Registration Chiseling Recipe Provider: rechiseled
 782637a4dbe8490b9fabf8276f7cd924f163767a data/rechiseled/chiseling_recipes/acacia_planks.json
 94c7180c54cf181ae00b8a36229cca2a0c40a866 data/rechiseled/chiseling_recipes/amethyst_block.json
 e314aac4ca43e11e16901c80802562f41abd98ce data/rechiseled/chiseling_recipes/andesite.json
@@ -33,7 +33,7 @@ f055e9b71385e5131645ee2d382eafa05ddcdfd0 data/rechiseled/chiseling_recipes/nethe
 78afc2efe11aa563af85e3ebc51d062b35ff0ae6 data/rechiseled/chiseling_recipes/nether_bricks.json
 3eba132378a83cbe2b7e284636b1127d82c612f0 data/rechiseled/chiseling_recipes/oak_planks.json
 0df5d902ea489e4bf94290bbbce0ac5ea799cf77 data/rechiseled/chiseling_recipes/obsidian.json
-dbecc9bf24f3320092c6c1681d55bcab0b6385d2 data/rechiseled/chiseling_recipes/pale_oak_planks.json
+93a7ed88336ba7af2e93f0b387ae3016301ef815 data/rechiseled/chiseling_recipes/pale_oak_planks.json
 9fd696ce3cbf4ef19a6d798a6ad9a0ddbe914833 data/rechiseled/chiseling_recipes/prismarine_bricks.json
 2c6e2737fc5db6958f27d17b1e235c9cc07d3cd0 data/rechiseled/chiseling_recipes/purpur_block.json
 a5d923daa91ce74d16fd79c64f6c2d656e217516 data/rechiseled/chiseling_recipes/quartz_block.json

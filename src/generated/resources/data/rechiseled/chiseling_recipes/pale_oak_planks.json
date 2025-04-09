@@ -2,6 +2,9 @@
   "type": "rechiseled:chiseling",
   "entries": [
     {
+      "item": "minecraft:pale_oak_planks"
+    },
+    {
       "connecting_item": "rechiseled:pale_oak_planks_beams_connecting",
       "item": "rechiseled:pale_oak_planks_beams"
     },

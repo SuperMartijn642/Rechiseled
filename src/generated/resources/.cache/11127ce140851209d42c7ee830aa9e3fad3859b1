@@ -1,4 +1,4 @@
-// 1.21.4	2025-04-04T22:21:31.1992177	Core Lib Generators
+// 1.21.4	2025-04-09T21:12:03.5186381	Core Lib Generators
 a6231175c960338fa76bb3cb473616482191e44f assets/minecraft/atlases/blocks.json
 6e360e1b0a77fa58f410338708454a83081843be assets/rechiseled/blockstates/acacia_planks_beams.json
 13ca1be21c1f1d13ceb05a96e2bdf9a33d866cda assets/rechiseled/blockstates/acacia_planks_beams_connecting.json
@@ -3142,12 +3142,12 @@ a523a6fce4f2d816ccc926a584d4516b666406bd assets/rechiseled/models/block/warped_p
 93b24b341b134fcbbad3297c0e7ebc1fac38c4c5 assets/rechiseled/models/block/warped_planks_wavy.json
 5f7c14ad9aaa78c7a8e7317f68378f99cd8ad6b7 assets/rechiseled/models/block/warped_planks_woven.json
 a17fc14fc50fec3ef840739e302b550b88db4170 assets/rechiseled/models/item/chisel.json
-5abe88c93f211d91a2e3b0f565de82997fa14923 data/minecraft/tags/block/mineable/axe.json
-4ba9535efbbcb050d2858cfeeb9c571f10923fad data/minecraft/tags/block/mineable/pickaxe.json
-64d49528c63dca3ce52f7f39abc05e3baac49e57 data/minecraft/tags/block/mineable/shovel.json
-2dc69c85cecc513b39761b5bcc87a6e033fa2454 data/minecraft/tags/block/needs_diamond_tool.json
-1acf13cf211949ae5b549758ef294211b72dea78 data/minecraft/tags/block/needs_iron_tool.json
-917cf9488bbb63f93e4a9d155ce5f07056b0d5df data/minecraft/tags/block/needs_stone_tool.json
+664c294b7c31fc4c5f84fd13eefeb1f14ab7857d data/minecraft/tags/block/mineable/axe.json
+3fedc5093ed4ce21aeb2c7f2ce678d7800a9a43c data/minecraft/tags/block/mineable/pickaxe.json
+8596d2444c2b85ea9de72d12a4ea86222d510be7 data/minecraft/tags/block/mineable/shovel.json
+b4554f7aede7a3c8a01df32b7a2234ac2f71862f data/minecraft/tags/block/needs_diamond_tool.json
+e9b74b62a1a547a353c37fc6d26626501501007d data/minecraft/tags/block/needs_iron_tool.json
+35a2a12a5c748c63eb492df43eff971a7053414c data/minecraft/tags/block/needs_stone_tool.json
 c524265b34efd32773e0cf90e25dad96d444c4b0 data/rechiseled/advancement/recipes/misc/chisel.json
 800898a5d9f136ae60fec5343b6b4a592c72e26e data/rechiseled/loot_table/blocks/acacia_planks_beams.json
 ffd12f126fdf9431a99bf5cdd700fbdb113e8d80 data/rechiseled/loot_table/blocks/acacia_planks_beams_connecting.json
