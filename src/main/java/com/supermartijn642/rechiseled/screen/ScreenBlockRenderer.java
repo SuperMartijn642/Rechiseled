@@ -1,17 +1,15 @@
 package com.supermartijn642.rechiseled.screen;
 
 import com.mojang.blaze3d.platform.Lighting;
-import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.render.RenderUtils;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.fabricmc.fabric.api.renderer.v1.render.FabricBlockModelRenderer;
+import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.block.model.BlockStateModel;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.BlockPos;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import org.joml.Matrix4f;
@@ -50,7 +48,6 @@ public class ScreenBlockRenderer {
             renderBlock(entry.getKey(), entry.getValue(), poseStack, renderTypeBuffer);
         renderTypeBuffer.endBatch();
 
-        RenderSystem.enableDepthTest();
         if(doShading)
             Lighting.setupForFlatItems();
 
@@ -63,9 +60,8 @@ public class ScreenBlockRenderer {
         poseStack.pushPose();
         poseStack.translate(pos.getX() - 0.5, pos.getY() - 0.5, pos.getZ() - 0.5);
 
-        BakedModel model = ClientUtils.getBlockRenderer().getBlockModel(state);
-        RenderType renderType = ItemBlockRenderTypes.getRenderType(state);
-        ClientUtils.getBlockRenderer().getModelRenderer().tesselateBlock(fakeLevel, model, state, pos, poseStack, renderTypeBuffer.getBuffer(renderType), true, RandomSource.create(42), 42, OverlayTexture.NO_OVERLAY);
+        BlockStateModel model = ClientUtils.getBlockRenderer().getBlockModel(state);
+        FabricBlockModelRenderer.render(poseStack.last(), renderTypeBuffer, model, 1, 1, 1, LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, fakeLevel, pos, state);
 
         poseStack.popPose();
     }
