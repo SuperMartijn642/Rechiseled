@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 /**
  * Created 18/01/2022 by SuperMartijn642
  */
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME)
+@EventBusSubscriber
 public class ChiselingRecipeLoader implements PreparableReloadListener {
 
     @SubscribeEvent

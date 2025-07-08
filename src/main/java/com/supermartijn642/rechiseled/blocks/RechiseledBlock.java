@@ -22,7 +22,7 @@ public class RechiseledBlock extends BaseBlock {
     }
 
     @Override
-    protected void appendItemInformation(ItemStack stack, Consumer<Component> info, boolean advanced){
+    public void appendItemInformation(ItemStack stack, Consumer<Component> info, boolean advanced){
         if(this.connecting)
             info.accept(TextComponents.translation("rechiseled.tooltip.connecting").color(ChatFormatting.GRAY).get());
     }
