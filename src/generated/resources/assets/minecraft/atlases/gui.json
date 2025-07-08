@@ -1,0 +1,56 @@
+{
+  "sources": [
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:screen/icon_3x1_grey"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:screen/icon_1x1_grey"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:screen/icon_connecting_true"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:screen/icon_1x1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:screen/grey_buttons"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:screen/icon_connecting_false"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:item/chisel"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:screen/icon_3x3"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:screen/icon_3x1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:screen/buttons"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:screen/chiseling_background"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:screen/rotation_icon"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:screen/icon_3x3_grey"
+    }
+  ]
+}

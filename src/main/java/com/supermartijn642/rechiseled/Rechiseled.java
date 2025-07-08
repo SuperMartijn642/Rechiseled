@@ -80,6 +80,7 @@ public class Rechiseled implements ModInitializer {
     private static void registerGenerators(){
         GeneratorRegistrationHandler handler = GeneratorRegistrationHandler.get("rechiseled");
         handler.addProvider(RechiseledTextureProvider::new);
+        handler.addGenerator(RechiseledAtlasSourceGenerator::new);
         //noinspection Convert2MethodRef
         handler.addGenerator(cache -> new RechiseledItemInfoGenerator(cache));
         handler.addGenerator(RechiseledItemModelGenerator::new);
