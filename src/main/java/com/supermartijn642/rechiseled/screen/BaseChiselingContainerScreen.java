@@ -1,7 +1,7 @@
 package com.supermartijn642.rechiseled.screen;
 
 import com.supermartijn642.core.ClientUtils;
-import com.supermartijn642.core.gui.ScreenUtils;
+import com.supermartijn642.core.gui.GuiGraphicsHelper;
 import com.supermartijn642.core.gui.widget.BaseContainerWidget;
 import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.rechiseled.Rechiseled;
@@ -24,7 +24,7 @@ import java.util.function.Supplier;
  */
 public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> extends BaseContainerWidget<T> {
 
-    private static final ResourceLocation BACKGROUND = ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/chiseling_background.png");
+    public static final ResourceLocation BACKGROUND = ResourceLocation.fromNamespaceAndPath("rechiseled", "screen/chiseling_background");
 
     /**
      * 0 - 1 block
@@ -82,13 +82,13 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
     }
 
     @Override
-    public void renderBackground(WidgetRenderContext context, int mouseX, int mouseY){
-        ScreenUtils.drawTexture(BACKGROUND, context.poseStack(), 0, 0, this.width, this.height);
-        super.renderBackground(context, mouseX, mouseY);
+    public void renderBackground(WidgetRenderContext context, GuiGraphicsHelper graphics, int mouseX, int mouseY){
+        graphics.submitSprite(BACKGROUND, 0, 0, this.width, this.height);
+        super.renderBackground(context, graphics, mouseX, mouseY);
     }
 
     @Override
-    public void renderForeground(WidgetRenderContext context, int mouseX, int mouseY){
+    public void renderForeground(WidgetRenderContext context, GuiGraphicsHelper graphics, int mouseX, int mouseY){
         // Render chisel all slot overlays
         if(this.container.currentRecipe != null && this.chiselAllWidget != null && this.chiselAllWidget.isFocused()){
             for(int index = 1; index < this.container.slots.size(); index++){
@@ -99,14 +99,15 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
                     if(stack.getComponentsPatch().isEmpty()
                         && ((entry.hasConnectingItem() && stack.getItem() == entry.getConnectingItem())
                         || (entry.hasRegularItem() && stack.getItem() == entry.getRegularItem()))){
-                        ScreenUtils.fillRect(context.poseStack(), slot.x, slot.y, 16, 16, 0, 20, 100, 0.5f);
+                        graphics.submitRectangle(slot.x, slot.y, 16, 16, p -> p.color(0, 20, 100, 255 / 2));
                     }
                 }
             }
         }
 
-        super.renderForeground(context, mouseX, mouseY);
-        ScreenUtils.drawString(context.poseStack(), ClientUtils.getPlayer().getInventory().getName(), 31, 133);
+        graphics.nextStratum();
+        super.renderForeground(context, graphics, mouseX, mouseY);
+        graphics.submitText(ClientUtils.getPlayer().getInventory().getName(), 31, 133);
     }
 
     private ChiselingEntry getEntry(int index){

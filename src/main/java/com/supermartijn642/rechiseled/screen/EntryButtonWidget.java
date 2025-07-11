@@ -1,7 +1,7 @@
 package com.supermartijn642.rechiseled.screen;
 
 import com.supermartijn642.core.TextComponents;
-import com.supermartijn642.core.gui.ScreenUtils;
+import com.supermartijn642.core.gui.GuiGraphicsHelper;
 import com.supermartijn642.core.gui.widget.BaseWidget;
 import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
@@ -16,7 +16,7 @@ import java.util.function.Supplier;
  */
 public class EntryButtonWidget extends BaseWidget {
 
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/buttons.png");
+    public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("rechiseled", "screen/buttons");
 
     private final Supplier<ChiselingEntry> entry;
     private final Supplier<ChiselingEntry> selectedEntry;
@@ -45,17 +45,25 @@ public class EntryButtonWidget extends BaseWidget {
     }
 
     @Override
-    public void render(WidgetRenderContext context, int mouseX, int mouseY){
+    public void render(WidgetRenderContext context, GuiGraphicsHelper graphics, int mouseX, int mouseY){
         ChiselingEntry entry = this.entry.get();
 
         boolean hasEntry = entry != null;
         boolean selected = hasEntry && this.selectedEntry.get() == entry;
         boolean hasCorrectItem = hasEntry && (this.connecting.get() ? entry.hasConnectingItem() : entry.hasRegularItem());
 
-        ScreenUtils.drawTexture(TEXTURE, context.poseStack(), this.x, this.y, this.width, this.height, 0, (selected ? 1 : hasEntry ? hasCorrectItem ? this.isFocused() ? 2 : 0 : this.isFocused() ? 4 : 3 : 0) / 5f, 1, 1 / 5f);
-        if(hasEntry){
+        graphics.submitSprite(TEXTURE, this.x, this.y, this.width, this.height, p -> p.uv(0, (selected ? 1 : hasEntry ? hasCorrectItem ? this.isFocused() ? 2 : 0 : this.isFocused() ? 4 : 3 : 0) / 5f, 1, 1 / 5f));
+    }
+
+    @Override
+    public void renderForeground(WidgetRenderContext context, GuiGraphicsHelper graphics, int mouseX, int mouseY){
+        ChiselingEntry entry = this.entry.get();
+        if(entry != null){
             Item item = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
-            ScreenItemRender.drawItem(context.poseStack(), item, this.x + this.width / 2d, this.y + this.height / 2d, this.width - 4, 0, 0, false);
+            graphics.submitCustomRendering(
+                this.x, this.y, this.width, this.height,
+                poseStack -> ScreenItemRender.drawItem(poseStack, item, this.width / 2d, this.height / 2d, this.width - 4, 0, 0, false)
+            );
         }
     }
 

@@ -1,7 +1,7 @@
 package com.supermartijn642.rechiseled.screen;
 
 import com.supermartijn642.core.TextComponents;
-import com.supermartijn642.core.gui.ScreenUtils;
+import com.supermartijn642.core.gui.GuiGraphicsHelper;
 import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import com.supermartijn642.core.util.Holder;
@@ -17,8 +17,8 @@ import java.util.function.Supplier;
  */
 public class ChiselAllWidget extends AbstractButtonWidget {
 
-    private static final ResourceLocation GREY_BUTTONS = ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/grey_buttons.png");
-    private static final ResourceLocation CHISEL_TEXTURE = ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/item/chisel.png");
+    public static final ResourceLocation GREY_BUTTONS = ResourceLocation.fromNamespaceAndPath("rechiseled", "screen/grey_buttons");
+    public static final ResourceLocation CHISEL_TEXTURE = ResourceLocation.fromNamespaceAndPath("rechiseled", "item/chisel");
 
     private final Supplier<ChiselingEntry> currentEntry;
 
@@ -41,12 +41,12 @@ public class ChiselAllWidget extends AbstractButtonWidget {
     }
 
     @Override
-    public void render(WidgetRenderContext context, int mouseX, int mouseY){
+    public void render(WidgetRenderContext context, GuiGraphicsHelper graphics, int mouseX, int mouseY){
         ChiselingEntry currentEntry = this.currentEntry.get();
         boolean hasEntry = currentEntry != null;
 
-        ScreenUtils.drawTexture(GREY_BUTTONS, context.poseStack(), this.x, this.y, this.width, this.height, 0, (hasEntry ? this.isFocused() ? 2 : 0 : 1) / 3f, 1, 1 / 3f);
+        graphics.submitSprite(GREY_BUTTONS, this.x, this.y, this.width, this.height, p -> p.uv(0, (hasEntry ? this.isFocused() ? 2 : 0 : 1) / 3f, 1, 1 / 3f));
 
-        ScreenUtils.drawTexture(CHISEL_TEXTURE, context.poseStack(), this.x + 1, this.y + 2, this.width - 2, this.height - 4);
+        graphics.submitSprite(CHISEL_TEXTURE, this.x + 1, this.y + 2, this.width - 2, this.height - 4);
     }
 }
