@@ -1,6 +1,6 @@
 package com.supermartijn642.rechiseled.screen;
 
-import com.supermartijn642.core.gui.ScreenUtils;
+import com.supermartijn642.core.gui.GuiGraphicsHelper;
 import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import net.minecraft.network.chat.Component;
@@ -11,7 +11,7 @@ import net.minecraft.resources.ResourceLocation;
  */
 public class ToggleRotationButton extends AbstractButtonWidget {
 
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/rotation_icon.png");
+    public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("rechiseled", "screen/rotation_icon");
 
     public static boolean rotate = true;
 
@@ -20,9 +20,9 @@ public class ToggleRotationButton extends AbstractButtonWidget {
     }
 
     @Override
-    public void render(WidgetRenderContext context, int mouseX, int mouseY){
-        ScreenUtils.drawTexture(TEXTURE, context.poseStack(), this.x, this.y, this.width, this.height, rotate ? 0 : 0.5f, this.isFocused() ? 0.5f : 0, 0.5f, 0.5f);
-        super.render(context, mouseX, mouseY);
+    public void render(WidgetRenderContext context, GuiGraphicsHelper graphics, int mouseX, int mouseY){
+        graphics.submitSprite(TEXTURE, this.x, this.y, this.width, this.height, p -> p.uv(rotate ? 0 : 0.5f, this.isFocused() ? 0.5f : 0, 0.5f, 0.5f));
+        super.render(context, graphics, mouseX, mouseY);
     }
 
     @Override

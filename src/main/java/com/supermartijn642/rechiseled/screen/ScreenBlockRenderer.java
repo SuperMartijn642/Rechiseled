@@ -1,14 +1,13 @@
 package com.supermartijn642.rechiseled.screen;
 
-import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.render.RenderUtils;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.ModelBlockRenderer;
 import net.minecraft.client.renderer.block.model.BlockStateModel;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
@@ -41,20 +40,13 @@ public class ScreenBlockRenderer {
         poseStack.pushPose();
         poseStack.translate(x, y, 350);
         poseStack.mulPose(new Matrix4f().scaling(1.0F, -1.0F, 1.0F));
-        poseStack.scale((float)scale, (float)scale, (float)scale);
+        poseStack.scale((float)scale, (float)scale, (float)-scale);
         poseStack.mulPose(new Quaternionf().setAngleAxis(pitch / 180 * (float)Math.PI, 1, 0, 0));
         poseStack.mulPose(new Quaternionf().setAngleAxis(yaw / 180 * (float)Math.PI, 0, 1, 0));
-
-        if(doShading)
-            Lighting.setupForEntityInInventory(new Quaternionf().rotateX((float)(Math.PI / 2)).rotateZ((float)(Math.PI)));
 
         MultiBufferSource.BufferSource bufferSource = RenderUtils.getMainBufferSource();
         for(Map.Entry<BlockPos,BlockState> entry : capture.getBlocks())
             renderBlock(entry.getKey(), entry.getValue(), poseStack, bufferSource);
-        bufferSource.endBatch();
-
-        if(doShading)
-            Lighting.setupForFlatItems();
 
         poseStack.popPose();
 
@@ -68,8 +60,8 @@ public class ScreenBlockRenderer {
         BlockStateModel model = ClientUtils.getBlockRenderer().getBlockModel(state);
         ModelData modelData = model.getModelData(fakeLevel, pos, state, ModelData.EMPTY);
         RANDOM.setSeed(42);
-        for(RenderType renderType : model.getRenderTypes(state, RANDOM, modelData))
-            ModelBlockRenderer.renderModel(poseStack.last(), bufferSource.getBuffer(RenderTypeHelper.getEntityRenderType(renderType)), model, 1, 1, 1, LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, modelData, renderType);
+        for(ChunkSectionLayer layer : model.getRenderTypes(state, RANDOM, modelData))
+            ModelBlockRenderer.renderModel(poseStack.last(), bufferSource.getBuffer(RenderTypeHelper.getEntityRenderType(layer)), model, 1, 1, 1, LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, modelData, layer);
 
         poseStack.popPose();
     }

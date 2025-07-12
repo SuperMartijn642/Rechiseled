@@ -1,7 +1,7 @@
 package com.supermartijn642.rechiseled.screen;
 
 import com.supermartijn642.core.TextComponents;
-import com.supermartijn642.core.gui.ScreenUtils;
+import com.supermartijn642.core.gui.GuiGraphicsHelper;
 import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import com.supermartijn642.core.util.Holder;
@@ -18,9 +18,9 @@ import java.util.function.Supplier;
  */
 public class ConnectingToggleWidget extends AbstractButtonWidget {
 
-    private static final ResourceLocation GREY_BUTTONS = ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/grey_buttons.png");
-    private static final ResourceLocation ICON_CONNECTED_ON = ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/icon_connecting_true.png");
-    private static final ResourceLocation ICON_CONNECTED_OFF = ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/icon_connecting_false.png");
+    public static final ResourceLocation GREY_BUTTONS = ResourceLocation.fromNamespaceAndPath("rechiseled", "screen/grey_buttons");
+    public static final ResourceLocation ICON_CONNECTED_ON = ResourceLocation.fromNamespaceAndPath("rechiseled", "screen/icon_connecting_true");
+    public static final ResourceLocation ICON_CONNECTED_OFF = ResourceLocation.fromNamespaceAndPath("rechiseled", "screen/icon_connecting_false");
 
     private final Supplier<Boolean> connecting;
     private final Supplier<ChiselingEntry> currentEntry;
@@ -47,13 +47,13 @@ public class ConnectingToggleWidget extends AbstractButtonWidget {
     }
 
     @Override
-    public void render(WidgetRenderContext context, int mouseX, int mouseY){
+    public void render(WidgetRenderContext context, GuiGraphicsHelper graphics, int mouseX, int mouseY){
         boolean connecting = this.connecting.get();
         ChiselingEntry currentEntry = this.currentEntry.get();
         boolean canSwitch = currentEntry != null && (connecting ? currentEntry.hasRegularItem() : currentEntry.hasConnectingItem());
 
-        ScreenUtils.drawTexture(GREY_BUTTONS, context.poseStack(), this.x, this.y, this.width, this.height, 0, (canSwitch ? this.isFocused() ? 2 : 0 : 1) / 3f, 1, 1 / 3f);
+        graphics.submitSprite(GREY_BUTTONS, this.x, this.y, this.width, this.height, p -> p.uv(0, (canSwitch ? this.isFocused() ? 2 : 0 : 1) / 3f, 1, 1 / 3f));
 
-        ScreenUtils.drawTexture(this.connecting.get() ? ICON_CONNECTED_ON : ICON_CONNECTED_OFF, context.poseStack(), this.x + 1, this.y + 2, this.width - 2, this.height - 4);
+        graphics.submitSprite(this.connecting.get() ? ICON_CONNECTED_ON : ICON_CONNECTED_OFF, this.x + 1, this.y + 2, this.width - 2, this.height - 4);
     }
 }

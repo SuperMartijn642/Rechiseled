@@ -11,7 +11,7 @@ import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.OnDatapackSyncEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.eventbus.api.listener.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import java.io.Reader;
@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 /**
  * Created 18/01/2022 by SuperMartijn642
  */
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber
 public class ChiselingRecipeLoader implements PreparableReloadListener {
 
     @SubscribeEvent

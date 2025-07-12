@@ -1,2 +1,2 @@
 ### Rechiseled 1.1.6
-- Initial release of Rechiseled for Minecraft 1.21.5
+- Initial release of Rechiseled for Minecraft 1.21.6 & 1.21.7
