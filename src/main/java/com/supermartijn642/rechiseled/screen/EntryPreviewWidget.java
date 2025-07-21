@@ -78,6 +78,7 @@ public class EntryPreviewWidget extends BaseWidget {
                     for(int i = 0; i < 9; i++)
                         capture.putBlock(new BlockPos(i / 3 - 1, i % 3 - 1, 0), block);
                 }
+                graphics.nextStratum();
                 graphics.submitCustomRendering(
                     this.x, this.y, this.width, this.height,
                     poseStack -> ScreenBlockRenderer.drawBlock(poseStack, capture, this.width / 2d, this.height / 2d, this.width, this.yaw, this.pitch, true)
