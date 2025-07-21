@@ -38,7 +38,7 @@ public class ScreenBlockRenderer {
         fakeLevel.setCapture(capture);
 
         poseStack.pushPose();
-        poseStack.translate(x, y, 350);
+        poseStack.translate(x, y, 0);
         poseStack.mulPose(new Matrix4f().scaling(1.0F, -1.0F, 1.0F));
         poseStack.scale((float)scale, (float)scale, (float)-scale);
         poseStack.mulPose(new Quaternionf().setAngleAxis(pitch / 180 * (float)Math.PI, 1, 0, 0));
