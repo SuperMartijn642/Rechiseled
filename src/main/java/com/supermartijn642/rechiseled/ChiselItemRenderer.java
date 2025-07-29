@@ -57,8 +57,10 @@ public class ChiselItemRenderer implements ItemModel.Unbaked {
             // Get the stored item
             ItemStack storedStack = ChiselItem.getStoredStack(stack);
             // Add the renderer for the stored item
-            if(!storedStack.isEmpty())
+            if(!storedStack.isEmpty()){
                 renderState.newLayer().setupSpecialModel(ICON_RENDERER, storedStack);
+                renderState.appendModelIdentityElement(storedStack.getItem());
+            }
         };
     }
 
