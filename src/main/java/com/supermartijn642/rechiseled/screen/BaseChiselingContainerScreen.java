@@ -32,6 +32,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
      * 2 - 3x3 blocks
      */
     public static int previewMode = 0;
+    public static int entryScroll = 0;
 
     private final Component title;
     private ChiselAllWidget chiselAllWidget;
@@ -49,9 +50,9 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
                 int x = 9 + 20 * column;
                 int y = 17 + 22 * row;
                 this.addWidget(new EntryButtonWidget(x, y, 20, 22,
-                    () -> this.getEntry(index),
+                    () -> this.getEntry(index + entryScroll * 5),
                     () -> this.container.currentEntry,
-                    () -> this.selectEntry(index),
+                    () -> this.selectEntry(index + entryScroll * 5),
                     () -> this.container.connecting));
             }
         }
@@ -73,6 +74,8 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
         this.addWidget(new PreviewModeButtonWidget(193, 41, 19, 21, 1, () -> previewMode, enablePreviewButtons, () -> previewMode = 1));
         this.addWidget(new PreviewModeButtonWidget(193, 64, 19, 21, 0, () -> previewMode, enablePreviewButtons, () -> previewMode = 0));
         this.addWidget(new ConnectingToggleWidget(193, 99, 19, 21, () -> this.container.connecting, () -> this.container.currentEntry, this::toggleConnecting));
+        this.addWidget(new ScrollButtonWidget(110,100,14,10, true, () -> scroll(true)));
+        this.addWidget(new ScrollButtonWidget(110,110,14,10, false, () -> scroll(false)));
         this.chiselAllWidget = this.addWidget(new ChiselAllWidget(127, 99, 19, 21, () -> this.container.currentEntry, this::chiselAll));
     }
 
@@ -112,8 +115,12 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
 
     private ChiselingEntry getEntry(int index){
         ChiselingRecipe recipe = this.container.currentRecipe;
-        if(recipe == null)
+        if (recipe == null){
+            entryScroll = 0;
             return null;
+        } else if (recipe.getEntries().size() < entryScroll * 5 + 20){
+            entryScroll = 0;
+        }
         return index >= 0 && index < recipe.getEntries().size() ? recipe.getEntries().get(index) : null;
     }
 
@@ -127,5 +134,22 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
 
     private void chiselAll(){
         Rechiseled.CHANNEL.sendToServer(new PacketChiselAll());
+    }
+
+    private void scroll(boolean up){
+        ChiselingRecipe recipe = this.container.currentRecipe;
+        if (recipe != null){
+            if (up){
+                if (entryScroll > 0){
+                    entryScroll -= 1;
+                } else {
+                    entryScroll = 0;
+                }
+            } else {
+                if (recipe.getEntries().size() > entryScroll * 5 + 25){
+                    entryScroll += 1;
+                }
+            }
+        }
     }
 }
