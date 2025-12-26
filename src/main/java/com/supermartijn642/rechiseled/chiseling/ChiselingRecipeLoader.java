@@ -3,10 +3,10 @@ package com.supermartijn642.rechiseled.chiseling;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import com.google.gson.Strictness;
 import com.supermartijn642.rechiseled.Rechiseled;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
-import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
-import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.resources.PreparableReloadListener;
@@ -24,11 +24,11 @@ import java.util.stream.Collectors;
 /**
  * Created 18/01/2022 by SuperMartijn642
  */
-public class ChiselingRecipeLoader implements PreparableReloadListener, IdentifiableResourceReloadListener {
+public class ChiselingRecipeLoader implements PreparableReloadListener {
 
     public static void addListeners(){
         ServerLifecycleEvents.SYNC_DATA_PACK_CONTENTS.register((player, joined) -> onDataPackSync(player));
-        ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new ChiselingRecipeLoader());
+        ResourceLoader.get(PackType.SERVER_DATA).registerReloader(ResourceLocation.fromNamespaceAndPath("rechiseled", "chiseling_recipe_loader"), new ChiselingRecipeLoader());
     }
 
     public static void onDataPackSync(Player player){
@@ -38,15 +38,11 @@ public class ChiselingRecipeLoader implements PreparableReloadListener, Identifi
             Rechiseled.CHANNEL.sendToPlayer(player, new PacketChiselingRecipes(ChiselingRecipes.getAllRecipes()));
     }
 
-    private static final Gson GSON = new GsonBuilder().setLenient().create();
+    private static final Gson GSON = new GsonBuilder().setStrictness(Strictness.LENIENT).create();
 
     @Override
-    public ResourceLocation getFabricId(){
-        return ResourceLocation.fromNamespaceAndPath("rechiseled", "chiseling_recipe_loader");
-    }
-
-    @Override
-    public CompletableFuture<Void> reload(PreparationBarrier preparationBarrier, ResourceManager resourceManager, Executor executor, Executor executor2){
+    public CompletableFuture<Void> reload(SharedState sharedState, Executor executor, PreparationBarrier preparationBarrier, Executor executor2){
+        ResourceManager resourceManager = sharedState.resourceManager();
         List<CompletableFuture<ChiselingRecipe>> recipes = resourceManager.listResources("chiseling_recipes", r -> r.getPath().endsWith(".json")).keySet().stream()
             .map(location -> CompletableFuture.supplyAsync(() -> loadRecipe(resourceManager, location), executor))
             .toList();

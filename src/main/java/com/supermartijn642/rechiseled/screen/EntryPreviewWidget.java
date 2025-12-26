@@ -3,6 +3,7 @@ package com.supermartijn642.rechiseled.screen;
 import com.supermartijn642.core.gui.GuiGraphicsHelper;
 import com.supermartijn642.core.gui.widget.BaseWidget;
 import com.supermartijn642.core.gui.widget.WidgetRenderContext;
+import net.minecraft.client.input.MouseButtonInfo;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
@@ -81,13 +82,13 @@ public class EntryPreviewWidget extends BaseWidget {
                 graphics.nextStratum();
                 graphics.submitCustomRendering(
                     this.x, this.y, this.width, this.height,
-                    poseStack -> ScreenBlockRenderer.drawBlock(poseStack, capture, this.width / 2d, this.height / 2d, this.width, this.yaw, this.pitch, true)
+                    (poseStack, bufferSource) -> ScreenBlockRenderer.drawBlock(poseStack, bufferSource, capture, this.width / 2d, this.height / 2d, this.width, this.yaw, this.pitch, true)
                 );
             }else{
                 // Render item
                 graphics.submitCustomRendering(
                     this.x, this.y, this.width, this.height,
-                    poseStack -> ScreenItemRender.drawItem(poseStack, item, this.width / 2d, this.height / 2d, this.width, this.yaw, this.pitch, true)
+                    (poseStack, bufferSource) -> ScreenItemRender.drawItem(poseStack, bufferSource, item, this.width / 2d, this.height / 2d, this.width, this.yaw, this.pitch, true)
                 );
             }
         }
@@ -98,8 +99,8 @@ public class EntryPreviewWidget extends BaseWidget {
     }
 
     @Override
-    public boolean mousePressed(int mouseX, int mouseY, int button, boolean hasBeenHandled){
-        hasBeenHandled |= super.mousePressed(mouseX, mouseY, button, hasBeenHandled);
+    public boolean mousePressed(int mouseX, int mouseY, MouseButtonInfo info, boolean isDoubleClick, boolean hasBeenHandled){
+        hasBeenHandled |= super.mousePressed(mouseX, mouseY, info, isDoubleClick, hasBeenHandled);
         if(!hasBeenHandled && mouseX >= this.x && mouseX < this.x + this.width && mouseY >= this.y && mouseY < this.y + this.height){
             this.dragging = true;
             this.mouseStartX = mouseX;
@@ -110,8 +111,8 @@ public class EntryPreviewWidget extends BaseWidget {
     }
 
     @Override
-    public boolean mouseReleased(int mouseX, int mouseY, int button, boolean hasBeenHandled){
+    public boolean mouseReleased(int mouseX, int mouseY, MouseButtonInfo info, boolean hasBeenHandled){
         this.dragging = false;
-        return super.mouseReleased(mouseX, mouseY, button, hasBeenHandled);
+        return super.mouseReleased(mouseX, mouseY, info, hasBeenHandled);
     }
 }

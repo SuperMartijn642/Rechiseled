@@ -1,5 +1,8 @@
 accessWidener v1 named
 
+# FeatureRenderDispatcher
+accessible field net/minecraft/client/renderer/feature/FeatureRenderDispatcher bufferSource Lnet/minecraft/client/renderer/MultiBufferSource$BufferSource;
+mutable field net/minecraft/client/renderer/feature/FeatureRenderDispatcher bufferSource Lnet/minecraft/client/renderer/MultiBufferSource$BufferSource;
 # ItemTransform$Deserializer
 accessible field net/minecraft/client/renderer/block/model/ItemTransform$Deserializer DEFAULT_ROTATION Lorg/joml/Vector3f; # DEFAULT_ROTATION
 accessible field net/minecraft/client/renderer/block/model/ItemTransform$Deserializer DEFAULT_TRANSLATION Lorg/joml/Vector3f; # DEFAULT_TRANSLATION
