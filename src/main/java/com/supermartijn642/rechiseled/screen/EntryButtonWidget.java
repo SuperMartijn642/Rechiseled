@@ -5,6 +5,7 @@ import com.supermartijn642.core.gui.GuiGraphicsHelper;
 import com.supermartijn642.core.gui.widget.BaseWidget;
 import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
+import net.minecraft.client.input.MouseButtonInfo;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -62,19 +63,19 @@ public class EntryButtonWidget extends BaseWidget {
             Item item = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
             graphics.submitCustomRendering(
                 this.x, this.y, this.width, this.height,
-                poseStack -> ScreenItemRender.drawItem(poseStack, item, this.width / 2d, this.height / 2d, this.width - 4, 0, 0, false)
+                (poseStack, bufferSource) -> ScreenItemRender.drawItem(poseStack, bufferSource, item, this.width / 2d, this.height / 2d, this.width - 4, 0, 0, false)
             );
         }
     }
 
     @Override
-    public boolean mousePressed(int mouseX, int mouseY, int button, boolean hasBeenHandled){
+    public boolean mousePressed(int mouseX, int mouseY, MouseButtonInfo info, boolean isDoubleClick, boolean hasBeenHandled){
         if(!hasBeenHandled && mouseX >= this.x && mouseX < this.x + this.width && mouseY >= this.y && mouseY < this.y + this.height){
             ChiselingEntry entry = this.entry.get();
             if(entry != null)
                 this.onClick.run();
             return true;
         }
-        return super.mousePressed(mouseX, mouseY, button, hasBeenHandled);
+        return super.mousePressed(mouseX, mouseY, info, isDoubleClick, hasBeenHandled);
     }
 }

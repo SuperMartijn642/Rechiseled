@@ -42,7 +42,8 @@ public class ChiselingRecipeLoader implements PreparableReloadListener {
     private static final Gson GSON = new GsonBuilder().setLenient().create();
 
     @Override
-    public CompletableFuture<Void> reload(PreparationBarrier preparationBarrier, ResourceManager resourceManager, Executor executor, Executor executor2){
+    public CompletableFuture<Void> reload(SharedState sharedState, Executor executor, PreparationBarrier preparationBarrier, Executor executor2){
+        ResourceManager resourceManager = sharedState.resourceManager();
         List<CompletableFuture<ChiselingRecipe>> recipes = resourceManager.listResources("chiseling_recipes", r -> r.getPath().endsWith(".json")).keySet().stream()
             .map(location -> CompletableFuture.supplyAsync(() -> loadRecipe(resourceManager, location), executor))
             .toList();
