@@ -27,7 +27,7 @@ public class ChiselItem extends BaseItem {
 
     @Override
     public ItemUseResult interact(ItemStack stack, Player player, InteractionHand hand, Level level){
-        if(!level.isClientSide)
+        if(!level.isClientSide())
             CommonUtils.openContainer(new ChiselContainer(player, hand));
         return ItemUseResult.success(stack);
     }
