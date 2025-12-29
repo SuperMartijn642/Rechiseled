@@ -13,7 +13,7 @@ import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.entry.EntryStack;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ import java.util.List;
  */
 public class ChiselingDisplayCategory implements DisplayCategory<ChiselingRecipeDisplay> {
 
-    private static final ResourceLocation BACKGROUND = ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/jei_category_background.png");
+    private static final Identifier BACKGROUND = Identifier.fromNamespaceAndPath("rechiseled", "textures/screen/jei_category_background.png");
     private static final Component TITLE = TextComponents.translation("rechiseled.jei_category.title").get();
 
     private final EntryStack<ItemStack> icon;

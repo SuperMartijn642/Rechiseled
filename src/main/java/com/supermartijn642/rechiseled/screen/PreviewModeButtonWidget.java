@@ -5,7 +5,7 @@ import com.supermartijn642.core.gui.GuiGraphicsHelper;
 import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import java.util.function.Supplier;
 
@@ -14,19 +14,19 @@ import java.util.function.Supplier;
  */
 public class PreviewModeButtonWidget extends AbstractButtonWidget {
 
-    public static final ResourceLocation GREY_BUTTONS = ResourceLocation.fromNamespaceAndPath("rechiseled", "screen/grey_buttons");
-    public static final ResourceLocation[][] ICONS = {
+    public static final Identifier GREY_BUTTONS = Identifier.fromNamespaceAndPath("rechiseled", "screen/grey_buttons");
+    public static final Identifier[][] ICONS = {
         {
-            ResourceLocation.fromNamespaceAndPath("rechiseled", "screen/icon_1x1"),
-            ResourceLocation.fromNamespaceAndPath("rechiseled", "screen/icon_1x1_grey")
+            Identifier.fromNamespaceAndPath("rechiseled", "screen/icon_1x1"),
+            Identifier.fromNamespaceAndPath("rechiseled", "screen/icon_1x1_grey")
         },
         {
-            ResourceLocation.fromNamespaceAndPath("rechiseled", "screen/icon_3x1"),
-            ResourceLocation.fromNamespaceAndPath("rechiseled", "screen/icon_3x1_grey")
+            Identifier.fromNamespaceAndPath("rechiseled", "screen/icon_3x1"),
+            Identifier.fromNamespaceAndPath("rechiseled", "screen/icon_3x1_grey")
         },
         {
-            ResourceLocation.fromNamespaceAndPath("rechiseled", "screen/icon_3x3"),
-            ResourceLocation.fromNamespaceAndPath("rechiseled", "screen/icon_3x3_grey")
+            Identifier.fromNamespaceAndPath("rechiseled", "screen/icon_3x3"),
+            Identifier.fromNamespaceAndPath("rechiseled", "screen/icon_3x3_grey")
         }
     };
 

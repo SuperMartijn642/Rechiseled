@@ -1,7 +1,7 @@
 package com.supermartijn642.rechiseled.texture;
 
 import com.supermartijn642.core.ClientUtils;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.repository.PackRepository;
 import net.minecraft.server.packs.resources.MultiPackResourceManager;
@@ -10,8 +10,8 @@ import net.minecraft.server.packs.resources.ResourceManager;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.List;
 import java.util.*;
+import java.util.List;
 
 /**
  * Created 24/01/2022 by SuperMartijn642
@@ -74,11 +74,11 @@ public class TextureMappingTool {
         return suffixes;
     }
 
-    public static boolean exists(ResourceLocation location){
+    public static boolean exists(Identifier location){
         return RESOURCE_MANAGER.getResource(location).isPresent();
     }
 
-    public static Resource getResource(ResourceLocation location) throws NoSuchElementException{
+    public static Resource getResource(Identifier location) throws NoSuchElementException{
         //noinspection OptionalGetWithoutIsPresent
         return RESOURCE_MANAGER.getResource(location).get();
     }

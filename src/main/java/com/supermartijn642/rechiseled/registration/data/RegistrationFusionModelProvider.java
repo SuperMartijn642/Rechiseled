@@ -11,7 +11,7 @@ import com.supermartijn642.rechiseled.blocks.RechiseledBlockBuilderImpl;
 import com.supermartijn642.rechiseled.blocks.RechiseledBlockTypeImpl;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 
 /**
@@ -46,36 +46,36 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
         String identifier = Registries.BLOCKS.getIdentifier(block).getPath();
         if(modelType == BlockModelType.CUBE){
             ConnectingModelDataBuilder builder = ConnectingModelDataBuilder.builder()
-                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube"))
-                .texture("up", ResourceLocation.fromNamespaceAndPath(namespace, "block/" + texture + "_up"))
-                .texture("down", ResourceLocation.fromNamespaceAndPath(namespace, "block/" + texture + "_down"))
-                .texture("north", ResourceLocation.fromNamespaceAndPath(namespace, "block/" + texture + "_north"))
-                .texture("east", ResourceLocation.fromNamespaceAndPath(namespace, "block/" + texture + "_east"))
-                .texture("south", ResourceLocation.fromNamespaceAndPath(namespace, "block/" + texture + "_south"))
-                .texture("west", ResourceLocation.fromNamespaceAndPath(namespace, "block/" + texture + "_west"))
-                .texture("particle", ResourceLocation.fromNamespaceAndPath(namespace, "block/" + texture + "_up"));
+                .parent(Identifier.fromNamespaceAndPath("minecraft", "block/cube"))
+                .texture("up", Identifier.fromNamespaceAndPath(namespace, "block/" + texture + "_up"))
+                .texture("down", Identifier.fromNamespaceAndPath(namespace, "block/" + texture + "_down"))
+                .texture("north", Identifier.fromNamespaceAndPath(namespace, "block/" + texture + "_north"))
+                .texture("east", Identifier.fromNamespaceAndPath(namespace, "block/" + texture + "_east"))
+                .texture("south", Identifier.fromNamespaceAndPath(namespace, "block/" + texture + "_south"))
+                .texture("west", Identifier.fromNamespaceAndPath(namespace, "block/" + texture + "_west"))
+                .texture("particle", Identifier.fromNamespaceAndPath(namespace, "block/" + texture + "_up"));
             ModelInstance<?> model = ModelInstance.of(DefaultModelTypes.CONNECTING, builder.build());
-            this.addModel(ResourceLocation.fromNamespaceAndPath(namespace, "block/" + identifier), model);
+            this.addModel(Identifier.fromNamespaceAndPath(namespace, "block/" + identifier), model);
         }else if(modelType == BlockModelType.CUBE_ALL){
             ConnectingModelDataBuilder builder = ConnectingModelDataBuilder.builder()
-                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
-                .texture("all", ResourceLocation.fromNamespaceAndPath(namespace, "block/" + texture))
+                .parent(Identifier.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", Identifier.fromNamespaceAndPath(namespace, "block/" + texture))
                 .connection(DefaultConnectionPredicates.isSameBlock());
             ModelInstance<?> model = ModelInstance.of(DefaultModelTypes.CONNECTING, builder.build());
-            this.addModel(ResourceLocation.fromNamespaceAndPath(namespace, "block/" + identifier), model);
+            this.addModel(Identifier.fromNamespaceAndPath(namespace, "block/" + identifier), model);
         }else if(modelType == BlockModelType.PILLAR){
             ConnectingModelDataBuilder builder = ConnectingModelDataBuilder.builder()
-                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube"))
-                .texture("up", ResourceLocation.fromNamespaceAndPath(namespace, "block/" + texture + "_end"))
-                .texture("down", ResourceLocation.fromNamespaceAndPath(namespace, "block/" + texture + "_end"))
-                .texture("north", ResourceLocation.fromNamespaceAndPath(namespace, "block/" + texture + "_side"))
-                .texture("east", ResourceLocation.fromNamespaceAndPath(namespace, "block/" + texture + "_side"))
-                .texture("south", ResourceLocation.fromNamespaceAndPath(namespace, "block/" + texture + "_side"))
-                .texture("west", ResourceLocation.fromNamespaceAndPath(namespace, "block/" + texture + "_side"))
-                .texture("particle", ResourceLocation.fromNamespaceAndPath(namespace, "block/" + texture + "_side"))
+                .parent(Identifier.fromNamespaceAndPath("minecraft", "block/cube"))
+                .texture("up", Identifier.fromNamespaceAndPath(namespace, "block/" + texture + "_end"))
+                .texture("down", Identifier.fromNamespaceAndPath(namespace, "block/" + texture + "_end"))
+                .texture("north", Identifier.fromNamespaceAndPath(namespace, "block/" + texture + "_side"))
+                .texture("east", Identifier.fromNamespaceAndPath(namespace, "block/" + texture + "_side"))
+                .texture("south", Identifier.fromNamespaceAndPath(namespace, "block/" + texture + "_side"))
+                .texture("west", Identifier.fromNamespaceAndPath(namespace, "block/" + texture + "_side"))
+                .texture("particle", Identifier.fromNamespaceAndPath(namespace, "block/" + texture + "_side"))
                 .connection(DefaultConnectionPredicates.isSameState());
             ModelInstance<?> model = ModelInstance.of(DefaultModelTypes.CONNECTING, builder.build());
-            this.addModel(ResourceLocation.fromNamespaceAndPath(namespace, "block/" + identifier), model);
+            this.addModel(Identifier.fromNamespaceAndPath(namespace, "block/" + identifier), model);
         }
     }
 

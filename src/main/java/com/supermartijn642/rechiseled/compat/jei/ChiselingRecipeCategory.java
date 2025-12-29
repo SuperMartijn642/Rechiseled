@@ -7,13 +7,15 @@ import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
-import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import mezz.jei.api.recipe.types.IRecipeType;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.ArrayList;
@@ -28,12 +30,12 @@ public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipe>
     private final IDrawable icon;
 
     public ChiselingRecipeCategory(IGuiHelper guiHelper){
-        this.backgrounds = guiHelper.createDrawable(ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/jei_category_background.png"), 0, 0, 174, 72);
+        this.backgrounds = guiHelper.createDrawable(Identifier.fromNamespaceAndPath("rechiseled", "textures/screen/jei_category_background.png"), 0, 0, 174, 72);
         this.icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(Rechiseled.chisel));
     }
 
     @Override
-    public RecipeType<ChiselingRecipe> getRecipeType(){
+    public IRecipeType<ChiselingRecipe> getRecipeType(){
         return ChiselingJEIPlugin.CHISELING_RECIPE_TYPE;
     }
 
@@ -43,13 +45,18 @@ public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipe>
     }
 
     @Override
-    public IDrawable getBackground(){
-        return this.backgrounds;
+    public IDrawable getIcon(){
+        return this.icon;
     }
 
     @Override
-    public IDrawable getIcon(){
-        return this.icon;
+    public int getWidth(){
+        return 174;
+    }
+
+    @Override
+    public int getHeight(){
+        return 72;
     }
 
     @Override
@@ -79,5 +86,10 @@ public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipe>
             int y = 1 + 18 * (i / 7);
             recipeLayoutBuilder.addSlot(RecipeIngredientRole.OUTPUT, x, y).addItemStacks(outputs.get(i));
         }
+    }
+
+    @Override
+    public void draw(ChiselingRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY){
+        this.backgrounds.draw(guiGraphics);
     }
 }
