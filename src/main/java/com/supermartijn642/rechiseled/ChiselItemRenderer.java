@@ -10,9 +10,9 @@ import net.minecraft.client.renderer.special.SpecialModelRenderer;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
-import org.joml.Vector3f;
+import org.joml.Vector3fc;
 
-import java.util.Set;
+import java.util.function.Consumer;
 
 /**
  * Created 18/06/2023 by SuperMartijn642
@@ -38,7 +38,7 @@ public class ChiselItemRenderer implements ItemModel.Unbaked {
         }
 
         @Override
-        public void getExtents(Set<Vector3f> set){
+        public void getExtents(Consumer<Vector3fc> set){
         }
 
         @Override

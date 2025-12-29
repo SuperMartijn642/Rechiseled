@@ -9,7 +9,7 @@ import mezz.jei.api.recipe.types.IRecipeType;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 /**
  * Created 28/12/2021 by SuperMartijn642
@@ -20,8 +20,8 @@ public class ChiselingJEIPlugin implements IModPlugin {
     public static final IRecipeType<ChiselingRecipe> CHISELING_RECIPE_TYPE = IRecipeType.create("rechiseled", "chiseling", ChiselingRecipe.class);
 
     @Override
-    public ResourceLocation getPluginUid(){
-        return ResourceLocation.fromNamespaceAndPath("rechiseled", "chiseling_plugin");
+    public Identifier getPluginUid(){
+        return Identifier.fromNamespaceAndPath("rechiseled", "chiseling_plugin");
     }
 
     @Override

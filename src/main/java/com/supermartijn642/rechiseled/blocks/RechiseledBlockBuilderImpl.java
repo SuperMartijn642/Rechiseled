@@ -12,7 +12,7 @@ import com.supermartijn642.rechiseled.api.blocks.BlockSpecification;
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockBuilder;
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockType;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.block.Block;
@@ -36,9 +36,9 @@ public class RechiseledBlockBuilderImpl implements RechiseledBlockBuilder {
     private boolean hasConnectingVariant = true;
     public Supplier<Block> customRegularVariant;
     public Supplier<Block> customConnectingVariant;
-    public ResourceLocation recipe;
+    public Identifier recipe;
     private final Set<CreativeModeTab> itemGroups = new HashSet<>();
-    public final Set<ResourceLocation> tags = new HashSet<>();
+    public final Set<Identifier> tags = new HashSet<>();
     public Supplier<Block> miningTagsFromBlock;
     public String translation;
     public BlockModelType modelType;
@@ -136,7 +136,7 @@ public class RechiseledBlockBuilderImpl implements RechiseledBlockBuilder {
     }
 
     @Override
-    public RechiseledBlockBuilderImpl recipe(ResourceLocation location){
+    public RechiseledBlockBuilderImpl recipe(Identifier location){
         if(this.completed)
             throw new RuntimeException("Builder has already been build!");
         this.recipe = location;
@@ -147,7 +147,7 @@ public class RechiseledBlockBuilderImpl implements RechiseledBlockBuilder {
     public RechiseledBlockBuilderImpl blockTag(String namespace, String identifier){
         if(this.completed)
             throw new RuntimeException("Builder has already been build!");
-        this.tags.add(ResourceLocation.fromNamespaceAndPath(namespace, identifier));
+        this.tags.add(Identifier.fromNamespaceAndPath(namespace, identifier));
         return this;
     }
 
@@ -238,7 +238,7 @@ public class RechiseledBlockBuilderImpl implements RechiseledBlockBuilder {
 
         // Create the block type
         RechiseledBlockTypeImpl blockType = new RechiseledBlockTypeImpl(
-            ResourceLocation.fromNamespaceAndPath(this.registration.getModid(), this.identifier),
+            Identifier.fromNamespaceAndPath(this.registration.getModid(), this.identifier),
             this.specification,
             this.hasRegularVariant,
             this.hasConnectingVariant,

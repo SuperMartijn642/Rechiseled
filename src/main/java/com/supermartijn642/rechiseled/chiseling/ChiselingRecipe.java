@@ -6,7 +6,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.supermartijn642.core.registry.Registries;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -18,19 +18,19 @@ import java.util.*;
  */
 public class ChiselingRecipe {
 
-    private final ResourceLocation recipeId;
-    final ResourceLocation parentRecipeId;
+    private final Identifier recipeId;
+    final Identifier parentRecipeId;
     final boolean overwrite;
     private final List<ChiselingEntry> entries;
 
-    private ChiselingRecipe(ResourceLocation recipeId, ResourceLocation parentRecipeId, boolean overwrite, Collection<ChiselingEntry> entries){
+    private ChiselingRecipe(Identifier recipeId, Identifier parentRecipeId, boolean overwrite, Collection<ChiselingEntry> entries){
         this.recipeId = recipeId;
         this.parentRecipeId = parentRecipeId;
         this.overwrite = overwrite;
         this.entries = Collections.unmodifiableList(Arrays.asList(entries.toArray(ChiselingEntry[]::new)));
     }
 
-    ChiselingRecipe(ResourceLocation recipeId, ResourceLocation parentRecipeId, Collection<ChiselingEntry> entries){
+    ChiselingRecipe(Identifier recipeId, Identifier parentRecipeId, Collection<ChiselingEntry> entries){
         this(recipeId, parentRecipeId, false, entries);
     }
 
@@ -47,18 +47,18 @@ public class ChiselingRecipe {
         return false;
     }
 
-    public ResourceLocation getRecipeId(){
+    public Identifier getRecipeId(){
         return this.recipeId;
     }
 
     public static class Serializer {
 
-        public static ChiselingRecipe fromJson(ResourceLocation resourceLocation, JsonObject json){
+        public static ChiselingRecipe fromJson(Identifier resourceLocation, JsonObject json){
             List<ChiselingEntry> chiselingEntries = new ArrayList<>();
 
             // read parent id
             String parentRecipeString = GsonHelper.getAsString(json, "parent", null); // TODO remove in 1.2.0
-            ResourceLocation parentRecipe = parentRecipeString == null ? null : ResourceLocation.parse(parentRecipeString);
+            Identifier parentRecipe = parentRecipeString == null ? null : Identifier.parse(parentRecipeString);
 
             // Read overwrite value
             boolean overwrite = GsonHelper.getAsBoolean(json, "overwrite", false);
@@ -81,7 +81,7 @@ public class ChiselingRecipe {
                 if(regularItemName.isEmpty())
                     regularItem = null;
                 else{
-                    regularItem = Registries.ITEMS.getValue(ResourceLocation.parse(regularItemName));
+                    regularItem = Registries.ITEMS.getValue(Identifier.parse(regularItemName));
                     if(regularItem == null && !optional)
                         throw new JsonParseException("Unknown item '" + regularItemName + "'");
                 }
@@ -90,7 +90,7 @@ public class ChiselingRecipe {
                 if(connectingItemName.isEmpty())
                     connectingItem = null;
                 else{
-                    connectingItem = Registries.ITEMS.getValue(ResourceLocation.parse(connectingItemName));
+                    connectingItem = Registries.ITEMS.getValue(Identifier.parse(connectingItemName));
                     if(connectingItem == null && !optional)
                         throw new JsonParseException("Unknown item '" + connectingItemName + "'");
                 }
@@ -107,7 +107,7 @@ public class ChiselingRecipe {
         public static ChiselingRecipe fromNetwork(FriendlyByteBuf buffer){
             List<ChiselingEntry> chiselingEntries = new ArrayList<>();
 
-            ResourceLocation recipeId = buffer.readResourceLocation();
+            Identifier recipeId = buffer.readIdentifier();
 
             int entries = buffer.readInt();
             for(int i = 0; i < entries; i++)
@@ -122,7 +122,7 @@ public class ChiselingRecipe {
         }
 
         public static void toNetwork(FriendlyByteBuf buffer, ChiselingRecipe recipe){
-            buffer.writeResourceLocation(recipe.recipeId);
+            buffer.writeIdentifier(recipe.recipeId);
             buffer.writeInt(recipe.entries.size());
             for(ChiselingEntry entry : recipe.entries){
                 buffer.writeBoolean(entry.getRegularItem() != null);

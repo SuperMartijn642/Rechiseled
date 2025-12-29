@@ -4,14 +4,14 @@ import com.supermartijn642.core.gui.GuiGraphicsHelper;
 import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 /**
  * Created 20/04/2023 by SuperMartijn642
  */
 public class ToggleRotationButton extends AbstractButtonWidget {
 
-    public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("rechiseled", "screen/rotation_icon");
+    public static final Identifier TEXTURE = Identifier.fromNamespaceAndPath("rechiseled", "screen/rotation_icon");
 
     public static boolean rotate = true;
 

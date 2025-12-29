@@ -2,7 +2,7 @@ package com.supermartijn642.rechiseled.blocks;
 
 import com.supermartijn642.rechiseled.api.blocks.BlockSpecification;
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockType;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 
@@ -13,13 +13,13 @@ import java.util.function.Supplier;
  */
 public class RechiseledBlockTypeImpl implements RechiseledBlockType {
 
-    private final ResourceLocation identifier;
+    private final Identifier identifier;
     private final BlockSpecification specification;
     private final boolean hasRegularVariant, hasConnectingVariant;
     private final Supplier<Block> regularBlock, connectingBlock;
     private final Supplier<BlockItem> regularItem, connectingItem;
 
-    public RechiseledBlockTypeImpl(ResourceLocation identifier, BlockSpecification specification, boolean hasRegularVariant, boolean hasConnectingVariant, Supplier<Block> regularBlock, Supplier<Block> connectingBlock, Supplier<BlockItem> regularItem, Supplier<BlockItem> connectingItem){
+    public RechiseledBlockTypeImpl(Identifier identifier, BlockSpecification specification, boolean hasRegularVariant, boolean hasConnectingVariant, Supplier<Block> regularBlock, Supplier<Block> connectingBlock, Supplier<BlockItem> regularItem, Supplier<BlockItem> connectingItem){
         this.identifier = identifier;
         this.specification = specification;
         this.hasRegularVariant = hasRegularVariant;
@@ -30,7 +30,7 @@ public class RechiseledBlockTypeImpl implements RechiseledBlockType {
         this.connectingItem = connectingItem;
     }
 
-    public ResourceLocation getIdentifier(){
+    public Identifier getIdentifier(){
         return this.identifier;
     }
 

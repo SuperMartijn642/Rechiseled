@@ -2,7 +2,7 @@ package com.supermartijn642.rechiseled.api.blocks;
 
 import com.supermartijn642.core.block.BlockProperties;
 import com.supermartijn642.rechiseled.api.registration.RechiseledRegistration;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.block.Block;
 
@@ -67,7 +67,7 @@ public interface RechiseledBlockBuilder {
     /**
      * Sets the chiseling recipe which this block should be added to.
      */
-    RechiseledBlockBuilder recipe(ResourceLocation location);
+    RechiseledBlockBuilder recipe(Identifier location);
 
     /**
      * Adds the constructed block to the given tag.

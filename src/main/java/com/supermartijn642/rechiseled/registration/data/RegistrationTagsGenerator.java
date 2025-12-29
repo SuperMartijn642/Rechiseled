@@ -9,7 +9,7 @@ import com.supermartijn642.rechiseled.blocks.RechiseledBlockBuilderImpl;
 import com.supermartijn642.rechiseled.blocks.RechiseledBlockTypeImpl;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.PackLocationInfo;
 import net.minecraft.server.packs.PackResources;
 import net.minecraft.server.packs.PackType;
@@ -91,7 +91,7 @@ public class RegistrationTagsGenerator extends TagGenerator {
             this.getTagsForBlock(builder.miningTagsFromBlock).stream().map(this::blockTag).forEach(tag -> tag.add(block));
     }
 
-    private Set<ResourceLocation> getTagsForBlock(Supplier<Block> block){
+    private Set<Identifier> getTagsForBlock(Supplier<Block> block){
         return Stream.of(
                 BlockTags.MINEABLE_WITH_AXE,
                 BlockTags.MINEABLE_WITH_HOE,
@@ -106,15 +106,15 @@ public class RegistrationTagsGenerator extends TagGenerator {
             .collect(Collectors.toSet());
     }
 
-    private final Map<ResourceLocation,List<Block>> loadedTags = Maps.newHashMap();
+    private final Map<Identifier,List<Block>> loadedTags = Maps.newHashMap();
 
-    private List<Block> loadVanillaTag(ResourceLocation location){
+    private List<Block> loadVanillaTag(Identifier location){
         if(this.loadedTags.containsKey(location))
             return this.loadedTags.get(location);
 
         List<Block> blocks = new ArrayList<>();
 
-        ResourceLocation tagLocation = ResourceLocation.fromNamespaceAndPath(location.getNamespace(), "tags/block/" + location.getPath() + ".json");
+        Identifier tagLocation = Identifier.fromNamespaceAndPath(location.getNamespace(), "tags/block/" + location.getPath() + ".json");
         for(Resource resource : this.resources.getResourceStack(tagLocation)){
             try(InputStream stream = resource.open()){
                 JsonObject json = GSON.fromJson(new InputStreamReader(stream), JsonObject.class);
@@ -122,10 +122,10 @@ public class RegistrationTagsGenerator extends TagGenerator {
                 for(JsonElement element : array){
                     String name = element.getAsString();
                     if(name.charAt(0) == '#'){
-                        blocks.addAll(this.loadVanillaTag(ResourceLocation.parse(name.substring(1))));
+                        blocks.addAll(this.loadVanillaTag(Identifier.parse(name.substring(1))));
                         continue;
                     }
-                    ResourceLocation registryName = ResourceLocation.parse(name);
+                    Identifier registryName = Identifier.parse(name);
                     Block block = Registries.BLOCKS.getValue(registryName);
                     if(block == null)
                         throw new JsonParseException("Unknown block '" + registryName + "' in '" + location + "'");

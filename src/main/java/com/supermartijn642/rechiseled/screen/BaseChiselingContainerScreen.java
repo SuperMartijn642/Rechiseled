@@ -11,7 +11,7 @@ import com.supermartijn642.rechiseled.packet.PacketChiselAll;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
 import com.supermartijn642.rechiseled.packet.PacketToggleConnecting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -24,7 +24,7 @@ import java.util.function.Supplier;
  */
 public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> extends BaseContainerWidget<T> {
 
-    public static final ResourceLocation BACKGROUND = ResourceLocation.fromNamespaceAndPath("rechiseled", "screen/chiseling_background");
+    public static final Identifier BACKGROUND = Identifier.fromNamespaceAndPath("rechiseled", "screen/chiseling_background");
 
     /**
      * 0 - 1 block
