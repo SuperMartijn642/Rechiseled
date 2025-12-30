@@ -7,7 +7,7 @@ import com.supermartijn642.core.registry.Registries;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -28,7 +28,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
     private final String modid;
     private final DataGenerator generator;
     private final ExistingFileHelper existingFileHelper;
-    private final Map<ResourceLocation,ChiselingRecipeBuilder> recipes = new HashMap<>();
+    private final Map<Identifier,ChiselingRecipeBuilder> recipes = new HashMap<>();
 
     public ChiselingRecipeProvider(String modid, DataGenerator generator, ExistingFileHelper existingFileHelper){
         this.modid = modid;
@@ -47,20 +47,20 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
 
         Path path = this.generator.getPackOutput().getOutputFolder();
         List<CompletableFuture<?>> tasks = new ArrayList<>();
-        for(Map.Entry<ResourceLocation,ChiselingRecipeBuilder> entry : this.recipes.entrySet()){
-            ResourceLocation recipeName = entry.getKey();
+        for(Map.Entry<Identifier,ChiselingRecipeBuilder> entry : this.recipes.entrySet()){
+            Identifier recipeName = entry.getKey();
             ChiselingRecipeBuilder builder = entry.getValue();
 
             // Check if parent exists
             if(builder.parent != null){
-                ResourceLocation parent = builder.parent;
+                Identifier parent = builder.parent;
                 // Find greater parents in the current recipe provider
                 while(parent != null && parent.getNamespace().equals(this.modid) && this.recipes.containsKey(parent)){
                     parent = this.recipes.get(parent).parent;
                 }
                 // If not found in this recipe provider, check existing files
                 if(parent != null){
-                    ResourceLocation parentLocation = ResourceLocation.fromNamespaceAndPath(parent.getNamespace(), "chiseling_recipes/" + (parent.getPath().endsWith(".json") ? parent.getPath() : parent.getPath() + ".json"));
+                    Identifier parentLocation = Identifier.fromNamespaceAndPath(parent.getNamespace(), "chiseling_recipes/" + (parent.getPath().endsWith(".json") ? parent.getPath() : parent.getPath() + ".json"));
                     if(!this.existingFileHelper.exists(parentLocation, PackType.SERVER_DATA))
                         throw new IllegalStateException("Could not find upward parent '" + parent + "' at '/data/" + parentLocation.getNamespace() + "/" + parentLocation.getPath() + "' for chiseling recipe: " + recipeName);
                 }
@@ -74,7 +74,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
         return CompletableFuture.allOf(tasks.toArray(CompletableFuture[]::new));
     }
 
-    private static JsonObject serializeRecipe(ResourceLocation recipeName, ChiselingRecipeBuilder recipe){
+    private static JsonObject serializeRecipe(Identifier recipeName, ChiselingRecipeBuilder recipe){
         JsonObject json = new JsonObject();
 
         json.addProperty("type", "rechiseled:chiseling");
@@ -107,7 +107,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
         return json;
     }
 
-    private void trackRecipe(ResourceLocation recipe){
+    private void trackRecipe(Identifier recipe){
         this.existingFileHelper.trackGenerated(recipe, PackType.SERVER_DATA, ".json", "chiseling_recipes");
     }
 
@@ -123,11 +123,11 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
      * @return a chiseling recipe builder for the given recipe name
      */
     protected ChiselingRecipeBuilder beginRecipe(String recipeName){
-        this.trackRecipe(ResourceLocation.fromNamespaceAndPath(this.modid, recipeName));
-        return this.recipes.computeIfAbsent(ResourceLocation.fromNamespaceAndPath(this.modid, recipeName), s -> new ChiselingRecipeBuilder());
+        this.trackRecipe(Identifier.fromNamespaceAndPath(this.modid, recipeName));
+        return this.recipes.computeIfAbsent(Identifier.fromNamespaceAndPath(this.modid, recipeName), s -> new ChiselingRecipeBuilder());
     }
 
-    protected ChiselingRecipeBuilder beginRecipe(ResourceLocation recipe){
+    protected ChiselingRecipeBuilder beginRecipe(Identifier recipe){
         this.trackRecipe(recipe);
         return this.recipes.computeIfAbsent(recipe, s -> new ChiselingRecipeBuilder());
     }
@@ -135,7 +135,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
     protected class ChiselingRecipeBuilder {
 
         private final List<Triple<Item,Item,Boolean>> entries = new LinkedList<>();
-        private ResourceLocation parent;
+        private Identifier parent;
         private boolean overwrite = false;
 
         private ChiselingRecipeBuilder(){
@@ -151,7 +151,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
          */
         @Deprecated(forRemoval = true)
         @ApiStatus.ScheduledForRemoval(inVersion = "1.2.0")
-        public ChiselingRecipeBuilder parent(ResourceLocation parent){
+        public ChiselingRecipeBuilder parent(Identifier parent){
             this.parent = parent;
             return this;
         }

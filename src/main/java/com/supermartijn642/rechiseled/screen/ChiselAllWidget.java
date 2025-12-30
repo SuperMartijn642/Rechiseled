@@ -7,7 +7,7 @@ import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import com.supermartijn642.core.util.Holder;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -17,8 +17,8 @@ import java.util.function.Supplier;
  */
 public class ChiselAllWidget extends AbstractButtonWidget {
 
-    public static final ResourceLocation GREY_BUTTONS = ResourceLocation.fromNamespaceAndPath("rechiseled", "screen/grey_buttons");
-    public static final ResourceLocation CHISEL_TEXTURE = ResourceLocation.fromNamespaceAndPath("rechiseled", "item/chisel");
+    public static final Identifier GREY_BUTTONS = Identifier.fromNamespaceAndPath("rechiseled", "screen/grey_buttons");
+    public static final Identifier CHISEL_TEXTURE = Identifier.fromNamespaceAndPath("rechiseled", "item/chisel");
 
     private final Supplier<ChiselingEntry> currentEntry;
 

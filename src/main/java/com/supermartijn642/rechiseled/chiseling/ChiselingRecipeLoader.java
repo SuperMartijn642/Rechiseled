@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.supermartijn642.rechiseled.Rechiseled;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.resources.PreparableReloadListener;
 import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceManager;
@@ -56,8 +56,8 @@ public class ChiselingRecipeLoader implements PreparableReloadListener {
             }, executor2);
     }
 
-    private static ChiselingRecipe loadRecipe(ResourceManager resourceManager, ResourceLocation recipeLocation){
-        ResourceLocation parentRecipe = null;
+    private static ChiselingRecipe loadRecipe(ResourceManager resourceManager, Identifier recipeLocation){
+        Identifier parentRecipe = null;
         List<ChiselingEntry> entries = new ArrayList<>();
         try{
             // Loop over the resource stack for the recipe location
@@ -92,13 +92,13 @@ public class ChiselingRecipeLoader implements PreparableReloadListener {
 
     private static List<ChiselingRecipe> mergeRecipes(List<ChiselingRecipe> recipes){
         // Keep track of the entries of all recipes
-        Map<ResourceLocation,Set<ChiselingEntry>> recipeEntries = new LinkedHashMap<>();
+        Map<Identifier,Set<ChiselingEntry>> recipeEntries = new LinkedHashMap<>();
         recipes.stream()
             .sorted(Comparator.comparing(r -> r.getRecipeId().toString()))
             .forEach(recipe -> recipeEntries.put(recipe.getRecipeId(), new LinkedHashSet<>(recipe.getEntries())));
 
         // Merge parent recipes TODO remove in 1.2.0
-        Map<ResourceLocation,ChiselingRecipe> recipesWithParent = new LinkedHashMap<>();
+        Map<Identifier,ChiselingRecipe> recipesWithParent = new LinkedHashMap<>();
         for(ChiselingRecipe recipe : recipes){
             if(recipe.parentRecipeId != null)
                 recipesWithParent.put(recipe.getRecipeId(), recipe);
@@ -106,9 +106,9 @@ public class ChiselingRecipeLoader implements PreparableReloadListener {
         loop:
         for(ChiselingRecipe recipe : recipesWithParent.values()){
             // Keep track of which recipe ids have been covered
-            Set<ResourceLocation> coveredRecipes = new HashSet<>();
+            Set<Identifier> coveredRecipes = new HashSet<>();
 
-            ResourceLocation parentRecipe = recipe.parentRecipeId;
+            Identifier parentRecipe = recipe.parentRecipeId;
             while(recipesWithParent.containsKey(parentRecipe)){
                 // Check for loop
                 coveredRecipes.add(parentRecipe);
@@ -131,8 +131,8 @@ public class ChiselingRecipeLoader implements PreparableReloadListener {
         }
 
         // Merge recipes based on entries
-        Map<ResourceLocation,Set<Item>> itemsPerRecipe = new HashMap<>();
-        for(Map.Entry<ResourceLocation,Set<ChiselingEntry>> recipe : recipeEntries.entrySet()){
+        Map<Identifier,Set<Item>> itemsPerRecipe = new HashMap<>();
+        for(Map.Entry<Identifier,Set<ChiselingEntry>> recipe : recipeEntries.entrySet()){
             HashSet<Item> items = new HashSet<>();
             recipe.getValue().forEach(e -> {
                 if(e.hasRegularItem())
@@ -142,7 +142,7 @@ public class ChiselingRecipeLoader implements PreparableReloadListener {
             });
             itemsPerRecipe.put(recipe.getKey(), items);
         }
-        ResourceLocation[] locations = recipeEntries.keySet().toArray(ResourceLocation[]::new);
+        Identifier[] locations = recipeEntries.keySet().toArray(Identifier[]::new);
         loop:
         for(int i = 0; i < locations.length; i++){
             for(int j = i + 1; j < locations.length; j++){
@@ -159,7 +159,7 @@ public class ChiselingRecipeLoader implements PreparableReloadListener {
         }
 
         // Remove unnecessary entries
-        for(ResourceLocation location : recipeEntries.keySet()){
+        for(Identifier location : recipeEntries.keySet()){
             Set<ChiselingEntry> entries = recipeEntries.get(location);
             HashMap<Item,Integer> itemCounts = new HashMap<>();
             itemsPerRecipe.get(location).forEach(item -> itemCounts.compute(item, (i, c) -> c == null ? 1 : c + 1));

@@ -5,8 +5,8 @@ import com.supermartijn642.core.generator.ResourceCache;
 import com.supermartijn642.core.registry.Registries;
 import com.supermartijn642.core.util.Pair;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 
 /**
@@ -36,8 +36,8 @@ public class RegistrationLootTableGenerator extends LootTableGenerator {
     }
 
     private void addLootTable(Block block){
-        ResourceLocation identifier = Registries.BLOCKS.getIdentifier(block);
-        ResourceLocation lootTable = block.getLootTable().map(ResourceKey::location).orElse(null);
+        Identifier identifier = Registries.BLOCKS.getIdentifier(block);
+        Identifier lootTable = block.getLootTable().map(ResourceKey::identifier).orElse(null);
         if(lootTable != null && lootTable.getNamespace().equals(identifier.getNamespace()) && lootTable.getPath().equals("block/" + identifier.getPath()))
             return;
         this.dropSelf(block);

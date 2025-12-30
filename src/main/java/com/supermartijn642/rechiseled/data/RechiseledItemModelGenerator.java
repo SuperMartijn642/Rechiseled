@@ -3,7 +3,7 @@ package com.supermartijn642.rechiseled.data;
 import com.supermartijn642.core.generator.ModelGenerator;
 import com.supermartijn642.core.generator.ResourceCache;
 import com.supermartijn642.rechiseled.Rechiseled;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 /**
  * Created 7/8/2021 by SuperMartijn642
@@ -17,6 +17,6 @@ public class RechiseledItemModelGenerator extends ModelGenerator {
     @Override
     public void generate(){
         // Chisel
-        this.itemHandheld(Rechiseled.chisel, ResourceLocation.fromNamespaceAndPath("rechiseled", "item/chisel"));
+        this.itemHandheld(Rechiseled.chisel, Identifier.fromNamespaceAndPath("rechiseled", "item/chisel"));
     }
 }

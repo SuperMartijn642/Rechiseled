@@ -12,7 +12,7 @@ import com.supermartijn642.rechiseled.api.registration.RechiseledRegistration;
 import com.supermartijn642.rechiseled.blocks.RechiseledBlockBuilderImpl;
 import com.supermartijn642.rechiseled.blocks.RechiseledBlockTypeImpl;
 import com.supermartijn642.rechiseled.registration.data.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
@@ -57,7 +57,7 @@ public class RechiseledRegistrationImpl implements RechiseledRegistration {
     private final List<Pair<RechiseledBlockBuilderImpl,RechiseledBlockTypeImpl>> blockBuilders = new ArrayList<>();
     private final Set<String> usedBlockIdentifiers = new HashSet<>();
     private final List<RechiseledBlockTypeImpl> blockTypes = new ArrayList<>();
-    private final List<Triple<ResourceLocation,Supplier<ItemLike>,Supplier<ItemLike>>> chiselingEntries = new ArrayList<>();
+    private final List<Triple<Identifier,Supplier<ItemLike>,Supplier<ItemLike>>> chiselingEntries = new ArrayList<>();
     private CreativeItemGroup itemGroup;
     private String itemGroupTranslation;
     public boolean providersRegistered = false;
@@ -79,7 +79,7 @@ public class RechiseledRegistrationImpl implements RechiseledRegistration {
     }
 
     @Override
-    public synchronized void chiselingEntry(ResourceLocation recipe, Supplier<ItemLike> regularItem, Supplier<ItemLike> connectingItem){
+    public synchronized void chiselingEntry(Identifier recipe, Supplier<ItemLike> regularItem, Supplier<ItemLike> connectingItem){
         if(finalized)
             throw new RuntimeException("Chiseling recipe entries must be added during mod initialization!");
         if(regularItem == null && connectingItem == null)
@@ -143,7 +143,7 @@ public class RechiseledRegistrationImpl implements RechiseledRegistration {
         return this.blockBuilders;
     }
 
-    public List<Triple<ResourceLocation,Supplier<ItemLike>,Supplier<ItemLike>>> getChiselingEntries(){
+    public List<Triple<Identifier,Supplier<ItemLike>,Supplier<ItemLike>>> getChiselingEntries(){
         return this.chiselingEntries;
     }
 

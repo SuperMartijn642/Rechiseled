@@ -62,7 +62,7 @@ public class BlockCaptureLevel implements BlockAndTintGetter {
     @Override
     public int getBlockTint(BlockPos pos, ColorResolver colorResolver){
         //noinspection unchecked
-        Registry<Biome> biomeRegistry = (Registry<Biome>)BuiltInRegistries.REGISTRY.getOptional(Registries.BIOME.location()).orElse(null);
+        Registry<Biome> biomeRegistry = (Registry<Biome>)BuiltInRegistries.REGISTRY.getOptional(Registries.BIOME.identifier()).orElse(null);
         return biomeRegistry == null ? 0 : colorResolver.getColor(biomeRegistry.get(Biomes.PLAINS).orElseThrow().value(), pos.getX(), pos.getZ());
     }
 

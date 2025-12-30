@@ -7,12 +7,12 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.supermartijn642.core.util.Pair;
 import com.supermartijn642.rechiseled.texture.TextureMappingTool;
-import net.minecraft.Util;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.PackType;
+import net.minecraft.util.Util;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import javax.imageio.ImageIO;
@@ -23,8 +23,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Path;
-import java.util.List;
 import java.util.*;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -37,7 +37,7 @@ public abstract class ChiseledTextureProvider implements DataProvider {
     private final String modid;
     private final DataGenerator generator;
     private final ExistingFileHelper existingFileHelper;
-    private final Map<Pair<ResourceLocation,ResourceLocation>,PaletteMap> textures = new HashMap<>();
+    private final Map<Pair<Identifier,Identifier>,PaletteMap> textures = new HashMap<>();
     private final Set<String> outputLocations = new HashSet<>();
     private final List<String> oakPlankSuffixes;
 
@@ -59,18 +59,18 @@ public abstract class ChiseledTextureProvider implements DataProvider {
 
         List<CompletableFuture<?>> tasks = new ArrayList<>();
         Path path = this.generator.getPackOutput().getOutputFolder();
-        for(Map.Entry<Pair<ResourceLocation,ResourceLocation>,PaletteMap> entry : this.textures.entrySet()){
+        for(Map.Entry<Pair<Identifier,Identifier>,PaletteMap> entry : this.textures.entrySet()){
             if(entry.getValue().targets.isEmpty())
                 continue;
 
             Pair<BufferedImage,JsonObject> oldPalette = this.loadTexture(entry.getKey().left());
             Pair<BufferedImage,JsonObject> newPalette = this.loadTexture(entry.getKey().right());
-            Map<String,ResourceLocation> targets = entry.getValue().targets;
+            Map<String,Identifier> targets = entry.getValue().targets;
             boolean ignoreMissingColors = entry.getValue().ignoreMissingColors;
 
             Map<Integer,Integer> colorMap = TextureMappingTool.createPaletteMap(oldPalette.left(), newPalette.left());
 
-            for(Map.Entry<String,ResourceLocation> target : targets.entrySet()){
+            for(Map.Entry<String,Identifier> target : targets.entrySet()){
                 Pair<BufferedImage,JsonObject> targetTexture = this.loadTexture(target.getValue());
                 String outputLocation = target.getKey();
 
@@ -87,7 +87,7 @@ public abstract class ChiseledTextureProvider implements DataProvider {
         return CompletableFuture.allOf(tasks.toArray(CompletableFuture[]::new));
     }
 
-    private Pair<BufferedImage,JsonObject> loadTexture(ResourceLocation location){
+    private Pair<BufferedImage,JsonObject> loadTexture(Identifier location){
         if(!this.existingFileHelper.exists(location, PackType.CLIENT_RESOURCES, ".png", "textures"))
             throw new IllegalStateException("Could not find existing texture: " + location);
 
@@ -136,12 +136,12 @@ public abstract class ChiseledTextureProvider implements DataProvider {
         }, Util.backgroundExecutor());
     }
 
-    private boolean validateTexture(ResourceLocation texture){
+    private boolean validateTexture(Identifier texture){
         return this.existingFileHelper.exists(texture, PackType.CLIENT_RESOURCES, ".png", "textures");
     }
 
     private void trackTexture(String outputLocation){
-        this.existingFileHelper.trackGenerated(ResourceLocation.fromNamespaceAndPath(this.modid, outputLocation), PackType.CLIENT_RESOURCES, ".png", "textures");
+        this.existingFileHelper.trackGenerated(Identifier.fromNamespaceAndPath(this.modid, outputLocation), PackType.CLIENT_RESOURCES, ".png", "textures");
     }
 
     /**
@@ -152,11 +152,11 @@ public abstract class ChiseledTextureProvider implements DataProvider {
      * a palette map can map variants of oak planks to variants of birch planks.
      *
      *
-     * <p>A palette map can be obtained using {@link #createPaletteMap(ResourceLocation, ResourceLocation)}
-     * and applied using {@link PaletteMap#applyToTexture(ResourceLocation, String)}.
+     * <p>A palette map can be obtained using {@link #createPaletteMap(Identifier, Identifier)}
+     * and applied using {@link PaletteMap#applyToTexture(Identifier, String)}.
      * All mapped textures will be saved and written to file automatically.
      *
-     * <p>{@link #createPlankTextures(ResourceLocation, String)} will map all rechiseled's
+     * <p>{@link #createPlankTextures(Identifier, String)} will map all rechiseled's
      * oak plank variants to the given plank texture.
      */
     protected abstract void createTextures();
@@ -169,7 +169,7 @@ public abstract class ChiseledTextureProvider implements DataProvider {
      * @param newPalette colors to map to
      * @throws IllegalArgumentException when {@code oldPalette} or {@code newPalette} is {@code null}
      */
-    protected PaletteMap createPaletteMap(ResourceLocation oldPalette, ResourceLocation newPalette){
+    protected PaletteMap createPaletteMap(Identifier oldPalette, Identifier newPalette){
         if(!this.validateTexture(oldPalette))
             throw new IllegalStateException("Could not find texture '" + oldPalette + "'!");
         if(!this.validateTexture(newPalette))
@@ -185,7 +185,7 @@ public abstract class ChiseledTextureProvider implements DataProvider {
      * For example, the mapped texture of <i>'assets/rechiseled/textures/oak_planks_bricks.png'</i>
      * will be saved at <i>'assets/<b>modid</b>/textures/<b>outputLocation</b>_bricks.png'</i>.
      */
-    protected void createPlankTextures(ResourceLocation plankTexture, String outputLocation){
+    protected void createPlankTextures(Identifier plankTexture, String outputLocation){
         if(!this.validateTexture(plankTexture))
             throw new IllegalStateException("Could not find texture '" + plankTexture + "'!");
         if(outputLocation == null || outputLocation.trim().isEmpty())
@@ -193,16 +193,16 @@ public abstract class ChiseledTextureProvider implements DataProvider {
         if(!ChiseledTextureProvider.this.outputLocations.add(outputLocation))
             throw new IllegalStateException("Two or more textures have the same output location: " + outputLocation);
 
-        PaletteMap paletteMap = this.createPaletteMap(ResourceLocation.fromNamespaceAndPath("minecraft", "block/oak_planks"), plankTexture);
+        PaletteMap paletteMap = this.createPaletteMap(Identifier.fromNamespaceAndPath("minecraft", "block/oak_planks"), plankTexture);
 
         for(String suffix : this.oakPlankSuffixes){
-            paletteMap.applyToTexture(ResourceLocation.fromNamespaceAndPath("rechiseled", "block/oak_planks" + suffix), outputLocation + suffix);
+            paletteMap.applyToTexture(Identifier.fromNamespaceAndPath("rechiseled", "block/oak_planks" + suffix), outputLocation + suffix);
         }
     }
 
     protected class PaletteMap {
 
-        private final Map<String,ResourceLocation> targets = new HashMap<>();
+        private final Map<String,Identifier> targets = new HashMap<>();
         private boolean ignoreMissingColors = false;
 
         private PaletteMap(){
@@ -220,7 +220,7 @@ public abstract class ChiseledTextureProvider implements DataProvider {
          * @throws IllegalArgumentException when {@code texture} is {@code null}, or when {@code outputLocation.trim()} is {@code null} or empty
          * @throws IllegalStateException    when there is already a texture to be generated for {@code outputLocation}
          */
-        public PaletteMap applyToTexture(ResourceLocation texture, String outputLocation){
+        public PaletteMap applyToTexture(Identifier texture, String outputLocation){
             if(!ChiseledTextureProvider.this.validateTexture(texture))
                 throw new IllegalStateException("Could not find texture '" + texture + "'!");
             if(outputLocation == null || outputLocation.trim().isEmpty())

@@ -3,7 +3,7 @@ package com.supermartijn642.rechiseled.api.registration;
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockBuilder;
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockType;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.ItemLike;
 
@@ -40,7 +40,7 @@ public interface RechiseledRegistration {
      * @throws IllegalArgumentException when both item inputs are {@code null}
      * @see com.supermartijn642.rechiseled.api.BaseChiselingRecipes
      */
-    void chiselingEntry(ResourceLocation recipe, Supplier<ItemLike> regularItem, Supplier<ItemLike> connectingItem);
+    void chiselingEntry(Identifier recipe, Supplier<ItemLike> regularItem, Supplier<ItemLike> connectingItem);
 
     /**
      * Creates an item group containing all the blocks created using this registration.
