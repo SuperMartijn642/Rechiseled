@@ -24,13 +24,15 @@ public interface RechiseledBlockBuilder {
 
     /**
      * Copies the properties from the given block
+     * @deprecated do not use this. Specify properties explicitly through {@link #properties(Supplier)}.
      */
+    @Deprecated
     RechiseledBlockBuilder copyProperties(Supplier<Block> block);
 
     /**
      * Allows configuration of block properties
      */
-    RechiseledBlockBuilder properties(Consumer<BlockProperties> configurer);
+    RechiseledBlockBuilder properties(Supplier<BlockProperties> supplier);
 
     /**
      * Sets the item groups the constructed blocks will be added to
@@ -89,6 +91,11 @@ public interface RechiseledBlockBuilder {
      * By default, the model type from the block specification will be used.
      */
     RechiseledBlockBuilder model(BlockModelType modelType);
+
+    /**
+     * Applies the given consumer to this builder.
+     */
+    RechiseledBlockBuilder configure(Consumer<RechiseledBlockBuilder> configurer);
 
     /**
      * Completes this block builder and returns an {@link RechiseledBlockType} containing the constructed blocks.
