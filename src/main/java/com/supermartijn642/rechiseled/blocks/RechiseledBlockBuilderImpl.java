@@ -31,6 +31,7 @@ public class RechiseledBlockBuilderImpl implements RechiseledBlockBuilder {
     private final RechiseledRegistrationImpl registration;
     private final String identifier;
     private Supplier<BlockProperties> properties;
+    private Consumer<BlockProperties> propertiesConsumer;
     private BlockSpecification specification = BlockSpecification.BASIC;
     private boolean hasRegularVariant = true;
     private boolean hasConnectingVariant = true;
@@ -55,39 +56,38 @@ public class RechiseledBlockBuilderImpl implements RechiseledBlockBuilder {
 
     @Override
     public RechiseledBlockBuilderImpl properties(BlockProperties properties){
-        if(this.completed)
-            throw new RuntimeException("Builder has already been build!");
+        this.checkMutable();
         this.properties = () -> properties;
         return this;
     }
 
     @Override
     public RechiseledBlockBuilderImpl copyProperties(Supplier<Block> block){
-        if(this.completed)
-            throw new RuntimeException("Builder has already been build!");
-        this.properties = () -> BlockProperties.copy(block.get());
-        return this;
-    }
-
-    @Override
-    public RechiseledBlockBuilderImpl properties(Consumer<BlockProperties> configurer){
-        if(this.completed)
-            throw new RuntimeException("Builder has already been build!");
-        if(this.properties == null)
-            throw new RuntimeException("Properties cannot be null!");
-        final Supplier<BlockProperties> oldProperties = this.properties;
+        this.checkMutable();
         this.properties = () -> {
-            BlockProperties properties = oldProperties.get();
-            configurer.accept(properties);
-            return properties;
+            Block resolvedBlock = block.get();
+            try{
+                return BlockProperties.copy(resolvedBlock);
+            }catch(Exception e){
+                throw new RuntimeException("Encountered an exception copying properties from block '" + resolvedBlock + "' for block builder '" + this.identifier + "' from mod '" + this.registration.getModid() + "'!", e);
+            }
         };
         return this;
     }
 
     @Override
+    public RechiseledBlockBuilderImpl properties(Consumer<BlockProperties> configurer){
+        this.checkMutable();
+        if(this.propertiesConsumer == null)
+            this.propertiesConsumer = configurer;
+        else
+            this.propertiesConsumer = this.propertiesConsumer.andThen(configurer);
+        return this;
+    }
+
+    @Override
     public RechiseledBlockBuilderImpl itemGroups(CreativeModeTab group, CreativeModeTab... groups){
-        if(this.completed)
-            throw new RuntimeException("Builder has already been build!");
+        this.checkMutable();
         this.itemGroups.add(group);
         this.itemGroups.addAll(Arrays.asList(groups));
         return this;
@@ -95,32 +95,28 @@ public class RechiseledBlockBuilderImpl implements RechiseledBlockBuilder {
 
     @Override
     public RechiseledBlockBuilderImpl specification(BlockSpecification specification){
-        if(this.completed)
-            throw new RuntimeException("Builder has already been build!");
+        this.checkMutable();
         this.specification = specification;
         return this;
     }
 
     @Override
     public RechiseledBlockBuilderImpl noRegularVariant(){
-        if(this.completed)
-            throw new RuntimeException("Builder has already been build!");
+        this.checkMutable();
         this.hasRegularVariant = false;
         return this;
     }
 
     @Override
     public RechiseledBlockBuilderImpl noConnectingVariant(){
-        if(this.completed)
-            throw new RuntimeException("Builder has already been build!");
+        this.checkMutable();
         this.hasConnectingVariant = false;
         return this;
     }
 
     @Override
     public RechiseledBlockBuilderImpl regularVariant(Supplier<Block> blockSupplier){
-        if(this.completed)
-            throw new RuntimeException("Builder has already been build!");
+        this.checkMutable();
         this.customRegularVariant = blockSupplier;
         this.hasRegularVariant = false;
         return this;
@@ -128,8 +124,7 @@ public class RechiseledBlockBuilderImpl implements RechiseledBlockBuilder {
 
     @Override
     public RechiseledBlockBuilderImpl connectingVariant(Supplier<Block> blockSupplier){
-        if(this.completed)
-            throw new RuntimeException("Builder has already been build!");
+        this.checkMutable();
         this.customConnectingVariant = blockSupplier;
         this.hasConnectingVariant = false;
         return this;
@@ -137,61 +132,69 @@ public class RechiseledBlockBuilderImpl implements RechiseledBlockBuilder {
 
     @Override
     public RechiseledBlockBuilderImpl recipe(ResourceLocation location){
-        if(this.completed)
-            throw new RuntimeException("Builder has already been build!");
+        this.checkMutable();
         this.recipe = location;
         return this;
     }
 
     @Override
     public RechiseledBlockBuilderImpl blockTag(String namespace, String identifier){
-        if(this.completed)
-            throw new RuntimeException("Builder has already been build!");
+        this.checkMutable();
         this.tags.add(new ResourceLocation(namespace, identifier));
         return this;
     }
 
     @Override
     public RechiseledBlockBuilder miningTagsFrom(Supplier<Block> blockSupplier){
-        if(this.completed)
-            throw new RuntimeException("Builder has already been build!");
+        this.checkMutable();
         this.miningTagsFromBlock = blockSupplier;
         return this;
     }
 
     @Override
     public RechiseledBlockBuilderImpl translation(String translation){
-        if(this.completed)
-            throw new RuntimeException("Builder has already been build!");
+        this.checkMutable();
         this.translation = translation;
         return this;
     }
 
     @Override
     public RechiseledBlockBuilder model(BlockModelType modelType){
-        if(this.completed)
-            throw new RuntimeException("Builder has already been build!");
+        this.checkMutable();
         this.modelType = modelType;
         return this;
     }
 
     @Override
-    public RechiseledBlockType build(){
+    public RechiseledBlockBuilder configure(Consumer<RechiseledBlockBuilder> configurer){
+        configurer.accept(this);
+        return this;
+    }
+
+    private void checkMutable(){
         if(this.completed)
             throw new RuntimeException("Builder has already been build!");
+    }
+
+    @Override
+    public RechiseledBlockType build(){
+        this.checkMutable();
         this.completed = true;
 
         // Get a registration handler
         RegistrationHandler handler = RegistrationHandler.get(this.registration.getModid());
 
-        if(this.properties == null)
+        if(this.properties == null && this.propertiesConsumer == null)
             throw new RuntimeException("Builder for '" + this.registration.getModid() + ":" + this.identifier + "' is missing block properties!");
         Holder<BlockProperties> properties = new Holder<>() {
             @Override
             public BlockProperties get(){
                 BlockProperties properties = super.get();
                 if(properties == null){
-                    properties = RechiseledBlockBuilderImpl.this.properties.get();
+                    properties = RechiseledBlockBuilderImpl.this.properties == null ?
+                        BlockProperties.create() : RechiseledBlockBuilderImpl.this.properties.get();
+                    if(RechiseledBlockBuilderImpl.this.propertiesConsumer != null)
+                        RechiseledBlockBuilderImpl.this.propertiesConsumer.accept(properties);
                     this.set(properties);
                 }
                 return properties;
