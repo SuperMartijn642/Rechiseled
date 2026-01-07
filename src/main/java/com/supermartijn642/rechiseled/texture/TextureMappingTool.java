@@ -1,5 +1,8 @@
 package com.supermartijn642.rechiseled.texture;
 
+import com.supermartijn642.core.ClientUtils;
+import com.supermartijn642.rechiseled.Rechiseled;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.resources.MultiPackResourceManager;
 import net.minecraft.server.packs.resources.ResourceManager;
@@ -10,6 +13,7 @@ import java.awt.image.BufferedImage;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.*;
+import java.util.List;
 
 /**
  * Created 24/01/2022 by SuperMartijn642
@@ -73,10 +77,10 @@ public class TextureMappingTool {
 
         List<String> suffixes = new ArrayList<>();
         resourceManager.listPacks().filter(
-            pack -> pack.getNamespaces(PackType.CLIENT_RESOURCES).size() == 1 && pack.getNamespaces(PackType.CLIENT_RESOURCES).contains("rechiseled")
+            pack -> pack.getNamespaces(PackType.CLIENT_RESOURCES).size() == 1 && pack.getNamespaces(PackType.CLIENT_RESOURCES).contains(Rechiseled.MODID)
         ).forEach(
             pack -> {
-                pack.getResources(PackType.CLIENT_RESOURCES, "rechiseled", "textures/block", s -> s.getPath().startsWith("textures/block/" + name) && s.getPath().endsWith(".png"))
+                pack.getResources(PackType.CLIENT_RESOURCES, Rechiseled.MODID, "textures/block", s -> s.getPath().startsWith("textures/block/" + name) && s.getPath().endsWith(".png"))
                     .stream()
                     .map(
                         s -> {
