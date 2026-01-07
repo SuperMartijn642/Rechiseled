@@ -12,7 +12,7 @@ import net.minecraft.world.item.Items;
 public class RechiseledRecipeGenerator extends RecipeGenerator {
 
     public RechiseledRecipeGenerator(ResourceCache cache){
-        super("rechiseled", cache);
+        super(Rechiseled.MODID, cache);
     }
 
     @Override
