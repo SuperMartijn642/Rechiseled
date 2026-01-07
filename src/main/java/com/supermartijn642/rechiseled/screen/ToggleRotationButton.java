@@ -3,6 +3,7 @@ package com.supermartijn642.rechiseled.screen;
 import com.supermartijn642.core.gui.GuiGraphicsHelper;
 import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
+import com.supermartijn642.rechiseled.Rechiseled;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 
@@ -11,7 +12,7 @@ import net.minecraft.resources.Identifier;
  */
 public class ToggleRotationButton extends AbstractButtonWidget {
 
-    public static final Identifier TEXTURE = Identifier.fromNamespaceAndPath("rechiseled", "screen/rotation_icon");
+    public static final Identifier TEXTURE = Rechiseled.identifier("screen/rotation_icon");
 
     public static boolean rotate = true;
 

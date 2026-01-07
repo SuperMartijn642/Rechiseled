@@ -1,5 +1,6 @@
 package com.supermartijn642.rechiseled.data;
 
+import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.api.ChiseledTextureProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.Identifier;
@@ -10,7 +11,7 @@ import net.minecraft.resources.Identifier;
 public class RechiseledTextureProvider extends ChiseledTextureProvider {
 
     public RechiseledTextureProvider(DataGenerator generator){
-        super("rechiseled", generator);
+        super(Rechiseled.MODID, generator);
     }
 
     @Override

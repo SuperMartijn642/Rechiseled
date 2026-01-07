@@ -29,7 +29,7 @@ public class ChiselingRecipeLoader implements PreparableReloadListener {
     @SubscribeEvent
     public static void onAddReloadListener(AddServerReloadListenersEvent e){
         e.addListener(
-            Identifier.fromNamespaceAndPath("rechiseled", "chiseling_recipe_loader"),
+            Rechiseled.identifier("chiseling_recipe_loader"),
             new ChiselingRecipeLoader()
         );
     }

@@ -17,11 +17,11 @@ import net.minecraft.resources.Identifier;
 @JeiPlugin
 public class ChiselingJEIPlugin implements IModPlugin {
 
-    public static final IRecipeType<ChiselingRecipe> CHISELING_RECIPE_TYPE = IRecipeType.create("rechiseled", "chiseling", ChiselingRecipe.class);
+    public static final IRecipeType<ChiselingRecipe> CHISELING_RECIPE_TYPE = IRecipeType.create(Rechiseled.MODID, "chiseling", ChiselingRecipe.class);
 
     @Override
     public Identifier getPluginUid(){
-        return Identifier.fromNamespaceAndPath("rechiseled", "chiseling_plugin");
+        return Rechiseled.identifier("chiseling_plugin");
     }
 
     @Override
