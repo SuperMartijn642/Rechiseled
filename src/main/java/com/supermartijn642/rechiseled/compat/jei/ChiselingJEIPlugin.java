@@ -18,7 +18,7 @@ public class ChiselingJEIPlugin implements IModPlugin {
 
     @Override
     public ResourceLocation getPluginUid(){
-        return new ResourceLocation("rechiseled", "chiseling_plugin");
+        return Rechiseled.identifier("chiseling_plugin");
     }
 
     @Override

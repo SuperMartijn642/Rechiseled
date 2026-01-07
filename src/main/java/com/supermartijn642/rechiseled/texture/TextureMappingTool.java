@@ -1,6 +1,7 @@
 package com.supermartijn642.rechiseled.texture;
 
 import com.supermartijn642.core.ClientUtils;
+import com.supermartijn642.rechiseled.Rechiseled;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.repository.PackRepository;
@@ -62,10 +63,10 @@ public class TextureMappingTool {
     public static List<String> getSuffixes(String name){
         List<String> suffixes = new ArrayList<>();
         RESOURCE_MANAGER.listPacks().filter(
-            pack -> pack.getNamespaces(PackType.CLIENT_RESOURCES).contains("rechiseled")
+            pack -> pack.getNamespaces(PackType.CLIENT_RESOURCES).contains(Rechiseled.MODID)
         ).forEach(
             pack -> {
-                pack.getResources(PackType.CLIENT_RESOURCES, "rechiseled", "textures/block", Integer.MAX_VALUE, s -> s.startsWith(name) && s.endsWith(".png"))
+                pack.getResources(PackType.CLIENT_RESOURCES, Rechiseled.MODID, "textures/block", Integer.MAX_VALUE, s -> s.startsWith(name) && s.endsWith(".png"))
                     .stream()
                     .map(
                         s -> {
