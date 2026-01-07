@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.supermartijn642.core.util.Pair;
+import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.texture.TextureMappingTool;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
@@ -196,7 +197,7 @@ public abstract class ChiseledTextureProvider implements DataProvider {
         PaletteMap paletteMap = this.createPaletteMap(Identifier.fromNamespaceAndPath("minecraft", "block/oak_planks"), plankTexture);
 
         for(String suffix : this.oakPlankSuffixes){
-            paletteMap.applyToTexture(Identifier.fromNamespaceAndPath("rechiseled", "block/oak_planks" + suffix), outputLocation + suffix);
+            paletteMap.applyToTexture(Rechiseled.identifier("block/oak_planks" + suffix), outputLocation + suffix);
         }
     }
 
