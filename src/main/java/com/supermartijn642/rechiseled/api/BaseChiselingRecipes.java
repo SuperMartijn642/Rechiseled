@@ -8,7 +8,7 @@ import net.minecraft.resources.Identifier;
  * <p>
  * All default recipe locations in rechiseled.
  */
-public class BaseChiselingRecipes {
+public final class BaseChiselingRecipes {
 
     public static final Identifier AMETHYST_BLOCK = location("amethyst_block");
     public static final Identifier ACACIA_PLANKS = location("acacia_planks");
