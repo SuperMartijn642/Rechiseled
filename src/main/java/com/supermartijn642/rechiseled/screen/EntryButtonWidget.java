@@ -5,7 +5,8 @@ import com.supermartijn642.core.gui.GuiGraphicsHelper;
 import com.supermartijn642.core.gui.widget.BaseWidget;
 import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.rechiseled.Rechiseled;
-import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
 import net.minecraft.client.input.MouseButtonInfo;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -42,7 +43,8 @@ public class EntryButtonWidget extends BaseWidget {
         ChiselingEntry entry = this.entry.get();
         if(entry == null)
             return null;
-        Item item = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
+        Item item = (this.connecting.get() && entry.hasConnectingItem(ChiselingBlockShape.BLOCK)) || !entry.hasRegularItem(ChiselingBlockShape.BLOCK) ? entry.getConnectingItem(ChiselingBlockShape.BLOCK) : entry.getRegularItem(ChiselingBlockShape.BLOCK);
+        //noinspection DataFlowIssue
         return TextComponents.translation("rechiseled.chiseling.select_block", TextComponents.item(item).get()).get();
     }
 
@@ -52,7 +54,7 @@ public class EntryButtonWidget extends BaseWidget {
 
         boolean hasEntry = entry != null;
         boolean selected = hasEntry && this.selectedEntry.get() == entry;
-        boolean hasCorrectItem = hasEntry && (this.connecting.get() ? entry.hasConnectingItem() : entry.hasRegularItem());
+        boolean hasCorrectItem = hasEntry && (this.connecting.get() ? entry.hasConnectingItem(ChiselingBlockShape.BLOCK) : entry.hasRegularItem(ChiselingBlockShape.BLOCK));
 
         graphics.submitSprite(TEXTURE, this.x, this.y, this.width, this.height, p -> p.uv(0, (selected ? 1 : hasEntry ? hasCorrectItem ? this.isFocused() ? 2 : 0 : this.isFocused() ? 4 : 3 : 0) / 5f, 1, 1 / 5f));
     }
@@ -61,7 +63,8 @@ public class EntryButtonWidget extends BaseWidget {
     public void renderForeground(WidgetRenderContext context, GuiGraphicsHelper graphics, int mouseX, int mouseY){
         ChiselingEntry entry = this.entry.get();
         if(entry != null){
-            Item item = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
+            Item item = (this.connecting.get() && entry.hasConnectingItem(ChiselingBlockShape.BLOCK)) || !entry.hasRegularItem(ChiselingBlockShape.BLOCK) ? entry.getConnectingItem(ChiselingBlockShape.BLOCK) : entry.getRegularItem(ChiselingBlockShape.BLOCK);
+            //noinspection DataFlowIssue
             graphics.submitCustomRendering(
                 this.x, this.y, this.width, this.height,
                 (poseStack, bufferSource) -> ScreenItemRender.drawItem(poseStack, bufferSource, item, this.width / 2d, this.height / 2d, this.width - 4, 0, 0, false)
