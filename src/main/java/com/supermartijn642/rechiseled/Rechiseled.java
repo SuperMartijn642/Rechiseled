@@ -9,7 +9,8 @@ import com.supermartijn642.core.registry.RegistrationHandler;
 import com.supermartijn642.core.registry.RegistryEntryAcceptor;
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockType;
 import com.supermartijn642.rechiseled.api.registration.RechiseledRegistration;
-import com.supermartijn642.rechiseled.chiseling.PacketChiselingRecipes;
+import com.supermartijn642.rechiseled.chiseling.ChiselingRecipeDatapackPlugin;
+import com.supermartijn642.rechiseled.chiseling.PacketUpdateChiselingRecipes;
 import com.supermartijn642.rechiseled.data.*;
 import com.supermartijn642.rechiseled.packet.PacketChiselAll;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
@@ -21,12 +22,15 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.AddServerReloadListenersEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Consumer;
 
 /**
  * Created 7/7/2020 by SuperMartijn642
@@ -65,7 +69,9 @@ public class Rechiseled {
         CHANNEL.registerMessage(PacketSelectEntry.class, PacketSelectEntry::new, true);
         CHANNEL.registerMessage(PacketToggleConnecting.class, PacketToggleConnecting::new, true);
         CHANNEL.registerMessage(PacketChiselAll.class, PacketChiselAll::new, true);
-        CHANNEL.registerMessage(PacketChiselingRecipes.class, PacketChiselingRecipes::new, true);
+        CHANNEL.registerMessage(PacketUpdateChiselingRecipes.class, PacketUpdateChiselingRecipes::new, true);
+
+        NeoForge.EVENT_BUS.addListener((Consumer<AddServerReloadListenersEvent>)e -> e.addListener(identifier("chiseling_recipe_loader"), ChiselingRecipeDatapackPlugin.INSTANCE));
 
         register();
         if(CommonUtils.getEnvironmentSide().isClient())
