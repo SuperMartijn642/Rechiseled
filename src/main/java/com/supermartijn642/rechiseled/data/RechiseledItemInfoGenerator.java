@@ -11,7 +11,7 @@ import com.supermartijn642.rechiseled.Rechiseled;
 public class RechiseledItemInfoGenerator extends ItemInfoGenerator {
 
     public RechiseledItemInfoGenerator(ResourceCache cache){
-        super("rechiseled", cache);
+        super(Rechiseled.MODID, cache);
     }
 
     @Override
