@@ -33,6 +33,8 @@ repositories {
 dependencies {
     // Forge
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    // SpongePowered Mixin
+    annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 
     // Core library
 //    implementation "curse.maven:supermartijn642s-core-lib-454372:${core_library_file}"
@@ -109,6 +111,14 @@ minecraft {
         }
     }
 }
+
+// MixinGradle Settings
+mixin {
+    add sourceSets.main, "${mod_id}.mixins.refmap.json"
+    config "${mod_id}.mixins.json"
+}
+
+jar.manifest.attributes "MixinConfigs": "${mod_id}.mixins.json"
 
 // Rename the IntelliJ run configs
 gradle.taskGraph.whenReady {
