@@ -9,7 +9,7 @@ import com.supermartijn642.configlib.api.IConfigBuilder;
 public class RechiseledConfig {
 
     static{
-        IConfigBuilder builder = ConfigBuilders.newTomlConfig("rechiseled", null, false);
+        IConfigBuilder builder = ConfigBuilders.newTomlConfig(Rechiseled.MODID, null, false);
 
         builder.push("General");
 

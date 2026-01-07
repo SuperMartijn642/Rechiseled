@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.Mod;
 public class RechiseledClient {
 
     public static void register(){
-        ClientRegistrationHandler handler = ClientRegistrationHandler.get("rechiseled");
+        ClientRegistrationHandler handler = ClientRegistrationHandler.get(Rechiseled.MODID);
         handler.registerContainerScreen(() -> Rechiseled.chisel_container, container -> WidgetContainerScreen.of(new BaseChiselingContainerScreen<>(TextComponents.item(Rechiseled.chisel).get()), container, false));
         handler.registerItemModelType("chisel_stack_renderer", ChiselItemRenderer.CODEC);
     }
