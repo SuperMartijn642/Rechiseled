@@ -11,7 +11,7 @@ import net.neoforged.neoforge.common.Tags;
 public class RechiseledRecipeGenerator extends RecipeGenerator {
 
     public RechiseledRecipeGenerator(ResourceCache cache){
-        super("rechiseled", cache);
+        super(Rechiseled.MODID, cache);
     }
 
     @Override

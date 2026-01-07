@@ -1,5 +1,6 @@
 package com.supermartijn642.rechiseled.texture;
 
+import com.supermartijn642.rechiseled.Rechiseled;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.resources.Resource;
@@ -7,8 +8,8 @@ import net.minecraft.server.packs.resources.ResourceManager;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.List;
 import java.util.*;
+import java.util.List;
 
 /**
  * Created 24/01/2022 by SuperMartijn642
@@ -50,10 +51,10 @@ public class TextureMappingTool {
     public static List<String> getSuffixes(String name){
         List<String> suffixes = new ArrayList<>();
         RESOURCE_MANAGER.listPacks().filter(
-            pack -> pack.getNamespaces(PackType.CLIENT_RESOURCES).contains("rechiseled")
+            pack -> pack.getNamespaces(PackType.CLIENT_RESOURCES).contains(Rechiseled.MODID)
         ).forEach(
             pack -> {
-                pack.listResources(PackType.CLIENT_RESOURCES, "rechiseled", "textures/block", (s, stream) -> {
+                pack.listResources(PackType.CLIENT_RESOURCES, Rechiseled.MODID, "textures/block", (s, stream) -> {
                     if(s.getPath().startsWith("textures/block/" + name) && s.getPath().endsWith(".png")){
                         int beginOffset = s.getPath().indexOf(name) + name.length();
                         int end = s.getPath().length() - ".png".length();
