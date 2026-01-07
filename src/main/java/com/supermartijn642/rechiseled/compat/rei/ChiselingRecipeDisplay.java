@@ -1,7 +1,8 @@
 package com.supermartijn642.rechiseled.compat.rei;
 
-import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
-import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipe;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.display.Display;
 import me.shedaniel.rei.api.common.display.DisplaySerializer;
@@ -30,15 +31,19 @@ public class ChiselingRecipeDisplay implements Display {
         // Gather inputs and outputs of the recipe
         List<ItemStack> inputs = new ArrayList<>();
         List<EntryIngredient> outputs = new ArrayList<>();
-        for(ChiselingEntry entry : recipe.getEntries()){
+        for(ChiselingEntry entry : recipe.entries()){
             List<ItemStack> output = new ArrayList<>();
-            if(entry.hasRegularItem()){
-                inputs.add(new ItemStack(entry.getRegularItem()));
-                output.add(new ItemStack(entry.getRegularItem()));
+            if(entry.hasRegularItem(ChiselingBlockShape.BLOCK)){
+                //noinspection DataFlowIssue
+                inputs.add(new ItemStack(entry.getRegularItem(ChiselingBlockShape.BLOCK)));
+                //noinspection DataFlowIssue
+                output.add(new ItemStack(entry.getRegularItem(ChiselingBlockShape.BLOCK)));
             }
-            if(entry.hasConnectingItem()){
-                inputs.add(new ItemStack(entry.getConnectingItem()));
-                output.add(new ItemStack(entry.getConnectingItem()));
+            if(entry.hasConnectingItem(ChiselingBlockShape.BLOCK)){
+                //noinspection DataFlowIssue
+                inputs.add(new ItemStack(entry.getConnectingItem(ChiselingBlockShape.BLOCK)));
+                //noinspection DataFlowIssue
+                output.add(new ItemStack(entry.getConnectingItem(ChiselingBlockShape.BLOCK)));
             }
             outputs.add(EntryIngredients.ofItemStacks(output));
         }
@@ -63,7 +68,7 @@ public class ChiselingRecipeDisplay implements Display {
 
     @Override
     public Optional<ResourceLocation> getDisplayLocation(){
-        return Optional.ofNullable(this.recipe.getRecipeId());
+        return Optional.empty();
     }
 
     @Override
