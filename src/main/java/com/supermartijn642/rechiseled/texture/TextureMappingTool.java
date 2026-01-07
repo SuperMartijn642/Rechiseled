@@ -12,8 +12,8 @@ import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.List;
 import java.util.*;
+import java.util.List;
 import java.util.stream.Stream;
 
 /**
@@ -54,15 +54,15 @@ public class TextureMappingTool {
     public static List<String> getSuffixes(String name){
         List<String> suffixes = new ArrayList<>();
 
-        ModContainer container = Loader.instance().getActiveModList().stream().filter(modContainer -> modContainer.getModId().equals("rechiseled")).findAny().orElse(null);
+        ModContainer container = Loader.instance().getActiveModList().stream().filter(modContainer -> modContainer.getModId().equals(Rechiseled.MODID)).findAny().orElse(null);
         FileSystem fs = null;
         Path source;
         if(container.getSource().isDirectory())
-            source = container.getSource().toPath().resolve("assets").resolve("rechiseled").resolve("textures").resolve("block");
+            source = container.getSource().toPath().resolve("assets").resolve(Rechiseled.MODID).resolve("textures").resolve("block");
         else{
             try{
                 fs = FileSystems.newFileSystem(container.getSource().toPath(), null);
-                source = fs.getPath("/assets").resolve("rechiseled").resolve("textures").resolve("block");
+                source = fs.getPath("/assets").resolve(Rechiseled.MODID).resolve("textures").resolve("block");
             }catch(IOException e){
                 Rechiseled.LOGGER.error("Error loading FileSystem from jar: ", e);
                 return Collections.emptyList();

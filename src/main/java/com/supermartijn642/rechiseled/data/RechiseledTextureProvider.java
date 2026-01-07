@@ -1,6 +1,7 @@
 package com.supermartijn642.rechiseled.data;
 
 import com.supermartijn642.core.generator.ResourceCache;
+import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.api.ChiseledTextureProvider;
 import net.minecraft.util.ResourceLocation;
 
@@ -10,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 public class RechiseledTextureProvider extends ChiseledTextureProvider {
 
     public RechiseledTextureProvider(ResourceCache cache){
-        super("rechiseled", cache);
+        super(Rechiseled.MODID, cache);
     }
 
     @Override

@@ -10,7 +10,7 @@ import com.supermartijn642.rechiseled.Rechiseled;
 public class RechiseledRecipeGenerator extends RecipeGenerator {
 
     public RechiseledRecipeGenerator(ResourceCache cache){
-        super("rechiseled", cache);
+        super(Rechiseled.MODID, cache);
     }
 
     @Override

@@ -13,7 +13,6 @@ import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeCategory;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,7 +27,7 @@ public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipeC
     private final IDrawable icon;
 
     public ChiselingRecipeCategory(IGuiHelper guiHelper){
-        this.backgrounds = guiHelper.createDrawable(new ResourceLocation("rechiseled", "textures/screen/jei_category_background.png"), 0, 0, 174, 72);
+        this.backgrounds = guiHelper.createDrawable(Rechiseled.identifier("textures/screen/jei_category_background.png"), 0, 0, 174, 72);
         this.icon = guiHelper.createDrawableIngredient(new ItemStack(Rechiseled.chisel));
     }
 
@@ -39,7 +38,7 @@ public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipeC
 
     @Override
     public String getUid(){
-        return "rechiseled:chiseling";
+        return Rechiseled.identifier("chiseling").toString();
     }
 
     @Override

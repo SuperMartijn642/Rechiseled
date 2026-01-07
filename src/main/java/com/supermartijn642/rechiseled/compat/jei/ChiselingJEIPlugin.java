@@ -22,8 +22,8 @@ public class ChiselingJEIPlugin implements IModPlugin {
 
     @Override
     public void register(IModRegistry registry){
-        registry.addRecipes(ChiselingRecipes.getAllRecipes(), "rechiseled:chiseling");
-        registry.handleRecipes(ChiselingRecipe.class, ChiselingRecipeCategory.ChiselingRecipeWrapper::new, "rechiseled:chiseling");
-        registry.addRecipeCatalyst(new ItemStack(Rechiseled.chisel), "rechiseled:chiseling");
+        registry.addRecipes(ChiselingRecipes.getAllRecipes(), Rechiseled.identifier("chiseling").toString());
+        registry.handleRecipes(ChiselingRecipe.class, ChiselingRecipeCategory.ChiselingRecipeWrapper::new, Rechiseled.identifier("chiseling").toString());
+        registry.addRecipeCatalyst(new ItemStack(Rechiseled.chisel), Rechiseled.identifier("chiseling").toString());
     }
 }

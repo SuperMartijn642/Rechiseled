@@ -8,6 +8,7 @@ import com.supermartijn642.core.generator.ResourceGenerator;
 import com.supermartijn642.core.generator.ResourceType;
 import com.supermartijn642.core.registry.RegistryUtil;
 import com.supermartijn642.core.util.Pair;
+import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.texture.TextureMappingTool;
 import net.minecraft.util.ResourceLocation;
 
@@ -16,8 +17,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 import java.util.*;
+import java.util.List;
 
 /**
  * Created 24/01/2022 by SuperMartijn642
@@ -171,7 +172,7 @@ public abstract class ChiseledTextureProvider extends ResourceGenerator {
         PaletteMap paletteMap = this.createPaletteMap(new ResourceLocation("rechiseled", "vanilla/oak_planks"), plankTexture);
 
         for(String suffix : this.oakPlankSuffixes){
-            paletteMap.applyToTexture(new ResourceLocation("rechiseled", "block/oak_planks" + suffix), outputLocation + suffix);
+            paletteMap.applyToTexture(Rechiseled.identifier("block/oak_planks" + suffix), outputLocation + suffix);
         }
     }
 

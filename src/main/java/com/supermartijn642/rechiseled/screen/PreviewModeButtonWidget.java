@@ -3,6 +3,7 @@ package com.supermartijn642.rechiseled.screen;
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
+import com.supermartijn642.rechiseled.Rechiseled;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
@@ -14,19 +15,19 @@ import java.util.function.Supplier;
  */
 public class PreviewModeButtonWidget extends AbstractButtonWidget {
 
-    private static final ResourceLocation GREY_BUTTONS = new ResourceLocation("rechiseled", "textures/screen/grey_buttons.png");
+    private static final ResourceLocation GREY_BUTTONS = Rechiseled.identifier("textures/screen/grey_buttons.png");
     private static final ResourceLocation[][] ICONS = {
         {
-            new ResourceLocation("rechiseled", "textures/screen/icon_1x1.png"),
-            new ResourceLocation("rechiseled", "textures/screen/icon_1x1_grey.png")
+            Rechiseled.identifier("textures/screen/icon_1x1.png"),
+            Rechiseled.identifier("textures/screen/icon_1x1_grey.png")
         },
         {
-            new ResourceLocation("rechiseled", "textures/screen/icon_3x1.png"),
-            new ResourceLocation("rechiseled", "textures/screen/icon_3x1_grey.png")
+            Rechiseled.identifier("textures/screen/icon_3x1.png"),
+            Rechiseled.identifier("textures/screen/icon_3x1_grey.png")
         },
         {
-            new ResourceLocation("rechiseled", "textures/screen/icon_3x3.png"),
-            new ResourceLocation("rechiseled", "textures/screen/icon_3x3_grey.png")
+            Rechiseled.identifier("textures/screen/icon_3x3.png"),
+            Rechiseled.identifier("textures/screen/icon_3x3_grey.png")
         }
     };
 

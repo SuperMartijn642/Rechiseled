@@ -15,7 +15,7 @@ import net.minecraftforge.fml.relauncher.Side;
 public class RechiseledClient {
 
     public static void register(){
-        ClientRegistrationHandler handler = ClientRegistrationHandler.get("rechiseled");
+        ClientRegistrationHandler handler = ClientRegistrationHandler.get(Rechiseled.MODID);
         handler.registerContainerScreen(() -> Rechiseled.chisel_container, container -> new WidgetContainerScreen<>(new BaseChiselingContainerScreen<>(TextComponents.item(Rechiseled.chisel).get()), container, false));
         handler.registerItemModelOverwrite(() -> Rechiseled.chisel, CustomRendererBakedModelWrapper::wrap);
         handler.registerCustomItemRenderer(() -> Rechiseled.chisel, ChiselItemRenderer::new);
