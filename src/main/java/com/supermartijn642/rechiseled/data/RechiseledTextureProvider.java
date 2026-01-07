@@ -1,5 +1,6 @@
 package com.supermartijn642.rechiseled.data;
 
+import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.api.ChiseledTextureProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -11,7 +12,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 public class RechiseledTextureProvider extends ChiseledTextureProvider {
 
     public RechiseledTextureProvider(DataGenerator generator, ExistingFileHelper existingFileHelper){
-        super("rechiseled", generator, existingFileHelper);
+        super(Rechiseled.MODID, generator, existingFileHelper);
     }
 
     @Override
