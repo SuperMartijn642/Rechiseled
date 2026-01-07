@@ -27,13 +27,13 @@ public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipe>
     private final IDrawable icon;
 
     public ChiselingRecipeCategory(IGuiHelper guiHelper){
-        this.backgrounds = guiHelper.createDrawable(new ResourceLocation("rechiseled", "textures/screen/jei_category_background.png"), 0, 0, 174, 72);
+        this.backgrounds = guiHelper.createDrawable(Rechiseled.identifier("textures/screen/jei_category_background.png"), 0, 0, 174, 72);
         this.icon = guiHelper.createDrawableIngredient(new ItemStack(Rechiseled.chisel));
     }
 
     @Override
     public ResourceLocation getUid(){
-        return new ResourceLocation("rechiseled", "chiseling");
+        return Rechiseled.identifier("chiseling");
     }
 
     @Override

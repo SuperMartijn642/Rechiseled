@@ -1,5 +1,6 @@
 package com.supermartijn642.rechiseled.api;
 
+import com.supermartijn642.rechiseled.Rechiseled;
 import net.minecraft.util.ResourceLocation;
 
 /**
@@ -44,6 +45,6 @@ public class BaseChiselingRecipes {
     public static final ResourceLocation STONE = location("stone");
 
     private static ResourceLocation location(String name){
-        return new ResourceLocation("rechiseled", name);
+        return Rechiseled.identifier(name);
     }
 }

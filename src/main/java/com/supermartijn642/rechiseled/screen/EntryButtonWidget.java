@@ -3,6 +3,7 @@ package com.supermartijn642.rechiseled.screen;
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.BaseWidget;
+import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -16,7 +17,7 @@ import java.util.function.Supplier;
  */
 public class EntryButtonWidget extends BaseWidget {
 
-    private static final ResourceLocation TEXTURE = new ResourceLocation("rechiseled", "textures/screen/buttons.png");
+    private static final ResourceLocation TEXTURE = Rechiseled.identifier("textures/screen/buttons.png");
 
     private final Supplier<ChiselingEntry> entry;
     private final Supplier<ChiselingEntry> selectedEntry;
