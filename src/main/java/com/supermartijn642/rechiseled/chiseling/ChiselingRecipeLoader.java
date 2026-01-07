@@ -28,7 +28,7 @@ public class ChiselingRecipeLoader implements PreparableReloadListener {
 
     public static void addListeners(){
         ServerLifecycleEvents.SYNC_DATA_PACK_CONTENTS.register((player, joined) -> onDataPackSync(player));
-        ResourceLoader.get(PackType.SERVER_DATA).registerReloader(Identifier.fromNamespaceAndPath("rechiseled", "chiseling_recipe_loader"), new ChiselingRecipeLoader());
+        ResourceLoader.get(PackType.SERVER_DATA).registerReloader(Rechiseled.identifier("chiseling_recipe_loader"), new ChiselingRecipeLoader());
     }
 
     public static void onDataPackSync(Player player){

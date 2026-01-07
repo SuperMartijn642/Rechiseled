@@ -4,6 +4,7 @@ import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.GuiGraphicsHelper;
 import com.supermartijn642.core.gui.widget.BaseWidget;
 import com.supermartijn642.core.gui.widget.WidgetRenderContext;
+import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
 import net.minecraft.client.input.MouseButtonInfo;
 import net.minecraft.network.chat.Component;
@@ -17,7 +18,7 @@ import java.util.function.Supplier;
  */
 public class EntryButtonWidget extends BaseWidget {
 
-    public static final Identifier TEXTURE = Identifier.fromNamespaceAndPath("rechiseled", "screen/buttons");
+    public static final Identifier TEXTURE = Rechiseled.identifier("screen/buttons");
 
     private final Supplier<ChiselingEntry> entry;
     private final Supplier<ChiselingEntry> selectedEntry;

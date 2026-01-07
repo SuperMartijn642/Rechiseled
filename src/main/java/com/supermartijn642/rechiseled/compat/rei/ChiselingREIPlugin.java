@@ -14,7 +14,7 @@ import me.shedaniel.rei.api.common.util.EntryStacks;
  */
 public class ChiselingREIPlugin implements REIClientPlugin {
 
-    public static final CategoryIdentifier<ChiselingRecipeDisplay> CHISELING_CATEGORY = CategoryIdentifier.of("rechiseled", "chiseling");
+    public static final CategoryIdentifier<ChiselingRecipeDisplay> CHISELING_CATEGORY = CategoryIdentifier.of(Rechiseled.MODID, "chiseling");
 
     @Override
     public void registerCategories(CategoryRegistry registry){

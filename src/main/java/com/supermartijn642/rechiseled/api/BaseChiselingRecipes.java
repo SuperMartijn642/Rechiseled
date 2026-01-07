@@ -1,5 +1,6 @@
 package com.supermartijn642.rechiseled.api;
 
+import com.supermartijn642.rechiseled.Rechiseled;
 import net.minecraft.resources.Identifier;
 
 /**
@@ -56,6 +57,6 @@ public class BaseChiselingRecipes {
     public static final Identifier WARPED_PLANKS = location("warped_planks");
 
     private static Identifier location(String name){
-        return Identifier.fromNamespaceAndPath("rechiseled", name);
+        return Rechiseled.identifier(name);
     }
 }

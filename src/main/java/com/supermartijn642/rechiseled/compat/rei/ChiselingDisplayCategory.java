@@ -24,7 +24,7 @@ import java.util.List;
  */
 public class ChiselingDisplayCategory implements DisplayCategory<ChiselingRecipeDisplay> {
 
-    private static final Identifier BACKGROUND = Identifier.fromNamespaceAndPath("rechiseled", "textures/screen/jei_category_background.png");
+    private static final Identifier BACKGROUND = Rechiseled.identifier("textures/screen/jei_category_background.png");
     private static final Component TITLE = TextComponents.translation("rechiseled.jei_category.title").get();
 
     private final EntryStack<ItemStack> icon;
