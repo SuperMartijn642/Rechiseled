@@ -4,6 +4,7 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
+import com.supermartijn642.rechiseled.Rechiseled;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
@@ -12,7 +13,7 @@ import net.minecraft.util.text.ITextComponent;
  */
 public class ToggleRotationButton extends AbstractButtonWidget {
 
-    private static final ResourceLocation TEXTURE = new ResourceLocation("rechiseled", "textures/screen/rotation_icon.png");
+    private static final ResourceLocation TEXTURE = Rechiseled.identifier("textures/screen/rotation_icon.png");
 
     public static boolean rotate = true;
 

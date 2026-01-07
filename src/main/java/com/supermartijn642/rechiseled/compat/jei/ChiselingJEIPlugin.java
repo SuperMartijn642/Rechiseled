@@ -18,7 +18,7 @@ public class ChiselingJEIPlugin implements IModPlugin {
 
     @Override
     public ResourceLocation getPluginUid(){
-        return new ResourceLocation("rechiseled", "chiseling_plugin");
+        return Rechiseled.identifier("chiseling_plugin");
     }
 
     @Override
@@ -28,11 +28,11 @@ public class ChiselingJEIPlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration){
-        registration.addRecipes(ChiselingRecipes.getAllRecipes(), new ResourceLocation("rechiseled", "chiseling"));
+        registration.addRecipes(ChiselingRecipes.getAllRecipes(), Rechiseled.identifier("chiseling"));
     }
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration){
-        registration.addRecipeCatalyst(new ItemStack(Rechiseled.chisel), new ResourceLocation("rechiseled", "chiseling"));
+        registration.addRecipeCatalyst(new ItemStack(Rechiseled.chisel), Rechiseled.identifier("chiseling"));
     }
 }

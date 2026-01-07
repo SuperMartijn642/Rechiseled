@@ -1,5 +1,6 @@
 package com.supermartijn642.rechiseled.texture;
 
+import com.supermartijn642.rechiseled.Rechiseled;
 import net.minecraft.resources.IResourceManager;
 import net.minecraft.resources.ResourcePackType;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -7,8 +8,8 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.lang.reflect.Field;
-import java.util.List;
 import java.util.*;
+import java.util.List;
 
 /**
  * Created 24/01/2022 by SuperMartijn642
@@ -73,10 +74,10 @@ public class TextureMappingTool {
 
         List<String> suffixes = new ArrayList<>();
         resourceManager.listPacks().filter(
-            pack -> pack.getNamespaces(ResourcePackType.CLIENT_RESOURCES).size() == 1 && pack.getNamespaces(ResourcePackType.CLIENT_RESOURCES).contains("rechiseled")
+            pack -> pack.getNamespaces(ResourcePackType.CLIENT_RESOURCES).size() == 1 && pack.getNamespaces(ResourcePackType.CLIENT_RESOURCES).contains(Rechiseled.MODID)
         ).forEach(
             pack -> {
-                pack.getResources(ResourcePackType.CLIENT_RESOURCES, "rechiseled", "textures/block", Integer.MAX_VALUE, s -> s.startsWith(name) && s.endsWith(".png"))
+                pack.getResources(ResourcePackType.CLIENT_RESOURCES, Rechiseled.MODID, "textures/block", Integer.MAX_VALUE, s -> s.startsWith(name) && s.endsWith(".png"))
                     .stream()
                     .map(
                         s -> {
