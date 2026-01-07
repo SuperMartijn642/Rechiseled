@@ -11,7 +11,7 @@ import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 public class RechiseledRecipeGenerator extends RecipeGenerator {
 
     public RechiseledRecipeGenerator(ResourceCache cache){
-        super("rechiseled", cache);
+        super(Rechiseled.MODID, cache);
     }
 
     @Override

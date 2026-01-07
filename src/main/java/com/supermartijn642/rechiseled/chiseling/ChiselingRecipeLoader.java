@@ -42,7 +42,7 @@ public class ChiselingRecipeLoader implements PreparableReloadListener, Identifi
 
     @Override
     public ResourceLocation getFabricId(){
-        return ResourceLocation.fromNamespaceAndPath("rechiseled", "chiseling_recipe_loader");
+        return Rechiseled.identifier("chiseling_recipe_loader");
     }
 
     @Override
