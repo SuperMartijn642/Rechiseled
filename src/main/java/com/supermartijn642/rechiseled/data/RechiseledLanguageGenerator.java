@@ -10,7 +10,7 @@ import com.supermartijn642.rechiseled.Rechiseled;
 public class RechiseledLanguageGenerator extends LanguageGenerator {
 
     public RechiseledLanguageGenerator(ResourceCache cache){
-        super("rechiseled", cache, "en_us");
+        super(Rechiseled.MODID, cache, "en_us");
     }
 
     @Override
