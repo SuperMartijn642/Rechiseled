@@ -5,6 +5,7 @@ import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import com.supermartijn642.core.util.Holder;
+import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -18,9 +19,9 @@ import java.util.function.Supplier;
  */
 public class ConnectingToggleWidget extends AbstractButtonWidget {
 
-    private static final ResourceLocation GREY_BUTTONS = ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/grey_buttons.png");
-    private static final ResourceLocation ICON_CONNECTED_ON = ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/icon_connecting_true.png");
-    private static final ResourceLocation ICON_CONNECTED_OFF = ResourceLocation.fromNamespaceAndPath("rechiseled", "textures/screen/icon_connecting_false.png");
+    private static final ResourceLocation GREY_BUTTONS = Rechiseled.identifier("textures/screen/grey_buttons.png");
+    private static final ResourceLocation ICON_CONNECTED_ON = Rechiseled.identifier("textures/screen/icon_connecting_true.png");
+    private static final ResourceLocation ICON_CONNECTED_OFF = Rechiseled.identifier("textures/screen/icon_connecting_false.png");
 
     private final Supplier<Boolean> connecting;
     private final Supplier<ChiselingEntry> currentEntry;
