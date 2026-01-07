@@ -1,8 +1,8 @@
 package com.supermartijn642.rechiseled.compat.rei;
 
 import com.supermartijn642.rechiseled.Rechiseled;
-import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
-import com.supermartijn642.rechiseled.chiseling.ChiselingRecipes;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipe;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipeManager;
 import me.shedaniel.rei.api.client.plugins.REIClientPlugin;
 import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
 import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
@@ -26,7 +26,7 @@ public class ChiselingREIPlugin implements REIClientPlugin {
 
     @Override
     public void registerDisplays(DisplayRegistry registry){
-        for(ChiselingRecipe recipe : ChiselingRecipes.getAllRecipes())
+        for(ChiselingRecipe recipe : ChiselingRecipeManager.get(true).getAllRecipes()) // TODO validate this is run from the client
             registry.add(new ChiselingRecipeDisplay(recipe));
     }
 }
