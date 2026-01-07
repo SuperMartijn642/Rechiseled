@@ -2,6 +2,7 @@ package com.supermartijn642.rechiseled.data;
 
 import com.supermartijn642.core.generator.AtlasSourceGenerator;
 import com.supermartijn642.core.generator.ResourceCache;
+import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.screen.*;
 
 import java.util.Arrays;
@@ -12,7 +13,7 @@ import java.util.Arrays;
 public class RechiseledAtlasSourceGenerator extends AtlasSourceGenerator {
 
     public RechiseledAtlasSourceGenerator(ResourceCache cache){
-        super("rechiseled", cache);
+        super(Rechiseled.MODID, cache);
     }
 
     @Override
