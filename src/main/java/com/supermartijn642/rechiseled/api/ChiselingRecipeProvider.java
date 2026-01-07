@@ -13,7 +13,6 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
-import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Nullable;
 
 import java.nio.file.Path;
@@ -139,21 +138,6 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
         private boolean overwrite = false;
 
         private ChiselingRecipeBuilder(){
-        }
-
-        /**
-         * Sets a parent recipe for this recipe builder.
-         * All entries from this recipe builder will be combined with the parent recipe.
-         * {@link BaseChiselingRecipes} contains recipe locations for the default rechiseled recipes.
-         * @param parent the parent recipe location
-         * @throws IllegalArgumentException when {@code parent} recipe does not exist
-         * @deprecated
-         */
-        @Deprecated(forRemoval = true)
-        @ApiStatus.ScheduledForRemoval(inVersion = "1.2.0")
-        public ChiselingRecipeBuilder parent(ResourceLocation parent){
-            this.parent = parent;
-            return this;
         }
 
         /**
