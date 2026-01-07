@@ -1,5 +1,6 @@
 package com.supermartijn642.rechiseled.api;
 
+import com.supermartijn642.rechiseled.Rechiseled;
 import net.minecraft.resources.ResourceLocation;
 
 /**
@@ -53,6 +54,6 @@ public class BaseChiselingRecipes {
     public static final ResourceLocation WARPED_PLANKS = location("warped_planks");
 
     private static ResourceLocation location(String name){
-        return new ResourceLocation("rechiseled", name);
+        return Rechiseled.identifier(name);
     }
 }
