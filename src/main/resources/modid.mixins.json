@@ -4,9 +4,18 @@
   "package": "${mod_package}.${mixin_package}",
   "compatibilityLevel": "${mixin_compatibility_level}",
   "refmap": "${mod_id}.mixins.refmap.json",
-  "mixins": [],
-  "client": [],
-  "server": [],
+  "mixins": [
+    "MinecraftServerMixin",
+    "PlayerListMixin"
+  ],
+  "client": [
+    "CreateWorldScreenMixin",
+    "MinecraftMixin",
+    "WorldOpenFlowsMixin"
+  ],
+  "server": [
+    "ServerMainMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }
