@@ -35,7 +35,7 @@ dependencies {
 
     // Core library
 //    implementation "curse.maven:supermartijn642s-core-lib-454372:${core_library_file}"
-    implementation "a:supermartijn642corelib:1.1.18b-dev-neoforge-mc1.21.4"
+    implementation "a:supermartijn642corelib:1.1.20-neoforge-mc1.21.4"
     // Config library
     implementation "curse.maven:supermartijn642s-config-lib-438332:${config_library_file}"
     // Fusion
