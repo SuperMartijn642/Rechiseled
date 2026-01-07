@@ -1,13 +1,14 @@
 package com.supermartijn642.rechiseled.texture;
 
+import com.supermartijn642.rechiseled.Rechiseled;
 import net.minecraft.resources.IResourceManager;
 import net.minecraftforge.client.model.generators.ExistingFileHelper;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.lang.reflect.Field;
-import java.util.List;
 import java.util.*;
+import java.util.List;
 
 /**
  * Created 24/01/2022 by SuperMartijn642
@@ -73,7 +74,7 @@ public class TextureMappingTool {
         List<String> suffixes = new ArrayList<>();
         resourceManager.listResources("textures/block", s -> s.startsWith(name) && s.endsWith(".png"))
             .stream()
-            .filter(s -> s.getNamespace().equals("rechiseled"))
+            .filter(s -> s.getNamespace().equals(Rechiseled.MODID))
             .map(
                 s -> {
                     int beginOffset = s.getPath().indexOf(name) + name.length();

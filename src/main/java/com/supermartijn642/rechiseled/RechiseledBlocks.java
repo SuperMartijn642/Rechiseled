@@ -91,7 +91,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType BLUE_ICE_SLANTED_TILES = create("blue_ice_slanted_tiles", "Slanted Blue Ice Tiles").configure(BLUE_ICE_CONFIGURER).build();
     public static final RechiseledBlockType BLUE_ICE_TILES = create("blue_ice_tiles", "Blue Ice Tiles").configure(BLUE_ICE_CONFIGURER).build();
     // Bone block
-    private static final Supplier<BlockProperties> BONE_BLOCK_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.SAND).requiresCorrectTool().strength(2.0F).sound(SoundType.BONE_BLOCK);
+    private static final Supplier<BlockProperties> BONE_BLOCK_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.SAND).requiresCorrectTool().strength(2.0F);
     private static final Consumer<RechiseledBlockBuilder> BONE_BLOCK_CONFIGURER = b -> b.properties(BONE_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.BONE_BLOCK).recipe(BaseChiselingRecipes.BONE_BLOCK);
     public static final RechiseledBlockType BONE_BLOCK_BORDERED = create("bone_block_bordered", "Bordered Bone Block").configure(BONE_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType BONE_BLOCK_BUNDLED = create("bone_block_bundled", "Bundled Bone Block").configure(BONE_BLOCK_CONFIGURER).noConnectingVariant().build();
@@ -375,7 +375,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType MOSSY_COBBLESTONE_STRIPES = create("mossy_cobblestone_stripes", "Mossy Cobblestone Stripes").configure(MOSSY_COBBLESTONE_CONFIGURER).build();
     public static final RechiseledBlockType MOSSY_COBBLESTONE_WORN_STRIPES = create("mossy_cobblestone_worn_stripes", "Weathered Mossy Cobblestone").configure(MOSSY_COBBLESTONE_CONFIGURER).build();
     // Netherrack
-    private static final Supplier<BlockProperties> NETHERRACK_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.NETHER).requiresCorrectTool().strength(0.4F).sound(SoundType.NETHERRACK);
+    private static final Supplier<BlockProperties> NETHERRACK_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.NETHER).requiresCorrectTool().strength(0.4F);
     private static final Consumer<RechiseledBlockBuilder> NETHERRACK_CONFIGURER = b -> b.properties(NETHERRACK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.NETHERRACK).recipe(BaseChiselingRecipes.NETHERRACK);
     public static final RechiseledBlockType NETHERRACK_BEAMS = create("netherrack_beams", "Netherrack Beams").configure(NETHERRACK_CONFIGURER).build();
     public static final RechiseledBlockType NETHERRACK_BRICK_PATTERN = create("netherrack_brick_pattern", "Netherrack Brick Pattern").configure(NETHERRACK_CONFIGURER).build();
@@ -387,7 +387,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType NETHERRACK_STRIPES = create("netherrack_stripes", "Netherrack Stripes").configure(NETHERRACK_CONFIGURER).build();
     public static final RechiseledBlockType NETHERRACK_TILES = create("netherrack_tiles", "Netherrack Tiles").configure(NETHERRACK_CONFIGURER).build();
     // Nether bricks
-    private static final Supplier<BlockProperties> NETHER_BRICKS_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.NETHER).requiresCorrectTool().destroyTime(2.0F).explosionResistance(6.0F).sound(SoundType.NETHER_BRICKS);
+    private static final Supplier<BlockProperties> NETHER_BRICKS_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.NETHER).requiresCorrectTool().destroyTime(2.0F).explosionResistance(6.0F);
     private static final Consumer<RechiseledBlockBuilder> NETHER_BRICKS_CONFIGURER = b -> b.properties(NETHER_BRICKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.NETHER_BRICKS).recipe(BaseChiselingRecipes.NETHER_BRICKS);
     public static final RechiseledBlockType NETHER_BRICKS_BEAMS = create("nether_bricks_beams", "Nether Brick Beams").configure(NETHER_BRICKS_CONFIGURER).build();
     public static final RechiseledBlockType NETHER_BRICKS_BRICK_PATTERN = create("nether_bricks_brick_pattern", "Nether Brick Pattern").configure(NETHER_BRICKS_CONFIGURER).build();
@@ -503,7 +503,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType QUARTZ_BLOCK_STRIPES = create("quartz_block_stripes", "Quartz Block Stripes").configure(QUARTZ_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType QUARTZ_BLOCK_TILES = create("quartz_block_tiles", "Quartz Block Tiles").configure(QUARTZ_BLOCK_CONFIGURER).build();
     // Red nether bricks
-    private static final Supplier<BlockProperties> RED_NETHER_BRICKS_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.NETHER).requiresCorrectTool().destroyTime(2.0F).explosionResistance(6.0F).sound(SoundType.NETHER_BRICKS);
+    private static final Supplier<BlockProperties> RED_NETHER_BRICKS_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.NETHER).requiresCorrectTool().destroyTime(2.0F).explosionResistance(6.0F);
     private static final Consumer<RechiseledBlockBuilder> RED_NETHER_BRICKS_CONFIGURER = b -> b.properties(RED_NETHER_BRICKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.RED_NETHER_BRICKS).recipe(BaseChiselingRecipes.RED_NETHER_BRICKS);
     public static final RechiseledBlockType RED_NETHER_BRICKS_BEAMS = create("red_nether_bricks_beams", "Red Nether Brick Beams").configure(RED_NETHER_BRICKS_CONFIGURER).build();
     public static final RechiseledBlockType RED_NETHER_BRICKS_BRICK_PATTERN = create("red_nether_bricks_brick_pattern", "Red Nether Brick Pattern").configure(RED_NETHER_BRICKS_CONFIGURER).build();
