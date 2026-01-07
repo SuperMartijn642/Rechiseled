@@ -24,7 +24,7 @@ import java.util.function.Supplier;
  */
 public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> extends BaseContainerWidget<T> {
 
-    public static final ResourceLocation BACKGROUND = ResourceLocation.fromNamespaceAndPath("rechiseled", "screen/chiseling_background");
+    public static final ResourceLocation BACKGROUND = Rechiseled.identifier("screen/chiseling_background");
 
     /**
      * 0 - 1 block
