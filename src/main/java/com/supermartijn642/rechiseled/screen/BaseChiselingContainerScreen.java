@@ -5,8 +5,9 @@ import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.BaseContainerWidget;
 import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.rechiseled.Rechiseled;
-import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
-import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipe;
 import com.supermartijn642.rechiseled.packet.PacketChiselAll;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
 import com.supermartijn642.rechiseled.packet.PacketToggleConnecting;
@@ -60,13 +61,13 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
             ChiselingEntry entry = this.container.currentEntry;
             if(entry == null)
                 return null;
-            return (this.container.connecting && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
+            return (this.container.connecting && entry.hasConnectingItem(ChiselingBlockShape.BLOCK)) || !entry.hasRegularItem(ChiselingBlockShape.BLOCK) ? entry.getConnectingItem(ChiselingBlockShape.BLOCK) : entry.getRegularItem(ChiselingBlockShape.BLOCK);
         }, () -> previewMode));
         Supplier<Boolean> enablePreviewButtons = () -> {
             ChiselingEntry entry = this.container.currentEntry;
             if(entry == null)
                 return false;
-            Item currentItem = (this.container.connecting && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
+            Item currentItem = (this.container.connecting && entry.hasConnectingItem(ChiselingBlockShape.BLOCK)) || !entry.hasRegularItem(ChiselingBlockShape.BLOCK) ? entry.getConnectingItem(ChiselingBlockShape.BLOCK) : entry.getRegularItem(ChiselingBlockShape.BLOCK);
             return currentItem instanceof BlockItem;
         };
         this.addWidget(new PreviewModeButtonWidget(193, 18, 19, 21, 2, () -> previewMode, enablePreviewButtons, () -> previewMode = 2));
@@ -95,10 +96,10 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
                 Slot slot = this.container.getSlot(index);
                 ItemStack stack = slot.getItem();
 
-                for(ChiselingEntry entry : this.container.currentRecipe.getEntries()){
+                for(ChiselingEntry entry : this.container.currentRecipe.entries()){
                     if(stack.getComponentsPatch().isEmpty()
-                        && ((entry.hasConnectingItem() && stack.getItem() == entry.getConnectingItem())
-                        || (entry.hasRegularItem() && stack.getItem() == entry.getRegularItem()))){
+                        && ((entry.hasConnectingItem(ChiselingBlockShape.BLOCK) && stack.getItem() == entry.getConnectingItem(ChiselingBlockShape.BLOCK))
+                        || (entry.hasRegularItem(ChiselingBlockShape.BLOCK) && stack.getItem() == entry.getRegularItem(ChiselingBlockShape.BLOCK)))){
                         ScreenUtils.fillRect(context.poseStack(), slot.x, slot.y, 16, 16, 0, 20, 100, 0.5f);
                     }
                 }
@@ -113,7 +114,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
         ChiselingRecipe recipe = this.container.currentRecipe;
         if(recipe == null)
             return null;
-        return index >= 0 && index < recipe.getEntries().size() ? recipe.getEntries().get(index) : null;
+        return index >= 0 && index < recipe.entries().size() ? recipe.entries().get(index) : null;
     }
 
     private void selectEntry(int index){

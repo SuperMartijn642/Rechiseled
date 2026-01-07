@@ -6,7 +6,8 @@ import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import com.supermartijn642.core.util.Holder;
 import com.supermartijn642.rechiseled.Rechiseled;
-import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -43,7 +44,7 @@ public class ConnectingToggleWidget extends AbstractButtonWidget {
     protected void getTooltips(Consumer<Component> tooltips){
         boolean connecting = this.connecting.get();
         ChiselingEntry currentEntry = this.currentEntry.get();
-        if(currentEntry != null && (connecting ? currentEntry.hasRegularItem() : currentEntry.hasConnectingItem()))
+        if(currentEntry != null && (connecting ? currentEntry.hasRegularItem(ChiselingBlockShape.BLOCK) : currentEntry.hasConnectingItem(ChiselingBlockShape.BLOCK)))
             tooltips.accept(TextComponents.translation("rechiseled.chiseling.connecting", TextComponents.translation("rechiseled.chiseling.connecting." + (connecting ? "on" : "off")).color(ChatFormatting.GOLD).get()).get());
     }
 
@@ -51,7 +52,7 @@ public class ConnectingToggleWidget extends AbstractButtonWidget {
     public void render(WidgetRenderContext context, int mouseX, int mouseY){
         boolean connecting = this.connecting.get();
         ChiselingEntry currentEntry = this.currentEntry.get();
-        boolean canSwitch = currentEntry != null && (connecting ? currentEntry.hasRegularItem() : currentEntry.hasConnectingItem());
+        boolean canSwitch = currentEntry != null && (connecting ? currentEntry.hasRegularItem(ChiselingBlockShape.BLOCK) : currentEntry.hasConnectingItem(ChiselingBlockShape.BLOCK));
 
         ScreenUtils.drawTexture(GREY_BUTTONS, context.poseStack(), this.x, this.y, this.width, this.height, 0, (canSwitch ? this.isFocused() ? 2 : 0 : 1) / 3f, 1, 1 / 3f);
 
