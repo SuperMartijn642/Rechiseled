@@ -1,6 +1,5 @@
 package com.supermartijn642.rechiseled.chiseling;
 
-import com.supermartijn642.core.CoreSide;
 import com.supermartijn642.core.network.BasePacket;
 import com.supermartijn642.core.network.PacketContext;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipe;
@@ -36,11 +35,6 @@ public class PacketUpdateChiselingRecipes implements BasePacket {
         int recipeCount = buffer.readInt();
         for(int i = 0; i < recipeCount; i++)
             this.recipes.add(ChiselingRecipeImpl.readFromStream(buffer));
-    }
-
-    @Override
-    public boolean verify(PacketContext context){
-        return context.getHandlingSide() == CoreSide.CLIENT;
     }
 
     @Override
