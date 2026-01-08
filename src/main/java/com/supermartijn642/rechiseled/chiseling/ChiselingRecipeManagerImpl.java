@@ -12,6 +12,9 @@ import com.supermartijn642.rechiseled.api.chiseling.plugin.ChiselingRecipesLoade
 import com.supermartijn642.rechiseled.api.chiseling.plugin.MutableChiselingRecipe;
 import com.supermartijn642.rechiseled.chiseling.plugin.ChiselingRecipeMutationContextImpl;
 import com.supermartijn642.rechiseled.chiseling.plugin.ChiselingRecipesLoadedContextImpl;
+import net.fabricmc.loader.api.EntrypointException;
+import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.entrypoint.EntrypointContainer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
@@ -55,7 +58,7 @@ public class ChiselingRecipeManagerImpl implements ChiselingRecipeManager {
     private static final Map<ResourceLocation,PluginEntry> PLUGINS_BY_IDENTIFIER = new HashMap<>();
     private static boolean finalized = false;
 
-    public static void registerPlugin(ResourceLocation identifier, ChiselingRecipePlugin plugin, int priority){
+    public static synchronized void registerPlugin(ResourceLocation identifier, ChiselingRecipePlugin plugin, int priority){
         if(finalized)
             throw new IllegalStateException("Trying to register chiseling plugin '" + identifier + "' after initialization!");
         if(PLUGINS_BY_IDENTIFIER.containsKey(identifier))
@@ -72,10 +75,9 @@ public class ChiselingRecipeManagerImpl implements ChiselingRecipeManager {
         }
     }
 
-    public static void finalizePlugins(){
+    public static synchronized void finalizePlugins(){
         if(finalized)
             throw new IllegalStateException("Plugins are already finalized!");
-        finalized = true;
 
         // Add Rechiseled's datapack plugin
         PluginEntry datapacksPlugin = new PluginEntry(Rechiseled.identifier("datapacks"), 0, ChiselingRecipeDatapackPlugin.INSTANCE);
@@ -88,8 +90,25 @@ public class ChiselingRecipeManagerImpl implements ChiselingRecipeManager {
             break;
         }
 
-        // Create plugins from entry points
-        // TODO
+        // Add Fabric entrypoint plugins
+        List<EntrypointContainer<ChiselingRecipePlugin>> entrypoints = List.of();
+        try{
+            entrypoints = FabricLoader.getInstance().getEntrypointContainers("rechiseled-chiseling-recipe-plugin", ChiselingRecipePlugin.class);
+        }catch(EntrypointException e){
+            Rechiseled.LOGGER.error("Encountered an exception whilst creating chiseling plugin entrypoints!", e);
+        }
+        for(EntrypointContainer<ChiselingRecipePlugin> entrypoint : entrypoints){
+            ResourceLocation identifier = new ResourceLocation(entrypoint.getProvider().getMetadata().getId(), "entrypoint");
+            if(PLUGINS_BY_IDENTIFIER.containsKey(identifier)){
+                int index = 2;
+                while(PLUGINS_BY_IDENTIFIER.containsKey(identifier.withSuffix(Integer.toString(index))))
+                    index++;
+                identifier = identifier.withSuffix(Integer.toString(index));
+            }
+            registerPlugin(identifier, entrypoint.getEntrypoint(), 0);
+        }
+
+        finalized = true;
 
         Rechiseled.LOGGER.info("{} chiseling plugins were registered: {}", PLUGINS.size(), PLUGINS.stream().map(PluginEntry::identifier).toArray());
     }
