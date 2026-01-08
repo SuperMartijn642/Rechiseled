@@ -4,6 +4,7 @@ import com.supermartijn642.core.CommonUtils;
 import com.supermartijn642.core.gui.BaseContainerType;
 import com.supermartijn642.core.item.CreativeItemGroup;
 import com.supermartijn642.core.network.PacketChannel;
+import com.supermartijn642.core.network.PacketDirection;
 import com.supermartijn642.core.registry.GeneratorRegistrationHandler;
 import com.supermartijn642.core.registry.RegistrationHandler;
 import com.supermartijn642.core.registry.RegistryEntryAcceptor;
@@ -65,10 +66,10 @@ public class Rechiseled {
         });
 
     public Rechiseled(){
-        CHANNEL.registerMessage(PacketSelectEntry.class, PacketSelectEntry::new, true);
-        CHANNEL.registerMessage(PacketToggleConnecting.class, PacketToggleConnecting::new, true);
-        CHANNEL.registerMessage(PacketChiselAll.class, PacketChiselAll::new, true);
-        CHANNEL.registerMessage(PacketUpdateChiselingRecipes.class, PacketUpdateChiselingRecipes::new, true);
+        CHANNEL.registerMessage(PacketSelectEntry.class, PacketSelectEntry::new, PacketDirection.CLIENT_TO_SERVER, true);
+        CHANNEL.registerMessage(PacketToggleConnecting.class, PacketToggleConnecting::new, PacketDirection.CLIENT_TO_SERVER, true);
+        CHANNEL.registerMessage(PacketChiselAll.class, PacketChiselAll::new, PacketDirection.CLIENT_TO_SERVER, true);
+        CHANNEL.registerMessage(PacketUpdateChiselingRecipes.class, PacketUpdateChiselingRecipes::new, PacketDirection.SERVER_TO_CLIENT, true);
 
         MinecraftForge.EVENT_BUS.addListener((Consumer<AddReloadListenerEvent>)e -> e.addListener(ChiselingRecipeDatapackPlugin.INSTANCE));
 
