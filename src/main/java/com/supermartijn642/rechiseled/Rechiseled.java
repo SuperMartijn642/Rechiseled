@@ -3,6 +3,7 @@ package com.supermartijn642.rechiseled;
 import com.supermartijn642.core.gui.BaseContainerType;
 import com.supermartijn642.core.item.CreativeItemGroup;
 import com.supermartijn642.core.network.PacketChannel;
+import com.supermartijn642.core.network.PacketDirection;
 import com.supermartijn642.core.registry.GeneratorRegistrationHandler;
 import com.supermartijn642.core.registry.RegistrationHandler;
 import com.supermartijn642.core.registry.RegistryEntryAcceptor;
@@ -63,10 +64,10 @@ public class Rechiseled implements ModInitializer {
 
     @Override
     public void onInitialize(){
-        CHANNEL.registerMessage(PacketSelectEntry.class, PacketSelectEntry::new, true);
-        CHANNEL.registerMessage(PacketToggleConnecting.class, PacketToggleConnecting::new, true);
-        CHANNEL.registerMessage(PacketChiselAll.class, PacketChiselAll::new, true);
-        CHANNEL.registerMessage(PacketUpdateChiselingRecipes.class, PacketUpdateChiselingRecipes::new, true);
+        CHANNEL.registerMessage(PacketSelectEntry.class, PacketSelectEntry::new, PacketDirection.CLIENT_TO_SERVER, true);
+        CHANNEL.registerMessage(PacketToggleConnecting.class, PacketToggleConnecting::new, PacketDirection.CLIENT_TO_SERVER, true);
+        CHANNEL.registerMessage(PacketChiselAll.class, PacketChiselAll::new, PacketDirection.CLIENT_TO_SERVER, true);
+        CHANNEL.registerMessage(PacketUpdateChiselingRecipes.class, PacketUpdateChiselingRecipes::new, PacketDirection.SERVER_TO_CLIENT, true);
 
         ResourceLoader.get(PackType.SERVER_DATA).registerReloader(Rechiseled.identifier("chiseling_recipe_loader"), ChiselingRecipeDatapackPlugin.INSTANCE);
 
