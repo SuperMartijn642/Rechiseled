@@ -37,7 +37,7 @@ public class PacketSelectEntry implements BasePacket {
 
     @Override
     public void handle(PacketContext context){
-        Container container = context.getSendingPlayer().containerMenu;
+        Container container = context.getPlayer().containerMenu;
         if(container instanceof BaseChiselingContainer)
             ((BaseChiselingContainer)container).setCurrentEntry(this.index);
     }
