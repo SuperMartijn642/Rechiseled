@@ -1,7 +1,6 @@
 package com.supermartijn642.rechiseled.api.chiseling;
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 import org.jetbrains.annotations.Nullable;
 
@@ -42,21 +41,33 @@ public interface ChiselingEntry {
     boolean hasConnectingItem(ChiselingBlockShape shape);
 
     @Nullable
-    Item getRegularItem(ChiselingBlockShape shape);
+    ItemWithWorth getRegularItem(ChiselingBlockShape shape);
 
     @Nullable
-    Item getConnectingItem(ChiselingBlockShape shape);
+    ItemWithWorth getConnectingItem(ChiselingBlockShape shape);
 
     /**
      * Returns any item for the given shape.
      */
     @Nullable
-    Item getAnyItem(ChiselingBlockShape shape);
+    ItemWithWorth getAnyItem(ChiselingBlockShape shape);
 
     /**
      * Returns any item from this entry. Result is never {@code null}.
      */
-    Item getAnyItem();
+    ItemWithWorth getAnyItem();
+
+    /**
+     * Returns any regular item from this entry.
+     */
+    @Nullable
+    ItemWithWorth getAnyRegularItem();
+
+    /**
+     * Returns any connecting item from this entry.
+     */
+    @Nullable
+    ItemWithWorth getAnyConnectingItem();
 
     /**
      * Whether this entry contains the given item.

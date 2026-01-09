@@ -12,6 +12,7 @@ import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipe;
+import com.supermartijn642.rechiseled.api.chiseling.ItemWithWorth;
 import com.supermartijn642.rechiseled.packet.PacketChiselAll;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
 import com.supermartijn642.rechiseled.screen.preview.EntryPreviewWidget;
@@ -128,11 +129,13 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
         // Preview
         this.addWidget(new EntryPreviewWidget(155, 20, 68, 69, () -> {
             DisplayEntry display = this.selectedEntry;
-            return display == null ? null : display.getItem(this.connecting);
+            ItemWithWorth item = display == null ? null : display.getItem(this.connecting);
+            return item == null ? null : item.item();
         }, () -> previewMode));
         Supplier<Boolean> enablePreviewButtons = () -> {
             DisplayEntry display = this.selectedEntry;
-            return display != null && display.getItem(this.connecting) instanceof BlockItem;
+            ItemWithWorth item = display == null ? null : display.getItem(this.connecting);
+            return item != null && item.item() instanceof BlockItem;
         };
         this.addWidget(new PreviewModeButtonWidget(227, 21, 19, 21, PreviewMode.PANEL, () -> previewMode, enablePreviewButtons, () -> previewMode = PreviewMode.PANEL));
         this.addWidget(new PreviewModeButtonWidget(227, 44, 19, 21, PreviewMode.ROW, () -> previewMode, enablePreviewButtons, () -> previewMode = PreviewMode.ROW));
@@ -244,10 +247,10 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
                         DisplayEntry display = new DisplayEntry(i, entry, shape);
                         this.allEntries.add(display);
                         if(matchingDisplay == null && entry == this.container.currentEntry){
-                            if(entry.getRegularItem(shape) == currentItem){
+                            if(entry.hasRegularItem(shape) && entry.getRegularItem(shape).item() == currentItem){
                                 matchingDisplay = display;
                                 this.connecting = false;
-                            }else if(entry.getConnectingItem(shape) == currentItem){
+                            }else if(entry.hasConnectingItem(shape) && entry.getConnectingItem(shape).item() == currentItem){
                                 matchingDisplay = display;
                                 this.connecting = true;
                             }
@@ -267,8 +270,8 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
             || (!showSlabs && entry.shape() == ChiselingBlockShape.SLAB)
             || (!showNonConnecting && !entry.hasItem(true)))
             return false;
-        return (entry.hasItem(false) && this.doesItemMatchSearch(entry.getItem(false)))
-            || (entry.hasItem(true) && this.doesItemMatchSearch(entry.getItem(true)));
+        return (entry.hasItem(false) && this.doesItemMatchSearch(entry.getItem(false).item()))
+            || (entry.hasItem(true) && this.doesItemMatchSearch(entry.getItem(true).item()));
     }
 
     private boolean doesItemMatchSearch(Item item){
