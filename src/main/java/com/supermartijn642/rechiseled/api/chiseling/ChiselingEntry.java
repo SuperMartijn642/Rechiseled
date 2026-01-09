@@ -43,21 +43,33 @@ public interface ChiselingEntry {
     boolean hasConnectingItem(ChiselingBlockShape shape);
 
     @Nullable
-    ItemWithMeta getRegularItem(ChiselingBlockShape shape);
+    ItemWithWorth getRegularItem(ChiselingBlockShape shape);
 
     @Nullable
-    ItemWithMeta getConnectingItem(ChiselingBlockShape shape);
+    ItemWithWorth getConnectingItem(ChiselingBlockShape shape);
 
     /**
      * Returns any item for the given shape.
      */
     @Nullable
-    ItemWithMeta getAnyItem(ChiselingBlockShape shape);
+    ItemWithWorth getAnyItem(ChiselingBlockShape shape);
 
     /**
      * Returns any item from this entry. Result is never {@code null}.
      */
-    ItemWithMeta getAnyItem();
+    ItemWithWorth getAnyItem();
+
+    /**
+     * Returns any regular item from this entry.
+     */
+    @Nullable
+    ItemWithWorth getAnyRegularItem();
+
+    /**
+     * Returns any connecting item from this entry.
+     */
+    @Nullable
+    ItemWithWorth getAnyConnectingItem();
 
     /**
      * Whether this entry contains the given item.

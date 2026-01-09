@@ -10,7 +10,10 @@ import com.supermartijn642.core.registry.Registries;
 import com.supermartijn642.core.registry.RegistryUtil;
 import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
+import com.supermartijn642.rechiseled.api.chiseling.ItemWithWorth;
+import com.supermartijn642.rechiseled.api.chiseling.data.ChiselingEntryBuilder;
 import com.supermartijn642.rechiseled.api.util.ItemWithMeta;
+import com.supermartijn642.rechiseled.chiseling.data.ChiselingEntryBuilderImpl;
 import net.minecraft.util.ResourceLocation;
 
 import javax.annotation.Nullable;
@@ -58,7 +61,7 @@ public abstract class ChiselingRecipeProvider extends ResourceGenerator {
 
         Set<ItemWithMeta> items = Sets.newHashSet();
         JsonArray entries = new JsonArray();
-        for(ChiselingEntryBuilder entry : recipe.entries){
+        for(ChiselingEntryBuilderImpl entry : recipe.entries){
             if(entry.items.isEmpty() && entry.connectingItems.isEmpty())
                 throw new IllegalStateException("Entry for recipe '" + recipeName + "' has no items!");
             JsonObject object = new JsonObject();
@@ -83,14 +86,14 @@ public abstract class ChiselingRecipeProvider extends ResourceGenerator {
         return json;
     }
 
-    private static void serializeItem(JsonObject json, String key, ItemWithMeta item, Set<ItemWithMeta> items, ResourceLocation recipeName){
-        if(item == null)
-            return;
-        if(!items.add(item))
+    private static void serializeItem(JsonObject json, String key, ItemWithWorth item, Set<ItemWithMeta> items, ResourceLocation recipeName){
+        if(!items.add(item.item()))
             throw new IllegalStateException("Duplicate item '" + item + "' in chiseling recipe '" + recipeName + "'");
-        json.addProperty(key, Registries.ITEMS.getIdentifier(item.item()).toString());
-        if(item.hasSubtypes())
-            json.addProperty(key + "_meta", item.meta());
+        json.addProperty(key, Registries.ITEMS.getIdentifier(item.item().item()).toString());
+        if(item.item().hasSubtypes())
+            json.addProperty(key + "_meta", item.item().meta());
+        if(item.worth() != 1)
+            json.addProperty(key + "_worth", item.worth());
     }
 
     /**
@@ -126,7 +129,7 @@ public abstract class ChiselingRecipeProvider extends ResourceGenerator {
 
     public static class ChiselingRecipeBuilder {
 
-        private final List<ChiselingEntryBuilder> entries = new LinkedList<>();
+        private final List<ChiselingEntryBuilderImpl> entries = new LinkedList<>();
         private boolean overwrite = false;
 
         private ChiselingRecipeBuilder(){
@@ -152,7 +155,7 @@ public abstract class ChiselingRecipeProvider extends ResourceGenerator {
          * @see ChiselingBlockShape
          */
         public ChiselingEntryBuilder entry(){
-            ChiselingEntryBuilder entry = new ChiselingEntryBuilder();
+            ChiselingEntryBuilderImpl entry = new ChiselingEntryBuilderImpl();
             this.entries.add(entry);
             return entry;
         }
@@ -166,12 +169,9 @@ public abstract class ChiselingRecipeProvider extends ResourceGenerator {
         }
 
         /**
-         * Adds a new entry with a regular and connecting block and no other shapes.
-         * @param regularBlock    the regular block, i.e. without connecting textures
-         * @param connectingBlock the block with connecting textures
-         * @param optional        whether the recipe may ignore the entry when the entry's items are not present
-         * @throws IllegalArgumentException when both {@code regularBlock} and {@code connectingBlock} are {@code null}
+         * @deprecated Use {@link #entry()}.
          */
+        @Deprecated
         public ChiselingRecipeBuilder add(@Nullable ItemWithMeta regularBlock, @Nullable ItemWithMeta connectingBlock, boolean optional){
             if(regularBlock == null && connectingBlock == null)
                 throw new IllegalArgumentException("At least one of regular item or connecting item must not be null!");
@@ -185,12 +185,9 @@ public abstract class ChiselingRecipeProvider extends ResourceGenerator {
         }
 
         /**
-         * Adds a new entry with a regular and connecting block and no other shapes.
-         * Each entry can have a regular variant and a variant with connecting textures.
-         * @param regularBlock    the regular block, i.e. without connecting textures
-         * @param connectingBlock the block with connecting textures
-         * @throws IllegalArgumentException when both {@code regularBlock} and {@code connectingBlock} are {@code null}
+         * @deprecated Use {@link #entry()}.
          */
+        @Deprecated
         public ChiselingRecipeBuilder add(ItemWithMeta regularBlock, ItemWithMeta connectingBlock){
             return this.add(regularBlock, connectingBlock, false);
         }
@@ -234,76 +231,4 @@ public abstract class ChiselingRecipeProvider extends ResourceGenerator {
         }
     }
 
-    public static class ChiselingEntryBuilder {
-
-        private final Map<ChiselingBlockShape,ItemWithMeta> items = new EnumMap<>(ChiselingBlockShape.class);
-        private final Map<ChiselingBlockShape,ItemWithMeta> connectingItems = new EnumMap<>(ChiselingBlockShape.class);
-        private boolean optional = false;
-
-        private ChiselingEntryBuilder(){
-        }
-
-        /**
-         * Sets whether the recipe may ignore the entry's items when they are not present.
-         * Useful for adding compatibility with mods that may not always be present.
-         */
-        public ChiselingEntryBuilder optional(boolean optional){
-            this.optional = optional;
-            return this;
-        }
-
-        /**
-         * Sets that the recipe may ignore the entry's items when they are not present.
-         * Useful for adding compatibility with mods that may not always be present.
-         */
-        public ChiselingEntryBuilder optional(){
-            return this.optional(true);
-        }
-
-        /**
-         * Sets the regular item for the given shape.
-         */
-        public ChiselingEntryBuilder regularItem(ChiselingBlockShape shape, ItemWithMeta item){
-            if(item == null)
-                throw new IllegalArgumentException("Item must not be null!");
-
-            this.items.put(shape, item);
-            return this;
-        }
-
-        /**
-         * Sets the connecting item for the given shape.
-         */
-        public ChiselingEntryBuilder connectingItem(ChiselingBlockShape shape, ItemWithMeta item){
-            if(item == null)
-                throw new IllegalArgumentException("Item must not be null!");
-
-            this.connectingItems.put(shape, item);
-            return this;
-        }
-
-        public ChiselingEntryBuilder regularBlock(ItemWithMeta item){
-            return this.regularItem(ChiselingBlockShape.BLOCK, item);
-        }
-
-        public ChiselingEntryBuilder regularStairs(ItemWithMeta item){
-            return this.regularItem(ChiselingBlockShape.STAIRS, item);
-        }
-
-        public ChiselingEntryBuilder regularSlab(ItemWithMeta item){
-            return this.regularItem(ChiselingBlockShape.SLAB, item);
-        }
-
-        public ChiselingEntryBuilder connectingBlock(ItemWithMeta item){
-            return this.connectingItem(ChiselingBlockShape.BLOCK, item);
-        }
-
-        public ChiselingEntryBuilder connectingStairs(ItemWithMeta item){
-            return this.connectingItem(ChiselingBlockShape.STAIRS, item);
-        }
-
-        public ChiselingEntryBuilder connectingSlab(ItemWithMeta item){
-            return this.connectingItem(ChiselingBlockShape.SLAB, item);
-        }
-    }
 }

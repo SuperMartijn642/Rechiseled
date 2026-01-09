@@ -2,9 +2,11 @@ package com.supermartijn642.rechiseled.chiseling.plugin;
 
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
+import com.supermartijn642.rechiseled.api.chiseling.ItemWithWorth;
 import com.supermartijn642.rechiseled.api.chiseling.plugin.MutableChiselingRecipe;
 import com.supermartijn642.rechiseled.api.util.ItemWithMeta;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntryImpl;
+import com.supermartijn642.rechiseled.chiseling.ItemWithWorthImpl;
 import net.minecraft.util.ResourceLocation;
 
 import javax.annotation.Nullable;
@@ -63,31 +65,58 @@ public class MutableChiselingRecipeImpl implements MutableChiselingRecipe {
         return false;
     }
 
+    @Override
+    public float getWorth(ItemWithMeta item){
+        ItemWithWorth largestWorth = null;
+        for(ChiselingEntry entry : this.entries){
+            ItemWithWorth worth = ((ChiselingEntryImpl)entry).items().get(item);
+            if(entry.contains(item) && (largestWorth == null || largestWorth.worth() < worth.worth()))
+                largestWorth = worth;
+        }
+        return largestWorth == null ? -1 : largestWorth.worth();
+    }
+
     private class EntryBuilderImpl implements EntryBuilder {
 
-        private ItemWithMeta regularBlock, regularStair, regularSlab;
-        private ItemWithMeta connectingBlock, connectingStair, connectingSlab;
+        private ItemWithWorth regularBlock, regularStair, regularSlab;
+        private ItemWithWorth connectingBlock, connectingStair, connectingSlab;
 
         @Override
-        public EntryBuilder regularItem(ChiselingBlockShape shape, ItemWithMeta item){
+        public EntryBuilder regularItem(ChiselingBlockShape shape, ItemWithMeta item, float worth){
+            if(worth <= 0)
+                throw new IllegalArgumentException("Worth must be greater than zero!");
+            ItemWithWorth withWorth = ItemWithWorthImpl.of(item, worth);
             if(shape == ChiselingBlockShape.BLOCK)
-                this.regularBlock = item;
+                this.regularBlock = withWorth;
             else if(shape == ChiselingBlockShape.STAIRS)
-                this.regularStair = item;
+                this.regularStair = withWorth;
             else if(shape == ChiselingBlockShape.SLAB)
-                this.regularSlab = item;
+                this.regularSlab = withWorth;
             return this;
         }
 
         @Override
-        public EntryBuilder connectingItem(ChiselingBlockShape shape, ItemWithMeta item){
+        public EntryBuilder connectingItem(ChiselingBlockShape shape, ItemWithMeta item, float worth){
+            if(worth <= 0)
+                throw new IllegalArgumentException("Worth must be greater than zero!");
+            ItemWithWorth withWorth = ItemWithWorthImpl.of(item, worth);
             if(shape == ChiselingBlockShape.BLOCK)
-                this.connectingBlock = item;
+                this.connectingBlock = withWorth;
             else if(shape == ChiselingBlockShape.STAIRS)
-                this.connectingStair = item;
+                this.connectingStair = withWorth;
             else if(shape == ChiselingBlockShape.SLAB)
-                this.connectingSlab = item;
+                this.connectingSlab = withWorth;
             return this;
+        }
+
+        @Override
+        public EntryBuilder regularItem(ChiselingBlockShape shape, ItemWithMeta item){
+            return this.regularItem(shape, item, 1);
+        }
+
+        @Override
+        public EntryBuilder connectingItem(ChiselingBlockShape shape, ItemWithMeta item){
+            return this.connectingItem(shape, item, 1);
         }
 
         @Override

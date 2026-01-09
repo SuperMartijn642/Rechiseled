@@ -2,7 +2,7 @@ package com.supermartijn642.rechiseled.screen;
 
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
-import com.supermartijn642.rechiseled.api.util.ItemWithMeta;
+import com.supermartijn642.rechiseled.api.chiseling.ItemWithWorth;
 
 public class DisplayEntry {
 
@@ -31,7 +31,7 @@ public class DisplayEntry {
         return this.shape;
     }
 
-    public ItemWithMeta getItem(boolean connecting){
+    public ItemWithWorth getItem(boolean connecting){
         return (connecting && this.entry.hasConnectingItem(this.shape)) || !this.entry.hasRegularItem(this.shape) ?
             this.entry.getConnectingItem(this.shape) : this.entry.getRegularItem(this.shape);
     }

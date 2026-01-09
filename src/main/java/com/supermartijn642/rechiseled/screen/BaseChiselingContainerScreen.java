@@ -12,6 +12,7 @@ import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipe;
+import com.supermartijn642.rechiseled.api.chiseling.ItemWithWorth;
 import com.supermartijn642.rechiseled.api.util.ItemWithMeta;
 import com.supermartijn642.rechiseled.packet.PacketChiselAll;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
@@ -132,11 +133,13 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
         // Preview
         this.addWidget(new EntryPreviewWidget(155, 20, 68, 69, () -> {
             DisplayEntry display = this.selectedEntry;
-            return display == null ? null : display.getItem(this.connecting);
+            ItemWithWorth item = display == null ? null : display.getItem(this.connecting);
+            return item == null ? null : item.item();
         }, () -> previewMode));
         Supplier<Boolean> enablePreviewButtons = () -> {
             DisplayEntry display = this.selectedEntry;
-            return display != null && display.hasItem(this.connecting) && display.getItem(this.connecting).item() instanceof ItemBlock;
+            ItemWithWorth item = display == null ? null : display.getItem(this.connecting);
+            return item != null && item.item().item() instanceof ItemBlock;
         };
         this.addWidget(new PreviewModeButtonWidget(227, 21, 19, 21, PreviewMode.PANEL, () -> previewMode, enablePreviewButtons, () -> previewMode = PreviewMode.PANEL));
         this.addWidget(new PreviewModeButtonWidget(227, 44, 19, 21, PreviewMode.ROW, () -> previewMode, enablePreviewButtons, () -> previewMode = PreviewMode.ROW));
@@ -191,8 +194,8 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
                 else{
                     isChiselable = false;
                     for(ChiselingEntry entry : this.recipe.entries()){
-                        if((entry.hasRegularItem(this.selectedEntry.shape()) && entry.getRegularItem(this.selectedEntry.shape()).matches(stack))
-                            || (entry.hasConnectingItem(this.selectedEntry.shape()) && entry.getConnectingItem(this.selectedEntry.shape()).matches(stack))){
+                        if((entry.hasRegularItem(this.selectedEntry.shape()) && entry.getRegularItem(this.selectedEntry.shape()).item().matches(stack))
+                            || (entry.hasConnectingItem(this.selectedEntry.shape()) && entry.getConnectingItem(this.selectedEntry.shape()).item().matches(stack))){
                             isChiselable = true;
                             break;
                         }
@@ -251,10 +254,10 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
                         DisplayEntry display = new DisplayEntry(i, entry, shape);
                         this.allEntries.add(display);
                         if(matchingDisplay == null && entry == this.container.currentEntry){
-                            if(entry.hasRegularItem(shape) && entry.getRegularItem(shape).matches(currentItem)){
+                            if(entry.hasRegularItem(shape) && entry.getRegularItem(shape).item().matches(currentItem)){
                                 matchingDisplay = display;
                                 this.connecting = false;
-                            }else if(entry.hasConnectingItem(shape) && entry.getConnectingItem(shape).matches(currentItem)){
+                            }else if(entry.hasConnectingItem(shape) && entry.getConnectingItem(shape).item().matches(currentItem)){
                                 matchingDisplay = display;
                                 this.connecting = true;
                             }
@@ -274,8 +277,8 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
             || (!showSlabs && entry.shape() == ChiselingBlockShape.SLAB)
             || (!showNonConnecting && !entry.hasItem(true)))
             return false;
-        return (entry.hasItem(false) && this.doesItemMatchSearch(entry.getItem(false)))
-            || (entry.hasItem(true) && this.doesItemMatchSearch(entry.getItem(true)));
+        return (entry.hasItem(false) && this.doesItemMatchSearch(entry.getItem(false).item()))
+            || (entry.hasItem(true) && this.doesItemMatchSearch(entry.getItem(true).item()));
     }
 
     private boolean doesItemMatchSearch(ItemWithMeta item){

@@ -4,10 +4,7 @@ import com.supermartijn642.core.gui.BaseContainer;
 import com.supermartijn642.core.gui.BaseContainerType;
 import com.supermartijn642.core.gui.CustomSlot;
 import com.supermartijn642.rechiseled.Rechiseled;
-import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
-import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
-import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipe;
-import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipeManager;
+import com.supermartijn642.rechiseled.api.chiseling.*;
 import com.supermartijn642.rechiseled.api.util.ItemWithMeta;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -58,7 +55,7 @@ public abstract class BaseChiselingContainer extends BaseContainer {
         // Check if the current recipe is still applicable
         ChiselingRecipe recipe = ChiselingRecipeManager.get(this.isClient).getRecipeForItem(item);
         if(recipe != null && this.currentRecipe == recipe && this.currentRecipe.contains(item) && this.currentEntry.contains(item)
-            && (this.connecting ? this.currentEntry.getConnectingItem(this.shape).equals(item) : this.currentEntry.getRegularItem(this.shape).equals(item)))
+            && (this.connecting ? this.currentEntry.getConnectingItem(this.shape).item().equals(item) : this.currentEntry.getRegularItem(this.shape).item().equals(item)))
             return;
 
         // Find a matching recipe
@@ -67,16 +64,16 @@ public abstract class BaseChiselingContainer extends BaseContainer {
             for(ChiselingEntry entry : this.currentRecipe.entries()){
                 if(entry.contains(item)){
                     for(ChiselingBlockShape shape : ChiselingBlockShape.values()){
-                        if(this.connecting && entry.hasConnectingItem(shape) && entry.getConnectingItem(shape).equals(item)){
+                        if(this.connecting && entry.hasConnectingItem(shape) && entry.getConnectingItem(shape).item().equals(item)){
                             this.currentEntry = entry;
                             this.shape = shape;
                             return;
-                        }else if(entry.hasRegularItem(shape) && entry.getRegularItem(shape).equals(item)){
+                        }else if(entry.hasRegularItem(shape) && entry.getRegularItem(shape).item().equals(item)){
                             this.currentEntry = entry;
                             this.shape = shape;
                             this.connecting = false;
                             return;
-                        }else if(!this.connecting && entry.getConnectingItem(shape).equals(item)){
+                        }else if(!this.connecting && entry.getConnectingItem(shape).item().equals(item)){
                             this.currentEntry = entry;
                             this.shape = shape;
                             this.connecting = true;
@@ -93,7 +90,7 @@ public abstract class BaseChiselingContainer extends BaseContainer {
     }
 
     public void setCurrentEntry(int index, ChiselingBlockShape shape, boolean connecting){
-        if(this.currentRecipe == null || index >= this.currentRecipe.entries().size())
+        if(this.currentRecipe == null || this.currentEntry == null || index >= this.currentRecipe.entries().size())
             return;
 
         ChiselingEntry entry = this.currentRecipe.entries().get(index);
@@ -101,18 +98,19 @@ public abstract class BaseChiselingContainer extends BaseContainer {
             return;
 
         ItemStack currentStack = this.getCurrentStack();
-        float conversionFactor = (float)shape.conversionFactor() / this.shape.conversionFactor();
+        float currentWorth = this.currentRecipe.getWorth(ItemWithMeta.fromStack(currentStack));
+        ItemWithWorth target = connecting ? entry.getConnectingItem(shape) : entry.getRegularItem(shape);
+        //noinspection DataFlowIssue
+        double conversionFactor = (double)currentWorth / target.worth();
         int convertedAmount = (int)Math.floor(conversionFactor * currentStack.getCount());
         if(convertedAmount <= 0)
             return;
-        int leftover = currentStack.getCount() - Math.round(convertedAmount / conversionFactor);
+        int leftover = currentStack.getCount() - (int)Math.round(convertedAmount / conversionFactor);
 
         this.currentEntry = entry;
         this.shape = shape;
         this.connecting = connecting;
-        ItemWithMeta item = connecting ? entry.getConnectingItem(shape) : entry.getRegularItem(shape);
-        //noinspection DataFlowIssue
-        this.setCurrentStack(item.toStack(convertedAmount));
+        this.setCurrentStack(target.item().toStack(convertedAmount));
         if(leftover > 0){
             currentStack = currentStack.copy();
             currentStack.setCount(leftover);
@@ -129,7 +127,8 @@ public abstract class BaseChiselingContainer extends BaseContainer {
         if(this.currentRecipe == null)
             return;
 
-        ItemWithMeta targetItem = this.connecting ? this.currentEntry.getConnectingItem(this.shape) : this.currentEntry.getRegularItem(this.shape);
+        ItemWithWorth target = this.connecting ? this.currentEntry.getConnectingItem(this.shape) : this.currentEntry.getRegularItem(this.shape);
+        ItemWithMeta targetItem = target.item();
         assert targetItem != null;
 
         // Find all space for overflow
@@ -160,8 +159,8 @@ public abstract class BaseChiselingContainer extends BaseContainer {
             assert stackEntry != null;
             ChiselingBlockShape stackShape = null;
             for(ChiselingBlockShape shape : ChiselingBlockShape.values()){
-                if((stackEntry.hasRegularItem(shape) && stackEntry.getRegularItem(shape).matches(stack))
-                    || (stackEntry.hasConnectingItem(shape) && stackEntry.getConnectingItem(shape).matches(stack)))
+                if((stackEntry.hasRegularItem(shape) && stackEntry.getRegularItem(shape).item().matches(stack))
+                    || (stackEntry.hasConnectingItem(shape) && stackEntry.getConnectingItem(shape).item().matches(stack)))
                     stackShape = shape;
             }
             assert stackShape != null;
@@ -169,7 +168,8 @@ public abstract class BaseChiselingContainer extends BaseContainer {
                 continue;
 
             // Calculate how much of the stack can be converted
-            float conversionFactor = (float)this.shape.conversionFactor() / stackShape.conversionFactor();
+            float stackWorth = this.currentRecipe.getWorth(ItemWithMeta.fromStack(stack));
+            double conversionFactor = (double)stackWorth / target.worth();
             int convertedAmount = (int)Math.floor(stack.getCount() * conversionFactor);
             boolean canConvertEntireStack = conversionFactor >= 1 || stack.getCount() * conversionFactor < 10e-7; // Check that there's no partial items left over
             if(convertedAmount - targetItem.item().getItemStackLimit() > availableSpace){

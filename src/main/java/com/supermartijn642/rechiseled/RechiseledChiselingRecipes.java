@@ -2,6 +2,9 @@ package com.supermartijn642.rechiseled;
 
 import com.supermartijn642.rechiseled.api.util.ItemWithMeta;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.ResourceLocation;
+
+import java.util.function.Supplier;
 
 import static com.supermartijn642.rechiseled.Rechiseled.REGISTRATION;
 import static com.supermartijn642.rechiseled.api.BaseChiselingRecipes.*;
@@ -13,70 +16,85 @@ public class RechiseledChiselingRecipes {
 
     public static void init(){
         // Acacia planks
-        REGISTRATION.chiselingEntry(ACACIA_PLANKS, () -> ItemWithMeta.of(Blocks.PLANKS, 4), () -> ItemWithMeta.of(Blocks.ACACIA_STAIRS), () -> ItemWithMeta.of(Blocks.WOODEN_SLAB, 4), null, null, null);
+        regularSet(ACACIA_PLANKS, () -> ItemWithMeta.of(Blocks.PLANKS, 4), () -> ItemWithMeta.of(Blocks.ACACIA_STAIRS), () -> ItemWithMeta.of(Blocks.WOODEN_SLAB, 4));
         // Andesite
-        REGISTRATION.chiselingEntry(ANDESITE, () -> ItemWithMeta.of(Blocks.STONE, 5), null);
+        regularBlockOnly(ANDESITE, () -> ItemWithMeta.of(Blocks.STONE, 5));
         // Birch planks
-        REGISTRATION.chiselingEntry(BIRCH_PLANKS, () -> ItemWithMeta.of(Blocks.PLANKS, 2), () -> ItemWithMeta.of(Blocks.BIRCH_STAIRS), () -> ItemWithMeta.of(Blocks.WOODEN_SLAB, 2), null, null, null);
+        regularSet(BIRCH_PLANKS, () -> ItemWithMeta.of(Blocks.PLANKS, 2), () -> ItemWithMeta.of(Blocks.BIRCH_STAIRS), () -> ItemWithMeta.of(Blocks.WOODEN_SLAB, 2));
         // Coal block
-        REGISTRATION.chiselingEntry(COAL_BLOCK, () -> ItemWithMeta.of(Blocks.COAL_BLOCK), null);
+        regularBlockOnly(COAL_BLOCK, () -> ItemWithMeta.of(Blocks.COAL_BLOCK));
         // Cobblestone
-        REGISTRATION.chiselingEntry(COBBLESTONE, () -> ItemWithMeta.of(Blocks.COBBLESTONE), () -> ItemWithMeta.of(Blocks.STONE_STAIRS), () -> ItemWithMeta.of(Blocks.STONE_SLAB, 3), null, null, null);
-        REGISTRATION.chiselingEntry(COBBLESTONE, () -> ItemWithMeta.of(Blocks.MOSSY_COBBLESTONE), null);
+        regularSet(COBBLESTONE, () -> ItemWithMeta.of(Blocks.COBBLESTONE), () -> ItemWithMeta.of(Blocks.STONE_STAIRS), () -> ItemWithMeta.of(Blocks.STONE_SLAB, 3));
+        regularBlockOnly(COBBLESTONE, () -> ItemWithMeta.of(Blocks.MOSSY_COBBLESTONE));
         // Dark oak planks
-        REGISTRATION.chiselingEntry(DARK_OAK_PLANKS, () -> ItemWithMeta.of(Blocks.PLANKS, 5), () -> ItemWithMeta.of(Blocks.DARK_OAK_STAIRS), () -> ItemWithMeta.of(Blocks.WOODEN_SLAB, 5), null, null, null);
+        regularSet(DARK_OAK_PLANKS, () -> ItemWithMeta.of(Blocks.PLANKS, 5), () -> ItemWithMeta.of(Blocks.DARK_OAK_STAIRS), () -> ItemWithMeta.of(Blocks.WOODEN_SLAB, 5));
         // Dark prismarine
-        REGISTRATION.chiselingEntry(DARK_PRISMARINE, () -> ItemWithMeta.of(Blocks.PRISMARINE, 2), null);
+        regularBlockOnly(DARK_PRISMARINE, () -> ItemWithMeta.of(Blocks.PRISMARINE, 2));
         // Diorite
-        REGISTRATION.chiselingEntry(DIORITE, () -> ItemWithMeta.of(Blocks.STONE, 3), null);
+        regularBlockOnly(DIORITE, () -> ItemWithMeta.of(Blocks.STONE, 3));
         // Dirt
-        REGISTRATION.chiselingEntry(DIRT, () -> ItemWithMeta.of(Blocks.DIRT), null);
+        regularBlockOnly(DIRT, () -> ItemWithMeta.of(Blocks.DIRT));
         // Emerald block
-        REGISTRATION.chiselingEntry(EMERALD_BLOCK, () -> ItemWithMeta.of(Blocks.EMERALD_BLOCK), null);
+        regularBlockOnly(EMERALD_BLOCK, () -> ItemWithMeta.of(Blocks.EMERALD_BLOCK));
         // End stone
-        REGISTRATION.chiselingEntry(END_STONE, () -> ItemWithMeta.of(Blocks.END_STONE), null);
-        REGISTRATION.chiselingEntry(END_STONE, () -> ItemWithMeta.of(Blocks.END_BRICKS), null);
+        regularBlockOnly(END_STONE, () -> ItemWithMeta.of(Blocks.END_STONE));
+        regularBlockOnly(END_STONE, () -> ItemWithMeta.of(Blocks.END_BRICKS));
         // Glowstone
-        REGISTRATION.chiselingEntry(GLOWSTONE, () -> ItemWithMeta.of(Blocks.GLOWSTONE), null);
+        regularBlockOnly(GLOWSTONE, () -> ItemWithMeta.of(Blocks.GLOWSTONE));
         // Gold block
-        REGISTRATION.chiselingEntry(GOLD_BLOCK, () -> ItemWithMeta.of(Blocks.GOLD_BLOCK), null);
+        regularBlockOnly(GOLD_BLOCK, () -> ItemWithMeta.of(Blocks.GOLD_BLOCK));
         // Granite
-        REGISTRATION.chiselingEntry(GRANITE, () -> ItemWithMeta.of(Blocks.STONE, 1), null);
+        regularBlockOnly(GRANITE, () -> ItemWithMeta.of(Blocks.STONE, 1));
         // Jungle planks
-        REGISTRATION.chiselingEntry(JUNGLE_PLANKS, () -> ItemWithMeta.of(Blocks.PLANKS, 3), () -> ItemWithMeta.of(Blocks.JUNGLE_STAIRS), () -> ItemWithMeta.of(Blocks.WOODEN_SLAB, 3), null, null, null);
+        regularSet(JUNGLE_PLANKS, () -> ItemWithMeta.of(Blocks.PLANKS, 3), () -> ItemWithMeta.of(Blocks.JUNGLE_STAIRS), () -> ItemWithMeta.of(Blocks.WOODEN_SLAB, 3));
         // Netherrack
-        REGISTRATION.chiselingEntry(NETHERRACK, () -> ItemWithMeta.of(Blocks.NETHERRACK), null);
+        regularBlockOnly(NETHERRACK, () -> ItemWithMeta.of(Blocks.NETHERRACK));
         // Nether bricks
-        REGISTRATION.chiselingEntry(NETHER_BRICKS, () -> ItemWithMeta.of(Blocks.NETHER_BRICK), () -> ItemWithMeta.of(Blocks.NETHER_BRICK_STAIRS), () -> ItemWithMeta.of(Blocks.STONE_SLAB, 6), null, null, null);
+        regularSet(NETHER_BRICKS, () -> ItemWithMeta.of(Blocks.NETHER_BRICK), () -> ItemWithMeta.of(Blocks.NETHER_BRICK_STAIRS), () -> ItemWithMeta.of(Blocks.STONE_SLAB, 6));
         // Oak planks
-        REGISTRATION.chiselingEntry(OAK_PLANKS, () -> ItemWithMeta.of(Blocks.PLANKS, 0), () -> ItemWithMeta.of(Blocks.OAK_STAIRS), () -> ItemWithMeta.of(Blocks.WOODEN_SLAB, 0), null, null, null);
+        regularSet(OAK_PLANKS, () -> ItemWithMeta.of(Blocks.PLANKS, 0), () -> ItemWithMeta.of(Blocks.OAK_STAIRS), () -> ItemWithMeta.of(Blocks.WOODEN_SLAB, 0));
         // Obsidian
-        REGISTRATION.chiselingEntry(OBSIDIAN, () -> ItemWithMeta.of(Blocks.OBSIDIAN), null);
+        regularBlockOnly(OBSIDIAN, () -> ItemWithMeta.of(Blocks.OBSIDIAN));
         // Prismarine bricks
-        REGISTRATION.chiselingEntry(PRISMARINE_BRICKS, () -> ItemWithMeta.of(Blocks.PRISMARINE, 1), null);
+        regularBlockOnly(PRISMARINE_BRICKS, () -> ItemWithMeta.of(Blocks.PRISMARINE, 1));
         // Purpur block
-        REGISTRATION.chiselingEntry(PURPUR_BLOCK, () -> ItemWithMeta.of(Blocks.PURPUR_PILLAR), null);
+        regularBlockOnly(PURPUR_BLOCK, () -> ItemWithMeta.of(Blocks.PURPUR_PILLAR));
         // Quartz block
-        REGISTRATION.chiselingEntry(QUARTZ_BLOCK, () -> ItemWithMeta.of(Blocks.QUARTZ_BLOCK, 1), null);
-        REGISTRATION.chiselingEntry(QUARTZ_BLOCK, () -> ItemWithMeta.of(Blocks.QUARTZ_BLOCK, 2), null);
+        regularBlockOnly(QUARTZ_BLOCK, () -> ItemWithMeta.of(Blocks.QUARTZ_BLOCK, 1));
+        regularBlockOnly(QUARTZ_BLOCK, () -> ItemWithMeta.of(Blocks.QUARTZ_BLOCK, 2));
         // Red nether bricks
-        REGISTRATION.chiselingEntry(RED_NETHER_BRICKS, () -> ItemWithMeta.of(Blocks.RED_NETHER_BRICK), null);
+        regularBlockOnly(RED_NETHER_BRICKS, () -> ItemWithMeta.of(Blocks.RED_NETHER_BRICK));
         // Red sandstone
-        REGISTRATION.chiselingEntry(RED_SANDSTONE, () -> ItemWithMeta.of(Blocks.RED_SANDSTONE, 0), () -> ItemWithMeta.of(Blocks.RED_SANDSTONE_STAIRS), () -> ItemWithMeta.of(Blocks.STONE_SLAB2, 0), null, null, null);
-        REGISTRATION.chiselingEntry(RED_SANDSTONE, () -> ItemWithMeta.of(Blocks.RED_SANDSTONE, 1), null);
-        REGISTRATION.chiselingEntry(RED_SANDSTONE, () -> ItemWithMeta.of(Blocks.RED_SANDSTONE, 2), null);
+        regularSet(RED_SANDSTONE, () -> ItemWithMeta.of(Blocks.RED_SANDSTONE, 0), () -> ItemWithMeta.of(Blocks.RED_SANDSTONE_STAIRS), () -> ItemWithMeta.of(Blocks.STONE_SLAB2, 0));
+        regularBlockOnly(RED_SANDSTONE, () -> ItemWithMeta.of(Blocks.RED_SANDSTONE, 1));
+        regularBlockOnly(RED_SANDSTONE, () -> ItemWithMeta.of(Blocks.RED_SANDSTONE, 2));
         // Redstone block
-        REGISTRATION.chiselingEntry(REDSTONE_BLOCK, () -> ItemWithMeta.of(Blocks.REDSTONE_BLOCK), null);
+        regularBlockOnly(REDSTONE_BLOCK, () -> ItemWithMeta.of(Blocks.REDSTONE_BLOCK));
         // Sandstone
-        REGISTRATION.chiselingEntry(SANDSTONE, () -> ItemWithMeta.of(Blocks.SANDSTONE, 0), () -> ItemWithMeta.of(Blocks.SANDSTONE_STAIRS), () -> ItemWithMeta.of(Blocks.STONE_SLAB, 1), null, null, null);
-        REGISTRATION.chiselingEntry(SANDSTONE, () -> ItemWithMeta.of(Blocks.SANDSTONE, 1), null);
-        REGISTRATION.chiselingEntry(SANDSTONE, () -> ItemWithMeta.of(Blocks.SANDSTONE, 2), null);
+        regularSet(SANDSTONE, () -> ItemWithMeta.of(Blocks.SANDSTONE, 0), () -> ItemWithMeta.of(Blocks.SANDSTONE_STAIRS), () -> ItemWithMeta.of(Blocks.STONE_SLAB, 1));
+        regularBlockOnly(SANDSTONE, () -> ItemWithMeta.of(Blocks.SANDSTONE, 1));
+        regularBlockOnly(SANDSTONE, () -> ItemWithMeta.of(Blocks.SANDSTONE, 2));
         // Spruce planks
-        REGISTRATION.chiselingEntry(SPRUCE_PLANKS, () -> ItemWithMeta.of(Blocks.PLANKS, 1), null);
+        regularSet(SPRUCE_PLANKS, () -> ItemWithMeta.of(Blocks.PLANKS, 1), () -> ItemWithMeta.of(Blocks.SPRUCE_STAIRS), () -> ItemWithMeta.of(Blocks.WOODEN_SLAB, 1));
         // Stone
-        REGISTRATION.chiselingEntry(STONE, () -> ItemWithMeta.of(Blocks.STONE, 0), null);
-        REGISTRATION.chiselingEntry(STONE, () -> ItemWithMeta.of(Blocks.STONEBRICK, 0), null);
-        REGISTRATION.chiselingEntry(STONE, () -> ItemWithMeta.of(Blocks.STONEBRICK, 1), null);
-        REGISTRATION.chiselingEntry(STONE, () -> ItemWithMeta.of(Blocks.STONEBRICK, 2), null);
+        regularBlockOnly(STONE, () -> ItemWithMeta.of(Blocks.STONE, 0));
+        regularBlockOnly(STONE, () -> ItemWithMeta.of(Blocks.STONEBRICK, 0));
+        regularBlockOnly(STONE, () -> ItemWithMeta.of(Blocks.STONEBRICK, 1));
+        regularBlockOnly(STONE, () -> ItemWithMeta.of(Blocks.STONEBRICK, 2));
+    }
+
+    private static void regularBlockOnly(ResourceLocation recipe, Supplier<ItemWithMeta> block){
+        REGISTRATION.chiselingEntry(recipe, entry -> entry.regularBlock(block.get()));
+    }
+
+    private static void regularSet(ResourceLocation recipe, Supplier<ItemWithMeta> block, Supplier<ItemWithMeta> stairs, Supplier<ItemWithMeta> slab){
+        REGISTRATION.chiselingEntry(recipe, entry -> {
+            if(block != null)
+                entry.regularBlock(block.get());
+            if(stairs != null)
+                entry.regularStairs(stairs.get());
+            if(slab != null)
+                entry.regularSlab(slab.get());
+        });
     }
 }

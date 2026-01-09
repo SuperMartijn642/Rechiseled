@@ -4,9 +4,9 @@ import com.supermartijn642.core.item.CreativeItemGroup;
 import com.supermartijn642.core.registry.GeneratorRegistrationHandler;
 import com.supermartijn642.core.registry.RegistryUtil;
 import com.supermartijn642.core.util.Pair;
-import com.supermartijn642.rechiseled.api.ChiselingRecipeProvider;
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockBuilder;
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockType;
+import com.supermartijn642.rechiseled.api.chiseling.data.ChiselingEntryBuilder;
 import com.supermartijn642.rechiseled.api.registration.RechiseledRegistration;
 import com.supermartijn642.rechiseled.api.util.ItemWithMeta;
 import com.supermartijn642.rechiseled.blocks.RechiseledBlockBuilderImpl;
@@ -55,7 +55,7 @@ public class RechiseledRegistrationImpl implements RechiseledRegistration {
     private final List<Pair<RechiseledBlockBuilderImpl,RechiseledBlockTypeImpl>> blockBuilders = new ArrayList<>();
     private final Set<String> usedBlockIdentifiers = new HashSet<>();
     private final List<RechiseledBlockTypeImpl> blockTypes = new ArrayList<>();
-    private final List<Pair<ResourceLocation,Consumer<ChiselingRecipeProvider.ChiselingEntryBuilder>>> chiselingEntries = new ArrayList<>();
+    private final List<Pair<ResourceLocation,Consumer<ChiselingEntryBuilder>>> chiselingEntries = new ArrayList<>();
     private CreativeItemGroup itemGroup;
     private String itemGroupTranslation;
     public boolean providersRegistered = false;
@@ -77,24 +77,23 @@ public class RechiseledRegistrationImpl implements RechiseledRegistration {
     }
 
     @Override
-    public void chiselingEntry(ResourceLocation recipe, Supplier<ItemWithMeta> regularBlock, Supplier<ItemWithMeta> regularStairs, Supplier<ItemWithMeta> regularSlab, Supplier<ItemWithMeta> connectingBlock, Supplier<ItemWithMeta> connectingStairs, Supplier<ItemWithMeta> connectingSlab){
+    public void chiselingEntry(ResourceLocation recipe, Consumer<ChiselingEntryBuilder> builder){
         if(finalized)
             throw new RuntimeException("Chiseling recipe entries must be added during mod initialization!");
-        if(regularBlock == null && regularStairs == null && regularSlab == null && connectingBlock == null && connectingStairs == null && connectingSlab == null)
-            throw new IllegalArgumentException("Entry must have at least one item!");
-        this.chiselingEntries.add(Pair.of(recipe, entry -> {
-            if(regularBlock != null) entry.regularBlock(regularBlock.get());
-            if(regularStairs != null) entry.regularStairs(regularStairs.get());
-            if(regularSlab != null) entry.regularSlab(regularSlab.get());
-            if(connectingBlock != null) entry.connectingBlock(connectingBlock.get());
-            if(connectingStairs != null) entry.connectingStairs(connectingStairs.get());
-            if(connectingSlab != null) entry.connectingSlab(connectingSlab.get());
-        }));
+        Objects.requireNonNull(recipe);
+        this.chiselingEntries.add(Pair.of(recipe, builder));
     }
 
     @Override
     public void chiselingEntry(ResourceLocation recipe, Supplier<ItemWithMeta> regularBlock, Supplier<ItemWithMeta> connectingBlock){
-        this.chiselingEntry(recipe, regularBlock, null, null, connectingBlock, null, null);
+        if(regularBlock == null && connectingBlock == null)
+            throw new IllegalArgumentException("Entry must have at least one item!");
+        this.chiselingEntry(recipe, entry -> {
+            if(regularBlock != null)
+                entry.regularBlock(regularBlock.get());
+            if(connectingBlock != null)
+                entry.connectingBlock(connectingBlock.get());
+        });
     }
 
     @Override
@@ -152,7 +151,7 @@ public class RechiseledRegistrationImpl implements RechiseledRegistration {
         return this.blockBuilders;
     }
 
-    public List<Pair<ResourceLocation,Consumer<ChiselingRecipeProvider.ChiselingEntryBuilder>>> getChiselingEntries(){
+    public List<Pair<ResourceLocation,Consumer<ChiselingEntryBuilder>>> getChiselingEntries(){
         return this.chiselingEntries;
     }
 
