@@ -49,4 +49,10 @@ public interface ItemWithMeta {
     default ItemStack toStack(){
         return this.toStack(1);
     }
+
+    default boolean matches(ItemStack stack){
+        if(stack.getItem() != this.item())
+            return false;
+        return !this.hasSubtypes() || stack.getMetadata() == this.meta();
+    }
 }

@@ -1,4 +1,4 @@
-package com.supermartijn642.rechiseled.screen;
+package com.supermartijn642.rechiseled.screen.preview;
 
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.gui.ScreenUtils;
@@ -22,7 +22,7 @@ public class ScreenBlockRenderer {
 
     private static BlockCaptureLevel fakeLevel;
 
-    public static void drawBlock(BlockCapture capture, double x, double y, double scale, float yaw, float pitch, boolean doShading){
+    public static void drawBlock(BlockCapture capture, double x, double y, double scale, float yaw, float pitch, boolean flatShading){
         AxisAlignedBB bounds = capture.getBounds();
         double sizeX = bounds.maxX - bounds.minX, sizeY = bounds.maxY - bounds.minY, sizeZ = bounds.maxZ - bounds.minZ;
         double span = Math.sqrt(sizeX * sizeX + sizeY * sizeY + sizeZ * sizeZ);
@@ -41,16 +41,12 @@ public class ScreenBlockRenderer {
         GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
         GlStateManager.color(1, 1, 1, 1);
 
-        if(doShading)
+        if(!flatShading)
             RenderHelper.enableGUIStandardItemLighting();
-        else
-            GlStateManager.disableLighting();
 
         GlStateManager.pushMatrix();
         GlStateManager.translate(x, y, 350);
-        GlStateManager.scale(1, -1, 1);
-        GlStateManager.scale(scale, scale, scale);
-
+        GlStateManager.scale(scale, -scale, scale);
         GlStateManager.rotate(pitch, 1, 0, 0);
         GlStateManager.rotate(yaw, 0, 1, 0);
 
@@ -61,12 +57,9 @@ public class ScreenBlockRenderer {
             renderBlock(entry.getKey(), entry.getValue(), buffer);
         tessellator.draw();
 
-        GlStateManager.enableDepth();
-        if(doShading)
-            GlStateManager.disableLighting();
-
         GlStateManager.popMatrix();
 
+        GlStateManager.enableDepth();
         ClientUtils.getTextureManager().getTexture(TextureMap.LOCATION_BLOCKS_TEXTURE).restoreLastBlurMipmap();
         GlStateManager.disableAlpha();
         GlStateManager.disableRescaleNormal();

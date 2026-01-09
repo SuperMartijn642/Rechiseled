@@ -1,4 +1,4 @@
-package com.supermartijn642.rechiseled.screen;
+package com.supermartijn642.rechiseled.screen.preview;
 
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.gui.ScreenUtils;
@@ -17,7 +17,7 @@ public class ScreenItemRender {
     /**
      * Renders a given item as a 3d model
      */
-    public static void drawItem(ItemStack item, double x, double y, double scale, float yaw, float pitch, boolean doShading){
+    public static void drawItem(ItemStack item, double x, double y, double scale, float yaw, float pitch, boolean flatShading){
         scale /= Math.sqrt(2 + 1d / (16 * 16));
 
         ScreenUtils.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
@@ -29,16 +29,12 @@ public class ScreenItemRender {
         GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
         GlStateManager.color(1, 1, 1, 1);
 
-        if(doShading)
+        if(!flatShading)
             RenderHelper.enableGUIStandardItemLighting();
-        else
-            GlStateManager.disableLighting();
 
         GlStateManager.pushMatrix();
         GlStateManager.translate(x, y, 350);
-        GlStateManager.scale(1, -1, 1);
-        GlStateManager.scale(scale * 1.6, scale * 1.6, scale * 1.6);
-
+        GlStateManager.scale(scale, -scale, scale);
         GlStateManager.rotate(pitch, 1, 0, 0);
         GlStateManager.rotate(yaw, 0, 1, 0);
 
@@ -47,12 +43,9 @@ public class ScreenItemRender {
         if(model != null)
             ClientUtils.getItemRenderer().renderItem(item, model);
 
-        GlStateManager.enableDepth();
-        if(doShading)
-            GlStateManager.disableLighting();
-
         GlStateManager.popMatrix();
 
+        GlStateManager.enableDepth();
         ClientUtils.getTextureManager().getTexture(TextureMap.LOCATION_BLOCKS_TEXTURE).restoreLastBlurMipmap();
         GlStateManager.disableAlpha();
         GlStateManager.disableRescaleNormal();

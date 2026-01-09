@@ -16,7 +16,7 @@ public class ChiselContainer extends BaseChiselingContainer {
     public ChiselContainer(EntityPlayer player, EnumHand hand){
         super(Rechiseled.chisel_container, player);
         this.hand = hand;
-        super.updateRecipe();
+        super.findRecipe();
     }
 
     @Override

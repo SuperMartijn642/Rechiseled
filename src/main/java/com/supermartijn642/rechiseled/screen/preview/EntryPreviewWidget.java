@@ -1,11 +1,11 @@
-package com.supermartijn642.rechiseled.screen;
+package com.supermartijn642.rechiseled.screen.preview;
 
 import com.supermartijn642.core.gui.widget.BaseWidget;
+import com.supermartijn642.rechiseled.api.util.ItemWithMeta;
+import com.supermartijn642.rechiseled.screen.ToggleRotationButton;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 
@@ -18,17 +18,19 @@ public class EntryPreviewWidget extends BaseWidget {
 
     private static final int ROTATION_TIME = 10000;
 
-    private final Supplier<ItemStack> item;
-    private final Supplier<Integer> previewMode;
+    private static boolean rotatePreview = true;
+    private static float yaw = 0.35f, pitch = 30;
 
-    private float yaw = 0.35f, pitch = 30;
+    private final Supplier<ItemWithMeta> item;
+    private final Supplier<PreviewMode> previewMode;
+
     private long lastRotationTime;
     private boolean dragging = false;
     private int mouseStartX, mouseStartY;
 
     public EntryPreviewWidget(int x, int y, int width, int height,
-                              Supplier<ItemStack> item,
-                              Supplier<Integer> previewMode){
+                              Supplier<ItemWithMeta> item,
+                              Supplier<PreviewMode> previewMode){
         super(x, y, width, height);
         this.item = item;
         this.previewMode = previewMode;
@@ -37,7 +39,7 @@ public class EntryPreviewWidget extends BaseWidget {
 
     @Override
     protected void addWidgets(){
-        this.addWidget(new ToggleRotationButton(this.x, this.y, 11, 11));
+        this.addWidget(new ToggleRotationButton(this.x, this.y, 11, 11, () -> rotatePreview, () -> rotatePreview = !rotatePreview, () -> this.item.get() != null));
         super.addWidgets();
     }
 
@@ -50,41 +52,39 @@ public class EntryPreviewWidget extends BaseWidget {
     public void render(int mouseX, int mouseY){
         long now = System.currentTimeMillis();
 
-        ItemStack itemStack = this.item.get();
-        int previewMode = this.previewMode.get();
-        if(itemStack != null && previewMode >= 0 && previewMode <= 2){
-            Item item = itemStack.getItem();
-            int data = itemStack.getMetadata();
+        ItemWithMeta item = this.item.get();
+        PreviewMode previewMode = this.previewMode.get();
+        if(item != null){
             // Update the rotation
             if(this.dragging){
-                this.yaw += (mouseX - this.mouseStartX) / 100d * 360;
-                this.pitch += (mouseY - this.mouseStartY) / 100d * 360;
+                yaw += (float)((mouseX - this.mouseStartX) / 100d * 360);
+                pitch += (float)((mouseY - this.mouseStartY) / 100d * 360);
                 this.mouseStartX = mouseX;
                 this.mouseStartY = mouseY;
-            }else if(ToggleRotationButton.rotate)
-                this.yaw += (double)(now - this.lastRotationTime) / ROTATION_TIME * 360;
+            }else if(rotatePreview)
+                yaw += (float)(now - this.lastRotationTime) / ROTATION_TIME * 360;
 
             // Render the item or block
-            if(item instanceof ItemBlock){
+            if(item.item() instanceof ItemBlock){
                 // Render block
-                Block block = ((ItemBlock)item).getBlock();
-                IBlockState state = item.getHasSubtypes() ? block.getStateFromMeta(data) : block.getDefaultState();
+                Block block = ((ItemBlock)item.item()).getBlock();
+                IBlockState state = item.hasSubtypes() ? block.getStateFromMeta(item.meta()) : block.getDefaultState();
                 BlockCapture capture;
-                if(previewMode == 0)
-                    capture = new BlockCapture(state);
-                else if(previewMode == 1){
-                    capture = new BlockCapture(state);
-                    capture.putBlock(new BlockPos(-1, 0, 0), state);
-                    capture.putBlock(new BlockPos(1, 0, 0), state);
+                if(previewMode == PreviewMode.SINGLE)
+                    capture = new BlockCapture(block);
+                else if(previewMode == PreviewMode.ROW){
+                    capture = new BlockCapture(block);
+                    capture.putBlock(new BlockPos(-1, 0, 0), block);
+                    capture.putBlock(new BlockPos(1, 0, 0), block);
                 }else{
                     capture = new BlockCapture();
                     for(int i = 0; i < 9; i++)
                         capture.putBlock(new BlockPos(i / 3 - 1, i % 3 - 1, 0), state);
                 }
-                ScreenBlockRenderer.drawBlock(capture, this.x + this.width / 2d, this.y + this.height / 2d, this.width, this.yaw, this.pitch, false);
+                ScreenBlockRenderer.drawBlock(capture, this.x + this.width / 2d, this.y + this.height / 2d, this.width, yaw, pitch, true);
             }else{
                 // Render item
-                ScreenItemRender.drawItem(itemStack, this.x + this.width / 2d, this.y + this.height / 2d, this.width, this.yaw, this.pitch, true);
+                ScreenItemRender.drawItem(item.toStack(), this.x + this.width / 2d, this.y + this.height / 2d, this.width, yaw, pitch, true);
             }
         }
 

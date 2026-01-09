@@ -1,4 +1,4 @@
-package com.supermartijn642.rechiseled.screen;
+package com.supermartijn642.rechiseled.screen.preview;
 
 import com.google.common.collect.Maps;
 import net.minecraft.block.Block;

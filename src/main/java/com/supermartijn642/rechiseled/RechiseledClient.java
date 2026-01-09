@@ -4,19 +4,23 @@ import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.WidgetContainerScreen;
 import com.supermartijn642.core.registry.ClientRegistrationHandler;
 import com.supermartijn642.core.render.CustomRendererBakedModelWrapper;
+import com.supermartijn642.rechiseled.screen.BaseChiselingContainer;
 import com.supermartijn642.rechiseled.screen.BaseChiselingContainerScreen;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.relauncher.Side;
+import com.supermartijn642.rechiseled.screen.ChiselContainer;
 
 /**
  * Created 21/12/2021 by SuperMartijn642
  */
-@Mod.EventBusSubscriber(Side.CLIENT)
 public class RechiseledClient {
 
     public static void register(){
         ClientRegistrationHandler handler = ClientRegistrationHandler.get(Rechiseled.MODID);
-        handler.registerContainerScreen(() -> Rechiseled.chisel_container, container -> new WidgetContainerScreen<>(new BaseChiselingContainerScreen<>(TextComponents.item(Rechiseled.chisel).get()), container, false));
+        handler.registerContainerScreen(() -> Rechiseled.chisel_container, container -> {
+            BaseChiselingContainerScreen<BaseChiselingContainer> widget = new BaseChiselingContainerScreen<>(TextComponents.item(Rechiseled.chisel).get());
+            WidgetContainerScreen<?,ChiselContainer> screen = WidgetContainerScreen.of(widget, container, false);
+            widget.setScreen(screen);
+            return screen;
+        });
         handler.registerItemModelOverwrite(() -> Rechiseled.chisel, CustomRendererBakedModelWrapper::wrap);
         handler.registerCustomItemRenderer(() -> Rechiseled.chisel, ChiselItemRenderer::new);
     }
