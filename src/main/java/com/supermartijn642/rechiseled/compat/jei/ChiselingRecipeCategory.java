@@ -67,15 +67,15 @@ public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipe>
             List<ItemStack> output = new ArrayList<>();
             if(entry.hasRegularItem(ChiselingBlockShape.BLOCK)){
                 //noinspection DataFlowIssue
-                inputs.add(new ItemStack(entry.getRegularItem(ChiselingBlockShape.BLOCK)));
+                inputs.add(new ItemStack(entry.getRegularItem(ChiselingBlockShape.BLOCK).item()));
                 //noinspection DataFlowIssue
-                output.add(new ItemStack(entry.getRegularItem(ChiselingBlockShape.BLOCK)));
+                output.add(new ItemStack(entry.getRegularItem(ChiselingBlockShape.BLOCK).item()));
             }
             if(entry.hasConnectingItem(ChiselingBlockShape.BLOCK)){
                 //noinspection DataFlowIssue
-                inputs.add(new ItemStack(entry.getConnectingItem(ChiselingBlockShape.BLOCK)));
+                inputs.add(new ItemStack(entry.getConnectingItem(ChiselingBlockShape.BLOCK).item()));
                 //noinspection DataFlowIssue
-                output.add(new ItemStack(entry.getConnectingItem(ChiselingBlockShape.BLOCK)));
+                output.add(new ItemStack(entry.getConnectingItem(ChiselingBlockShape.BLOCK).item()));
             }
             outputs.add(output);
         }
