@@ -1,5 +1,7 @@
 accessWidener v1 named
 
+# Inventory
+accessible method net/minecraft/world/entity/player/Inventory addResource (Lnet/minecraft/world/item/ItemStack;)I
 # ItemTransform$Deserializer
 accessible field net/minecraft/client/renderer/block/model/ItemTransform$Deserializer DEFAULT_ROTATION Lorg/joml/Vector3f; # DEFAULT_ROTATION
 accessible field net/minecraft/client/renderer/block/model/ItemTransform$Deserializer DEFAULT_TRANSLATION Lorg/joml/Vector3f; # DEFAULT_TRANSLATION
