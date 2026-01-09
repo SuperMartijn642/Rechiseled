@@ -2,6 +2,8 @@ package com.supermartijn642.rechiseled.screen;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.supermartijn642.core.ClientUtils;
+import com.supermartijn642.rechiseled.screen.preview.BlockCapture;
+import com.supermartijn642.rechiseled.screen.preview.BlockCaptureLevel;
 import net.fabricmc.fabric.api.renderer.v1.render.BlockVertexConsumerProvider;
 import net.fabricmc.fabric.api.renderer.v1.render.FabricBlockModelRenderer;
 import net.minecraft.client.renderer.LightTexture;
@@ -13,7 +15,6 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
-import org.joml.Matrix4f;
 import org.joml.Quaternionf;
 
 import java.util.Map;
@@ -36,8 +37,7 @@ public class ScreenBlockRenderer {
 
         poseStack.pushPose();
         poseStack.translate(x, y, 0);
-        poseStack.mulPose(new Matrix4f().scaling(1.0F, -1.0F, 1.0F));
-        poseStack.scale((float)scale, (float)scale, (float)-scale);
+        poseStack.scale((float)scale, (float)-scale, (float)-scale);
         poseStack.mulPose(new Quaternionf().setAngleAxis(pitch / 180 * (float)Math.PI, 1, 0, 0));
         poseStack.mulPose(new Quaternionf().setAngleAxis(yaw / 180 * (float)Math.PI, 0, 1, 0));
 
