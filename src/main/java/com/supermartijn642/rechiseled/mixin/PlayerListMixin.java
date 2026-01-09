@@ -21,7 +21,7 @@ public class PlayerListMixin {
         method = "placeNewPlayer",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/network/protocol/game/ClientboundUpdateRecipesPacket;<init>(Ljava/util/Collection;)V",
+            target = "Lnet/minecraft/network/play/server/SUpdateRecipesPacket;<init>(Ljava/util/Collection;)V",
             shift = At.Shift.BEFORE
         )
     )
@@ -33,7 +33,7 @@ public class PlayerListMixin {
         method = "reloadResources",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/network/protocol/game/ClientboundUpdateTagsPacket;<init>(Ljava/util/Map;)V",
+            target = "Lnet/minecraft/network/play/server/STagsListPacket;<init>(Lnet/minecraft/tags/ITagCollectionSupplier;)V",
             shift = At.Shift.BEFORE
         )
     )

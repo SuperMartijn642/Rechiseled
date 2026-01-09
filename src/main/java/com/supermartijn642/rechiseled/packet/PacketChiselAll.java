@@ -11,18 +11,29 @@ import net.minecraft.network.PacketBuffer;
  */
 public class PacketChiselAll implements BasePacket {
 
+    private boolean includeAllShapes;
+
+    public PacketChiselAll(boolean includeAllShapes){
+        this.includeAllShapes = includeAllShapes;
+    }
+
+    public PacketChiselAll(){
+    }
+
     @Override
     public void write(PacketBuffer buffer){
+        buffer.writeBoolean(this.includeAllShapes);
     }
 
     @Override
     public void read(PacketBuffer buffer){
+        this.includeAllShapes = buffer.readBoolean();
     }
 
     @Override
     public void handle(PacketContext context){
         Container container = context.getPlayer().containerMenu;
         if(container instanceof BaseChiselingContainer)
-            ((BaseChiselingContainer)container).chiselAll();
+            ((BaseChiselingContainer)container).chiselAll(this.includeAllShapes);
     }
 }
