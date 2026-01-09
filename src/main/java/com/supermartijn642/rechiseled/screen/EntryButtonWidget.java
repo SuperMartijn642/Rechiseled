@@ -2,57 +2,73 @@ package com.supermartijn642.rechiseled.screen;
 
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
-import com.supermartijn642.core.gui.widget.BaseWidget;
 import com.supermartijn642.core.gui.widget.WidgetRenderContext;
+import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import com.supermartijn642.rechiseled.Rechiseled;
-import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
-import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
+import com.supermartijn642.rechiseled.screen.preview.ScreenItemRender;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 /**
  * Created 2/3/2021 by SuperMartijn642
  */
-public class EntryButtonWidget extends BaseWidget {
+public class EntryButtonWidget extends AbstractButtonWidget {
 
     private static final ResourceLocation TEXTURE = Rechiseled.identifier("textures/screen/buttons.png");
 
-    private final Supplier<ChiselingEntry> entry;
-    private final Supplier<ChiselingEntry> selectedEntry;
-    private final Runnable onClick;
+    private final int anchorY;
+    private final Supplier<DisplayEntry> entry;
+    private final Supplier<DisplayEntry> selectedEntry;
     private final Supplier<Boolean> connecting;
 
     public EntryButtonWidget(int x, int y, int width, int height,
-                             Supplier<ChiselingEntry> entrySupplier,
-                             Supplier<ChiselingEntry> selectedEntrySupplier,
+                             Supplier<DisplayEntry> entrySupplier,
+                             Supplier<DisplayEntry> selectedEntrySupplier,
                              Runnable onClick,
                              Supplier<Boolean> connecting){
-        super(x, y, width, height);
+        super(x, y, width, height, onClick);
+        this.anchorY = y;
         this.entry = entrySupplier;
         this.selectedEntry = selectedEntrySupplier;
-        this.onClick = onClick;
         this.connecting = connecting;
+    }
+
+    public void setVerticalOffset(float offset){
+        this.y = (int)(this.anchorY - offset * this.height);
+    }
+
+    @Override
+    protected boolean isClickable(){
+        return this.entry.get() != null && this.entry.get() != this.selectedEntry.get();
     }
 
     @Override
     public Component getNarrationMessage(){
-        ChiselingEntry entry = this.entry.get();
-        if(entry == null)
+        DisplayEntry display = this.entry.get();
+        if(display == null)
             return null;
-        Item item = (this.connecting.get() && entry.hasConnectingItem(ChiselingBlockShape.BLOCK)) || !entry.hasRegularItem(ChiselingBlockShape.BLOCK) ? entry.getConnectingItem(ChiselingBlockShape.BLOCK) : entry.getRegularItem(ChiselingBlockShape.BLOCK);
+        Item item = display.getItem(this.connecting.get());
         return TextComponents.translation("rechiseled.chiseling.select_block", TextComponents.item(item).get()).get();
     }
 
     @Override
-    public void render(WidgetRenderContext context, int mouseX, int mouseY){
-        ChiselingEntry entry = this.entry.get();
+    protected void getTooltips(Consumer<Component> tooltips){
+        DisplayEntry display = this.entry.get();
+        if(display != null)
+            tooltips.accept(TextComponents.item(display.getItem(this.connecting.get())).get());
+    }
 
-        boolean hasEntry = entry != null;
-        boolean selected = hasEntry && this.selectedEntry.get() == entry;
-        boolean hasCorrectItem = hasEntry && (this.connecting.get() ? entry.hasConnectingItem(ChiselingBlockShape.BLOCK) : entry.hasRegularItem(ChiselingBlockShape.BLOCK));
+    @Override
+    public void render(WidgetRenderContext context, int mouseX, int mouseY){
+        DisplayEntry display = this.entry.get();
+
+        boolean hasEntry = display != null;
+        boolean selected = hasEntry && this.selectedEntry.get() == display;
+        boolean hasCorrectItem = hasEntry && display.hasItem(this.connecting.get());
 
         ScreenUtils.bindTexture(TEXTURE);
         ScreenUtils.drawTexture(context.poseStack(), this.x, this.y, this.width, this.height, 0, (selected ? 1 : hasEntry ? hasCorrectItem ? this.isFocused() ? 2 : 0 : this.isFocused() ? 4 : 3 : 0) / 5f, 1, 1 / 5f);
@@ -60,21 +76,10 @@ public class EntryButtonWidget extends BaseWidget {
 
     @Override
     public void renderForeground(WidgetRenderContext context, int mouseX, int mouseY){
-        ChiselingEntry entry = this.entry.get();
-        if(entry != null){
-            Item item = (this.connecting.get() && entry.hasConnectingItem(ChiselingBlockShape.BLOCK)) || !entry.hasRegularItem(ChiselingBlockShape.BLOCK) ? entry.getConnectingItem(ChiselingBlockShape.BLOCK) : entry.getRegularItem(ChiselingBlockShape.BLOCK);
+        DisplayEntry display = this.entry.get();
+        if(display != null){
+            Item item = display.getItem(this.connecting.get());
             ScreenItemRender.drawItem(context.poseStack(), item, this.x + this.width / 2d, this.y + this.height / 2d, this.width - 4, 0, 0, false);
         }
-    }
-
-    @Override
-    public boolean mousePressed(int mouseX, int mouseY, int button, boolean hasBeenHandled){
-        if(!hasBeenHandled && mouseX >= this.x && mouseX < this.x + this.width && mouseY >= this.y && mouseY < this.y + this.height){
-            ChiselingEntry entry = this.entry.get();
-            if(entry != null)
-                this.onClick.run();
-            return true;
-        }
-        return super.mousePressed(mouseX, mouseY, button, hasBeenHandled);
     }
 }
