@@ -6,8 +6,6 @@ import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import com.supermartijn642.core.util.Holder;
 import com.supermartijn642.rechiseled.Rechiseled;
-import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
-import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -20,17 +18,23 @@ import java.util.function.Supplier;
  */
 public class ConnectingToggleWidget extends AbstractButtonWidget {
 
-    public static final ResourceLocation GREY_BUTTONS = Rechiseled.identifier("screen/grey_buttons");
+    public static final ResourceLocation SMALL_GREY_BUTTONS = Rechiseled.identifier("screen/grey_buttons");
     public static final ResourceLocation ICON_CONNECTED_ON = Rechiseled.identifier("screen/icon_connecting_true");
     public static final ResourceLocation ICON_CONNECTED_OFF = Rechiseled.identifier("screen/icon_connecting_false");
 
     private final Supplier<Boolean> connecting;
-    private final Supplier<ChiselingEntry> currentEntry;
+    private final Supplier<DisplayEntry> currentEntry;
 
-    public ConnectingToggleWidget(int x, int y, int width, int height, Supplier<Boolean> connecting, Supplier<ChiselingEntry> currentEntry, Runnable onPress){
+    public ConnectingToggleWidget(int x, int y, int width, int height, Supplier<Boolean> connecting, Supplier<DisplayEntry> currentEntry, Runnable onPress){
         super(x, y, width, height, onPress);
         this.connecting = connecting;
         this.currentEntry = currentEntry;
+    }
+
+    @Override
+    protected boolean isClickable(){
+        DisplayEntry display = this.currentEntry.get();
+        return display != null && display.hasItem(!this.connecting.get());
     }
 
     @Override
@@ -42,20 +46,18 @@ public class ConnectingToggleWidget extends AbstractButtonWidget {
 
     @Override
     protected void getTooltips(Consumer<Component> tooltips){
-        boolean connecting = this.connecting.get();
-        ChiselingEntry currentEntry = this.currentEntry.get();
-        if(currentEntry != null && (connecting ? currentEntry.hasRegularItem(ChiselingBlockShape.BLOCK) : currentEntry.hasConnectingItem(ChiselingBlockShape.BLOCK)))
-            tooltips.accept(TextComponents.translation("rechiseled.chiseling.connecting", TextComponents.translation("rechiseled.chiseling.connecting." + (connecting ? "on" : "off")).color(ChatFormatting.GOLD).get()).get());
+        if(this.isClickable())
+            tooltips.accept(TextComponents.translation("rechiseled.chiseling.connecting", TextComponents.translation("rechiseled.chiseling.connecting." + (this.connecting.get() ? "on" : "off")).color(ChatFormatting.GOLD).get()).get());
+    }
+
+    @Override
+    public void renderBackground(WidgetRenderContext context, GuiGraphicsHelper graphics, int mouseX, int mouseY){
+        boolean canSwitch = this.isClickable();
+        graphics.submitSprite(SMALL_GREY_BUTTONS, this.x, this.y, this.width, this.height, p -> p.uv(0, (canSwitch ? this.isFocused() ? 2 : 0 : 1) / 3f, 1, 1 / 3f));
     }
 
     @Override
     public void render(WidgetRenderContext context, GuiGraphicsHelper graphics, int mouseX, int mouseY){
-        boolean connecting = this.connecting.get();
-        ChiselingEntry currentEntry = this.currentEntry.get();
-        boolean canSwitch = currentEntry != null && (connecting ? currentEntry.hasRegularItem(ChiselingBlockShape.BLOCK) : currentEntry.hasConnectingItem(ChiselingBlockShape.BLOCK));
-
-        graphics.submitSprite(GREY_BUTTONS, this.x, this.y, this.width, this.height, p -> p.uv(0, (canSwitch ? this.isFocused() ? 2 : 0 : 1) / 3f, 1, 1 / 3f));
-
         graphics.submitSprite(this.connecting.get() ? ICON_CONNECTED_ON : ICON_CONNECTED_OFF, this.x + 1, this.y + 2, this.width - 2, this.height - 4);
     }
 }
