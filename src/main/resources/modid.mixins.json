@@ -10,7 +10,6 @@
   ],
   "client": [
     "BlockModelDeserializerMixin",
-    "CreateWorldScreenMixin",
     "MinecraftMixin",
     "WorldOpenFlowsMixin"
   ],
