@@ -45,7 +45,7 @@ public class ChiselingEntryImpl implements ChiselingEntry {
         if(this.primaryItem == null)
             throw new IllegalArgumentException("Entry must have at least one item!");
         this.items = Stream.of(
-            regularBlock, regularStairs, regularStairs,
+            regularBlock, regularStairs, regularSlab,
             connectingBlock, connectingStairs, connectingSlab
         ).filter(Objects::nonNull).collect(Collectors.toSet());
     }
@@ -177,17 +177,32 @@ public class ChiselingEntryImpl implements ChiselingEntry {
                 throw new JsonParseException("Invalid identifier '" + s + "'!");
             if(!Registries.ITEMS.hasIdentifier(identifier))
                 throw new JsonParseException("Unknown item '" + identifier + "'!");
+            Item item = Registries.ITEMS.getValue(identifier);
+            return new ChiselingEntryImpl(
+                null, null,
+                item, null, null,
+                null, null, null
+            );
         }
         if(!element.isJsonObject())
             throw new JsonParseException("Entry elements must be objects!");
         JsonObject json = element.getAsJsonObject();
+        boolean optional = false;
+        if(json.has("optional")){
+            if(!json.get("optional").isJsonPrimitive() || !json.getAsJsonPrimitive("optional").isBoolean())
+                throw new JsonParseException("Entry property 'optional' must be a boolean!");
+            optional = json.get("optional").getAsBoolean();
+        }
 
         // Legacy format
         if(json.has("item") || json.has("connecting_item")){
-            Item item = readItem(json, "item");
-            Item connectingItem = readItem(json, "connecting_item");
-            if(item == null && connectingItem == null)
-                throw new JsonParseException("Empty chiseling entry!");
+            Item item = readItem(json, "item", optional);
+            Item connectingItem = readItem(json, "connecting_item", optional);
+            if(item == null && connectingItem == null){
+                if(!optional)
+                    throw new JsonParseException("Empty chiseling entry!");
+                return null;
+            }
             return new ChiselingEntryImpl(
                 null, null,
                 item, null, null,
@@ -195,14 +210,19 @@ public class ChiselingEntryImpl implements ChiselingEntry {
             );
         }
 
-        Item regularBlock = readItem(json, "block");
-        Item regularStairs = readItem(json, "stairs");
-        Item regularSlab = readItem(json, "slab");
-        Item connectingBlock = readItem(json, "connecting_block");
-        Item connectingStairs = readItem(json, "connecting_stairs");
-        Item connectingSlab = readItem(json, "connecting_slab");
-        if(regularBlock == null && regularStairs == null && regularSlab == null && connectingBlock == null && connectingStairs == null && connectingSlab == null)
-            throw new JsonParseException("Empty chiseling entry!");
+        if(!json.has("block") && !json.has("stairs") && !json.has("slab") && !json.has("connecting_block") && !json.has("connecting_stairs") && !json.has("connecting_slab"))
+            throw new JsonParseException("Entry must have at least one of 'block', 'stairs', 'slab', 'connecting_block', 'connecting_stairs' or 'connecting_slab'!");
+        Item regularBlock = readItem(json, "block", optional);
+        Item regularStairs = readItem(json, "stairs", optional);
+        Item regularSlab = readItem(json, "slab", optional);
+        Item connectingBlock = readItem(json, "connecting_block", optional);
+        Item connectingStairs = readItem(json, "connecting_stairs", optional);
+        Item connectingSlab = readItem(json, "connecting_slab", optional);
+        if(regularBlock == null && regularStairs == null && regularSlab == null && connectingBlock == null && connectingStairs == null && connectingSlab == null){
+            if(!optional)
+                throw new JsonParseException("Empty chiseling entry!");
+            return null;
+        }
         return new ChiselingEntryImpl(
             null, null,
             regularBlock, regularStairs, regularSlab,
@@ -210,7 +230,7 @@ public class ChiselingEntryImpl implements ChiselingEntry {
         );
     }
 
-    private static Item readItem(JsonObject json, String key){
+    private static Item readItem(JsonObject json, String key, boolean optional){
         if(!json.has(key))
             return null;
         if(!json.get(key).isJsonPrimitive() || !json.getAsJsonPrimitive(key).isString())
