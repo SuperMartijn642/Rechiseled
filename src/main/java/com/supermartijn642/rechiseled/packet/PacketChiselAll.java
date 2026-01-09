@@ -11,18 +11,29 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
  */
 public class PacketChiselAll implements BasePacket {
 
+    private boolean includeAllShapes;
+
+    public PacketChiselAll(boolean includeAllShapes){
+        this.includeAllShapes = includeAllShapes;
+    }
+
+    public PacketChiselAll(){
+    }
+
     @Override
     public void write(FriendlyByteBuf buffer){
+        buffer.writeBoolean(this.includeAllShapes);
     }
 
     @Override
     public void read(FriendlyByteBuf buffer){
+        this.includeAllShapes = buffer.readBoolean();
     }
 
     @Override
     public void handle(PacketContext context){
         AbstractContainerMenu container = context.getPlayer().containerMenu;
         if(container instanceof BaseChiselingContainer)
-            ((BaseChiselingContainer)container).chiselAll();
+            ((BaseChiselingContainer)container).chiselAll(this.includeAllShapes);
     }
 }
