@@ -17,4 +17,10 @@ public interface ChiselingRecipe {
      * Whether any entry in this recipe contains the given item.
      */
     boolean contains(ItemLike item);
+
+    /**
+     * Number of items that this item is worth relative to other items in this recipe.
+     * Value is always greater than 0 if the recipe contains the item, otherwise it is {@code -1}.
+     */
+    float getWorth(ItemLike item);
 }
