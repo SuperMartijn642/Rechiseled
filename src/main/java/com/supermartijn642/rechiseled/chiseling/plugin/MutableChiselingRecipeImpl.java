@@ -2,10 +2,11 @@ package com.supermartijn642.rechiseled.chiseling.plugin;
 
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
+import com.supermartijn642.rechiseled.api.chiseling.ItemWithWorth;
 import com.supermartijn642.rechiseled.api.chiseling.plugin.MutableChiselingRecipe;
 import com.supermartijn642.rechiseled.chiseling.ChiselingEntryImpl;
+import com.supermartijn642.rechiseled.chiseling.ItemWithWorthImpl;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 import org.jetbrains.annotations.Nullable;
 
@@ -64,29 +65,56 @@ public class MutableChiselingRecipeImpl implements MutableChiselingRecipe {
         return false;
     }
 
+    @Override
+    public float getWorth(ItemLike item){
+        ItemWithWorth largestWorth = null;
+        for(ChiselingEntry entry : this.entries){
+            ItemWithWorth worth = ((ChiselingEntryImpl)entry).items().get(item.asItem());
+            if(entry.contains(item) && (largestWorth == null || largestWorth.worth() < worth.worth()))
+                largestWorth = worth;
+        }
+        return largestWorth == null ? -1 : largestWorth.worth();
+    }
+
     private class EntryBuilderImpl implements EntryBuilder {
 
-        private Item regularBlock, regularStair, regularSlab;
-        private Item connectingBlock, connectingStair, connectingSlab;
+        private ItemWithWorth regularBlock, regularStair, regularSlab;
+        private ItemWithWorth connectingBlock, connectingStair, connectingSlab;
 
         @Override
-        public EntryBuilder regularItem(ChiselingBlockShape shape, ItemLike item){
+        public EntryBuilder regularItem(ChiselingBlockShape shape, ItemLike item, float worth){
+            if(worth <= 0)
+                throw new IllegalArgumentException("Worth must be greater than zero!");
+            ItemWithWorth withWorth = ItemWithWorthImpl.of(item.asItem(), worth);
             switch(shape){
-                case BLOCK -> this.regularBlock = item.asItem();
-                case STAIRS -> this.regularStair = item.asItem();
-                case SLAB -> this.regularSlab = item.asItem();
+                case BLOCK -> this.regularBlock = withWorth;
+                case STAIRS -> this.regularStair = withWorth;
+                case SLAB -> this.regularSlab = withWorth;
             }
             return this;
         }
 
         @Override
-        public EntryBuilder connectingItem(ChiselingBlockShape shape, ItemLike item){
+        public EntryBuilder connectingItem(ChiselingBlockShape shape, ItemLike item, float worth){
+            if(worth <= 0)
+                throw new IllegalArgumentException("Worth must be greater than zero!");
+            ItemWithWorth withWorth = ItemWithWorthImpl.of(item.asItem(), worth);
             switch(shape){
-                case BLOCK -> this.connectingBlock = item.asItem();
-                case STAIRS -> this.connectingStair = item.asItem();
-                case SLAB -> this.connectingSlab = item.asItem();
+                case BLOCK -> this.connectingBlock = withWorth;
+                case STAIRS -> this.connectingStair = withWorth;
+                case SLAB -> this.connectingSlab = withWorth;
             }
-            return this;
+            return null;
+        }
+
+        @Override
+        public EntryBuilder regularItem(ChiselingBlockShape shape, ItemLike item){
+            return this.regularItem(shape, item, 1);
+        }
+
+        @Override
+        public EntryBuilder connectingItem(ChiselingBlockShape shape, ItemLike item){
+            return this.connectingItem(shape, item, 1);
         }
 
         @Override
