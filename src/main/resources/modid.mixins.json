@@ -9,7 +9,6 @@
     "PlayerListMixin"
   ],
   "client": [
-    "CreateWorldScreenMixin",
     "ForgeHooksClientMixin",
     "MinecraftMixin",
     "WorldOpenFlowsMixin"
