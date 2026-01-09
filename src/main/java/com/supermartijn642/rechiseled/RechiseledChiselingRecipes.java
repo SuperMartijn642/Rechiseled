@@ -1,6 +1,10 @@
 package com.supermartijn642.rechiseled;
 
 import net.minecraft.item.Items;
+import net.minecraft.util.IItemProvider;
+import net.minecraft.util.ResourceLocation;
+
+import java.util.function.Supplier;
 
 import static com.supermartijn642.rechiseled.Rechiseled.REGISTRATION;
 import static com.supermartijn642.rechiseled.api.BaseChiselingRecipes.*;
@@ -12,92 +16,107 @@ public class RechiseledChiselingRecipes {
 
     public static void init(){
         // Acacia planks
-        REGISTRATION.chiselingEntry(ACACIA_PLANKS, () -> Items.ACACIA_PLANKS, () -> Items.ACACIA_STAIRS, () -> Items.ACACIA_SLAB, null, null, null);
+        regularSet(ACACIA_PLANKS, () -> Items.ACACIA_PLANKS, () -> Items.ACACIA_STAIRS, () -> Items.ACACIA_SLAB);
         // Andesite
-        REGISTRATION.chiselingEntry(ANDESITE, () -> Items.ANDESITE, () -> Items.ANDESITE_STAIRS, () -> Items.ANDESITE_SLAB, null, null, null);
+        regularSet(ANDESITE, () -> Items.ANDESITE, () -> Items.ANDESITE_STAIRS, () -> Items.ANDESITE_SLAB);
         // Basalt
-        REGISTRATION.chiselingEntry(BASALT, () -> Items.BASALT, null);
-        REGISTRATION.chiselingEntry(BASALT, () -> Items.POLISHED_BASALT, null);
+        regularBlockOnly(BASALT, () -> Items.BASALT);
+        regularBlockOnly(BASALT, () -> Items.POLISHED_BASALT);
         // Birch planks
-        REGISTRATION.chiselingEntry(BIRCH_PLANKS, () -> Items.BIRCH_PLANKS, () -> Items.BIRCH_STAIRS, () -> Items.BIRCH_SLAB, null, null, null);
+        regularSet(BIRCH_PLANKS, () -> Items.BIRCH_PLANKS, () -> Items.BIRCH_STAIRS, () -> Items.BIRCH_SLAB);
         // Blackstone
-        REGISTRATION.chiselingEntry(BLACKSTONE, () -> Items.BLACKSTONE, () -> Items.BLACKSTONE_STAIRS, () -> Items.BLACKSTONE_SLAB, null, null, null);
-        REGISTRATION.chiselingEntry(BLACKSTONE, () -> Items.POLISHED_BLACKSTONE_BRICKS, () -> Items.POLISHED_BLACKSTONE_BRICK_STAIRS, () -> Items.POLISHED_BLACKSTONE_BRICK_SLAB, null, null, null);
-        REGISTRATION.chiselingEntry(BLACKSTONE, () -> Items.CRACKED_POLISHED_BLACKSTONE_BRICKS, null);
-        REGISTRATION.chiselingEntry(BLACKSTONE, () -> Items.CHISELED_POLISHED_BLACKSTONE, null);
+        regularSet(BLACKSTONE, () -> Items.BLACKSTONE, () -> Items.BLACKSTONE_STAIRS, () -> Items.BLACKSTONE_SLAB);
+        regularSet(BLACKSTONE, () -> Items.POLISHED_BLACKSTONE_BRICKS, () -> Items.POLISHED_BLACKSTONE_BRICK_STAIRS, () -> Items.POLISHED_BLACKSTONE_BRICK_SLAB);
+        regularBlockOnly(BLACKSTONE, () -> Items.CRACKED_POLISHED_BLACKSTONE_BRICKS);
+        regularBlockOnly(BLACKSTONE, () -> Items.CHISELED_POLISHED_BLACKSTONE);
         // Blue ice
-        REGISTRATION.chiselingEntry(BLUE_ICE, () -> Items.BLUE_ICE, null);
+        regularBlockOnly(BLUE_ICE, () -> Items.BLUE_ICE);
         // Coal block
-        REGISTRATION.chiselingEntry(COAL_BLOCK, () -> Items.COAL_BLOCK, null);
+        regularBlockOnly(COAL_BLOCK, () -> Items.COAL_BLOCK);
         // Cobblestone
-        REGISTRATION.chiselingEntry(COBBLESTONE, () -> Items.COBBLESTONE, () -> Items.COBBLESTONE_STAIRS, () -> Items.COBBLESTONE_SLAB, null, null, null);
-        REGISTRATION.chiselingEntry(COBBLESTONE, () -> Items.MOSSY_COBBLESTONE, () -> Items.MOSSY_COBBLESTONE_STAIRS, () -> Items.MOSSY_COBBLESTONE_SLAB, null, null, null);
+        regularSet(COBBLESTONE, () -> Items.COBBLESTONE, () -> Items.COBBLESTONE_STAIRS, () -> Items.COBBLESTONE_SLAB);
+        regularSet(COBBLESTONE, () -> Items.MOSSY_COBBLESTONE, () -> Items.MOSSY_COBBLESTONE_STAIRS, () -> Items.MOSSY_COBBLESTONE_SLAB);
         // Crimson planks
-        REGISTRATION.chiselingEntry(CRIMSON_PLANKS, () -> Items.CRIMSON_PLANKS, () -> Items.CRIMSON_STAIRS, () -> Items.CRIMSON_SLAB, null, null, null);
+        regularSet(CRIMSON_PLANKS, () -> Items.CRIMSON_PLANKS, () -> Items.CRIMSON_STAIRS, () -> Items.CRIMSON_SLAB);
         // Dark oak planks
-        REGISTRATION.chiselingEntry(DARK_OAK_PLANKS, () -> Items.DARK_OAK_PLANKS, () -> Items.DARK_OAK_STAIRS, () -> Items.DARK_OAK_SLAB, null, null, null);
+        regularSet(DARK_OAK_PLANKS, () -> Items.DARK_OAK_PLANKS, () -> Items.DARK_OAK_STAIRS, () -> Items.DARK_OAK_SLAB);
         // Dark prismarine
-        REGISTRATION.chiselingEntry(DARK_PRISMARINE, () -> Items.DARK_PRISMARINE, null);
+        regularBlockOnly(DARK_PRISMARINE, () -> Items.DARK_PRISMARINE);
         // Diorite
-        REGISTRATION.chiselingEntry(DIORITE, () -> Items.DIORITE, () -> Items.DIORITE_STAIRS, () -> Items.DIORITE_SLAB, null, null, null);
+        regularSet(DIORITE, () -> Items.DIORITE, () -> Items.DIORITE_STAIRS, () -> Items.DIORITE_SLAB);
         // Dirt
-        REGISTRATION.chiselingEntry(DIRT, () -> Items.DIRT, null);
+        regularBlockOnly(DIRT, () -> Items.DIRT);
         // Emerald block
-        REGISTRATION.chiselingEntry(EMERALD_BLOCK, () -> Items.EMERALD_BLOCK, null);
+        regularBlockOnly(EMERALD_BLOCK, () -> Items.EMERALD_BLOCK);
         // End stone
-        REGISTRATION.chiselingEntry(END_STONE, () -> Items.END_STONE, null);
-        REGISTRATION.chiselingEntry(END_STONE, () -> Items.END_STONE_BRICKS, () -> Items.END_STONE_BRICK_STAIRS, () -> Items.END_STONE_BRICK_SLAB, null, null, null);
+        regularBlockOnly(END_STONE, () -> Items.END_STONE);
+        regularSet(END_STONE, () -> Items.END_STONE_BRICKS, () -> Items.END_STONE_BRICK_STAIRS, () -> Items.END_STONE_BRICK_SLAB);
         // Glowstone
-        REGISTRATION.chiselingEntry(GLOWSTONE, () -> Items.GLOWSTONE, null);
+        regularBlockOnly(GLOWSTONE, () -> Items.GLOWSTONE);
         // Gold block
-        REGISTRATION.chiselingEntry(GOLD_BLOCK, () -> Items.GOLD_BLOCK, null);
+        regularBlockOnly(GOLD_BLOCK, () -> Items.GOLD_BLOCK);
         // Granite
-        REGISTRATION.chiselingEntry(GRANITE, () -> Items.GRANITE, () -> Items.GRANITE_STAIRS, () -> Items.GRANITE_SLAB, null, null, null);
+        regularSet(GRANITE, () -> Items.GRANITE, () -> Items.GRANITE_STAIRS, () -> Items.GRANITE_SLAB);
         // Jungle planks
-        REGISTRATION.chiselingEntry(JUNGLE_PLANKS, () -> Items.JUNGLE_PLANKS, () -> Items.JUNGLE_STAIRS, () -> Items.JUNGLE_SLAB, null, null, null);
+        regularSet(JUNGLE_PLANKS, () -> Items.JUNGLE_PLANKS, () -> Items.JUNGLE_STAIRS, () -> Items.JUNGLE_SLAB);
         // Netherrack
-        REGISTRATION.chiselingEntry(NETHERRACK, () -> Items.NETHERRACK, null);
+        regularBlockOnly(NETHERRACK, () -> Items.NETHERRACK);
         // Nether bricks
-        REGISTRATION.chiselingEntry(NETHER_BRICKS, () -> Items.NETHER_BRICKS, () -> Items.NETHER_BRICK_STAIRS, () -> Items.NETHER_BRICK_SLAB, null, null, null);
-        REGISTRATION.chiselingEntry(NETHER_BRICKS, () -> Items.CHISELED_NETHER_BRICKS, null);
-        REGISTRATION.chiselingEntry(NETHER_BRICKS, () -> Items.CRACKED_NETHER_BRICKS, null);
+        regularSet(NETHER_BRICKS, () -> Items.NETHER_BRICKS, () -> Items.NETHER_BRICK_STAIRS, () -> Items.NETHER_BRICK_SLAB);
+        regularBlockOnly(NETHER_BRICKS, () -> Items.CHISELED_NETHER_BRICKS);
+        regularBlockOnly(NETHER_BRICKS, () -> Items.CRACKED_NETHER_BRICKS);
         // Netherite
-        REGISTRATION.chiselingEntry(NETHERITE_BLOCK, () -> Items.NETHERITE_BLOCK, null);
+        regularBlockOnly(NETHERITE_BLOCK, () -> Items.NETHERITE_BLOCK);
         // Oak planks
-        REGISTRATION.chiselingEntry(OAK_PLANKS, () -> Items.OAK_PLANKS, () -> Items.OAK_STAIRS, () -> Items.OAK_SLAB, null, null, null);
+        regularSet(OAK_PLANKS, () -> Items.OAK_PLANKS, () -> Items.OAK_STAIRS, () -> Items.OAK_SLAB);
         // Obsidian
-        REGISTRATION.chiselingEntry(OBSIDIAN, () -> Items.OBSIDIAN, null);
+        regularBlockOnly(OBSIDIAN, () -> Items.OBSIDIAN);
         // Prismarine bricks
-        REGISTRATION.chiselingEntry(PRISMARINE_BRICKS, () -> Items.PRISMARINE_BRICKS, () -> Items.PRISMARINE_BRICK_STAIRS, () -> Items.PRISMARINE_BRICK_SLAB, null, null, null);
+        regularSet(PRISMARINE_BRICKS, () -> Items.PRISMARINE_BRICKS, () -> Items.PRISMARINE_BRICK_STAIRS, () -> Items.PRISMARINE_BRICK_SLAB);
         // Purpur block
-        REGISTRATION.chiselingEntry(PURPUR_BLOCK, () -> Items.PURPUR_PILLAR, null);
+        regularBlockOnly(PURPUR_BLOCK, () -> Items.PURPUR_PILLAR);
         // Quartz block
-        REGISTRATION.chiselingEntry(QUARTZ_BLOCK, () -> Items.QUARTZ_BRICKS, null);
-        REGISTRATION.chiselingEntry(QUARTZ_BLOCK, () -> Items.QUARTZ_PILLAR, null);
-        REGISTRATION.chiselingEntry(QUARTZ_BLOCK, () -> Items.CHISELED_QUARTZ_BLOCK, null);
-        REGISTRATION.chiselingEntry(QUARTZ_BLOCK, () -> Items.SMOOTH_QUARTZ, () -> Items.SMOOTH_QUARTZ_STAIRS, () -> Items.SMOOTH_QUARTZ_SLAB, null, null, null);
+        regularBlockOnly(QUARTZ_BLOCK, () -> Items.QUARTZ_BRICKS);
+        regularBlockOnly(QUARTZ_BLOCK, () -> Items.QUARTZ_PILLAR);
+        regularBlockOnly(QUARTZ_BLOCK, () -> Items.CHISELED_QUARTZ_BLOCK);
+        regularSet(QUARTZ_BLOCK, () -> Items.SMOOTH_QUARTZ, () -> Items.SMOOTH_QUARTZ_STAIRS, () -> Items.SMOOTH_QUARTZ_SLAB);
         // Red nether bricks
-        REGISTRATION.chiselingEntry(RED_NETHER_BRICKS, () -> Items.RED_NETHER_BRICKS, () -> Items.RED_NETHER_BRICK_STAIRS, () -> Items.RED_NETHER_BRICK_SLAB, null, null, null);
+        regularSet(RED_NETHER_BRICKS, () -> Items.RED_NETHER_BRICKS, () -> Items.RED_NETHER_BRICK_STAIRS, () -> Items.RED_NETHER_BRICK_SLAB);
         // Red sandstone
-        REGISTRATION.chiselingEntry(RED_SANDSTONE, () -> Items.RED_SANDSTONE, () -> Items.RED_SANDSTONE_STAIRS, () -> Items.RED_SANDSTONE_SLAB, null, null, null);
-        REGISTRATION.chiselingEntry(RED_SANDSTONE, () -> Items.CHISELED_RED_SANDSTONE, null);
-        REGISTRATION.chiselingEntry(RED_SANDSTONE, () -> Items.CUT_RED_SANDSTONE, null, () -> Items.CUT_RED_SANDSTONE_SLAB, null, null, null);
-        REGISTRATION.chiselingEntry(RED_SANDSTONE, () -> Items.SMOOTH_RED_SANDSTONE, () -> Items.SMOOTH_RED_SANDSTONE_STAIRS, () -> Items.SMOOTH_RED_SANDSTONE_SLAB, null, null, null);
+        regularSet(RED_SANDSTONE, () -> Items.RED_SANDSTONE, () -> Items.RED_SANDSTONE_STAIRS, () -> Items.RED_SANDSTONE_SLAB);
+        regularBlockOnly(RED_SANDSTONE, () -> Items.CHISELED_RED_SANDSTONE);
+        regularSet(RED_SANDSTONE, () -> Items.CUT_RED_SANDSTONE, null, () -> Items.CUT_RED_SANDSTONE_SLAB);
+        regularSet(RED_SANDSTONE, () -> Items.SMOOTH_RED_SANDSTONE, () -> Items.SMOOTH_RED_SANDSTONE_STAIRS, () -> Items.SMOOTH_RED_SANDSTONE_SLAB);
         // Redstone block
-        REGISTRATION.chiselingEntry(REDSTONE_BLOCK, () -> Items.REDSTONE_BLOCK, null);
+        regularBlockOnly(REDSTONE_BLOCK, () -> Items.REDSTONE_BLOCK);
         // Sandstone
-        REGISTRATION.chiselingEntry(SANDSTONE, () -> Items.SANDSTONE, () -> Items.SANDSTONE_STAIRS, () -> Items.SANDSTONE_SLAB, null, null, null);
-        REGISTRATION.chiselingEntry(SANDSTONE, () -> Items.CHISELED_SANDSTONE, null);
-        REGISTRATION.chiselingEntry(SANDSTONE, () -> Items.CUT_SANDSTONE, null, null, null, null, null);
-        REGISTRATION.chiselingEntry(SANDSTONE, () -> Items.SMOOTH_SANDSTONE, () -> Items.SMOOTH_SANDSTONE_STAIRS, () -> Items.SMOOTH_SANDSTONE_SLAB, null, null, null);
+        regularSet(SANDSTONE, () -> Items.SANDSTONE, () -> Items.SANDSTONE_STAIRS, () -> Items.SANDSTONE_SLAB);
+        regularBlockOnly(SANDSTONE, () -> Items.CHISELED_SANDSTONE);
+        regularSet(SANDSTONE, () -> Items.CUT_SANDSTONE, null, () -> Items.CUT_STANDSTONE_SLAB);
+        regularSet(SANDSTONE, () -> Items.SMOOTH_SANDSTONE, () -> Items.SMOOTH_SANDSTONE_STAIRS, () -> Items.SMOOTH_SANDSTONE_SLAB);
         // Spruce planks
-        REGISTRATION.chiselingEntry(SPRUCE_PLANKS, () -> Items.SPRUCE_PLANKS, () -> Items.SPRUCE_STAIRS, () -> Items.SPRUCE_SLAB, null, null, null);
+        regularSet(SPRUCE_PLANKS, () -> Items.SPRUCE_PLANKS, () -> Items.SPRUCE_STAIRS, () -> Items.SPRUCE_SLAB);
         // Stone
-        REGISTRATION.chiselingEntry(STONE, () -> Items.STONE, () -> Items.STONE_STAIRS, () -> Items.STONE_SLAB, null, null, null);
-        REGISTRATION.chiselingEntry(STONE, () -> Items.STONE_BRICKS, () -> Items.STONE_BRICK_STAIRS, () -> Items.STONE_BRICK_SLAB, null, null, null);
-        REGISTRATION.chiselingEntry(STONE, () -> Items.MOSSY_STONE_BRICKS, () -> Items.MOSSY_STONE_BRICK_STAIRS, () -> Items.MOSSY_STONE_BRICK_SLAB, null, null, null);
-        REGISTRATION.chiselingEntry(STONE, () -> Items.CRACKED_STONE_BRICKS, null);
+        regularSet(STONE, () -> Items.STONE, () -> Items.STONE_STAIRS, () -> Items.STONE_SLAB);
+        regularSet(STONE, () -> Items.STONE_BRICKS, () -> Items.STONE_BRICK_STAIRS, () -> Items.STONE_BRICK_SLAB);
+        regularSet(STONE, () -> Items.MOSSY_STONE_BRICKS, () -> Items.MOSSY_STONE_BRICK_STAIRS, () -> Items.MOSSY_STONE_BRICK_SLAB);
+        regularBlockOnly(STONE, () -> Items.CRACKED_STONE_BRICKS);
         // Warped planks
-        REGISTRATION.chiselingEntry(WARPED_PLANKS, () -> Items.WARPED_PLANKS, () -> Items.WARPED_STAIRS, () -> Items.WARPED_SLAB, null, null, null);
+        regularSet(WARPED_PLANKS, () -> Items.WARPED_PLANKS, () -> Items.WARPED_STAIRS, () -> Items.WARPED_SLAB);
+    }
+
+    private static void regularBlockOnly(ResourceLocation recipe, Supplier<IItemProvider> block){
+        REGISTRATION.chiselingEntry(recipe, entry -> entry.regularBlock(block.get()));
+    }
+
+    private static void regularSet(ResourceLocation recipe, Supplier<IItemProvider> block, Supplier<IItemProvider> stairs, Supplier<IItemProvider> slab){
+        REGISTRATION.chiselingEntry(recipe, entry -> {
+            if(block != null)
+                entry.regularBlock(block.get());
+            if(stairs != null)
+                entry.regularStairs(stairs.get());
+            if(slab != null)
+                entry.regularSlab(slab.get());
+        });
     }
 }

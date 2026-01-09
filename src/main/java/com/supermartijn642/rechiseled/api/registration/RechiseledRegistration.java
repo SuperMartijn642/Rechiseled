@@ -2,12 +2,14 @@ package com.supermartijn642.rechiseled.api.registration;
 
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockBuilder;
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockType;
+import com.supermartijn642.rechiseled.api.chiseling.data.ChiselingEntryBuilder;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.Collection;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 /**
@@ -34,21 +36,16 @@ public interface RechiseledRegistration {
 
     /**
      * Adds a new entry to a chiseling recipe.
-     * @param recipe the chiseling recipe to add the entry to
-     * @throws IllegalArgumentException when all item inputs are {@code null}
-     * @see com.supermartijn642.rechiseled.api.BaseChiselingRecipes
+     * @param recipe  the chiseling recipe to add the entry to
+     * @param builder builder for the entry
+     * @see com.supermartijn642.rechiseled.api.BaseChiselingRecipes recipe identifiers for recipes from Rechiseled
      */
-    void chiselingEntry(ResourceLocation recipe, Supplier<IItemProvider> regularBlock, Supplier<IItemProvider> regularStairs, Supplier<IItemProvider> regularSlab, Supplier<IItemProvider> connectingBlock, Supplier<IItemProvider> connectingStairs, Supplier<IItemProvider> connectingSlab);
+    void chiselingEntry(ResourceLocation recipe, Consumer<ChiselingEntryBuilder> builder);
 
     /**
-     * Adds a new entry to a chiseling recipe with just the block shape.
-     * @param recipe          the chiseling recipe to add the entry to
-     * @param regularBlock    the regular block of the entry
-     * @param connectingBlock the connecting block of the entry
-     * @throws IllegalArgumentException when both item inputs are {@code null}
-     * @see #chiselingEntry(ResourceLocation, Supplier, Supplier, Supplier, Supplier, Supplier, Supplier) method for adding an entry with other block shapes
-     * @see com.supermartijn642.rechiseled.api.BaseChiselingRecipes
+     * @deprecated Use {@link #chiselingEntry(ResourceLocation, Consumer)}.
      */
+    @Deprecated
     void chiselingEntry(ResourceLocation recipe, Supplier<IItemProvider> regularBlock, Supplier<IItemProvider> connectingBlock);
 
     /**

@@ -8,23 +8,17 @@ import net.minecraft.util.text.ITextComponent;
  */
 public enum ChiselingBlockShape {
 
-    BLOCK("rechiseled.chiseling.shape.block", 1),
-    STAIRS("rechiseled.chiseling.shape.stairs", 1),
-    SLAB("rechiseled.chiseling.shape.slab", 2);
+    BLOCK("rechiseled.chiseling.shape.block"),
+    STAIRS("rechiseled.chiseling.shape.stairs"),
+    SLAB("rechiseled.chiseling.shape.slab");
 
     private final ITextComponent name;
-    private final int conversionFactor;
 
-    ChiselingBlockShape(String translationKey, int conversionFactor){
+    ChiselingBlockShape(String translationKey){
         this.name = TextComponents.translation(translationKey).get();
-        this.conversionFactor = conversionFactor;
     }
 
     public ITextComponent translation(){
         return this.name;
-    }
-
-    public int conversionFactor(){
-        return this.conversionFactor;
     }
 }

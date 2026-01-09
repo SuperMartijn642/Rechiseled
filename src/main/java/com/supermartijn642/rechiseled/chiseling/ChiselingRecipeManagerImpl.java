@@ -6,9 +6,7 @@ import com.supermartijn642.core.registry.RegistryUtil;
 import com.supermartijn642.core.util.Holder;
 import com.supermartijn642.core.util.Pair;
 import com.supermartijn642.rechiseled.Rechiseled;
-import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
-import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipe;
-import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipeManager;
+import com.supermartijn642.rechiseled.api.chiseling.*;
 import com.supermartijn642.rechiseled.api.chiseling.plugin.ChiselingRecipePlugin;
 import com.supermartijn642.rechiseled.api.chiseling.plugin.ChiselingRecipesLoadedContext;
 import com.supermartijn642.rechiseled.api.chiseling.plugin.MutableChiselingRecipe;
@@ -217,6 +215,18 @@ public class ChiselingRecipeManagerImpl implements ChiselingRecipeManager {
             //noinspection SuspiciousMethodCalls
             group.right().sort(Comparator.comparingInt(recipes::indexOf));
 
+        // Find the highest worth per item
+        Map<Item,ItemWithWorth> worths = new HashMap<>();
+        for(Pair<Set<Item>,List<ChiselingRecipe>> group : groupedRecipes){
+            for(ChiselingRecipe recipe : group.right()){
+                for(ChiselingEntry entry : recipe.entries()){
+                    ((ChiselingEntryImpl)entry).items().forEach((item, worth) -> {
+                        worths.merge(item, worth, (worth1, worth2) -> worth1.worth() > worth2.worth() ? worth1 : worth2);
+                    });
+                }
+            }
+        }
+
         // Merge recipes with overlapping items into a single recipe
         List<List<ChiselingEntry>> groupedEntries = new ArrayList<>(groupedRecipes.size());
         for(Pair<Set<Item>,List<ChiselingRecipe>> group : groupedRecipes){
@@ -226,12 +236,12 @@ public class ChiselingRecipeManagerImpl implements ChiselingRecipeManager {
                 for(ChiselingEntry entry : recipe.entries()){
                     // Check if there's already an entry that contains all items from this entry
                     for(ChiselingEntry existingEntry : entries){
-                        if(((ChiselingEntryImpl)existingEntry).items().containsAll(((ChiselingEntryImpl)entry).items()))
+                        if(((ChiselingEntryImpl)existingEntry).items().keySet().containsAll(((ChiselingEntryImpl)entry).items().keySet()))
                             continue entryLoop;
                     }
                     // Check if this entry contains all items of an existing entry
                     for(int i = 0; i < entries.size(); i++){
-                        if(((ChiselingEntryImpl)entry).items().containsAll(((ChiselingEntryImpl)entries.get(i)).items())){
+                        if(((ChiselingEntryImpl)entry).items().keySet().containsAll(((ChiselingEntryImpl)entries.get(i)).items().keySet())){
                             entries.remove(i);
                             i--;
                         }
@@ -240,6 +250,23 @@ public class ChiselingRecipeManagerImpl implements ChiselingRecipeManager {
                 }
             }
             groupedEntries.add(entries);
+        }
+
+        // Replace items worths with the highest worths for that item
+        for(List<ChiselingEntry> entries : groupedEntries){
+            entries.replaceAll(entry -> {
+                ItemWithWorth regularBlock = entry.hasRegularItem(ChiselingBlockShape.BLOCK) ? worths.get(entry.getRegularItem(ChiselingBlockShape.BLOCK).item()) : null;
+                ItemWithWorth regularStairs = entry.hasRegularItem(ChiselingBlockShape.STAIRS) ? worths.get(entry.getRegularItem(ChiselingBlockShape.STAIRS).item()) : null;
+                ItemWithWorth regularSlab = entry.hasRegularItem(ChiselingBlockShape.SLAB) ? worths.get(entry.getRegularItem(ChiselingBlockShape.SLAB).item()) : null;
+                ItemWithWorth connectingBlock = entry.hasConnectingItem(ChiselingBlockShape.BLOCK) ? worths.get(entry.getConnectingItem(ChiselingBlockShape.BLOCK).item()) : null;
+                ItemWithWorth connectingStairs = entry.hasConnectingItem(ChiselingBlockShape.STAIRS) ? worths.get(entry.getConnectingItem(ChiselingBlockShape.STAIRS).item()) : null;
+                ItemWithWorth connectingSlab = entry.hasConnectingItem(ChiselingBlockShape.SLAB) ? worths.get(entry.getConnectingItem(ChiselingBlockShape.SLAB).item()) : null;
+                return new ChiselingEntryImpl(
+                    entry.owner(), entry.recipe(),
+                    regularBlock, regularStairs, regularSlab,
+                    connectingBlock, connectingStairs, connectingSlab
+                );
+            });
         }
 
         // Create the merged recipes

@@ -1,19 +1,17 @@
 package com.supermartijn642.rechiseled.chiseling;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipe;
+import com.supermartijn642.rechiseled.api.chiseling.ItemWithWorth;
 import net.minecraft.item.Item;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.*;
 
 /**
  * Created 07/01/2026 by SuperMartijn642
@@ -21,15 +19,17 @@ import java.util.stream.Collectors;
 public class ChiselingRecipeImpl implements ChiselingRecipe {
 
     private final List<ChiselingEntry> entries;
-    private final Set<Item> items;
+    private final Map<Item,ItemWithWorth> items;
 
     public ChiselingRecipeImpl(List<ChiselingEntry> entries){
         this.entries = ImmutableList.copyOf(entries);
-        this.items = entries.stream()
-            .map(ChiselingEntryImpl.class::cast)
-            .map(ChiselingEntryImpl::items)
-            .flatMap(Collection::stream)
-            .collect(Collectors.toSet());
+        Map<Item,ItemWithWorth> items = new HashMap<>();
+        for(ChiselingEntry entry : entries){
+            ((ChiselingEntryImpl)entry).items().forEach((item, worth) -> {
+                items.merge(item, worth, (worth1, worth2) -> worth1.worth() > worth2.worth() ? worth1 : worth2);
+            });
+        }
+        this.items = ImmutableMap.copyOf(items);
     }
 
     @Override
@@ -39,11 +39,17 @@ public class ChiselingRecipeImpl implements ChiselingRecipe {
 
     @Override
     public boolean contains(IItemProvider item){
-        return this.items.contains(item.asItem());
+        return this.items.containsKey(item.asItem());
+    }
+
+    @Override
+    public float getWorth(IItemProvider item){
+        ItemWithWorth worth = this.items.get(item.asItem());
+        return worth == null ? -1 : worth.worth();
     }
 
     public Set<Item> getItems(){
-        return this.items;
+        return this.items.keySet();
     }
 
     public static void writeToStream(ChiselingRecipe recipe, PacketBuffer buffer){
@@ -56,12 +62,8 @@ public class ChiselingRecipeImpl implements ChiselingRecipe {
                 //noinspection DataFlowIssue
                 buffer.writeResourceLocation(entry.recipe());
             for(ChiselingBlockShape shape : ChiselingBlockShape.values()){
-                buffer.writeBoolean(entry.hasRegularItem(shape));
-                if(entry.hasRegularItem(shape))
-                    buffer.writeInt(Item.getId(entry.getRegularItem(shape)));
-                buffer.writeBoolean(entry.hasConnectingItem(shape));
-                if(entry.hasConnectingItem(shape))
-                    buffer.writeInt(Item.getId(entry.getConnectingItem(shape)));
+                writeItemToStream(entry.getRegularItem(shape), buffer);
+                writeItemToStream(entry.getConnectingItem(shape), buffer);
             }
         }
     }
@@ -72,12 +74,12 @@ public class ChiselingRecipeImpl implements ChiselingRecipe {
         for(int i = 0; i < entryCount; i++){
             ResourceLocation owner = buffer.readResourceLocation();
             ResourceLocation recipe = buffer.readBoolean() ? buffer.readResourceLocation() : null;
-            Item regularBlock = buffer.readBoolean() ? Item.byId(buffer.readInt()) : null;
-            Item connectingBlock = buffer.readBoolean() ? Item.byId(buffer.readInt()) : null;
-            Item regularStair = buffer.readBoolean() ? Item.byId(buffer.readInt()) : null;
-            Item connectingStair = buffer.readBoolean() ? Item.byId(buffer.readInt()) : null;
-            Item regularSlab = buffer.readBoolean() ? Item.byId(buffer.readInt()) : null;
-            Item connectingSlab = buffer.readBoolean() ? Item.byId(buffer.readInt()) : null;
+            ItemWithWorth regularBlock = readItemFromStream(buffer);
+            ItemWithWorth connectingBlock = readItemFromStream(buffer);
+            ItemWithWorth regularStair = readItemFromStream(buffer);
+            ItemWithWorth connectingStair = readItemFromStream(buffer);
+            ItemWithWorth regularSlab = readItemFromStream(buffer);
+            ItemWithWorth connectingSlab = readItemFromStream(buffer);
             entries.add(new ChiselingEntryImpl(
                 owner,
                 recipe,
@@ -86,5 +88,24 @@ public class ChiselingRecipeImpl implements ChiselingRecipe {
             ));
         }
         return new ChiselingRecipeImpl(entries);
+    }
+
+    private static void writeItemToStream(ItemWithWorth item, PacketBuffer buffer){
+        if(item == null)
+            buffer.writeBoolean(false);
+        else{
+            buffer.writeBoolean(true);
+            buffer.writeInt(Item.getId(item.item()));
+            buffer.writeFloat(item.worth());
+        }
+    }
+
+    private static ItemWithWorth readItemFromStream(PacketBuffer buffer){
+        if(buffer.readBoolean()){
+            Item item = Item.byId(buffer.readInt());
+            float worth = buffer.readFloat();
+            return ItemWithWorthImpl.of(item, worth);
+        }
+        return null;
     }
 }
