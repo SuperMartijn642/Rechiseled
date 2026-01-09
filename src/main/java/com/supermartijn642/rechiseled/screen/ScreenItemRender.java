@@ -22,7 +22,7 @@ public class ScreenItemRender {
 
         poseStack.pushPose();
         poseStack.translate(x, y, 0);
-        poseStack.scale((float)scale, (float)-scale, (float)scale);
+        poseStack.scale((float)scale, (float)-scale, (float)-scale);
         ClientUtils.getItemRenderer().renderStatic(
             item.getDefaultInstance(),
             ItemDisplayContext.GUI,
