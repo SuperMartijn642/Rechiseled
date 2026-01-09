@@ -1,4 +1,4 @@
-package com.supermartijn642.rechiseled.screen;
+package com.supermartijn642.rechiseled.screen.preview;
 
 import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -20,13 +20,14 @@ public class ScreenItemRender {
     /**
      * Renders a given item as a 3d model
      */
-    public static void drawItem(PoseStack poseStack, Item item, double x, double y, double scale, float yaw, float pitch, boolean doShading){
+    public static void drawItem(Item item, double x, double y, double scale, float yaw, float pitch, boolean doShading){
         scale /= Math.sqrt(2 + 1d / (16 * 16));
 
         RenderSystem.getModelViewStack().pushPose();
         RenderSystem.getModelViewStack().scale(1, 1, 1);
         RenderSystem.applyModelViewMatrix();
 
+        PoseStack poseStack = new PoseStack();
         poseStack.translate(x, y, 350);
         poseStack.scale((float)scale, (float)scale, (float)scale);
         poseStack.mulPose(new Quaternion(pitch, yaw, 0, true));
