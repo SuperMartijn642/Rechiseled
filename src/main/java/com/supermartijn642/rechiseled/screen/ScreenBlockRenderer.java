@@ -14,7 +14,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.client.RenderTypeHelper;
 import net.minecraftforge.client.model.data.ModelData;
-import org.joml.Matrix4f;
 import org.joml.Quaternionf;
 
 import java.util.Map;
@@ -38,8 +37,7 @@ public class ScreenBlockRenderer {
 
         poseStack.pushPose();
         poseStack.translate(x, y, 0);
-        poseStack.mulPose(new Matrix4f().scaling(1.0F, -1.0F, 1.0F));
-        poseStack.scale((float)scale, (float)scale, (float)-scale);
+        poseStack.scale((float)scale, (float)-scale, (float)-scale);
         poseStack.mulPose(new Quaternionf().setAngleAxis(pitch / 180 * (float)Math.PI, 1, 0, 0));
         poseStack.mulPose(new Quaternionf().setAngleAxis(yaw / 180 * (float)Math.PI, 0, 1, 0));
 
