@@ -33,7 +33,7 @@ public class ScreenItemRender {
 
         poseStack.pushPose();
         poseStack.translate(x, y, 0);
-        poseStack.scale((float)scale, (float)-scale, (float)scale);
+        poseStack.scale((float)scale, (float)-scale, (float)-scale);
         setupFeatureRenderer(bufferSource);
         ClientUtils.getMinecraft().getItemModelResolver().updateForTopItem(ITEM_STACK_RENDER_STATE, item.getDefaultInstance(), ItemDisplayContext.GUI, null, ClientUtils.getPlayer(), 0);
         ITEM_STACK_RENDER_STATE.submit(poseStack, featureRenderDispatcher.getSubmitNodeStorage(), LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, 0);
