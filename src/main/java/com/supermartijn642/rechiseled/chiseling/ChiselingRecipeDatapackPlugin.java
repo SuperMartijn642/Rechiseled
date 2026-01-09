@@ -4,6 +4,7 @@ import com.google.gson.*;
 import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
+import com.supermartijn642.rechiseled.api.chiseling.ItemWithWorth;
 import com.supermartijn642.rechiseled.api.chiseling.plugin.ChiselingRecipeMutationContext;
 import com.supermartijn642.rechiseled.api.chiseling.plugin.ChiselingRecipePlugin;
 import com.supermartijn642.rechiseled.api.chiseling.plugin.MutableChiselingRecipe;
@@ -44,10 +45,16 @@ public class ChiselingRecipeDatapackPlugin implements PreparableReloadListener, 
             for(ChiselingEntry entry : properties.entries){
                 MutableChiselingRecipe.EntryBuilder builder = recipe.newEntry();
                 for(ChiselingBlockShape shape : ChiselingBlockShape.values()){
-                    if(entry.hasRegularItem(shape))
-                        builder.regularItem(shape, entry.getRegularItem(shape));
-                    if(entry.hasConnectingItem(shape))
-                        builder.connectingItem(shape, entry.getConnectingItem(shape));
+                    if(entry.hasRegularItem(shape)){
+                        ItemWithWorth regularItem = entry.getRegularItem(shape);
+                        //noinspection DataFlowIssue
+                        builder.regularItem(shape, regularItem.item(), regularItem.worth());
+                    }
+                    if(entry.hasConnectingItem(shape)){
+                        ItemWithWorth connectingItem = entry.getConnectingItem(shape);
+                        //noinspection DataFlowIssue
+                        builder.connectingItem(shape, connectingItem.item(), connectingItem.worth());
+                    }
                 }
                 builder.submit();
             }
