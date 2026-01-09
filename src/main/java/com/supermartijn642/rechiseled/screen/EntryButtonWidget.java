@@ -5,7 +5,7 @@ import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.api.util.ItemWithMeta;
-import com.supermartijn642.rechiseled.screen.preview.ScreenItemRender;
+import com.supermartijn642.rechiseled.screen.preview.ScreenItemRenderer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
@@ -78,7 +78,7 @@ public class EntryButtonWidget extends AbstractButtonWidget {
         DisplayEntry display = this.entry.get();
         if(display != null){
             ItemWithMeta item = display.getItem(this.connecting.get());
-            ScreenItemRender.drawItem(item.toStack(), this.x + this.width / 2d, this.y + this.height / 2d, (this.width - 2) * 1.416, 0, 0, false);
+            ScreenItemRenderer.drawItem(item.toStack(), this.x + this.width / 2d, this.y + this.height / 2d, (this.width - 2) * 1.416, 0, 0, false);
         }
     }
 }
