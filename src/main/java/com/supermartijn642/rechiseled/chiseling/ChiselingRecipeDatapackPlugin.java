@@ -100,8 +100,11 @@ public class ChiselingRecipeDatapackPlugin implements IdentifiableResourceReload
                     if(json.has("entries")){
                         if(!json.get("entries").isJsonArray())
                             throw new JsonParseException("Property 'entries' must be an array!");
-                        for(JsonElement element : json.getAsJsonArray("entries"))
-                            entries.add(ChiselingEntryImpl.fromJson(element));
+                        for(JsonElement element : json.getAsJsonArray("entries")){
+                            ChiselingEntry entry = ChiselingEntryImpl.fromJson(element);
+                            if(entry != null)
+                                entries.add(entry);
+                        }
                     }
                 }catch(JsonParseException e){
                     Rechiseled.LOGGER.error("Invalid chiseling recipe '{}' from '{}':\n   {}", recipeLocation, resource.sourcePackId(), e.getMessage(), e);
