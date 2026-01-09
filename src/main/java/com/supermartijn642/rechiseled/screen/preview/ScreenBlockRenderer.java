@@ -1,9 +1,7 @@
-package com.supermartijn642.rechiseled.screen;
+package com.supermartijn642.rechiseled.screen.preview;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.supermartijn642.core.ClientUtils;
-import com.supermartijn642.rechiseled.screen.preview.BlockCapture;
-import com.supermartijn642.rechiseled.screen.preview.BlockCaptureLevel;
 import net.fabricmc.fabric.api.renderer.v1.render.BlockVertexConsumerProvider;
 import net.fabricmc.fabric.api.renderer.v1.render.FabricBlockModelRenderer;
 import net.minecraft.client.renderer.LightTexture;

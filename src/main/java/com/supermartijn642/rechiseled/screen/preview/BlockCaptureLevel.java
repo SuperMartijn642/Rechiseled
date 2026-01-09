@@ -1,4 +1,4 @@
-package com.supermartijn642.rechiseled.screen;
+package com.supermartijn642.rechiseled.screen.preview;
 
 import com.supermartijn642.core.ClientUtils;
 import net.minecraft.core.BlockPos;
