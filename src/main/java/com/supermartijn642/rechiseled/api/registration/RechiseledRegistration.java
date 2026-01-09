@@ -34,13 +34,22 @@ public interface RechiseledRegistration {
 
     /**
      * Adds a new entry to a chiseling recipe.
-     * @param recipe         the chiseling recipe to add the entry to
-     * @param regularItem    the regular option of the entry
-     * @param connectingItem the connecting option of the entry
-     * @throws IllegalArgumentException when both item inputs are {@code null}
+     * @param recipe the chiseling recipe to add the entry to
+     * @throws IllegalArgumentException when all item inputs are {@code null}
      * @see com.supermartijn642.rechiseled.api.BaseChiselingRecipes
      */
-    void chiselingEntry(Identifier recipe, Supplier<ItemLike> regularItem, Supplier<ItemLike> connectingItem);
+    void chiselingEntry(Identifier recipe, Supplier<ItemLike> regularBlock, Supplier<ItemLike> regularStairs, Supplier<ItemLike> regularSlab, Supplier<ItemLike> connectingBlock, Supplier<ItemLike> connectingStairs, Supplier<ItemLike> connectingSlab);
+
+    /**
+     * Adds a new entry to a chiseling recipe with just the block shape.
+     * @param recipe          the chiseling recipe to add the entry to
+     * @param regularBlock    the regular block of the entry
+     * @param connectingBlock the connecting block of the entry
+     * @throws IllegalArgumentException when both item inputs are {@code null}
+     * @see #chiselingEntry(Identifier, Supplier, Supplier, Supplier, Supplier, Supplier, Supplier) method for adding an entry with other block shapes
+     * @see com.supermartijn642.rechiseled.api.BaseChiselingRecipes
+     */
+    void chiselingEntry(Identifier recipe, Supplier<ItemLike> regularBlock, Supplier<ItemLike> connectingBlock);
 
     /**
      * Creates an item group containing all the blocks created using this registration.
