@@ -5,7 +5,7 @@ import com.supermartijn642.core.gui.GuiGraphicsHelper;
 import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import com.supermartijn642.rechiseled.Rechiseled;
-import com.supermartijn642.rechiseled.screen.preview.ScreenItemRender;
+import com.supermartijn642.rechiseled.screen.preview.ScreenItemRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
@@ -80,7 +80,7 @@ public class EntryButtonWidget extends AbstractButtonWidget {
             Item item = display.getItem(this.connecting.get());
             graphics.submitCustomRendering(
                 this.x, this.y, this.width, this.height,
-                (poseStack, bufferSource) -> ScreenItemRender.drawItem(poseStack, bufferSource, item, this.width / 2d, this.height / 2d, this.width - 4, 0, 0, false)
+                (poseStack, bufferSource) -> ScreenItemRenderer.drawItem(poseStack, bufferSource, item, this.width / 2d, this.height / 2d, this.width - 4, 0, 0, false)
             );
         }
     }
