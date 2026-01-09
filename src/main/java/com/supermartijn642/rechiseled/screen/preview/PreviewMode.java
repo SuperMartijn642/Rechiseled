@@ -1,0 +1,25 @@
+package com.supermartijn642.rechiseled.screen.preview;
+
+import com.supermartijn642.rechiseled.Rechiseled;
+import net.minecraft.resources.Identifier;
+
+/**
+ * Created 08/01/2026 by SuperMartijn642
+ */
+public enum PreviewMode {
+
+    SINGLE(Rechiseled.identifier("screen/icon_1x1_grey"), Rechiseled.identifier("screen/icon_1x1")),
+    ROW(Rechiseled.identifier("screen/icon_3x1_grey"), Rechiseled.identifier("screen/icon_3x1")),
+    PANEL(Rechiseled.identifier("screen/icon_3x3_grey"), Rechiseled.identifier("screen/icon_3x3"));
+
+    private final Identifier selectedIcon, unselectedIcon;
+
+    PreviewMode(Identifier selectedIcon, Identifier unselectedIcon){
+        this.selectedIcon = selectedIcon;
+        this.unselectedIcon = unselectedIcon;
+    }
+
+    public Identifier icon(boolean selected){
+        return selected ? this.selectedIcon : this.unselectedIcon;
+    }
+}
