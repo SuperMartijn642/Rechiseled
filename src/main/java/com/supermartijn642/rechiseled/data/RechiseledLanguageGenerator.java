@@ -27,13 +27,27 @@ public class RechiseledLanguageGenerator extends LanguageGenerator {
         this.translation("rechiseled.chiseling.connecting.on", "On");
         this.translation("rechiseled.chiseling.connecting.off", "Off");
         this.translation("rechiseled.chiseling.chisel_all", "Chisel all");
+        this.translation("rechiseled.chiseling.chisel_all.shift", "%s for all shapes");
+        this.translation("rechiseled.chiseling.chisel_all.items", "%s items");
         this.translation("rechiseled.chiseling.select_block", "Select %s");
         this.translation("rechiseled.chiseling.preview", "Block Preview");
+        this.translation("rechiseled.chiseling.select_shape", "Shape: %s");
+        this.translation("rechiseled.chiseling.filter", "Filter options");
+        this.translation("rechiseled.chiseling.filter.show_blocks", "show blocks");
+        this.translation("rechiseled.chiseling.filter.show_stairs", "show stairs");
+        this.translation("rechiseled.chiseling.filter.show_slabs", "show slabs");
+        this.translation("rechiseled.chiseling.filter.show_non_connecting", "show non-connecting");
+        this.translation("rechiseled.chiseling.scrollbar", "Scrollbar");
 
         // Jei
         this.translation("rechiseled.jei_category.title", "Chiseling");
 
         // Chisel item
         this.item(Rechiseled.chisel, "Chisel");
+
+        // Chiseling shapes
+        this.translation("rechiseled.chiseling.shape.block", "Block");
+        this.translation("rechiseled.chiseling.shape.stairs", "Stairs");
+        this.translation("rechiseled.chiseling.shape.slab", "Slab");
     }
 }
