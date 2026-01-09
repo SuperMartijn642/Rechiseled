@@ -91,7 +91,7 @@ public class EntryPreviewWidget extends BaseWidget {
                 ScreenBlockRenderer.drawBlock(context.poseStack(), capture, this.x + this.width / 2d, this.y + this.height / 2d, this.width, yaw, pitch, true);
             }else{
                 // Render item
-                ScreenItemRender.drawItem(context.poseStack(), item, this.x + this.width / 2d, this.y + this.height / 2d, this.width, yaw, pitch, true);
+                ScreenItemRenderer.drawItem(context.poseStack(), item, this.x + this.width / 2d, this.y + this.height / 2d, this.width, yaw, pitch, true);
             }
         }
 
