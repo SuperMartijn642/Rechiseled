@@ -15,7 +15,7 @@ import net.minecraft.world.item.ItemDisplayContext;
 /**
  * Created 22/01/2022 by SuperMartijn642
  */
-public class ScreenItemRender {
+public class ScreenItemRenderer {
 
     private static final ItemStackRenderState ITEM_STACK_RENDER_STATE = new ItemStackRenderState();
     private static FeatureRenderDispatcher featureRenderDispatcher;
