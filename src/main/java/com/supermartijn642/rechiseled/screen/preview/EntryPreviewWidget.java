@@ -98,7 +98,7 @@ public class EntryPreviewWidget extends BaseWidget {
                 // Render item
                 graphics.submitCustomRendering(
                     this.x, this.y, this.width, this.height,
-                    (poseStack, bufferSource) -> ScreenItemRender.drawItem(poseStack, bufferSource, item, this.width / 2d, this.height / 2d, this.width, yaw, pitch, true)
+                    (poseStack, bufferSource) -> ScreenItemRenderer.drawItem(poseStack, bufferSource, item, this.width / 2d, this.height / 2d, this.width, yaw, pitch, true)
                 );
             }
         }
