@@ -1,14 +1,11 @@
 package com.supermartijn642.rechiseled.screen;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.platform.GlStateManager;
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import com.supermartijn642.core.util.Holder;
 import com.supermartijn642.rechiseled.Rechiseled;
-import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
-import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
@@ -21,17 +18,23 @@ import java.util.function.Supplier;
  */
 public class ConnectingToggleWidget extends AbstractButtonWidget {
 
-    private static final ResourceLocation GREY_BUTTONS = Rechiseled.identifier("textures/screen/grey_buttons.png");
+    private static final ResourceLocation SMALL_GREY_BUTTONS = Rechiseled.identifier("textures/screen/grey_buttons.png");
     private static final ResourceLocation ICON_CONNECTED_ON = Rechiseled.identifier("textures/screen/icon_connecting_true.png");
     private static final ResourceLocation ICON_CONNECTED_OFF = Rechiseled.identifier("textures/screen/icon_connecting_false.png");
 
     private final Supplier<Boolean> connecting;
-    private final Supplier<ChiselingEntry> currentEntry;
+    private final Supplier<DisplayEntry> currentEntry;
 
-    public ConnectingToggleWidget(int x, int y, int width, int height, Supplier<Boolean> connecting, Supplier<ChiselingEntry> currentEntry, Runnable onPress){
+    public ConnectingToggleWidget(int x, int y, int width, int height, Supplier<Boolean> connecting, Supplier<DisplayEntry> currentEntry, Runnable onPress){
         super(x, y, width, height, onPress);
         this.connecting = connecting;
         this.currentEntry = currentEntry;
+    }
+
+    @Override
+    protected boolean isClickable(){
+        DisplayEntry display = this.currentEntry.get();
+        return display != null && display.hasItem(!this.connecting.get());
     }
 
     @Override
@@ -43,22 +46,19 @@ public class ConnectingToggleWidget extends AbstractButtonWidget {
 
     @Override
     protected void getTooltips(Consumer<ITextComponent> tooltips){
-        boolean connecting = this.connecting.get();
-        ChiselingEntry currentEntry = this.currentEntry.get();
-        if(currentEntry != null && (connecting ? currentEntry.hasRegularItem(ChiselingBlockShape.BLOCK) : currentEntry.hasConnectingItem(ChiselingBlockShape.BLOCK)))
-            tooltips.accept(TextComponents.translation("rechiseled.chiseling.connecting", TextComponents.translation("rechiseled.chiseling.connecting." + (connecting ? "on" : "off")).color(TextFormatting.GOLD).get()).get());
+        if(this.isClickable())
+            tooltips.accept(TextComponents.translation("rechiseled.chiseling.connecting", TextComponents.translation("rechiseled.chiseling.connecting." + (this.connecting.get() ? "on" : "off")).color(TextFormatting.GOLD).get()).get());
+    }
+
+    @Override
+    public void renderBackground(MatrixStack poseStack, int mouseX, int mouseY){
+        boolean canSwitch = this.isClickable();
+        ScreenUtils.bindTexture(SMALL_GREY_BUTTONS);
+        ScreenUtils.drawTexture(poseStack, this.x, this.y, this.width, this.height, 0, (canSwitch ? this.isFocused() ? 2 : 0 : 1) / 3f, 1, 1 / 3f);
     }
 
     @Override
     public void render(MatrixStack poseStack, int mouseX, int mouseY){
-        boolean connecting = this.connecting.get();
-        ChiselingEntry currentEntry = this.currentEntry.get();
-        boolean canSwitch = currentEntry != null && (connecting ? currentEntry.hasRegularItem(ChiselingBlockShape.BLOCK) : currentEntry.hasConnectingItem(ChiselingBlockShape.BLOCK));
-
-        ScreenUtils.bindTexture(GREY_BUTTONS);
-        ScreenUtils.drawTexture(poseStack, this.x, this.y, this.width, this.height, 0, (canSwitch ? this.isFocused() ? 2 : 0 : 1) / 3f, 1, 1 / 3f);
-
-        GlStateManager._enableAlphaTest();
         ScreenUtils.bindTexture(this.connecting.get() ? ICON_CONNECTED_ON : ICON_CONNECTED_OFF);
         ScreenUtils.drawTexture(poseStack, this.x + 1, this.y + 2, this.width - 2, this.height - 4);
     }

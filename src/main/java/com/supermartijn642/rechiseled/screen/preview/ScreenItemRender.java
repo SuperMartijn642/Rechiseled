@@ -1,4 +1,4 @@
-package com.supermartijn642.rechiseled.screen;
+package com.supermartijn642.rechiseled.screen.preview;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.platform.GlStateManager;
@@ -17,6 +17,8 @@ import net.minecraft.item.Item;
  */
 public class ScreenItemRender {
 
+    private static final MatrixStack POSE_STACK = new MatrixStack();
+
     /**
      * Renders a given item as a 3d model
      */
@@ -31,11 +33,9 @@ public class ScreenItemRender {
 
         RenderSystem.pushMatrix();
         RenderSystem.translated(x, y, 350);
-        RenderSystem.scalef(1, -1, 1);
-        RenderSystem.scaled(scale, scale, scale);
-
-        MatrixStack matrixstack = new MatrixStack();
-        matrixstack.mulPose(new Quaternion(pitch, yaw, 0, true));
+        RenderSystem.scaled(scale, -scale, scale);
+        Quaternion rotation = new Quaternion(pitch, yaw, 0, true);
+        RenderSystem.rotatef(rotation.r(), rotation.i(), rotation.j(), rotation.k());
 
         if(doShading)
             RenderSystem.enableLighting();
@@ -43,7 +43,7 @@ public class ScreenItemRender {
         IRenderTypeBuffer.Impl renderTypeBuffer = RenderUtils.getMainBufferSource();
         IBakedModel model = ClientUtils.getItemRenderer().getItemModelShaper().getItemModel(item);
         if(model != null)
-            ClientUtils.getItemRenderer().render(item.getDefaultInstance(), ItemCameraTransforms.TransformType.GUI, false, matrixstack, renderTypeBuffer, 15728880, OverlayTexture.NO_OVERLAY, model);
+            ClientUtils.getItemRenderer().render(item.getDefaultInstance(), ItemCameraTransforms.TransformType.GUI, false, POSE_STACK, renderTypeBuffer, 15728880, OverlayTexture.NO_OVERLAY, model);
         renderTypeBuffer.endBatch();
 
         RenderSystem.enableDepthTest();

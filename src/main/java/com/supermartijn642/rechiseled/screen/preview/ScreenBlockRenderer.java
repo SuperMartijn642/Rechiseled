@@ -1,4 +1,4 @@
-package com.supermartijn642.rechiseled.screen;
+package com.supermartijn642.rechiseled.screen.preview;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.platform.GlStateManager;
