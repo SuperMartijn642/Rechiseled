@@ -13,6 +13,8 @@ accessible method net/minecraft/client/renderer/block/model/BlockModel bakeFace 
 accessible method net/minecraft/client/renderer/block/model/BlockModel findTextureEntry (Ljava/lang/String;)Lcom/mojang/datafixers/util/Either;
 # Blocks
 accessible method net/minecraft/world/level/block/Blocks never (Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Z
+# Inventory
+accessible method net/minecraft/world/entity/player/Inventory addResource (Lnet/minecraft/world/item/ItemStack;)I
 # ItemRenderer
 accessible method net/minecraft/client/renderer/entity/ItemRenderer renderModelLists (Lnet/minecraft/client/resources/model/BakedModel;Lnet/minecraft/world/item/ItemStack;IILcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;)V
 # ItemTransform$Deserializer
