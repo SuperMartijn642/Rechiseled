@@ -5,8 +5,8 @@ import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import com.supermartijn642.rechiseled.Rechiseled;
+import com.supermartijn642.rechiseled.api.chiseling.ItemWithWorth;
 import com.supermartijn642.rechiseled.screen.preview.ScreenItemRenderer;
-import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
@@ -49,17 +49,18 @@ public class EntryButtonWidget extends AbstractButtonWidget {
     @Override
     public ITextComponent getNarrationMessage(){
         DisplayEntry display = this.entry.get();
-        if(display == null)
+        ItemWithWorth item = display == null ? null : display.getItem(this.connecting.get());
+        if(item == null)
             return null;
-        Item item = display.getItem(this.connecting.get());
-        return TextComponents.translation("rechiseled.chiseling.select_block", TextComponents.item(item).get()).get();
+        return TextComponents.translation("rechiseled.chiseling.select_block", TextComponents.item(item.item()).get()).get();
     }
 
     @Override
     protected void getTooltips(Consumer<ITextComponent> tooltips){
         DisplayEntry display = this.entry.get();
-        if(display != null)
-            tooltips.accept(TextComponents.item(display.getItem(this.connecting.get())).get());
+        ItemWithWorth item = display == null ? null : display.getItem(this.connecting.get());
+        if(item != null)
+            tooltips.accept(TextComponents.item(item.item()).get());
     }
 
     @Override
@@ -77,9 +78,8 @@ public class EntryButtonWidget extends AbstractButtonWidget {
     @Override
     public void renderForeground(MatrixStack poseStack, int mouseX, int mouseY){
         DisplayEntry display = this.entry.get();
-        if(display != null){
-            Item item = display.getItem(this.connecting.get());
-            ScreenItemRenderer.drawItem(item, this.x + this.width / 2d, this.y + this.height / 2d, (this.width - 2) * 1.416, 0, 0, false);
-        }
+        ItemWithWorth item = display == null ? null : display.getItem(this.connecting.get());
+        if(display != null)
+            ScreenItemRenderer.drawItem(item.item(), this.x + this.width / 2d, this.y + this.height / 2d, (this.width - 2) * 1.416, 0, 0, false);
     }
 }

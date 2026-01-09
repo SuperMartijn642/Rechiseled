@@ -6,13 +6,15 @@ import com.google.gson.JsonParseException;
 import com.supermartijn642.core.registry.Registries;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
+import com.supermartijn642.rechiseled.api.chiseling.ItemWithWorth;
 import net.minecraft.item.Item;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
 
 import javax.annotation.Nullable;
+import java.util.Map;
 import java.util.Objects;
-import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -22,13 +24,15 @@ import java.util.stream.Stream;
 public class ChiselingEntryImpl implements ChiselingEntry {
 
     private final ResourceLocation owner, recipe;
-    private final Item regularBlock, regularStairs, regularSlab;
-    private final Item connectingBlock, connectingStairs, connectingSlab;
+    private final ItemWithWorth regularBlock, regularStairs, regularSlab;
+    private final ItemWithWorth connectingBlock, connectingStairs, connectingSlab;
 
-    private final Item primaryItem, primaryBlock, primaryStair, primarySlab;
-    private final Set<Item> items;
+    private final ItemWithWorth primaryItem, primaryBlock, primaryStair, primarySlab, primaryRegularItem, primaryConnectingItem;
+    private final Map<Item,ItemWithWorth> items;
 
-    public ChiselingEntryImpl(ResourceLocation owner, ResourceLocation recipe, Item regularBlock, Item regularStairs, Item regularSlab, Item connectingBlock, Item connectingStairs, Item connectingSlab){
+    public ChiselingEntryImpl(ResourceLocation owner, ResourceLocation recipe,
+                              ItemWithWorth regularBlock, ItemWithWorth regularStairs, ItemWithWorth regularSlab,
+                              ItemWithWorth connectingBlock, ItemWithWorth connectingStairs, ItemWithWorth connectingSlab){
         this.owner = owner;
         this.recipe = recipe;
         this.regularBlock = regularBlock;
@@ -41,13 +45,15 @@ public class ChiselingEntryImpl implements ChiselingEntry {
         this.primaryBlock = regularBlock == null ? connectingBlock : regularBlock;
         this.primaryStair = regularStairs == null ? connectingStairs : regularStairs;
         this.primarySlab = regularSlab == null ? connectingSlab : regularSlab;
+        this.primaryRegularItem = regularBlock == null ? regularStairs == null ? regularSlab : regularStairs : regularBlock;
+        this.primaryConnectingItem = connectingBlock == null ? connectingStairs == null ? connectingSlab : connectingStairs : connectingBlock;
         this.primaryItem = this.primaryBlock == null ? this.primaryStair == null ? this.primarySlab : this.primaryStair : this.primaryBlock;
         if(this.primaryItem == null)
             throw new IllegalArgumentException("Entry must have at least one item!");
         this.items = Stream.of(
             regularBlock, regularStairs, regularSlab,
             connectingBlock, connectingStairs, connectingSlab
-        ).filter(Objects::nonNull).collect(Collectors.toSet());
+        ).filter(Objects::nonNull).collect(Collectors.toMap(ItemWithWorth::item, Function.identity()));
     }
 
     @Override
@@ -60,7 +66,7 @@ public class ChiselingEntryImpl implements ChiselingEntry {
         return this.recipe;
     }
 
-    Set<Item> items(){
+    public Map<Item,ItemWithWorth> items(){
         return this.items;
     }
 
@@ -104,7 +110,7 @@ public class ChiselingEntryImpl implements ChiselingEntry {
     }
 
     @Override
-    public @Nullable Item getRegularItem(ChiselingBlockShape shape){
+    public @Nullable ItemWithWorth getRegularItem(ChiselingBlockShape shape){
         switch(shape){
             case BLOCK:
                 return this.primaryBlock;
@@ -117,7 +123,7 @@ public class ChiselingEntryImpl implements ChiselingEntry {
     }
 
     @Override
-    public @Nullable Item getConnectingItem(ChiselingBlockShape shape){
+    public @Nullable ItemWithWorth getConnectingItem(ChiselingBlockShape shape){
         switch(shape){
             case BLOCK:
                 return this.connectingBlock;
@@ -130,7 +136,7 @@ public class ChiselingEntryImpl implements ChiselingEntry {
     }
 
     @Override
-    public @Nullable Item getAnyItem(ChiselingBlockShape shape){
+    public @Nullable ItemWithWorth getAnyItem(ChiselingBlockShape shape){
         switch(shape){
             case BLOCK:
                 return this.primaryBlock;
@@ -143,30 +149,23 @@ public class ChiselingEntryImpl implements ChiselingEntry {
     }
 
     @Override
-    public Item getAnyItem(){
+    public ItemWithWorth getAnyItem(){
         return this.primaryItem;
     }
 
     @Override
-    public boolean contains(IItemProvider item){
-        return this.items.contains(item.asItem());
+    public @Nullable ItemWithWorth getAnyRegularItem(){
+        return this.primaryRegularItem;
     }
 
-    public static JsonObject toJson(ChiselingEntry entry){
-        JsonObject json = new JsonObject();
-        if(((ChiselingEntryImpl)entry).regularBlock != null)
-            json.addProperty("block", Registries.ITEMS.getIdentifier(((ChiselingEntryImpl)entry).regularBlock).toString());
-        if(((ChiselingEntryImpl)entry).regularStairs != null)
-            json.addProperty("stairs", Registries.ITEMS.getIdentifier(((ChiselingEntryImpl)entry).regularStairs).toString());
-        if(((ChiselingEntryImpl)entry).regularSlab != null)
-            json.addProperty("slab", Registries.ITEMS.getIdentifier(((ChiselingEntryImpl)entry).regularSlab).toString());
-        if(((ChiselingEntryImpl)entry).connectingBlock != null)
-            json.addProperty("block", Registries.ITEMS.getIdentifier(((ChiselingEntryImpl)entry).connectingBlock).toString());
-        if(((ChiselingEntryImpl)entry).connectingStairs != null)
-            json.addProperty("stairs", Registries.ITEMS.getIdentifier(((ChiselingEntryImpl)entry).connectingStairs).toString());
-        if(((ChiselingEntryImpl)entry).connectingSlab != null)
-            json.addProperty("slab", Registries.ITEMS.getIdentifier(((ChiselingEntryImpl)entry).connectingSlab).toString());
-        return json;
+    @Override
+    public @Nullable ItemWithWorth getAnyConnectingItem(){
+        return this.primaryConnectingItem;
+    }
+
+    @Override
+    public boolean contains(IItemProvider item){
+        return this.items.containsKey(item.asItem());
     }
 
     public static ChiselingEntry fromJson(JsonElement element){
@@ -177,7 +176,7 @@ public class ChiselingEntryImpl implements ChiselingEntry {
                 throw new JsonParseException("Invalid identifier '" + s + "'!");
             if(!Registries.ITEMS.hasIdentifier(identifier))
                 throw new JsonParseException("Unknown item '" + identifier + "'!");
-            Item item = Registries.ITEMS.getValue(identifier);
+            ItemWithWorth item = ItemWithWorthImpl.defaultWorth(Registries.ITEMS.getValue(identifier));
             return new ChiselingEntryImpl(
                 null, null,
                 item, null, null,
@@ -196,8 +195,8 @@ public class ChiselingEntryImpl implements ChiselingEntry {
 
         // Legacy format
         if(json.has("item") || json.has("connecting_item")){
-            Item item = readItem(json, "item", optional);
-            Item connectingItem = readItem(json, "connecting_item", optional);
+            ItemWithWorth item = readItem(json, "item", optional);
+            ItemWithWorth connectingItem = readItem(json, "connecting_item", optional);
             if(item == null && connectingItem == null){
                 if(!optional)
                     throw new JsonParseException("Empty chiseling entry!");
@@ -212,12 +211,12 @@ public class ChiselingEntryImpl implements ChiselingEntry {
 
         if(!json.has("block") && !json.has("stairs") && !json.has("slab") && !json.has("connecting_block") && !json.has("connecting_stairs") && !json.has("connecting_slab"))
             throw new JsonParseException("Entry must have at least one of 'block', 'stairs', 'slab', 'connecting_block', 'connecting_stairs' or 'connecting_slab'!");
-        Item regularBlock = readItem(json, "block", optional);
-        Item regularStairs = readItem(json, "stairs", optional);
-        Item regularSlab = readItem(json, "slab", optional);
-        Item connectingBlock = readItem(json, "connecting_block", optional);
-        Item connectingStairs = readItem(json, "connecting_stairs", optional);
-        Item connectingSlab = readItem(json, "connecting_slab", optional);
+        ItemWithWorth regularBlock = readItem(json, "block", optional);
+        ItemWithWorth regularStairs = readItem(json, "stairs", optional);
+        ItemWithWorth regularSlab = readItem(json, "slab", optional);
+        ItemWithWorth connectingBlock = readItem(json, "connecting_block", optional);
+        ItemWithWorth connectingStairs = readItem(json, "connecting_stairs", optional);
+        ItemWithWorth connectingSlab = readItem(json, "connecting_slab", optional);
         if(regularBlock == null && regularStairs == null && regularSlab == null && connectingBlock == null && connectingStairs == null && connectingSlab == null){
             if(!optional)
                 throw new JsonParseException("Empty chiseling entry!");
@@ -230,7 +229,8 @@ public class ChiselingEntryImpl implements ChiselingEntry {
         );
     }
 
-    private static Item readItem(JsonObject json, String key, boolean optional){
+    private static ItemWithWorth readItem(JsonObject json, String key, boolean optional){
+        // Item
         if(!json.has(key))
             return null;
         if(!json.get(key).isJsonPrimitive() || !json.getAsJsonPrimitive(key).isString())
@@ -239,8 +239,22 @@ public class ChiselingEntryImpl implements ChiselingEntry {
         ResourceLocation identifier = ResourceLocation.tryParse(s);
         if(identifier == null)
             throw new JsonParseException("Invalid identifier '" + s + "' for entry property '" + key + "'!");
-        if(!Registries.ITEMS.hasIdentifier(identifier))
-            throw new JsonParseException("Unknown item '" + identifier + "' for entry property '" + key + "'!");
-        return Registries.ITEMS.getValue(identifier);
+        if(!Registries.ITEMS.hasIdentifier(identifier)){
+            if(!optional)
+                throw new JsonParseException("Unknown item '" + identifier + "' for entry property '" + key + "'!");
+            return null;
+        }
+        Item item = Registries.ITEMS.getValue(identifier);
+        if(!json.has(key + "_worth"))
+            return ItemWithWorthImpl.defaultWorth(item);
+
+        // Worth
+        JsonElement element = json.get(key + "_worth");
+        if(!element.isJsonPrimitive() || !element.getAsJsonPrimitive().isNumber())
+            throw new JsonParseException("Entry property '" + key + "' must be a number!");
+        float worth = element.getAsFloat();
+        if(worth <= 0)
+            throw new JsonParseException("Invalid worth '" + worth + "' for entry property '" + key + "'!");
+        return ItemWithWorthImpl.of(item, worth);
     }
 }
