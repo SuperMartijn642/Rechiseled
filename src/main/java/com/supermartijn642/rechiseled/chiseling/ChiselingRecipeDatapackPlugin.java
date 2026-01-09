@@ -57,8 +57,7 @@ public class ChiselingRecipeDatapackPlugin implements PreparableReloadListener, 
     }
 
     @Override
-    public CompletableFuture<Void> reload(SharedState sharedState, Executor executor, PreparationBarrier preparationBarrier, Executor executor2){
-        ResourceManager resourceManager = sharedState.resourceManager();
+    public CompletableFuture<Void> reload(PreparationBarrier preparationBarrier, ResourceManager resourceManager, Executor executor, Executor executor2){
         List<CompletableFuture<ChiselingRecipeProperties>> recipes = resourceManager.listResources("chiseling_recipes", r -> r.getPath().endsWith(".json")).keySet().stream()
             .map(location -> CompletableFuture.supplyAsync(() -> loadRecipe(resourceManager, location), executor))
             .toList();

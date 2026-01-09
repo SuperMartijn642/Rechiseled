@@ -6,7 +6,7 @@ import com.supermartijn642.core.gui.widget.BaseWidget;
 import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
-import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
