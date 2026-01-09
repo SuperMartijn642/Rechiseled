@@ -1,6 +1,9 @@
-package com.supermartijn642.rechiseled.screen;
+package com.supermartijn642.rechiseled.screen.preview;
 
+import com.supermartijn642.core.gui.CursorType;
+import com.supermartijn642.core.gui.CursorTypes;
 import com.supermartijn642.core.gui.widget.BaseWidget;
+import com.supermartijn642.rechiseled.screen.ToggleRotationButton;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -16,17 +19,19 @@ public class EntryPreviewWidget extends BaseWidget {
 
     private static final int ROTATION_TIME = 10000;
 
-    private final Supplier<Item> item;
-    private final Supplier<Integer> previewMode;
+    private static boolean rotatePreview = true;
+    private static float yaw = 0.35f, pitch = 30;
 
-    private float yaw = 0.35f, pitch = 30;
+    private final Supplier<Item> item;
+    private final Supplier<PreviewMode> previewMode;
+
     private long lastRotationTime;
     private boolean dragging = false;
     private int mouseStartX, mouseStartY;
 
     public EntryPreviewWidget(int x, int y, int width, int height,
                               Supplier<Item> item,
-                              Supplier<Integer> previewMode){
+                              Supplier<PreviewMode> previewMode){
         super(x, y, width, height);
         this.item = item;
         this.previewMode = previewMode;
@@ -35,7 +40,7 @@ public class EntryPreviewWidget extends BaseWidget {
 
     @Override
     protected void addWidgets(){
-        this.addWidget(new ToggleRotationButton(this.x, this.y, 11, 11));
+        this.addWidget(new ToggleRotationButton(this.x, this.y, 11, 11, () -> rotatePreview, () -> rotatePreview = !rotatePreview, () -> this.item.get() != null));
         super.addWidgets();
     }
 
@@ -45,29 +50,35 @@ public class EntryPreviewWidget extends BaseWidget {
     }
 
     @Override
+    public CursorType curser(int mouseX, int mouseY){
+        CursorType curser = super.curser(mouseX, mouseY);
+        return curser == null && this.item.get() != null ? CursorTypes.resizeHorizontal() : curser;
+    }
+
+    @Override
     public void render(int mouseX, int mouseY){
         long now = System.currentTimeMillis();
 
         Item item = this.item.get();
-        int previewMode = this.previewMode.get();
-        if(item != null && previewMode >= 0 && previewMode <= 2){
+        PreviewMode previewMode = this.previewMode.get();
+        if(item != null){
             // Update the rotation
             if(this.dragging){
-                this.yaw += (mouseX - this.mouseStartX) / 100d * 360;
-                this.pitch += (mouseY - this.mouseStartY) / 100d * 360;
+                yaw += (float)((mouseX - this.mouseStartX) / 100d * 360);
+                pitch += (float)((mouseY - this.mouseStartY) / 100d * 360);
                 this.mouseStartX = mouseX;
                 this.mouseStartY = mouseY;
-            }else if(ToggleRotationButton.rotate)
-                this.yaw += (double)(now - this.lastRotationTime) / ROTATION_TIME * 360;
+            }else if(rotatePreview)
+                yaw += (float)(now - this.lastRotationTime) / ROTATION_TIME * 360;
 
             // Render the item or block
             if(item instanceof BlockItem){
                 // Render block
                 Block block = ((BlockItem)item).getBlock();
                 BlockCapture capture;
-                if(previewMode == 0)
+                if(previewMode == PreviewMode.SINGLE)
                     capture = new BlockCapture(block);
-                else if(previewMode == 1){
+                else if(previewMode == PreviewMode.ROW){
                     capture = new BlockCapture(block);
                     capture.putBlock(new BlockPos(-1, 0, 0), block);
                     capture.putBlock(new BlockPos(1, 0, 0), block);
@@ -76,10 +87,10 @@ public class EntryPreviewWidget extends BaseWidget {
                     for(int i = 0; i < 9; i++)
                         capture.putBlock(new BlockPos(i / 3 - 1, i % 3 - 1, 0), block);
                 }
-                ScreenBlockRenderer.drawBlock(capture, this.x + this.width / 2d, this.y + this.height / 2d, this.width, this.yaw, this.pitch, false);
+                ScreenBlockRenderer.drawBlock(capture, this.x + this.width / 2d, this.y + this.height / 2d, this.width, yaw, pitch, true);
             }else{
                 // Render item
-                ScreenItemRender.drawItem(item, this.x + this.width / 2d, this.y + this.height / 2d, this.width, this.yaw, this.pitch, true);
+                ScreenItemRender.drawItem(item, this.x + this.width / 2d, this.y + this.height / 2d, this.width, yaw, pitch, true);
             }
         }
 

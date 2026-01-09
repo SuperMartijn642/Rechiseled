@@ -1,4 +1,4 @@
-package com.supermartijn642.rechiseled.screen;
+package com.supermartijn642.rechiseled.screen.preview;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.supermartijn642.core.ClientUtils;
@@ -12,6 +12,8 @@ import net.minecraft.item.Item;
  * Created 22/01/2022 by SuperMartijn642
  */
 public class ScreenItemRender {
+
+    private static final MatrixStack POSE_STACK = new MatrixStack();
 
     /**
      * Renders a given item as a 3d model
@@ -27,6 +29,18 @@ public class ScreenItemRender {
         GlStateManager.enableBlend();
         GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
         GlStateManager.color4f(1, 1, 1, 1);
+
+        RenderSystem.enableRescaleNormal();
+        RenderSystem.enableAlphaTest();
+        RenderSystem.defaultAlphaFunc();
+        RenderSystem.enableBlend();
+        RenderSystem.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
+
+        RenderSystem.pushMatrix();
+        RenderSystem.translated(x, y, 350);
+        RenderSystem.scaled(scale, -scale, scale);
+        Quaternion rotation = new Quaternion(pitch, yaw, 0, true);
+        RenderSystem.rotatef(rotation.r(), rotation.i(), rotation.j(), rotation.k());
 
         if(doShading)
             RenderHelper.turnOnGui();
