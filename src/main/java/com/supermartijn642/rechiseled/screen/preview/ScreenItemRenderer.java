@@ -15,7 +15,7 @@ import net.minecraft.util.math.vector.Quaternion;
 /**
  * Created 22/01/2022 by SuperMartijn642
  */
-public class ScreenItemRender {
+public class ScreenItemRenderer {
 
     private static final MatrixStack POSE_STACK = new MatrixStack();
 
