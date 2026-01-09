@@ -1,4 +1,4 @@
-package com.supermartijn642.rechiseled.screen;
+package com.supermartijn642.rechiseled.screen.preview;
 
 import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -28,7 +28,7 @@ public class ScreenItemRender {
         RenderSystem.applyModelViewMatrix();
 
         PoseStack poseStack = new PoseStack();
-        poseStack.translate(x, -y, 350);
+        poseStack.translate(x, y, 350);
         poseStack.scale((float)scale, (float)scale, (float)scale);
         poseStack.mulPose(new Quaternion(pitch, yaw, 0, true));
 
