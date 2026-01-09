@@ -6,6 +6,9 @@ import com.google.gson.JsonObject;
 import com.supermartijn642.core.registry.Registries;
 import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
+import com.supermartijn642.rechiseled.api.chiseling.ItemWithWorth;
+import com.supermartijn642.rechiseled.api.chiseling.data.ChiselingEntryBuilder;
+import com.supermartijn642.rechiseled.chiseling.data.ChiselingEntryBuilderImpl;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
@@ -61,14 +64,14 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
 
         Set<Item> items = Sets.newHashSet();
         JsonArray entries = new JsonArray();
-        for(ChiselingEntryBuilder entry : recipe.entries){
+        for(ChiselingEntryBuilderImpl entry : recipe.entries){
             if(entry.items.isEmpty() && entry.connectingItems.isEmpty())
                 throw new IllegalStateException("Entry for recipe '" + recipeName + "' has no items!");
-            if(entry.items.containsKey(ChiselingBlockShape.BLOCK) && entry.items.size() == 1 && entry.connectingItems.isEmpty() && !entry.optional){
-                Item item = entry.items.get(ChiselingBlockShape.BLOCK);
-                if(!items.add(item))
-                    throw new IllegalStateException("Duplicate item '" + Registries.ITEMS.getIdentifier(item) + "' in chiseling recipe '" + recipeName + "'");
-                entries.add(Registries.ITEMS.getIdentifier(item).toString());
+            if(entry.items.containsKey(ChiselingBlockShape.BLOCK) && entry.items.size() == 1 && entry.items.get(ChiselingBlockShape.BLOCK).worth() == 1 && entry.connectingItems.isEmpty() && !entry.optional){
+                ItemWithWorth item = entry.items.get(ChiselingBlockShape.BLOCK);
+                if(!items.add(item.item()))
+                    throw new IllegalStateException("Duplicate item '" + Registries.ITEMS.getIdentifier(item.item()) + "' in chiseling recipe '" + recipeName + "'");
+                entries.add(Registries.ITEMS.getIdentifier(item.item()).toString());
                 continue;
             }
             JsonObject object = new JsonObject();
@@ -93,10 +96,12 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
         return json;
     }
 
-    private static void serializeItem(JsonObject json, String key, Item item, Set<Item> items, ResourceLocation recipeName){
-        if(!items.add(item))
-            throw new IllegalStateException("Duplicate item '" + Registries.ITEMS.getIdentifier(item) + "' in chiseling recipe '" + recipeName + "'");
-        json.addProperty(key, Registries.ITEMS.getIdentifier(item).toString());
+    private static void serializeItem(JsonObject json, String key, ItemWithWorth item, Set<Item> items, ResourceLocation recipeName){
+        if(!items.add(item.item()))
+            throw new IllegalStateException("Duplicate item '" + Registries.ITEMS.getIdentifier(item.item()) + "' in chiseling recipe '" + recipeName + "'");
+        json.addProperty(key, Registries.ITEMS.getIdentifier(item.item()).toString());
+        if(item.worth() != 1)
+            json.addProperty(key + "_worth", item.worth());
     }
 
     /**
@@ -127,7 +132,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
 
     public static class ChiselingRecipeBuilder {
 
-        private final List<ChiselingEntryBuilder> entries = new LinkedList<>();
+        private final List<ChiselingEntryBuilderImpl> entries = new LinkedList<>();
         private boolean overwrite = false;
 
         private ChiselingRecipeBuilder(){
@@ -153,7 +158,7 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
          * @see ChiselingBlockShape
          */
         public ChiselingEntryBuilder entry(){
-            ChiselingEntryBuilder entry = new ChiselingEntryBuilder();
+            ChiselingEntryBuilderImpl entry = new ChiselingEntryBuilderImpl();
             this.entries.add(entry);
             return entry;
         }
@@ -167,12 +172,9 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
         }
 
         /**
-         * Adds a new entry with a regular and connecting block and no other shapes.
-         * @param regularBlock    the regular block, i.e. without connecting textures
-         * @param connectingBlock the block with connecting textures
-         * @param optional        whether the recipe may ignore the entry when the entry's items are not present
-         * @throws IllegalArgumentException when both {@code regularBlock} and {@code connectingBlock} are {@code null}
+         * @deprecated Use {@link #entry()}.
          */
+        @Deprecated
         public ChiselingRecipeBuilder add(@Nullable Item regularBlock, @Nullable Item connectingBlock, boolean optional){
             if(regularBlock == null && connectingBlock == null)
                 throw new IllegalArgumentException("At least one of regular item or connecting item must not be null!");
@@ -186,12 +188,9 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
         }
 
         /**
-         * Adds a new entry with a regular and connecting block and no other shapes.
-         * Each entry can have a regular variant and a variant with connecting textures.
-         * @param regularBlock    the regular block, i.e. without connecting textures
-         * @param connectingBlock the block with connecting textures
-         * @throws IllegalArgumentException when both {@code regularBlock} and {@code connectingBlock} are {@code null}
+         * @deprecated Use {@link #entry()}.
          */
+        @Deprecated
         public ChiselingRecipeBuilder add(Item regularBlock, Item connectingBlock){
             return this.add(regularBlock, connectingBlock, false);
         }
@@ -235,76 +234,4 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
         }
     }
 
-    public static class ChiselingEntryBuilder {
-
-        private final Map<ChiselingBlockShape,Item> items = new EnumMap<>(ChiselingBlockShape.class);
-        private final Map<ChiselingBlockShape,Item> connectingItems = new EnumMap<>(ChiselingBlockShape.class);
-        private boolean optional = false;
-
-        private ChiselingEntryBuilder(){
-        }
-
-        /**
-         * Sets whether the recipe may ignore the entry's items when they are not present.
-         * Useful for adding compatibility with mods that may not always be present.
-         */
-        public ChiselingEntryBuilder optional(boolean optional){
-            this.optional = optional;
-            return this;
-        }
-
-        /**
-         * Sets that the recipe may ignore the entry's items when they are not present.
-         * Useful for adding compatibility with mods that may not always be present.
-         */
-        public ChiselingEntryBuilder optional(){
-            return this.optional(true);
-        }
-
-        /**
-         * Sets the regular item for the given shape.
-         */
-        public ChiselingEntryBuilder regularItem(ChiselingBlockShape shape, Item item){
-            if(item == null)
-                throw new IllegalArgumentException("Item must not be null!");
-
-            this.items.put(shape, item);
-            return this;
-        }
-
-        /**
-         * Sets the connecting item for the given shape.
-         */
-        public ChiselingEntryBuilder connectingItem(ChiselingBlockShape shape, Item item){
-            if(item == null)
-                throw new IllegalArgumentException("Item must not be null!");
-
-            this.connectingItems.put(shape, item);
-            return this;
-        }
-
-        public ChiselingEntryBuilder regularBlock(Item item){
-            return this.regularItem(ChiselingBlockShape.BLOCK, item);
-        }
-
-        public ChiselingEntryBuilder regularStairs(Item item){
-            return this.regularItem(ChiselingBlockShape.STAIRS, item);
-        }
-
-        public ChiselingEntryBuilder regularSlab(Item item){
-            return this.regularItem(ChiselingBlockShape.SLAB, item);
-        }
-
-        public ChiselingEntryBuilder connectingBlock(Item item){
-            return this.connectingItem(ChiselingBlockShape.BLOCK, item);
-        }
-
-        public ChiselingEntryBuilder connectingStairs(Item item){
-            return this.connectingItem(ChiselingBlockShape.STAIRS, item);
-        }
-
-        public ChiselingEntryBuilder connectingSlab(Item item){
-            return this.connectingItem(ChiselingBlockShape.SLAB, item);
-        }
-    }
 }
