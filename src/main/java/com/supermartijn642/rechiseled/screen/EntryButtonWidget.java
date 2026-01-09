@@ -5,10 +5,10 @@ import com.supermartijn642.core.gui.GuiGraphicsHelper;
 import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import com.supermartijn642.rechiseled.Rechiseled;
+import com.supermartijn642.rechiseled.api.chiseling.ItemWithWorth;
 import com.supermartijn642.rechiseled.screen.preview.ScreenItemRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -49,17 +49,18 @@ public class EntryButtonWidget extends AbstractButtonWidget {
     @Override
     public Component getNarrationMessage(){
         DisplayEntry display = this.entry.get();
-        if(display == null)
+        ItemWithWorth item = display == null ? null : display.getItem(this.connecting.get());
+        if(item == null)
             return null;
-        Item item = display.getItem(this.connecting.get());
-        return TextComponents.translation("rechiseled.chiseling.select_block", TextComponents.item(item).get()).get();
+        return TextComponents.translation("rechiseled.chiseling.select_block", TextComponents.item(item.item()).get()).get();
     }
 
     @Override
     protected void getTooltips(Consumer<Component> tooltips){
         DisplayEntry display = this.entry.get();
-        if(display != null)
-            tooltips.accept(TextComponents.item(display.getItem(this.connecting.get())).get());
+        ItemWithWorth item = display == null ? null : display.getItem(this.connecting.get());
+        if(item != null)
+            tooltips.accept(TextComponents.item(item.item()).get());
     }
 
     @Override
@@ -76,11 +77,11 @@ public class EntryButtonWidget extends AbstractButtonWidget {
     @Override
     public void renderForeground(WidgetRenderContext context, GuiGraphicsHelper graphics, int mouseX, int mouseY){
         DisplayEntry display = this.entry.get();
-        if(display != null){
-            Item item = display.getItem(this.connecting.get());
+        ItemWithWorth item = display == null ? null : display.getItem(this.connecting.get());
+        if(item != null){
             graphics.submitCustomRendering(
                 this.x, this.y, this.width, this.height,
-                (poseStack, bufferSource) -> ScreenItemRenderer.drawItem(poseStack, bufferSource, item, this.width / 2d, this.height / 2d, this.width - 4, 0, 0, false)
+                (poseStack, bufferSource) -> ScreenItemRenderer.drawItem(poseStack, bufferSource, item.item(), this.width / 2d, this.height / 2d, this.width - 4, 0, 0, false)
             );
         }
     }
