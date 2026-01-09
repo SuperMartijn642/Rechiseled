@@ -7,7 +7,7 @@ import net.minecraft.world.item.Item;
 /**
  * Created 22/01/2022 by SuperMartijn642
  */
-public class ScreenItemRender {
+public class ScreenItemRenderer {
 
     /**
      * Renders a given item as a 3d model
