@@ -30,10 +30,10 @@ body:
     validations:
       required: true
   - type: input
-    id: input-2
+    id: input-3
     attributes:
       label: Fusion version
-      description: What version of [Fusion](https://www.curseforge.com/minecraft/mc-mods/fusion-connected-textures) are you using?
+      description: "What version of [Fusion](https://www.curseforge.com/minecraft/mc-mods/fusion-connected-textures) are you using?"
     validations:
       required: true
   - type: textarea
