@@ -233,7 +233,6 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
         this.searchField.setTextSuppressed("");
         searchText = "";
         formattedSearchText = "";
-        this.setScrollOffset(0);
         this.searchField.setActive(this.recipe != null);
         this.filterOptionsWidget.setActive(this.recipe != null);
 
@@ -261,7 +260,9 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
             }
         }
         this.updateDisplayEntries();
-        if(matchingDisplay != null)
+        if(matchingDisplay == null)
+            this.setScrollOffset(0);
+        else
             this.selectDisplayEntry(matchingDisplay);
     }
 
