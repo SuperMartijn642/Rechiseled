@@ -23,11 +23,23 @@ public class RegistrationLanguageGenerator extends LanguageGenerator {
         if(this.registration.getItemGroup() != null && this.registration.getItemGroupTranslation() != null)
             this.itemGroup(this.registration.getItemGroup(), this.registration.getItemGroupTranslation());
         this.registration.getBlockBuilders().forEach(
-            pair -> {
-                if(pair.right().hasRegularVariant())
-                    this.block(pair.right().getRegularBlock(), pair.left().translation);
-                if(pair.right().hasConnectingVariant())
-                    this.block(pair.right().getConnectingBlock(), pair.left().translation);
+            builder -> {
+                if(builder.hasRegularVariant()){
+                    if(builder.getTranslation() != null)
+                        this.block(builder.getRegularBlock(), builder.getTranslation());
+                    if(builder.hasStairs() && builder.getStairs().getTranslation() != null && builder.getStairs().hasRegularVariant())
+                        this.block(builder.getStairs().getRegularBlock(), builder.getStairs().getTranslation());
+                    if(builder.hasSlabs() && builder.getSlabs().getTranslation() != null && builder.getSlabs().hasRegularVariant())
+                        this.block(builder.getSlabs().getRegularBlock(), builder.getSlabs().getTranslation());
+                }
+                if(builder.hasConnectingVariant()){
+                    if(builder.getTranslation() != null)
+                        this.block(builder.getConnectingBlock(), builder.getTranslation());
+                    if(builder.hasStairs() && builder.getStairs().getTranslation() != null && builder.getStairs().hasConnectingVariant())
+                        this.block(builder.getStairs().getConnectingBlock(), builder.getStairs().getTranslation());
+                    if(builder.hasSlabs() && builder.getSlabs().getTranslation() != null && builder.getSlabs().hasConnectingVariant())
+                        this.block(builder.getSlabs().getConnectingBlock(), builder.getSlabs().getTranslation());
+                }
             }
         );
     }
