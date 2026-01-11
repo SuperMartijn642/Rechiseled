@@ -33,6 +33,7 @@ public class RechiseledLanguageGenerator extends LanguageGenerator {
         this.translation("rechiseled.chiseling.preview", "Block Preview");
         this.translation("rechiseled.chiseling.select_shape", "Shape: %s");
         this.translation("rechiseled.chiseling.filter", "Filter options");
+        this.translation("rechiseled.chiseling.filter.clear", "Right-click to clear");
         this.translation("rechiseled.chiseling.filter.show_blocks", "show blocks");
         this.translation("rechiseled.chiseling.filter.show_stairs", "show stairs");
         this.translation("rechiseled.chiseling.filter.show_slabs", "show slabs");
