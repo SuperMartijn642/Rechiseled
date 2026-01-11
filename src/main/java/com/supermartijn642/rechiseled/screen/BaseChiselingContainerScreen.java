@@ -123,7 +123,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
         this.searchField.setTextSuppressed(searchText);
         this.searchField.setActive(false);
         this.filterOptionsWidget = this.addWidget(new FilterOptionsWidget(
-            131, 19,
+            131, 18,
             () -> showBlocks, () -> showStairs, () -> showSlabs, () -> showNonConnecting,
             this::toggleShowBlocks, this::toggleShowStairs, this::toggleShowSlabs, this::toggleShowNonConnecting,
             () -> {
