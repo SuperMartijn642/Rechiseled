@@ -3,12 +3,18 @@ package com.supermartijn642.rechiseled.registration.data;
 import com.supermartijn642.core.generator.BlockStateGenerator;
 import com.supermartijn642.core.generator.ResourceCache;
 import com.supermartijn642.core.registry.Registries;
-import com.supermartijn642.core.util.Pair;
 import com.supermartijn642.rechiseled.api.blocks.BlockSpecification;
 import com.supermartijn642.rechiseled.blocks.RechiseledPillarBlock;
+import com.supermartijn642.rechiseled.blocks.RechiseledSlabBlock;
+import com.supermartijn642.rechiseled.blocks.RechiseledStairBlock;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
 import net.minecraft.block.Block;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.state.properties.Half;
+import net.minecraft.state.properties.SlabType;
+import net.minecraft.state.properties.StairsShape;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 
 /**
  * Created 03/05/2023 by SuperMartijn642
@@ -26,31 +32,103 @@ public class RegistrationBlockStateGenerator extends BlockStateGenerator {
     public void generate(){
         if(!this.registration.providersRegistered)
             return;
-        this.registration.getBlockBuilders().stream().map(Pair::right).forEach(
-            type -> {
-                if(type.hasRegularVariant())
-                    this.createBlockState(type.getSpecification(), type.getRegularBlock());
-                if(type.hasConnectingVariant())
-                    this.createBlockState(type.getSpecification(), type.getConnectingBlock());
+        this.registration.getBlockBuilders().forEach(
+            builder -> {
+                if(builder.hasRegularVariant()){
+                    this.createBlockState(builder.getSpecification(), builder.getRegularBlock());
+                    if(builder.hasStairs() && builder.getStairs().hasRegularVariant())
+                        this.createStairsState(builder.getStairs().getRegularBlock(), false);
+                    if(builder.hasSlabs() && builder.getSlabs().hasRegularVariant())
+                        this.createSlabState(builder.getSlabs().getRegularBlock());
+                }
+                if(builder.hasConnectingVariant()){
+                    this.createConnectingBlockState(builder.getSpecification(), builder.getConnectingBlock());
+                    if(builder.hasStairs() && builder.getStairs().hasConnectingVariant())
+                        this.createStairsState(builder.getStairs().getConnectingBlock(), true);
+                    if(builder.hasSlabs() && builder.getSlabs().hasConnectingVariant())
+                        this.createSlabState(builder.getSlabs().getConnectingBlock());
+                }
             }
         );
     }
 
     private void createBlockState(BlockSpecification specification, Block block){
-        String namespace = Registries.BLOCKS.getIdentifier(block).getNamespace();
-        String identifier = Registries.BLOCKS.getIdentifier(block).getPath();
+        ResourceLocation identifier = Registries.BLOCKS.getIdentifier(block);
+        ResourceLocation model = new ResourceLocation(identifier.getNamespace(), "block/" + identifier.getPath());
         if(specification == BlockSpecification.BASIC || specification == BlockSpecification.GLASS)
-            this.blockState(block).emptyVariant(variant -> variant.model(namespace, "block/" + identifier));
+            this.blockState(block).emptyVariant(variant -> variant.model(model));
         else if(specification == BlockSpecification.PILLAR || specification == BlockSpecification.GLASS_PILLAR){
             this.blockState(block).variantsForProperty(RechiseledPillarBlock.AXIS_PROPERTY, (state, variant) -> {
                 Direction.Axis axis = state.get(RechiseledPillarBlock.AXIS_PROPERTY);
                 if(axis == Direction.Axis.X)
-                    variant.model(namespace, "block/" + identifier, 90, 90);
+                    variant.model(model, 90, 90);
                 else if(axis == Direction.Axis.Z)
-                    variant.model(namespace, "block/" + identifier, 90, 0);
+                    variant.model(model, 90, 0);
                 else
-                    variant.model(namespace, "block/" + identifier);
+                    variant.model(model);
             });
         }
+    }
+
+    private void createConnectingBlockState(BlockSpecification specification, Block block){
+        ResourceLocation identifier = Registries.BLOCKS.getIdentifier(block);
+        ResourceLocation model = new ResourceLocation(identifier.getNamespace(), "block/" + identifier.getPath());
+        if(specification == BlockSpecification.BASIC || specification == BlockSpecification.GLASS)
+            this.blockState(block).emptyVariant(variant -> variant.model(model));
+        else if(specification == BlockSpecification.PILLAR || specification == BlockSpecification.GLASS_PILLAR){
+            this.blockState(block).variantsForProperty(RechiseledPillarBlock.AXIS_PROPERTY, (state, variant) -> {
+                Direction.Axis axis = state.get(RechiseledPillarBlock.AXIS_PROPERTY);
+                if(axis == Direction.Axis.X)
+                    variant.model(new ResourceLocation(model.getNamespace(), model.getPath() + "_horizontal"), 90, 90);
+                else if(axis == Direction.Axis.Z)
+                    variant.model(new ResourceLocation(model.getNamespace(), model.getPath() + "_horizontal"), 90, 0);
+                else
+                    variant.model(model);
+            });
+        }
+    }
+
+    private void createStairsState(Block block, boolean connecting){
+        ResourceLocation identifier = Registries.BLOCKS.getIdentifier(block);
+        ResourceLocation model = new ResourceLocation(identifier.getNamespace(), "block/" + identifier.getPath());
+        this.blockState(block).variantsForAllExcept((state, variant) -> {
+            Direction facing = state.get(RechiseledStairBlock.FACING);
+            Half half = state.get(RechiseledStairBlock.HALF);
+            StairsShape shape = state.get(RechiseledStairBlock.SHAPE);
+            // Get rotation
+            int yRotation = (int)facing.toYRot() + 90;
+            if(half == Half.BOTTOM && (shape == StairsShape.INNER_LEFT || shape == StairsShape.OUTER_LEFT))
+                yRotation -= 90;
+            else if(half == Half.TOP && (shape == StairsShape.INNER_RIGHT || shape == StairsShape.OUTER_RIGHT))
+                yRotation += 90;
+            int xRotation = !connecting && half == Half.TOP ? 180 : 0;
+            // Get model suffix
+            String suffix = connecting ? half == Half.BOTTOM ? "_bottom" : "_top" : "";
+            if(shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT)
+                suffix = "_inner" + suffix;
+            else if(shape == StairsShape.OUTER_LEFT || shape == StairsShape.OUTER_RIGHT)
+                suffix = "_outer" + suffix;
+            // Set variant model
+            variant.model(new ResourceLocation(model.getNamespace(), model.getPath() + suffix), xRotation, (yRotation + 360) % 360, true);
+        }, BlockStateProperties.WATERLOGGED);
+    }
+
+    private void createSlabState(Block block){
+        ResourceLocation identifier = Registries.BLOCKS.getIdentifier(block);
+        ResourceLocation model = new ResourceLocation(identifier.getNamespace(), "block/" + identifier.getPath());
+        this.blockState(block)
+            .variantsForProperty(RechiseledSlabBlock.TYPE, (state, variant) -> {
+                if(state.get(RechiseledSlabBlock.TYPE) == SlabType.DOUBLE)
+                    variant.model(new ResourceLocation(model.getNamespace(), model.getPath() + "_double"));
+                else if(state.get(RechiseledSlabBlock.TYPE) == SlabType.BOTTOM)
+                    variant.model(new ResourceLocation(model.getNamespace(), model.getPath() + "_bottom"));
+                else
+                    variant.model(new ResourceLocation(model.getNamespace(), model.getPath() + "_top"));
+            });
+    }
+
+    @Override
+    public String getName(){
+        return "Registration Block State Generator: " + this.modName;
     }
 }

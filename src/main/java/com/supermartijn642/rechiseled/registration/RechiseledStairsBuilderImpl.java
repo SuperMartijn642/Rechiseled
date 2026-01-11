@@ -1,0 +1,30 @@
+package com.supermartijn642.rechiseled.registration;
+
+import com.supermartijn642.core.block.BlockProperties;
+import com.supermartijn642.rechiseled.api.blocks.BlockSpecification;
+import com.supermartijn642.rechiseled.api.blocks.RechiseledStairsBuilder;
+import com.supermartijn642.rechiseled.blocks.RechiseledGlassStairBlock;
+import com.supermartijn642.rechiseled.blocks.RechiseledStairBlock;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
+import net.minecraft.util.ResourceLocation;
+
+/**
+ * Created 11/01/2026 by SuperMartijn642
+ */
+public class RechiseledStairsBuilderImpl extends RechiseledCommonBlockBuilderImpl<RechiseledStairsBuilder> implements RechiseledStairsBuilder {
+    RechiseledStairsBuilderImpl(RechiseledBlockBuilderImpl parent){
+        super(parent, "_stairs", " Stairs");
+    }
+
+    @Override
+    protected Block createBlock(BlockSpecification specification, Block parent, boolean connecting, BlockProperties properties, ResourceLocation identifier){
+        //noinspection deprecation
+        AbstractBlock.Properties vanillaProperties = properties.toUnderlying();
+        if(specification == BlockSpecification.BASIC || specification == BlockSpecification.PILLAR)
+            return new RechiseledStairBlock(connecting, parent.defaultBlockState(), vanillaProperties);
+        if(specification == BlockSpecification.GLASS || specification == BlockSpecification.GLASS_PILLAR)
+            return new RechiseledGlassStairBlock(connecting, parent.defaultBlockState(), vanillaProperties);
+        throw new IllegalStateException("Unknown specification: " + specification);
+    }
+}
