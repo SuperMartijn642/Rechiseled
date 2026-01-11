@@ -219,9 +219,16 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
     }
 
     private void updateRecipe(){
-        if((this.container.currentRecipe == null && this.recipe == null)
-            || (this.lastContainerEntry != null && this.lastContainerEntry.entry() == this.container.currentEntry && this.lastContainerEntry.shape() == this.container.shape))
+        if(this.container.currentRecipe == null && this.recipe == null)
             return;
+        if(this.container.currentRecipe != null && this.recipe == this.container.currentRecipe){
+            if(this.lastContainerEntry != null && this.lastContainerEntry.entry() == this.container.currentEntry && this.lastContainerEntry.shape() == this.container.shape)
+                return;
+            if(this.selectedEntry != null && this.selectedEntry.entry() == this.container.currentEntry && this.selectedEntry.shape() == this.container.shape){
+                this.lastContainerEntry = new DisplayEntry(-1, this.container.currentEntry, this.container.shape);
+                return;
+            }
+        }
         this.recipe = this.container.currentRecipe;
         this.lastContainerEntry = new DisplayEntry(-1, this.container.currentEntry, this.container.shape);
 
