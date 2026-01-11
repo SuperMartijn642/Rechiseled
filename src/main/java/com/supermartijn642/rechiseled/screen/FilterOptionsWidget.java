@@ -34,7 +34,7 @@ public class FilterOptionsWidget extends BaseWidget {
     private boolean active = true;
 
     public FilterOptionsWidget(int x, int y, BooleanSupplier showBlocks, BooleanSupplier showStairs, BooleanSupplier showSlabs, BooleanSupplier showNonConnecting, Runnable toggleShowBlocks, Runnable toggleShowStairs, Runnable toggleShowSlabs, Runnable toggleShowConnecting, Runnable resetFilters){
-        super(x, y, 11, 11);
+        super(x, y, 12, 12);
         this.showBlocks = showBlocks;
         this.showStairs = showStairs;
         this.showSlabs = showSlabs;
