@@ -27,7 +27,6 @@ import org.slf4j.LoggerFactory;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created 7/7/2020 by SuperMartijn642
@@ -55,10 +54,14 @@ public class Rechiseled implements ModInitializer {
             List<Item> items = new LinkedList<>();
             items.add(chisel);
             for(RechiseledBlockType type : REGISTRATION.getAllBlockTypes()){
-                items.add(type.getRegularItem());
-                items.add(type.getConnectingItem());
+                if(type.hasRegularVariant()) items.add(type.getRegularItem());
+                if(type.hasConnectingVariant()) items.add(type.getConnectingItem());
+                if(type.hasRegularStairs()) items.add(type.getRegularStairsItem());
+                if(type.hasConnectingStairs()) items.add(type.getConnectingStairsItem());
+                if(type.hasRegularSlab()) items.add(type.getRegularSlabItem());
+                if(type.hasConnectingSlab()) items.add(type.getConnectingSlabItem());
             }
-            items.stream().filter(Objects::nonNull).map(ItemStack::new).forEach(stackConsumer);
+            items.stream().map(ItemStack::new).forEach(stackConsumer);
         });
 
     @Override
@@ -94,6 +97,7 @@ public class Rechiseled implements ModInitializer {
         handler.addGenerator(RechiseledItemModelGenerator::new);
         handler.addGenerator(RechiseledLanguageGenerator::new);
         handler.addGenerator(RechiseledRecipeGenerator::new);
+        handler.addGenerator(RechiseledBlockModelGenerator::new);
         REGISTRATION.registerDataProviders();
     }
 }
