@@ -304,6 +304,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
         if(entry == null || this.selectedEntry == entry)
             return;
         boolean changedShape = entry.shape() == ChiselingBlockShape.BLOCK;
+        boolean isSameRecipeEntry = this.selectedEntry != null && entry.entry() == this.selectedEntry.entry();
         this.selectedEntry = entry;
         if(!entry.hasItem(this.connecting))
             this.connecting = !this.connecting;
@@ -316,6 +317,8 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
             showSlabs = this.selectedEntry.shape() == ChiselingBlockShape.SLAB;
             this.updateDisplayEntries();
         }
+        if(!isSameRecipeEntry)
+            this.updateFiltersMatchShape(entry.shape());
         // Scroll to entry
         int index = this.visibleEntries.indexOf(entry);
         if(index < 0)
@@ -354,34 +357,31 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
 
     private void toggleShowBlocks(){
         showBlocks = !showBlocks;
-        ChiselingBlockShape shape = this.selectedEntry.shape();
-        filtersMatchShape = (shape == ChiselingBlockShape.BLOCK) == showBlocks
-            && (shape == ChiselingBlockShape.STAIRS) == showStairs
-            && (shape == ChiselingBlockShape.SLAB) == showSlabs;
+        this.updateFiltersMatchShape(this.selectedEntry.shape());
         this.updateDisplayEntries();
     }
 
     private void toggleShowStairs(){
         showStairs = !showStairs;
-        ChiselingBlockShape shape = this.selectedEntry.shape();
-        filtersMatchShape = (shape == ChiselingBlockShape.BLOCK) == showBlocks
-            && (shape == ChiselingBlockShape.STAIRS) == showStairs
-            && (shape == ChiselingBlockShape.SLAB) == showSlabs;
+        this.updateFiltersMatchShape(this.selectedEntry.shape());
         this.updateDisplayEntries();
     }
 
     private void toggleShowSlabs(){
         showSlabs = !showSlabs;
-        ChiselingBlockShape shape = this.selectedEntry.shape();
-        filtersMatchShape = (shape == ChiselingBlockShape.BLOCK) == showBlocks
-            && (shape == ChiselingBlockShape.STAIRS) == showStairs
-            && (shape == ChiselingBlockShape.SLAB) == showSlabs;
+        this.updateFiltersMatchShape(this.selectedEntry.shape());
         this.updateDisplayEntries();
     }
 
     private void toggleShowNonConnecting(){
         showNonConnecting = !showNonConnecting;
         this.updateDisplayEntries();
+    }
+
+    private void updateFiltersMatchShape(ChiselingBlockShape shape){
+        filtersMatchShape = (shape == ChiselingBlockShape.BLOCK) == showBlocks
+            && (shape == ChiselingBlockShape.STAIRS) == showStairs
+            && (shape == ChiselingBlockShape.SLAB) == showSlabs;
     }
 
     private void chiselAll(){
