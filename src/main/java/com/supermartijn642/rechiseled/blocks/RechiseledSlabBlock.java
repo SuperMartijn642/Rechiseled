@@ -1,17 +1,17 @@
 package com.supermartijn642.rechiseled.blocks;
 
-import com.supermartijn642.core.block.BaseBlock;
 import com.supermartijn642.core.block.BlockProperties;
+import com.supermartijn642.rechiseled.blocks.impl.SlabBlock;
 
 /**
- * Created 22/12/2021 by SuperMartijn642
+ * Created 11/01/2026 by SuperMartijn642
  */
-public class RechiseledBlock extends BaseBlock {
+public class RechiseledSlabBlock extends SlabBlock {
 
     private final boolean connecting;
 
-    public RechiseledBlock(boolean connecting, BlockProperties properties){
-        super(false, properties);
+    public RechiseledSlabBlock(boolean connecting, BlockProperties properties){
+        super(properties);
         this.connecting = connecting;
     }
 

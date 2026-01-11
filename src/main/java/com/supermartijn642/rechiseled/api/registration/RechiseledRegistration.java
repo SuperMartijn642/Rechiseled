@@ -6,7 +6,6 @@ import com.supermartijn642.rechiseled.api.chiseling.data.ChiselingEntryBuilder;
 import com.supermartijn642.rechiseled.api.util.ItemWithMeta;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.Collection;
@@ -54,7 +53,7 @@ public interface RechiseledRegistration {
      * @param translation English translation for the item group's title
      * @throws IllegalStateException when an item group for this registration has already been created
      */
-    CreativeTabs itemGroup(Supplier<Item> icon, String translation);
+    CreativeTabs itemGroup(Supplier<ItemWithMeta> icon, String translation);
 
     /**
      * @return all block types created by this registration

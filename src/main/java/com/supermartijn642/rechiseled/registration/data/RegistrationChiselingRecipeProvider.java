@@ -2,11 +2,9 @@ package com.supermartijn642.rechiseled.registration.data;
 
 import com.supermartijn642.core.generator.ResourceCache;
 import com.supermartijn642.rechiseled.api.ChiselingRecipeProvider;
+import com.supermartijn642.rechiseled.api.chiseling.data.ChiselingEntryBuilder;
 import com.supermartijn642.rechiseled.api.util.ItemWithMeta;
-import com.supermartijn642.rechiseled.blocks.RechiseledBlockBuilderImpl;
-import com.supermartijn642.rechiseled.blocks.RechiseledBlockTypeImpl;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
-import net.minecraft.item.Item;
 
 /**
  * Created 05/05/2023 by SuperMartijn642
@@ -26,15 +24,27 @@ public class RegistrationChiselingRecipeProvider extends ChiselingRecipeProvider
             return;
         this.registration.getChiselingEntries().forEach(recipe -> recipe.right().accept(this.beginRecipe(recipe.left()).entry()));
         this.registration.getBlockBuilders().forEach(
-            pair -> {
-                RechiseledBlockBuilderImpl builder = pair.left();
-                RechiseledBlockTypeImpl type = pair.right();
-                if(builder.recipe != null){
-                    Item regularItem = type.hasRegularVariant() ? type.getRegularItem() : builder.customRegularVariant != null ? Item.getItemFromBlock(builder.customRegularVariant.get()) : null;
-                    int regularItemData = !type.hasRegularVariant() && builder.customRegularVariant != null ? builder.customRegularVariantData : 0;
-                    Item connectingItem = type.hasConnectingVariant() ? type.getConnectingItem() : builder.customConnectingVariant != null ? Item.getItemFromBlock(builder.customConnectingVariant.get()) : null;
-                    int connectingItemData = !type.hasRegularVariant() && builder.customConnectingVariant != null ? builder.customConnectingVariantData : 0;
-                    this.beginRecipe(builder.recipe).add(ItemWithMeta.of(regularItem, regularItemData), ItemWithMeta.of(connectingItem, connectingItemData));
+            builder -> {
+                if(builder.getRecipe() != null){
+                    ChiselingEntryBuilder entry = this.beginRecipe(builder.getRecipe()).entry();
+                    if(builder.getRegularItem() != null){
+                        entry.regularBlock(builder.getRegularItem());
+                        ItemWithMeta regularStairs = builder.hasStairs() ? builder.getStairs().getRegularItem() : null;
+                        if(regularStairs != null)
+                            entry.regularStairs(regularStairs);
+                        ItemWithMeta regularSlab = builder.hasSlabs() ? builder.getSlabs().getRegularItem() : null;
+                        if(regularSlab != null)
+                            entry.regularSlab(regularSlab);
+                    }
+                    if(builder.getConnectingItem() != null){
+                        entry.connectingBlock(builder.getConnectingItem());
+                        ItemWithMeta connectingStairs = builder.hasStairs() ? builder.getStairs().getConnectingItem() : null;
+                        if(connectingStairs != null)
+                            entry.connectingStairs(connectingStairs);
+                        ItemWithMeta connectingSlab = builder.hasSlabs() ? builder.getSlabs().getConnectingItem() : null;
+                        if(connectingSlab != null)
+                            entry.connectingSlab(connectingSlab);
+                    }
                 }
             }
         );

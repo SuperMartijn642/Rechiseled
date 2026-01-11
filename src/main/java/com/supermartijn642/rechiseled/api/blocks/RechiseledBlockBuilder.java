@@ -1,9 +1,7 @@
 package com.supermartijn642.rechiseled.api.blocks;
 
-import com.supermartijn642.core.block.BlockProperties;
 import com.supermartijn642.rechiseled.api.registration.RechiseledRegistration;
 import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.function.Consumer;
@@ -15,12 +13,7 @@ import java.util.function.Supplier;
  * <p>
  * Created 26/04/2023 by SuperMartijn642
  */
-public interface RechiseledBlockBuilder {
-
-    /**
-     * Sets the properties for the constructed blocks
-     */
-    RechiseledBlockBuilder properties(BlockProperties properties);
+public interface RechiseledBlockBuilder extends RechiseledCommonBlockBuilder<RechiseledBlockBuilder> {
 
     /**
      * Copies the properties from the given block
@@ -30,73 +23,64 @@ public interface RechiseledBlockBuilder {
     RechiseledBlockBuilder copyProperties(Supplier<Block> block);
 
     /**
-     * Allows configuration of block properties
-     */
-    RechiseledBlockBuilder properties(Supplier<BlockProperties> supplier);
-
-    /**
-     * Sets the item groups the constructed blocks will be added to
-     */
-    RechiseledBlockBuilder itemGroups(CreativeTabs group, CreativeTabs... groups);
-
-    /**
      * Sets the type of block to be constructed
      */
     RechiseledBlockBuilder specification(BlockSpecification specification);
 
     /**
-     * Indicates that this block does not have a non-connecting variant
+     * Sets the regular variant for this block to the given block.
+     * This is only relevant for the chiseling recipes.
      */
-    RechiseledBlockBuilder noRegularVariant();
-
-    /**
-     * Indicates that this block does not have a connecting variant
-     */
-    RechiseledBlockBuilder noConnectingVariant();
+    RechiseledBlockBuilder regularVariant(Supplier<Block> block, Supplier<Block> stairs, Supplier<Block> slab);
 
     /**
      * Sets the regular variant for this block to the given block.
      * This is only relevant for the chiseling recipes.
      */
-    RechiseledBlockBuilder regularVariant(Supplier<Block> blockSupplier);
+    RechiseledBlockBuilder regularVariant(Supplier<Block> block, int blockMeta, Supplier<Block> stairs, int stairsMeta, Supplier<Block> slab, int slabMeta);
 
     /**
-     * Sets the regular variant for this block to the given block.
+     * Sets the connecting variant for this block to the given block, stairs, and slab.
      * This is only relevant for the chiseling recipes.
      */
-    RechiseledBlockBuilder regularVariant(Supplier<Block> blockSupplier, int data);
+    RechiseledBlockBuilder connectingVariant(Supplier<Block> block, Supplier<Block> stairs, Supplier<Block> slab);
 
     /**
-     * Sets the connecting variant for this block to the given block.
+     * Sets the connecting variant for this block to the given block, stairs, and slab.
      * This is only relevant for the chiseling recipes.
      */
-    RechiseledBlockBuilder connectingVariant(Supplier<Block> blockSupplier);
+    RechiseledBlockBuilder connectingVariant(Supplier<Block> block, int blockMeta, Supplier<Block> stairs, int stairsMeta, Supplier<Block> slab, int slabMeta);
 
     /**
-     * Sets the connecting variant for this block to the given block.
-     * This is only relevant for the chiseling recipes.
+     * Creates stairs for this block.<br>
+     * Stairs will inherit properties from this block unless overwritten on their builder.
+     * @see #withStairs(Consumer) with stair configuration
      */
-    RechiseledBlockBuilder connectingVariant(Supplier<Block> blockSupplier, int data);
+    RechiseledBlockBuilder withStairs();
+
+    /**
+     * Creates stairs for this block configure through the given consumer.<br>
+     * Stairs will inherit properties from this block unless overwritten on their builder.
+     */
+    RechiseledBlockBuilder withStairs(Consumer<RechiseledStairsBuilder> builder);
+
+    /**
+     * Creates slabs for this block configure through the returned builder.<br>
+     * Slabs will inherit properties from this block unless overwritten on their builder.
+     * @see #withSlabs(Consumer) with slab configuration
+     */
+    RechiseledBlockBuilder withSlabs();
+
+    /**
+     * Creates slabs for this block configure through the given consumer.<br>
+     * Slabs will inherit properties from this block unless overwritten on their builder.
+     */
+    RechiseledBlockBuilder withSlabs(Consumer<RechiseledSlabBuilder> builder);
 
     /**
      * Sets the chiseling recipe which this block should be added to.
      */
     RechiseledBlockBuilder recipe(ResourceLocation location);
-
-    /**
-     * Adds the constructed block to the given tag.
-     */
-    RechiseledBlockBuilder blockTag(String namespace, String identifier);
-
-    /**
-     * Copies the mining tags from the given block.
-     */
-    RechiseledBlockBuilder miningTagsFrom(Supplier<Block> blockSupplier);
-
-    /**
-     * Sets the translation for the constructed block.
-     */
-    RechiseledBlockBuilder translation(String translation);
 
     /**
      * Sets a different model type to be generated.
