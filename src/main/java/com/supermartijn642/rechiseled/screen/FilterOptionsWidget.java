@@ -8,6 +8,7 @@ import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.BaseWidget;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import com.supermartijn642.rechiseled.Rechiseled;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -59,7 +60,7 @@ public class FilterOptionsWidget extends BaseWidget {
         if(!hasBeenHandled && mouseX >= this.x && mouseX < this.x + this.width && mouseY >= this.y && mouseY < this.y + this.height){
             if(button == 0)
                 this.setExpanded(!this.dropdown.expanded);
-            else
+            else if(button == 1)
                 this.resetFilters.run();
             hasBeenHandled = true;
             AbstractButtonWidget.playClickSound();
@@ -95,6 +96,7 @@ public class FilterOptionsWidget extends BaseWidget {
     @Override
     protected void getTooltips(Consumer<Component> tooltips){
         tooltips.accept(TextComponents.translation("rechiseled.chiseling.filter").get());
+        tooltips.accept(TextComponents.translation("rechiseled.chiseling.filter.clear").color(ChatFormatting.GRAY).italic().get());
     }
 
     @Override
