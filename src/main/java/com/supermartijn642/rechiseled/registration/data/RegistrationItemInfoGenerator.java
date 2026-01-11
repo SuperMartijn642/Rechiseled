@@ -3,9 +3,6 @@ package com.supermartijn642.rechiseled.registration.data;
 import com.supermartijn642.core.generator.ItemInfoGenerator;
 import com.supermartijn642.core.generator.ResourceCache;
 import com.supermartijn642.core.registry.Registries;
-import com.supermartijn642.rechiseled.api.blocks.BlockModelType;
-import com.supermartijn642.rechiseled.blocks.RechiseledBlockBuilderImpl;
-import com.supermartijn642.rechiseled.blocks.RechiseledBlockTypeImpl;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
 import net.minecraft.world.level.block.Block;
 
@@ -26,22 +23,29 @@ public class RegistrationItemInfoGenerator extends ItemInfoGenerator {
         if(!this.registration.providersRegistered)
             return;
         this.registration.getBlockBuilders().forEach(
-            pair -> {
-                RechiseledBlockBuilderImpl builder = pair.left();
-                RechiseledBlockTypeImpl type = pair.right();
-                BlockModelType modelType = builder.modelType == null ? type.getSpecification().getDefaultModelType() : builder.modelType;
-                if(type.hasRegularVariant())
-                    this.addItemModel(type.getRegularBlock());
-                if(type.hasConnectingVariant())
-                    this.addItemModel(type.getConnectingBlock());
+            builder -> {
+                if(builder.hasRegularVariant()){
+                    this.addItemModel(builder.getRegularBlock(), "");
+                    if(builder.hasStairs() && builder.getStairs().hasRegularVariant())
+                        this.addItemModel(builder.getStairs().getRegularBlock(), "");
+                    if(builder.hasSlabs() && builder.getSlabs().hasRegularVariant())
+                        this.addItemModel(builder.getSlabs().getRegularBlock(), "_bottom");
+                }
+                if(builder.hasConnectingVariant()){
+                    this.addItemModel(builder.getConnectingBlock(), "");
+                    if(builder.hasStairs() && builder.getStairs().hasConnectingVariant())
+                        this.addItemModel(builder.getStairs().getConnectingBlock(), "_bottom");
+                    if(builder.hasSlabs() && builder.getSlabs().hasConnectingVariant())
+                        this.addItemModel(builder.getSlabs().getConnectingBlock(), "_bottom");
+                }
             }
         );
     }
 
-    private void addItemModel(Block block){
+    private void addItemModel(Block block, String modelPostFix){
         String namespace = Registries.BLOCKS.getIdentifier(block).getNamespace();
         String identifier = Registries.BLOCKS.getIdentifier(block).getPath();
-        this.info(namespace, identifier).model(this.model(namespace, "block/" + identifier));
+        this.info(namespace, identifier).model(this.model(namespace, "block/" + identifier + modelPostFix));
     }
 
     @Override
