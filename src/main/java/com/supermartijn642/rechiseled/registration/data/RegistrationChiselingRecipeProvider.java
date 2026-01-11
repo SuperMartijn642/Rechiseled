@@ -1,11 +1,10 @@
 package com.supermartijn642.rechiseled.registration.data;
 
 import com.supermartijn642.rechiseled.api.ChiselingRecipeProvider;
-import com.supermartijn642.rechiseled.blocks.RechiseledBlockBuilderImpl;
-import com.supermartijn642.rechiseled.blocks.RechiseledBlockTypeImpl;
+import com.supermartijn642.rechiseled.api.chiseling.data.ChiselingEntryBuilder;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 /**
@@ -26,13 +25,27 @@ public class RegistrationChiselingRecipeProvider extends ChiselingRecipeProvider
             return;
         this.registration.getChiselingEntries().forEach(recipe -> recipe.right().accept(this.beginRecipe(recipe.left()).entry()));
         this.registration.getBlockBuilders().forEach(
-            pair -> {
-                RechiseledBlockBuilderImpl builder = pair.left();
-                RechiseledBlockTypeImpl type = pair.right();
-                if(builder.recipe != null){
-                    Item regularItem = type.hasRegularVariant() ? type.getRegularItem() : builder.customRegularVariant != null ? builder.customRegularVariant.get().asItem() : null;
-                    Item connectingItem = type.hasConnectingVariant() ? type.getConnectingItem() : builder.customConnectingVariant != null ? builder.customConnectingVariant.get().asItem() : null;
-                    this.beginRecipe(builder.recipe).add(regularItem, connectingItem);
+            builder -> {
+                if(builder.getRecipe() != null){
+                    ChiselingEntryBuilder entry = this.beginRecipe(builder.getRecipe()).entry();
+                    if(builder.getRegularBlock() != null){
+                        entry.regularBlock(builder.getRegularBlock());
+                        ItemLike regularStairs = builder.hasStairs() ? builder.getStairs().getRegularBlock() : null;
+                        if(regularStairs != null)
+                            entry.regularStairs(regularStairs);
+                        ItemLike regularSlab = builder.hasSlabs() ? builder.getSlabs().getRegularBlock() : null;
+                        if(regularSlab != null)
+                            entry.regularSlab(regularSlab);
+                    }
+                    if(builder.getConnectingBlock() != null){
+                        entry.connectingBlock(builder.getConnectingBlock());
+                        ItemLike connectingStairs = builder.hasStairs() ? builder.getStairs().getConnectingBlock() : null;
+                        if(connectingStairs != null)
+                            entry.connectingStairs(connectingStairs);
+                        ItemLike connectingSlab = builder.hasSlabs() ? builder.getSlabs().getConnectingBlock() : null;
+                        if(connectingSlab != null)
+                            entry.connectingSlab(connectingSlab);
+                    }
                 }
             }
         );
