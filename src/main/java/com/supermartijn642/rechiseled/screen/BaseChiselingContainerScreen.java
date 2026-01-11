@@ -43,8 +43,8 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
     private static PreviewMode previewMode = PreviewMode.SINGLE;
     private static String searchText = "";
     private static String formattedSearchText = "";
-    private static boolean showBlocks = true, showStairs = true, showSlabs = true, showNonConnecting = true;
-    private static boolean filtersMatchShape = false;
+    private static boolean showBlocks = true, showStairs = false, showSlabs = false, showNonConnecting = true;
+    private static boolean filtersMatchShape = true;
 
     private final ITextComponent title;
     private ChiselAllWidget chiselAllWidget;
@@ -125,6 +125,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
             this::toggleShowBlocks, this::toggleShowStairs, this::toggleShowSlabs, this::toggleShowNonConnecting,
             () -> {
                 showBlocks = showStairs = showSlabs = showNonConnecting = true;
+                filtersMatchShape = false;
                 this.updateDisplayEntries();
             }
         ));
