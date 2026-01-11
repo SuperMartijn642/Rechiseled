@@ -18,4 +18,9 @@ public class RechiseledItemModelGenerator extends ModelGenerator {
         // Chisel
         this.itemHandheld(Rechiseled.chisel, Rechiseled.identifier("item/chisel"));
     }
+
+    @Override
+    public String getName(){
+        return this.modName + " Item Model Generator";
+    }
 }
