@@ -6,8 +6,7 @@ import com.supermartijn642.core.generator.ResourceCache;
 import com.supermartijn642.core.generator.TagGenerator;
 import com.supermartijn642.core.registry.Registries;
 import com.supermartijn642.rechiseled.Rechiseled;
-import com.supermartijn642.rechiseled.blocks.RechiseledBlockBuilderImpl;
-import com.supermartijn642.rechiseled.blocks.RechiseledBlockTypeImpl;
+import com.supermartijn642.rechiseled.registration.RechiseledCommonBlockBuilderImpl;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
 import net.fabricmc.fabric.api.resource.ModResourcePack;
 import net.fabricmc.fabric.impl.resource.pack.ModResourcePackCreator;
@@ -25,7 +24,6 @@ import net.minecraft.world.level.block.Block;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.*;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -69,24 +67,34 @@ public class RegistrationTagsGenerator extends TagGenerator {
         if(!this.registration.providersRegistered)
             return;
         this.registration.getBlockBuilders().forEach(
-            pair -> {
-                RechiseledBlockBuilderImpl builder = pair.left();
-                RechiseledBlockTypeImpl type = pair.right();
-                if(type.hasRegularVariant())
-                    this.addTags(builder, type.getRegularBlock());
-                if(type.hasConnectingVariant())
-                    this.addTags(builder, type.getConnectingBlock());
+            builder -> {
+                if(builder.hasRegularVariant()){
+                    this.addTags(builder, builder.getRegularBlock());
+                    if(builder.hasStairs() && builder.getStairs().hasRegularVariant())
+                        this.addTags(builder, builder.getStairs().getRegularBlock());
+                    if(builder.hasSlabs() && builder.getSlabs().hasRegularVariant())
+                        this.addTags(builder, builder.getSlabs().getRegularBlock());
+                }
+                if(builder.hasConnectingVariant()){
+                    this.addTags(builder, builder.getConnectingBlock());
+                    if(builder.hasStairs() && builder.getStairs().hasConnectingVariant())
+                        this.addTags(builder, builder.getStairs().getConnectingBlock());
+                    if(builder.hasSlabs() && builder.getSlabs().hasConnectingVariant())
+                        this.addTags(builder, builder.getSlabs().getConnectingBlock());
+                }
             }
         );
     }
 
-    private void addTags(RechiseledBlockBuilderImpl builder, Block block){
-        builder.tags.stream().map(this::blockTag).forEach(tag -> tag.add(block));
-        if(builder.miningTagsFromBlock != null)
-            this.getTagsForBlock(builder.miningTagsFromBlock).stream().map(this::blockTag).forEach(tag -> tag.add(block));
+    private void addTags(RechiseledCommonBlockBuilderImpl<?> builder, Block block){
+        builder.getBlockTags().stream().map(this::blockTag).forEach(tag -> tag.add(block));
+        builder.getItemTags().stream().map(this::itemTag).forEach(tag -> tag.add(block.asItem()));
+        Block miningTagsBlock = builder.getMiningTagsBlock();
+        if(miningTagsBlock != null)
+            this.getTagsForBlock(miningTagsBlock).stream().map(this::blockTag).forEach(tag -> tag.add(block));
     }
 
-    private Set<Identifier> getTagsForBlock(Supplier<Block> block){
+    private Set<Identifier> getTagsForBlock(Block block){
         return Stream.of(
                 BlockTags.MINEABLE_WITH_AXE,
                 BlockTags.MINEABLE_WITH_HOE,
@@ -97,7 +105,7 @@ public class RegistrationTagsGenerator extends TagGenerator {
                 BlockTags.NEEDS_DIAMOND_TOOL
             )
             .map(TagKey::location)
-            .filter(tag -> this.loadVanillaTag(tag).contains(block.get()))
+            .filter(tag -> this.loadVanillaTag(tag).contains(block))
             .collect(Collectors.toSet());
     }
 

@@ -34,6 +34,9 @@ public class ChiselingEntryImpl implements ChiselingEntry {
     public ChiselingEntryImpl(Identifier owner, Identifier recipe,
                               ItemWithWorth regularBlock, ItemWithWorth regularStairs, ItemWithWorth regularSlab,
                               ItemWithWorth connectingBlock, ItemWithWorth connectingStairs, ItemWithWorth connectingSlab){
+        Item duplicate = checkDuplicateItems(regularBlock, regularStairs, regularSlab, connectingBlock, connectingStairs, connectingSlab);
+        if(duplicate != null)
+            throw new IllegalArgumentException("Duplicate item '" + BuiltInRegistries.ITEM.getKey(duplicate) + "'!");
         this.owner = owner;
         this.recipe = recipe;
         this.regularBlock = regularBlock;
@@ -101,9 +104,9 @@ public class ChiselingEntryImpl implements ChiselingEntry {
     @Override
     public @Nullable ItemWithWorth getRegularItem(ChiselingBlockShape shape){
         return switch(shape){
-            case BLOCK -> this.primaryBlock;
-            case STAIRS -> this.primaryStair;
-            case SLAB -> this.primarySlab;
+            case BLOCK -> this.regularBlock;
+            case STAIRS -> this.regularStairs;
+            case SLAB -> this.regularSlab;
         };
     }
 
@@ -180,6 +183,9 @@ public class ChiselingEntryImpl implements ChiselingEntry {
                     throw new JsonParseException("Empty chiseling entry!");
                 return null;
             }
+            Item duplicate = checkDuplicateItems(item, connectingItem);
+            if(duplicate != null)
+                throw new JsonParseException("Duplicate item '" + BuiltInRegistries.ITEM.getKey(duplicate) + "' within one entry!");
             return new ChiselingEntryImpl(
                 null, null,
                 item, null, null,
@@ -200,6 +206,9 @@ public class ChiselingEntryImpl implements ChiselingEntry {
                 throw new JsonParseException("Empty chiseling entry!");
             return null;
         }
+        Item duplicate = checkDuplicateItems(regularBlock, regularStairs, regularSlab, connectingBlock, connectingStairs, connectingSlab);
+        if(duplicate != null)
+            throw new JsonParseException("Duplicate item '" + BuiltInRegistries.ITEM.getKey(duplicate) + "' within one entry!");
         return new ChiselingEntryImpl(
             null, null,
             regularBlock, regularStairs, regularSlab,
@@ -234,5 +243,17 @@ public class ChiselingEntryImpl implements ChiselingEntry {
         if(worth <= 0)
             throw new JsonParseException("Invalid worth '" + worth + "' for entry property '" + key + "'!");
         return ItemWithWorthImpl.of(item.get(), worth);
+    }
+
+    private static Item checkDuplicateItems(ItemWithWorth... items){
+        for(int i = 0; i < items.length; i++){
+            if(items[i] == null)
+                continue;
+            for(int j = i + 1; j < items.length; j++){
+                if(items[j] != null && items[i].item() == items[j].item())
+                    return items[i].item();
+            }
+        }
+        return null;
     }
 }

@@ -9,8 +9,6 @@ import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockBuilder;
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockType;
 import com.supermartijn642.rechiseled.api.chiseling.data.ChiselingEntryBuilder;
 import com.supermartijn642.rechiseled.api.registration.RechiseledRegistration;
-import com.supermartijn642.rechiseled.blocks.RechiseledBlockBuilderImpl;
-import com.supermartijn642.rechiseled.blocks.RechiseledBlockTypeImpl;
 import com.supermartijn642.rechiseled.registration.data.*;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
@@ -53,9 +51,14 @@ public class RechiseledRegistrationImpl implements RechiseledRegistration {
         });
     }
 
+    private static void checkNotFinalized(){
+        if(finalized)
+            throw new IllegalStateException("Registration must be configured during mod initialization!");
+    }
+
     private final String modid;
     private final List<RechiseledBlockBuilderImpl> unfinishedBlockBuilders = new ArrayList<>();
-    private final List<Pair<RechiseledBlockBuilderImpl,RechiseledBlockTypeImpl>> blockBuilders = new ArrayList<>();
+    private final List<RechiseledBlockBuilderImpl> blockBuilders = new ArrayList<>();
     private final Set<String> usedBlockIdentifiers = new HashSet<>();
     private final List<RechiseledBlockTypeImpl> blockTypes = new ArrayList<>();
     private final List<Pair<Identifier,Consumer<ChiselingEntryBuilder>>> chiselingEntries = new ArrayList<>();
@@ -69,8 +72,7 @@ public class RechiseledRegistrationImpl implements RechiseledRegistration {
 
     @Override
     public RechiseledBlockBuilder block(String identifier){
-        if(finalized)
-            throw new RuntimeException("Blocks must be built during mod initialization!");
+        checkNotFinalized();
         if(!this.usedBlockIdentifiers.add(identifier))
             throw new RuntimeException("Duplicate block builder request from '" + this.modid + "' for identifier '" + identifier + "'!");
 
@@ -81,8 +83,7 @@ public class RechiseledRegistrationImpl implements RechiseledRegistration {
 
     @Override
     public void chiselingEntry(Identifier recipe, Consumer<ChiselingEntryBuilder> builder){
-        if(finalized)
-            throw new RuntimeException("Chiseling recipe entries must be added during mod initialization!");
+        checkNotFinalized();
         Objects.requireNonNull(recipe);
         this.chiselingEntries.add(Pair.of(recipe, builder));
     }
@@ -101,18 +102,21 @@ public class RechiseledRegistrationImpl implements RechiseledRegistration {
 
     @Override
     public CreativeItemGroup itemGroup(Supplier<ItemLike> icon, String translation){
-        if(finalized)
-            throw new RuntimeException("Chiseling recipe entries must be added during mod initialization!");
+        checkNotFinalized();
         if(this.itemGroup != null)
             throw new IllegalStateException("An item group for '" + this.modid + "' registration has already been created!");
         this.itemGroup = CreativeItemGroup.create(this.modid, () -> icon.get().asItem());
         this.itemGroup.filler(stackConsumer -> {
             List<Item> items = new LinkedList<>();
             for(RechiseledBlockType type : this.getAllBlockTypes()){
-                items.add(type.getRegularItem());
-                items.add(type.getConnectingItem());
+                if(type.hasRegularVariant()) items.add(type.getRegularItem());
+                if(type.hasConnectingVariant()) items.add(type.getConnectingItem());
+                if(type.hasRegularStairs()) items.add(type.getRegularStairsItem());
+                if(type.hasConnectingStairs()) items.add(type.getConnectingStairsItem());
+                if(type.hasRegularSlab()) items.add(type.getRegularSlabItem());
+                if(type.hasConnectingSlab()) items.add(type.getConnectingSlabItem());
             }
-            items.stream().filter(Objects::nonNull).map(ItemStack::new).forEach(stackConsumer);
+            items.stream().map(ItemStack::new).forEach(stackConsumer);
         });
         this.itemGroupTranslation = translation;
         return this.itemGroup;
@@ -147,11 +151,11 @@ public class RechiseledRegistrationImpl implements RechiseledRegistration {
 
     public void finalizeBuilder(RechiseledBlockBuilderImpl builder, RechiseledBlockTypeImpl blockType){
         this.unfinishedBlockBuilders.remove(builder);
-        this.blockBuilders.add(Pair.of(builder, blockType));
+        this.blockBuilders.add(builder);
         this.blockTypes.add(blockType);
     }
 
-    public List<Pair<RechiseledBlockBuilderImpl,RechiseledBlockTypeImpl>> getBlockBuilders(){
+    public List<RechiseledBlockBuilderImpl> getBlockBuilders(){
         return this.blockBuilders;
     }
 
