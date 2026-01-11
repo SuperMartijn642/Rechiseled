@@ -10,6 +10,7 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
@@ -58,7 +59,7 @@ public class FilterOptionsWidget extends BaseWidget {
         if(!hasBeenHandled && mouseX >= this.x && mouseX < this.x + this.width && mouseY >= this.y && mouseY < this.y + this.height){
             if(button == 0)
                 this.setExpanded(!this.dropdown.expanded);
-            else
+            else if(button == 1)
                 this.resetFilters.run();
             hasBeenHandled = true;
             AbstractButtonWidget.playClickSound();
@@ -87,6 +88,7 @@ public class FilterOptionsWidget extends BaseWidget {
     @Override
     protected void getTooltips(Consumer<ITextComponent> tooltips){
         tooltips.accept(TextComponents.translation("rechiseled.chiseling.filter").get());
+        tooltips.accept(TextComponents.translation("rechiseled.chiseling.filter.clear").color(TextFormatting.GRAY).italic().get());
     }
 
     @Override
