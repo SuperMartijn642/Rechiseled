@@ -19,4 +19,32 @@ public interface RechiseledBlockType {
     Block getConnectingBlock();
 
     BlockItem getConnectingItem();
+
+    boolean hasStairs();
+
+    boolean hasRegularStairs();
+
+    Block getRegularStairs();
+
+    BlockItem getRegularStairsItem();
+
+    boolean hasConnectingStairs();
+
+    Block getConnectingStairs();
+
+    BlockItem getConnectingStairsItem();
+
+    boolean hasSlabs();
+
+    boolean hasRegularSlab();
+
+    Block getRegularSlab();
+
+    BlockItem getRegularSlabItem();
+
+    boolean hasConnectingSlab();
+
+    Block getConnectingSlab();
+
+    BlockItem getConnectingSlabItem();
 }

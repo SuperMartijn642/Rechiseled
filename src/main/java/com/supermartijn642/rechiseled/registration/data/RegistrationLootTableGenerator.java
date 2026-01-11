@@ -3,7 +3,6 @@ package com.supermartijn642.rechiseled.registration.data;
 import com.supermartijn642.core.generator.LootTableGenerator;
 import com.supermartijn642.core.generator.ResourceCache;
 import com.supermartijn642.core.registry.Registries;
-import com.supermartijn642.core.util.Pair;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
 import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
@@ -24,12 +23,22 @@ public class RegistrationLootTableGenerator extends LootTableGenerator {
     public void generate(){
         if(!this.registration.providersRegistered)
             return;
-        this.registration.getBlockBuilders().stream().map(Pair::right).forEach(
-            type -> {
-                if(type.hasRegularVariant())
-                    this.addLootTable(type.getRegularBlock());
-                if(type.hasConnectingVariant())
-                    this.addLootTable(type.getConnectingBlock());
+        this.registration.getBlockBuilders().forEach(
+            builder -> {
+                if(builder.hasRegularVariant()){
+                    this.addLootTable(builder.getRegularBlock());
+                    if(builder.hasStairs() && builder.getStairs().hasRegularVariant())
+                        this.addLootTable(builder.getStairs().getRegularBlock());
+                    if(builder.hasSlabs() && builder.getSlabs().hasRegularVariant())
+                        this.addLootTable(builder.getSlabs().getRegularBlock());
+                }
+                if(builder.hasConnectingVariant()){
+                    this.addLootTable(builder.getConnectingBlock());
+                    if(builder.hasStairs() && builder.getStairs().hasConnectingVariant())
+                        this.addLootTable(builder.getStairs().getConnectingBlock());
+                    if(builder.hasSlabs() && builder.getSlabs().hasConnectingVariant())
+                        this.addLootTable(builder.getSlabs().getConnectingBlock());
+                }
             }
         );
     }

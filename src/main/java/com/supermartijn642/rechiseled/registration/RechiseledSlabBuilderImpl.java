@@ -1,0 +1,29 @@
+package com.supermartijn642.rechiseled.registration;
+
+import com.supermartijn642.core.block.BlockProperties;
+import com.supermartijn642.rechiseled.api.blocks.BlockSpecification;
+import com.supermartijn642.rechiseled.api.blocks.RechiseledSlabBuilder;
+import com.supermartijn642.rechiseled.blocks.RechiseledGlassSlabBlock;
+import com.supermartijn642.rechiseled.blocks.RechiseledSlabBlock;
+import net.minecraft.block.Block;
+import net.minecraft.util.ResourceLocation;
+
+/**
+ * Created 11/01/2026 by SuperMartijn642
+ */
+public class RechiseledSlabBuilderImpl extends RechiseledCommonBlockBuilderImpl<RechiseledSlabBuilder> implements RechiseledSlabBuilder {
+    RechiseledSlabBuilderImpl(RechiseledBlockBuilderImpl parent){
+        super(parent, "_slab", " Slab");
+    }
+
+    @Override
+    protected Block createBlock(BlockSpecification specification, Block parent, boolean connecting, BlockProperties properties, ResourceLocation identifier){
+        //noinspection deprecation
+        Block.Properties vanillaProperties = properties.toUnderlying();
+        if(specification == BlockSpecification.BASIC || specification == BlockSpecification.PILLAR)
+            return new RechiseledSlabBlock(connecting, vanillaProperties);
+        if(specification == BlockSpecification.GLASS || specification == BlockSpecification.GLASS_PILLAR)
+            return new RechiseledGlassSlabBlock(connecting, vanillaProperties);
+        throw new IllegalStateException("Unknown specification: " + specification);
+    }
+}
