@@ -29,7 +29,6 @@ import org.slf4j.LoggerFactory;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
 import java.util.function.Consumer;
 
 /**
@@ -59,10 +58,14 @@ public class Rechiseled {
             List<Item> items = new LinkedList<>();
             items.add(chisel);
             for(RechiseledBlockType type : REGISTRATION.getAllBlockTypes()){
-                items.add(type.getRegularItem());
-                items.add(type.getConnectingItem());
+                if(type.hasRegularVariant()) items.add(type.getRegularItem());
+                if(type.hasConnectingVariant()) items.add(type.getConnectingItem());
+                if(type.hasRegularStairs()) items.add(type.getRegularStairsItem());
+                if(type.hasConnectingStairs()) items.add(type.getConnectingStairsItem());
+                if(type.hasRegularSlab()) items.add(type.getRegularSlabItem());
+                if(type.hasConnectingSlab()) items.add(type.getConnectingSlabItem());
             }
-            items.stream().filter(Objects::nonNull).map(ItemStack::new).forEach(stackConsumer);
+            items.stream().map(ItemStack::new).forEach(stackConsumer);
         });
 
     public Rechiseled(IEventBus eventBus){
@@ -99,6 +102,7 @@ public class Rechiseled {
         handler.addGenerator(RechiseledItemModelGenerator::new);
         handler.addGenerator(RechiseledLanguageGenerator::new);
         handler.addGenerator(RechiseledRecipeGenerator::new);
+        handler.addGenerator(RechiseledBlockModelGenerator::new);
         REGISTRATION.registerDataProviders();
     }
 }
