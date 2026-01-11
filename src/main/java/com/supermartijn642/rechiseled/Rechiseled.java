@@ -12,10 +12,7 @@ import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockType;
 import com.supermartijn642.rechiseled.api.registration.RechiseledRegistration;
 import com.supermartijn642.rechiseled.chiseling.ChiselingRecipeDatapackPlugin;
 import com.supermartijn642.rechiseled.chiseling.PacketUpdateChiselingRecipes;
-import com.supermartijn642.rechiseled.data.RechiseledItemModelGenerator;
-import com.supermartijn642.rechiseled.data.RechiseledLanguageGenerator;
-import com.supermartijn642.rechiseled.data.RechiseledRecipeGenerator;
-import com.supermartijn642.rechiseled.data.RechiseledTextureProvider;
+import com.supermartijn642.rechiseled.data.*;
 import com.supermartijn642.rechiseled.packet.PacketChiselAll;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
 import com.supermartijn642.rechiseled.screen.ChiselContainer;
@@ -31,7 +28,6 @@ import org.slf4j.LoggerFactory;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
 import java.util.function.Consumer;
 
 /**
@@ -61,10 +57,14 @@ public class Rechiseled {
             List<Item> items = new LinkedList<>();
             items.add(chisel);
             for(RechiseledBlockType type : REGISTRATION.getAllBlockTypes()){
-                items.add(type.getRegularItem());
-                items.add(type.getConnectingItem());
+                if(type.hasRegularVariant()) items.add(type.getRegularItem());
+                if(type.hasConnectingVariant()) items.add(type.getConnectingItem());
+                if(type.hasRegularStairs()) items.add(type.getRegularStairsItem());
+                if(type.hasConnectingStairs()) items.add(type.getConnectingStairsItem());
+                if(type.hasRegularSlab()) items.add(type.getRegularSlabItem());
+                if(type.hasConnectingSlab()) items.add(type.getConnectingSlabItem());
             }
-            items.stream().filter(Objects::nonNull).map(ItemStack::new).forEach(stackConsumer);
+            items.stream().map(ItemStack::new).forEach(stackConsumer);
         });
 
     public Rechiseled(){
@@ -96,6 +96,7 @@ public class Rechiseled {
         handler.addGenerator(RechiseledItemModelGenerator::new);
         handler.addGenerator(RechiseledLanguageGenerator::new);
         handler.addGenerator(RechiseledRecipeGenerator::new);
+        handler.addGenerator(RechiseledBlockModelGenerator::new);
         REGISTRATION.registerDataProviders();
     }
 }
