@@ -4,9 +4,8 @@ import com.supermartijn642.core.generator.ModelGenerator;
 import com.supermartijn642.core.generator.ResourceCache;
 import com.supermartijn642.core.registry.Registries;
 import com.supermartijn642.rechiseled.api.blocks.BlockModelType;
-import com.supermartijn642.rechiseled.blocks.RechiseledBlockBuilderImpl;
-import com.supermartijn642.rechiseled.blocks.RechiseledBlockTypeImpl;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 
 /**
@@ -26,40 +25,131 @@ public class RegistrationModelGenerator extends ModelGenerator {
         if(!this.registration.providersRegistered)
             return;
         this.registration.getBlockBuilders().forEach(
-            pair -> {
-                RechiseledBlockBuilderImpl builder = pair.left();
-                RechiseledBlockTypeImpl type = pair.right();
-                BlockModelType modelType = builder.modelType == null ? type.getSpecification().getDefaultModelType() : builder.modelType;
-                if(type.hasRegularVariant())
-                    this.addModel(modelType, type.getRegularBlock(), type.getIdentifier().getPath());
+            builder -> {
+                if(builder.hasRegularVariant()){
+                    BlockModelType modelType = builder.getModelType() == null ? builder.getSpecification().getDefaultModelType() : builder.getModelType();
+                    String texture = builder.getIdentifier();
+                    this.addBlockModel(modelType, builder.getRegularBlock(), texture);
+                    if(builder.hasStairs() && builder.getStairs().hasRegularVariant())
+                        this.addStairsModels(modelType, builder.getStairs().getRegularBlock(), texture);
+                    if(builder.hasSlabs() && builder.getSlabs().hasRegularVariant())
+                        this.addSlabModels(modelType, builder.getSlabs().getRegularBlock(), texture);
+                }
             }
         );
     }
 
-    private void addModel(BlockModelType modelType, Block block, String texture){
-        String namespace = Registries.BLOCKS.getIdentifier(block).getNamespace();
-        String identifier = Registries.BLOCKS.getIdentifier(block).getPath();
+    private void addBlockModel(BlockModelType modelType, Block block, String texturePath){
+        Identifier identifier = Registries.BLOCKS.getIdentifier(block);
+        Identifier texture = identifier.withPath("block/" + texturePath);
+
+        // Get textures
+        Identifier up = texture;
+        Identifier down = texture;
+        Identifier north = texture;
+        Identifier east = texture;
+        Identifier south = texture;
+        Identifier west = texture;
+        Identifier particle = texture;
+        if(modelType == BlockModelType.CUBE){
+            up = texture.withSuffix("_up");
+            down = texture.withSuffix("_down");
+            north = texture.withSuffix("_north");
+            east = texture.withSuffix("_east");
+            south = texture.withSuffix("_south");
+            west = texture.withSuffix("_west");
+            particle = up;
+        }else if(modelType == BlockModelType.PILLAR){
+            up = down = texture.withSuffix("_end");
+            north = east = south = west = texture.withSuffix("_side");
+            particle = north;
+        }
+
+        // Create models
+        Identifier modelIdentifier = identifier.withPrefix("block/");
+        this.model(modelIdentifier)
+            .parent("minecraft", "block/cube")
+            .texture("up", up)
+            .texture("down", down)
+            .texture("north", north)
+            .texture("east", east)
+            .texture("south", south)
+            .texture("west", west)
+            .texture("particle", particle);
+    }
+
+    private void addStairsModels(BlockModelType modelType, Block stairs, String texturePath){
+        Identifier identifier = Registries.BLOCKS.getIdentifier(stairs);
+        Identifier texture = identifier.withPath("block/" + texturePath);
+
+        // Get textures
+        Identifier bottom = texture;
+        Identifier side = texture;
+        Identifier top = texture;
         if(modelType == BlockModelType.CUBE)
-            this.model(namespace, "block/" + identifier)
-                .parent("minecraft", "block/cube")
-                .texture("up", namespace, "block/" + texture + "_up")
-                .texture("down", namespace, "block/" + texture + "_down")
-                .texture("north", namespace, "block/" + texture + "_north")
-                .texture("east", namespace, "block/" + texture + "_east")
-                .texture("south", namespace, "block/" + texture + "_south")
-                .texture("west", namespace, "block/" + texture + "_west")
-                .texture("particle", namespace, "block/" + texture + "_up");
-        else if(modelType == BlockModelType.CUBE_ALL)
-            this.model(namespace, "block/" + identifier).parent("minecraft", "block/cube_all").texture("all", namespace, "block/" + texture);
-        else if(modelType == BlockModelType.PILLAR)
-            this.model(namespace, "block/" + identifier).parent("minecraft", "block/cube")
-                .texture("up", namespace, "block/" + texture + "_end")
-                .texture("down", namespace, "block/" + texture + "_end")
-                .texture("north", namespace, "block/" + texture + "_side")
-                .texture("east", namespace, "block/" + texture + "_side")
-                .texture("south", namespace, "block/" + texture + "_side")
-                .texture("west", namespace, "block/" + texture + "_side")
-                .texture("particle", namespace, "block/" + texture + "_side");
+            throw new UnsupportedOperationException();
+        if(modelType == BlockModelType.PILLAR){
+            bottom = texture.withSuffix("_end");
+            side = texture.withSuffix("_side");
+            top = texture.withSuffix("_end");
+        }
+
+        // Create models
+        Identifier modelIdentifier = identifier.withPrefix("block/");
+        this.model(modelIdentifier)
+            .parent("minecraft", "block/stairs")
+            .texture("bottom", bottom)
+            .texture("side", side)
+            .texture("top", top);
+        this.model(modelIdentifier.withSuffix("_inner"))
+            .parent("minecraft", "block/inner_stairs")
+            .texture("bottom", bottom)
+            .texture("side", side)
+            .texture("top", top);
+        this.model(modelIdentifier.withSuffix("_outer"))
+            .parent("minecraft", "block/outer_stairs")
+            .texture("bottom", bottom)
+            .texture("side", side)
+            .texture("top", top);
+    }
+
+    private void addSlabModels(BlockModelType modelType, Block slab, String texturePath){
+        Identifier identifier = Registries.BLOCKS.getIdentifier(slab);
+        Identifier texture = identifier.withPath("block/" + texturePath);
+
+        // Get textures
+        Identifier bottom = texture;
+        Identifier side = texture;
+        Identifier top = texture;
+        if(modelType == BlockModelType.CUBE)
+            throw new UnsupportedOperationException();
+        if(modelType == BlockModelType.PILLAR){
+            bottom = texture.withSuffix("_end");
+            side = texture.withSuffix("_side");
+            top = texture.withSuffix("_end");
+        }
+
+        // Create models
+        Identifier modelIdentifier = identifier.withPrefix("block/");
+        this.model(modelIdentifier.withSuffix("_double"))
+            .parent("minecraft", "block/cube")
+            .texture("up", top)
+            .texture("down", bottom)
+            .texture("north", side)
+            .texture("east", side)
+            .texture("south", side)
+            .texture("west", side)
+            .texture("particle", side);
+        this.model(modelIdentifier.withSuffix("_bottom"))
+            .parent("minecraft", "block/slab")
+            .texture("bottom", bottom)
+            .texture("side", side)
+            .texture("top", top);
+        this.model(modelIdentifier.withSuffix("_top"))
+            .parent("minecraft", "block/slab_top")
+            .texture("bottom", bottom)
+            .texture("side", side)
+            .texture("top", top);
     }
 
     @Override
