@@ -14,6 +14,7 @@ import com.supermartijn642.rechiseled.chiseling.ChiselingRecipeDatapackPlugin;
 import com.supermartijn642.rechiseled.chiseling.PacketUpdateChiselingRecipes;
 import com.supermartijn642.rechiseled.data.*;
 import com.supermartijn642.rechiseled.packet.PacketChiselAll;
+import com.supermartijn642.rechiseled.packet.PacketChiselBlocks;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
 import com.supermartijn642.rechiseled.screen.ChiselContainer;
 import net.minecraft.resources.ResourceLocation;
@@ -72,6 +73,7 @@ public class Rechiseled {
         CHANNEL.registerMessage(PacketSelectEntry.class, PacketSelectEntry::new, PacketDirection.CLIENT_TO_SERVER, true);
         CHANNEL.registerMessage(PacketChiselAll.class, PacketChiselAll::new, PacketDirection.CLIENT_TO_SERVER, true);
         CHANNEL.registerMessage(PacketUpdateChiselingRecipes.class, PacketUpdateChiselingRecipes::new, PacketDirection.SERVER_TO_CLIENT, true);
+        CHANNEL.registerMessage(PacketChiselBlocks.class, PacketChiselBlocks::new, PacketDirection.CLIENT_TO_SERVER, true);
 
         NeoForge.EVENT_BUS.addListener((Consumer<AddServerReloadListenersEvent>)e -> e.addListener(identifier("chiseling_recipe_loader"), ChiselingRecipeDatapackPlugin.INSTANCE));
 
