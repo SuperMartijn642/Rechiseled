@@ -3,6 +3,7 @@ package com.supermartijn642.rechiseled.screen.preview;
 import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.supermartijn642.core.ClientUtils;
+import com.supermartijn642.rechiseled.Rechiseled;
 import net.fabricmc.fabric.api.renderer.v1.render.BlockVertexConsumerProvider;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.Sheets;
@@ -11,18 +12,23 @@ import net.minecraft.client.renderer.block.model.BlockStateModel;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.BlockAndTintGetter;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import org.joml.Quaternionf;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created 25/12/2021 by SuperMartijn642
  */
 public class ScreenBlockRenderer {
 
+    private static final Set<Block> erroredBlocks = new HashSet<>();
     private static BlockCaptureLevel fakeLevel;
 
     public static void drawBlock(PoseStack poseStack, MultiBufferSource.BufferSource bufferSource, BlockCapture capture, double x, double y, double scale, float yaw, float pitch, boolean flatShading){
@@ -43,7 +49,14 @@ public class ScreenBlockRenderer {
         BlockVertexConsumerProvider blockBufferSource = layer -> bufferSource.getBuffer(layer == ChunkSectionLayer.TRANSLUCENT ? Sheets.translucentItemSheet() : Sheets.cutoutBlockSheet());
         for(Map.Entry<BlockPos,BlockState> entry : capture.getBlocks()){
             BlockState state = entry.getValue();
-            renderBlock(fakeLevel, entry.getKey(), state, poseStack, blockBufferSource);
+            if(!erroredBlocks.contains(state.getBlock())){
+                try{
+                    renderBlock(fakeLevel, entry.getKey(), state, poseStack, blockBufferSource);
+                }catch(Exception e){
+                    Rechiseled.LOGGER.error("Encountered an exception whilst rendering block '{}'!", BuiltInRegistries.BLOCK.getKey(state.getBlock()), e);
+                    erroredBlocks.add(state.getBlock());
+                }
+            }
         }
 
         poseStack.popPose();
