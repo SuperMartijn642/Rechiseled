@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 
@@ -13,6 +14,8 @@ import java.util.Map;
  * Created 25/12/2021 by SuperMartijn642
  */
 public class BlockCapture {
+
+    private static BlockCaptureLevel fakeLevel;
 
     private final Map<BlockPos,BlockState> blocks = Maps.newHashMap();
 
@@ -32,6 +35,28 @@ public class BlockCapture {
 
     public void putBlock(BlockPos pos, Block block){
         this.putBlock(pos, block.defaultBlockState());
+    }
+
+    public void updateShapes(){
+        if(fakeLevel == null)
+            fakeLevel = new BlockCaptureLevel();
+        fakeLevel.setCapture(this);
+        this.blocks.replaceAll((pos, state) -> {
+            BlockPos.Mutable neighbor = new BlockPos.Mutable();
+            BlockState updatedState = state;
+            try{
+                for(Direction direction : Direction.values()){
+                    neighbor.setWithOffset(pos, direction);
+                    updatedState = updatedState.updateShape(direction, updatedState, fakeLevel, pos, neighbor);
+                    if(updatedState == null || updatedState.getBlock() != state.getBlock())
+                        return state;
+                }
+            }catch(Exception ignored){
+                return state;
+            }
+            return updatedState;
+        });
+        fakeLevel.setCapture(null);
     }
 
     public boolean isAir(BlockPos pos){
