@@ -11,6 +11,7 @@
   "client": [
     "CreateWorldScreenMixin",
     "MinecraftMixin",
+    "MultiPlayerGameModeMixin",
     "WorldOpenFlowsMixin"
   ],
   "server": [
