@@ -10,7 +10,6 @@ import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
 
 /**
  * Created 28/12/2021 by SuperMartijn642
@@ -37,6 +36,6 @@ public class ChiselingJEIPlugin implements IModPlugin {
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration){
-        registration.addRecipeCatalyst(new ItemStack(Rechiseled.chisel), CHISELING_RECIPE_TYPE);
+        registration.addRecipeCatalyst(Rechiseled.chisel, CHISELING_RECIPE_TYPE);
     }
 }
