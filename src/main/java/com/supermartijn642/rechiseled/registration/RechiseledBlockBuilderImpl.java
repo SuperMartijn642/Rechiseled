@@ -131,9 +131,9 @@ public class RechiseledBlockBuilderImpl extends RechiseledCommonBlockBuilderImpl
         this.checkMutable();
         this.regularVariant(block);
         if(stairs != null)
-            this.withStairs().regularVariant(stairs);
+            this.withStairs(b -> b.regularVariant(stairs));
         if(slab != null)
-            this.withSlabs().regularVariant(slab);
+            this.withSlabs(b -> b.regularVariant(slab));
         return this;
     }
 
@@ -142,9 +142,9 @@ public class RechiseledBlockBuilderImpl extends RechiseledCommonBlockBuilderImpl
         this.checkMutable();
         this.connectingVariant(block);
         if(stairs != null)
-            this.withStairs().connectingVariant(stairs);
+            this.withStairs(b -> b.connectingVariant(stairs));
         if(slab != null)
-            this.withSlabs().connectingVariant(slab);
+            this.withSlabs(b -> b.connectingVariant(slab));
         return this;
     }
 
