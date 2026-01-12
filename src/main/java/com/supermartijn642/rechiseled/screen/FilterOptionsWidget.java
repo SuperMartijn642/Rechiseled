@@ -117,7 +117,7 @@ public class FilterOptionsWidget extends BaseWidget {
     @Override
     public void render(WidgetRenderContext context, int mouseX, int mouseY){
         if(!this.showBlocks.getAsBoolean() || !this.showStairs.getAsBoolean() || !this.showSlabs.getAsBoolean() || !this.showNonConnecting.getAsBoolean())
-            ScreenUtils.drawTexture(MARKER, context.poseStack(), this.x + 7, this.y + 1, 3, 3);
+            ScreenUtils.drawTexture(MARKER, context.poseStack(), this.x + this.collapsedWidth - 4, this.y, 4, 4);
     }
 
     private class Dropdown extends BaseWidget {
