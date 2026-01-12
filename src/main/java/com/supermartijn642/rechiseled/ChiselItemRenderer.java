@@ -1,7 +1,6 @@
 package com.supermartijn642.rechiseled;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.render.CustomItemRenderer;
@@ -14,10 +13,14 @@ import net.minecraft.item.ItemStack;
  */
 public class ChiselItemRenderer implements CustomItemRenderer {
 
+    private static final ThreadLocal<Boolean> RECURSION_GUARD = new ThreadLocal<>();
+
     @Override
     public void render(ItemStack stack, ItemCameraTransforms.TransformType transformType, MatrixStack poseStack, IRenderTypeBuffer bufferSource, int combinedLight, int combinedOverlay){
         renderChisel(stack, transformType, poseStack, bufferSource, combinedLight, combinedOverlay);
         if(transformType == ItemCameraTransforms.TransformType.GUI){
+            if(RECURSION_GUARD.get() != null)
+                return;
             ItemStack storedStack = ChiselItem.getStoredStack(stack);
             if(!storedStack.isEmpty()){
                 if(bufferSource instanceof IRenderTypeBuffer.Impl){
@@ -27,7 +30,12 @@ public class ChiselItemRenderer implements CustomItemRenderer {
                 poseStack.pushPose();
                 poseStack.translate(0.25, 0.75, 1);
                 poseStack.scale(0.5f, 0.5f, 0.5f);
-                ClientUtils.getItemRenderer().renderStatic(storedStack, ItemCameraTransforms.TransformType.GUI, LightTexture.pack(15,15), combinedOverlay, poseStack, bufferSource);
+                RECURSION_GUARD.set(true);
+                try{
+                    ClientUtils.getItemRenderer().renderStatic(storedStack, ItemCameraTransforms.TransformType.GUI, combinedLight, combinedOverlay, poseStack, bufferSource);
+                }finally{
+                    RECURSION_GUARD.remove();
+                }
                 poseStack.popPose();
             }
         }
