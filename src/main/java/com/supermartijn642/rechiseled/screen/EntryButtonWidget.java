@@ -1,12 +1,15 @@
 package com.supermartijn642.rechiseled.screen;
 
+import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.GuiGraphicsHelper;
 import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.api.chiseling.ItemWithWorth;
+import com.supermartijn642.rechiseled.chiseling.ChiselingRecipeDatapackPlugin;
 import com.supermartijn642.rechiseled.screen.preview.ScreenItemRenderer;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 
@@ -59,8 +62,17 @@ public class EntryButtonWidget extends AbstractButtonWidget {
     protected void getTooltips(Consumer<Component> tooltips){
         DisplayEntry display = this.entry.get();
         ItemWithWorth item = display == null ? null : display.getItem(this.connecting.get());
-        if(item != null)
+        if(item != null){
             tooltips.accept(TextComponents.item(item.item()).get());
+            if(ClientUtils.getMinecraft().options.advancedItemTooltips){
+                Identifier recipe = display.entry().recipe();
+                if(recipe != null)
+                    tooltips.accept(TextComponents.translation("rechiseled.chiseling.entry.recipe", TextComponents.string(recipe.toString()).color(ChatFormatting.DARK_GRAY).get()).color(ChatFormatting.GRAY).get());
+                Identifier owner = display.entry().owner();
+                if(!owner.equals(ChiselingRecipeDatapackPlugin.IDENTIFIER))
+                    tooltips.accept(TextComponents.translation("rechiseled.chiseling.entry.owner", TextComponents.string(owner.toString()).color(ChatFormatting.DARK_GRAY).get()).color(ChatFormatting.GRAY).get());
+            }
+        }
     }
 
     @Override
