@@ -20,7 +20,7 @@ public interface ChiselingRecipe {
 
     /**
      * Number of items that this item is worth relative to other items in this recipe.
-     * Value is always greater than 0 if the recipe contains the item, otherwise it is {@code -1}.
+     * Value is always greater than 0 if the recipe contains the item.
      */
-    float getWorth(ItemLike item);
+    ItemWithWorth getWorth(ItemLike item);
 }
