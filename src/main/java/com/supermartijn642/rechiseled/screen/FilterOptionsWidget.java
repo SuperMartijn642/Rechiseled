@@ -117,7 +117,7 @@ public class FilterOptionsWidget extends BaseWidget {
     @Override
     public void render(WidgetRenderContext context, GuiGraphicsHelper graphics, int mouseX, int mouseY){
         if(!this.showBlocks.getAsBoolean() || !this.showStairs.getAsBoolean() || !this.showSlabs.getAsBoolean() || !this.showNonConnecting.getAsBoolean())
-            graphics.submitSprite(MARKER, this.x + 7, this.y + 1, 3, 3);
+            graphics.submitSprite(MARKER, this.x + this.collapsedWidth - 4, this.y, 4, 4);
     }
 
     private class Dropdown extends BaseWidget {
