@@ -10,6 +10,7 @@
     "ReloadableServerResourcesMixin"
   ],
   "client": [
+    "jei.RecipesGuiMixin",
     "ForgeHooksClientMixin",
     "MinecraftMixin",
     "MultiPlayerGameModeMixin"
