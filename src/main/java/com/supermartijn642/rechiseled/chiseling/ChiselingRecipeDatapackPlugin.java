@@ -26,6 +26,7 @@ import java.util.stream.Collectors;
  */
 public class ChiselingRecipeDatapackPlugin implements PreparableReloadListener, ChiselingRecipePlugin {
 
+    public static final Identifier IDENTIFIER = Rechiseled.identifier("datapacks");
     public static final ChiselingRecipeDatapackPlugin INSTANCE = new ChiselingRecipeDatapackPlugin();
     private static final Gson GSON = new GsonBuilder().setStrictness(Strictness.LENIENT).create();
 
