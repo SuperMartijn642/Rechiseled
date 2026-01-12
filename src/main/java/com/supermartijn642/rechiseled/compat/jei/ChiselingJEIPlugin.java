@@ -32,7 +32,7 @@ public class ChiselingJEIPlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration){
-        registration.addRecipes(CHISELING_RECIPE_TYPE, ChiselingRecipeManager.get(true).getAllRecipes()); // TODO validate this is run from the client
+        registration.addRecipes(CHISELING_RECIPE_TYPE, ChiselingRecipeManager.get(true).getAllRecipes());
     }
 
     @Override
