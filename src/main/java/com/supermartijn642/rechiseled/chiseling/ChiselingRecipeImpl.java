@@ -19,6 +19,11 @@ public class ChiselingRecipeImpl implements ChiselingRecipe {
     private final List<ChiselingEntry> entries;
     private final Map<Item,ItemWithWorth> items;
 
+    /**
+     * Used to hold a jei display widget on the client.
+     */
+    public Object jeiScrollBox;
+
     public ChiselingRecipeImpl(List<ChiselingEntry> entries){
         this.entries = List.copyOf(entries);
         Map<Item,ItemWithWorth> items = new HashMap<>();
