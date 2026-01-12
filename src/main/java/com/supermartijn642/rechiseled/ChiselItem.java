@@ -2,6 +2,7 @@ package com.supermartijn642.rechiseled;
 
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.CommonUtils;
+import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.item.BaseItem;
 import com.supermartijn642.core.item.ItemProperties;
 import com.supermartijn642.core.util.Pair;
@@ -22,10 +23,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.IBooleanFunction;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
 
+import javax.annotation.Nullable;
 import java.util.*;
+import java.util.function.Consumer;
 
 /**
  * Created 25/12/2021 by SuperMartijn642
@@ -54,6 +60,14 @@ public class ChiselItem extends BaseItem {
         if(!level.isClientSide)
             CommonUtils.openContainer(new ChiselContainer(player, hand));
         return ItemUseResult.success(stack);
+    }
+
+    @Override
+    protected void appendItemInformation(ItemStack stack, @Nullable IBlockReader level, Consumer<ITextComponent> info, boolean advanced){
+        ItemStack storedStack = getStoredStack(stack);
+        if(!storedStack.isEmpty())
+            info.accept(TextComponents.item(storedStack.getItem()).color(TextFormatting.GRAY).italic().get());
+        super.appendItemInformation(stack, level, info, advanced);
     }
 
     public boolean leftClickBlock(PlayerEntity player, ItemStack stack, BlockPos pos, Direction side, boolean isShift){
