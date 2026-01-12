@@ -109,7 +109,6 @@ public class ChiselItem extends BaseItem {
         }
 
         // Get filter properties
-        ItemWithWorth filterWorth = filter.isEmpty() ? null : recipe.getWorth(filter.getItem());
         Block filterBlock = null;
         if(!filter.isEmpty()){
             item = filter.getItem();
@@ -149,7 +148,7 @@ public class ChiselItem extends BaseItem {
                     if(state.getBlock() == filterBlock)
                         continue;
                     ItemWithWorth worth = recipe.getWorth(state.getBlock());
-                    if(worth == null || (filterWorth != null && worth.worth() != filterWorth.worth()))
+                    if(worth == null)
                         continue;
                     // Check block is not hidden behind another block
                     pos.set(targetedPos.getX() + x + side.getStepX(), targetedPos.getY() + y + side.getStepY(), targetedPos.getZ() + z + side.getStepZ());
