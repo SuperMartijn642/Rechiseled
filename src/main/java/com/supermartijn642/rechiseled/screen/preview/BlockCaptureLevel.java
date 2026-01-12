@@ -28,7 +28,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.border.WorldBorder;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkSource;
-import net.minecraft.world.level.chunk.status.ChunkStatus;
+import net.minecraft.world.level.chunk.ChunkStatus;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.entity.EntityTypeTest;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -79,7 +79,7 @@ public class BlockCaptureLevel implements LevelAccessor {
 
     @Override
     public float getShade(Direction side, boolean bl){
-        return ClientUtils.getWorld().getShade(side, bl);
+        return 1;
     }
 
     @Override
@@ -89,7 +89,7 @@ public class BlockCaptureLevel implements LevelAccessor {
 
     @Override
     public LevelLightEngine getLightEngine(){
-        return ClientUtils.getWorld().getLightEngine();
+        return null;
     }
 
     @Override
@@ -157,7 +157,7 @@ public class BlockCaptureLevel implements LevelAccessor {
     }
 
     @Override
-    public void gameEvent(Holder<GameEvent> holder, Vec3 vec3, GameEvent.Context context){
+    public void gameEvent(GameEvent gameEvent, Vec3 vec3, GameEvent.Context context){
     }
 
     @Override
