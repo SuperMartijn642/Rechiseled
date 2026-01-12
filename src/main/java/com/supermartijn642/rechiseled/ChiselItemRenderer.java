@@ -19,19 +19,24 @@ import java.util.Set;
 public class ChiselItemRenderer implements ItemModel.Unbaked {
 
     public static final MapCodec<ChiselItemRenderer> CODEC = MapCodec.unit(new ChiselItemRenderer());
+    private static final ThreadLocal<Boolean> RECURSION_GUARD = ThreadLocal.withInitial(() -> false);
     private static final SpecialModelRenderer<ItemStack> ICON_RENDERER = new SpecialModelRenderer<>() {
-        private static final ThreadLocal<Boolean> RECURSION_GUARD = ThreadLocal.withInitial(() -> false);
 
         @Override
         public void render(ItemStack icon, ItemDisplayContext transformType, PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int combinedOverlay, boolean hasFoil){
-            // Render the icon
+            if(RECURSION_GUARD.get() != null)
+                return;
             RECURSION_GUARD.set(true);
-            poseStack.pushPose();
-            poseStack.translate(0.25, 0.75, 1);
-            poseStack.scale(0.5f, 0.5f, 0.5f);
-            ClientUtils.getItemRenderer().renderStatic(icon, ItemDisplayContext.GUI, combinedLight, combinedOverlay, poseStack, bufferSource, null, 0);
-            poseStack.popPose();
-            RECURSION_GUARD.remove();
+            try{
+                // Render the icon
+                poseStack.pushPose();
+                poseStack.translate(0.25, 0.75, 1);
+                poseStack.scale(0.5f, 0.5f, 0.5f);
+                ClientUtils.getItemRenderer().renderStatic(icon, ItemDisplayContext.GUI, combinedLight, combinedOverlay, poseStack, bufferSource, null, 0);
+                poseStack.popPose();
+            }finally{
+                RECURSION_GUARD.remove();
+            }
         }
 
         @Override
@@ -54,12 +59,17 @@ public class ChiselItemRenderer implements ItemModel.Unbaked {
         return (renderState, stack, modelResolver, transformType, level, entity, someRandomId) -> {
             if(transformType != ItemDisplayContext.GUI)
                 return;
-            // Get the stored item
-            ItemStack storedStack = ChiselItem.getStoredStack(stack);
-            // Add the renderer for the stored item
-            if(!storedStack.isEmpty()){
-                renderState.newLayer().setupSpecialModel(ICON_RENDERER, storedStack);
-                renderState.appendModelIdentityElement(storedStack.getItem());
+            RECURSION_GUARD.set(true);
+            try{
+                // Get the stored item
+                ItemStack storedStack = ChiselItem.getStoredStack(stack);
+                // Add the renderer for the stored item
+                if(!storedStack.isEmpty()){
+                    renderState.newLayer().setupSpecialModel(ICON_RENDERER, storedStack);
+                    renderState.appendModelIdentityElement(storedStack.getItem());
+                }
+            }finally{
+                RECURSION_GUARD.remove();
             }
         };
     }
