@@ -5,7 +5,6 @@ import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.block.BlockShape;
 import com.supermartijn642.core.render.RenderUtils;
 import com.supermartijn642.core.util.Pair;
-import net.fabricmc.fabric.api.client.rendering.v1.RenderStateDataKey;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.core.BlockPos;
@@ -22,8 +21,6 @@ import java.util.List;
  * Created 12/01/2026 by SuperMartijn642
  */
 public class ChiselItemHighlighter {
-
-    private static final RenderStateDataKey<BlockShape> HIGHLIGHT_KEY = RenderStateDataKey.create(() -> Rechiseled.identifier("chisel_highlight").toString());
 
     public static void registerListeners(){
         WorldRenderEvents.AFTER_ENTITIES.register(context -> renderChiselHighlight(context.consumers(), context.matrixStack()));
