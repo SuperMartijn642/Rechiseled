@@ -1,7 +1,6 @@
 package com.supermartijn642.rechiseled.screen.preview;
 
 import com.mojang.blaze3d.platform.Lighting;
-import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.supermartijn642.core.ClientUtils;
@@ -15,6 +14,7 @@ import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.client.ChunkRenderTypeSet;
@@ -30,10 +30,10 @@ import java.util.Map;
  */
 public class ScreenBlockRenderer {
 
-    private static final RandomSource RANDOM = RandomSource.create();
+    private static final RandomSource RANDOM_SOURCE = RandomSource.create();
     private static BlockCaptureLevel fakeLevel;
 
-    public static void drawBlock(PoseStack poseStack, BlockCapture capture, double x, double y, double scale, float yaw, float pitch, boolean doShading){
+    public static void drawBlock(PoseStack poseStack, BlockCapture capture, double x, double y, double scale, float yaw, float pitch, boolean flatShading){
         AABB bounds = capture.getBounds();
         double span = Math.sqrt(bounds.getXsize() * bounds.getXsize() + bounds.getYsize() * bounds.getYsize() + bounds.getZsize() * bounds.getZsize());
         scale /= span;
@@ -49,34 +49,33 @@ public class ScreenBlockRenderer {
         poseStack.mulPose(new Quaternionf().setAngleAxis(pitch / 180 * (float)Math.PI, 1, 0, 0));
         poseStack.mulPose(new Quaternionf().setAngleAxis(yaw / 180 * (float)Math.PI, 0, 1, 0));
 
-        if(doShading)
-            Lighting.setupForEntityInInventory(new Quaternionf().rotateX((float)(Math.PI / 2)).rotateZ((float)(Math.PI)));
-
-        MultiBufferSource.BufferSource renderTypeBuffer = RenderUtils.getMainBufferSource();
+        MultiBufferSource.BufferSource bufferSource = RenderUtils.getMainBufferSource();
         for(Map.Entry<BlockPos,BlockState> entry : capture.getBlocks())
-            renderBlock(entry.getKey(), entry.getValue(), poseStack, renderTypeBuffer);
-        renderTypeBuffer.endBatch();
-
-        RenderSystem.enableDepthTest();
-        if(doShading)
-            Lighting.setupForFlatItems();
+            renderBlock(fakeLevel, entry.getKey(), entry.getValue(), poseStack, bufferSource);
 
         poseStack.popPose();
+
+        if(flatShading){
+            Lighting.setupForFlatItems();
+            bufferSource.endBatch();
+            Lighting.setupFor3DItems();
+        }
 
         fakeLevel.setCapture(null);
     }
 
-    private static void renderBlock(BlockPos pos, BlockState state, PoseStack poseStack, MultiBufferSource renderTypeBuffer){
+    private static void renderBlock(BlockAndTintGetter level, BlockPos pos, BlockState state, PoseStack poseStack, MultiBufferSource bufferSource){
         poseStack.pushPose();
         poseStack.translate(pos.getX() - 0.5, pos.getY() - 0.5, pos.getZ() - 0.5);
 
+        long seed = state.getSeed(pos);
         BakedModel model = ClientUtils.getBlockRenderer().getBlockModel(state);
-        ModelData modelData = model.getModelData(fakeLevel, pos, state, ModelData.EMPTY);
-        RANDOM.setSeed(42);
-        ChunkRenderTypeSet renderTypes = model.getRenderTypes(state, RANDOM, modelData);
+        ModelData modelData = model.getModelData(level, pos, state, ModelData.EMPTY);
+        RANDOM_SOURCE.setSeed(seed);
+        ChunkRenderTypeSet renderTypes = model.getRenderTypes(state, RANDOM_SOURCE, modelData);
         for(RenderType renderType : renderTypes){
             RenderType itemRenderType = renderType == RenderType.translucent() ? Sheets.translucentItemSheet() : Sheets.cutoutBlockSheet();
-            renderModel(model, state, poseStack, renderTypeBuffer.getBuffer(itemRenderType), modelData, renderType);
+            renderModel(model, state, poseStack, bufferSource.getBuffer(itemRenderType), modelData, renderType);
         }
 
         poseStack.popPose();
@@ -84,12 +83,12 @@ public class ScreenBlockRenderer {
 
     private static void renderModel(BakedModel modelIn, BlockState state, PoseStack matrixStackIn, VertexConsumer bufferIn, ModelData modelData, RenderType renderType){
         for(Direction direction : Direction.values()){
-            RANDOM.setSeed(42);
-            renderQuads(matrixStackIn, bufferIn, modelIn.getQuads(state, direction, RANDOM, modelData, renderType));
+            RANDOM_SOURCE.setSeed(42);
+            renderQuads(matrixStackIn, bufferIn, modelIn.getQuads(state, direction, RANDOM_SOURCE, modelData, renderType));
         }
 
-        RANDOM.setSeed(42);
-        renderQuads(matrixStackIn, bufferIn, modelIn.getQuads(state, null, RANDOM, modelData, renderType));
+        RANDOM_SOURCE.setSeed(42);
+        renderQuads(matrixStackIn, bufferIn, modelIn.getQuads(state, null, RANDOM_SOURCE, modelData, renderType));
     }
 
     private static void renderQuads(PoseStack matrixStackIn, VertexConsumer bufferIn, List<BakedQuad> quadsIn){
