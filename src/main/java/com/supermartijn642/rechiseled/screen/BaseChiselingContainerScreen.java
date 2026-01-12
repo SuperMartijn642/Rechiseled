@@ -9,10 +9,7 @@ import com.supermartijn642.core.gui.widget.premade.ScrollbarWidget;
 import com.supermartijn642.core.gui.widget.premade.TextFieldWidget;
 import com.supermartijn642.core.registry.Registries;
 import com.supermartijn642.rechiseled.Rechiseled;
-import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
-import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
-import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipe;
-import com.supermartijn642.rechiseled.api.chiseling.ItemWithWorth;
+import com.supermartijn642.rechiseled.api.chiseling.*;
 import com.supermartijn642.rechiseled.api.util.ItemWithMeta;
 import com.supermartijn642.rechiseled.packet.PacketChiselAll;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
@@ -172,6 +169,26 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
         ScreenUtils.bindTexture(BACKGROUND);
         ScreenUtils.drawTexture(0, 0, this.width, this.height);
         super.renderBackground(mouseX, mouseY);
+    }
+
+    @Override
+    public void render(int mouseX, int mouseY){
+        super.render(mouseX, mouseY);
+        // Highlight blocks that can chiseled
+        for(int index = 1; index < this.container.inventorySlots.size(); index++){
+            Slot slot = this.container.getSlot(index);
+            ItemStack stack = slot.getStack();
+            //noinspection DataFlowIssue
+            if(stack.isEmpty() || (stack.hasTagCompound() && !stack.getTagCompound().hasNoTags()))
+                continue;
+
+            // Check if the stack is in the current recipe
+            ItemWithMeta item = ItemWithMeta.fromStack(stack);
+            if(this.recipe != null && this.recipe.contains(item))
+                ScreenUtils.fillRect(slot.xPos + 13, slot.yPos, 3, 3, 52 / 355f, 108 / 355f, 173 / 355f, 0.5f);
+            else if(ChiselingRecipeManager.get(true).getRecipeForItem(item) != null)
+                ScreenUtils.fillRect(slot.xPos + 13, slot.yPos, 3, 3, 1, 207 / 355f, 74 / 355f, 0.5f);
+        }
     }
 
     @Override
