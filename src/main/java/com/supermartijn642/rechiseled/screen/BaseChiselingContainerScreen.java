@@ -190,6 +190,8 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
                 //noinspection DataFlowIssue
                 if(stack.hasTag() && !stack.getTag().isEmpty())
                     continue;
+                if(stack.getItem() == this.selectedEntry.getItem(this.connecting).item())
+                    continue;
 
                 // Check if the stack is chiselable
                 boolean isChiselable;
@@ -197,8 +199,10 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
                     isChiselable = this.recipe.contains(stack.getItem());
                 else{
                     isChiselable = false;
+                    ChiselingBlockShape shape = this.selectedEntry.shape();
                     for(ChiselingEntry entry : this.recipe.entries()){
-                        if(entry.getRegularItem(this.selectedEntry.shape()) == stack.getItem() || entry.getConnectingItem(this.selectedEntry.shape()) == stack.getItem()){
+                        if((entry.hasRegularItem(shape) && entry.getRegularItem(shape).item() == stack.getItem())
+                            || (entry.hasConnectingItem(shape) && entry.getConnectingItem(shape).item() == stack.getItem())){
                             isChiselable = true;
                             break;
                         }
