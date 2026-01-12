@@ -66,14 +66,14 @@ public class MutableChiselingRecipeImpl implements MutableChiselingRecipe {
     }
 
     @Override
-    public float getWorth(ItemLike item){
+    public ItemWithWorth getWorth(ItemLike item){
         ItemWithWorth largestWorth = null;
         for(ChiselingEntry entry : this.entries){
             ItemWithWorth worth = ((ChiselingEntryImpl)entry).items().get(item.asItem());
             if(entry.contains(item) && (largestWorth == null || largestWorth.worth() < worth.worth()))
                 largestWorth = worth;
         }
-        return largestWorth == null ? -1 : largestWorth.worth();
+        return largestWorth;
     }
 
     private class EntryBuilderImpl implements EntryBuilder {
