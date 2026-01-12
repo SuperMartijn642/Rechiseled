@@ -14,6 +14,8 @@ public class RechiseledClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient(){
+        ChiselItemHighlighter.registerListeners();
+
         ClientRegistrationHandler handler = ClientRegistrationHandler.get(Rechiseled.MODID);
         handler.registerContainerScreen(() -> Rechiseled.chisel_container, container -> WidgetContainerScreen.of(new BaseChiselingContainerScreen<>(TextComponents.item(Rechiseled.chisel).get()), container, false));
         handler.registerItemModelOverwrite(() -> Rechiseled.chisel, CustomRendererBakedModelWrapper::wrap);
