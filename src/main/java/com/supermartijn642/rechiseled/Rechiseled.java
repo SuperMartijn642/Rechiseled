@@ -69,7 +69,7 @@ public class Rechiseled implements ModInitializer {
     public void onInitialize(){
         CHANNEL.registerMessage(PacketSelectEntry.class, PacketSelectEntry::new, PacketDirection.CLIENT_TO_SERVER, true);
         CHANNEL.registerMessage(PacketChiselAll.class, PacketChiselAll::new, PacketDirection.CLIENT_TO_SERVER, true);
-        CHANNEL.registerMessage(PacketUpdateChiselingRecipes.class, PacketUpdateChiselingRecipes::new, PacketDirection.SERVER_TO_CLIENT, true);
+        CHANNEL.registerMessage(PacketUpdateChiselingRecipes.class, PacketUpdateChiselingRecipes::new, PacketDirection.SERVER_TO_CLIENT, false);
         CHANNEL.registerMessage(PacketChiselBlocks.class, PacketChiselBlocks::new, PacketDirection.CLIENT_TO_SERVER, true);
 
         ResourceLoader.get(PackType.SERVER_DATA).registerReloader(Rechiseled.identifier("chiseling_recipe_loader"), ChiselingRecipeDatapackPlugin.INSTANCE);
