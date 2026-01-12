@@ -70,12 +70,17 @@ public class BlockCaptureLevel implements IWorld {
 
     @Override
     public float getShade(Direction direction, boolean bl){
-        return ClientUtils.getWorld().getShade(direction, bl);
+        return 1;
+    }
+
+    @Override
+    public int getBrightness(LightType p_226658_1_, BlockPos p_226658_2_){
+        return 15;
     }
 
     @Override
     public WorldLightManager getLightEngine(){
-        return ClientUtils.getWorld().getLightEngine();
+        return null;
     }
 
     @Override
