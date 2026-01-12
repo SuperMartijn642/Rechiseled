@@ -5,13 +5,12 @@
   "compatibilityLevel": "${mixin_compatibility_level}",
   "mixins": [
     "MinecraftServerMixin",
-    "PlayerListMixin"
+    "PlayerListMixin",
+    "ReloadableServerResourcesMixin"
   ],
   "client": [
-    "CreateWorldScreenMixin",
     "MinecraftMixin",
-    "MultiPlayerGameModeMixin",
-    "WorldOpenFlowsMixin"
+    "MultiPlayerGameModeMixin"
   ],
   "server": [
     "ServerMainMixin"
