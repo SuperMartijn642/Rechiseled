@@ -2,6 +2,9 @@ package com.supermartijn642.rechiseled.screen.preview;
 
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.gui.ScreenUtils;
+import com.supermartijn642.core.registry.Registries;
+import com.supermartijn642.rechiseled.Rechiseled;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -13,13 +16,16 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import org.lwjgl.opengl.GL11;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created 25/12/2021 by SuperMartijn642
  */
 public class ScreenBlockRenderer {
 
+    private static final Set<Block> erroredBlocks = new HashSet<>();
     private static BlockCaptureLevel fakeLevel;
 
     public static void drawBlock(BlockCapture capture, double x, double y, double scale, float yaw, float pitch, boolean flatShading){
@@ -53,8 +59,17 @@ public class ScreenBlockRenderer {
         Tessellator tessellator = Tessellator.getInstance();
         BufferBuilder buffer = tessellator.getBuffer();
         buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.BLOCK);
-        for(Map.Entry<BlockPos,IBlockState> entry : capture.getBlocks())
-            renderBlock(entry.getKey(), entry.getValue(), buffer);
+        for(Map.Entry<BlockPos,IBlockState> entry : capture.getBlocks()){
+            IBlockState state = entry.getValue();
+            if(!erroredBlocks.contains(state.getBlock())){
+                try{
+                    renderBlock(entry.getKey(), state, buffer);
+                }catch(Exception e){
+                    Rechiseled.LOGGER.error("Encountered an exception whilst rendering block '{}'!", Registries.BLOCKS.getIdentifier(state.getBlock()), e);
+                    erroredBlocks.add(state.getBlock());
+                }
+            }
+        }
         tessellator.draw();
 
         GlStateManager.popMatrix();
