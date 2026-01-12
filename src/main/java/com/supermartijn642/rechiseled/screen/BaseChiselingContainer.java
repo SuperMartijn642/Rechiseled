@@ -5,6 +5,8 @@ import com.supermartijn642.core.gui.BaseContainerType;
 import com.supermartijn642.core.gui.CustomSlot;
 import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.api.chiseling.*;
+import com.supermartijn642.rechiseled.api.chiseling.conversion.ChiselingConversionHelper;
+import com.supermartijn642.rechiseled.api.chiseling.conversion.ConversionResult;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
@@ -104,22 +106,19 @@ public abstract class BaseChiselingContainer extends BaseContainer {
             return;
 
         ItemStack currentStack = this.getCurrentStack();
-        float currentWorth = this.currentRecipe.getWorth(currentStack.getItem());
+        ItemWithWorth currentWorth = this.currentRecipe.getWorth(currentStack.getItem());
         ItemWithWorth target = connecting ? entry.getConnectingItem(shape) : entry.getRegularItem(shape);
-        //noinspection DataFlowIssue
-        double conversionFactor = (double)currentWorth / target.worth();
-        int convertedAmount = (int)Math.floor(conversionFactor * currentStack.getCount());
-        if(convertedAmount <= 0)
+        ConversionResult conversion = ChiselingConversionHelper.convert(currentStack.getCount(), currentWorth, target);
+        if(conversion.numberOfConversions() <= 0)
             return;
-        int leftover = currentStack.getCount() - (int)Math.round(convertedAmount / conversionFactor);
 
         this.currentEntry = entry;
         this.shape = shape;
         this.connecting = connecting;
-        this.setCurrentStack(new ItemStack(target.item(), convertedAmount));
-        if(leftover > 0){
-            currentStack = currentStack.copyWithCount(leftover);
-            leftover = this.player.getInventory().addResource(currentStack);
+        this.setCurrentStack(new ItemStack(target.item(), conversion.result()));
+        if(conversion.leftover() > 0){
+            currentStack = currentStack.copyWithCount(conversion.leftover());
+            int leftover = this.player.getInventory().addResource(currentStack);
             if(leftover > 0)
                 this.player.drop(currentStack.copyWithCount(leftover), true, true);
         }
@@ -130,8 +129,8 @@ public abstract class BaseChiselingContainer extends BaseContainer {
             return;
 
         ItemWithWorth target = this.connecting ? this.currentEntry.getConnectingItem(this.shape) : this.currentEntry.getRegularItem(this.shape);
-        Item targetItem = (Item)target;
-        assert targetItem != null;
+        assert target != null;
+        Item targetItem = target.item();
 
         // Find all space for overflow
         int availableSpace = 0;
@@ -170,28 +169,25 @@ public abstract class BaseChiselingContainer extends BaseContainer {
                 continue;
 
             // Calculate how much of the stack can be converted
-            float stackWorth = this.currentRecipe.getWorth(stack.getItem());
-            double conversionFactor = (double)stackWorth / target.worth();
-            int convertedAmount = (int)Math.floor(stack.getCount() * conversionFactor);
-            boolean canConvertEntireStack = conversionFactor >= 1 || stack.getCount() * conversionFactor < 10e-7; // Check that there's no partial items left over
-            if(convertedAmount - targetItem.getMaxStackSize() > availableSpace){
-                canConvertEntireStack = false;
-                convertedAmount = (int)(Math.floor(availableSpace / conversionFactor) * conversionFactor);
-            }
-            if(convertedAmount == 0)
+            ItemWithWorth stackWorth = this.currentRecipe.getWorth(stack.getItem());
+            ConversionResult conversion = ChiselingConversionHelper.convert(stack.getCount(), stackWorth, target, availableSpace + targetItem.getMaxStackSize());
+            boolean canConvertEntireStack = conversion.leftover() <= 0;
+            if(!canConvertEntireStack)
+                conversion = ChiselingConversionHelper.convert(stack.getCount(), stackWorth, target, availableSpace + targetItem.getMaxStackSize());
+            if(conversion.numberOfConversions() <= 0)
                 continue;
 
             // Convert stack and add overflow
             if(canConvertEntireStack){
-                int newStackSize = Math.min(convertedAmount, targetItem.getMaxStackSize());
+                int newStackSize = Math.min(conversion.result(), targetItem.getMaxStackSize());
                 inventory.setItem(index, new ItemStack(targetItem, newStackSize));
-                convertedAmount -= newStackSize;
+                overflow += conversion.result() - newStackSize;
+                availableSpace -= conversion.result() - newStackSize;
             }else{
-                int removedStackSize = (int)(convertedAmount / conversionFactor);
-                inventory.setItem(index, stack.copyWithCount(stack.getCount() - removedStackSize));
+                inventory.setItem(index, stack.copyWithCount(conversion.leftover()));
+                overflow += conversion.result();
+                availableSpace -= conversion.result();
             }
-            overflow += convertedAmount;
-            availableSpace -= convertedAmount;
         }
 
         // Put overflow into player inventory
