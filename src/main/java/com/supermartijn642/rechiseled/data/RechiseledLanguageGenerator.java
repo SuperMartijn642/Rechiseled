@@ -39,6 +39,8 @@ public class RechiseledLanguageGenerator extends LanguageGenerator {
         this.translation("rechiseled.chiseling.filter.show_slabs", "show slabs");
         this.translation("rechiseled.chiseling.filter.show_non_connecting", "show non-connecting");
         this.translation("rechiseled.chiseling.scrollbar", "Scrollbar");
+        this.translation("rechiseled.chiseling.entry.recipe", "Recipe: %s");
+        this.translation("rechiseled.chiseling.entry.owner", "Plugin: %s");
 
         // Jei
         this.translation("rechiseled.jei_category.title", "Chiseling");
