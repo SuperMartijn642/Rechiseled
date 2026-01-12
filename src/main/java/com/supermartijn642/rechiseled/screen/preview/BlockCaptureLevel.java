@@ -68,8 +68,18 @@ public class BlockCaptureLevel implements IWorld {
     }
 
     @Override
+    public int getRawBrightness(BlockPos p_226659_1_, int p_226659_2_){
+        return 15;
+    }
+
+    @Override
+    public int getBrightness(LightType p_226658_1_, BlockPos p_226658_2_){
+        return 15;
+    }
+
+    @Override
     public WorldLightManager getLightEngine(){
-        return ClientUtils.getWorld().getLightEngine();
+        return null;
     }
 
     @Override

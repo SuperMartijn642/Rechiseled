@@ -7,6 +7,7 @@ import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.render.RenderUtils;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.Quaternion;
+import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.model.IBakedModel;
 import net.minecraft.client.renderer.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.texture.OverlayTexture;
@@ -22,7 +23,7 @@ public class ScreenItemRenderer {
     /**
      * Renders a given item as a 3d model
      */
-    public static void drawItem(Item item, double x, double y, double scale, float yaw, float pitch, boolean doShading){
+    public static void drawItem(Item item, double x, double y, double scale, float yaw, float pitch, boolean flatShading){
         scale /= Math.sqrt(2 + 1d / (16 * 16));
 
         RenderSystem.enableRescaleNormal();
@@ -34,22 +35,24 @@ public class ScreenItemRenderer {
         RenderSystem.pushMatrix();
         RenderSystem.translated(x, y, 350);
         RenderSystem.scaled(scale, -scale, scale);
-        Quaternion rotation = new Quaternion(pitch, yaw, 0, true);
-        RenderSystem.rotatef(rotation.r(), rotation.i(), rotation.j(), rotation.k());
 
-        if(doShading)
-            RenderSystem.enableLighting();
+        POSE_STACK.pushPose();
+        POSE_STACK.mulPose(new Quaternion(pitch, yaw, 0, true));
 
-        IRenderTypeBuffer.Impl renderTypeBuffer = RenderUtils.getMainBufferSource();
+        IRenderTypeBuffer.Impl bufferSource = RenderUtils.getMainBufferSource();
         IBakedModel model = ClientUtils.getItemRenderer().getItemModelShaper().getItemModel(item);
         if(model != null)
-            ClientUtils.getItemRenderer().render(item.getDefaultInstance(), ItemCameraTransforms.TransformType.GUI, false, POSE_STACK, renderTypeBuffer, 15728880, OverlayTexture.NO_OVERLAY, model);
-        renderTypeBuffer.endBatch();
+            ClientUtils.getItemRenderer().render(item.getDefaultInstance(), ItemCameraTransforms.TransformType.GUI, false, POSE_STACK, bufferSource, 15728880, OverlayTexture.NO_OVERLAY, model);
 
         RenderSystem.enableDepthTest();
-        if(doShading)
-            RenderSystem.disableLighting();
+        if(flatShading){
+            RenderHelper.setupForFlatItems();
+            bufferSource.endBatch();
+            RenderHelper.setupFor3DItems();
+        }else
+            bufferSource.endBatch();
 
+        POSE_STACK.popPose();
         RenderSystem.popMatrix();
 
         RenderSystem.disableAlphaTest();
