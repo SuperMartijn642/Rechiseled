@@ -6,13 +6,12 @@
   "refmap": "${mod_id}.mixins.refmap.json",
   "mixins": [
     "MinecraftServerMixin",
-    "PlayerListMixin"
+    "PlayerListMixin",
+    "ReloadableServerResourcesMixin"
   ],
   "client": [
-    "CreateWorldScreenMixin",
     "MinecraftMixin",
-    "MultiPlayerGameModeMixin",
-    "WorldOpenFlowsMixin"
+    "MultiPlayerGameModeMixin"
   ],
   "server": [
     "ServerMainMixin"
