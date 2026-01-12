@@ -17,33 +17,38 @@ import net.minecraft.world.item.Item;
  */
 public class ScreenItemRenderer {
 
+    private static final PoseStack POSE_STACK = new PoseStack();
+
     /**
      * Renders a given item as a 3d model
      */
-    public static void drawItem(Item item, double x, double y, double scale, float yaw, float pitch, boolean doShading){
+    public static void drawItem(Item item, double x, double y, double scale, float yaw, float pitch, boolean flatShading){
         scale /= Math.sqrt(2 + 1d / (16 * 16));
 
         RenderSystem.getModelViewStack().pushPose();
         RenderSystem.getModelViewStack().scale(1, -1, 1);
         RenderSystem.applyModelViewMatrix();
 
-        PoseStack poseStack = new PoseStack();
-        poseStack.translate(x, -y, 350);
-        poseStack.scale((float)scale, (float)scale, (float)scale);
-        poseStack.mulPose(new Quaternion(pitch, yaw, 0, true));
+        POSE_STACK.pushPose();
+        POSE_STACK.translate(x, -y, 350);
+        POSE_STACK.scale((float)scale, (float)scale, (float)scale);
+        POSE_STACK.mulPose(new Quaternion(pitch, yaw, 0, true));
 
-        if(doShading)
-            Lighting.setupFor3DItems();
-
-        MultiBufferSource.BufferSource renderTypeBuffer = RenderUtils.getMainBufferSource();
+        MultiBufferSource.BufferSource bufferSource = RenderUtils.getMainBufferSource();
         BakedModel model = ClientUtils.getItemRenderer().getItemModelShaper().getItemModel(item);
         if(model != null)
-            ClientUtils.getItemRenderer().render(item.getDefaultInstance(), ItemTransforms.TransformType.GUI, false, poseStack, renderTypeBuffer, 15728880, OverlayTexture.NO_OVERLAY, model);
-        renderTypeBuffer.endBatch();
+            ClientUtils.getItemRenderer().render(item.getDefaultInstance(), ItemTransforms.TransformType.GUI, false, POSE_STACK, bufferSource, 15728880, OverlayTexture.NO_OVERLAY, model);
+
+
+        POSE_STACK.popPose();
 
         RenderSystem.enableDepthTest();
-        if(doShading)
+        if(flatShading){
             Lighting.setupForFlatItems();
+            bufferSource.endBatch();
+            Lighting.setupFor3DItems();
+        }else
+            bufferSource.endBatch();
 
         RenderSystem.getModelViewStack().popPose();
         RenderSystem.applyModelViewMatrix();
