@@ -1,13 +1,16 @@
 package com.supermartijn642.rechiseled.screen;
 
+import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
 import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.api.chiseling.ItemWithWorth;
+import com.supermartijn642.rechiseled.chiseling.ChiselingRecipeDatapackPlugin;
 import com.supermartijn642.rechiseled.screen.preview.ScreenItemRenderer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -58,8 +61,17 @@ public class EntryButtonWidget extends AbstractButtonWidget {
     protected void getTooltips(Consumer<ITextComponent> tooltips){
         DisplayEntry display = this.entry.get();
         ItemWithWorth item = display == null ? null : display.getItem(this.connecting.get());
-        if(item != null)
+        if(item != null){
             tooltips.accept(TextComponents.item(item.item().item()).get());
+            if(ClientUtils.getMinecraft().gameSettings.advancedItemTooltips){
+                ResourceLocation recipe = display.entry().recipe();
+                if(recipe != null)
+                    tooltips.accept(TextComponents.translation("rechiseled.chiseling.entry.recipe", TextComponents.string(recipe.toString()).color(TextFormatting.DARK_GRAY).get()).color(TextFormatting.GRAY).get());
+                ResourceLocation owner = display.entry().owner();
+                if(!owner.equals(ChiselingRecipeDatapackPlugin.IDENTIFIER))
+                    tooltips.accept(TextComponents.translation("rechiseled.chiseling.entry.owner", TextComponents.string(owner.toString()).color(TextFormatting.DARK_GRAY).get()).color(TextFormatting.GRAY).get());
+            }
+        }
     }
 
     @Override

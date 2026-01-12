@@ -46,6 +46,7 @@ public class ChiselingRecipeDatapackPlugin implements ChiselingRecipePlugin {
         INSTANCE.reload().join();
     }
 
+    public static final ResourceLocation IDENTIFIER = Rechiseled.identifier("datapacks");
     public static final ChiselingRecipeDatapackPlugin INSTANCE = new ChiselingRecipeDatapackPlugin();
     private static final Gson GSON = new GsonBuilder().setLenient().create();
 
