@@ -10,10 +10,7 @@ import com.supermartijn642.core.gui.widget.premade.ScrollbarWidget;
 import com.supermartijn642.core.gui.widget.premade.TextFieldWidget;
 import com.supermartijn642.core.registry.Registries;
 import com.supermartijn642.rechiseled.Rechiseled;
-import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
-import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
-import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipe;
-import com.supermartijn642.rechiseled.api.chiseling.ItemWithWorth;
+import com.supermartijn642.rechiseled.api.chiseling.*;
 import com.supermartijn642.rechiseled.packet.PacketChiselAll;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
 import com.supermartijn642.rechiseled.screen.preview.EntryPreviewWidget;
@@ -175,6 +172,25 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
         ScreenUtils.bindTexture(BACKGROUND);
         ScreenUtils.drawTexture(poseStack, 0, 0, this.width, this.height);
         super.renderBackground(poseStack, mouseX, mouseY);
+    }
+
+    @Override
+    public void render(MatrixStack poseStack, int mouseX, int mouseY){
+        super.render(poseStack, mouseX, mouseY);
+        // Highlight blocks that can chiseled
+        for(int index = 1; index < this.container.slots.size(); index++){
+            Slot slot = this.container.getSlot(index);
+            ItemStack stack = slot.getItem();
+            //noinspection DataFlowIssue
+            if(stack.isEmpty() || (stack.hasTag() && !stack.getTag().isEmpty()))
+                continue;
+
+            // Check if the stack is in the current recipe
+            if(this.recipe != null && this.recipe.contains(stack.getItem()))
+                ScreenUtils.fillRect(poseStack, slot.x + 13, slot.y, 3, 3, 52 / 355f, 108 / 355f, 173 / 355f, 0.5f);
+            else if(ChiselingRecipeManager.get(true).getRecipeForItem(stack.getItem()) != null)
+                ScreenUtils.fillRect(poseStack, slot.x + 13, slot.y, 3, 3, 1, 207 / 355f, 74 / 355f, 0.5f);
+        }
     }
 
     @Override
