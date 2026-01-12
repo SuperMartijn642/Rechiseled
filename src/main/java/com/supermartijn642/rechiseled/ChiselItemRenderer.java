@@ -15,16 +15,25 @@ import net.minecraft.world.item.ItemStack;
  */
 public class ChiselItemRenderer implements CustomItemRenderer {
 
+    private static final ThreadLocal<Boolean> RECURSION_GUARD = new ThreadLocal<>();
+
     @Override
     public void render(ItemStack stack, ItemDisplayContext transformType, PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int combinedOverlay){
         renderChisel(stack, transformType, poseStack, bufferSource, combinedLight, combinedOverlay);
         if(transformType == ItemDisplayContext.GUI){
+            if(RECURSION_GUARD.get() != null)
+                return;
             ItemStack storedStack = ChiselItem.getStoredStack(stack);
             if(!storedStack.isEmpty()){
                 poseStack.pushPose();
                 poseStack.translate(0.25, 0.75, 1);
                 poseStack.scale(0.5f, 0.5f, 0.5f);
-                ClientUtils.getItemRenderer().renderStatic(storedStack, ItemDisplayContext.GUI, combinedLight, combinedOverlay, poseStack, bufferSource, null, 0);
+                RECURSION_GUARD.set(true);
+                try{
+                    ClientUtils.getItemRenderer().renderStatic(storedStack, ItemDisplayContext.GUI, combinedLight, combinedOverlay, poseStack, bufferSource, null, 0);
+                }finally{
+                    RECURSION_GUARD.remove();
+                }
                 poseStack.popPose();
             }
         }
