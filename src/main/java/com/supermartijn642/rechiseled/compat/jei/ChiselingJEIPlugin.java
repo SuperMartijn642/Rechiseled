@@ -5,12 +5,11 @@ import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipe;
 import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipeManager;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
-import mezz.jei.api.recipe.RecipeType;
+import mezz.jei.api.recipe.types.IRecipeType;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
 
 /**
  * Created 28/12/2021 by SuperMartijn642
@@ -18,7 +17,7 @@ import net.minecraft.world.item.ItemStack;
 @JeiPlugin
 public class ChiselingJEIPlugin implements IModPlugin {
 
-    public static final RecipeType<ChiselingRecipe> CHISELING_RECIPE_TYPE = RecipeType.create(Rechiseled.MODID, "chiseling", ChiselingRecipe.class);
+    public static final IRecipeType<ChiselingRecipe> CHISELING_RECIPE_TYPE = IRecipeType.create(Rechiseled.MODID, "chiseling", ChiselingRecipe.class);
 
     @Override
     public ResourceLocation getPluginUid(){
@@ -32,11 +31,11 @@ public class ChiselingJEIPlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration){
-        registration.addRecipes(CHISELING_RECIPE_TYPE, ChiselingRecipeManager.get(true).getAllRecipes()); // TODO validate this is run from the client
+        registration.addRecipes(CHISELING_RECIPE_TYPE, ChiselingRecipeManager.get(true).getAllRecipes());
     }
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration){
-        registration.addRecipeCatalyst(new ItemStack(Rechiseled.chisel), CHISELING_RECIPE_TYPE);
+        registration.addCraftingStation(CHISELING_RECIPE_TYPE, Rechiseled.chisel);
     }
 }
