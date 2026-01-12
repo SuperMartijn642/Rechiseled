@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import org.joml.Quaternionf;
@@ -24,9 +25,10 @@ import java.util.Map;
 public class ScreenBlockRenderer {
 
     private static final PoseStack POSE_STACK = new PoseStack();
+    private static final RandomSource RANDOM_SOURCE = RandomSource.create();
     private static BlockCaptureLevel fakeLevel;
 
-    public static void drawBlock(BlockCapture capture, double x, double y, double scale, float yaw, float pitch, boolean doShading){
+    public static void drawBlock(BlockCapture capture, double x, double y, double scale, float yaw, float pitch, boolean flatShading){
         AABB bounds = capture.getBounds();
         double span = Math.sqrt(bounds.getXsize() * bounds.getXsize() + bounds.getYsize() * bounds.getYsize() + bounds.getZsize() * bounds.getZsize());
         scale /= span;
@@ -45,19 +47,18 @@ public class ScreenBlockRenderer {
         POSE_STACK.mulPose(new Quaternionf().setAngleAxis(pitch / 180 * (float)Math.PI, 1, 0, 0));
         POSE_STACK.mulPose(new Quaternionf().setAngleAxis(yaw / 180 * (float)Math.PI, 0, 1, 0));
 
-        if(doShading)
-            Lighting.setupFor3DItems();
-
-        MultiBufferSource.BufferSource renderTypeBuffer = RenderUtils.getMainBufferSource();
+        MultiBufferSource.BufferSource bufferSource = RenderUtils.getMainBufferSource();
         for(Map.Entry<BlockPos,BlockState> entry : capture.getBlocks())
-            renderBlock(entry.getKey(), entry.getValue(), POSE_STACK, renderTypeBuffer);
-        renderTypeBuffer.endBatch();
-
-        RenderSystem.enableDepthTest();
-        if(doShading)
-            Lighting.setupForFlatItems();
+            renderBlock(fakeLevel, entry.getKey(), entry.getValue(), POSE_STACK, bufferSource);
 
         POSE_STACK.popPose();
+
+        if(flatShading){
+            Lighting.setupForFlatItems();
+            bufferSource.endBatch();
+            Lighting.setupFor3DItems();
+        }else
+            bufferSource.endBatch();
 
         RenderSystem.getModelViewStack().popPose();
         RenderSystem.applyModelViewMatrix();
@@ -65,13 +66,15 @@ public class ScreenBlockRenderer {
         fakeLevel.setCapture(null);
     }
 
-    private static void renderBlock(BlockPos pos, BlockState state, PoseStack poseStack, MultiBufferSource renderTypeBuffer){
+    private static void renderBlock(BlockAndTintGetter level, BlockPos pos, BlockState state, PoseStack poseStack, MultiBufferSource bufferSource){
         poseStack.pushPose();
         poseStack.translate(pos.getX() - 0.5, pos.getY() - 0.5, pos.getZ() - 0.5);
 
+        long seed = state.getSeed(pos);
         BakedModel model = ClientUtils.getBlockRenderer().getBlockModel(state);
         RenderType renderType = ItemBlockRenderTypes.getRenderType(state, true);
-        ClientUtils.getBlockRenderer().getModelRenderer().tesselateBlock(fakeLevel, model, state, pos, poseStack, renderTypeBuffer.getBuffer(renderType), true, RandomSource.create(42), 42, OverlayTexture.NO_OVERLAY);
+        RANDOM_SOURCE.setSeed(seed);
+        ClientUtils.getBlockRenderer().getModelRenderer().tesselateBlock(level, model, state, pos, poseStack, bufferSource.getBuffer(renderType), true, RANDOM_SOURCE, seed, OverlayTexture.NO_OVERLAY);
 
         poseStack.popPose();
     }
