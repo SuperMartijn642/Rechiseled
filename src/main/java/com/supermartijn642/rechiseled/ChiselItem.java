@@ -2,15 +2,18 @@ package com.supermartijn642.rechiseled;
 
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.CommonUtils;
+import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.item.BaseItem;
 import com.supermartijn642.core.item.ItemProperties;
 import com.supermartijn642.core.util.Pair;
 import com.supermartijn642.rechiseled.api.chiseling.*;
 import com.supermartijn642.rechiseled.packet.PacketChiselBlocks;
 import com.supermartijn642.rechiseled.screen.ChiselContainer;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponentType;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -26,6 +29,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * Created 25/12/2021 by SuperMartijn642
@@ -55,6 +59,14 @@ public class ChiselItem extends BaseItem {
         if(!world.isClientSide)
             CommonUtils.openContainer(new ChiselContainer(player, hand));
         return InteractionResultHolder.sidedSuccess(stack, world.isClientSide);
+    }
+
+    @Override
+    protected void appendItemInformation(ItemStack stack, Consumer<Component> info, boolean advanced){
+        ItemStack storedStack = getStoredStack(stack);
+        if(!storedStack.isEmpty())
+            info.accept(TextComponents.item(storedStack.getItem()).color(ChatFormatting.GRAY).italic().get());
+        super.appendItemInformation(stack, info, advanced);
     }
 
     public boolean leftClickBlock(Player player, ItemStack stack, BlockPos pos, Direction side, boolean isShift){
