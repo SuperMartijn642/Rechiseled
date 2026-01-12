@@ -111,7 +111,7 @@ public class FilterOptionsWidget extends BaseWidget {
         if(!this.showBlocks.getAsBoolean() || !this.showStairs.getAsBoolean() || !this.showSlabs.getAsBoolean() || !this.showNonConnecting.getAsBoolean()){
             GlStateManager.enableAlpha();
             ScreenUtils.bindTexture(MARKER);
-            ScreenUtils.drawTexture(this.x + 7, this.y + 1, 3, 3);
+            ScreenUtils.drawTexture(this.x + this.collapsedWidth - 4, this.y, 4, 4);
         }
     }
 
