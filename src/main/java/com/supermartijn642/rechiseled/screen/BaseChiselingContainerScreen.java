@@ -179,7 +179,9 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
             for(int index = 1; index < this.container.slots.size(); index++){
                 Slot slot = this.container.getSlot(index);
                 ItemStack stack = slot.getItem();
-                if(!stack.getComponentsPatch().isEmpty())
+                if(stack.isEmpty() || !stack.getComponentsPatch().isEmpty())
+                    continue;
+                if(stack.getItem() == this.selectedEntry.getItem(this.connecting).item())
                     continue;
 
                 // Check if the stack is chiselable
@@ -188,8 +190,10 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
                     isChiselable = this.recipe.contains(stack.getItem());
                 else{
                     isChiselable = false;
+                    ChiselingBlockShape shape = this.selectedEntry.shape();
                     for(ChiselingEntry entry : this.recipe.entries()){
-                        if(entry.getRegularItem(this.selectedEntry.shape()) == stack.getItem() || entry.getConnectingItem(this.selectedEntry.shape()) == stack.getItem()){
+                        if((entry.hasRegularItem(shape) && entry.getRegularItem(shape).item() == stack.getItem())
+                            || (entry.hasConnectingItem(shape) && entry.getConnectingItem(shape).item() == stack.getItem())){
                             isChiselable = true;
                             break;
                         }
