@@ -11,6 +11,7 @@
   "client": [
     "BlockModelDeserializerMixin",
     "MinecraftMixin",
+    "MultiPlayerGameModeMixin",
     "WorldOpenFlowsMixin"
   ],
   "server": [
