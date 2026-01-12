@@ -187,6 +187,8 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
                 //noinspection DataFlowIssue
                 if(stack.hasTagCompound() && !stack.getTagCompound().hasNoTags())
                     continue;
+                if(this.selectedEntry.getItem(this.connecting).item().matches(stack))
+                    continue;
 
                 // Check if the stack is chiselable
                 boolean isChiselable;
@@ -194,9 +196,10 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
                     isChiselable = this.recipe.contains(ItemWithMeta.fromStack(stack));
                 else{
                     isChiselable = false;
+                    ChiselingBlockShape shape = this.selectedEntry.shape();
                     for(ChiselingEntry entry : this.recipe.entries()){
-                        if((entry.hasRegularItem(this.selectedEntry.shape()) && entry.getRegularItem(this.selectedEntry.shape()).item().matches(stack))
-                            || (entry.hasConnectingItem(this.selectedEntry.shape()) && entry.getConnectingItem(this.selectedEntry.shape()).item().matches(stack))){
+                        if((entry.hasRegularItem(shape) && entry.getRegularItem(shape).item().matches(stack))
+                            || (entry.hasConnectingItem(shape) && entry.getConnectingItem(shape).item().matches(stack))){
                             isChiselable = true;
                             break;
                         }
