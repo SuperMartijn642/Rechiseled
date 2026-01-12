@@ -23,15 +23,4 @@ public class ServerMainMixin {
     private static void finalizePlugins(CallbackInfo ci){
         ChiselingRecipeManagerImpl.finalizePlugins();
     }
-
-    @Inject(
-        method = "main",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/server/WorldStem;worldData()Lnet/minecraft/world/level/storage/WorldData;"
-        )
-    )
-    private static void updateRecipes(CallbackInfo ci){
-        ChiselingRecipeManagerImpl.loadRecipes();
-    }
 }
