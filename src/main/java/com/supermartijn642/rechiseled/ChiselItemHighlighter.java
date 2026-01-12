@@ -7,7 +7,6 @@ import com.supermartijn642.core.render.RenderUtils;
 import com.supermartijn642.core.util.Pair;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.core.BlockPos;
-import net.minecraft.util.context.ContextKey;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -24,8 +23,6 @@ import java.util.function.Consumer;
  * Created 12/01/2026 by SuperMartijn642
  */
 public class ChiselItemHighlighter {
-
-    private static final ContextKey<BlockShape> HIGHLIGHT_KEY = new ContextKey<>(Rechiseled.identifier("chisel_highlight"));
 
     public static void registerListeners(){
         NeoForge.EVENT_BUS.addListener((Consumer<RenderLevelStageEvent>)e -> {
