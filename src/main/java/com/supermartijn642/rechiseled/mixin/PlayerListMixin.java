@@ -15,18 +15,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 /**
  * Created 07/01/2026 by SuperMartijn642
  */
-@Mixin(PlayerList.class)
+@Mixin(value = PlayerList.class)
 public class PlayerListMixin {
 
     @Inject(
         method = "placeNewPlayer",
         at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/network/protocol/game/ClientboundUpdateRecipesPacket;<init>(Ljava/util/Map;Lnet/minecraft/world/item/crafting/SelectableRecipe$SingleInputSet;)V",
+            value = "NEW",
+            target = "net/minecraft/network/protocol/game/ClientboundUpdateRecipesPacket",
             shift = At.Shift.BEFORE
         )
     )
-    public void placeNewPlayer(Connection connection, ServerPlayer player, CommonListenerCookie cookie, CallbackInfo ci) {
+    public void placeNewPlayer(Connection connection, ServerPlayer player, CommonListenerCookie cookie, CallbackInfo ci){
         Rechiseled.CHANNEL.sendToPlayer(player, new PacketUpdateChiselingRecipes(ChiselingRecipeManager.get(false).getAllRecipes()));
     }
 
@@ -38,7 +38,7 @@ public class PlayerListMixin {
             shift = At.Shift.BEFORE
         )
     )
-    public void reloadResources(CallbackInfo ci) {
+    public void reloadResources(CallbackInfo ci){
         Rechiseled.CHANNEL.sendToAllPlayers(new PacketUpdateChiselingRecipes(ChiselingRecipeManager.get(false).getAllRecipes()));
     }
 }
