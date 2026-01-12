@@ -153,7 +153,7 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
                 .texture("side", side)
                 .texture("top", top)
                 .connections("bottom", bottomStairConnectionsBottom(block, stairs, slab))
-                .connections("side", stairConnectionsSide(block, stairs, slab))
+                .connections("side", bottomStairConnectionsSide(block, stairs, slab))
                 .connections("top", bottomStairConnectionsTop(block, stairs, slab))
                 .build()
         ));
@@ -165,7 +165,7 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
                 .texture("side", side)
                 .texture("top", top)
                 .connections("bottom", bottomStairConnectionsBottom(block, stairs, slab))
-                .connections("side", stairConnectionsSide(block, stairs, slab))
+                .connections("side", bottomStairConnectionsSide(block, stairs, slab))
                 .connections("top", bottomStairConnectionsTop(block, stairs, slab))
                 .build()
         ));
@@ -177,7 +177,7 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
                 .texture("side", side)
                 .texture("top", top)
                 .connections("bottom", bottomStairConnectionsBottom(block, stairs, slab))
-                .connections("side", stairConnectionsSide(block, stairs, slab))
+                .connections("side", bottomStairConnectionsSide(block, stairs, slab))
                 .connections("top", bottomStairConnectionsTop(block, stairs, slab))
                 .build()
         ));
@@ -189,7 +189,7 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
                 .texture("side", side)
                 .texture("top", top)
                 .connections("bottom", topStairConnectionsBottom(block, stairs, slab))
-                .connections("side", stairConnectionsSide(block, stairs, slab))
+                .connections("side", topStairConnectionsSide(block, stairs, slab))
                 .connections("top", topStairConnectionsTop(block, stairs, slab))
                 .build()
         ));
@@ -201,7 +201,7 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
                 .texture("side", side)
                 .texture("top", top)
                 .connections("bottom", topStairConnectionsBottom(block, stairs, slab))
-                .connections("side", stairConnectionsSide(block, stairs, slab))
+                .connections("side", topStairConnectionsSide(block, stairs, slab))
                 .connections("top", topStairConnectionsTop(block, stairs, slab))
                 .build()
         ));
@@ -213,7 +213,7 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
                 .texture("side", side)
                 .texture("top", top)
                 .connections("bottom", topStairConnectionsBottom(block, stairs, slab))
-                .connections("side", stairConnectionsSide(block, stairs, slab))
+                .connections("side", topStairConnectionsSide(block, stairs, slab))
                 .connections("top", topStairConnectionsTop(block, stairs, slab))
                 .build()
         ));
@@ -393,8 +393,15 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
         );
     }
 
-    private static ConnectionPredicate stairConnectionsSide(Block block, Block stairs, Block slab){
-        return blockConnectionsSide(block, stairs, slab);
+    private static ConnectionPredicate bottomStairConnectionsSide(Block block, Block stairs, Block slab){
+        return DefaultConnectionPredicates.or(
+            isFullBlock(block, slab),
+            isStairs(stairs),
+            DefaultConnectionPredicates.isDirection(ConnectionDirection.LEFT, ConnectionDirection.TOP_LEFT, ConnectionDirection.TOP, ConnectionDirection.TOP_RIGHT, ConnectionDirection.RIGHT)
+                .and(isBottomSlab(slab)),
+            DefaultConnectionPredicates.isDirection(ConnectionDirection.BOTTOM, ConnectionDirection.BOTTOM_LEFT, ConnectionDirection.BOTTOM_RIGHT)
+                .and(isTopSlab(slab))
+        );
     }
 
     private static ConnectionPredicate bottomStairConnectionsTop(Block block, Block stairs, Block slab){
@@ -407,6 +414,17 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
 
     private static ConnectionPredicate bottomStairConnectionsBottom(Block block, Block stairs, Block slab){
         return blockConnectionsBottom(block, stairs, slab);
+    }
+
+    private static ConnectionPredicate topStairConnectionsSide(Block block, Block stairs, Block slab){
+        return DefaultConnectionPredicates.or(
+            isFullBlock(block, slab),
+            isStairs(stairs),
+            DefaultConnectionPredicates.isDirection(ConnectionDirection.TOP, ConnectionDirection.TOP_LEFT, ConnectionDirection.TOP_RIGHT)
+                .and(isBottomSlab(slab)),
+            DefaultConnectionPredicates.isDirection(ConnectionDirection.LEFT, ConnectionDirection.BOTTOM_LEFT, ConnectionDirection.BOTTOM, ConnectionDirection.BOTTOM_RIGHT, ConnectionDirection.RIGHT)
+                .and(isTopSlab(slab))
+        );
     }
 
     private static ConnectionPredicate topStairConnectionsTop(Block block, Block stairs, Block slab){
