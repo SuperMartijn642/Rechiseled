@@ -73,7 +73,7 @@ public class BlockCaptureLevel implements LevelAccessor {
 
     @Override
     public float getShade(Direction side, boolean bl){
-        return ClientUtils.getWorld().getShade(side, bl);
+        return 1;
     }
 
     @Override
@@ -83,7 +83,7 @@ public class BlockCaptureLevel implements LevelAccessor {
 
     @Override
     public LevelLightEngine getLightEngine(){
-        return ClientUtils.getWorld().getLightEngine();
+        return null;
     }
 
     @Override
