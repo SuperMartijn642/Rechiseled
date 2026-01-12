@@ -14,14 +14,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 /**
  * Created 07/01/2026 by SuperMartijn642
  */
-@Mixin(PlayerList.class)
+@Mixin(value = PlayerList.class, priority = 900) // This should have lower priority value than Fabric API's mixins
 public class PlayerListMixin {
 
     @Inject(
         method = "placeNewPlayer",
         at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/network/protocol/game/ClientboundUpdateRecipesPacket;<init>(Ljava/util/Collection;)V",
+            value = "NEW",
+            target = "net/minecraft/network/protocol/game/ClientboundUpdateRecipesPacket",
             shift = At.Shift.BEFORE
         )
     )
