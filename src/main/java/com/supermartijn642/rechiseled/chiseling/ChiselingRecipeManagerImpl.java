@@ -78,7 +78,7 @@ public class ChiselingRecipeManagerImpl implements ChiselingRecipeManager {
             throw new IllegalStateException("Plugins are already finalized!");
 
         // Add Rechiseled's datapack plugin
-        PluginEntry datapacksPlugin = new PluginEntry(Rechiseled.identifier("datapacks"), 0, ChiselingRecipeDatapackPlugin.INSTANCE);
+        PluginEntry datapacksPlugin = new PluginEntry(ChiselingRecipeDatapackPlugin.IDENTIFIER, 0, ChiselingRecipeDatapackPlugin.INSTANCE);
         for(int i = 0; i <= PLUGINS.size(); i++){
             if(i == PLUGINS.size())
                 PLUGINS.add(datapacksPlugin);
