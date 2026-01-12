@@ -5,19 +5,24 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.render.RenderUtils;
+import com.supermartijn642.rechiseled.Rechiseled;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockAndTintGetter;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import org.joml.Quaternionf;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created 25/12/2021 by SuperMartijn642
@@ -26,6 +31,7 @@ public class ScreenBlockRenderer {
 
     private static final PoseStack POSE_STACK = new PoseStack();
     private static final RandomSource RANDOM_SOURCE = RandomSource.create();
+    private static final Set<Block> erroredBlocks = new HashSet<>();
     private static BlockCaptureLevel fakeLevel;
 
     public static void drawBlock(BlockCapture capture, double x, double y, double scale, float yaw, float pitch, boolean flatShading){
@@ -48,8 +54,17 @@ public class ScreenBlockRenderer {
         POSE_STACK.mulPose(new Quaternionf().setAngleAxis(yaw / 180 * (float)Math.PI, 0, 1, 0));
 
         MultiBufferSource.BufferSource bufferSource = RenderUtils.getMainBufferSource();
-        for(Map.Entry<BlockPos,BlockState> entry : capture.getBlocks())
-            renderBlock(fakeLevel, entry.getKey(), entry.getValue(), POSE_STACK, bufferSource);
+        for(Map.Entry<BlockPos,BlockState> entry : capture.getBlocks()){
+            BlockState state = entry.getValue();
+            if(!erroredBlocks.contains(state.getBlock())){
+                try{
+                    renderBlock(fakeLevel, entry.getKey(), entry.getValue(), POSE_STACK, bufferSource);
+                }catch(Exception e){
+                    Rechiseled.LOGGER.error("Encountered an exception whilst rendering block '{}'!", BuiltInRegistries.BLOCK.getKey(state.getBlock()), e);
+                    erroredBlocks.add(state.getBlock());
+                }
+            }
+        }
 
         POSE_STACK.popPose();
 
