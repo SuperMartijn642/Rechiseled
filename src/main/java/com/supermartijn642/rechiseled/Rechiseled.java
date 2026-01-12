@@ -71,7 +71,7 @@ public class Rechiseled {
     public Rechiseled(){
         CHANNEL.registerMessage(PacketSelectEntry.class, PacketSelectEntry::new, PacketDirection.CLIENT_TO_SERVER, true);
         CHANNEL.registerMessage(PacketChiselAll.class, PacketChiselAll::new, PacketDirection.CLIENT_TO_SERVER, true);
-        CHANNEL.registerMessage(PacketUpdateChiselingRecipes.class, PacketUpdateChiselingRecipes::new, PacketDirection.SERVER_TO_CLIENT, true);
+        CHANNEL.registerMessage(PacketUpdateChiselingRecipes.class, PacketUpdateChiselingRecipes::new, PacketDirection.SERVER_TO_CLIENT, false);
         CHANNEL.registerMessage(PacketChiselBlocks.class, PacketChiselBlocks::new, PacketDirection.CLIENT_TO_SERVER, true);
 
         MinecraftForge.EVENT_BUS.addListener((Consumer<FMLServerAboutToStartEvent>)e -> e.getServer().getResources().registerReloadListener(ChiselingRecipeDatapackPlugin.INSTANCE));
