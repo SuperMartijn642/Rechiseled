@@ -43,9 +43,8 @@ public class ChiselingRecipeImpl implements ChiselingRecipe {
     }
 
     @Override
-    public float getWorth(ItemWithMeta item){
-        ItemWithWorth worth = this.items.get(item);
-        return worth == null ? -1 : worth.worth();
+    public ItemWithWorth getWorth(ItemWithMeta item){
+        return this.items.get(item);
     }
 
     public Set<ItemWithMeta> getItems(){
