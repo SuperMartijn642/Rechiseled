@@ -71,16 +71,16 @@ public class RegistrationTagsGenerator extends TagGenerator {
                 if(builder.hasRegularVariant()){
                     this.addTags(builder, builder.getRegularBlock());
                     if(builder.hasStairs() && builder.getStairs().hasRegularVariant())
-                        this.addTags(builder, builder.getStairs().getRegularBlock());
+                        this.addTags(builder.getStairs(), builder.getStairs().getRegularBlock());
                     if(builder.hasSlabs() && builder.getSlabs().hasRegularVariant())
-                        this.addTags(builder, builder.getSlabs().getRegularBlock());
+                        this.addTags(builder.getSlabs(), builder.getSlabs().getRegularBlock());
                 }
                 if(builder.hasConnectingVariant()){
                     this.addTags(builder, builder.getConnectingBlock());
                     if(builder.hasStairs() && builder.getStairs().hasConnectingVariant())
-                        this.addTags(builder, builder.getStairs().getConnectingBlock());
+                        this.addTags(builder.getStairs(), builder.getStairs().getConnectingBlock());
                     if(builder.hasSlabs() && builder.getSlabs().hasConnectingVariant())
-                        this.addTags(builder, builder.getSlabs().getConnectingBlock());
+                        this.addTags(builder.getSlabs(), builder.getSlabs().getConnectingBlock());
                 }
             }
         );
