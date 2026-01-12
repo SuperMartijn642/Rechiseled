@@ -12,6 +12,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.function.Supplier;
 
@@ -78,17 +80,24 @@ public class EntryPreviewWidget extends BaseWidget {
             if(item instanceof BlockItem){
                 // Render block
                 Block block = ((BlockItem)item).getBlock();
-                BlockCapture capture;
-                if(previewMode == PreviewMode.SINGLE)
-                    capture = new BlockCapture(block);
-                else if(previewMode == PreviewMode.ROW){
-                    capture = new BlockCapture(block);
-                    capture.putBlock(new BlockPos(-1, 0, 0), block);
-                    capture.putBlock(new BlockPos(1, 0, 0), block);
-                }else{
-                    capture = new BlockCapture();
-                    for(int i = 0; i < 9; i++)
-                        capture.putBlock(new BlockPos(i / 3 - 1, i % 3 - 1, 0), block);
+                BlockCapture capture = new BlockCapture();
+                int xRange = previewMode == PreviewMode.SINGLE ? 1 : 2;
+                int yRange = previewMode == PreviewMode.PANEL ? 2 : 1;
+                for(int x = -xRange; x <= xRange; x++){
+                    for(int y = -yRange; y <= yRange; y++){
+                        BlockPos pos = new BlockPos(x, y, 0);
+                        if(Math.abs(x) == xRange || Math.abs(y) == yRange)
+                            capture.putBlock(pos, Blocks.COBBLESTONE.defaultBlockState());
+                        else
+                            capture.putBlock(pos, block);
+                    }
+                }
+                capture.updateShapes();
+                for(int x = -xRange; x <= xRange; x++){
+                    for(int y = -yRange; y <= yRange; y++){
+                        if(Math.abs(x) == xRange || Math.abs(y) == yRange)
+                            capture.putBlock(new BlockPos(x, y, 0), (BlockState)null);
+                    }
                 }
                 graphics.nextStratum();
                 graphics.submitCustomRendering(
