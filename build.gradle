@@ -28,6 +28,7 @@ repositories {
     }
     maven { url = "https://repo.spongepowered.org/maven" }
     maven { url "https://maven.shedaniel.me/" } // REI
+    maven { url = "https://maven.blamejared.com/" } // JEI
 }
 
 dependencies {
@@ -41,7 +42,7 @@ dependencies {
     // Fusion
     implementation "curse.maven:fusion-854949:${fusion_file}"
     // Just Enough Items
-    compileOnly "curse.maven:jei-238222:${just_enough_items_file}"
+    implementation "mezz.jei:jei-${minecraft_version}-neoforge:${just_enough_items_version}"
     // Roughly Enough Items
     compileOnly "me.shedaniel:RoughlyEnoughItems-neoforge:${roughly_enough_items_version}"
 }
