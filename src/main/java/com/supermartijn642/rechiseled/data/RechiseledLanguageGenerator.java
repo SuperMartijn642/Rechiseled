@@ -42,8 +42,9 @@ public class RechiseledLanguageGenerator extends LanguageGenerator {
         this.translation("rechiseled.chiseling.entry.recipe", "Recipe: %s");
         this.translation("rechiseled.chiseling.entry.owner", "Plugin: %s");
 
-        // Jei
-        this.translation("rechiseled.jei_category.title", "Chiseling");
+        // Jei & rei
+        this.translation("rechiseled.recipe_category.title", "Chiseling");
+        this.translation("rechiseled.recipe_category.conversion_value", "Conversion value: %s");
 
         // Chisel item
         this.item(Rechiseled.chisel, "Chisel");
