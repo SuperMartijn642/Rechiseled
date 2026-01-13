@@ -30,6 +30,11 @@ public class RechiseledGlassBlock extends RechiseledBlock {
         super(connecting, properties.noOcclusion().isSuffocating(Blocks::never));
     }
 
+    @SuppressWarnings("unused")
+    public RechiseledGlassBlock(boolean connecting, Properties properties){
+        super(connecting, properties.noOcclusion().isSuffocating(Blocks::never));
+    }
+
     public void setStairsAndSlab(Block stairs, Block slab){
         if(this.haveStairsAndSlabBeenSet)
             throw new IllegalStateException("Already set stairs and slab!");

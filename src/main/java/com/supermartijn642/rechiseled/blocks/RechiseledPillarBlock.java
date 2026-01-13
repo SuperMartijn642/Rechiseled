@@ -24,6 +24,11 @@ public class RechiseledPillarBlock extends RechiseledBlock {
         this.registerDefaultState(this.defaultBlockState().setValue(AXIS_PROPERTY, Direction.Axis.Y));
     }
 
+    public RechiseledPillarBlock(boolean connecting, Properties properties){
+        super(connecting, properties);
+        this.registerDefaultState(this.defaultBlockState().setValue(AXIS_PROPERTY, Direction.Axis.Y));
+    }
+
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context){
