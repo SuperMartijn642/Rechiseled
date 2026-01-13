@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
  * Specifies identifier and priority for chiseling recipe plugins.
  * <p>
  * On Forge and NeoForge, plugins with this annotation will automatically be registered.<br>
- * On Fabric, plugins must be listed as a 'rechiseled-chiseling-recipe-plugin' entry point for the mod.
+ * On Fabric, plugins should be listed as a 'rechiseled-chiseling-recipe-plugin' entry point in the <i>fabric.mod.json</i> properties.
  * <p>
  * Created 13/01/2026 by SuperMartijn642
  */
@@ -17,7 +17,11 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface RechiseledChiselingRecipePlugin {
 
-    String identifier() default "main";
+    String identifier() default "plugin";
 
-    int priority() default 0;
+    /**
+     * Plugins with a lower priority value are applied before plugins with a higher priority value.
+     * The default priority for plugins is {@link ChiselingRecipePlugin#DEFAULT_PLUGIN_PRIORITY}, the plugin for recipes from datapacks has priority {@code 0}.
+     */
+    int priority() default ChiselingRecipePlugin.DEFAULT_PLUGIN_PRIORITY;
 }
