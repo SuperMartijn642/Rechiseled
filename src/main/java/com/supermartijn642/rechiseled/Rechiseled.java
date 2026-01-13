@@ -10,6 +10,7 @@ import com.supermartijn642.core.registry.RegistrationHandler;
 import com.supermartijn642.core.registry.RegistryEntryAcceptor;
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockType;
 import com.supermartijn642.rechiseled.api.registration.RechiseledRegistration;
+import com.supermartijn642.rechiseled.chiseling.ChiselingRecipeManagerImpl;
 import com.supermartijn642.rechiseled.chiseling.PacketUpdateChiselingRecipes;
 import com.supermartijn642.rechiseled.data.RechiseledItemModelGenerator;
 import com.supermartijn642.rechiseled.data.RechiseledLanguageGenerator;
@@ -24,6 +25,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -93,5 +95,10 @@ public class Rechiseled {
         handler.addGenerator(RechiseledLanguageGenerator::new);
         handler.addGenerator(RechiseledRecipeGenerator::new);
         REGISTRATION.registerDataProviders();
+    }
+
+    @Mod.EventHandler
+    private static void onPreInitialization(FMLPreInitializationEvent e){
+        ChiselingRecipeManagerImpl.loadAnnotationPlugins(e.getAsmData());
     }
 }
