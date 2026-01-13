@@ -2,6 +2,7 @@ package com.supermartijn642.rechiseled.api.blocks;
 
 import com.supermartijn642.core.block.BlockProperties;
 import com.supermartijn642.rechiseled.api.registration.RechiseledRegistration;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.block.Block;
 
@@ -66,17 +67,20 @@ public interface RechiseledCommonBlockBuilder<T extends RechiseledCommonBlockBui
     /**
      * Adds the constructed block to the given block tag.
      */
-    T blockTag(String namespace, String identifier);
+    T blockTag(Identifier identifier);
 
     /**
      * Adds the constructed block to the given block tag.
      */
-    T itemTag(String namespace, String identifier);
+    T itemTag(Identifier identifier);
 
     /**
      * Adds the constructed block to the given block tag.
      */
-    T itemAndBlockTag(String namespace, String identifier);
+    default T itemAndBlockTag(Identifier identifier){
+        this.blockTag(identifier);
+        return this.itemTag(identifier);
+    }
 
     /**
      * Copies the mining tags from the given block.
