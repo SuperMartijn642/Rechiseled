@@ -5,6 +5,7 @@ import com.supermartijn642.rechiseled.api.BaseChiselingRecipes;
 import com.supermartijn642.rechiseled.api.blocks.BlockSpecification;
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockBuilder;
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockType;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -341,7 +342,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType DIORITE_WAVY = create("diorite_wavy", "Wavy Diorite").configure(DIORITE_CONFIGURER).build();
     // Dirt
     private static final Consumer<BlockProperties> DIRT_BLOCK_PROPERTIES = p -> p.mapColor(MapColor.DIRT).strength(0.5F).sound(SoundType.GRAVEL);
-    private static final Consumer<RechiseledBlockBuilder> DIRT_CONFIGURER = b -> b.properties(DIRT_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.DIRT).recipe(BaseChiselingRecipes.DIRT).itemAndBlockTag(Rechiseled.identifier("dirt")).withStairs(s -> s.itemAndBlockTag(Rechiseled.identifier("dirt_stairs"))).withSlabs(s -> s.itemAndBlockTag(Rechiseled.identifier("dirt_slabs")));
+    private static final Consumer<RechiseledBlockBuilder> DIRT_CONFIGURER = b -> b.properties(DIRT_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.DIRT).recipe(BaseChiselingRecipes.DIRT).itemAndBlockTag(Rechiseled.identifier("dirt")).blockTag(BlockTags.DIRT.location(), true).withStairs(s -> s.itemAndBlockTag(Rechiseled.identifier("dirt_stairs"))).withSlabs(s -> s.itemAndBlockTag(Rechiseled.identifier("dirt_slabs")));
     public static final RechiseledBlockType DIRT_BLOBS = create("dirt_blobs", "Dirt Blobs").configure(DIRT_CONFIGURER).build();
     public static final RechiseledBlockType DIRT_BRICKS = create("dirt_bricks", "Dirt Bricks").configure(DIRT_CONFIGURER).build();
     public static final RechiseledBlockType DIRT_CHUNKS = create("dirt_chunks", "Dirt Chunks").configure(DIRT_CONFIGURER).build();
