@@ -36,11 +36,13 @@ dependencies {
     implementation "net.neoforged:neoforge:${neoforge_version}"
 
     // Core library
-    implementation "curse.maven:supermartijn642s-core-lib-454372:${core_library_file}"
+//    implementation "curse.maven:supermartijn642s-core-lib-454372:${core_library_file}"
+    implementation "a:supermartijn642corelib:1.1.20-neoforge-mc1.21.11"
     // Config library
     implementation "curse.maven:supermartijn642s-config-lib-438332:${config_library_file}"
     // Fusion
-    implementation "curse.maven:fusion-854949:${fusion_file}"
+//    implementation "curse.maven:fusion-854949:${fusion_file}"
+    implementation "a:fusion:1.2.12-neoforge-mc1.21.11"
     // Just Enough Items
     implementation "mezz.jei:jei-${minecraft_version}-neoforge:${just_enough_items_version}"
     // Roughly Enough Items
