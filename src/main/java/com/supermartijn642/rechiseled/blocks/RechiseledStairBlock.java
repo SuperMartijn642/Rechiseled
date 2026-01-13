@@ -20,6 +20,7 @@ public class RechiseledStairBlock extends StairsBlock {
     private final boolean connecting;
 
     public RechiseledStairBlock(boolean connecting, BlockState parent, Properties properties){
+        //noinspection deprecation
         super(parent, properties);
         this.connecting = connecting;
     }

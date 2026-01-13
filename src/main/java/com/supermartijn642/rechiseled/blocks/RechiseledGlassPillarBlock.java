@@ -25,6 +25,11 @@ public class RechiseledGlassPillarBlock extends RechiseledPillarBlock {
         super(connecting, properties.noOcclusion());
     }
 
+    @SuppressWarnings("unused")
+    public RechiseledGlassPillarBlock(boolean connecting, Properties properties){
+        super(connecting, properties.noOcclusion());
+    }
+
     public void setStairsAndSlab(Block stairs, Block slab){
         if(this.haveStairsAndSlabBeenSet)
             throw new IllegalStateException("Already set stairs and slab!");

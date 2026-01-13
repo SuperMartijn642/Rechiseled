@@ -15,6 +15,11 @@ public class RechiseledBlock extends BaseBlock {
         this.connecting = connecting;
     }
 
+    public RechiseledBlock(boolean connecting, Properties properties){
+        super(false, properties);
+        this.connecting = connecting;
+    }
+
     public boolean isConnecting(){
         return this.connecting;
     }
