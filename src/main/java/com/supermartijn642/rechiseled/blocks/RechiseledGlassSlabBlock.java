@@ -22,7 +22,7 @@ public class RechiseledGlassSlabBlock extends RechiseledSlabBlock {
     private volatile Map<Pair<BlockState,BlockState>,Boolean[]> shouldHideFaceCache = null;
 
     public RechiseledGlassSlabBlock(boolean connecting, Properties properties){
-        super(connecting, properties);
+        super(connecting, properties.noOcclusion());
     }
 
     public void setStairsAndSlab(Block block, Block stairs){

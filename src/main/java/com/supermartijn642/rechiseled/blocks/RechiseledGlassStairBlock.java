@@ -21,7 +21,7 @@ public class RechiseledGlassStairBlock extends RechiseledStairBlock {
     private volatile Map<Pair<BlockState,BlockState>,Boolean[]> shouldHideFaceCache = null;
 
     public RechiseledGlassStairBlock(boolean connecting, BlockState parent, Properties properties){
-        super(connecting, parent, properties);
+        super(connecting, parent, properties.noOcclusion());
     }
 
     public void setBlockAndSlab(Block block, Block slab){
