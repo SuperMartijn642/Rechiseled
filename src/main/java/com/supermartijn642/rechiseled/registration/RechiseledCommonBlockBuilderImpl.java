@@ -270,24 +270,17 @@ public abstract class RechiseledCommonBlockBuilderImpl<T extends RechiseledCommo
     }
 
     @Override
-    public T blockTag(String namespace, String identifier){
+    public T blockTag(ResourceLocation identifier){
         this.checkMutable();
-        this.blockTags.add(new ResourceLocation(namespace, identifier));
+        this.blockTags.add(identifier);
         return this.self();
     }
 
     @Override
-    public T itemTag(String namespace, String identifier){
+    public T itemTag(ResourceLocation identifier){
         this.checkMutable();
-        this.itemTags.add(new ResourceLocation(namespace, identifier));
+        this.itemTags.add(identifier);
         return this.self();
-    }
-
-    @Override
-    public T itemAndBlockTag(String namespace, String identifier){
-        this.checkMutable();
-        this.blockTag(namespace, identifier);
-        return this.itemTag(namespace, identifier);
     }
 
     @Override
