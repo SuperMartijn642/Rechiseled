@@ -10,6 +10,8 @@ import com.supermartijn642.rechiseled.blocks.RechiseledPillarBlock;
 import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -23,6 +25,7 @@ public class RechiseledBlockBuilderImpl extends RechiseledCommonBlockBuilderImpl
     private BlockSpecification specification = BlockSpecification.BASIC;
     private ResourceLocation recipe;
     private BlockModelType modelType;
+    private final Set<ResourceLocation> stairsSlabsBlockTags = new HashSet<>(), stairsSlabsItemTags = new HashSet<>();
 
     public RechiseledBlockBuilderImpl(RechiseledRegistrationImpl registration, String identifier){
         super(registration, identifier);
@@ -84,6 +87,17 @@ public class RechiseledBlockBuilderImpl extends RechiseledCommonBlockBuilderImpl
     @Override
     public RechiseledBlockType build(){
         this.checkMutable();
+        // Add the stairs and slab tags that were added through the block's builder
+        if(this.stairs != null){
+            this.stairsSlabsBlockTags.forEach(this.stairs::blockTag);
+            this.stairsSlabsItemTags.forEach(this.stairs::itemTag);
+        }
+        if(this.slabs != null){
+            this.stairsSlabsBlockTags.forEach(this.slabs::blockTag);
+            this.stairsSlabsItemTags.forEach(this.slabs::itemTag);
+        }
+
+        // Mark builders as complete
         this.complete();
         if(this.stairs != null)
             this.stairs.complete();
@@ -228,6 +242,20 @@ public class RechiseledBlockBuilderImpl extends RechiseledCommonBlockBuilderImpl
         this.checkMutable();
         this.modelType = modelType;
         return this;
+    }
+
+    @Override
+    public RechiseledBlockBuilder blockTag(ResourceLocation identifier, boolean includeStairsAndSlabs){
+        this.checkMutable();
+        this.stairsSlabsBlockTags.add(identifier);
+        return this.blockTag(identifier);
+    }
+
+    @Override
+    public RechiseledBlockBuilder itemTag(ResourceLocation identifier, boolean includeStairsAndSlabs){
+        this.checkMutable();
+        this.stairsSlabsItemTags.add(identifier);
+        return this.itemTag(identifier);
     }
 
     @Override
