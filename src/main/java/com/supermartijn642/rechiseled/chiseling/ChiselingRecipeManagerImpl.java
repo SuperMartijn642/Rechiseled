@@ -1,6 +1,7 @@
 package com.supermartijn642.rechiseled.chiseling;
 
 import com.google.common.collect.Sets;
+import com.supermartijn642.core.registry.RegistryUtil;
 import com.supermartijn642.core.util.Holder;
 import com.supermartijn642.core.util.Pair;
 import com.supermartijn642.rechiseled.Rechiseled;
@@ -10,13 +11,19 @@ import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipeManager;
 import com.supermartijn642.rechiseled.api.chiseling.plugin.ChiselingRecipePlugin;
 import com.supermartijn642.rechiseled.api.chiseling.plugin.ChiselingRecipesLoadedContext;
 import com.supermartijn642.rechiseled.api.chiseling.plugin.MutableChiselingRecipe;
+import com.supermartijn642.rechiseled.api.chiseling.plugin.RechiseledChiselingRecipePlugin;
 import com.supermartijn642.rechiseled.chiseling.plugin.ChiselingRecipeMutationContextImpl;
 import com.supermartijn642.rechiseled.chiseling.plugin.ChiselingRecipesLoadedContextImpl;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
+import net.neoforged.fml.ModList;
+import net.neoforged.neoforgespi.language.ModFileScanData;
 import org.jetbrains.annotations.Nullable;
+import org.objectweb.asm.Type;
 
+import java.lang.annotation.ElementType;
+import java.lang.reflect.Constructor;
 import java.util.*;
 
 /**
@@ -55,7 +62,7 @@ public class ChiselingRecipeManagerImpl implements ChiselingRecipeManager {
     private static final Map<ResourceLocation,PluginEntry> PLUGINS_BY_IDENTIFIER = new HashMap<>();
     private static boolean finalized = false;
 
-    public static void registerPlugin(ResourceLocation identifier, ChiselingRecipePlugin plugin, int priority){
+    public synchronized static void registerPlugin(ResourceLocation identifier, ChiselingRecipePlugin plugin, int priority){
         if(finalized)
             throw new IllegalStateException("Trying to register chiseling plugin '" + identifier + "' after initialization!");
         if(PLUGINS_BY_IDENTIFIER.containsKey(identifier))
@@ -72,10 +79,9 @@ public class ChiselingRecipeManagerImpl implements ChiselingRecipeManager {
         }
     }
 
-    public static void finalizePlugins(){
+    public synchronized static void finalizePlugins(){
         if(finalized)
             throw new IllegalStateException("Plugins are already finalized!");
-        finalized = true;
 
         // Add Rechiseled's datapack plugin
         PluginEntry datapacksPlugin = new PluginEntry(Rechiseled.identifier("datapacks"), 0, ChiselingRecipeDatapackPlugin.INSTANCE);
@@ -88,10 +94,62 @@ public class ChiselingRecipeManagerImpl implements ChiselingRecipeManager {
             break;
         }
 
-        // Create plugins from entry points
-        // TODO
+        // Add annotation plugins
+        loadAnnotationPlugins();
+
+        finalized = true;
 
         Rechiseled.LOGGER.info("{} chiseling plugins were registered: {}", PLUGINS.size(), PLUGINS.stream().map(PluginEntry::identifier).toArray());
+    }
+
+    private static void loadAnnotationPlugins(){
+        Type pluginAnnotation = Type.getType(RechiseledChiselingRecipePlugin.class);
+        for(ModFileScanData scanData : ModList.get().getAllScanData()){
+            // Try to figure out a modid
+            if(scanData.getIModInfoData().isEmpty() || scanData.getIModInfoData().getFirst().getMods().isEmpty())
+                continue;
+            String modid = scanData.getIModInfoData().getFirst().getMods().getFirst().getModId();
+            // Find annotations
+            for(ModFileScanData.AnnotationData annotation : scanData.getAnnotations()){
+                if(!annotation.annotationType().equals(pluginAnnotation))
+                    continue;
+                try{
+                    if(!annotation.targetType().equals(ElementType.TYPE))
+                        throw new RuntimeException("Chiseling plugin annotation must be a applied to a class!");
+                    // Get annotation properties
+                    String identifier = (String)annotation.annotationData().getOrDefault("identifier", "main");
+                    if(!RegistryUtil.isValidIdentifier(identifier))
+                        throw new RuntimeException("Rechiseled chiseling plugin from mod '" + modid + "' has invalid identifier '" + identifier + "'!");
+                    int priority = (int)annotation.annotationData().getOrDefault("priority", 0);
+                    // Create plugin instance
+                    Class<?> clazz;
+                    try{
+                        clazz = Class.forName(annotation.clazz().getClassName());
+                    }catch(Exception e){
+                        throw new RuntimeException("Failed to obtain class '" + annotation.clazz().getClassName() + "'!", e);
+                    }
+                    if(!ChiselingRecipePlugin.class.isAssignableFrom(clazz))
+                        throw new RuntimeException("Plugin class '" + clazz.getName() + "' must extend '" + ChiselingRecipePlugin.class.getSimpleName() + "!");
+                    Constructor<?> constructor;
+                    try{
+                        constructor = clazz.getDeclaredConstructor();
+                        constructor.setAccessible(true);
+                    }catch(Exception e){
+                        throw new RuntimeException("Plugin class '" + clazz.getName() + "' must have a default constructor!", e);
+                    }
+                    ChiselingRecipePlugin plugin;
+                    try{
+                        plugin = (ChiselingRecipePlugin)constructor.newInstance();
+                    }catch(Exception e){
+                        throw new RuntimeException("Failed to create instance of '" + annotation.clazz().getClassName() + "'!", e);
+                    }
+                    // Add the plugin
+                    registerPlugin(new ResourceLocation(modid, identifier), plugin, priority);
+                }catch(Exception e){
+                    Rechiseled.LOGGER.error("Failed to create chiseling recipe plugin from mod '{}'!", modid, e);
+                }
+            }
+        }
     }
 
     public static void loadRecipes(){
