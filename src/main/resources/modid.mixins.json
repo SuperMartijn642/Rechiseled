@@ -7,7 +7,8 @@
   "mixins": [
     "MinecraftServerMixin",
     "PlayerListMixin",
-    "ServerResourcesMixin"
+    "ServerResourcesMixin",
+    "BushBlockMixin"
   ],
   "client": [
     "jei.RecipesGuiMixin",
