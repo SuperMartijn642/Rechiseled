@@ -6,7 +6,7 @@ import com.supermartijn642.core.gui.GuiGraphicsHelper;
 import com.supermartijn642.core.gui.widget.BaseContainerWidget;
 import com.supermartijn642.core.gui.widget.WidgetRenderContext;
 import com.supermartijn642.core.gui.widget.premade.ScissorWidget;
-import com.supermartijn642.core.gui.widget.premade.ScrollBarWidget;
+import com.supermartijn642.core.gui.widget.premade.ScrollbarWidget;
 import com.supermartijn642.core.gui.widget.premade.TextFieldWidget;
 import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.api.chiseling.*;
@@ -86,7 +86,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
                 this.entryButtons.add(button);
             }
         }
-        this.addWidget(ScrollBarWidget.builder(110)
+        this.addWidget(ScrollbarWidget.builder(110)
             .position(132, 34)
             .scrollValue(
                 () -> this.scrollOffset,
