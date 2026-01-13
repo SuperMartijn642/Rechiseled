@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "rechiseled:block/iron_block_patterned_slab_bottom"
+    },
+    "type=double": {
+      "model": "rechiseled:block/iron_block_patterned_slab_double"
+    },
+    "type=top": {
+      "model": "rechiseled:block/iron_block_patterned_slab_top"
+    }
+  }
+}

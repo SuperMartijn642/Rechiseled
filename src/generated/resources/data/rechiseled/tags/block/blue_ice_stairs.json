@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:blue_ice_bordered_stairs",
+    "rechiseled:blue_ice_bordered_stairs_connecting",
+    "rechiseled:blue_ice_bricks_stairs",
+    "rechiseled:blue_ice_bricks_stairs_connecting",
+    "rechiseled:blue_ice_chiseled_stairs",
+    "rechiseled:blue_ice_chiseled_stairs_connecting",
+    "rechiseled:blue_ice_cone_stairs",
+    "rechiseled:blue_ice_cracked_stairs",
+    "rechiseled:blue_ice_patterned_stairs",
+    "rechiseled:blue_ice_patterned_stairs_connecting",
+    "rechiseled:blue_ice_pillar_stairs",
+    "rechiseled:blue_ice_pillar_stairs_connecting",
+    "rechiseled:blue_ice_rocky_stairs",
+    "rechiseled:blue_ice_slanted_tiles_stairs",
+    "rechiseled:blue_ice_slanted_tiles_stairs_connecting",
+    "rechiseled:blue_ice_tiles_stairs",
+    "rechiseled:blue_ice_tiles_stairs_connecting"
+  ]
+}

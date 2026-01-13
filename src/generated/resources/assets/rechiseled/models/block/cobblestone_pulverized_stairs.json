@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "rechiseled:block/cobblestone_pulverized",
+    "side": "rechiseled:block/cobblestone_pulverized",
+    "top": "rechiseled:block/cobblestone_pulverized"
+  }
+}

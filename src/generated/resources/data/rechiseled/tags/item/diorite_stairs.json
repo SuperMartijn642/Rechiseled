@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:diorite_brick_pattern_stairs",
+    "rechiseled:diorite_brick_pattern_stairs_connecting",
+    "rechiseled:diorite_brick_paving_stairs",
+    "rechiseled:diorite_brick_paving_stairs_connecting",
+    "rechiseled:diorite_bricks_stairs",
+    "rechiseled:diorite_bricks_stairs_connecting",
+    "rechiseled:diorite_diagonal_bricks_stairs",
+    "rechiseled:diorite_diagonal_bricks_stairs_connecting",
+    "rechiseled:diorite_dotted_stairs",
+    "rechiseled:diorite_dotted_stairs_connecting",
+    "rechiseled:diorite_paving_stairs",
+    "rechiseled:diorite_paving_stairs_connecting",
+    "rechiseled:diorite_polished_stairs_connecting",
+    "rechiseled:diorite_rotated_bricks_stairs",
+    "rechiseled:diorite_rotated_bricks_stairs_connecting",
+    "rechiseled:diorite_squares_stairs",
+    "rechiseled:diorite_squares_stairs_connecting",
+    "rechiseled:diorite_tiles_stairs",
+    "rechiseled:diorite_tiles_stairs_connecting",
+    "rechiseled:diorite_wavy_stairs",
+    "rechiseled:diorite_wavy_stairs_connecting"
+  ]
+}

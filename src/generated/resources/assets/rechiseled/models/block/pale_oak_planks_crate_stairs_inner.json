@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/pale_oak_planks_crate",
+    "side": "rechiseled:block/pale_oak_planks_crate",
+    "top": "rechiseled:block/pale_oak_planks_crate"
+  }
+}
