@@ -1,6 +1,8 @@
 package com.supermartijn642.rechiseled.blocks;
 
 import com.supermartijn642.core.block.BlockProperties;
+import net.minecraft.block.Block;
+import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.BlockRenderLayer;
@@ -13,14 +15,34 @@ import net.minecraft.world.IBlockAccess;
  */
 public class RechiseledGlassPillarBlock extends RechiseledPillarBlock {
 
+    private Block stairs, slab;
+    private boolean haveStairsAndSlabBeenSet = false;
+
     public RechiseledGlassPillarBlock(boolean connecting, BlockProperties properties){
         super(connecting, properties);
     }
 
+    public void setStairsAndSlab(Block stairs, Block slab){
+        if(this.haveStairsAndSlabBeenSet)
+            throw new IllegalStateException("Already set stairs and slab!");
+        this.haveStairsAndSlabBeenSet = true;
+        this.stairs = stairs;
+        this.slab = slab;
+    }
+
+    @SuppressWarnings("deprecation")
     @Override
     public boolean shouldSideBeRendered(IBlockState state, IBlockAccess level, BlockPos pos, EnumFacing side){
+        if(!this.haveStairsAndSlabBeenSet)
+            throw new IllegalStateException("Stairs and slab have not been set!");
         IBlockState otherState = level.getBlockState(pos.offset(side));
-        return otherState.getBlock() != this && super.shouldSideBeRendered(state, level, pos, side);
+        if(otherState.getBlock() == this)
+            return state != otherState;
+        if(state.getValue(AXIS_PROPERTY) != EnumFacing.Axis.Y)
+            return super.shouldSideBeRendered(state, level, pos, side);
+        if(otherState.getBlock() == this.stairs || otherState.getBlock() == this.slab)
+            return otherState.getBlockFaceShape(level, pos.offset(side), side.getOpposite()) != BlockFaceShape.SOLID;
+        return super.shouldSideBeRendered(state, level, pos, side);
     }
 
     @Override

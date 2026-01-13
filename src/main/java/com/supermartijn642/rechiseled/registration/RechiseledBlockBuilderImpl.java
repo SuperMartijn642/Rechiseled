@@ -1,6 +1,7 @@
 package com.supermartijn642.rechiseled.registration;
 
 import com.supermartijn642.core.block.BlockProperties;
+import com.supermartijn642.core.registry.RegistrationHandler;
 import com.supermartijn642.rechiseled.api.blocks.*;
 import com.supermartijn642.rechiseled.blocks.RechiseledBlock;
 import com.supermartijn642.rechiseled.blocks.RechiseledGlassBlock;
@@ -69,6 +70,18 @@ public class RechiseledBlockBuilderImpl extends RechiseledCommonBlockBuilderImpl
     }
 
     @Override
+    protected void setBlockReferences(Block regularBlock, Block regularStairs, Block regularSlab, Block connectingBlock, Block connectingStairs, Block connectingSlab){
+        if(this.hasRegularVariant && this.regularBlock.get() instanceof RechiseledGlassBlock)
+            ((RechiseledGlassBlock)this.regularBlock.get()).setStairsAndSlab(regularStairs, regularSlab);
+        if(this.hasRegularVariant && this.regularBlock.get() instanceof RechiseledGlassPillarBlock)
+            ((RechiseledGlassPillarBlock)this.regularBlock.get()).setStairsAndSlab(regularStairs, regularSlab);
+        if(this.hasConnectingVariant && this.connectingBlock.get() instanceof RechiseledGlassBlock)
+            ((RechiseledGlassBlock)this.connectingBlock.get()).setStairsAndSlab(connectingStairs, connectingSlab);
+        if(this.hasConnectingVariant && this.connectingBlock.get() instanceof RechiseledGlassPillarBlock)
+            ((RechiseledGlassPillarBlock)this.connectingBlock.get()).setStairsAndSlab(connectingStairs, connectingSlab);
+    }
+
+    @Override
     public RechiseledBlockType build(){
         this.checkMutable();
         this.complete();
@@ -83,6 +96,21 @@ public class RechiseledBlockBuilderImpl extends RechiseledCommonBlockBuilderImpl
             this.stairs.createBlocks(this.specification);
         if(this.slabs != null)
             this.slabs.createBlocks(this.specification);
+
+        // Update blocks with references to each other
+        RegistrationHandler.get(this.registration.getModid()).registerBlockCallback(helper -> {
+            Block regularBlock = this.hasRegularVariant ? this.regularBlock.get() : null;
+            Block connectingBlock = this.hasConnectingVariant ? this.connectingBlock.get() : null;
+            Block regularStairs = this.stairs != null && this.stairs.hasRegularVariant ? this.stairs.regularBlock.get() : null;
+            Block connectingStairs = this.stairs != null && this.stairs.hasConnectingVariant ? this.stairs.connectingBlock.get() : null;
+            Block regularSlab = this.slabs != null && this.slabs.hasRegularVariant ? this.slabs.regularBlock.get() : null;
+            Block connectingSlab = this.slabs != null && this.slabs.hasConnectingVariant ? this.slabs.connectingBlock.get() : null;
+            this.setBlockReferences(regularBlock, regularStairs, regularSlab, connectingBlock, connectingStairs, connectingSlab);
+            if(this.stairs != null)
+                this.stairs.setBlockReferences(regularBlock, regularStairs, regularSlab, connectingBlock, connectingStairs, connectingSlab);
+            if(this.slabs != null)
+                this.slabs.setBlockReferences(regularBlock, regularStairs, regularSlab, connectingBlock, connectingStairs, connectingSlab);
+        });
 
         // Create the block type
         RechiseledBlockTypeImpl blockType = new RechiseledBlockTypeImpl(

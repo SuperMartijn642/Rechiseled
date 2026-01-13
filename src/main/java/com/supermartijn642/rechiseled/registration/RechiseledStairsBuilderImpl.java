@@ -25,4 +25,12 @@ public class RechiseledStairsBuilderImpl extends RechiseledCommonBlockBuilderImp
             return new RechiseledGlassStairBlock(connecting, parent.getDefaultState());
         throw new IllegalStateException("Unknown specification: " + specification);
     }
+
+    @Override
+    protected void setBlockReferences(Block regularBlock, Block regularStairs, Block regularSlab, Block connectingBlock, Block connectingStairs, Block connectingSlab){
+        if(this.hasRegularVariant && this.regularBlock.get() instanceof RechiseledGlassStairBlock)
+            ((RechiseledGlassStairBlock)this.regularBlock.get()).setBlockAndSlab(regularBlock, regularSlab);
+        if(this.hasConnectingVariant && this.connectingBlock.get() instanceof RechiseledGlassStairBlock)
+            ((RechiseledGlassStairBlock)this.connectingBlock.get()).setBlockAndSlab(connectingBlock, connectingSlab);
+    }
 }
