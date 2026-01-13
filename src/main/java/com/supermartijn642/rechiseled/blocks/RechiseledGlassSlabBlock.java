@@ -4,6 +4,7 @@ package com.supermartijn642.rechiseled.blocks;
 import com.supermartijn642.core.util.Pair;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -24,7 +25,7 @@ public class RechiseledGlassSlabBlock extends RechiseledSlabBlock {
     private volatile Map<Pair<BlockState,BlockState>,Boolean[]> shouldHideFaceCache = null;
 
     public RechiseledGlassSlabBlock(boolean connecting, Properties properties){
-        super(connecting, properties);
+        super(connecting, properties.noOcclusion().isSuffocating(Blocks::never).isViewBlocking(Blocks::never));
     }
 
     public void setStairsAndSlab(Block block, Block stairs){
