@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "rechiseled:block/diorite_squares_slab_bottom"
+    },
+    "type=double": {
+      "model": "rechiseled:block/diorite_squares_slab_double"
+    },
+    "type=top": {
+      "model": "rechiseled:block/diorite_squares_slab_top"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "rechiseled:block/obsidian_stripes",
+    "side": "rechiseled:block/obsidian_stripes",
+    "top": "rechiseled:block/obsidian_stripes"
+  }
+}

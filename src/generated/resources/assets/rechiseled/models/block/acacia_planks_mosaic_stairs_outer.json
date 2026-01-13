@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/acacia_planks_mosaic",
+    "side": "rechiseled:block/acacia_planks_mosaic",
+    "top": "rechiseled:block/acacia_planks_mosaic"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:cobbled_deepslate_beams_stairs",
+    "rechiseled:cobbled_deepslate_beams_stairs_connecting",
+    "rechiseled:cobbled_deepslate_brick_pattern_stairs",
+    "rechiseled:cobbled_deepslate_brick_pattern_stairs_connecting",
+    "rechiseled:cobbled_deepslate_brick_paving_stairs",
+    "rechiseled:cobbled_deepslate_brick_paving_stairs_connecting",
+    "rechiseled:cobbled_deepslate_bricks_stairs",
+    "rechiseled:cobbled_deepslate_bricks_stairs_connecting",
+    "rechiseled:cobbled_deepslate_large_tiles_stairs",
+    "rechiseled:cobbled_deepslate_large_tiles_stairs_connecting",
+    "rechiseled:cobbled_deepslate_paving_stairs",
+    "rechiseled:cobbled_deepslate_paving_stairs_connecting",
+    "rechiseled:cobbled_deepslate_pillar_stairs",
+    "rechiseled:cobbled_deepslate_pillar_stairs_connecting",
+    "rechiseled:cobbled_deepslate_pulverized_stairs",
+    "rechiseled:cobbled_deepslate_pulverized_stairs_connecting",
+    "rechiseled:cobbled_deepslate_rotated_bricks_stairs",
+    "rechiseled:cobbled_deepslate_rotated_bricks_stairs_connecting",
+    "rechiseled:cobbled_deepslate_small_tiles_stairs",
+    "rechiseled:cobbled_deepslate_small_tiles_stairs_connecting",
+    "rechiseled:cobbled_deepslate_squares_stairs",
+    "rechiseled:cobbled_deepslate_squares_stairs_connecting",
+    "rechiseled:cobbled_deepslate_stripes_stairs",
+    "rechiseled:cobbled_deepslate_stripes_stairs_connecting",
+    "rechiseled:cobbled_deepslate_tiles_stairs",
+    "rechiseled:cobbled_deepslate_tiles_stairs_connecting",
+    "rechiseled:cobbled_deepslate_worn_stripes_stairs",
+    "rechiseled:cobbled_deepslate_worn_stripes_stairs_connecting"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/pale_oak_planks_small_bricks",
+    "side": "rechiseled:block/pale_oak_planks_small_bricks",
+    "top": "rechiseled:block/pale_oak_planks_small_bricks"
+  }
+}

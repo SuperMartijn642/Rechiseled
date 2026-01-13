@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "rechiseled:block/bone_block_decorated_bordered",
+    "side": "rechiseled:block/bone_block_decorated_bordered",
+    "top": "rechiseled:block/bone_block_decorated_bordered"
+  }
+}

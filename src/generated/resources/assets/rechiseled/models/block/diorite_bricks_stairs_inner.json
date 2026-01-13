@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/diorite_bricks",
+    "side": "rechiseled:block/diorite_bricks",
+    "top": "rechiseled:block/diorite_bricks"
+  }
+}
