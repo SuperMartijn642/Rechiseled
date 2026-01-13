@@ -6,7 +6,8 @@
   "mixins": [
     "MinecraftServerMixin",
     "PlayerListMixin",
-    "ReloadableServerResourcesMixin"
+    "ReloadableServerResourcesMixin",
+    "VegetationBlockMixin"
   ],
   "client": [
     "dev.DatagenModLoaderMixin",
