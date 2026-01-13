@@ -4,6 +4,7 @@ import com.supermartijn642.core.block.BlockProperties;
 import com.supermartijn642.rechiseled.api.registration.RechiseledRegistration;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.util.ResourceLocation;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -66,17 +67,20 @@ public interface RechiseledCommonBlockBuilder<T extends RechiseledCommonBlockBui
     /**
      * Adds the constructed block to the given block tag.
      */
-    T blockTag(String namespace, String identifier);
+    T blockTag(ResourceLocation identifier);
 
     /**
      * Adds the constructed block to the given block tag.
      */
-    T itemTag(String namespace, String identifier);
+    T itemTag(ResourceLocation identifier);
 
     /**
      * Adds the constructed block to the given block tag.
      */
-    T itemAndBlockTag(String namespace, String identifier);
+    default T itemAndBlockTag(ResourceLocation identifier){
+        this.blockTag(identifier);
+        return this.itemTag(identifier);
+    }
 
     /**
      * Copies the mining tags from the given block.
