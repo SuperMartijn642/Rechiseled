@@ -187,6 +187,11 @@ public abstract class RechiseledCommonBlockBuilderImpl<T extends RechiseledCommo
                 return connectingItemHolder.get();
             });
 
+        this.regularBlock = regularBlockHolder::get;
+        this.connectingBlock = connectingBlockHolder::get;
+        this.regularItem = regularItemHolder::get;
+        this.connectingItem = connectingItemHolder::get;
+
         // Set the render type for transparent blocks
         if(specification == BlockSpecification.GLASS || specification == BlockSpecification.GLASS_PILLAR){
             if(CommonUtils.getEnvironmentSide().isClient()){
@@ -196,14 +201,11 @@ public abstract class RechiseledCommonBlockBuilderImpl<T extends RechiseledCommo
                     ClientRegistrationHandler.get(this.registration.getModid()).registerBlockModelTranslucentRenderType(this.connectingBlock);
             }
         }
-
-        this.regularBlock = regularBlockHolder::get;
-        this.connectingBlock = connectingBlockHolder::get;
-        this.regularItem = regularItemHolder::get;
-        this.connectingItem = connectingItemHolder::get;
     }
 
     protected abstract Block createBlock(BlockSpecification specification, Block parent, boolean connecting, BlockProperties properties, ResourceLocation identifier);
+
+    protected abstract void setBlockReferences(Block regularBlock, Block regularStairs, Block regularSlab, Block connectingBlock, Block connectingStairs, Block connectingSlab);
 
     @Override
     public T properties(BlockProperties properties){
