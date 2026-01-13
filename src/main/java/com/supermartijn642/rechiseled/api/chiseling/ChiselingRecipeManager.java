@@ -16,8 +16,9 @@ public interface ChiselingRecipeManager {
 
     /**
      * Registers the given plugin with the given priority.
-     * Plugins with a lower priority value are applied before plugins with a high priority value.
-     * The default priority for plugins is {@code 0}.
+     * <p>
+     * Plugins with a lower priority value are applied before plugins with a higher priority value.
+     * The default priority for plugins is {@link ChiselingRecipePlugin#DEFAULT_PLUGIN_PRIORITY}, the plugin for recipes from datapacks has priority {@code 0}.
      */
     static void registerPlugin(ResourceLocation identifier, ChiselingRecipePlugin plugin, int priority){
         ChiselingRecipeManagerImpl.registerPlugin(identifier, plugin, priority);
@@ -27,7 +28,7 @@ public interface ChiselingRecipeManager {
      * Register the given plugin with default priority.
      */
     static void registerPlugin(ResourceLocation identifier, ChiselingRecipePlugin plugin){
-        registerPlugin(identifier, plugin, 0);
+        registerPlugin(identifier, plugin, ChiselingRecipePlugin.DEFAULT_PLUGIN_PRIORITY);
     }
 
     static ChiselingRecipeManager get(boolean client){
