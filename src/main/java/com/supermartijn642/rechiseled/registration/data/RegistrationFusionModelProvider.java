@@ -11,6 +11,7 @@ import com.supermartijn642.fusion.api.provider.FusionModelProvider;
 import com.supermartijn642.fusion.api.util.Pair;
 import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.api.blocks.BlockModelType;
+import com.supermartijn642.rechiseled.api.blocks.BlockSpecification;
 import com.supermartijn642.rechiseled.blocks.RechiseledPillarBlock;
 import com.supermartijn642.rechiseled.blocks.RechiseledSlabBlock;
 import com.supermartijn642.rechiseled.blocks.RechiseledStairBlock;
@@ -52,7 +53,7 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
                     String texture = builder.getIdentifier();
                     this.addBlockModel(modelType, block, stairs, slab, texture);
                     if(hasStairs)
-                        this.addStairsModels(modelType, block, stairs, slab, texture);
+                        this.addStairsModels(modelType, block, stairs, slab, texture, builder.getSpecification());
                     if(hasSlab)
                         this.addSlabModels(modelType, block, stairs, slab, texture);
                 }
@@ -127,7 +128,7 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
         }
     }
 
-    private void addStairsModels(BlockModelType modelType, Block block, Block stairs, Block slab, String texturePath){
+    private void addStairsModels(BlockModelType modelType, Block block, Block stairs, Block slab, String texturePath, BlockSpecification specification){
         ResourceLocation identifier = Registries.BLOCKS.getIdentifier(stairs);
         ResourceLocation texture = identifier.withPath("block/" + texturePath);
 
@@ -145,10 +146,12 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
 
         // Create models
         ResourceLocation modelIdentifier = identifier.withPrefix("block/");
+        ResourceLocation parent = specification == BlockSpecification.GLASS || specification == BlockSpecification.GLASS_PILLAR ?
+            Rechiseled.identifier("block/glass_stairs") : new ResourceLocation("block/stairs");
         this.addModel(modelIdentifier.withSuffix("_bottom"), ModelInstance.of(
             DefaultModelTypes.CONNECTING,
             ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("block/stairs"))
+                .parent(parent)
                 .texture("bottom", bottom)
                 .texture("side", side)
                 .texture("top", top)
@@ -157,10 +160,12 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
                 .connections("top", bottomStairConnectionsTop(block, stairs, slab))
                 .build()
         ));
+        parent = specification == BlockSpecification.GLASS || specification == BlockSpecification.GLASS_PILLAR ?
+            Rechiseled.identifier("block/glass_inner_stairs") : new ResourceLocation("block/inner_stairs");
         this.addModel(modelIdentifier.withSuffix("_inner_bottom"), ModelInstance.of(
             DefaultModelTypes.CONNECTING,
             ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("block/inner_stairs"))
+                .parent(parent)
                 .texture("bottom", bottom)
                 .texture("side", side)
                 .texture("top", top)
@@ -169,10 +174,12 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
                 .connections("top", bottomStairConnectionsTop(block, stairs, slab))
                 .build()
         ));
+        parent = specification == BlockSpecification.GLASS || specification == BlockSpecification.GLASS_PILLAR ?
+            Rechiseled.identifier("block/glass_outer_stairs") : new ResourceLocation("block/outer_stairs");
         this.addModel(modelIdentifier.withSuffix("_outer_bottom"), ModelInstance.of(
             DefaultModelTypes.CONNECTING,
             ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("block/outer_stairs"))
+                .parent(parent)
                 .texture("bottom", bottom)
                 .texture("side", side)
                 .texture("top", top)
@@ -181,10 +188,12 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
                 .connections("top", bottomStairConnectionsTop(block, stairs, slab))
                 .build()
         ));
+        parent = specification == BlockSpecification.GLASS || specification == BlockSpecification.GLASS_PILLAR ?
+            Rechiseled.identifier("block/glass_stairs_top") : Rechiseled.identifier("block/stairs_top");
         this.addModel(modelIdentifier.withSuffix("_top"), ModelInstance.of(
             DefaultModelTypes.CONNECTING,
             ConnectingModelDataBuilder.builder()
-                .parent(Rechiseled.identifier("block/stairs_top"))
+                .parent(parent)
                 .texture("bottom", bottom)
                 .texture("side", side)
                 .texture("top", top)
@@ -193,10 +202,12 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
                 .connections("top", topStairConnectionsTop(block, stairs, slab))
                 .build()
         ));
+        parent = specification == BlockSpecification.GLASS || specification == BlockSpecification.GLASS_PILLAR ?
+            Rechiseled.identifier("block/glass_inner_stairs_top") : Rechiseled.identifier("block/inner_stairs_top");
         this.addModel(modelIdentifier.withSuffix("_inner_top"), ModelInstance.of(
             DefaultModelTypes.CONNECTING,
             ConnectingModelDataBuilder.builder()
-                .parent(Rechiseled.identifier("block/inner_stairs_top"))
+                .parent(parent)
                 .texture("bottom", bottom)
                 .texture("side", side)
                 .texture("top", top)
@@ -205,10 +216,12 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
                 .connections("top", topStairConnectionsTop(block, stairs, slab))
                 .build()
         ));
+        parent = specification == BlockSpecification.GLASS || specification == BlockSpecification.GLASS_PILLAR ?
+            Rechiseled.identifier("block/glass_outer_stairs_top") : Rechiseled.identifier("block/outer_stairs_top");
         this.addModel(modelIdentifier.withSuffix("_outer_top"), ModelInstance.of(
             DefaultModelTypes.CONNECTING,
             ConnectingModelDataBuilder.builder()
-                .parent(Rechiseled.identifier("block/outer_stairs_top"))
+                .parent(parent)
                 .texture("bottom", bottom)
                 .texture("side", side)
                 .texture("top", top)
