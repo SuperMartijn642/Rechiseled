@@ -3,7 +3,9 @@ package com.supermartijn642.rechiseled.registration.data;
 import com.supermartijn642.core.generator.ModelGenerator;
 import com.supermartijn642.core.generator.ResourceCache;
 import com.supermartijn642.core.registry.Registries;
+import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.api.blocks.BlockModelType;
+import com.supermartijn642.rechiseled.api.blocks.BlockSpecification;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -32,7 +34,7 @@ public class RegistrationModelGenerator extends ModelGenerator {
                     String texture = builder.getIdentifier();
                     this.addBlockModel(modelType, builder.getRegularBlock(), texture);
                     if(builder.hasStairs() && builder.getStairs().hasRegularVariant())
-                        this.addStairsModels(modelType, builder.getStairs().getRegularBlock(), texture);
+                        this.addStairsModels(modelType, builder.getStairs().getRegularBlock(), texture, builder.getSpecification());
                     if(builder.hasSlabs() && builder.getSlabs().hasRegularVariant())
                         this.addSlabModels(modelType, builder.getSlabs().getRegularBlock(), texture);
                 }
@@ -94,7 +96,7 @@ public class RegistrationModelGenerator extends ModelGenerator {
             .texture("particle", particle);
     }
 
-    private void addStairsModels(BlockModelType modelType, Block stairs, String texturePath){
+    private void addStairsModels(BlockModelType modelType, Block stairs, String texturePath, BlockSpecification specification){
         ResourceLocation identifier = Registries.BLOCKS.getIdentifier(stairs);
         ResourceLocation texture = identifier.withPath("block/" + texturePath);
 
@@ -112,18 +114,24 @@ public class RegistrationModelGenerator extends ModelGenerator {
 
         // Create models
         ResourceLocation modelIdentifier = identifier.withPrefix("block/");
+        ResourceLocation parent = specification == BlockSpecification.GLASS || specification == BlockSpecification.GLASS_PILLAR ?
+            Rechiseled.identifier("block/glass_stairs") : new ResourceLocation("block/stairs");
         this.model(modelIdentifier)
-            .parent("minecraft", "block/stairs")
+            .parent(parent)
             .texture("bottom", bottom)
             .texture("side", side)
             .texture("top", top);
+        parent = specification == BlockSpecification.GLASS || specification == BlockSpecification.GLASS_PILLAR ?
+            Rechiseled.identifier("block/glass_inner_stairs") : new ResourceLocation("block/inner_stairs");
         this.model(modelIdentifier.withSuffix("_inner"))
-            .parent("minecraft", "block/inner_stairs")
+            .parent(parent)
             .texture("bottom", bottom)
             .texture("side", side)
             .texture("top", top);
+        parent = specification == BlockSpecification.GLASS || specification == BlockSpecification.GLASS_PILLAR ?
+            Rechiseled.identifier("block/glass_outer_stairs") : new ResourceLocation("block/outer_stairs");
         this.model(modelIdentifier.withSuffix("_outer"))
-            .parent("minecraft", "block/outer_stairs")
+            .parent(parent)
             .texture("bottom", bottom)
             .texture("side", side)
             .texture("top", top);
