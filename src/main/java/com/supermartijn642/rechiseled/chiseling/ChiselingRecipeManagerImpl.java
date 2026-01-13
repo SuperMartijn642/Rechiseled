@@ -57,40 +57,27 @@ public class ChiselingRecipeManagerImpl implements ChiselingRecipeManager {
     private static final Map<ResourceLocation,PluginEntry> PLUGINS_BY_IDENTIFIER = new HashMap<>();
     private static boolean finalized = false;
 
-    public synchronized static void registerPlugin(ResourceLocation identifier, ChiselingRecipePlugin plugin, int priority){
+    public static synchronized void registerPlugin(ResourceLocation identifier, ChiselingRecipePlugin plugin, int priority){
         if(finalized)
             throw new IllegalStateException("Trying to register chiseling plugin '" + identifier + "' after initialization!");
         if(PLUGINS_BY_IDENTIFIER.containsKey(identifier))
             throw new IllegalStateException("Duplicate chiseling plugin registration for '" + identifier + "': '" + PLUGINS_BY_IDENTIFIER.get(identifier).plugin.getClass().getName() + "' and '" + plugin.getClass().getName() + "'!");
         PluginEntry entry = new PluginEntry(identifier, priority, plugin);
         PLUGINS_BY_IDENTIFIER.put(identifier, entry);
-        for(int i = 0; i <= PLUGINS.size(); i++){
-            if(i == PLUGINS.size())
-                PLUGINS.add(entry);
-            else if(PLUGINS.get(i).priority > priority)
-                PLUGINS.add(i, entry);
-            else continue;
-            break;
-        }
+        PLUGINS.add(entry);
     }
 
-    public synchronized static void finalizePlugins(){
+    public static synchronized void finalizePlugins(){
         if(finalized)
             throw new IllegalStateException("Plugins are already finalized!");
 
         // Add Rechiseled's datapack plugin
-        PluginEntry datapacksPlugin = new PluginEntry(ChiselingRecipeDatapackPlugin.IDENTIFIER, 0, ChiselingRecipeDatapackPlugin.INSTANCE);
-        for(int i = 0; i <= PLUGINS.size(); i++){
-            if(i == PLUGINS.size())
-                PLUGINS.add(datapacksPlugin);
-            else if(PLUGINS.get(i).priority >= 0)
-                PLUGINS.add(i, datapacksPlugin);
-            else continue;
-            break;
-        }
+        registerPlugin(ChiselingRecipeDatapackPlugin.IDENTIFIER, ChiselingRecipeDatapackPlugin.INSTANCE, 0);
+
+        // Sort plugins
+        PLUGINS.sort(Comparator.<PluginEntry>comparingInt(p -> p.priority).thenComparing(p -> p.identifier));
 
         finalized = true;
-
         Rechiseled.LOGGER.info("{} chiseling plugins were registered: {}", PLUGINS.size(), PLUGINS.stream().map(p -> p.identifier).toArray());
     }
 
@@ -105,10 +92,10 @@ public class ChiselingRecipeManagerImpl implements ChiselingRecipeManager {
                 if(!annotation.getClassName().equals(annotation.getObjectName()))
                     throw new RuntimeException("Chiseling plugin annotation must be a applied to a class!");
                 // Get annotation properties
-                String identifier = (String)annotation.getAnnotationInfo().getOrDefault("identifier", "main");
+                String identifier = (String)annotation.getAnnotationInfo().getOrDefault("identifier", "plugin");
                 if(!RegistryUtil.isValidIdentifier(identifier))
                     throw new RuntimeException("Rechiseled chiseling plugin from mod '" + modid + "' has invalid identifier '" + identifier + "'!");
-                int priority = (int)annotation.getAnnotationInfo().getOrDefault("priority", 0);
+                int priority = (int)annotation.getAnnotationInfo().getOrDefault("priority", ChiselingRecipePlugin.DEFAULT_PLUGIN_PRIORITY);
                 // Create plugin instance
                 Class<?> clazz;
                 try{
