@@ -7,6 +7,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.EmptyBlockGetter;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -26,7 +27,7 @@ public class RechiseledGlassBlock extends RechiseledBlock {
     private volatile Map<Pair<BlockState,BlockState>,Boolean[]> shouldHideFaceCache = null;
 
     public RechiseledGlassBlock(boolean connecting, BlockProperties properties){
-        super(connecting, properties);
+        super(connecting, properties.noOcclusion().isSuffocating(Blocks::never));
     }
 
     public void setStairsAndSlab(Block stairs, Block slab){
