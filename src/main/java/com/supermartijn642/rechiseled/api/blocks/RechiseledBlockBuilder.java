@@ -77,6 +77,33 @@ public interface RechiseledBlockBuilder extends RechiseledCommonBlockBuilder<Rec
     RechiseledBlockBuilder model(BlockModelType modelType);
 
     /**
+     * Adds the constructed block to the given block tag.
+     * @param includeStairsAndSlabs whether to add the stairs and slabs of this block type to the tag
+     */
+    RechiseledBlockBuilder blockTag(ResourceLocation identifier, boolean includeStairsAndSlabs);
+
+    /**
+     * Adds the constructed block to the given block tag.
+     */
+    default RechiseledBlockBuilder blockTag(String namespace, String identifier){
+        return this.blockTag(new ResourceLocation(namespace, identifier));
+    }
+
+    /**
+     * Adds the constructed block to the given block tag.
+     * @param includeStairsAndSlabs whether to add the stairs and slabs of this block type to the tag
+     */
+    RechiseledBlockBuilder itemTag(ResourceLocation identifier, boolean includeStairsAndSlabs);
+
+    /**
+     * Adds the constructed block to the given block tag.
+     * @param includeStairsAndSlabs whether to add the stairs and slabs of this block type to the tag
+     */
+    default RechiseledBlockBuilder itemAndBlockTag(ResourceLocation identifier, boolean includeStairsAndSlabs){
+        return this.blockTag(identifier, includeStairsAndSlabs).itemTag(identifier, includeStairsAndSlabs);
+    }
+
+    /**
      * Applies the given consumer to this builder.
      */
     RechiseledBlockBuilder configure(Consumer<RechiseledBlockBuilder> configurer);
