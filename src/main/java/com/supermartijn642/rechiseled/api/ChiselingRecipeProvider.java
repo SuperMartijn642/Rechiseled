@@ -139,7 +139,7 @@ public abstract class ChiselingRecipeProvider implements IDataProvider {
         return this.recipes.computeIfAbsent(recipe, s -> new ChiselingRecipeBuilder());
     }
 
-    protected static class ChiselingRecipeBuilder {
+    public static class ChiselingRecipeBuilder {
 
         private final List<ChiselingEntryBuilder> entries = new LinkedList<>();
         private boolean overwrite = false;
@@ -191,10 +191,11 @@ public abstract class ChiselingRecipeProvider implements IDataProvider {
             if(regularBlock == null && connectingBlock == null)
                 throw new IllegalArgumentException("At least one of regular item or connecting item must not be null!");
 
-            this.entry()
-                .regularItem(ChiselingBlockShape.BLOCK, regularBlock)
-                .connectingItem(ChiselingBlockShape.BLOCK, connectingBlock)
-                .optional(optional);
+            ChiselingEntryBuilder entry = this.entry().optional(optional);
+            if(regularBlock != null)
+                entry.regularItem(ChiselingBlockShape.BLOCK, regularBlock);
+            if(connectingBlock != null)
+                entry.connectingItem(ChiselingBlockShape.BLOCK, connectingBlock);
             return this;
         }
 
@@ -248,7 +249,7 @@ public abstract class ChiselingRecipeProvider implements IDataProvider {
         }
     }
 
-    protected static class ChiselingEntryBuilder {
+    public static class ChiselingEntryBuilder {
 
         private final Map<ChiselingBlockShape,Item> items = new EnumMap<>(ChiselingBlockShape.class);
         private final Map<ChiselingBlockShape,Item> connectingItems = new EnumMap<>(ChiselingBlockShape.class);
