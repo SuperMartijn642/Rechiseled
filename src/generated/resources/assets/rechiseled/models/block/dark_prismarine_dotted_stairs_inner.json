@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/dark_prismarine_dotted",
+    "side": "rechiseled:block/dark_prismarine_dotted",
+    "top": "rechiseled:block/dark_prismarine_dotted"
+  }
+}

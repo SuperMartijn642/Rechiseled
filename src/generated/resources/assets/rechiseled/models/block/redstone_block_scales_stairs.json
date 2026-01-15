@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "rechiseled:block/redstone_block_scales",
+    "side": "rechiseled:block/redstone_block_scales",
+    "top": "rechiseled:block/redstone_block_scales"
+  }
+}

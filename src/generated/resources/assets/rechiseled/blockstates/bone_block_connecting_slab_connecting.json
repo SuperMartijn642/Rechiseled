@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "rechiseled:block/bone_block_connecting_slab_connecting_bottom"
+    },
+    "type=double": {
+      "model": "rechiseled:block/bone_block_connecting_slab_connecting_double"
+    },
+    "type=top": {
+      "model": "rechiseled:block/bone_block_connecting_slab_connecting_top"
+    }
+  }
+}

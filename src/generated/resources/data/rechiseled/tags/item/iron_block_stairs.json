@@ -1,0 +1,31 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:iron_block_bordered_stairs",
+    "rechiseled:iron_block_bordered_stairs_connecting",
+    "rechiseled:iron_block_chiseled_stairs",
+    "rechiseled:iron_block_chiseled_stairs_connecting",
+    "rechiseled:iron_block_connecting_stairs_connecting",
+    "rechiseled:iron_block_framed_stairs",
+    "rechiseled:iron_block_framed_stairs_connecting",
+    "rechiseled:iron_block_gears_stairs",
+    "rechiseled:iron_block_gears_stairs_connecting",
+    "rechiseled:iron_block_lines_stairs",
+    "rechiseled:iron_block_lines_stairs_connecting",
+    "rechiseled:iron_block_patterned_stairs",
+    "rechiseled:iron_block_patterned_stairs_connecting",
+    "rechiseled:iron_block_pipes_stairs",
+    "rechiseled:iron_block_pipes_stairs_connecting",
+    "rechiseled:iron_block_plated_stairs",
+    "rechiseled:iron_block_polished_stairs",
+    "rechiseled:iron_block_polished_stairs_connecting",
+    "rechiseled:iron_block_processed_stairs",
+    "rechiseled:iron_block_processed_stairs_connecting",
+    "rechiseled:iron_block_pulverized_stairs",
+    "rechiseled:iron_block_reinforced_stairs",
+    "rechiseled:iron_block_sheets_stairs",
+    "rechiseled:iron_block_small_bricks_stairs",
+    "rechiseled:iron_block_small_bricks_stairs_connecting",
+    "rechiseled:iron_block_smooth_stairs"
+  ]
+}
