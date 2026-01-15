@@ -23,7 +23,7 @@ public class RegistrationChiselingRecipeProvider extends ChiselingRecipeProvider
     protected void buildRecipes(){
         if(!this.registration.providersRegistered)
             return;
-        this.registration.getChiselingEntries().forEach(triple -> this.beginRecipe(triple.left()).add(triple.middle() == null ? null : triple.middle().get().asItem(), triple.right() == null ? null : triple.right().get().asItem()));
+        this.registration.getChiselingEntries().forEach(recipe -> recipe.right().accept(this.beginRecipe(recipe.left()).entry()));
         this.registration.getBlockBuilders().forEach(
             pair -> {
                 RechiseledBlockBuilderImpl builder = pair.left();
