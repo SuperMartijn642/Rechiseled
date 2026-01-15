@@ -2,6 +2,7 @@ package com.supermartijn642.rechiseled.registration.data;
 
 import com.supermartijn642.core.generator.ResourceCache;
 import com.supermartijn642.rechiseled.api.ChiselingRecipeProvider;
+import com.supermartijn642.rechiseled.api.util.ItemWithMeta;
 import com.supermartijn642.rechiseled.blocks.RechiseledBlockBuilderImpl;
 import com.supermartijn642.rechiseled.blocks.RechiseledBlockTypeImpl;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
@@ -23,7 +24,7 @@ public class RegistrationChiselingRecipeProvider extends ChiselingRecipeProvider
     protected void buildRecipes(){
         if(!this.registration.providersRegistered)
             return;
-        this.registration.getChiselingEntries().forEach(triple -> this.beginRecipe(triple.left()).add(triple.middle().left() == null ? null : triple.middle().left().get(), triple.middle().left() == null ? 0 : triple.middle().right(), triple.right().left() == null ? null : triple.right().left().get(), triple.right().left() == null ? 0 : triple.right().right()));
+        this.registration.getChiselingEntries().forEach(recipe -> recipe.right().accept(this.beginRecipe(recipe.left()).entry()));
         this.registration.getBlockBuilders().forEach(
             pair -> {
                 RechiseledBlockBuilderImpl builder = pair.left();
@@ -33,7 +34,7 @@ public class RegistrationChiselingRecipeProvider extends ChiselingRecipeProvider
                     int regularItemData = !type.hasRegularVariant() && builder.customRegularVariant != null ? builder.customRegularVariantData : 0;
                     Item connectingItem = type.hasConnectingVariant() ? type.getConnectingItem() : builder.customConnectingVariant != null ? Item.getItemFromBlock(builder.customConnectingVariant.get()) : null;
                     int connectingItemData = !type.hasRegularVariant() && builder.customConnectingVariant != null ? builder.customConnectingVariantData : 0;
-                    this.beginRecipe(builder.recipe).add(regularItem, regularItemData, connectingItem, connectingItemData);
+                    this.beginRecipe(builder.recipe).add(ItemWithMeta.of(regularItem, regularItemData), ItemWithMeta.of(connectingItem, connectingItemData));
                 }
             }
         );
