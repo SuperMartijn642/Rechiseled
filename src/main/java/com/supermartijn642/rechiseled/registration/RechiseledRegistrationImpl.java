@@ -4,7 +4,7 @@ import com.supermartijn642.core.item.CreativeItemGroup;
 import com.supermartijn642.core.registry.GeneratorRegistrationHandler;
 import com.supermartijn642.core.registry.RegistryUtil;
 import com.supermartijn642.core.util.Pair;
-import com.supermartijn642.core.util.Triple;
+import com.supermartijn642.rechiseled.api.ChiselingRecipeProvider;
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockBuilder;
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockType;
 import com.supermartijn642.rechiseled.api.registration.RechiseledRegistration;
@@ -17,6 +17,7 @@ import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
@@ -54,7 +55,7 @@ public class RechiseledRegistrationImpl implements RechiseledRegistration {
     private final List<Pair<RechiseledBlockBuilderImpl,RechiseledBlockTypeImpl>> blockBuilders = new ArrayList<>();
     private final Set<String> usedBlockIdentifiers = new HashSet<>();
     private final List<RechiseledBlockTypeImpl> blockTypes = new ArrayList<>();
-    private final List<Triple<ResourceLocation,Supplier<IItemProvider>,Supplier<IItemProvider>>> chiselingEntries = new ArrayList<>();
+    private final List<Pair<ResourceLocation,Consumer<ChiselingRecipeProvider.ChiselingEntryBuilder>>> chiselingEntries = new ArrayList<>();
     private CreativeItemGroup itemGroup;
     private String itemGroupTranslation;
     public boolean providersRegistered = false;
@@ -64,7 +65,7 @@ public class RechiseledRegistrationImpl implements RechiseledRegistration {
     }
 
     @Override
-    public synchronized RechiseledBlockBuilder block(String identifier){
+    public RechiseledBlockBuilder block(String identifier){
         if(finalized)
             throw new RuntimeException("Blocks must be built during mod initialization!");
         if(!this.usedBlockIdentifiers.add(identifier))
@@ -76,12 +77,24 @@ public class RechiseledRegistrationImpl implements RechiseledRegistration {
     }
 
     @Override
-    public synchronized void chiselingEntry(ResourceLocation recipe, Supplier<IItemProvider> regularItem, Supplier<IItemProvider> connectingItem){
+    public void chiselingEntry(ResourceLocation recipe, Supplier<IItemProvider> regularBlock, Supplier<IItemProvider> regularStairs, Supplier<IItemProvider> regularSlab, Supplier<IItemProvider> connectingBlock, Supplier<IItemProvider> connectingStairs, Supplier<IItemProvider> connectingSlab){
         if(finalized)
             throw new RuntimeException("Chiseling recipe entries must be added during mod initialization!");
-        if(regularItem == null && connectingItem == null)
-            throw new IllegalArgumentException("Either regular item or connecting item must not be null!");
-        this.chiselingEntries.add(Triple.of(recipe, regularItem, connectingItem));
+        if(regularBlock == null && regularStairs == null && regularSlab == null && connectingBlock == null && connectingStairs == null && connectingSlab == null)
+            throw new IllegalArgumentException("Entry must have at least one item!");
+        this.chiselingEntries.add(Pair.of(recipe, entry -> {
+            if(regularBlock != null) entry.regularBlock(regularBlock.get().asItem());
+            if(regularStairs != null) entry.regularStairs(regularStairs.get().asItem());
+            if(regularSlab != null) entry.regularSlab(regularSlab.get().asItem());
+            if(connectingBlock != null) entry.connectingBlock(connectingBlock.get().asItem());
+            if(connectingStairs != null) entry.connectingStairs(connectingStairs.get().asItem());
+            if(connectingSlab != null) entry.connectingSlab(connectingSlab.get().asItem());
+        }));
+    }
+
+    @Override
+    public void chiselingEntry(ResourceLocation recipe, Supplier<IItemProvider> regularBlock, Supplier<IItemProvider> connectingBlock){
+        this.chiselingEntry(recipe, regularBlock, null, null, connectingBlock, null, null);
     }
 
     @Override
@@ -139,7 +152,7 @@ public class RechiseledRegistrationImpl implements RechiseledRegistration {
         return this.blockBuilders;
     }
 
-    public List<Triple<ResourceLocation,Supplier<IItemProvider>,Supplier<IItemProvider>>> getChiselingEntries(){
+    public List<Pair<ResourceLocation,Consumer<ChiselingRecipeProvider.ChiselingEntryBuilder>>> getChiselingEntries(){
         return this.chiselingEntries;
     }
 
