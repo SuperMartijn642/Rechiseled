@@ -5,15 +5,14 @@ import com.supermartijn642.rechiseled.Rechiseled;
 import me.shedaniel.math.Point;
 import me.shedaniel.math.Rectangle;
 import me.shedaniel.rei.api.client.gui.Renderer;
+import me.shedaniel.rei.api.client.gui.widgets.Slot;
 import me.shedaniel.rei.api.client.gui.widgets.Widget;
 import me.shedaniel.rei.api.client.gui.widgets.Widgets;
 import me.shedaniel.rei.api.client.registry.display.DisplayCategory;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
-import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.entry.EntryStack;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.ArrayList;
@@ -24,8 +23,7 @@ import java.util.List;
  */
 public class ChiselingDisplayCategory implements DisplayCategory<ChiselingRecipeDisplay> {
 
-    private static final Identifier BACKGROUND = Rechiseled.identifier("textures/screen/jei_category_background.png");
-    private static final Component TITLE = TextComponents.translation("rechiseled.jei_category.title").get();
+    private static final Component TITLE = TextComponents.translation("rechiseled.recipe_category.title").get();
 
     private final EntryStack<ItemStack> icon;
 
@@ -50,33 +48,29 @@ public class ChiselingDisplayCategory implements DisplayCategory<ChiselingRecipe
 
     @Override
     public int getDisplayWidth(ChiselingRecipeDisplay display){
-        return 174 + 10;
+        return 178 + 10;
     }
 
     @Override
     public int getDisplayHeight(){
-        return 72 + 10;
+        return 94 + 10;
     }
 
     @Override
     public List<Widget> setupDisplay(ChiselingRecipeDisplay display, Rectangle bounds){
         int left = bounds.x + 5, top = bounds.y + 5;
         List<Widget> widgets = new ArrayList<>();
-
         // Background
         widgets.add(Widgets.createRecipeBase(bounds));
-        widgets.add(Widgets.createTexturedWidget(BACKGROUND, new Rectangle(left, top, 174, 72)));
-
+        // Arrow
+        widgets.add(Widgets.createTexturedWidget(Rechiseled.identifier("textures/screen/curved_arrow.png"), left + 89, top, 20, 20));
         // Input slot
-        widgets.add(Widgets.createSlot(new Point(left + 1, top + 28)).entries(display.getInputEntries().getFirst()).markInput().disableBackground());
-
+        widgets.add(Widgets.createSlot(new Point(left + 73, top + 1)).entries(display.getInputEntries().getFirst()).markInput());
         // Output slots
-        List<EntryIngredient> outputs = display.getOutputEntries();
-        for(int i = 0; i < outputs.size(); i++){
-            int x = left + 49 + 18 * (i % 7);
-            int y = top + 1 + 18 * (i / 7);
-            widgets.add(Widgets.createSlot(new Point(x, y)).entries(outputs.get(i)).markOutput().disableBackground());
-        }
+        List<Slot> outputs = display.getOutputEntries().stream()
+            .map(entry -> Widgets.createSlot(new Point()).entries(entry).markOutput())
+            .toList();
+        widgets.add(new REIScrollableSlotsWidget(left, top + 22, outputs));
         return widgets;
     }
 }

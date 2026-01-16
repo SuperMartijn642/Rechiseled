@@ -31,21 +31,25 @@ public class ChiselingRecipeDisplay implements Display {
         // Gather inputs and outputs of the recipe
         List<ItemStack> inputs = new ArrayList<>();
         List<EntryIngredient> outputs = new ArrayList<>();
-        for(ChiselingEntry entry : recipe.entries()){
-            List<ItemStack> output = new ArrayList<>();
-            if(entry.hasRegularItem(ChiselingBlockShape.BLOCK)){
-                //noinspection DataFlowIssue
-                inputs.add(new ItemStack(entry.getRegularItem(ChiselingBlockShape.BLOCK).item()));
-                //noinspection DataFlowIssue
-                output.add(new ItemStack(entry.getRegularItem(ChiselingBlockShape.BLOCK).item()));
+        for(ChiselingBlockShape shape : ChiselingBlockShape.values()){
+            for(ChiselingEntry entry : recipe.entries()){
+                List<ItemStack> output = new ArrayList<>();
+                if(entry.hasRegularItem(shape)){
+                    //noinspection DataFlowIssue
+                    inputs.add(new ItemStack(entry.getRegularItem(shape).item()));
+                    //noinspection DataFlowIssue
+                    output.add(new ItemStack(entry.getRegularItem(shape).item()));
+                }
+                if(entry.hasConnectingItem(shape)){
+                    //noinspection DataFlowIssue
+                    inputs.add(new ItemStack(entry.getConnectingItem(shape).item()));
+                    //noinspection DataFlowIssue
+                    output.add(new ItemStack(entry.getConnectingItem(shape).item()));
+                }
+                if(output.isEmpty())
+                    continue;
+                outputs.add(EntryIngredients.ofItemStacks(output));
             }
-            if(entry.hasConnectingItem(ChiselingBlockShape.BLOCK)){
-                //noinspection DataFlowIssue
-                inputs.add(new ItemStack(entry.getConnectingItem(ChiselingBlockShape.BLOCK).item()));
-                //noinspection DataFlowIssue
-                output.add(new ItemStack(entry.getConnectingItem(ChiselingBlockShape.BLOCK).item()));
-            }
-            outputs.add(EntryIngredients.ofItemStacks(output));
         }
         this.inputs = List.of(EntryIngredients.ofItemStacks(inputs));
         this.outputs = List.copyOf(outputs);
