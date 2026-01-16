@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "rechiseled:block/end_stone_small_tiles_slab_bottom"
+    },
+    "type=double": {
+      "model": "rechiseled:block/end_stone_small_tiles_slab_double"
+    },
+    "type=top": {
+      "model": "rechiseled:block/end_stone_small_tiles_slab_top"
+    }
+  }
+}

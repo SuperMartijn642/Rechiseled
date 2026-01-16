@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/diorite_wavy",
+    "side": "rechiseled:block/diorite_wavy",
+    "top": "rechiseled:block/diorite_wavy"
+  }
+}

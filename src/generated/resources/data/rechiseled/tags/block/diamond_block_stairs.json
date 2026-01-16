@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:diamond_block_chiseled_cubes_stairs",
+    "rechiseled:diamond_block_chiseled_cubes_stairs_connecting",
+    "rechiseled:diamond_block_chiseled_stairs",
+    "rechiseled:diamond_block_chiseled_stairs_connecting",
+    "rechiseled:diamond_block_connecting_stairs_connecting",
+    "rechiseled:diamond_block_diagonal_tiles_stairs",
+    "rechiseled:diamond_block_grid_stairs",
+    "rechiseled:diamond_block_grid_stairs_connecting",
+    "rechiseled:diamond_block_jewel_block_stairs",
+    "rechiseled:diamond_block_jewel_block_stairs_connecting",
+    "rechiseled:diamond_block_polished_stairs",
+    "rechiseled:diamond_block_polished_stairs_connecting",
+    "rechiseled:diamond_block_rhombuses_stairs",
+    "rechiseled:diamond_block_rhombuses_stairs_connecting",
+    "rechiseled:diamond_block_shiny_bordered_stairs",
+    "rechiseled:diamond_block_shiny_bordered_stairs_connecting",
+    "rechiseled:diamond_block_shiny_stairs",
+    "rechiseled:diamond_block_small_tiles_stairs",
+    "rechiseled:diamond_block_small_tiles_stairs_connecting",
+    "rechiseled:diamond_block_smooth_stairs"
+  ]
+}
