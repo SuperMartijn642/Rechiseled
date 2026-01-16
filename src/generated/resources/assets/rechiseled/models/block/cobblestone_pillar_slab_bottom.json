@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "rechiseled:block/cobblestone_pillar_end",
+    "side": "rechiseled:block/cobblestone_pillar_side",
+    "top": "rechiseled:block/cobblestone_pillar_end"
+  }
+}

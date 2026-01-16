@@ -1,65 +1,144 @@
 {
   "type": "rechiseled:chiseling",
   "entries": [
+    "minecraft:dirt",
     {
-      "item": "minecraft:dirt"
+      "block": "rechiseled:dirt_blobs",
+      "connecting_block": "rechiseled:dirt_blobs_connecting",
+      "connecting_slab": "rechiseled:dirt_blobs_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:dirt_blobs_stairs_connecting",
+      "slab": "rechiseled:dirt_blobs_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:dirt_blobs_stairs"
     },
     {
-      "connecting_item": "rechiseled:dirt_blobs_connecting",
-      "item": "rechiseled:dirt_blobs"
+      "block": "rechiseled:dirt_bricks",
+      "connecting_block": "rechiseled:dirt_bricks_connecting",
+      "connecting_slab": "rechiseled:dirt_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:dirt_bricks_stairs_connecting",
+      "slab": "rechiseled:dirt_bricks_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:dirt_bricks_stairs"
     },
     {
-      "connecting_item": "rechiseled:dirt_bricks_connecting",
-      "item": "rechiseled:dirt_bricks"
+      "block": "rechiseled:dirt_chunks",
+      "connecting_block": "rechiseled:dirt_chunks_connecting",
+      "connecting_slab": "rechiseled:dirt_chunks_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:dirt_chunks_stairs_connecting",
+      "slab": "rechiseled:dirt_chunks_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:dirt_chunks_stairs"
     },
     {
-      "connecting_item": "rechiseled:dirt_chunks_connecting",
-      "item": "rechiseled:dirt_chunks"
+      "block": "rechiseled:dirt_clumps",
+      "connecting_block": "rechiseled:dirt_clumps_connecting",
+      "connecting_slab": "rechiseled:dirt_clumps_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:dirt_clumps_stairs_connecting",
+      "slab": "rechiseled:dirt_clumps_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:dirt_clumps_stairs"
     },
     {
-      "connecting_item": "rechiseled:dirt_clumps_connecting",
-      "item": "rechiseled:dirt_clumps"
+      "block": "rechiseled:dirt_cobbled",
+      "slab": "rechiseled:dirt_cobbled_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:dirt_cobbled_stairs"
     },
     {
-      "item": "rechiseled:dirt_cobbled"
+      "block": "rechiseled:dirt_grooves",
+      "slab": "rechiseled:dirt_grooves_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:dirt_grooves_stairs"
     },
     {
-      "item": "rechiseled:dirt_grooves"
+      "block": "rechiseled:dirt_large_tiles",
+      "connecting_block": "rechiseled:dirt_large_tiles_connecting",
+      "connecting_slab": "rechiseled:dirt_large_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:dirt_large_tiles_stairs_connecting",
+      "slab": "rechiseled:dirt_large_tiles_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:dirt_large_tiles_stairs"
     },
     {
-      "connecting_item": "rechiseled:dirt_large_tiles_connecting",
-      "item": "rechiseled:dirt_large_tiles"
+      "block": "rechiseled:dirt_muddy",
+      "slab": "rechiseled:dirt_muddy_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:dirt_muddy_stairs"
     },
     {
-      "item": "rechiseled:dirt_muddy"
+      "block": "rechiseled:dirt_small_bricks",
+      "connecting_block": "rechiseled:dirt_small_bricks_connecting",
+      "connecting_slab": "rechiseled:dirt_small_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:dirt_small_bricks_stairs_connecting",
+      "slab": "rechiseled:dirt_small_bricks_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:dirt_small_bricks_stairs"
     },
     {
-      "connecting_item": "rechiseled:dirt_small_bricks_connecting",
-      "item": "rechiseled:dirt_small_bricks"
+      "block": "rechiseled:dirt_small_tiles",
+      "connecting_block": "rechiseled:dirt_small_tiles_connecting",
+      "connecting_slab": "rechiseled:dirt_small_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:dirt_small_tiles_stairs_connecting",
+      "slab": "rechiseled:dirt_small_tiles_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:dirt_small_tiles_stairs"
     },
     {
-      "connecting_item": "rechiseled:dirt_small_tiles_connecting",
-      "item": "rechiseled:dirt_small_tiles"
+      "block": "rechiseled:dirt_smooth_clumps",
+      "connecting_block": "rechiseled:dirt_smooth_clumps_connecting",
+      "connecting_slab": "rechiseled:dirt_smooth_clumps_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:dirt_smooth_clumps_stairs_connecting",
+      "slab": "rechiseled:dirt_smooth_clumps_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:dirt_smooth_clumps_stairs"
     },
     {
-      "connecting_item": "rechiseled:dirt_smooth_clumps_connecting",
-      "item": "rechiseled:dirt_smooth_clumps"
+      "block": "rechiseled:dirt_soil",
+      "connecting_block": "rechiseled:dirt_soil_connecting",
+      "connecting_slab": "rechiseled:dirt_soil_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:dirt_soil_stairs_connecting",
+      "slab": "rechiseled:dirt_soil_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:dirt_soil_stairs"
     },
     {
-      "connecting_item": "rechiseled:dirt_soil_connecting",
-      "item": "rechiseled:dirt_soil"
+      "block": "rechiseled:dirt_squares",
+      "connecting_block": "rechiseled:dirt_squares_connecting",
+      "connecting_slab": "rechiseled:dirt_squares_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:dirt_squares_stairs_connecting",
+      "slab": "rechiseled:dirt_squares_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:dirt_squares_stairs"
     },
     {
-      "connecting_item": "rechiseled:dirt_squares_connecting",
-      "item": "rechiseled:dirt_squares"
+      "block": "rechiseled:dirt_tiles",
+      "connecting_block": "rechiseled:dirt_tiles_connecting",
+      "connecting_slab": "rechiseled:dirt_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:dirt_tiles_stairs_connecting",
+      "slab": "rechiseled:dirt_tiles_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:dirt_tiles_stairs"
     },
     {
-      "connecting_item": "rechiseled:dirt_tiles_connecting",
-      "item": "rechiseled:dirt_tiles"
-    },
-    {
-      "connecting_item": "rechiseled:dirt_tilled_connecting",
-      "item": "rechiseled:dirt_tilled"
+      "block": "rechiseled:dirt_tilled",
+      "connecting_block": "rechiseled:dirt_tilled_connecting",
+      "connecting_slab": "rechiseled:dirt_tilled_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:dirt_tilled_stairs_connecting",
+      "slab": "rechiseled:dirt_tilled_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:dirt_tilled_stairs"
     }
   ],
   "overwrite": false

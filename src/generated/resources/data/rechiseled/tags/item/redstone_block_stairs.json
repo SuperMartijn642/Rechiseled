@@ -1,0 +1,32 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:redstone_block_bordered_stairs",
+    "rechiseled:redstone_block_bordered_stairs_connecting",
+    "rechiseled:redstone_block_brick_bordered_stairs",
+    "rechiseled:redstone_block_bricks_stairs",
+    "rechiseled:redstone_block_bricks_stairs_connecting",
+    "rechiseled:redstone_block_chiseled_clovers_stairs",
+    "rechiseled:redstone_block_chiseled_clovers_stairs_connecting",
+    "rechiseled:redstone_block_circles_stairs",
+    "rechiseled:redstone_block_circles_stairs_connecting",
+    "rechiseled:redstone_block_compressed_stairs",
+    "rechiseled:redstone_block_compressed_stairs_connecting",
+    "rechiseled:redstone_block_crushed_stairs",
+    "rechiseled:redstone_block_diagonal_tiles_stairs",
+    "rechiseled:redstone_block_diagonal_tiles_stairs_connecting",
+    "rechiseled:redstone_block_patterned_stairs",
+    "rechiseled:redstone_block_patterned_stairs_connecting",
+    "rechiseled:redstone_block_paving_stairs",
+    "rechiseled:redstone_block_paving_stairs_connecting",
+    "rechiseled:redstone_block_pillar_stairs",
+    "rechiseled:redstone_block_pillar_stairs_connecting",
+    "rechiseled:redstone_block_polished_stairs",
+    "rechiseled:redstone_block_polished_stairs_connecting",
+    "rechiseled:redstone_block_scales_stairs",
+    "rechiseled:redstone_block_scales_stairs_connecting",
+    "rechiseled:redstone_block_small_tiles_stairs",
+    "rechiseled:redstone_block_small_tiles_stairs_connecting",
+    "rechiseled:redstone_block_smooth_stairs"
+  ]
+}
