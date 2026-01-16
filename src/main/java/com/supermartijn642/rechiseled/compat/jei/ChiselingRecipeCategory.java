@@ -1,6 +1,5 @@
 package com.supermartijn642.rechiseled.compat.jei;
 
-import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.rechiseled.Rechiseled;
@@ -180,11 +179,9 @@ public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipe>
     }
 
     @Override
-    public boolean handleInput(ChiselingRecipe recipe, double mouseX, double mouseY, InputConstants.Key input){
-        if(input.getType() != InputConstants.Type.MOUSE)
-            return false;
+    public boolean handleClick(ChiselingRecipe recipe, double mouseX, double mouseY, int button){
         JEIScrollableSlotsWidget scrollableSlotsWidget = (JEIScrollableSlotsWidget)((ChiselingRecipeImpl)recipe).jeiScrollBox;
-        return scrollableSlotsWidget != null && scrollableSlotsWidget.mousePressed(mouseX, mouseY, input.getValue());
+        return scrollableSlotsWidget != null && scrollableSlotsWidget.mousePressed(mouseX, mouseY, button);
     }
 
     public boolean mouseReleased(ChiselingRecipe recipe, double mouseX, double mouseY, int button){
