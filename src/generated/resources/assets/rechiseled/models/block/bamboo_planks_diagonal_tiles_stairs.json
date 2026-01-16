@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "rechiseled:block/bamboo_planks_diagonal_tiles",
+    "side": "rechiseled:block/bamboo_planks_diagonal_tiles",
+    "top": "rechiseled:block/bamboo_planks_diagonal_tiles"
+  }
+}

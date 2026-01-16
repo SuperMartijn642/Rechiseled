@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/copper_block_circles",
+    "side": "rechiseled:block/copper_block_circles",
+    "top": "rechiseled:block/copper_block_circles"
+  }
+}

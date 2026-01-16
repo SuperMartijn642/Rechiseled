@@ -1,0 +1,160 @@
+{
+  "type": "fusion:connecting",
+  "parent": "minecraft:block/slab",
+  "connections": {
+    "bottom": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:cobblestone_inverted_dented_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:cobblestone_inverted_dented_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:cobblestone_inverted_dented_stairs_connecting"
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "rechiseled:cobblestone_inverted_dented_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          }
+        }
+      ]
+    },
+    "side": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:and",
+          "predicates": [
+            {
+              "type": "fusion:is_direction",
+              "directions": [
+                "left",
+                "right"
+              ]
+            },
+            {
+              "type": "fusion:or",
+              "predicates": [
+                {
+                  "type": "fusion:match_state",
+                  "block": "rechiseled:cobblestone_inverted_dented_slab_connecting",
+                  "properties": {
+                    "type": [
+                      "bottom"
+                    ]
+                  }
+                },
+                {
+                  "type": "fusion:match_state",
+                  "block": "rechiseled:cobblestone_inverted_dented_stairs_connecting",
+                  "properties": {
+                    "half": [
+                      "bottom"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "fusion:and",
+          "predicates": [
+            {
+              "type": "fusion:is_direction",
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right"
+              ]
+            },
+            {
+              "type": "fusion:or",
+              "predicates": [
+                {
+                  "type": "fusion:or",
+                  "predicates": [
+                    {
+                      "type": "fusion:match_block",
+                      "block": "rechiseled:cobblestone_inverted_dented_connecting"
+                    },
+                    {
+                      "type": "fusion:match_state",
+                      "block": "rechiseled:cobblestone_inverted_dented_slab_connecting",
+                      "properties": {
+                        "type": [
+                          "double"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "fusion:match_state",
+                  "block": "rechiseled:cobblestone_inverted_dented_slab_connecting",
+                  "properties": {
+                    "type": [
+                      "top"
+                    ]
+                  }
+                },
+                {
+                  "type": "fusion:match_block",
+                  "block": "rechiseled:cobblestone_inverted_dented_stairs_connecting"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "top": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:match_state",
+          "block": "rechiseled:cobblestone_inverted_dented_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          }
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "rechiseled:cobblestone_inverted_dented_stairs_connecting",
+          "properties": {
+            "half": [
+              "bottom"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "loader": "fusion:model",
+  "textures": {
+    "bottom": "rechiseled:block/cobblestone_inverted_dented",
+    "side": "rechiseled:block/cobblestone_inverted_dented",
+    "top": "rechiseled:block/cobblestone_inverted_dented"
+  }
+}
