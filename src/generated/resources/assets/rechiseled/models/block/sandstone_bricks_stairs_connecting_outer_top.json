@@ -1,0 +1,138 @@
+{
+  "type": "fusion:connecting",
+  "parent": "rechiseled:block/outer_stairs_top",
+  "connections": {
+    "bottom": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:sandstone_bricks_connecting"
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:sandstone_bricks_stairs_connecting"
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:sandstone_bricks_slab_connecting"
+        }
+      ]
+    },
+    "side": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:sandstone_bricks_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:sandstone_bricks_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:sandstone_bricks_stairs_connecting"
+        },
+        {
+          "type": "fusion:and",
+          "predicates": [
+            {
+              "type": "fusion:is_direction",
+              "directions": [
+                "top",
+                "top_left",
+                "top_right"
+              ]
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:sandstone_bricks_slab_connecting",
+              "properties": {
+                "type": [
+                  "bottom"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:and",
+          "predicates": [
+            {
+              "type": "fusion:is_direction",
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right",
+                "left",
+                "right"
+              ]
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:sandstone_bricks_slab_connecting",
+              "properties": {
+                "type": [
+                  "top"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "top": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:sandstone_bricks_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:sandstone_bricks_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:sandstone_bricks_stairs_connecting"
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "rechiseled:sandstone_bricks_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "loader": "fusion:model",
+  "textures": {
+    "bottom": "rechiseled:block/sandstone_bricks",
+    "side": "rechiseled:block/sandstone_bricks",
+    "top": "rechiseled:block/sandstone_bricks"
+  }
+}

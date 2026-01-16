@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "rechiseled:block/dirt_blobs",
+    "side": "rechiseled:block/dirt_blobs",
+    "top": "rechiseled:block/dirt_blobs"
+  }
+}

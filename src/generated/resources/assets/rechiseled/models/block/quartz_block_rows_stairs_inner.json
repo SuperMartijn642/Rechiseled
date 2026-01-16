@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/quartz_block_rows",
+    "side": "rechiseled:block/quartz_block_rows",
+    "top": "rechiseled:block/quartz_block_rows"
+  }
+}
