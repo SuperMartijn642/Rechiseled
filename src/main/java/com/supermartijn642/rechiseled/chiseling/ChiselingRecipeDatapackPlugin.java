@@ -127,7 +127,11 @@ public class ChiselingRecipeDatapackPlugin implements IdentifiableResourceReload
             Rechiseled.LOGGER.error("Encountered an exception whilst trying to load chiseling recipe '{}'!", recipeLocation, e);
             return null;
         }
-        return new ChiselingRecipeProperties(recipeLocation, combinedEntries);
+        String recipeIdentifier = recipeLocation.getPath().substring("chiseling_recipes/".length(), recipeLocation.getPath().length() - ".json".length());
+        return new ChiselingRecipeProperties(
+            new ResourceLocation(recipeLocation.getNamespace(), recipeIdentifier),
+            combinedEntries
+        );
     }
 
     private record ChiselingRecipeProperties(ResourceLocation identifier, List<ChiselingEntry> entries) {
