@@ -81,13 +81,13 @@ public class EntryPreviewWidget extends BaseWidget {
                 graphics.nextStratum();
                 graphics.submitCustomRendering(
                     this.x, this.y, this.width, this.height,
-                    poseStack -> ScreenBlockRenderer.drawBlock(poseStack, capture, this.width / 2d, this.height / 2d, this.width, this.yaw, this.pitch, true)
+                    (poseStack, bufferSource) -> ScreenBlockRenderer.drawBlock(poseStack, bufferSource, capture, this.width / 2d, this.height / 2d, this.width, this.yaw, this.pitch, true)
                 );
             }else{
                 // Render item
                 graphics.submitCustomRendering(
                     this.x, this.y, this.width, this.height,
-                    poseStack -> ScreenItemRender.drawItem(poseStack, item, this.width / 2d, this.height / 2d, this.width, this.yaw, this.pitch, true)
+                    (poseStack, bufferSource) -> ScreenItemRender.drawItem(poseStack, bufferSource, item, this.width / 2d, this.height / 2d, this.width, this.yaw, this.pitch, true)
                 );
             }
         }
