@@ -33,6 +33,10 @@ repositories {
 dependencies {
     // Forge
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    // MixinExtras
+    runtimeOnly("io.github.llamalad7:mixinextras-forge:0.4.1") {
+        transitive = false
+    }
 
     // Core library
 //    implementation "curse.maven:supermartijn642s-core-lib-454372:${core_library_file}"
