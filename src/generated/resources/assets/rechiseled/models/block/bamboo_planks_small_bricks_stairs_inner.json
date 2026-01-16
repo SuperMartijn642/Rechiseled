@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/bamboo_planks_small_bricks",
+    "side": "rechiseled:block/bamboo_planks_small_bricks",
+    "top": "rechiseled:block/bamboo_planks_small_bricks"
+  }
+}

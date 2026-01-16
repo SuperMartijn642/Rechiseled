@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/emerald_block_clovers",
+    "side": "rechiseled:block/emerald_block_clovers",
+    "top": "rechiseled:block/emerald_block_clovers"
+  }
+}
