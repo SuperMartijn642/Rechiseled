@@ -1,51 +1,112 @@
 {
   "type": "rechiseled:chiseling",
   "entries": [
+    "minecraft:gold_block",
     {
-      "item": "minecraft:gold_block"
+      "block": "rechiseled:gold_block_beams",
+      "connecting_block": "rechiseled:gold_block_beams_connecting",
+      "connecting_slab": "rechiseled:gold_block_beams_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:gold_block_beams_stairs_connecting",
+      "slab": "rechiseled:gold_block_beams_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:gold_block_beams_stairs"
     },
     {
-      "connecting_item": "rechiseled:gold_block_beams_connecting",
-      "item": "rechiseled:gold_block_beams"
+      "block": "rechiseled:gold_block_bordered",
+      "connecting_block": "rechiseled:gold_block_bordered_connecting",
+      "connecting_slab": "rechiseled:gold_block_bordered_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:gold_block_bordered_stairs_connecting",
+      "slab": "rechiseled:gold_block_bordered_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:gold_block_bordered_stairs"
     },
     {
-      "connecting_item": "rechiseled:gold_block_bordered_connecting",
-      "item": "rechiseled:gold_block_bordered"
+      "block": "rechiseled:gold_block_lines",
+      "connecting_block": "rechiseled:gold_block_lines_connecting",
+      "connecting_slab": "rechiseled:gold_block_lines_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:gold_block_lines_stairs_connecting",
+      "slab": "rechiseled:gold_block_lines_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:gold_block_lines_stairs"
     },
     {
-      "connecting_item": "rechiseled:gold_block_lines_connecting",
-      "item": "rechiseled:gold_block_lines"
+      "block": "rechiseled:gold_block_pattern",
+      "connecting_block": "rechiseled:gold_block_pattern_connecting",
+      "connecting_slab": "rechiseled:gold_block_pattern_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:gold_block_pattern_stairs_connecting",
+      "slab": "rechiseled:gold_block_pattern_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:gold_block_pattern_stairs"
     },
     {
-      "connecting_item": "rechiseled:gold_block_pattern_connecting",
-      "item": "rechiseled:gold_block_pattern"
+      "block": "rechiseled:gold_block_polished",
+      "connecting_block": "rechiseled:gold_block_polished_connecting",
+      "connecting_slab": "rechiseled:gold_block_polished_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:gold_block_polished_stairs_connecting",
+      "slab": "rechiseled:gold_block_polished_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:gold_block_polished_stairs"
     },
     {
-      "connecting_item": "rechiseled:gold_block_polished_connecting",
-      "item": "rechiseled:gold_block_polished"
+      "block": "rechiseled:gold_block_scales",
+      "connecting_block": "rechiseled:gold_block_scales_connecting",
+      "connecting_slab": "rechiseled:gold_block_scales_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:gold_block_scales_stairs_connecting",
+      "slab": "rechiseled:gold_block_scales_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:gold_block_scales_stairs"
     },
     {
-      "connecting_item": "rechiseled:gold_block_scales_connecting",
-      "item": "rechiseled:gold_block_scales"
+      "block": "rechiseled:gold_block_small_bricks",
+      "connecting_block": "rechiseled:gold_block_small_bricks_connecting",
+      "connecting_slab": "rechiseled:gold_block_small_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:gold_block_small_bricks_stairs_connecting",
+      "slab": "rechiseled:gold_block_small_bricks_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:gold_block_small_bricks_stairs"
     },
     {
-      "connecting_item": "rechiseled:gold_block_small_bricks_connecting",
-      "item": "rechiseled:gold_block_small_bricks"
+      "block": "rechiseled:gold_block_small_tiles",
+      "connecting_block": "rechiseled:gold_block_small_tiles_connecting",
+      "connecting_slab": "rechiseled:gold_block_small_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:gold_block_small_tiles_stairs_connecting",
+      "slab": "rechiseled:gold_block_small_tiles_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:gold_block_small_tiles_stairs"
     },
     {
-      "connecting_item": "rechiseled:gold_block_small_tiles_connecting",
-      "item": "rechiseled:gold_block_small_tiles"
+      "block": "rechiseled:gold_block_striped",
+      "connecting_block": "rechiseled:gold_block_striped_connecting",
+      "connecting_slab": "rechiseled:gold_block_striped_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:gold_block_striped_stairs_connecting",
+      "slab": "rechiseled:gold_block_striped_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:gold_block_striped_stairs"
     },
     {
-      "connecting_item": "rechiseled:gold_block_striped_connecting",
-      "item": "rechiseled:gold_block_striped"
+      "block": "rechiseled:gold_block_smooth",
+      "slab": "rechiseled:gold_block_smooth_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:gold_block_smooth_stairs"
     },
     {
-      "item": "rechiseled:gold_block_smooth"
-    },
-    {
-      "connecting_item": "rechiseled:gold_block_tiles_connecting",
-      "item": "rechiseled:gold_block_tiles"
+      "block": "rechiseled:gold_block_tiles",
+      "connecting_block": "rechiseled:gold_block_tiles_connecting",
+      "connecting_slab": "rechiseled:gold_block_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:gold_block_tiles_stairs_connecting",
+      "slab": "rechiseled:gold_block_tiles_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:gold_block_tiles_stairs"
     }
   ],
   "overwrite": false

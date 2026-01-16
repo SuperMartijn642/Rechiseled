@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/obsidian_spots",
+    "side": "rechiseled:block/obsidian_spots",
+    "top": "rechiseled:block/obsidian_spots"
+  }
+}

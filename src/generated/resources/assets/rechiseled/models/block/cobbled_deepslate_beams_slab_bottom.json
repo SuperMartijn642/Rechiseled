@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "rechiseled:block/cobbled_deepslate_beams",
+    "side": "rechiseled:block/cobbled_deepslate_beams",
+    "top": "rechiseled:block/cobbled_deepslate_beams"
+  }
+}

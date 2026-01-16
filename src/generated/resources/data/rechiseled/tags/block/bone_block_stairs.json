@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:bone_block_bordered_stairs",
+    "rechiseled:bone_block_bordered_stairs_connecting",
+    "rechiseled:bone_block_bundled_stairs",
+    "rechiseled:bone_block_chiseled_stairs",
+    "rechiseled:bone_block_chiseled_stairs_connecting",
+    "rechiseled:bone_block_connecting_stairs_connecting",
+    "rechiseled:bone_block_cracked_stairs",
+    "rechiseled:bone_block_decorated_bordered_stairs",
+    "rechiseled:bone_block_decorated_bordered_stairs_connecting",
+    "rechiseled:bone_block_decorated_stairs",
+    "rechiseled:bone_block_inverted_tiles_stairs",
+    "rechiseled:bone_block_inverted_tiles_stairs_connecting",
+    "rechiseled:bone_block_patterned_stairs",
+    "rechiseled:bone_block_patterned_stairs_connecting",
+    "rechiseled:bone_block_pillar_stairs",
+    "rechiseled:bone_block_pillar_stairs_connecting",
+    "rechiseled:bone_block_rib_stairs",
+    "rechiseled:bone_block_skull_stairs",
+    "rechiseled:bone_block_smooth_stairs"
+  ]
+}
