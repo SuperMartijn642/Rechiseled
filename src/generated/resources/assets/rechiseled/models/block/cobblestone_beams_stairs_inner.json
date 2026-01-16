@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/cobblestone_beams",
+    "side": "rechiseled:block/cobblestone_beams",
+    "top": "rechiseled:block/cobblestone_beams"
+  }
+}

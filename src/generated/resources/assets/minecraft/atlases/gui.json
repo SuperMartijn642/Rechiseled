@@ -6,6 +6,10 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:screen/checkmark"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:screen/icon_1x1_grey"
     },
     {
@@ -18,6 +22,10 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:screen/icon_slab"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:screen/grey_buttons"
     },
     {
@@ -26,7 +34,15 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:screen/filter_buttons"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:item/chisel"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:screen/filter_marker"
     },
     {
       "type": "minecraft:single",
@@ -47,6 +63,10 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:screen/rotation_icon"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:screen/icon_stairs"
     },
     {
       "type": "minecraft:single",

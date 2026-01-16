@@ -1,0 +1,32 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:dirt_blobs_slab",
+    "rechiseled:dirt_blobs_slab_connecting",
+    "rechiseled:dirt_bricks_slab",
+    "rechiseled:dirt_bricks_slab_connecting",
+    "rechiseled:dirt_chunks_slab",
+    "rechiseled:dirt_chunks_slab_connecting",
+    "rechiseled:dirt_clumps_slab",
+    "rechiseled:dirt_clumps_slab_connecting",
+    "rechiseled:dirt_cobbled_slab",
+    "rechiseled:dirt_grooves_slab",
+    "rechiseled:dirt_large_tiles_slab",
+    "rechiseled:dirt_large_tiles_slab_connecting",
+    "rechiseled:dirt_muddy_slab",
+    "rechiseled:dirt_small_bricks_slab",
+    "rechiseled:dirt_small_bricks_slab_connecting",
+    "rechiseled:dirt_small_tiles_slab",
+    "rechiseled:dirt_small_tiles_slab_connecting",
+    "rechiseled:dirt_smooth_clumps_slab",
+    "rechiseled:dirt_smooth_clumps_slab_connecting",
+    "rechiseled:dirt_soil_slab",
+    "rechiseled:dirt_soil_slab_connecting",
+    "rechiseled:dirt_squares_slab",
+    "rechiseled:dirt_squares_slab_connecting",
+    "rechiseled:dirt_tiles_slab",
+    "rechiseled:dirt_tiles_slab_connecting",
+    "rechiseled:dirt_tilled_slab",
+    "rechiseled:dirt_tilled_slab_connecting"
+  ]
+}

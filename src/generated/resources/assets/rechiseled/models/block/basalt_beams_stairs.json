@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "rechiseled:block/basalt_beams",
+    "side": "rechiseled:block/basalt_beams",
+    "top": "rechiseled:block/basalt_beams"
+  }
+}
