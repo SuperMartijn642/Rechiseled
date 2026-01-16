@@ -62,7 +62,7 @@ public class EntryButtonWidget extends BaseWidget {
             Item item = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
             graphics.submitCustomRendering(
                 this.x, this.y, this.width, this.height,
-                poseStack -> ScreenItemRender.drawItem(poseStack, item, this.width / 2d, this.height / 2d, this.width - 4, 0, 0, false)
+                (poseStack, bufferSource) -> ScreenItemRender.drawItem(poseStack, bufferSource, item, this.width / 2d, this.height / 2d, this.width - 4, 0, 0, false)
             );
         }
     }
