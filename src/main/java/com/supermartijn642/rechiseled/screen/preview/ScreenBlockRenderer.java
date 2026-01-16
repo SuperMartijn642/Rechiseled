@@ -4,6 +4,7 @@ import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.render.RenderUtils;
+import com.supermartijn642.rechiseled.Rechiseled;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -11,8 +12,10 @@ import net.minecraft.client.renderer.block.ModelBlockRenderer;
 import net.minecraft.client.renderer.block.model.BlockStateModel;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockAndTintGetter;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.client.RenderTypeHelper;
@@ -20,7 +23,9 @@ import net.minecraftforge.client.model.data.ModelData;
 import org.joml.Matrix4f;
 import org.joml.Quaternionf;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created 25/12/2021 by SuperMartijn642
@@ -28,6 +33,7 @@ import java.util.Map;
 public class ScreenBlockRenderer {
 
     private static final RandomSource RANDOM_SOURCE = RandomSource.create();
+    private static final Set<Block> erroredBlocks = new HashSet<>();
     private static BlockCaptureLevel fakeLevel;
 
     public static void drawBlock(PoseStack poseStack, BlockCapture capture, double x, double y, double scale, float yaw, float pitch, boolean flatShading){
@@ -47,8 +53,17 @@ public class ScreenBlockRenderer {
         poseStack.mulPose(new Quaternionf().setAngleAxis(yaw / 180 * (float)Math.PI, 0, 1, 0));
 
         MultiBufferSource.BufferSource bufferSource = RenderUtils.getMainBufferSource();
-        for(Map.Entry<BlockPos,BlockState> entry : capture.getBlocks())
-            renderBlock(fakeLevel, entry.getKey(), entry.getValue(), poseStack, bufferSource);
+        for(Map.Entry<BlockPos,BlockState> entry : capture.getBlocks()){
+            BlockState state = entry.getValue();
+            if(!erroredBlocks.contains(state.getBlock())){
+                try{
+                    renderBlock(fakeLevel, entry.getKey(), entry.getValue(), poseStack, bufferSource);
+                }catch(Exception e){
+                    Rechiseled.LOGGER.error("Encountered an exception whilst rendering block '{}'!", BuiltInRegistries.BLOCK.getKey(state.getBlock()), e);
+                    erroredBlocks.add(state.getBlock());
+                }
+            }
+        }
 
         poseStack.popPose();
 
