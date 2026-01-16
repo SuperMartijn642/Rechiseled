@@ -23,6 +23,9 @@
     ],
     "jei_mod_plugin": [
       "${mod_package}.${just_enough_items_class}"
+    ],
+    "rei_client": [
+      "${mod_package}.${roughly_enough_items_class}"
     ]
   },
   "mixins": [
