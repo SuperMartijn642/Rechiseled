@@ -24,7 +24,7 @@ public class ChiselingREIPlugin implements REIClientPlugin {
 
     @Override
     public void registerDisplays(DisplayRegistry registry){
-        for(ChiselingRecipe recipe : ChiselingRecipeManager.get(true).getAllRecipes()) // TODO validate this is run from the client
+        for(ChiselingRecipe recipe : ChiselingRecipeManager.get(true).getAllRecipes())
             registry.add(new ChiselingRecipeDisplay(recipe));
     }
 }
