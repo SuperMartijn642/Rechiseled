@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "rechiseled:block/emerald_block_bordered_plating",
+    "side": "rechiseled:block/emerald_block_bordered_plating",
+    "top": "rechiseled:block/emerald_block_bordered_plating"
+  }
+}

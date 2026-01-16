@@ -1,0 +1,16 @@
+{
+  "type": "fusion:connecting",
+  "parent": "rechiseled:block/bone_block_pillar_connecting",
+  "connections": {
+    "all": {
+      "type": "fusion:is_same_state"
+    },
+    "down": "#all",
+    "east": "#all",
+    "north": "#all",
+    "south": "#all",
+    "up": "#all",
+    "west": "#all"
+  },
+  "loader": "fusion:model"
+}

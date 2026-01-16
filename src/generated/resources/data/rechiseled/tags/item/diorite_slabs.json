@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:diorite_brick_pattern_slab",
+    "rechiseled:diorite_brick_pattern_slab_connecting",
+    "rechiseled:diorite_brick_paving_slab",
+    "rechiseled:diorite_brick_paving_slab_connecting",
+    "rechiseled:diorite_bricks_slab",
+    "rechiseled:diorite_bricks_slab_connecting",
+    "rechiseled:diorite_diagonal_bricks_slab",
+    "rechiseled:diorite_diagonal_bricks_slab_connecting",
+    "rechiseled:diorite_dotted_slab",
+    "rechiseled:diorite_dotted_slab_connecting",
+    "rechiseled:diorite_paving_slab",
+    "rechiseled:diorite_paving_slab_connecting",
+    "rechiseled:diorite_polished_slab_connecting",
+    "rechiseled:diorite_rotated_bricks_slab",
+    "rechiseled:diorite_rotated_bricks_slab_connecting",
+    "rechiseled:diorite_squares_slab",
+    "rechiseled:diorite_squares_slab_connecting",
+    "rechiseled:diorite_tiles_slab",
+    "rechiseled:diorite_tiles_slab_connecting",
+    "rechiseled:diorite_wavy_slab",
+    "rechiseled:diorite_wavy_slab_connecting"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "rechiseled:block/cobbled_deepslate_brick_paving_slab_bottom"
+    },
+    "type=double": {
+      "model": "rechiseled:block/cobbled_deepslate_brick_paving_slab_double"
+    },
+    "type=top": {
+      "model": "rechiseled:block/cobbled_deepslate_brick_paving_slab_top"
+    }
+  }
+}

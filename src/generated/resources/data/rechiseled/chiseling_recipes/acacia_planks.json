@@ -2,82 +2,196 @@
   "type": "rechiseled:chiseling",
   "entries": [
     {
-      "item": "minecraft:acacia_planks"
+      "block": "minecraft:acacia_planks",
+      "slab": "minecraft:acacia_slab",
+      "slab_worth": 0.5,
+      "stairs": "minecraft:acacia_stairs"
     },
     {
-      "connecting_item": "rechiseled:acacia_planks_beams_connecting",
-      "item": "rechiseled:acacia_planks_beams"
+      "block": "rechiseled:acacia_planks_beams",
+      "connecting_block": "rechiseled:acacia_planks_beams_connecting",
+      "connecting_slab": "rechiseled:acacia_planks_beams_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:acacia_planks_beams_stairs_connecting",
+      "slab": "rechiseled:acacia_planks_beams_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:acacia_planks_beams_stairs"
     },
     {
-      "connecting_item": "rechiseled:acacia_planks_brick_pattern_connecting",
-      "item": "rechiseled:acacia_planks_brick_pattern"
+      "block": "rechiseled:acacia_planks_brick_pattern",
+      "connecting_block": "rechiseled:acacia_planks_brick_pattern_connecting",
+      "connecting_slab": "rechiseled:acacia_planks_brick_pattern_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:acacia_planks_brick_pattern_stairs_connecting",
+      "slab": "rechiseled:acacia_planks_brick_pattern_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:acacia_planks_brick_pattern_stairs"
     },
     {
-      "connecting_item": "rechiseled:acacia_planks_brick_paving_connecting",
-      "item": "rechiseled:acacia_planks_brick_paving"
+      "block": "rechiseled:acacia_planks_brick_paving",
+      "connecting_block": "rechiseled:acacia_planks_brick_paving_connecting",
+      "connecting_slab": "rechiseled:acacia_planks_brick_paving_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:acacia_planks_brick_paving_stairs_connecting",
+      "slab": "rechiseled:acacia_planks_brick_paving_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:acacia_planks_brick_paving_stairs"
     },
     {
-      "connecting_item": "rechiseled:acacia_planks_bricks_connecting",
-      "item": "rechiseled:acacia_planks_bricks"
+      "block": "rechiseled:acacia_planks_bricks",
+      "connecting_block": "rechiseled:acacia_planks_bricks_connecting",
+      "connecting_slab": "rechiseled:acacia_planks_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:acacia_planks_bricks_stairs_connecting",
+      "slab": "rechiseled:acacia_planks_bricks_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:acacia_planks_bricks_stairs"
     },
     {
-      "connecting_item": "rechiseled:acacia_planks_crate_connecting",
-      "item": "rechiseled:acacia_planks_crate"
+      "block": "rechiseled:acacia_planks_crate",
+      "connecting_block": "rechiseled:acacia_planks_crate_connecting",
+      "connecting_slab": "rechiseled:acacia_planks_crate_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:acacia_planks_crate_stairs_connecting",
+      "slab": "rechiseled:acacia_planks_crate_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:acacia_planks_crate_stairs"
     },
     {
-      "connecting_item": "rechiseled:acacia_planks_diagonal_stripes_connecting",
-      "item": "rechiseled:acacia_planks_diagonal_stripes"
+      "block": "rechiseled:acacia_planks_diagonal_stripes",
+      "connecting_block": "rechiseled:acacia_planks_diagonal_stripes_connecting",
+      "connecting_slab": "rechiseled:acacia_planks_diagonal_stripes_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:acacia_planks_diagonal_stripes_stairs_connecting",
+      "slab": "rechiseled:acacia_planks_diagonal_stripes_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:acacia_planks_diagonal_stripes_stairs"
     },
     {
-      "connecting_item": "rechiseled:acacia_planks_diagonal_tiles_connecting",
-      "item": "rechiseled:acacia_planks_diagonal_tiles"
+      "block": "rechiseled:acacia_planks_diagonal_tiles",
+      "connecting_block": "rechiseled:acacia_planks_diagonal_tiles_connecting",
+      "connecting_slab": "rechiseled:acacia_planks_diagonal_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:acacia_planks_diagonal_tiles_stairs_connecting",
+      "slab": "rechiseled:acacia_planks_diagonal_tiles_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:acacia_planks_diagonal_tiles_stairs"
     },
     {
-      "connecting_item": "rechiseled:acacia_planks_dotted_connecting",
-      "item": "rechiseled:acacia_planks_dotted"
+      "block": "rechiseled:acacia_planks_dotted",
+      "connecting_block": "rechiseled:acacia_planks_dotted_connecting",
+      "connecting_slab": "rechiseled:acacia_planks_dotted_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:acacia_planks_dotted_stairs_connecting",
+      "slab": "rechiseled:acacia_planks_dotted_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:acacia_planks_dotted_stairs"
     },
     {
-      "connecting_item": "rechiseled:acacia_planks_flooring_connecting",
-      "item": "rechiseled:acacia_planks_flooring"
+      "block": "rechiseled:acacia_planks_flooring",
+      "connecting_block": "rechiseled:acacia_planks_flooring_connecting",
+      "connecting_slab": "rechiseled:acacia_planks_flooring_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:acacia_planks_flooring_stairs_connecting",
+      "slab": "rechiseled:acacia_planks_flooring_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:acacia_planks_flooring_stairs"
     },
     {
-      "connecting_item": "rechiseled:acacia_planks_large_tiles_connecting",
-      "item": "rechiseled:acacia_planks_large_tiles"
+      "block": "rechiseled:acacia_planks_large_tiles",
+      "connecting_block": "rechiseled:acacia_planks_large_tiles_connecting",
+      "connecting_slab": "rechiseled:acacia_planks_large_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:acacia_planks_large_tiles_stairs_connecting",
+      "slab": "rechiseled:acacia_planks_large_tiles_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:acacia_planks_large_tiles_stairs"
     },
     {
-      "item": "rechiseled:acacia_planks_mosaic"
+      "block": "rechiseled:acacia_planks_mosaic",
+      "slab": "rechiseled:acacia_planks_mosaic_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:acacia_planks_mosaic_stairs"
     },
     {
-      "connecting_item": "rechiseled:acacia_planks_pattern_connecting",
-      "item": "rechiseled:acacia_planks_pattern"
+      "block": "rechiseled:acacia_planks_pattern",
+      "connecting_block": "rechiseled:acacia_planks_pattern_connecting",
+      "connecting_slab": "rechiseled:acacia_planks_pattern_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:acacia_planks_pattern_stairs_connecting",
+      "slab": "rechiseled:acacia_planks_pattern_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:acacia_planks_pattern_stairs"
     },
     {
-      "connecting_item": "rechiseled:acacia_planks_rotated_bricks_connecting",
-      "item": "rechiseled:acacia_planks_rotated_bricks"
+      "block": "rechiseled:acacia_planks_rotated_bricks",
+      "connecting_block": "rechiseled:acacia_planks_rotated_bricks_connecting",
+      "connecting_slab": "rechiseled:acacia_planks_rotated_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:acacia_planks_rotated_bricks_stairs_connecting",
+      "slab": "rechiseled:acacia_planks_rotated_bricks_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:acacia_planks_rotated_bricks_stairs"
     },
     {
-      "connecting_item": "rechiseled:acacia_planks_small_bricks_connecting",
-      "item": "rechiseled:acacia_planks_small_bricks"
+      "block": "rechiseled:acacia_planks_small_bricks",
+      "connecting_block": "rechiseled:acacia_planks_small_bricks_connecting",
+      "connecting_slab": "rechiseled:acacia_planks_small_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:acacia_planks_small_bricks_stairs_connecting",
+      "slab": "rechiseled:acacia_planks_small_bricks_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:acacia_planks_small_bricks_stairs"
     },
     {
-      "connecting_item": "rechiseled:acacia_planks_small_tiles_connecting",
-      "item": "rechiseled:acacia_planks_small_tiles"
+      "block": "rechiseled:acacia_planks_small_tiles",
+      "connecting_block": "rechiseled:acacia_planks_small_tiles_connecting",
+      "connecting_slab": "rechiseled:acacia_planks_small_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:acacia_planks_small_tiles_stairs_connecting",
+      "slab": "rechiseled:acacia_planks_small_tiles_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:acacia_planks_small_tiles_stairs"
     },
     {
-      "connecting_item": "rechiseled:acacia_planks_squares_connecting",
-      "item": "rechiseled:acacia_planks_squares"
+      "block": "rechiseled:acacia_planks_squares",
+      "connecting_block": "rechiseled:acacia_planks_squares_connecting",
+      "connecting_slab": "rechiseled:acacia_planks_squares_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:acacia_planks_squares_stairs_connecting",
+      "slab": "rechiseled:acacia_planks_squares_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:acacia_planks_squares_stairs"
     },
     {
-      "connecting_item": "rechiseled:acacia_planks_tiles_connecting",
-      "item": "rechiseled:acacia_planks_tiles"
+      "block": "rechiseled:acacia_planks_tiles",
+      "connecting_block": "rechiseled:acacia_planks_tiles_connecting",
+      "connecting_slab": "rechiseled:acacia_planks_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:acacia_planks_tiles_stairs_connecting",
+      "slab": "rechiseled:acacia_planks_tiles_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:acacia_planks_tiles_stairs"
     },
     {
-      "connecting_item": "rechiseled:acacia_planks_wavy_connecting",
-      "item": "rechiseled:acacia_planks_wavy"
+      "block": "rechiseled:acacia_planks_wavy",
+      "connecting_block": "rechiseled:acacia_planks_wavy_connecting",
+      "connecting_slab": "rechiseled:acacia_planks_wavy_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:acacia_planks_wavy_stairs_connecting",
+      "slab": "rechiseled:acacia_planks_wavy_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:acacia_planks_wavy_stairs"
     },
     {
-      "connecting_item": "rechiseled:acacia_planks_woven_connecting",
-      "item": "rechiseled:acacia_planks_woven"
+      "block": "rechiseled:acacia_planks_woven",
+      "connecting_block": "rechiseled:acacia_planks_woven_connecting",
+      "connecting_slab": "rechiseled:acacia_planks_woven_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:acacia_planks_woven_stairs_connecting",
+      "slab": "rechiseled:acacia_planks_woven_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:acacia_planks_woven_stairs"
     }
   ],
   "overwrite": false

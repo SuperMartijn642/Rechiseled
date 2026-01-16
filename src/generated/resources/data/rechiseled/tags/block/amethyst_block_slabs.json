@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:amethyst_block_beams_slab",
+    "rechiseled:amethyst_block_beams_slab_connecting",
+    "rechiseled:amethyst_block_bordered_diagonal_tiles_slab",
+    "rechiseled:amethyst_block_bordered_diagonal_tiles_slab_connecting",
+    "rechiseled:amethyst_block_bricks_slab",
+    "rechiseled:amethyst_block_bricks_slab_connecting",
+    "rechiseled:amethyst_block_cut_slab",
+    "rechiseled:amethyst_block_cut_slab_connecting",
+    "rechiseled:amethyst_block_diagonal_tiles_slab",
+    "rechiseled:amethyst_block_edged_slab",
+    "rechiseled:amethyst_block_edged_slab_connecting",
+    "rechiseled:amethyst_block_jewel_slab",
+    "rechiseled:amethyst_block_pillar_slab",
+    "rechiseled:amethyst_block_pillar_slab_connecting",
+    "rechiseled:amethyst_block_polished_slab",
+    "rechiseled:amethyst_block_polished_slab_connecting",
+    "rechiseled:amethyst_block_shiny_slab",
+    "rechiseled:amethyst_block_shiny_slab_connecting",
+    "rechiseled:amethyst_block_smooth_slab",
+    "rechiseled:amethyst_block_tiles_slab",
+    "rechiseled:amethyst_block_tiles_slab_connecting"
+  ]
+}
