@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "rechiseled:block/redstone_block_smooth_slab_bottom"
+    },
+    "type=double": {
+      "model": "rechiseled:block/redstone_block_smooth_slab_double"
+    },
+    "type=top": {
+      "model": "rechiseled:block/redstone_block_smooth_slab_top"
+    }
+  }
+}

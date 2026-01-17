@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:nether_bricks_beams_stairs",
+    "rechiseled:nether_bricks_beams_stairs_connecting",
+    "rechiseled:nether_bricks_brick_pattern_stairs",
+    "rechiseled:nether_bricks_brick_pattern_stairs_connecting",
+    "rechiseled:nether_bricks_brick_paving_stairs",
+    "rechiseled:nether_bricks_brick_paving_stairs_connecting",
+    "rechiseled:nether_bricks_chiseled_squares_stairs",
+    "rechiseled:nether_bricks_chiseled_squares_stairs_connecting",
+    "rechiseled:nether_bricks_diagonal_bricks_stairs",
+    "rechiseled:nether_bricks_diagonal_bricks_stairs_connecting",
+    "rechiseled:nether_bricks_large_bricks_stairs",
+    "rechiseled:nether_bricks_large_bricks_stairs_connecting",
+    "rechiseled:nether_bricks_large_tiles_stairs",
+    "rechiseled:nether_bricks_large_tiles_stairs_connecting",
+    "rechiseled:nether_bricks_rotated_bricks_stairs",
+    "rechiseled:nether_bricks_rotated_bricks_stairs_connecting",
+    "rechiseled:nether_bricks_small_tiles_stairs",
+    "rechiseled:nether_bricks_small_tiles_stairs_connecting",
+    "rechiseled:nether_bricks_smooth_stairs",
+    "rechiseled:nether_bricks_smooth_stairs_connecting",
+    "rechiseled:nether_bricks_squares_stairs",
+    "rechiseled:nether_bricks_squares_stairs_connecting",
+    "rechiseled:nether_bricks_tiles_stairs",
+    "rechiseled:nether_bricks_tiles_stairs_connecting"
+  ]
+}

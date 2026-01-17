@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "rechiseled:block/mossy_cobblestone_beams_slab_bottom"
+    },
+    "type=double": {
+      "model": "rechiseled:block/mossy_cobblestone_beams_slab_double"
+    },
+    "type=top": {
+      "model": "rechiseled:block/mossy_cobblestone_beams_slab_top"
+    }
+  }
+}

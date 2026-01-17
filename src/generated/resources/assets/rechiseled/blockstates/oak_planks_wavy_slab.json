@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "rechiseled:block/oak_planks_wavy_slab_bottom"
+    },
+    "type=double": {
+      "model": "rechiseled:block/oak_planks_wavy_slab_double"
+    },
+    "type=top": {
+      "model": "rechiseled:block/oak_planks_wavy_slab_top"
+    }
+  }
+}

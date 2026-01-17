@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:basalt_beams_stairs",
+    "rechiseled:basalt_beams_stairs_connecting",
+    "rechiseled:basalt_bordered_polished_stairs",
+    "rechiseled:basalt_bordered_polished_stairs_connecting",
+    "rechiseled:basalt_bordered_stairs",
+    "rechiseled:basalt_bordered_stairs_connecting",
+    "rechiseled:basalt_bricks_stairs",
+    "rechiseled:basalt_bricks_stairs_connecting",
+    "rechiseled:basalt_chiseled_piglin_stairs",
+    "rechiseled:basalt_diagonal_tiles_stairs",
+    "rechiseled:basalt_diagonal_tiles_stairs_connecting",
+    "rechiseled:basalt_pattern_stairs",
+    "rechiseled:basalt_pattern_stairs_connecting",
+    "rechiseled:basalt_patterned_stairs",
+    "rechiseled:basalt_patterned_stairs_connecting",
+    "rechiseled:basalt_tiles_stairs",
+    "rechiseled:basalt_tiles_stairs_connecting"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "rechiseled:block/diamond_block_jewel_block",
+    "side": "rechiseled:block/diamond_block_jewel_block",
+    "top": "rechiseled:block/diamond_block_jewel_block"
+  }
+}
