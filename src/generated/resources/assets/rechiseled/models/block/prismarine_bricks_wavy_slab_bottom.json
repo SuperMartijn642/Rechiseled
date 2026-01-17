@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "rechiseled:block/prismarine_bricks_wavy",
+    "side": "rechiseled:block/prismarine_bricks_wavy",
+    "top": "rechiseled:block/prismarine_bricks_wavy"
+  }
+}

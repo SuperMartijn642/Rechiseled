@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "rechiseled:block/dark_oak_planks_tiles_slab_connecting_bottom"
+    },
+    "type=double": {
+      "model": "rechiseled:block/dark_oak_planks_tiles_slab_connecting_double"
+    },
+    "type=top": {
+      "model": "rechiseled:block/dark_oak_planks_tiles_slab_connecting_top"
+    }
+  }
+}
