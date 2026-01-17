@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "rechiseled:block/oak_planks_woven",
+    "side": "rechiseled:block/oak_planks_woven",
+    "top": "rechiseled:block/oak_planks_woven"
+  }
+}

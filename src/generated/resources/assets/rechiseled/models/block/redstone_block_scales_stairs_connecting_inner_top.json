@@ -1,0 +1,138 @@
+{
+  "type": "fusion:connecting",
+  "parent": "rechiseled:block/inner_stairs_top",
+  "connections": {
+    "bottom": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:redstone_block_scales_connecting"
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:redstone_block_scales_stairs_connecting"
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:redstone_block_scales_slab_connecting"
+        }
+      ]
+    },
+    "side": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:redstone_block_scales_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:redstone_block_scales_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:redstone_block_scales_stairs_connecting"
+        },
+        {
+          "type": "fusion:and",
+          "predicates": [
+            {
+              "type": "fusion:is_direction",
+              "directions": [
+                "top",
+                "top_left",
+                "top_right"
+              ]
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:redstone_block_scales_slab_connecting",
+              "properties": {
+                "type": [
+                  "bottom"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:and",
+          "predicates": [
+            {
+              "type": "fusion:is_direction",
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right",
+                "left",
+                "right"
+              ]
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:redstone_block_scales_slab_connecting",
+              "properties": {
+                "type": [
+                  "top"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "top": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:redstone_block_scales_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:redstone_block_scales_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:redstone_block_scales_stairs_connecting"
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "rechiseled:redstone_block_scales_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "loader": "fusion:model",
+  "textures": {
+    "bottom": "rechiseled:block/redstone_block_scales",
+    "side": "rechiseled:block/redstone_block_scales",
+    "top": "rechiseled:block/redstone_block_scales"
+  }
+}
