@@ -15,7 +15,7 @@ import net.minecraft.world.item.ItemStack;
  */
 public class ChiselItemRenderer implements CustomItemRenderer {
 
-    private static final ThreadLocal<Boolean> RECURSION_GUARD = ThreadLocal.withInitial(() -> false);
+    private static final ThreadLocal<Boolean> RECURSION_GUARD = new ThreadLocal<>();
 
     @Override
     public void render(ItemStack stack, ItemDisplayContext transformType, PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int combinedOverlay){
