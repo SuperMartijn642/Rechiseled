@@ -5,7 +5,8 @@ import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.BaseWidget;
 import com.supermartijn642.rechiseled.Rechiseled;
-import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -42,7 +43,8 @@ public class EntryButtonWidget extends BaseWidget {
         ChiselingEntry entry = this.entry.get();
         if(entry == null)
             return null;
-        Item item = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
+        Item item = (this.connecting.get() && entry.hasConnectingItem(ChiselingBlockShape.BLOCK)) || !entry.hasRegularItem(ChiselingBlockShape.BLOCK) ? entry.getConnectingItem(ChiselingBlockShape.BLOCK) : entry.getRegularItem(ChiselingBlockShape.BLOCK);
+        //noinspection DataFlowIssue
         return TextComponents.translation("rechiseled.chiseling.select_block", TextComponents.item(item).get()).get();
     }
 
@@ -52,13 +54,13 @@ public class EntryButtonWidget extends BaseWidget {
 
         boolean hasEntry = entry != null;
         boolean selected = hasEntry && this.selectedEntry.get() == entry;
-        boolean hasCorrectItem = hasEntry && (this.connecting.get() ? entry.hasConnectingItem() : entry.hasRegularItem());
+        boolean hasCorrectItem = hasEntry && (this.connecting.get() ? entry.hasConnectingItem(ChiselingBlockShape.BLOCK) : entry.hasRegularItem(ChiselingBlockShape.BLOCK));
 
         ScreenUtils.bindTexture(TEXTURE);
         ScreenUtils.drawTexture(poseStack, this.x, this.y, this.width, this.height, 0, (selected ? 1 : hasEntry ? hasCorrectItem ? this.isFocused() ? 2 : 0 : this.isFocused() ? 4 : 3 : 0) / 5f, 1, 1 / 5f);
 
         if(hasEntry){
-            Item item = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
+            Item item = (this.connecting.get() && entry.hasConnectingItem(ChiselingBlockShape.BLOCK)) || !entry.hasRegularItem(ChiselingBlockShape.BLOCK) ? entry.getConnectingItem(ChiselingBlockShape.BLOCK) : entry.getRegularItem(ChiselingBlockShape.BLOCK);
             if(item instanceof BlockItem){
                 BlockCapture capture = new BlockCapture(((BlockItem)item).getBlock());
                 ScreenBlockRenderer.drawBlock(capture, this.x + this.width / 2d, this.y + this.height / 2d, this.width, 135, 40, true);

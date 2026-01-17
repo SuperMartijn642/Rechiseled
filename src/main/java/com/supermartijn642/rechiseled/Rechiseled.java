@@ -9,7 +9,8 @@ import com.supermartijn642.core.registry.RegistrationHandler;
 import com.supermartijn642.core.registry.RegistryEntryAcceptor;
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockType;
 import com.supermartijn642.rechiseled.api.registration.RechiseledRegistration;
-import com.supermartijn642.rechiseled.chiseling.PacketChiselingRecipes;
+import com.supermartijn642.rechiseled.chiseling.ChiselingRecipeDatapackPlugin;
+import com.supermartijn642.rechiseled.chiseling.PacketUpdateChiselingRecipes;
 import com.supermartijn642.rechiseled.data.RechiseledItemModelGenerator;
 import com.supermartijn642.rechiseled.data.RechiseledLanguageGenerator;
 import com.supermartijn642.rechiseled.data.RechiseledRecipeGenerator;
@@ -22,6 +23,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,6 +32,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Consumer;
 
 /**
  * Created 7/7/2020 by SuperMartijn642
@@ -67,7 +71,9 @@ public class Rechiseled {
         CHANNEL.registerMessage(PacketSelectEntry.class, PacketSelectEntry::new, true);
         CHANNEL.registerMessage(PacketToggleConnecting.class, PacketToggleConnecting::new, true);
         CHANNEL.registerMessage(PacketChiselAll.class, PacketChiselAll::new, true);
-        CHANNEL.registerMessage(PacketChiselingRecipes.class, PacketChiselingRecipes::new, true);
+        CHANNEL.registerMessage(PacketUpdateChiselingRecipes.class, PacketUpdateChiselingRecipes::new, true);
+
+        MinecraftForge.EVENT_BUS.addListener((Consumer<AddReloadListenerEvent>)e -> e.addListener(ChiselingRecipeDatapackPlugin.INSTANCE));
 
         register();
         if(CommonUtils.getEnvironmentSide().isClient())

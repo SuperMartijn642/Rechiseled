@@ -2,8 +2,9 @@ package com.supermartijn642.rechiseled.compat.jei;
 
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.rechiseled.Rechiseled;
-import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
-import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipe;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -67,15 +68,19 @@ public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipe>
         List<ItemStack> inputs = new ArrayList<>();
         List<List<ItemStack>> outputs = new ArrayList<>();
 
-        for(ChiselingEntry entry : recipe.getEntries()){
+        for(ChiselingEntry entry : recipe.entries()){
             List<ItemStack> output = new ArrayList<>();
-            if(entry.hasRegularItem()){
-                inputs.add(new ItemStack(entry.getRegularItem()));
-                output.add(new ItemStack(entry.getRegularItem()));
+            if(entry.hasRegularItem(ChiselingBlockShape.BLOCK)){
+                //noinspection DataFlowIssue
+                inputs.add(new ItemStack(entry.getRegularItem(ChiselingBlockShape.BLOCK)));
+                //noinspection DataFlowIssue
+                output.add(new ItemStack(entry.getRegularItem(ChiselingBlockShape.BLOCK)));
             }
-            if(entry.hasConnectingItem()){
-                inputs.add(new ItemStack(entry.getConnectingItem()));
-                output.add(new ItemStack(entry.getConnectingItem()));
+            if(entry.hasConnectingItem(ChiselingBlockShape.BLOCK)){
+                //noinspection DataFlowIssue
+                inputs.add(new ItemStack(entry.getConnectingItem(ChiselingBlockShape.BLOCK)));
+                //noinspection DataFlowIssue
+                output.add(new ItemStack(entry.getConnectingItem(ChiselingBlockShape.BLOCK)));
             }
             outputs.add(output);
         }
