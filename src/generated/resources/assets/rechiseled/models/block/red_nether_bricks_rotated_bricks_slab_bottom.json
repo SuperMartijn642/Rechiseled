@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "rechiseled:block/red_nether_bricks_rotated_bricks",
+    "side": "rechiseled:block/red_nether_bricks_rotated_bricks",
+    "top": "rechiseled:block/red_nether_bricks_rotated_bricks"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:dark_prismarine_beams_slab",
+    "rechiseled:dark_prismarine_beams_slab_connecting",
+    "rechiseled:dark_prismarine_brick_paving_slab",
+    "rechiseled:dark_prismarine_brick_paving_slab_connecting",
+    "rechiseled:dark_prismarine_bricks_slab",
+    "rechiseled:dark_prismarine_bricks_slab_connecting",
+    "rechiseled:dark_prismarine_dotted_slab",
+    "rechiseled:dark_prismarine_dotted_slab_connecting",
+    "rechiseled:dark_prismarine_fabric_slab",
+    "rechiseled:dark_prismarine_fabric_slab_connecting",
+    "rechiseled:dark_prismarine_large_tiles_slab",
+    "rechiseled:dark_prismarine_large_tiles_slab_connecting",
+    "rechiseled:dark_prismarine_rotated_bricks_slab",
+    "rechiseled:dark_prismarine_rotated_bricks_slab_connecting",
+    "rechiseled:dark_prismarine_rows_slab",
+    "rechiseled:dark_prismarine_rows_slab_connecting",
+    "rechiseled:dark_prismarine_squares_slab",
+    "rechiseled:dark_prismarine_squares_slab_connecting",
+    "rechiseled:dark_prismarine_tiles_slab",
+    "rechiseled:dark_prismarine_tiles_slab_connecting",
+    "rechiseled:dark_prismarine_wavy_slab",
+    "rechiseled:dark_prismarine_wavy_slab_connecting",
+    "rechiseled:dark_prismarine_woven_slab",
+    "rechiseled:dark_prismarine_woven_slab_connecting"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/birch_planks_bricks",
+    "side": "rechiseled:block/birch_planks_bricks",
+    "top": "rechiseled:block/birch_planks_bricks"
+  }
+}

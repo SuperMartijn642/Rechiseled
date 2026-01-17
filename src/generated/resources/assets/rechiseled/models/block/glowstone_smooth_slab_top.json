@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "rechiseled:block/glowstone_smooth",
+    "side": "rechiseled:block/glowstone_smooth",
+    "top": "rechiseled:block/glowstone_smooth"
+  }
+}

@@ -2,72 +2,165 @@
   "type": "rechiseled:chiseling",
   "entries": [
     {
-      "connecting_item": "rechiseled:lapis_block_bordered_connecting",
-      "item": "rechiseled:lapis_block_bordered"
+      "block": "rechiseled:lapis_block_bordered",
+      "connecting_block": "rechiseled:lapis_block_bordered_connecting",
+      "connecting_slab": "rechiseled:lapis_block_bordered_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:lapis_block_bordered_stairs_connecting",
+      "slab": "rechiseled:lapis_block_bordered_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:lapis_block_bordered_stairs"
     },
     {
-      "connecting_item": "rechiseled:lapis_block_chiseled_connecting",
-      "item": "rechiseled:lapis_block_chiseled"
+      "block": "rechiseled:lapis_block_chiseled",
+      "connecting_block": "rechiseled:lapis_block_chiseled_connecting",
+      "connecting_slab": "rechiseled:lapis_block_chiseled_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:lapis_block_chiseled_stairs_connecting",
+      "slab": "rechiseled:lapis_block_chiseled_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:lapis_block_chiseled_stairs"
     },
     {
-      "item": "rechiseled:lapis_block_cobbled"
+      "block": "rechiseled:lapis_block_cobbled",
+      "slab": "rechiseled:lapis_block_cobbled_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:lapis_block_cobbled_stairs"
     },
     {
-      "connecting_item": "rechiseled:lapis_block_connecting_connecting",
-      "item": "minecraft:lapis_block"
+      "block": "minecraft:lapis_block",
+      "connecting_block": "rechiseled:lapis_block_connecting_connecting",
+      "connecting_slab": "rechiseled:lapis_block_connecting_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:lapis_block_connecting_stairs_connecting"
     },
     {
-      "item": "rechiseled:lapis_block_crushed"
+      "block": "rechiseled:lapis_block_crushed",
+      "slab": "rechiseled:lapis_block_crushed_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:lapis_block_crushed_stairs"
     },
     {
-      "connecting_item": "rechiseled:lapis_block_decorated_connecting",
-      "item": "rechiseled:lapis_block_decorated"
+      "block": "rechiseled:lapis_block_decorated",
+      "connecting_block": "rechiseled:lapis_block_decorated_connecting",
+      "connecting_slab": "rechiseled:lapis_block_decorated_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:lapis_block_decorated_stairs_connecting",
+      "slab": "rechiseled:lapis_block_decorated_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:lapis_block_decorated_stairs"
     },
     {
-      "connecting_item": "rechiseled:lapis_block_glossy_connecting",
-      "item": "rechiseled:lapis_block_glossy"
+      "block": "rechiseled:lapis_block_glossy",
+      "connecting_block": "rechiseled:lapis_block_glossy_connecting",
+      "connecting_slab": "rechiseled:lapis_block_glossy_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:lapis_block_glossy_stairs_connecting",
+      "slab": "rechiseled:lapis_block_glossy_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:lapis_block_glossy_stairs"
     },
     {
-      "connecting_item": "rechiseled:lapis_block_inverted_tiles_connecting",
-      "item": "rechiseled:lapis_block_inverted_tiles"
+      "block": "rechiseled:lapis_block_inverted_tiles",
+      "connecting_block": "rechiseled:lapis_block_inverted_tiles_connecting",
+      "connecting_slab": "rechiseled:lapis_block_inverted_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:lapis_block_inverted_tiles_stairs_connecting",
+      "slab": "rechiseled:lapis_block_inverted_tiles_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:lapis_block_inverted_tiles_stairs"
     },
     {
-      "connecting_item": "rechiseled:lapis_block_mosaic_connecting",
-      "item": "rechiseled:lapis_block_mosaic"
+      "block": "rechiseled:lapis_block_mosaic",
+      "connecting_block": "rechiseled:lapis_block_mosaic_connecting",
+      "connecting_slab": "rechiseled:lapis_block_mosaic_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:lapis_block_mosaic_stairs_connecting",
+      "slab": "rechiseled:lapis_block_mosaic_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:lapis_block_mosaic_stairs"
     },
     {
-      "connecting_item": "rechiseled:lapis_block_pattern_connecting",
-      "item": "rechiseled:lapis_block_pattern"
+      "block": "rechiseled:lapis_block_pattern",
+      "connecting_block": "rechiseled:lapis_block_pattern_connecting",
+      "connecting_slab": "rechiseled:lapis_block_pattern_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:lapis_block_pattern_stairs_connecting",
+      "slab": "rechiseled:lapis_block_pattern_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:lapis_block_pattern_stairs"
     },
     {
-      "connecting_item": "rechiseled:lapis_block_pillar_connecting",
-      "item": "rechiseled:lapis_block_pillar"
+      "block": "rechiseled:lapis_block_pillar",
+      "connecting_block": "rechiseled:lapis_block_pillar_connecting",
+      "connecting_slab": "rechiseled:lapis_block_pillar_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:lapis_block_pillar_stairs_connecting",
+      "slab": "rechiseled:lapis_block_pillar_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:lapis_block_pillar_stairs"
     },
     {
-      "connecting_item": "rechiseled:lapis_block_polished_connecting",
-      "item": "rechiseled:lapis_block_polished"
+      "block": "rechiseled:lapis_block_polished",
+      "connecting_block": "rechiseled:lapis_block_polished_connecting",
+      "connecting_slab": "rechiseled:lapis_block_polished_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:lapis_block_polished_stairs_connecting",
+      "slab": "rechiseled:lapis_block_polished_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:lapis_block_polished_stairs"
     },
     {
-      "connecting_item": "rechiseled:lapis_block_scales_connecting",
-      "item": "rechiseled:lapis_block_scales"
+      "block": "rechiseled:lapis_block_scales",
+      "connecting_block": "rechiseled:lapis_block_scales_connecting",
+      "connecting_slab": "rechiseled:lapis_block_scales_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:lapis_block_scales_stairs_connecting",
+      "slab": "rechiseled:lapis_block_scales_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:lapis_block_scales_stairs"
     },
     {
-      "connecting_item": "rechiseled:lapis_block_small_tiles_connecting",
-      "item": "rechiseled:lapis_block_small_tiles"
+      "block": "rechiseled:lapis_block_small_tiles",
+      "connecting_block": "rechiseled:lapis_block_small_tiles_connecting",
+      "connecting_slab": "rechiseled:lapis_block_small_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:lapis_block_small_tiles_stairs_connecting",
+      "slab": "rechiseled:lapis_block_small_tiles_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:lapis_block_small_tiles_stairs"
     },
     {
-      "item": "rechiseled:lapis_block_smooth"
+      "block": "rechiseled:lapis_block_smooth",
+      "slab": "rechiseled:lapis_block_smooth_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:lapis_block_smooth_stairs"
     },
     {
-      "connecting_item": "rechiseled:lapis_block_stripes_connecting",
-      "item": "rechiseled:lapis_block_stripes"
+      "block": "rechiseled:lapis_block_stripes",
+      "connecting_block": "rechiseled:lapis_block_stripes_connecting",
+      "connecting_slab": "rechiseled:lapis_block_stripes_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:lapis_block_stripes_stairs_connecting",
+      "slab": "rechiseled:lapis_block_stripes_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:lapis_block_stripes_stairs"
     },
     {
-      "item": "rechiseled:lapis_block_swirling"
+      "block": "rechiseled:lapis_block_swirling",
+      "slab": "rechiseled:lapis_block_swirling_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:lapis_block_swirling_stairs"
     },
     {
-      "connecting_item": "rechiseled:lapis_block_tiles_connecting",
-      "item": "rechiseled:lapis_block_tiles"
+      "block": "rechiseled:lapis_block_tiles",
+      "connecting_block": "rechiseled:lapis_block_tiles_connecting",
+      "connecting_slab": "rechiseled:lapis_block_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:lapis_block_tiles_stairs_connecting",
+      "slab": "rechiseled:lapis_block_tiles_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:lapis_block_tiles_stairs"
     }
   ],
   "overwrite": false
