@@ -8,8 +8,8 @@ import com.supermartijn642.core.registry.RegistrationHandler;
 import com.supermartijn642.core.registry.RegistryEntryAcceptor;
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockType;
 import com.supermartijn642.rechiseled.api.registration.RechiseledRegistration;
-import com.supermartijn642.rechiseled.chiseling.ChiselingRecipeLoader;
-import com.supermartijn642.rechiseled.chiseling.PacketChiselingRecipes;
+import com.supermartijn642.rechiseled.chiseling.ChiselingRecipeDatapackPlugin;
+import com.supermartijn642.rechiseled.chiseling.PacketUpdateChiselingRecipes;
 import com.supermartijn642.rechiseled.data.RechiseledItemModelGenerator;
 import com.supermartijn642.rechiseled.data.RechiseledLanguageGenerator;
 import com.supermartijn642.rechiseled.data.RechiseledRecipeGenerator;
@@ -19,7 +19,9 @@ import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
 import com.supermartijn642.rechiseled.packet.PacketToggleConnecting;
 import com.supermartijn642.rechiseled.screen.ChiselContainer;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackType;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -67,9 +69,9 @@ public class Rechiseled implements ModInitializer {
         CHANNEL.registerMessage(PacketSelectEntry.class, PacketSelectEntry::new, true);
         CHANNEL.registerMessage(PacketToggleConnecting.class, PacketToggleConnecting::new, true);
         CHANNEL.registerMessage(PacketChiselAll.class, PacketChiselAll::new, true);
-        CHANNEL.registerMessage(PacketChiselingRecipes.class, PacketChiselingRecipes::new, true);
+        CHANNEL.registerMessage(PacketUpdateChiselingRecipes.class, PacketUpdateChiselingRecipes::new, true);
 
-        ChiselingRecipeLoader.addListeners();
+        ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(ChiselingRecipeDatapackPlugin.INSTANCE);
 
         register();
         registerGenerators();
