@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "rechiseled:block/iron_block_sheets",
+    "side": "rechiseled:block/iron_block_sheets",
+    "top": "rechiseled:block/iron_block_sheets"
+  }
+}

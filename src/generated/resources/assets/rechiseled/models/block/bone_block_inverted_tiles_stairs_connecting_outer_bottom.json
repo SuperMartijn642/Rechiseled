@@ -1,0 +1,138 @@
+{
+  "type": "fusion:connecting",
+  "parent": "minecraft:block/outer_stairs",
+  "connections": {
+    "bottom": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:bone_block_inverted_tiles_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:bone_block_inverted_tiles_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:bone_block_inverted_tiles_stairs_connecting"
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "rechiseled:bone_block_inverted_tiles_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          }
+        }
+      ]
+    },
+    "side": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:bone_block_inverted_tiles_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:bone_block_inverted_tiles_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:bone_block_inverted_tiles_stairs_connecting"
+        },
+        {
+          "type": "fusion:and",
+          "predicates": [
+            {
+              "type": "fusion:is_direction",
+              "directions": [
+                "left",
+                "right",
+                "top",
+                "top_left",
+                "top_right"
+              ]
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:bone_block_inverted_tiles_slab_connecting",
+              "properties": {
+                "type": [
+                  "bottom"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:and",
+          "predicates": [
+            {
+              "type": "fusion:is_direction",
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right"
+              ]
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:bone_block_inverted_tiles_slab_connecting",
+              "properties": {
+                "type": [
+                  "top"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "top": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:bone_block_inverted_tiles_connecting"
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:bone_block_inverted_tiles_stairs_connecting"
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:bone_block_inverted_tiles_slab_connecting"
+        }
+      ]
+    }
+  },
+  "loader": "fusion:model",
+  "textures": {
+    "bottom": "rechiseled:block/bone_block_inverted_tiles",
+    "side": "rechiseled:block/bone_block_inverted_tiles",
+    "top": "rechiseled:block/bone_block_inverted_tiles"
+  }
+}

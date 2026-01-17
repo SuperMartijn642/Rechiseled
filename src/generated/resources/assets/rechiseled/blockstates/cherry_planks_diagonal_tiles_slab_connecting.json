@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "rechiseled:block/cherry_planks_diagonal_tiles_slab_connecting_bottom"
+    },
+    "type=double": {
+      "model": "rechiseled:block/cherry_planks_diagonal_tiles_slab_connecting_double"
+    },
+    "type=top": {
+      "model": "rechiseled:block/cherry_planks_diagonal_tiles_slab_connecting_top"
+    }
+  }
+}
