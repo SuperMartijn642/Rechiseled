@@ -1,7 +1,7 @@
 {
   "variants": {
     "axis=x": {
-      "model": "rechiseled:block/bone_block_pillar_connecting",
+      "model": "rechiseled:block/bone_block_pillar_connecting_horizontal",
       "x": 90,
       "y": 90
     },
@@ -9,7 +9,7 @@
       "model": "rechiseled:block/bone_block_pillar_connecting"
     },
     "axis=z": {
-      "model": "rechiseled:block/bone_block_pillar_connecting",
+      "model": "rechiseled:block/bone_block_pillar_connecting_horizontal",
       "x": 90
     }
   }

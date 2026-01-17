@@ -1,0 +1,32 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:dirt_blobs_stairs",
+    "rechiseled:dirt_blobs_stairs_connecting",
+    "rechiseled:dirt_bricks_stairs",
+    "rechiseled:dirt_bricks_stairs_connecting",
+    "rechiseled:dirt_chunks_stairs",
+    "rechiseled:dirt_chunks_stairs_connecting",
+    "rechiseled:dirt_clumps_stairs",
+    "rechiseled:dirt_clumps_stairs_connecting",
+    "rechiseled:dirt_cobbled_stairs",
+    "rechiseled:dirt_grooves_stairs",
+    "rechiseled:dirt_large_tiles_stairs",
+    "rechiseled:dirt_large_tiles_stairs_connecting",
+    "rechiseled:dirt_muddy_stairs",
+    "rechiseled:dirt_small_bricks_stairs",
+    "rechiseled:dirt_small_bricks_stairs_connecting",
+    "rechiseled:dirt_small_tiles_stairs",
+    "rechiseled:dirt_small_tiles_stairs_connecting",
+    "rechiseled:dirt_smooth_clumps_stairs",
+    "rechiseled:dirt_smooth_clumps_stairs_connecting",
+    "rechiseled:dirt_soil_stairs",
+    "rechiseled:dirt_soil_stairs_connecting",
+    "rechiseled:dirt_squares_stairs",
+    "rechiseled:dirt_squares_stairs_connecting",
+    "rechiseled:dirt_tiles_stairs",
+    "rechiseled:dirt_tiles_stairs_connecting",
+    "rechiseled:dirt_tilled_stairs",
+    "rechiseled:dirt_tilled_stairs_connecting"
+  ]
+}

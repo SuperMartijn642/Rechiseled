@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:amethyst_block_beams_stairs",
+    "rechiseled:amethyst_block_beams_stairs_connecting",
+    "rechiseled:amethyst_block_bordered_diagonal_tiles_stairs",
+    "rechiseled:amethyst_block_bordered_diagonal_tiles_stairs_connecting",
+    "rechiseled:amethyst_block_bricks_stairs",
+    "rechiseled:amethyst_block_bricks_stairs_connecting",
+    "rechiseled:amethyst_block_cut_stairs",
+    "rechiseled:amethyst_block_cut_stairs_connecting",
+    "rechiseled:amethyst_block_diagonal_tiles_stairs",
+    "rechiseled:amethyst_block_edged_stairs",
+    "rechiseled:amethyst_block_edged_stairs_connecting",
+    "rechiseled:amethyst_block_jewel_stairs",
+    "rechiseled:amethyst_block_pillar_stairs",
+    "rechiseled:amethyst_block_pillar_stairs_connecting",
+    "rechiseled:amethyst_block_polished_stairs",
+    "rechiseled:amethyst_block_polished_stairs_connecting",
+    "rechiseled:amethyst_block_shiny_stairs",
+    "rechiseled:amethyst_block_shiny_stairs_connecting",
+    "rechiseled:amethyst_block_smooth_stairs",
+    "rechiseled:amethyst_block_tiles_stairs",
+    "rechiseled:amethyst_block_tiles_stairs_connecting"
+  ]
+}

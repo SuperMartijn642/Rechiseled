@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "rechiseled:block/blackstone_tiles",
+    "side": "rechiseled:block/blackstone_tiles",
+    "top": "rechiseled:block/blackstone_tiles"
+  }
+}
