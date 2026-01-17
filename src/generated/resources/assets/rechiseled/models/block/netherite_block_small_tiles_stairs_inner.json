@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/netherite_block_small_tiles",
+    "side": "rechiseled:block/netherite_block_small_tiles",
+    "top": "rechiseled:block/netherite_block_small_tiles"
+  }
+}

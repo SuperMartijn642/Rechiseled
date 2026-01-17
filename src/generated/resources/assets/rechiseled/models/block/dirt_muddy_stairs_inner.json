@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/dirt_muddy",
+    "side": "rechiseled:block/dirt_muddy",
+    "top": "rechiseled:block/dirt_muddy"
+  }
+}
