@@ -143,20 +143,6 @@ public abstract class ChiselingRecipeProvider implements DataProvider {
         }
 
         /**
-         * Sets a parent recipe for this recipe builder.
-         * All entries from this recipe builder will be combined with the parent recipe.
-         * {@link BaseChiselingRecipes} contains recipe locations for the default rechiseled recipes.
-         * @param parent the parent recipe location
-         * @throws IllegalArgumentException when {@code parent} recipe does not exist
-         * @deprecated
-         */
-        @Deprecated(forRemoval = true)
-        public ChiselingRecipeBuilder parent(ResourceLocation parent){
-            this.parent = parent;
-            return this;
-        }
-
-        /**
          * Sets the overwrite flag for this recipe builder.
          * If overwrite is true, any entries that came before this one in the resource stack will be discarded.
          * The overwrite flag works similarly to the 'replace' key for tags.
