@@ -1,0 +1,31 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:iron_block_bordered_slab",
+    "rechiseled:iron_block_bordered_slab_connecting",
+    "rechiseled:iron_block_chiseled_slab",
+    "rechiseled:iron_block_chiseled_slab_connecting",
+    "rechiseled:iron_block_connecting_slab_connecting",
+    "rechiseled:iron_block_framed_slab",
+    "rechiseled:iron_block_framed_slab_connecting",
+    "rechiseled:iron_block_gears_slab",
+    "rechiseled:iron_block_gears_slab_connecting",
+    "rechiseled:iron_block_lines_slab",
+    "rechiseled:iron_block_lines_slab_connecting",
+    "rechiseled:iron_block_patterned_slab",
+    "rechiseled:iron_block_patterned_slab_connecting",
+    "rechiseled:iron_block_pipes_slab",
+    "rechiseled:iron_block_pipes_slab_connecting",
+    "rechiseled:iron_block_plated_slab",
+    "rechiseled:iron_block_polished_slab",
+    "rechiseled:iron_block_polished_slab_connecting",
+    "rechiseled:iron_block_processed_slab",
+    "rechiseled:iron_block_processed_slab_connecting",
+    "rechiseled:iron_block_pulverized_slab",
+    "rechiseled:iron_block_reinforced_slab",
+    "rechiseled:iron_block_sheets_slab",
+    "rechiseled:iron_block_small_bricks_slab",
+    "rechiseled:iron_block_small_bricks_slab_connecting",
+    "rechiseled:iron_block_smooth_slab"
+  ]
+}

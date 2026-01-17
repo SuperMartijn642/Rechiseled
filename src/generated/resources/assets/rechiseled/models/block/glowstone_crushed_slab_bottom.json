@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "rechiseled:block/glowstone_crushed",
+    "side": "rechiseled:block/glowstone_crushed",
+    "top": "rechiseled:block/glowstone_crushed"
+  }
+}
