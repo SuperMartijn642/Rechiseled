@@ -5,10 +5,15 @@
   "compatibilityLevel": "${mixin_compatibility_level}",
   "refmap": "${mod_id}.mixins.refmap.json",
   "mixins": [
+    "MinecraftServerMixin",
     "PlayerListMixin"
   ],
-  "client": [],
-  "server": [],
+  "client": [
+    "MinecraftMixin"
+  ],
+  "server": [
+    "DedicatedServerMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

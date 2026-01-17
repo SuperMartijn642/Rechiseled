@@ -116,8 +116,8 @@ minecraft {
     }
 }
 
+// MixinGradle Settings
 mixin {
-    // MixinGradle Settings
     add sourceSets.main, "${mod_id}.mixins.refmap.json"
     config "${mod_id}.mixins.json"
 }

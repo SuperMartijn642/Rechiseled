@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
  * <p>
  * All default recipe locations in rechiseled.
  */
-public class BaseChiselingRecipes {
+public final class BaseChiselingRecipes {
 
     public static final ResourceLocation ACACIA_PLANKS = location("acacia_planks");
     public static final ResourceLocation ANDESITE = location("andesite");
