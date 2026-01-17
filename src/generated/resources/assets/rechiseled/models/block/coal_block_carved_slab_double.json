@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "rechiseled:block/coal_block_carved",
+    "down": "rechiseled:block/coal_block_carved",
+    "north": "rechiseled:block/coal_block_carved",
+    "east": "rechiseled:block/coal_block_carved",
+    "south": "rechiseled:block/coal_block_carved",
+    "west": "rechiseled:block/coal_block_carved",
+    "particle": "rechiseled:block/coal_block_carved"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "rechiseled:block/obsidian_spots",
+    "down": "rechiseled:block/obsidian_spots",
+    "north": "rechiseled:block/obsidian_spots",
+    "east": "rechiseled:block/obsidian_spots",
+    "south": "rechiseled:block/obsidian_spots",
+    "west": "rechiseled:block/obsidian_spots",
+    "particle": "rechiseled:block/obsidian_spots"
+  }
+}

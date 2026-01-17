@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "rechiseled:block/lapis_block_scales",
+    "down": "rechiseled:block/lapis_block_scales",
+    "north": "rechiseled:block/lapis_block_scales",
+    "east": "rechiseled:block/lapis_block_scales",
+    "south": "rechiseled:block/lapis_block_scales",
+    "west": "rechiseled:block/lapis_block_scales",
+    "particle": "rechiseled:block/lapis_block_scales"
+  }
+}

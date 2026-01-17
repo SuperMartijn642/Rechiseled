@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "rechiseled:block/sandstone_diagonal_bricks",
+    "down": "rechiseled:block/sandstone_diagonal_bricks",
+    "north": "rechiseled:block/sandstone_diagonal_bricks",
+    "east": "rechiseled:block/sandstone_diagonal_bricks",
+    "south": "rechiseled:block/sandstone_diagonal_bricks",
+    "west": "rechiseled:block/sandstone_diagonal_bricks",
+    "particle": "rechiseled:block/sandstone_diagonal_bricks"
+  }
+}

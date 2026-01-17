@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "rechiseled:block/emerald_block_crosses",
+    "down": "rechiseled:block/emerald_block_crosses",
+    "north": "rechiseled:block/emerald_block_crosses",
+    "east": "rechiseled:block/emerald_block_crosses",
+    "south": "rechiseled:block/emerald_block_crosses",
+    "west": "rechiseled:block/emerald_block_crosses",
+    "particle": "rechiseled:block/emerald_block_crosses"
+  }
+}

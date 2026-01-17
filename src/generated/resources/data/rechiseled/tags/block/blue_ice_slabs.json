@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:blue_ice_bordered_slab",
+    "rechiseled:blue_ice_bordered_slab_connecting",
+    "rechiseled:blue_ice_bricks_slab",
+    "rechiseled:blue_ice_bricks_slab_connecting",
+    "rechiseled:blue_ice_chiseled_slab",
+    "rechiseled:blue_ice_chiseled_slab_connecting",
+    "rechiseled:blue_ice_cone_slab",
+    "rechiseled:blue_ice_cracked_slab",
+    "rechiseled:blue_ice_patterned_slab",
+    "rechiseled:blue_ice_patterned_slab_connecting",
+    "rechiseled:blue_ice_pillar_slab",
+    "rechiseled:blue_ice_pillar_slab_connecting",
+    "rechiseled:blue_ice_rocky_slab",
+    "rechiseled:blue_ice_slanted_tiles_slab",
+    "rechiseled:blue_ice_slanted_tiles_slab_connecting",
+    "rechiseled:blue_ice_tiles_slab",
+    "rechiseled:blue_ice_tiles_slab_connecting"
+  ]
+}

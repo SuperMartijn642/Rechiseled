@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "rechiseled:block/granite_dotted",
+    "down": "rechiseled:block/granite_dotted",
+    "north": "rechiseled:block/granite_dotted",
+    "east": "rechiseled:block/granite_dotted",
+    "south": "rechiseled:block/granite_dotted",
+    "west": "rechiseled:block/granite_dotted",
+    "particle": "rechiseled:block/granite_dotted"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "rechiseled:block/quartz_block_bordered",
+    "down": "rechiseled:block/quartz_block_bordered",
+    "north": "rechiseled:block/quartz_block_bordered",
+    "east": "rechiseled:block/quartz_block_bordered",
+    "south": "rechiseled:block/quartz_block_bordered",
+    "west": "rechiseled:block/quartz_block_bordered",
+    "particle": "rechiseled:block/quartz_block_bordered"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "rechiseled:block/gold_block_striped",
+    "down": "rechiseled:block/gold_block_striped",
+    "north": "rechiseled:block/gold_block_striped",
+    "east": "rechiseled:block/gold_block_striped",
+    "south": "rechiseled:block/gold_block_striped",
+    "west": "rechiseled:block/gold_block_striped",
+    "particle": "rechiseled:block/gold_block_striped"
+  }
+}

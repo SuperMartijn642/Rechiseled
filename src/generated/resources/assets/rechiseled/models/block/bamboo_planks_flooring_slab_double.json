@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "rechiseled:block/bamboo_planks_flooring",
+    "down": "rechiseled:block/bamboo_planks_flooring",
+    "north": "rechiseled:block/bamboo_planks_flooring",
+    "east": "rechiseled:block/bamboo_planks_flooring",
+    "south": "rechiseled:block/bamboo_planks_flooring",
+    "west": "rechiseled:block/bamboo_planks_flooring",
+    "particle": "rechiseled:block/bamboo_planks_flooring"
+  }
+}

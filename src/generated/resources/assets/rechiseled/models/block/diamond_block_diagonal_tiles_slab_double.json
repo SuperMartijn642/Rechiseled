@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "rechiseled:block/diamond_block_diagonal_tiles",
+    "down": "rechiseled:block/diamond_block_diagonal_tiles",
+    "north": "rechiseled:block/diamond_block_diagonal_tiles",
+    "east": "rechiseled:block/diamond_block_diagonal_tiles",
+    "south": "rechiseled:block/diamond_block_diagonal_tiles",
+    "west": "rechiseled:block/diamond_block_diagonal_tiles",
+    "particle": "rechiseled:block/diamond_block_diagonal_tiles"
+  }
+}

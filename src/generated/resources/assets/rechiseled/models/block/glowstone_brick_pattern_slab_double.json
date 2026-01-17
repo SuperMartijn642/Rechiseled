@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "rechiseled:block/glowstone_brick_pattern",
+    "down": "rechiseled:block/glowstone_brick_pattern",
+    "north": "rechiseled:block/glowstone_brick_pattern",
+    "east": "rechiseled:block/glowstone_brick_pattern",
+    "south": "rechiseled:block/glowstone_brick_pattern",
+    "west": "rechiseled:block/glowstone_brick_pattern",
+    "particle": "rechiseled:block/glowstone_brick_pattern"
+  }
+}

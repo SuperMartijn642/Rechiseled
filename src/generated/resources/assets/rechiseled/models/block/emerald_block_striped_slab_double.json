@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "rechiseled:block/emerald_block_striped",
+    "down": "rechiseled:block/emerald_block_striped",
+    "north": "rechiseled:block/emerald_block_striped",
+    "east": "rechiseled:block/emerald_block_striped",
+    "south": "rechiseled:block/emerald_block_striped",
+    "west": "rechiseled:block/emerald_block_striped",
+    "particle": "rechiseled:block/emerald_block_striped"
+  }
+}

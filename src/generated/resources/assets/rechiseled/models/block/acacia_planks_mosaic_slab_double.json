@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "rechiseled:block/acacia_planks_mosaic",
+    "down": "rechiseled:block/acacia_planks_mosaic",
+    "north": "rechiseled:block/acacia_planks_mosaic",
+    "east": "rechiseled:block/acacia_planks_mosaic",
+    "south": "rechiseled:block/acacia_planks_mosaic",
+    "west": "rechiseled:block/acacia_planks_mosaic",
+    "particle": "rechiseled:block/acacia_planks_mosaic"
+  }
+}

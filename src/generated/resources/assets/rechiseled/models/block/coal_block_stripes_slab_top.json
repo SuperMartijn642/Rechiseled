@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "rechiseled:block/coal_block_stripes",
+    "side": "rechiseled:block/coal_block_stripes",
+    "top": "rechiseled:block/coal_block_stripes"
+  }
+}

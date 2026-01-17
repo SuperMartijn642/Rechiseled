@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "rechiseled:block/mossy_cobblestone_worn_stripes",
+    "down": "rechiseled:block/mossy_cobblestone_worn_stripes",
+    "north": "rechiseled:block/mossy_cobblestone_worn_stripes",
+    "east": "rechiseled:block/mossy_cobblestone_worn_stripes",
+    "south": "rechiseled:block/mossy_cobblestone_worn_stripes",
+    "west": "rechiseled:block/mossy_cobblestone_worn_stripes",
+    "particle": "rechiseled:block/mossy_cobblestone_worn_stripes"
+  }
+}

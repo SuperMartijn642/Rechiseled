@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "rechiseled:block/basalt_chiseled_piglin",
+    "down": "rechiseled:block/basalt_chiseled_piglin",
+    "north": "rechiseled:block/basalt_chiseled_piglin",
+    "east": "rechiseled:block/basalt_chiseled_piglin",
+    "south": "rechiseled:block/basalt_chiseled_piglin",
+    "west": "rechiseled:block/basalt_chiseled_piglin",
+    "particle": "rechiseled:block/basalt_chiseled_piglin"
+  }
+}

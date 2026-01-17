@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:netherite_block_beams_stairs",
+    "rechiseled:netherite_block_beams_stairs_connecting",
+    "rechiseled:netherite_block_bricks_stairs",
+    "rechiseled:netherite_block_bricks_stairs_connecting",
+    "rechiseled:netherite_block_chiseled_stairs",
+    "rechiseled:netherite_block_chiseled_stairs_connecting",
+    "rechiseled:netherite_block_compacted_stairs",
+    "rechiseled:netherite_block_compacted_stairs_connecting",
+    "rechiseled:netherite_block_decorated_stairs",
+    "rechiseled:netherite_block_decorated_stairs_connecting",
+    "rechiseled:netherite_block_diagonal_tiles_stairs",
+    "rechiseled:netherite_block_diagonal_tiles_stairs_connecting",
+    "rechiseled:netherite_block_indented_stairs",
+    "rechiseled:netherite_block_indented_stairs_connecting",
+    "rechiseled:netherite_block_meteoric_stairs",
+    "rechiseled:netherite_block_patterned_stairs",
+    "rechiseled:netherite_block_patterned_stairs_connecting",
+    "rechiseled:netherite_block_pillar_stairs",
+    "rechiseled:netherite_block_pillar_stairs_connecting",
+    "rechiseled:netherite_block_small_tiles_stairs",
+    "rechiseled:netherite_block_small_tiles_stairs_connecting",
+    "rechiseled:netherite_block_smooth_stairs"
+  ]
+}

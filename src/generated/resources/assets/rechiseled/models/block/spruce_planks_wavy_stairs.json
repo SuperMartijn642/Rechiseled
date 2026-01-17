@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "rechiseled:block/spruce_planks_wavy",
+    "side": "rechiseled:block/spruce_planks_wavy",
+    "top": "rechiseled:block/spruce_planks_wavy"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "rechiseled:block/andesite_tiles",
+    "down": "rechiseled:block/andesite_tiles",
+    "north": "rechiseled:block/andesite_tiles",
+    "east": "rechiseled:block/andesite_tiles",
+    "south": "rechiseled:block/andesite_tiles",
+    "west": "rechiseled:block/andesite_tiles",
+    "particle": "rechiseled:block/andesite_tiles"
+  }
+}

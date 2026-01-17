@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "rechiseled:block/bamboo_planks_diagonal_stripes",
+    "down": "rechiseled:block/bamboo_planks_diagonal_stripes",
+    "north": "rechiseled:block/bamboo_planks_diagonal_stripes",
+    "east": "rechiseled:block/bamboo_planks_diagonal_stripes",
+    "south": "rechiseled:block/bamboo_planks_diagonal_stripes",
+    "west": "rechiseled:block/bamboo_planks_diagonal_stripes",
+    "particle": "rechiseled:block/bamboo_planks_diagonal_stripes"
+  }
+}

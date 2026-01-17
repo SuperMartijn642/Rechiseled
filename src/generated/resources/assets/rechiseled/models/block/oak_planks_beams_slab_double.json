@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "rechiseled:block/oak_planks_beams",
+    "down": "rechiseled:block/oak_planks_beams",
+    "north": "rechiseled:block/oak_planks_beams",
+    "east": "rechiseled:block/oak_planks_beams",
+    "south": "rechiseled:block/oak_planks_beams",
+    "west": "rechiseled:block/oak_planks_beams",
+    "particle": "rechiseled:block/oak_planks_beams"
+  }
+}
