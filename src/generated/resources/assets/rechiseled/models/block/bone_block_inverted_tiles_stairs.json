@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "rechiseled:block/bone_block_inverted_tiles",
+    "side": "rechiseled:block/bone_block_inverted_tiles",
+    "top": "rechiseled:block/bone_block_inverted_tiles"
+  }
+}

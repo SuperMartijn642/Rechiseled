@@ -2,49 +2,109 @@
   "type": "rechiseled:chiseling",
   "entries": [
     {
-      "connecting_item": "rechiseled:diamond_block_chiseled_connecting",
-      "item": "rechiseled:diamond_block_chiseled"
+      "block": "rechiseled:diamond_block_chiseled",
+      "connecting_block": "rechiseled:diamond_block_chiseled_connecting",
+      "connecting_slab": "rechiseled:diamond_block_chiseled_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:diamond_block_chiseled_stairs_connecting",
+      "slab": "rechiseled:diamond_block_chiseled_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:diamond_block_chiseled_stairs"
     },
     {
-      "connecting_item": "rechiseled:diamond_block_chiseled_cubes_connecting",
-      "item": "rechiseled:diamond_block_chiseled_cubes"
+      "block": "rechiseled:diamond_block_chiseled_cubes",
+      "connecting_block": "rechiseled:diamond_block_chiseled_cubes_connecting",
+      "connecting_slab": "rechiseled:diamond_block_chiseled_cubes_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:diamond_block_chiseled_cubes_stairs_connecting",
+      "slab": "rechiseled:diamond_block_chiseled_cubes_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:diamond_block_chiseled_cubes_stairs"
     },
     {
-      "connecting_item": "rechiseled:diamond_block_connecting_connecting",
-      "item": "minecraft:diamond_block"
+      "block": "minecraft:diamond_block",
+      "connecting_block": "rechiseled:diamond_block_connecting_connecting",
+      "connecting_slab": "rechiseled:diamond_block_connecting_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:diamond_block_connecting_stairs_connecting"
     },
     {
-      "item": "rechiseled:diamond_block_diagonal_tiles"
+      "block": "rechiseled:diamond_block_diagonal_tiles",
+      "slab": "rechiseled:diamond_block_diagonal_tiles_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:diamond_block_diagonal_tiles_stairs"
     },
     {
-      "connecting_item": "rechiseled:diamond_block_grid_connecting",
-      "item": "rechiseled:diamond_block_grid"
+      "block": "rechiseled:diamond_block_grid",
+      "connecting_block": "rechiseled:diamond_block_grid_connecting",
+      "connecting_slab": "rechiseled:diamond_block_grid_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:diamond_block_grid_stairs_connecting",
+      "slab": "rechiseled:diamond_block_grid_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:diamond_block_grid_stairs"
     },
     {
-      "connecting_item": "rechiseled:diamond_block_jewel_block_connecting",
-      "item": "rechiseled:diamond_block_jewel_block"
+      "block": "rechiseled:diamond_block_jewel_block",
+      "connecting_block": "rechiseled:diamond_block_jewel_block_connecting",
+      "connecting_slab": "rechiseled:diamond_block_jewel_block_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:diamond_block_jewel_block_stairs_connecting",
+      "slab": "rechiseled:diamond_block_jewel_block_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:diamond_block_jewel_block_stairs"
     },
     {
-      "connecting_item": "rechiseled:diamond_block_polished_connecting",
-      "item": "rechiseled:diamond_block_polished"
+      "block": "rechiseled:diamond_block_polished",
+      "connecting_block": "rechiseled:diamond_block_polished_connecting",
+      "connecting_slab": "rechiseled:diamond_block_polished_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:diamond_block_polished_stairs_connecting",
+      "slab": "rechiseled:diamond_block_polished_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:diamond_block_polished_stairs"
     },
     {
-      "connecting_item": "rechiseled:diamond_block_rhombuses_connecting",
-      "item": "rechiseled:diamond_block_rhombuses"
+      "block": "rechiseled:diamond_block_rhombuses",
+      "connecting_block": "rechiseled:diamond_block_rhombuses_connecting",
+      "connecting_slab": "rechiseled:diamond_block_rhombuses_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:diamond_block_rhombuses_stairs_connecting",
+      "slab": "rechiseled:diamond_block_rhombuses_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:diamond_block_rhombuses_stairs"
     },
     {
-      "item": "rechiseled:diamond_block_shiny"
+      "block": "rechiseled:diamond_block_shiny",
+      "slab": "rechiseled:diamond_block_shiny_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:diamond_block_shiny_stairs"
     },
     {
-      "connecting_item": "rechiseled:diamond_block_shiny_bordered_connecting",
-      "item": "rechiseled:diamond_block_shiny_bordered"
+      "block": "rechiseled:diamond_block_shiny_bordered",
+      "connecting_block": "rechiseled:diamond_block_shiny_bordered_connecting",
+      "connecting_slab": "rechiseled:diamond_block_shiny_bordered_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:diamond_block_shiny_bordered_stairs_connecting",
+      "slab": "rechiseled:diamond_block_shiny_bordered_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:diamond_block_shiny_bordered_stairs"
     },
     {
-      "connecting_item": "rechiseled:diamond_block_small_tiles_connecting",
-      "item": "rechiseled:diamond_block_small_tiles"
+      "block": "rechiseled:diamond_block_small_tiles",
+      "connecting_block": "rechiseled:diamond_block_small_tiles_connecting",
+      "connecting_slab": "rechiseled:diamond_block_small_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:diamond_block_small_tiles_stairs_connecting",
+      "slab": "rechiseled:diamond_block_small_tiles_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:diamond_block_small_tiles_stairs"
     },
     {
-      "item": "rechiseled:diamond_block_smooth"
+      "block": "rechiseled:diamond_block_smooth",
+      "slab": "rechiseled:diamond_block_smooth_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:diamond_block_smooth_stairs"
     }
   ],
   "overwrite": false
