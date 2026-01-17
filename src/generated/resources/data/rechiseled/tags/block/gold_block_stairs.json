@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:gold_block_beams_stairs",
+    "rechiseled:gold_block_beams_stairs_connecting",
+    "rechiseled:gold_block_bordered_stairs",
+    "rechiseled:gold_block_bordered_stairs_connecting",
+    "rechiseled:gold_block_lines_stairs",
+    "rechiseled:gold_block_lines_stairs_connecting",
+    "rechiseled:gold_block_pattern_stairs",
+    "rechiseled:gold_block_pattern_stairs_connecting",
+    "rechiseled:gold_block_polished_stairs",
+    "rechiseled:gold_block_polished_stairs_connecting",
+    "rechiseled:gold_block_scales_stairs",
+    "rechiseled:gold_block_scales_stairs_connecting",
+    "rechiseled:gold_block_small_bricks_stairs",
+    "rechiseled:gold_block_small_bricks_stairs_connecting",
+    "rechiseled:gold_block_small_tiles_stairs",
+    "rechiseled:gold_block_small_tiles_stairs_connecting",
+    "rechiseled:gold_block_smooth_stairs",
+    "rechiseled:gold_block_striped_stairs",
+    "rechiseled:gold_block_striped_stairs_connecting",
+    "rechiseled:gold_block_tiles_stairs",
+    "rechiseled:gold_block_tiles_stairs_connecting"
+  ]
+}

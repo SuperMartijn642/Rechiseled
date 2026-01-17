@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "rechiseled:block/jungle_planks_brick_pattern",
+    "side": "rechiseled:block/jungle_planks_brick_pattern",
+    "top": "rechiseled:block/jungle_planks_brick_pattern"
+  }
+}

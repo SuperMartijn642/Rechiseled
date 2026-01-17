@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "rechiseled:block/netherite_block_meteoric",
+    "side": "rechiseled:block/netherite_block_meteoric",
+    "top": "rechiseled:block/netherite_block_meteoric"
+  }
+}
