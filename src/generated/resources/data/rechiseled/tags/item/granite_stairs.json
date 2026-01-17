@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:granite_brick_pattern_stairs",
+    "rechiseled:granite_brick_pattern_stairs_connecting",
+    "rechiseled:granite_brick_paving_stairs",
+    "rechiseled:granite_brick_paving_stairs_connecting",
+    "rechiseled:granite_bricks_stairs",
+    "rechiseled:granite_bricks_stairs_connecting",
+    "rechiseled:granite_diagonal_bricks_stairs",
+    "rechiseled:granite_diagonal_bricks_stairs_connecting",
+    "rechiseled:granite_dotted_stairs",
+    "rechiseled:granite_dotted_stairs_connecting",
+    "rechiseled:granite_paving_stairs",
+    "rechiseled:granite_paving_stairs_connecting",
+    "rechiseled:granite_polished_stairs_connecting",
+    "rechiseled:granite_rotated_bricks_stairs",
+    "rechiseled:granite_rotated_bricks_stairs_connecting",
+    "rechiseled:granite_squares_stairs",
+    "rechiseled:granite_squares_stairs_connecting",
+    "rechiseled:granite_tiles_stairs",
+    "rechiseled:granite_tiles_stairs_connecting",
+    "rechiseled:granite_wavy_stairs",
+    "rechiseled:granite_wavy_stairs_connecting"
+  ]
+}

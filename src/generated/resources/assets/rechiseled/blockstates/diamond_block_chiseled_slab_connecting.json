@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "rechiseled:block/diamond_block_chiseled_slab_connecting_bottom"
+    },
+    "type=double": {
+      "model": "rechiseled:block/diamond_block_chiseled_slab_connecting_double"
+    },
+    "type=top": {
+      "model": "rechiseled:block/diamond_block_chiseled_slab_connecting_top"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/lapis_block_crushed",
+    "side": "rechiseled:block/lapis_block_crushed",
+    "top": "rechiseled:block/lapis_block_crushed"
+  }
+}
