@@ -22,6 +22,8 @@ import net.minecraftforge.fml.common.Mod;
 public class RechiseledClient {
 
     public static void register(){
+        ChiselItemHighlighter.registerListeners();
+
         ClientRegistrationHandler handler = ClientRegistrationHandler.get(Rechiseled.MODID);
         handler.registerContainerScreen(() -> Rechiseled.chisel_container, container -> {
             BaseChiselingContainerScreen<BaseChiselingContainer> widget = new BaseChiselingContainerScreen<>(TextComponents.item(Rechiseled.chisel).get());
