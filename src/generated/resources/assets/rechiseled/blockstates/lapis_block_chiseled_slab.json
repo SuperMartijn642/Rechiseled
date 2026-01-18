@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "rechiseled:block/lapis_block_chiseled_slab_bottom"
+    },
+    "type=double": {
+      "model": "rechiseled:block/lapis_block_chiseled_slab_double"
+    },
+    "type=top": {
+      "model": "rechiseled:block/lapis_block_chiseled_slab_top"
+    }
+  }
+}

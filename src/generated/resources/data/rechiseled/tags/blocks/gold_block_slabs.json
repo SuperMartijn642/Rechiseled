@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:gold_block_beams_slab",
+    "rechiseled:gold_block_beams_slab_connecting",
+    "rechiseled:gold_block_bordered_slab",
+    "rechiseled:gold_block_bordered_slab_connecting",
+    "rechiseled:gold_block_lines_slab",
+    "rechiseled:gold_block_lines_slab_connecting",
+    "rechiseled:gold_block_pattern_slab",
+    "rechiseled:gold_block_pattern_slab_connecting",
+    "rechiseled:gold_block_polished_slab",
+    "rechiseled:gold_block_polished_slab_connecting",
+    "rechiseled:gold_block_scales_slab",
+    "rechiseled:gold_block_scales_slab_connecting",
+    "rechiseled:gold_block_small_bricks_slab",
+    "rechiseled:gold_block_small_bricks_slab_connecting",
+    "rechiseled:gold_block_small_tiles_slab",
+    "rechiseled:gold_block_small_tiles_slab_connecting",
+    "rechiseled:gold_block_smooth_slab",
+    "rechiseled:gold_block_striped_slab",
+    "rechiseled:gold_block_striped_slab_connecting",
+    "rechiseled:gold_block_tiles_slab",
+    "rechiseled:gold_block_tiles_slab_connecting"
+  ]
+}
