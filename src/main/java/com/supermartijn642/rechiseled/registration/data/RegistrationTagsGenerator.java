@@ -10,8 +10,6 @@ import com.supermartijn642.rechiseled.blocks.RechiseledBlockBuilderImpl;
 import com.supermartijn642.rechiseled.blocks.RechiseledBlockTypeImpl;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
 import net.fabricmc.fabric.api.resource.ModResourcePack;
-import net.fabricmc.fabric.impl.resource.loader.FabricModResourcePack;
-import net.fabricmc.fabric.impl.resource.loader.GroupResourcePack;
 import net.fabricmc.fabric.impl.resource.loader.ModResourcePackCreator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackResources;
@@ -29,11 +27,7 @@ import net.minecraft.world.level.block.Block;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -47,14 +41,6 @@ public class RegistrationTagsGenerator extends TagGenerator {
     private static final List<PackResources> ALL_DATA_PACKS;
 
     static{
-        Field packsField;
-        try{
-            packsField = GroupResourcePack.class.getDeclaredField("packs");
-            packsField.setAccessible(true);
-        }catch(NoSuchFieldException e){
-            throw new RuntimeException(e);
-        }
-
         List<PackResources> packs = new ArrayList<>();
         packs.add(new VanillaPackResources(ServerPacksSource.BUILT_IN_METADATA, ServerPacksSource.VANILLA_ID));
         new ModResourcePackCreator(PackType.SERVER_DATA).loadPacks(pack -> {
@@ -65,19 +51,7 @@ public class RegistrationTagsGenerator extends TagGenerator {
             }
         }, (name, title, required, resources, metadata, position, source) ->
             new Pack(name, title, required, resources, metadata, PackType.SERVER_DATA, position, source));
-        ALL_DATA_PACKS = packs.stream()
-            .flatMap(pack -> {
-                if(pack instanceof FabricModResourcePack){
-                    try{
-                        //noinspection unchecked
-                        return ((List<? extends PackResources>)packsField.get(pack)).stream();
-                    }catch(IllegalAccessException e){
-                        throw new RuntimeException(e);
-                    }
-                }
-                return Stream.of(pack);
-            })
-            .toList();
+        ALL_DATA_PACKS = Collections.unmodifiableList(packs);
     }
 
     private final RechiseledRegistrationImpl registration;
