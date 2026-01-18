@@ -10,6 +10,7 @@
   ],
   "client": [
     "MinecraftMixin",
+    "PlayerControllerMPMixin",
     "RenderItemMixin"
   ],
   "server": [],
