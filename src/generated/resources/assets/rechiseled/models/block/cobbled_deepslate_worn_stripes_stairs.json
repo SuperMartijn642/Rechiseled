@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "rechiseled:block/cobbled_deepslate_worn_stripes",
+    "side": "rechiseled:block/cobbled_deepslate_worn_stripes",
+    "top": "rechiseled:block/cobbled_deepslate_worn_stripes"
+  }
+}

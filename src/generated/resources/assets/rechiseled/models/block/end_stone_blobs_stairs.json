@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "rechiseled:block/end_stone_blobs",
+    "side": "rechiseled:block/end_stone_blobs",
+    "top": "rechiseled:block/end_stone_blobs"
+  }
+}

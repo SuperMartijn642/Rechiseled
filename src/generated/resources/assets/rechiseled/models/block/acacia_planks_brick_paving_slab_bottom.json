@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "rechiseled:block/acacia_planks_brick_paving",
+    "side": "rechiseled:block/acacia_planks_brick_paving",
+    "top": "rechiseled:block/acacia_planks_brick_paving"
+  }
+}
