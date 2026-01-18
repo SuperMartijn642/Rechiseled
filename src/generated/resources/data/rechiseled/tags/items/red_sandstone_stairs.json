@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:red_sandstone_brick_pattern_stairs",
+    "rechiseled:red_sandstone_brick_pattern_stairs_connecting",
+    "rechiseled:red_sandstone_brick_paving_stairs",
+    "rechiseled:red_sandstone_brick_paving_stairs_connecting",
+    "rechiseled:red_sandstone_bricks_stairs",
+    "rechiseled:red_sandstone_bricks_stairs_connecting",
+    "rechiseled:red_sandstone_diagonal_bricks_stairs",
+    "rechiseled:red_sandstone_diagonal_bricks_stairs_connecting",
+    "rechiseled:red_sandstone_large_tiles_stairs",
+    "rechiseled:red_sandstone_large_tiles_stairs_connecting",
+    "rechiseled:red_sandstone_polished_stairs",
+    "rechiseled:red_sandstone_polished_stairs_connecting",
+    "rechiseled:red_sandstone_rotated_bricks_stairs",
+    "rechiseled:red_sandstone_rotated_bricks_stairs_connecting",
+    "rechiseled:red_sandstone_tiles_stairs",
+    "rechiseled:red_sandstone_tiles_stairs_connecting"
+  ]
+}

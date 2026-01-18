@@ -1,0 +1,16 @@
+{
+  "parent": "rechiseled:block/amethyst_block_pillar_connecting",
+  "connections": {
+    "down": "#all",
+    "west": "#all",
+    "all": {
+      "type": "fusion:is_same_state"
+    },
+    "east": "#all",
+    "north": "#all",
+    "up": "#all",
+    "south": "#all"
+  },
+  "loader": "fusion:model",
+  "type": "fusion:connecting"
+}

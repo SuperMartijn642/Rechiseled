@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "rechiseled:block/acacia_planks_flooring_slab_bottom"
+    },
+    "type=double": {
+      "model": "rechiseled:block/acacia_planks_flooring_slab_double"
+    },
+    "type=top": {
+      "model": "rechiseled:block/acacia_planks_flooring_slab_top"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/jungle_planks_rotated_bricks",
+    "side": "rechiseled:block/jungle_planks_rotated_bricks",
+    "top": "rechiseled:block/jungle_planks_rotated_bricks"
+  }
+}

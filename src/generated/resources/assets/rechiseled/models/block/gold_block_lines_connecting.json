@@ -1,13 +1,163 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube",
   "textures": {
-    "all": "rechiseled:block/gold_block_lines"
+    "east": "rechiseled:block/gold_block_lines",
+    "south": "rechiseled:block/gold_block_lines",
+    "north": "rechiseled:block/gold_block_lines",
+    "west": "rechiseled:block/gold_block_lines",
+    "particle": "rechiseled:block/gold_block_lines",
+    "up": "rechiseled:block/gold_block_lines",
+    "down": "rechiseled:block/gold_block_lines"
   },
-  "connections": [
-    {
-      "type": "fusion:is_same_block"
-    }
-  ],
+  "connections": {
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:gold_block_lines_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:gold_block_lines_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:gold_block_lines_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:gold_block_lines_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "west": "#side",
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:gold_block_lines_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:gold_block_lines_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:gold_block_lines_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:gold_block_lines_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "east": "#side",
+    "north": "#side",
+    "side": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:gold_block_lines_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:gold_block_lines_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:gold_block_lines_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "top",
+                "top_left",
+                "top_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:gold_block_lines_slab_connecting",
+              "properties": {
+                "type": [
+                  "bottom"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:gold_block_lines_slab_connecting",
+              "properties": {
+                "type": [
+                  "top"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "south": "#side"
+  },
   "loader": "fusion:model",
   "type": "fusion:connecting"
 }

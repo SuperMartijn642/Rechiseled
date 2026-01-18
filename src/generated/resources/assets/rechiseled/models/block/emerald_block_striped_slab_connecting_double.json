@@ -1,0 +1,164 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "east": "#side",
+    "side": "rechiseled:block/emerald_block_striped",
+    "south": "#side",
+    "north": "#side",
+    "west": "#side",
+    "particle": "#side",
+    "up": "rechiseled:block/emerald_block_striped",
+    "down": "rechiseled:block/emerald_block_striped"
+  },
+  "connections": {
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:emerald_block_striped_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:emerald_block_striped_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:emerald_block_striped_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:emerald_block_striped_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "west": "#side",
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:emerald_block_striped_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:emerald_block_striped_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:emerald_block_striped_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:emerald_block_striped_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "east": "#side",
+    "north": "#side",
+    "side": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:emerald_block_striped_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:emerald_block_striped_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:emerald_block_striped_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "top",
+                "top_left",
+                "top_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:emerald_block_striped_slab_connecting",
+              "properties": {
+                "type": [
+                  "bottom"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:emerald_block_striped_slab_connecting",
+              "properties": {
+                "type": [
+                  "top"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "south": "#side"
+  },
+  "loader": "fusion:model",
+  "type": "fusion:connecting"
+}

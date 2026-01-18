@@ -1,13 +1,163 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube",
   "textures": {
-    "all": "rechiseled:block/obsidian_pillars"
+    "east": "rechiseled:block/obsidian_pillars",
+    "south": "rechiseled:block/obsidian_pillars",
+    "north": "rechiseled:block/obsidian_pillars",
+    "west": "rechiseled:block/obsidian_pillars",
+    "particle": "rechiseled:block/obsidian_pillars",
+    "up": "rechiseled:block/obsidian_pillars",
+    "down": "rechiseled:block/obsidian_pillars"
   },
-  "connections": [
-    {
-      "type": "fusion:is_same_block"
-    }
-  ],
+  "connections": {
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:obsidian_pillars_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:obsidian_pillars_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:obsidian_pillars_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:obsidian_pillars_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "west": "#side",
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:obsidian_pillars_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:obsidian_pillars_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:obsidian_pillars_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:obsidian_pillars_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "east": "#side",
+    "north": "#side",
+    "side": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:obsidian_pillars_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:obsidian_pillars_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:obsidian_pillars_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "top",
+                "top_left",
+                "top_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:obsidian_pillars_slab_connecting",
+              "properties": {
+                "type": [
+                  "bottom"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:obsidian_pillars_slab_connecting",
+              "properties": {
+                "type": [
+                  "top"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "south": "#side"
+  },
   "loader": "fusion:model",
   "type": "fusion:connecting"
 }

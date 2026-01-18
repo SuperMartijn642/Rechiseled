@@ -1,0 +1,153 @@
+{
+  "parent": "rechiseled:block/outer_stairs_top",
+  "textures": {
+    "side": "rechiseled:block/blue_ice_pillar_side",
+    "top": "rechiseled:block/blue_ice_pillar_end",
+    "bottom": "rechiseled:block/blue_ice_pillar_end"
+  },
+  "connections": {
+    "side": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:blue_ice_pillar_connecting",
+              "properties": {
+                "axis": [
+                  "y"
+                ]
+              },
+              "type": "fusion:match_state"
+            },
+            {
+              "block": "rechiseled:blue_ice_pillar_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:blue_ice_pillar_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "top",
+                "top_left",
+                "top_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:blue_ice_pillar_slab_connecting",
+              "properties": {
+                "type": [
+                  "bottom"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right",
+                "left",
+                "right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:blue_ice_pillar_slab_connecting",
+              "properties": {
+                "type": [
+                  "top"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "top": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:blue_ice_pillar_connecting",
+              "properties": {
+                "axis": [
+                  "y"
+                ]
+              },
+              "type": "fusion:match_state"
+            },
+            {
+              "block": "rechiseled:blue_ice_pillar_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:blue_ice_pillar_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:blue_ice_pillar_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:blue_ice_pillar_connecting",
+          "properties": {
+            "axis": [
+              "y"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:blue_ice_pillar_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:blue_ice_pillar_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    }
+  },
+  "loader": "fusion:model",
+  "type": "fusion:connecting"
+}

@@ -3,50 +3,107 @@
   "overwrite": false,
   "entries": [
     {
-      "item": "rechiseled:bone_block_bordered",
-      "connecting_item": "rechiseled:bone_block_bordered_connecting"
+      "block": "rechiseled:bone_block_bordered",
+      "stairs": "rechiseled:bone_block_bordered_stairs",
+      "slab": "rechiseled:bone_block_bordered_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:bone_block_bordered_connecting",
+      "connecting_stairs": "rechiseled:bone_block_bordered_stairs_connecting",
+      "connecting_slab": "rechiseled:bone_block_bordered_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:bone_block_bundled"
+      "block": "rechiseled:bone_block_bundled",
+      "stairs": "rechiseled:bone_block_bundled_stairs",
+      "slab": "rechiseled:bone_block_bundled_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "rechiseled:bone_block_chiseled",
-      "connecting_item": "rechiseled:bone_block_chiseled_connecting"
+      "block": "rechiseled:bone_block_chiseled",
+      "stairs": "rechiseled:bone_block_chiseled_stairs",
+      "slab": "rechiseled:bone_block_chiseled_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:bone_block_chiseled_connecting",
+      "connecting_stairs": "rechiseled:bone_block_chiseled_stairs_connecting",
+      "connecting_slab": "rechiseled:bone_block_chiseled_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "minecraft:bone_block",
-      "connecting_item": "rechiseled:bone_block_connecting_connecting"
+      "block": "minecraft:bone_block",
+      "connecting_block": "rechiseled:bone_block_connecting_connecting",
+      "connecting_stairs": "rechiseled:bone_block_connecting_stairs_connecting",
+      "connecting_slab": "rechiseled:bone_block_connecting_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:bone_block_cracked"
+      "block": "rechiseled:bone_block_cracked",
+      "stairs": "rechiseled:bone_block_cracked_stairs",
+      "slab": "rechiseled:bone_block_cracked_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "rechiseled:bone_block_decorated"
+      "block": "rechiseled:bone_block_decorated",
+      "stairs": "rechiseled:bone_block_decorated_stairs",
+      "slab": "rechiseled:bone_block_decorated_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "rechiseled:bone_block_decorated_bordered",
-      "connecting_item": "rechiseled:bone_block_decorated_bordered_connecting"
+      "block": "rechiseled:bone_block_decorated_bordered",
+      "stairs": "rechiseled:bone_block_decorated_bordered_stairs",
+      "slab": "rechiseled:bone_block_decorated_bordered_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:bone_block_decorated_bordered_connecting",
+      "connecting_stairs": "rechiseled:bone_block_decorated_bordered_stairs_connecting",
+      "connecting_slab": "rechiseled:bone_block_decorated_bordered_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:bone_block_inverted_tiles",
-      "connecting_item": "rechiseled:bone_block_inverted_tiles_connecting"
+      "block": "rechiseled:bone_block_inverted_tiles",
+      "stairs": "rechiseled:bone_block_inverted_tiles_stairs",
+      "slab": "rechiseled:bone_block_inverted_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:bone_block_inverted_tiles_connecting",
+      "connecting_stairs": "rechiseled:bone_block_inverted_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:bone_block_inverted_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:bone_block_patterned",
-      "connecting_item": "rechiseled:bone_block_patterned_connecting"
+      "block": "rechiseled:bone_block_patterned",
+      "stairs": "rechiseled:bone_block_patterned_stairs",
+      "slab": "rechiseled:bone_block_patterned_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:bone_block_patterned_connecting",
+      "connecting_stairs": "rechiseled:bone_block_patterned_stairs_connecting",
+      "connecting_slab": "rechiseled:bone_block_patterned_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:bone_block_pillar",
-      "connecting_item": "rechiseled:bone_block_pillar_connecting"
+      "block": "rechiseled:bone_block_pillar",
+      "stairs": "rechiseled:bone_block_pillar_stairs",
+      "slab": "rechiseled:bone_block_pillar_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:bone_block_pillar_connecting",
+      "connecting_stairs": "rechiseled:bone_block_pillar_stairs_connecting",
+      "connecting_slab": "rechiseled:bone_block_pillar_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:bone_block_rib"
+      "block": "rechiseled:bone_block_rib",
+      "stairs": "rechiseled:bone_block_rib_stairs",
+      "slab": "rechiseled:bone_block_rib_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "rechiseled:bone_block_skull"
+      "block": "rechiseled:bone_block_skull",
+      "stairs": "rechiseled:bone_block_skull_stairs",
+      "slab": "rechiseled:bone_block_skull_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "rechiseled:bone_block_smooth"
+      "block": "rechiseled:bone_block_smooth",
+      "stairs": "rechiseled:bone_block_smooth_stairs",
+      "slab": "rechiseled:bone_block_smooth_slab",
+      "slab_worth": 0.5
     }
   ]
 }

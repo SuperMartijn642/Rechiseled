@@ -1,13 +1,163 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube",
   "textures": {
-    "all": "rechiseled:block/birch_planks_woven"
+    "east": "rechiseled:block/birch_planks_woven",
+    "south": "rechiseled:block/birch_planks_woven",
+    "north": "rechiseled:block/birch_planks_woven",
+    "west": "rechiseled:block/birch_planks_woven",
+    "particle": "rechiseled:block/birch_planks_woven",
+    "up": "rechiseled:block/birch_planks_woven",
+    "down": "rechiseled:block/birch_planks_woven"
   },
-  "connections": [
-    {
-      "type": "fusion:is_same_block"
-    }
-  ],
+  "connections": {
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:birch_planks_woven_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:birch_planks_woven_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:birch_planks_woven_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:birch_planks_woven_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "west": "#side",
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:birch_planks_woven_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:birch_planks_woven_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:birch_planks_woven_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:birch_planks_woven_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "east": "#side",
+    "north": "#side",
+    "side": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:birch_planks_woven_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:birch_planks_woven_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:birch_planks_woven_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "top",
+                "top_left",
+                "top_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:birch_planks_woven_slab_connecting",
+              "properties": {
+                "type": [
+                  "bottom"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:birch_planks_woven_slab_connecting",
+              "properties": {
+                "type": [
+                  "top"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "south": "#side"
+  },
   "loader": "fusion:model",
   "type": "fusion:connecting"
 }

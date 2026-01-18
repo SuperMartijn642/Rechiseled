@@ -2,76 +2,157 @@
   "type": "rechiseled:chiseling",
   "overwrite": false,
   "entries": [
+    "minecraft:quartz_bricks",
+    "minecraft:quartz_pillar",
+    "minecraft:chiseled_quartz_block",
     {
-      "item": "minecraft:quartz_bricks"
+      "block": "minecraft:smooth_quartz",
+      "stairs": "minecraft:smooth_quartz_stairs",
+      "slab": "minecraft:smooth_quartz_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "minecraft:quartz_pillar"
+      "block": "rechiseled:quartz_block_bordered",
+      "stairs": "rechiseled:quartz_block_bordered_stairs",
+      "slab": "rechiseled:quartz_block_bordered_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:quartz_block_bordered_connecting",
+      "connecting_stairs": "rechiseled:quartz_block_bordered_stairs_connecting",
+      "connecting_slab": "rechiseled:quartz_block_bordered_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "minecraft:chiseled_quartz_block"
+      "block": "rechiseled:quartz_block_brick_paving",
+      "stairs": "rechiseled:quartz_block_brick_paving_stairs",
+      "slab": "rechiseled:quartz_block_brick_paving_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:quartz_block_brick_paving_connecting",
+      "connecting_stairs": "rechiseled:quartz_block_brick_paving_stairs_connecting",
+      "connecting_slab": "rechiseled:quartz_block_brick_paving_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "minecraft:smooth_quartz"
+      "block": "rechiseled:quartz_block_chiseled_pillar",
+      "stairs": "rechiseled:quartz_block_chiseled_pillar_stairs",
+      "slab": "rechiseled:quartz_block_chiseled_pillar_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:quartz_block_chiseled_pillar_connecting",
+      "connecting_stairs": "rechiseled:quartz_block_chiseled_pillar_stairs_connecting",
+      "connecting_slab": "rechiseled:quartz_block_chiseled_pillar_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:quartz_block_bordered",
-      "connecting_item": "rechiseled:quartz_block_bordered_connecting"
+      "block": "rechiseled:quartz_block_chiseled_squares",
+      "stairs": "rechiseled:quartz_block_chiseled_squares_stairs",
+      "slab": "rechiseled:quartz_block_chiseled_squares_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "rechiseled:quartz_block_brick_paving",
-      "connecting_item": "rechiseled:quartz_block_brick_paving_connecting"
+      "block": "minecraft:quartz_block",
+      "connecting_block": "rechiseled:quartz_block_connecting_connecting",
+      "connecting_stairs": "rechiseled:quartz_block_connecting_stairs_connecting",
+      "connecting_slab": "rechiseled:quartz_block_connecting_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:quartz_block_chiseled_pillar",
-      "connecting_item": "rechiseled:quartz_block_chiseled_pillar_connecting"
+      "block": "rechiseled:quartz_block_crosses",
+      "stairs": "rechiseled:quartz_block_crosses_stairs",
+      "slab": "rechiseled:quartz_block_crosses_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:quartz_block_crosses_connecting",
+      "connecting_stairs": "rechiseled:quartz_block_crosses_stairs_connecting",
+      "connecting_slab": "rechiseled:quartz_block_crosses_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:quartz_block_chiseled_squares"
+      "block": "rechiseled:quartz_block_diagonal_tiles",
+      "stairs": "rechiseled:quartz_block_diagonal_tiles_stairs",
+      "slab": "rechiseled:quartz_block_diagonal_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:quartz_block_diagonal_tiles_connecting",
+      "connecting_stairs": "rechiseled:quartz_block_diagonal_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:quartz_block_diagonal_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "minecraft:quartz_block",
-      "connecting_item": "rechiseled:quartz_block_connecting_connecting"
+      "block": "rechiseled:quartz_block_pattern",
+      "stairs": "rechiseled:quartz_block_pattern_stairs",
+      "slab": "rechiseled:quartz_block_pattern_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:quartz_block_pattern_connecting",
+      "connecting_stairs": "rechiseled:quartz_block_pattern_stairs_connecting",
+      "connecting_slab": "rechiseled:quartz_block_pattern_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:quartz_block_crosses",
-      "connecting_item": "rechiseled:quartz_block_crosses_connecting"
+      "block": "rechiseled:quartz_block_rotated_bricks",
+      "stairs": "rechiseled:quartz_block_rotated_bricks_stairs",
+      "slab": "rechiseled:quartz_block_rotated_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:quartz_block_rotated_bricks_connecting",
+      "connecting_stairs": "rechiseled:quartz_block_rotated_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:quartz_block_rotated_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:quartz_block_diagonal_tiles",
-      "connecting_item": "rechiseled:quartz_block_diagonal_tiles_connecting"
+      "block": "rechiseled:quartz_block_rows",
+      "stairs": "rechiseled:quartz_block_rows_stairs",
+      "slab": "rechiseled:quartz_block_rows_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:quartz_block_rows_connecting",
+      "connecting_stairs": "rechiseled:quartz_block_rows_stairs_connecting",
+      "connecting_slab": "rechiseled:quartz_block_rows_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:quartz_block_pattern",
-      "connecting_item": "rechiseled:quartz_block_pattern_connecting"
+      "block": "rechiseled:quartz_block_scales",
+      "stairs": "rechiseled:quartz_block_scales_stairs",
+      "slab": "rechiseled:quartz_block_scales_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:quartz_block_scales_connecting",
+      "connecting_stairs": "rechiseled:quartz_block_scales_stairs_connecting",
+      "connecting_slab": "rechiseled:quartz_block_scales_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:quartz_block_rotated_bricks",
-      "connecting_item": "rechiseled:quartz_block_rotated_bricks_connecting"
+      "block": "rechiseled:quartz_block_small_tiles",
+      "stairs": "rechiseled:quartz_block_small_tiles_stairs",
+      "slab": "rechiseled:quartz_block_small_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:quartz_block_small_tiles_connecting",
+      "connecting_stairs": "rechiseled:quartz_block_small_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:quartz_block_small_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:quartz_block_rows",
-      "connecting_item": "rechiseled:quartz_block_rows_connecting"
+      "block": "rechiseled:quartz_block_squares",
+      "stairs": "rechiseled:quartz_block_squares_stairs",
+      "slab": "rechiseled:quartz_block_squares_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:quartz_block_squares_connecting",
+      "connecting_stairs": "rechiseled:quartz_block_squares_stairs_connecting",
+      "connecting_slab": "rechiseled:quartz_block_squares_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:quartz_block_scales",
-      "connecting_item": "rechiseled:quartz_block_scales_connecting"
+      "block": "rechiseled:quartz_block_stripes",
+      "stairs": "rechiseled:quartz_block_stripes_stairs",
+      "slab": "rechiseled:quartz_block_stripes_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:quartz_block_stripes_connecting",
+      "connecting_stairs": "rechiseled:quartz_block_stripes_stairs_connecting",
+      "connecting_slab": "rechiseled:quartz_block_stripes_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:quartz_block_small_tiles",
-      "connecting_item": "rechiseled:quartz_block_small_tiles_connecting"
-    },
-    {
-      "item": "rechiseled:quartz_block_squares",
-      "connecting_item": "rechiseled:quartz_block_squares_connecting"
-    },
-    {
-      "item": "rechiseled:quartz_block_stripes",
-      "connecting_item": "rechiseled:quartz_block_stripes_connecting"
-    },
-    {
-      "item": "rechiseled:quartz_block_tiles",
-      "connecting_item": "rechiseled:quartz_block_tiles_connecting"
+      "block": "rechiseled:quartz_block_tiles",
+      "stairs": "rechiseled:quartz_block_tiles_stairs",
+      "slab": "rechiseled:quartz_block_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:quartz_block_tiles_connecting",
+      "connecting_stairs": "rechiseled:quartz_block_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:quartz_block_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     }
   ]
 }

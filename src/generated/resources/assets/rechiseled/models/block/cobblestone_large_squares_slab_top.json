@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "rechiseled:block/cobblestone_large_squares",
+    "side": "rechiseled:block/cobblestone_large_squares",
+    "top": "rechiseled:block/cobblestone_large_squares"
+  }
+}

@@ -3,40 +3,75 @@
   "overwrite": false,
   "entries": [
     {
-      "item": "minecraft:blackstone"
+      "block": "minecraft:blackstone",
+      "stairs": "minecraft:blackstone_stairs",
+      "slab": "minecraft:blackstone_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "minecraft:polished_blackstone_bricks"
+      "block": "minecraft:polished_blackstone_bricks",
+      "stairs": "minecraft:polished_blackstone_brick_stairs",
+      "slab": "minecraft:polished_blackstone_brick_slab",
+      "slab_worth": 0.5
+    },
+    "minecraft:cracked_polished_blackstone_bricks",
+    "minecraft:chiseled_polished_blackstone",
+    {
+      "block": "rechiseled:blackstone_brick_pattern",
+      "stairs": "rechiseled:blackstone_brick_pattern_stairs",
+      "slab": "rechiseled:blackstone_brick_pattern_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:blackstone_brick_pattern_connecting",
+      "connecting_stairs": "rechiseled:blackstone_brick_pattern_stairs_connecting",
+      "connecting_slab": "rechiseled:blackstone_brick_pattern_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "minecraft:cracked_polished_blackstone_bricks"
+      "block": "rechiseled:blackstone_brick_paving",
+      "stairs": "rechiseled:blackstone_brick_paving_stairs",
+      "slab": "rechiseled:blackstone_brick_paving_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:blackstone_brick_paving_connecting",
+      "connecting_stairs": "rechiseled:blackstone_brick_paving_stairs_connecting",
+      "connecting_slab": "rechiseled:blackstone_brick_paving_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "minecraft:chiseled_polished_blackstone"
+      "block": "rechiseled:blackstone_diagonal_bricks",
+      "stairs": "rechiseled:blackstone_diagonal_bricks_stairs",
+      "slab": "rechiseled:blackstone_diagonal_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:blackstone_diagonal_bricks_connecting",
+      "connecting_stairs": "rechiseled:blackstone_diagonal_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:blackstone_diagonal_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:blackstone_brick_pattern",
-      "connecting_item": "rechiseled:blackstone_brick_pattern_connecting"
+      "block": "minecraft:polished_blackstone",
+      "connecting_block": "rechiseled:blackstone_polished_connecting",
+      "connecting_stairs": "rechiseled:blackstone_polished_stairs_connecting",
+      "connecting_slab": "rechiseled:blackstone_polished_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:blackstone_brick_paving",
-      "connecting_item": "rechiseled:blackstone_brick_paving_connecting"
+      "block": "rechiseled:blackstone_tiles",
+      "stairs": "rechiseled:blackstone_tiles_stairs",
+      "slab": "rechiseled:blackstone_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:blackstone_tiles_connecting",
+      "connecting_stairs": "rechiseled:blackstone_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:blackstone_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:blackstone_diagonal_bricks",
-      "connecting_item": "rechiseled:blackstone_diagonal_bricks_connecting"
-    },
-    {
-      "item": "minecraft:polished_blackstone",
-      "connecting_item": "rechiseled:blackstone_polished_connecting"
-    },
-    {
-      "item": "rechiseled:blackstone_tiles",
-      "connecting_item": "rechiseled:blackstone_tiles_connecting"
-    },
-    {
-      "item": "rechiseled:blackstone_rotated_bricks",
-      "connecting_item": "rechiseled:blackstone_rotated_bricks_connecting"
+      "block": "rechiseled:blackstone_rotated_bricks",
+      "stairs": "rechiseled:blackstone_rotated_bricks_stairs",
+      "slab": "rechiseled:blackstone_rotated_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:blackstone_rotated_bricks_connecting",
+      "connecting_stairs": "rechiseled:blackstone_rotated_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:blackstone_rotated_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     }
   ]
 }

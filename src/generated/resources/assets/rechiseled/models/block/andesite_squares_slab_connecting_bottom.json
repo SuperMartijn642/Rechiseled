@@ -1,0 +1,160 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "side": "rechiseled:block/andesite_squares",
+    "top": "rechiseled:block/andesite_squares",
+    "bottom": "rechiseled:block/andesite_squares"
+  },
+  "connections": {
+    "side": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "directions": [
+                "left",
+                "right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "predicates": [
+                {
+                  "block": "rechiseled:andesite_squares_slab_connecting",
+                  "properties": {
+                    "type": [
+                      "bottom"
+                    ]
+                  },
+                  "type": "fusion:match_state"
+                },
+                {
+                  "block": "rechiseled:andesite_squares_stairs_connecting",
+                  "properties": {
+                    "half": [
+                      "bottom"
+                    ]
+                  },
+                  "type": "fusion:match_state"
+                }
+              ],
+              "type": "fusion:or"
+            }
+          ],
+          "type": "fusion:and"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "predicates": [
+                {
+                  "predicates": [
+                    {
+                      "block": "rechiseled:andesite_squares_connecting",
+                      "type": "fusion:match_block"
+                    },
+                    {
+                      "block": "rechiseled:andesite_squares_slab_connecting",
+                      "properties": {
+                        "type": [
+                          "double"
+                        ]
+                      },
+                      "type": "fusion:match_state"
+                    }
+                  ],
+                  "type": "fusion:or"
+                },
+                {
+                  "block": "rechiseled:andesite_squares_slab_connecting",
+                  "properties": {
+                    "type": [
+                      "top"
+                    ]
+                  },
+                  "type": "fusion:match_state"
+                },
+                {
+                  "block": "rechiseled:andesite_squares_stairs_connecting",
+                  "type": "fusion:match_block"
+                }
+              ],
+              "type": "fusion:or"
+            }
+          ],
+          "type": "fusion:and"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:andesite_squares_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:andesite_squares_stairs_connecting",
+          "properties": {
+            "half": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:andesite_squares_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:andesite_squares_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:andesite_squares_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:andesite_squares_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    }
+  },
+  "loader": "fusion:model",
+  "type": "fusion:connecting"
+}

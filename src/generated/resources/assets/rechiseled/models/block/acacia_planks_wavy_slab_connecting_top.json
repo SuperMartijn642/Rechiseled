@@ -1,0 +1,160 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "side": "rechiseled:block/acacia_planks_wavy",
+    "top": "rechiseled:block/acacia_planks_wavy",
+    "bottom": "rechiseled:block/acacia_planks_wavy"
+  },
+  "connections": {
+    "side": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "directions": [
+                "left",
+                "right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "predicates": [
+                {
+                  "block": "rechiseled:acacia_planks_wavy_slab_connecting",
+                  "properties": {
+                    "type": [
+                      "top"
+                    ]
+                  },
+                  "type": "fusion:match_state"
+                },
+                {
+                  "block": "rechiseled:acacia_planks_wavy_stairs_connecting",
+                  "properties": {
+                    "half": [
+                      "top"
+                    ]
+                  },
+                  "type": "fusion:match_state"
+                }
+              ],
+              "type": "fusion:or"
+            }
+          ],
+          "type": "fusion:and"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "top",
+                "top_left",
+                "top_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "predicates": [
+                {
+                  "predicates": [
+                    {
+                      "block": "rechiseled:acacia_planks_wavy_connecting",
+                      "type": "fusion:match_block"
+                    },
+                    {
+                      "block": "rechiseled:acacia_planks_wavy_slab_connecting",
+                      "properties": {
+                        "type": [
+                          "double"
+                        ]
+                      },
+                      "type": "fusion:match_state"
+                    }
+                  ],
+                  "type": "fusion:or"
+                },
+                {
+                  "block": "rechiseled:acacia_planks_wavy_slab_connecting",
+                  "properties": {
+                    "type": [
+                      "bottom"
+                    ]
+                  },
+                  "type": "fusion:match_state"
+                },
+                {
+                  "block": "rechiseled:acacia_planks_wavy_stairs_connecting",
+                  "type": "fusion:match_block"
+                }
+              ],
+              "type": "fusion:or"
+            }
+          ],
+          "type": "fusion:and"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "top": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:acacia_planks_wavy_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:acacia_planks_wavy_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:acacia_planks_wavy_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:acacia_planks_wavy_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:acacia_planks_wavy_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:acacia_planks_wavy_stairs_connecting",
+          "properties": {
+            "half": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    }
+  },
+  "loader": "fusion:model",
+  "type": "fusion:connecting"
+}

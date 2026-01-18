@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "rechiseled:block/spruce_planks_pattern_slab_bottom"
+    },
+    "type=double": {
+      "model": "rechiseled:block/spruce_planks_pattern_slab_double"
+    },
+    "type=top": {
+      "model": "rechiseled:block/spruce_planks_pattern_slab_top"
+    }
+  }
+}

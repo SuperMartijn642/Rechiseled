@@ -1,0 +1,160 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "side": "rechiseled:block/red_sandstone_brick_paving",
+    "top": "rechiseled:block/red_sandstone_brick_paving",
+    "bottom": "rechiseled:block/red_sandstone_brick_paving"
+  },
+  "connections": {
+    "side": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "directions": [
+                "left",
+                "right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "predicates": [
+                {
+                  "block": "rechiseled:red_sandstone_brick_paving_slab_connecting",
+                  "properties": {
+                    "type": [
+                      "bottom"
+                    ]
+                  },
+                  "type": "fusion:match_state"
+                },
+                {
+                  "block": "rechiseled:red_sandstone_brick_paving_stairs_connecting",
+                  "properties": {
+                    "half": [
+                      "bottom"
+                    ]
+                  },
+                  "type": "fusion:match_state"
+                }
+              ],
+              "type": "fusion:or"
+            }
+          ],
+          "type": "fusion:and"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "predicates": [
+                {
+                  "predicates": [
+                    {
+                      "block": "rechiseled:red_sandstone_brick_paving_connecting",
+                      "type": "fusion:match_block"
+                    },
+                    {
+                      "block": "rechiseled:red_sandstone_brick_paving_slab_connecting",
+                      "properties": {
+                        "type": [
+                          "double"
+                        ]
+                      },
+                      "type": "fusion:match_state"
+                    }
+                  ],
+                  "type": "fusion:or"
+                },
+                {
+                  "block": "rechiseled:red_sandstone_brick_paving_slab_connecting",
+                  "properties": {
+                    "type": [
+                      "top"
+                    ]
+                  },
+                  "type": "fusion:match_state"
+                },
+                {
+                  "block": "rechiseled:red_sandstone_brick_paving_stairs_connecting",
+                  "type": "fusion:match_block"
+                }
+              ],
+              "type": "fusion:or"
+            }
+          ],
+          "type": "fusion:and"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:red_sandstone_brick_paving_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:red_sandstone_brick_paving_stairs_connecting",
+          "properties": {
+            "half": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:red_sandstone_brick_paving_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:red_sandstone_brick_paving_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:red_sandstone_brick_paving_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:red_sandstone_brick_paving_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    }
+  },
+  "loader": "fusion:model",
+  "type": "fusion:connecting"
+}

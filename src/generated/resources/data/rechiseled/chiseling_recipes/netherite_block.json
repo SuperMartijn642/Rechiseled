@@ -2,54 +2,118 @@
   "type": "rechiseled:chiseling",
   "overwrite": false,
   "entries": [
+    "minecraft:netherite_block",
     {
-      "item": "minecraft:netherite_block"
+      "block": "rechiseled:netherite_block_beams",
+      "stairs": "rechiseled:netherite_block_beams_stairs",
+      "slab": "rechiseled:netherite_block_beams_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:netherite_block_beams_connecting",
+      "connecting_stairs": "rechiseled:netherite_block_beams_stairs_connecting",
+      "connecting_slab": "rechiseled:netherite_block_beams_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:netherite_block_beams",
-      "connecting_item": "rechiseled:netherite_block_beams_connecting"
+      "block": "rechiseled:netherite_block_bricks",
+      "stairs": "rechiseled:netherite_block_bricks_stairs",
+      "slab": "rechiseled:netherite_block_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:netherite_block_bricks_connecting",
+      "connecting_stairs": "rechiseled:netherite_block_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:netherite_block_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:netherite_block_bricks",
-      "connecting_item": "rechiseled:netherite_block_bricks_connecting"
+      "block": "rechiseled:netherite_block_chiseled",
+      "stairs": "rechiseled:netherite_block_chiseled_stairs",
+      "slab": "rechiseled:netherite_block_chiseled_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:netherite_block_chiseled_connecting",
+      "connecting_stairs": "rechiseled:netherite_block_chiseled_stairs_connecting",
+      "connecting_slab": "rechiseled:netherite_block_chiseled_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:netherite_block_chiseled",
-      "connecting_item": "rechiseled:netherite_block_chiseled_connecting"
+      "block": "rechiseled:netherite_block_compacted",
+      "stairs": "rechiseled:netherite_block_compacted_stairs",
+      "slab": "rechiseled:netherite_block_compacted_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:netherite_block_compacted_connecting",
+      "connecting_stairs": "rechiseled:netherite_block_compacted_stairs_connecting",
+      "connecting_slab": "rechiseled:netherite_block_compacted_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:netherite_block_compacted",
-      "connecting_item": "rechiseled:netherite_block_compacted_connecting"
+      "block": "rechiseled:netherite_block_decorated",
+      "stairs": "rechiseled:netherite_block_decorated_stairs",
+      "slab": "rechiseled:netherite_block_decorated_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:netherite_block_decorated_connecting",
+      "connecting_stairs": "rechiseled:netherite_block_decorated_stairs_connecting",
+      "connecting_slab": "rechiseled:netherite_block_decorated_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:netherite_block_decorated",
-      "connecting_item": "rechiseled:netherite_block_decorated_connecting"
+      "block": "rechiseled:netherite_block_diagonal_tiles",
+      "stairs": "rechiseled:netherite_block_diagonal_tiles_stairs",
+      "slab": "rechiseled:netherite_block_diagonal_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:netherite_block_diagonal_tiles_connecting",
+      "connecting_stairs": "rechiseled:netherite_block_diagonal_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:netherite_block_diagonal_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:netherite_block_diagonal_tiles",
-      "connecting_item": "rechiseled:netherite_block_diagonal_tiles_connecting"
+      "block": "rechiseled:netherite_block_indented",
+      "stairs": "rechiseled:netherite_block_indented_stairs",
+      "slab": "rechiseled:netherite_block_indented_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:netherite_block_indented_connecting",
+      "connecting_stairs": "rechiseled:netherite_block_indented_stairs_connecting",
+      "connecting_slab": "rechiseled:netherite_block_indented_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:netherite_block_indented",
-      "connecting_item": "rechiseled:netherite_block_indented_connecting"
+      "block": "rechiseled:netherite_block_meteoric",
+      "stairs": "rechiseled:netherite_block_meteoric_stairs",
+      "slab": "rechiseled:netherite_block_meteoric_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "rechiseled:netherite_block_meteoric"
+      "block": "rechiseled:netherite_block_patterned",
+      "stairs": "rechiseled:netherite_block_patterned_stairs",
+      "slab": "rechiseled:netherite_block_patterned_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:netherite_block_patterned_connecting",
+      "connecting_stairs": "rechiseled:netherite_block_patterned_stairs_connecting",
+      "connecting_slab": "rechiseled:netherite_block_patterned_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:netherite_block_patterned",
-      "connecting_item": "rechiseled:netherite_block_patterned_connecting"
+      "block": "rechiseled:netherite_block_pillar",
+      "stairs": "rechiseled:netherite_block_pillar_stairs",
+      "slab": "rechiseled:netherite_block_pillar_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:netherite_block_pillar_connecting",
+      "connecting_stairs": "rechiseled:netherite_block_pillar_stairs_connecting",
+      "connecting_slab": "rechiseled:netherite_block_pillar_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:netherite_block_pillar",
-      "connecting_item": "rechiseled:netherite_block_pillar_connecting"
+      "block": "rechiseled:netherite_block_small_tiles",
+      "stairs": "rechiseled:netherite_block_small_tiles_stairs",
+      "slab": "rechiseled:netherite_block_small_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:netherite_block_small_tiles_connecting",
+      "connecting_stairs": "rechiseled:netherite_block_small_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:netherite_block_small_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:netherite_block_small_tiles",
-      "connecting_item": "rechiseled:netherite_block_small_tiles_connecting"
-    },
-    {
-      "item": "rechiseled:netherite_block_smooth"
+      "block": "rechiseled:netherite_block_smooth",
+      "stairs": "rechiseled:netherite_block_smooth_stairs",
+      "slab": "rechiseled:netherite_block_smooth_slab",
+      "slab_worth": 0.5
     }
   ]
 }

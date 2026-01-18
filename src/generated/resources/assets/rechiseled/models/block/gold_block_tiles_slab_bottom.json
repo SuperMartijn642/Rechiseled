@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "rechiseled:block/gold_block_tiles",
+    "side": "rechiseled:block/gold_block_tiles",
+    "top": "rechiseled:block/gold_block_tiles"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "parent": "rechiseled:block/outer_stairs_top",
+  "textures": {
+    "side": "rechiseled:block/stone_rotated_bricks",
+    "top": "rechiseled:block/stone_rotated_bricks",
+    "bottom": "rechiseled:block/stone_rotated_bricks"
+  },
+  "connections": {
+    "side": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:stone_rotated_bricks_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:stone_rotated_bricks_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:stone_rotated_bricks_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "top",
+                "top_left",
+                "top_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:stone_rotated_bricks_slab_connecting",
+              "properties": {
+                "type": [
+                  "bottom"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right",
+                "left",
+                "right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:stone_rotated_bricks_slab_connecting",
+              "properties": {
+                "type": [
+                  "top"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "top": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:stone_rotated_bricks_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:stone_rotated_bricks_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:stone_rotated_bricks_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:stone_rotated_bricks_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:stone_rotated_bricks_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:stone_rotated_bricks_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:stone_rotated_bricks_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    }
+  },
+  "loader": "fusion:model",
+  "type": "fusion:connecting"
+}
