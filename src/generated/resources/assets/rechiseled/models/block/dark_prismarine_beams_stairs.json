@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "rechiseled:block/dark_prismarine_beams",
+    "side": "rechiseled:block/dark_prismarine_beams",
+    "top": "rechiseled:block/dark_prismarine_beams"
+  }
+}

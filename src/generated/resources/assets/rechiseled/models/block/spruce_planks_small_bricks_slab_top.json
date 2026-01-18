@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "rechiseled:block/spruce_planks_small_bricks",
+    "side": "rechiseled:block/spruce_planks_small_bricks",
+    "top": "rechiseled:block/spruce_planks_small_bricks"
+  }
+}

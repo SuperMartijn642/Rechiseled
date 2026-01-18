@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "rechiseled:block/mangrove_planks_large_tiles",
+    "side": "rechiseled:block/mangrove_planks_large_tiles",
+    "top": "rechiseled:block/mangrove_planks_large_tiles"
+  }
+}

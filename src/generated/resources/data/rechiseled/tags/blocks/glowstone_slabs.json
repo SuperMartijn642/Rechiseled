@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:glowstone_brick_pattern_slab",
+    "rechiseled:glowstone_brick_pattern_slab_connecting",
+    "rechiseled:glowstone_brick_paving_slab",
+    "rechiseled:glowstone_brick_paving_slab_connecting",
+    "rechiseled:glowstone_bricks_slab",
+    "rechiseled:glowstone_bricks_slab_connecting",
+    "rechiseled:glowstone_crushed_slab",
+    "rechiseled:glowstone_crushed_slab_connecting",
+    "rechiseled:glowstone_large_tiles_slab",
+    "rechiseled:glowstone_large_tiles_slab_connecting",
+    "rechiseled:glowstone_rotated_bricks_slab",
+    "rechiseled:glowstone_rotated_bricks_slab_connecting",
+    "rechiseled:glowstone_small_tiles_slab",
+    "rechiseled:glowstone_small_tiles_slab_connecting",
+    "rechiseled:glowstone_smooth_slab",
+    "rechiseled:glowstone_smooth_slab_connecting",
+    "rechiseled:glowstone_tiles_slab",
+    "rechiseled:glowstone_tiles_slab_connecting"
+  ]
+}

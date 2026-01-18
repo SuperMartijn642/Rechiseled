@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "rechiseled:block/glowstone_small_tiles",
+    "side": "rechiseled:block/glowstone_small_tiles",
+    "top": "rechiseled:block/glowstone_small_tiles"
+  }
+}

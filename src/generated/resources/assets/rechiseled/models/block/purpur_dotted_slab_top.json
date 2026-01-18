@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "rechiseled:block/purpur_dotted",
+    "side": "rechiseled:block/purpur_dotted",
+    "top": "rechiseled:block/purpur_dotted"
+  }
+}

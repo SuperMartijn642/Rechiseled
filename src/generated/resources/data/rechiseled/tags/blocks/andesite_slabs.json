@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:andesite_brick_pattern_slab",
+    "rechiseled:andesite_brick_pattern_slab_connecting",
+    "rechiseled:andesite_brick_paving_slab",
+    "rechiseled:andesite_brick_paving_slab_connecting",
+    "rechiseled:andesite_bricks_slab",
+    "rechiseled:andesite_bricks_slab_connecting",
+    "rechiseled:andesite_diagonal_bricks_slab",
+    "rechiseled:andesite_diagonal_bricks_slab_connecting",
+    "rechiseled:andesite_dotted_slab",
+    "rechiseled:andesite_dotted_slab_connecting",
+    "rechiseled:andesite_paving_slab",
+    "rechiseled:andesite_paving_slab_connecting",
+    "rechiseled:andesite_polished_slab_connecting",
+    "rechiseled:andesite_rotated_bricks_slab",
+    "rechiseled:andesite_rotated_bricks_slab_connecting",
+    "rechiseled:andesite_squares_slab",
+    "rechiseled:andesite_squares_slab_connecting",
+    "rechiseled:andesite_tiles_slab",
+    "rechiseled:andesite_tiles_slab_connecting",
+    "rechiseled:andesite_wavy_slab",
+    "rechiseled:andesite_wavy_slab_connecting"
+  ]
+}
