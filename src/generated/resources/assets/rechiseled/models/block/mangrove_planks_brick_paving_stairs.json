@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "rechiseled:block/mangrove_planks_brick_paving",
+    "side": "rechiseled:block/mangrove_planks_brick_paving",
+    "top": "rechiseled:block/mangrove_planks_brick_paving"
+  }
+}
