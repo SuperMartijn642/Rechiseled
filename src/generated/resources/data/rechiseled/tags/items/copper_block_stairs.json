@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:copper_block_bars_stairs",
+    "rechiseled:copper_block_bars_stairs_connecting",
+    "rechiseled:copper_block_circles_stairs",
+    "rechiseled:copper_block_circles_stairs_connecting",
+    "rechiseled:copper_block_cone_stairs",
+    "rechiseled:copper_block_gears_stairs",
+    "rechiseled:copper_block_gears_stairs_connecting",
+    "rechiseled:copper_block_lines_stairs",
+    "rechiseled:copper_block_lines_stairs_connecting",
+    "rechiseled:copper_block_pattern_stairs",
+    "rechiseled:copper_block_pattern_stairs_connecting",
+    "rechiseled:copper_block_pillar_stairs",
+    "rechiseled:copper_block_pillar_stairs_connecting",
+    "rechiseled:copper_block_polished_stairs",
+    "rechiseled:copper_block_polished_stairs_connecting",
+    "rechiseled:copper_block_shafts_stairs",
+    "rechiseled:copper_block_shafts_stairs_connecting",
+    "rechiseled:copper_block_small_bricks_stairs",
+    "rechiseled:copper_block_small_bricks_stairs_connecting",
+    "rechiseled:copper_block_smooth_stairs"
+  ]
+}

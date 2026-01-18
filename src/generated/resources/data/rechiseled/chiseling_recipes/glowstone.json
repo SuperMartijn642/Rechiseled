@@ -1,44 +1,96 @@
 {
   "type": "rechiseled:chiseling",
   "entries": [
+    "minecraft:glowstone",
     {
-      "item": "minecraft:glowstone"
+      "block": "rechiseled:glowstone_brick_pattern",
+      "connecting_block": "rechiseled:glowstone_brick_pattern_connecting",
+      "connecting_slab": "rechiseled:glowstone_brick_pattern_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:glowstone_brick_pattern_stairs_connecting",
+      "slab": "rechiseled:glowstone_brick_pattern_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:glowstone_brick_pattern_stairs"
     },
     {
-      "connecting_item": "rechiseled:glowstone_brick_pattern_connecting",
-      "item": "rechiseled:glowstone_brick_pattern"
+      "block": "rechiseled:glowstone_brick_paving",
+      "connecting_block": "rechiseled:glowstone_brick_paving_connecting",
+      "connecting_slab": "rechiseled:glowstone_brick_paving_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:glowstone_brick_paving_stairs_connecting",
+      "slab": "rechiseled:glowstone_brick_paving_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:glowstone_brick_paving_stairs"
     },
     {
-      "connecting_item": "rechiseled:glowstone_brick_paving_connecting",
-      "item": "rechiseled:glowstone_brick_paving"
+      "block": "rechiseled:glowstone_bricks",
+      "connecting_block": "rechiseled:glowstone_bricks_connecting",
+      "connecting_slab": "rechiseled:glowstone_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:glowstone_bricks_stairs_connecting",
+      "slab": "rechiseled:glowstone_bricks_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:glowstone_bricks_stairs"
     },
     {
-      "connecting_item": "rechiseled:glowstone_bricks_connecting",
-      "item": "rechiseled:glowstone_bricks"
+      "block": "rechiseled:glowstone_crushed",
+      "connecting_block": "rechiseled:glowstone_crushed_connecting",
+      "connecting_slab": "rechiseled:glowstone_crushed_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:glowstone_crushed_stairs_connecting",
+      "slab": "rechiseled:glowstone_crushed_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:glowstone_crushed_stairs"
     },
     {
-      "connecting_item": "rechiseled:glowstone_crushed_connecting",
-      "item": "rechiseled:glowstone_crushed"
+      "block": "rechiseled:glowstone_large_tiles",
+      "connecting_block": "rechiseled:glowstone_large_tiles_connecting",
+      "connecting_slab": "rechiseled:glowstone_large_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:glowstone_large_tiles_stairs_connecting",
+      "slab": "rechiseled:glowstone_large_tiles_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:glowstone_large_tiles_stairs"
     },
     {
-      "connecting_item": "rechiseled:glowstone_large_tiles_connecting",
-      "item": "rechiseled:glowstone_large_tiles"
+      "block": "rechiseled:glowstone_rotated_bricks",
+      "connecting_block": "rechiseled:glowstone_rotated_bricks_connecting",
+      "connecting_slab": "rechiseled:glowstone_rotated_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:glowstone_rotated_bricks_stairs_connecting",
+      "slab": "rechiseled:glowstone_rotated_bricks_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:glowstone_rotated_bricks_stairs"
     },
     {
-      "connecting_item": "rechiseled:glowstone_rotated_bricks_connecting",
-      "item": "rechiseled:glowstone_rotated_bricks"
+      "block": "rechiseled:glowstone_small_tiles",
+      "connecting_block": "rechiseled:glowstone_small_tiles_connecting",
+      "connecting_slab": "rechiseled:glowstone_small_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:glowstone_small_tiles_stairs_connecting",
+      "slab": "rechiseled:glowstone_small_tiles_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:glowstone_small_tiles_stairs"
     },
     {
-      "connecting_item": "rechiseled:glowstone_small_tiles_connecting",
-      "item": "rechiseled:glowstone_small_tiles"
+      "block": "rechiseled:glowstone_smooth",
+      "connecting_block": "rechiseled:glowstone_smooth_connecting",
+      "connecting_slab": "rechiseled:glowstone_smooth_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:glowstone_smooth_stairs_connecting",
+      "slab": "rechiseled:glowstone_smooth_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:glowstone_smooth_stairs"
     },
     {
-      "connecting_item": "rechiseled:glowstone_smooth_connecting",
-      "item": "rechiseled:glowstone_smooth"
-    },
-    {
-      "connecting_item": "rechiseled:glowstone_tiles_connecting",
-      "item": "rechiseled:glowstone_tiles"
+      "block": "rechiseled:glowstone_tiles",
+      "connecting_block": "rechiseled:glowstone_tiles_connecting",
+      "connecting_slab": "rechiseled:glowstone_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:glowstone_tiles_stairs_connecting",
+      "slab": "rechiseled:glowstone_tiles_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:glowstone_tiles_stairs"
     }
   ],
   "overwrite": false

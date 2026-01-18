@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/mossy_cobblestone_dented",
+    "side": "rechiseled:block/mossy_cobblestone_dented",
+    "top": "rechiseled:block/mossy_cobblestone_dented"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "rechiseled:block/quartz_block_stripes",
+    "side": "rechiseled:block/quartz_block_stripes",
+    "top": "rechiseled:block/quartz_block_stripes"
+  }
+}
