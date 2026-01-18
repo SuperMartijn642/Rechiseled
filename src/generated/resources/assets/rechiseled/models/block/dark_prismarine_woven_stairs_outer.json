@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/dark_prismarine_woven",
+    "side": "rechiseled:block/dark_prismarine_woven",
+    "top": "rechiseled:block/dark_prismarine_woven"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:coal_block_carved_slab",
+    "rechiseled:coal_block_carved_slab_connecting",
+    "rechiseled:coal_block_chiseled_slab",
+    "rechiseled:coal_block_chiseled_slab_connecting",
+    "rechiseled:coal_block_circles_slab",
+    "rechiseled:coal_block_circles_slab_connecting",
+    "rechiseled:coal_block_compacted_slab",
+    "rechiseled:coal_block_compacted_slab_connecting",
+    "rechiseled:coal_block_ovals_slab",
+    "rechiseled:coal_block_ovals_slab_connecting",
+    "rechiseled:coal_block_pattern_slab",
+    "rechiseled:coal_block_pattern_slab_connecting",
+    "rechiseled:coal_block_pillar_slab",
+    "rechiseled:coal_block_pillar_slab_connecting",
+    "rechiseled:coal_block_polished_slab",
+    "rechiseled:coal_block_rotated_bricks_slab",
+    "rechiseled:coal_block_rotated_bricks_slab_connecting",
+    "rechiseled:coal_block_small_tiles_slab",
+    "rechiseled:coal_block_small_tiles_slab_connecting",
+    "rechiseled:coal_block_stripes_slab",
+    "rechiseled:coal_block_stripes_slab_connecting"
+  ]
+}
