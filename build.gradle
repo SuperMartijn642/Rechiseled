@@ -40,7 +40,8 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     // Core library
-    implementation fg.deobf("curse.maven:supermartijn642s-core-lib-454372:${core_library_file}")
+//    implementation fg.deobf("curse.maven:supermartijn642s-core-lib-454372:${core_library_file}")
+    implementation fg.deobf("a:supermartijn642corelib:1.1.20-forge-mc1.20.4")
     // Config library
     implementation fg.deobf("curse.maven:supermartijn642s-config-lib-438332:${config_library_file}")
     // Fusion
