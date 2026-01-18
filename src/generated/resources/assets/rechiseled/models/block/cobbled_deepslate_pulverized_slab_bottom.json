@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "rechiseled:block/cobbled_deepslate_pulverized",
+    "side": "rechiseled:block/cobbled_deepslate_pulverized",
+    "top": "rechiseled:block/cobbled_deepslate_pulverized"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "rechiseled:block/spruce_planks_diagonal_stripes",
+    "side": "rechiseled:block/spruce_planks_diagonal_stripes",
+    "top": "rechiseled:block/spruce_planks_diagonal_stripes"
+  }
+}

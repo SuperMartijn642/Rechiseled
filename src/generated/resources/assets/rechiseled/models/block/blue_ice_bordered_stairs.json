@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "rechiseled:block/blue_ice_bordered",
+    "side": "rechiseled:block/blue_ice_bordered",
+    "top": "rechiseled:block/blue_ice_bordered"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "rechiseled:block/lapis_block_mosaic",
+    "side": "rechiseled:block/lapis_block_mosaic",
+    "top": "rechiseled:block/lapis_block_mosaic"
+  }
+}
