@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:andesite_squares_connecting"
+          "name": "rechiseled:andesite_squares_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

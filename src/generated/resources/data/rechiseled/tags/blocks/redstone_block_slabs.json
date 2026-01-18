@@ -1,0 +1,32 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:redstone_block_bordered_slab",
+    "rechiseled:redstone_block_bordered_slab_connecting",
+    "rechiseled:redstone_block_brick_bordered_slab",
+    "rechiseled:redstone_block_bricks_slab",
+    "rechiseled:redstone_block_bricks_slab_connecting",
+    "rechiseled:redstone_block_chiseled_clovers_slab",
+    "rechiseled:redstone_block_chiseled_clovers_slab_connecting",
+    "rechiseled:redstone_block_circles_slab",
+    "rechiseled:redstone_block_circles_slab_connecting",
+    "rechiseled:redstone_block_compressed_slab",
+    "rechiseled:redstone_block_compressed_slab_connecting",
+    "rechiseled:redstone_block_crushed_slab",
+    "rechiseled:redstone_block_diagonal_tiles_slab",
+    "rechiseled:redstone_block_diagonal_tiles_slab_connecting",
+    "rechiseled:redstone_block_patterned_slab",
+    "rechiseled:redstone_block_patterned_slab_connecting",
+    "rechiseled:redstone_block_paving_slab",
+    "rechiseled:redstone_block_paving_slab_connecting",
+    "rechiseled:redstone_block_pillar_slab",
+    "rechiseled:redstone_block_pillar_slab_connecting",
+    "rechiseled:redstone_block_polished_slab",
+    "rechiseled:redstone_block_polished_slab_connecting",
+    "rechiseled:redstone_block_scales_slab",
+    "rechiseled:redstone_block_scales_slab_connecting",
+    "rechiseled:redstone_block_small_tiles_slab",
+    "rechiseled:redstone_block_small_tiles_slab_connecting",
+    "rechiseled:redstone_block_smooth_slab"
+  ]
+}

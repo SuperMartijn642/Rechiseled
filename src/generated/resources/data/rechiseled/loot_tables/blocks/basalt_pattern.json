@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:basalt_pattern"
+          "name": "rechiseled:basalt_pattern",
+          "type": "minecraft:item"
         }
       ]
     }

@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:emerald_block_smooth"
+          "name": "rechiseled:emerald_block_smooth",
+          "type": "minecraft:item"
         }
       ]
     }

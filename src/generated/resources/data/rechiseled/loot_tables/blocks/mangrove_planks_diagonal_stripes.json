@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:mangrove_planks_diagonal_stripes"
+          "name": "rechiseled:mangrove_planks_diagonal_stripes",
+          "type": "minecraft:item"
         }
       ]
     }

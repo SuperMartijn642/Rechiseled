@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:bone_block_pillar"
+          "name": "rechiseled:bone_block_pillar",
+          "type": "minecraft:item"
         }
       ]
     }

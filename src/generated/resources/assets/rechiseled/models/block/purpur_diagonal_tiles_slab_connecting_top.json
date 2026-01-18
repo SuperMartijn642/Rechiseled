@@ -1,0 +1,160 @@
+{
+  "type": "fusion:connecting",
+  "parent": "minecraft:block/slab_top",
+  "connections": {
+    "bottom": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:match_state",
+          "block": "rechiseled:purpur_diagonal_tiles_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          }
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "rechiseled:purpur_diagonal_tiles_stairs_connecting",
+          "properties": {
+            "half": [
+              "top"
+            ]
+          }
+        }
+      ]
+    },
+    "side": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:and",
+          "predicates": [
+            {
+              "type": "fusion:is_direction",
+              "directions": [
+                "left",
+                "right"
+              ]
+            },
+            {
+              "type": "fusion:or",
+              "predicates": [
+                {
+                  "type": "fusion:match_state",
+                  "block": "rechiseled:purpur_diagonal_tiles_slab_connecting",
+                  "properties": {
+                    "type": [
+                      "top"
+                    ]
+                  }
+                },
+                {
+                  "type": "fusion:match_state",
+                  "block": "rechiseled:purpur_diagonal_tiles_stairs_connecting",
+                  "properties": {
+                    "half": [
+                      "top"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "fusion:and",
+          "predicates": [
+            {
+              "type": "fusion:is_direction",
+              "directions": [
+                "top",
+                "top_left",
+                "top_right"
+              ]
+            },
+            {
+              "type": "fusion:or",
+              "predicates": [
+                {
+                  "type": "fusion:or",
+                  "predicates": [
+                    {
+                      "type": "fusion:match_block",
+                      "block": "rechiseled:purpur_diagonal_tiles_connecting"
+                    },
+                    {
+                      "type": "fusion:match_state",
+                      "block": "rechiseled:purpur_diagonal_tiles_slab_connecting",
+                      "properties": {
+                        "type": [
+                          "double"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "fusion:match_state",
+                  "block": "rechiseled:purpur_diagonal_tiles_slab_connecting",
+                  "properties": {
+                    "type": [
+                      "bottom"
+                    ]
+                  }
+                },
+                {
+                  "type": "fusion:match_block",
+                  "block": "rechiseled:purpur_diagonal_tiles_stairs_connecting"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "top": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:purpur_diagonal_tiles_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:purpur_diagonal_tiles_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:purpur_diagonal_tiles_stairs_connecting"
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "rechiseled:purpur_diagonal_tiles_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "loader": "fusion:model",
+  "textures": {
+    "bottom": "rechiseled:block/purpur_diagonal_tiles",
+    "side": "rechiseled:block/purpur_diagonal_tiles",
+    "top": "rechiseled:block/purpur_diagonal_tiles"
+  }
+}

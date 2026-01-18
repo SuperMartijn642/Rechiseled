@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/andesite_wavy",
+    "side": "rechiseled:block/andesite_wavy",
+    "top": "rechiseled:block/andesite_wavy"
+  }
+}

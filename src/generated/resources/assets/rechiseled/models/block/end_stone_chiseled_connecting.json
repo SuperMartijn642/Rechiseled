@@ -1,13 +1,163 @@
 {
   "type": "fusion:connecting",
-  "parent": "minecraft:block/cube_all",
-  "connections": [
-    {
-      "type": "fusion:is_same_block"
-    }
-  ],
+  "parent": "minecraft:block/cube",
+  "connections": {
+    "down": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:end_stone_chiseled_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:end_stone_chiseled_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:end_stone_chiseled_stairs_connecting"
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "rechiseled:end_stone_chiseled_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          }
+        }
+      ]
+    },
+    "east": "#side",
+    "north": "#side",
+    "side": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:end_stone_chiseled_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:end_stone_chiseled_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:end_stone_chiseled_stairs_connecting"
+        },
+        {
+          "type": "fusion:and",
+          "predicates": [
+            {
+              "type": "fusion:is_direction",
+              "directions": [
+                "top",
+                "top_left",
+                "top_right"
+              ]
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:end_stone_chiseled_slab_connecting",
+              "properties": {
+                "type": [
+                  "bottom"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:and",
+          "predicates": [
+            {
+              "type": "fusion:is_direction",
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right"
+              ]
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:end_stone_chiseled_slab_connecting",
+              "properties": {
+                "type": [
+                  "top"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "south": "#side",
+    "up": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:end_stone_chiseled_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:end_stone_chiseled_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:end_stone_chiseled_stairs_connecting"
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "rechiseled:end_stone_chiseled_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          }
+        }
+      ]
+    },
+    "west": "#side"
+  },
   "loader": "fusion:model",
   "textures": {
-    "all": "rechiseled:block/end_stone_chiseled"
+    "down": "rechiseled:block/end_stone_chiseled",
+    "east": "rechiseled:block/end_stone_chiseled",
+    "north": "rechiseled:block/end_stone_chiseled",
+    "particle": "rechiseled:block/end_stone_chiseled",
+    "south": "rechiseled:block/end_stone_chiseled",
+    "up": "rechiseled:block/end_stone_chiseled",
+    "west": "rechiseled:block/end_stone_chiseled"
   }
 }

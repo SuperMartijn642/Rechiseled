@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:amethyst_block_cut"
+          "name": "rechiseled:amethyst_block_cut",
+          "type": "minecraft:item"
         }
       ]
     }

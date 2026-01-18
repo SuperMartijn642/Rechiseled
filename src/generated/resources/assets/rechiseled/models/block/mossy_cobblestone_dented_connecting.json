@@ -1,13 +1,163 @@
 {
   "type": "fusion:connecting",
-  "parent": "minecraft:block/cube_all",
-  "connections": [
-    {
-      "type": "fusion:is_same_block"
-    }
-  ],
+  "parent": "minecraft:block/cube",
+  "connections": {
+    "down": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:mossy_cobblestone_dented_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:mossy_cobblestone_dented_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:mossy_cobblestone_dented_stairs_connecting"
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "rechiseled:mossy_cobblestone_dented_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          }
+        }
+      ]
+    },
+    "east": "#side",
+    "north": "#side",
+    "side": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:mossy_cobblestone_dented_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:mossy_cobblestone_dented_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:mossy_cobblestone_dented_stairs_connecting"
+        },
+        {
+          "type": "fusion:and",
+          "predicates": [
+            {
+              "type": "fusion:is_direction",
+              "directions": [
+                "top",
+                "top_left",
+                "top_right"
+              ]
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:mossy_cobblestone_dented_slab_connecting",
+              "properties": {
+                "type": [
+                  "bottom"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:and",
+          "predicates": [
+            {
+              "type": "fusion:is_direction",
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right"
+              ]
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:mossy_cobblestone_dented_slab_connecting",
+              "properties": {
+                "type": [
+                  "top"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "south": "#side",
+    "up": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:mossy_cobblestone_dented_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:mossy_cobblestone_dented_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:mossy_cobblestone_dented_stairs_connecting"
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "rechiseled:mossy_cobblestone_dented_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          }
+        }
+      ]
+    },
+    "west": "#side"
+  },
   "loader": "fusion:model",
   "textures": {
-    "all": "rechiseled:block/mossy_cobblestone_dented"
+    "down": "rechiseled:block/mossy_cobblestone_dented",
+    "east": "rechiseled:block/mossy_cobblestone_dented",
+    "north": "rechiseled:block/mossy_cobblestone_dented",
+    "particle": "rechiseled:block/mossy_cobblestone_dented",
+    "south": "rechiseled:block/mossy_cobblestone_dented",
+    "up": "rechiseled:block/mossy_cobblestone_dented",
+    "west": "rechiseled:block/mossy_cobblestone_dented"
   }
 }

@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:cherry_planks_small_bricks"
+          "name": "rechiseled:cherry_planks_small_bricks",
+          "type": "minecraft:item"
         }
       ]
     }

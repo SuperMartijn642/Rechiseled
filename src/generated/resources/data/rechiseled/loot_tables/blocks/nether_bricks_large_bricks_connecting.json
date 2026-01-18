@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:nether_bricks_large_bricks_connecting"
+          "name": "rechiseled:nether_bricks_large_bricks_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

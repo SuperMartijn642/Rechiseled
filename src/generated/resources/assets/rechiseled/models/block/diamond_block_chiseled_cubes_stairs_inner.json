@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/diamond_block_chiseled_cubes",
+    "side": "rechiseled:block/diamond_block_chiseled_cubes",
+    "top": "rechiseled:block/diamond_block_chiseled_cubes"
+  }
+}

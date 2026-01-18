@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:andesite_squares"
+          "name": "rechiseled:andesite_squares",
+          "type": "minecraft:item"
         }
       ]
     }

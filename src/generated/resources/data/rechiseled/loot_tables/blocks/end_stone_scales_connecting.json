@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:end_stone_scales_connecting"
+          "name": "rechiseled:end_stone_scales_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

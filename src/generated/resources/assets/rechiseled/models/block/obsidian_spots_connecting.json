@@ -1,13 +1,163 @@
 {
   "type": "fusion:connecting",
-  "parent": "minecraft:block/cube_all",
-  "connections": [
-    {
-      "type": "fusion:is_same_block"
-    }
-  ],
+  "parent": "minecraft:block/cube",
+  "connections": {
+    "down": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:obsidian_spots_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:obsidian_spots_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:obsidian_spots_stairs_connecting"
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "rechiseled:obsidian_spots_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          }
+        }
+      ]
+    },
+    "east": "#side",
+    "north": "#side",
+    "side": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:obsidian_spots_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:obsidian_spots_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:obsidian_spots_stairs_connecting"
+        },
+        {
+          "type": "fusion:and",
+          "predicates": [
+            {
+              "type": "fusion:is_direction",
+              "directions": [
+                "top",
+                "top_left",
+                "top_right"
+              ]
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:obsidian_spots_slab_connecting",
+              "properties": {
+                "type": [
+                  "bottom"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:and",
+          "predicates": [
+            {
+              "type": "fusion:is_direction",
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right"
+              ]
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:obsidian_spots_slab_connecting",
+              "properties": {
+                "type": [
+                  "top"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "south": "#side",
+    "up": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:obsidian_spots_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:obsidian_spots_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:obsidian_spots_stairs_connecting"
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "rechiseled:obsidian_spots_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          }
+        }
+      ]
+    },
+    "west": "#side"
+  },
   "loader": "fusion:model",
   "textures": {
-    "all": "rechiseled:block/obsidian_spots"
+    "down": "rechiseled:block/obsidian_spots",
+    "east": "rechiseled:block/obsidian_spots",
+    "north": "rechiseled:block/obsidian_spots",
+    "particle": "rechiseled:block/obsidian_spots",
+    "south": "rechiseled:block/obsidian_spots",
+    "up": "rechiseled:block/obsidian_spots",
+    "west": "rechiseled:block/obsidian_spots"
   }
 }

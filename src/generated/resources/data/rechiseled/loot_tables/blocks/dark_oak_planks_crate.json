@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:dark_oak_planks_crate"
+          "name": "rechiseled:dark_oak_planks_crate",
+          "type": "minecraft:item"
         }
       ]
     }

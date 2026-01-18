@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:stone_smooth_tiles"
+          "name": "rechiseled:stone_smooth_tiles",
+          "type": "minecraft:item"
         }
       ]
     }

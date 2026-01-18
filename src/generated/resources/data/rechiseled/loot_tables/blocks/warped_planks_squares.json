@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:warped_planks_squares"
+          "name": "rechiseled:warped_planks_squares",
+          "type": "minecraft:item"
         }
       ]
     }

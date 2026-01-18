@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:mangrove_planks_wavy"
+          "name": "rechiseled:mangrove_planks_wavy",
+          "type": "minecraft:item"
         }
       ]
     }

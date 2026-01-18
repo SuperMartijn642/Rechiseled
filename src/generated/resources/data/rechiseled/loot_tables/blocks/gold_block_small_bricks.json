@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:gold_block_small_bricks"
+          "name": "rechiseled:gold_block_small_bricks",
+          "type": "minecraft:item"
         }
       ]
     }

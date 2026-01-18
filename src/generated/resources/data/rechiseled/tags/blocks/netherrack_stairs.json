@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:netherrack_beams_stairs",
+    "rechiseled:netherrack_beams_stairs_connecting",
+    "rechiseled:netherrack_brick_pattern_stairs",
+    "rechiseled:netherrack_brick_pattern_stairs_connecting",
+    "rechiseled:netherrack_brick_paving_stairs",
+    "rechiseled:netherrack_brick_paving_stairs_connecting",
+    "rechiseled:netherrack_bricks_stairs",
+    "rechiseled:netherrack_bricks_stairs_connecting",
+    "rechiseled:netherrack_dented_stairs",
+    "rechiseled:netherrack_dented_stairs_connecting",
+    "rechiseled:netherrack_rotated_bricks_stairs",
+    "rechiseled:netherrack_rotated_bricks_stairs_connecting",
+    "rechiseled:netherrack_small_tiles_stairs",
+    "rechiseled:netherrack_small_tiles_stairs_connecting",
+    "rechiseled:netherrack_stripes_stairs",
+    "rechiseled:netherrack_stripes_stairs_connecting",
+    "rechiseled:netherrack_tiles_stairs",
+    "rechiseled:netherrack_tiles_stairs_connecting"
+  ]
+}

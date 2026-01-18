@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:stone_small_tiles_connecting"
+          "name": "rechiseled:stone_small_tiles_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

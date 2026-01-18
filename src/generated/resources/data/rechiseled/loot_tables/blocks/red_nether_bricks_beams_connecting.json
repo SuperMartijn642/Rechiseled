@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:red_nether_bricks_beams_connecting"
+          "name": "rechiseled:red_nether_bricks_beams_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

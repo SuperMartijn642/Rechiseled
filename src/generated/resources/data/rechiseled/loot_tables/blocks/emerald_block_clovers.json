@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:emerald_block_clovers"
+          "name": "rechiseled:emerald_block_clovers",
+          "type": "minecraft:item"
         }
       ]
     }

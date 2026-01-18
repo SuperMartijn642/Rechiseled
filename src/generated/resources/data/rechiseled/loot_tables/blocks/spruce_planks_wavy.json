@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:spruce_planks_wavy"
+          "name": "rechiseled:spruce_planks_wavy",
+          "type": "minecraft:item"
         }
       ]
     }

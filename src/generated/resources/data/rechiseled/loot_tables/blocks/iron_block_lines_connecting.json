@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:iron_block_lines_connecting"
+          "name": "rechiseled:iron_block_lines_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

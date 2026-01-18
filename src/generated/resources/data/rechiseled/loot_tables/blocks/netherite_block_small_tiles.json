@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:netherite_block_small_tiles"
+          "name": "rechiseled:netherite_block_small_tiles",
+          "type": "minecraft:item"
         }
       ]
     }
