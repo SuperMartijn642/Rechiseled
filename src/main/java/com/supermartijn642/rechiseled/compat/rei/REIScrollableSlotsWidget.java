@@ -193,8 +193,11 @@ public class REIScrollableSlotsWidget extends WidgetWithBounds implements Dragga
     public boolean mouseScrolled(double mouseX, double mouseY, double amountX, double amountY){
         if(amountY == 0 || !this.scrollable)
             return false;
-        this.setScrollTarget(this.targetPosition - 0.8f / (this.rows - ROWS) * (float)amountY);
-        return true;
+        if(mouseX > this.x + 2 && mouseX < this.x + WIDTH && mouseY > this.y && mouseY < this.y + HEIGHT){
+            this.setScrollTarget(this.targetPosition - 0.8f / (this.rows - ROWS) * (float)amountY);
+            return true;
+        }
+        return false;
     }
 
     @Override
