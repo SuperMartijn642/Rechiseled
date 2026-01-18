@@ -12,7 +12,6 @@
   ],
   "client": [
     "jei.RecipesGuiMixin",
-    "BlockModelDeserializerMixin",
     "MinecraftMixin",
     "MultiPlayerGameModeMixin"
   ],
