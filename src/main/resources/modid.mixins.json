@@ -10,7 +10,8 @@
   ],
   "client": [
     "CreateWorldScreenMixin",
-    "MinecraftMixin"
+    "MinecraftMixin",
+    "MultiPlayerGameModeMixin"
   ],
   "server": [
     "ServerMainMixin"
