@@ -2,45 +2,94 @@
   "type": "rechiseled:chiseling",
   "overwrite": false,
   "entries": [
+    "minecraft:blue_ice",
     {
-      "item": "minecraft:blue_ice"
+      "block": "rechiseled:blue_ice_bordered",
+      "stairs": "rechiseled:blue_ice_bordered_stairs",
+      "slab": "rechiseled:blue_ice_bordered_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:blue_ice_bordered_connecting",
+      "connecting_stairs": "rechiseled:blue_ice_bordered_stairs_connecting",
+      "connecting_slab": "rechiseled:blue_ice_bordered_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:blue_ice_bordered",
-      "connecting_item": "rechiseled:blue_ice_bordered_connecting"
+      "block": "rechiseled:blue_ice_bricks",
+      "stairs": "rechiseled:blue_ice_bricks_stairs",
+      "slab": "rechiseled:blue_ice_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:blue_ice_bricks_connecting",
+      "connecting_stairs": "rechiseled:blue_ice_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:blue_ice_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:blue_ice_bricks",
-      "connecting_item": "rechiseled:blue_ice_bricks_connecting"
+      "block": "rechiseled:blue_ice_chiseled",
+      "stairs": "rechiseled:blue_ice_chiseled_stairs",
+      "slab": "rechiseled:blue_ice_chiseled_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:blue_ice_chiseled_connecting",
+      "connecting_stairs": "rechiseled:blue_ice_chiseled_stairs_connecting",
+      "connecting_slab": "rechiseled:blue_ice_chiseled_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:blue_ice_chiseled",
-      "connecting_item": "rechiseled:blue_ice_chiseled_connecting"
+      "block": "rechiseled:blue_ice_cone",
+      "stairs": "rechiseled:blue_ice_cone_stairs",
+      "slab": "rechiseled:blue_ice_cone_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "rechiseled:blue_ice_cone"
+      "block": "rechiseled:blue_ice_cracked",
+      "stairs": "rechiseled:blue_ice_cracked_stairs",
+      "slab": "rechiseled:blue_ice_cracked_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "rechiseled:blue_ice_cracked"
+      "block": "rechiseled:blue_ice_patterned",
+      "stairs": "rechiseled:blue_ice_patterned_stairs",
+      "slab": "rechiseled:blue_ice_patterned_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:blue_ice_patterned_connecting",
+      "connecting_stairs": "rechiseled:blue_ice_patterned_stairs_connecting",
+      "connecting_slab": "rechiseled:blue_ice_patterned_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:blue_ice_patterned",
-      "connecting_item": "rechiseled:blue_ice_patterned_connecting"
+      "block": "rechiseled:blue_ice_pillar",
+      "stairs": "rechiseled:blue_ice_pillar_stairs",
+      "slab": "rechiseled:blue_ice_pillar_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:blue_ice_pillar_connecting",
+      "connecting_stairs": "rechiseled:blue_ice_pillar_stairs_connecting",
+      "connecting_slab": "rechiseled:blue_ice_pillar_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:blue_ice_pillar",
-      "connecting_item": "rechiseled:blue_ice_pillar_connecting"
+      "block": "rechiseled:blue_ice_rocky",
+      "stairs": "rechiseled:blue_ice_rocky_stairs",
+      "slab": "rechiseled:blue_ice_rocky_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "rechiseled:blue_ice_rocky"
+      "block": "rechiseled:blue_ice_slanted_tiles",
+      "stairs": "rechiseled:blue_ice_slanted_tiles_stairs",
+      "slab": "rechiseled:blue_ice_slanted_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:blue_ice_slanted_tiles_connecting",
+      "connecting_stairs": "rechiseled:blue_ice_slanted_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:blue_ice_slanted_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:blue_ice_slanted_tiles",
-      "connecting_item": "rechiseled:blue_ice_slanted_tiles_connecting"
-    },
-    {
-      "item": "rechiseled:blue_ice_tiles",
-      "connecting_item": "rechiseled:blue_ice_tiles_connecting"
+      "block": "rechiseled:blue_ice_tiles",
+      "stairs": "rechiseled:blue_ice_tiles_stairs",
+      "slab": "rechiseled:blue_ice_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:blue_ice_tiles_connecting",
+      "connecting_stairs": "rechiseled:blue_ice_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:blue_ice_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     }
   ]
 }

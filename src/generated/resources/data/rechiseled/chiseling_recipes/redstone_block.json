@@ -2,65 +2,144 @@
   "type": "rechiseled:chiseling",
   "overwrite": false,
   "entries": [
+    "minecraft:redstone_block",
     {
-      "item": "minecraft:redstone_block"
+      "block": "rechiseled:redstone_block_bordered",
+      "stairs": "rechiseled:redstone_block_bordered_stairs",
+      "slab": "rechiseled:redstone_block_bordered_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:redstone_block_bordered_connecting",
+      "connecting_stairs": "rechiseled:redstone_block_bordered_stairs_connecting",
+      "connecting_slab": "rechiseled:redstone_block_bordered_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:redstone_block_bordered",
-      "connecting_item": "rechiseled:redstone_block_bordered_connecting"
+      "block": "rechiseled:redstone_block_bricks",
+      "stairs": "rechiseled:redstone_block_bricks_stairs",
+      "slab": "rechiseled:redstone_block_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:redstone_block_bricks_connecting",
+      "connecting_stairs": "rechiseled:redstone_block_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:redstone_block_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:redstone_block_bricks",
-      "connecting_item": "rechiseled:redstone_block_bricks_connecting"
+      "block": "rechiseled:redstone_block_brick_bordered",
+      "stairs": "rechiseled:redstone_block_brick_bordered_stairs",
+      "slab": "rechiseled:redstone_block_brick_bordered_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "rechiseled:redstone_block_brick_bordered"
+      "block": "rechiseled:redstone_block_chiseled_clovers",
+      "stairs": "rechiseled:redstone_block_chiseled_clovers_stairs",
+      "slab": "rechiseled:redstone_block_chiseled_clovers_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:redstone_block_chiseled_clovers_connecting",
+      "connecting_stairs": "rechiseled:redstone_block_chiseled_clovers_stairs_connecting",
+      "connecting_slab": "rechiseled:redstone_block_chiseled_clovers_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:redstone_block_chiseled_clovers",
-      "connecting_item": "rechiseled:redstone_block_chiseled_clovers_connecting"
+      "block": "rechiseled:redstone_block_circles",
+      "stairs": "rechiseled:redstone_block_circles_stairs",
+      "slab": "rechiseled:redstone_block_circles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:redstone_block_circles_connecting",
+      "connecting_stairs": "rechiseled:redstone_block_circles_stairs_connecting",
+      "connecting_slab": "rechiseled:redstone_block_circles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:redstone_block_circles",
-      "connecting_item": "rechiseled:redstone_block_circles_connecting"
+      "block": "rechiseled:redstone_block_compressed",
+      "stairs": "rechiseled:redstone_block_compressed_stairs",
+      "slab": "rechiseled:redstone_block_compressed_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:redstone_block_compressed_connecting",
+      "connecting_stairs": "rechiseled:redstone_block_compressed_stairs_connecting",
+      "connecting_slab": "rechiseled:redstone_block_compressed_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:redstone_block_compressed",
-      "connecting_item": "rechiseled:redstone_block_compressed_connecting"
+      "block": "rechiseled:redstone_block_crushed",
+      "stairs": "rechiseled:redstone_block_crushed_stairs",
+      "slab": "rechiseled:redstone_block_crushed_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "rechiseled:redstone_block_crushed"
+      "block": "rechiseled:redstone_block_diagonal_tiles",
+      "stairs": "rechiseled:redstone_block_diagonal_tiles_stairs",
+      "slab": "rechiseled:redstone_block_diagonal_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:redstone_block_diagonal_tiles_connecting",
+      "connecting_stairs": "rechiseled:redstone_block_diagonal_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:redstone_block_diagonal_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:redstone_block_diagonal_tiles",
-      "connecting_item": "rechiseled:redstone_block_diagonal_tiles_connecting"
+      "block": "rechiseled:redstone_block_patterned",
+      "stairs": "rechiseled:redstone_block_patterned_stairs",
+      "slab": "rechiseled:redstone_block_patterned_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:redstone_block_patterned_connecting",
+      "connecting_stairs": "rechiseled:redstone_block_patterned_stairs_connecting",
+      "connecting_slab": "rechiseled:redstone_block_patterned_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:redstone_block_patterned",
-      "connecting_item": "rechiseled:redstone_block_patterned_connecting"
+      "block": "rechiseled:redstone_block_paving",
+      "stairs": "rechiseled:redstone_block_paving_stairs",
+      "slab": "rechiseled:redstone_block_paving_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:redstone_block_paving_connecting",
+      "connecting_stairs": "rechiseled:redstone_block_paving_stairs_connecting",
+      "connecting_slab": "rechiseled:redstone_block_paving_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:redstone_block_paving",
-      "connecting_item": "rechiseled:redstone_block_paving_connecting"
+      "block": "rechiseled:redstone_block_pillar",
+      "stairs": "rechiseled:redstone_block_pillar_stairs",
+      "slab": "rechiseled:redstone_block_pillar_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:redstone_block_pillar_connecting",
+      "connecting_stairs": "rechiseled:redstone_block_pillar_stairs_connecting",
+      "connecting_slab": "rechiseled:redstone_block_pillar_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:redstone_block_pillar",
-      "connecting_item": "rechiseled:redstone_block_pillar_connecting"
+      "block": "rechiseled:redstone_block_polished",
+      "stairs": "rechiseled:redstone_block_polished_stairs",
+      "slab": "rechiseled:redstone_block_polished_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:redstone_block_polished_connecting",
+      "connecting_stairs": "rechiseled:redstone_block_polished_stairs_connecting",
+      "connecting_slab": "rechiseled:redstone_block_polished_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:redstone_block_polished",
-      "connecting_item": "rechiseled:redstone_block_polished_connecting"
+      "block": "rechiseled:redstone_block_scales",
+      "stairs": "rechiseled:redstone_block_scales_stairs",
+      "slab": "rechiseled:redstone_block_scales_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:redstone_block_scales_connecting",
+      "connecting_stairs": "rechiseled:redstone_block_scales_stairs_connecting",
+      "connecting_slab": "rechiseled:redstone_block_scales_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:redstone_block_scales",
-      "connecting_item": "rechiseled:redstone_block_scales_connecting"
+      "block": "rechiseled:redstone_block_small_tiles",
+      "stairs": "rechiseled:redstone_block_small_tiles_stairs",
+      "slab": "rechiseled:redstone_block_small_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:redstone_block_small_tiles_connecting",
+      "connecting_stairs": "rechiseled:redstone_block_small_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:redstone_block_small_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:redstone_block_small_tiles",
-      "connecting_item": "rechiseled:redstone_block_small_tiles_connecting"
-    },
-    {
-      "item": "rechiseled:redstone_block_smooth"
+      "block": "rechiseled:redstone_block_smooth",
+      "stairs": "rechiseled:redstone_block_smooth_stairs",
+      "slab": "rechiseled:redstone_block_smooth_slab",
+      "slab_worth": 0.5
     }
   ]
 }
