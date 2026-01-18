@@ -21,7 +21,7 @@ public class RechiseledBlocks {
 
     // Amethyst block
     private static final Supplier<BlockProperties> AMETHYST_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.AMETHYST, MaterialColor.COLOR_PURPLE).destroyTime(1.5F).explosionResistance(1.5F).sound(SoundType.AMETHYST).requiresCorrectTool();
-    private static final Consumer<RechiseledBlockBuilder> AMETHYST_CONFIGURER = b -> b.properties(AMETHYST_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.AMETHYST_BLOCK).recipe(BaseChiselingRecipes.AMETHYST_BLOCK);
+    private static final Consumer<RechiseledBlockBuilder> AMETHYST_CONFIGURER = b -> b.withStairs().withSlabs().properties(AMETHYST_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.AMETHYST_BLOCK).recipe(BaseChiselingRecipes.AMETHYST_BLOCK);
     public static final RechiseledBlockType AMETHYST_BLOCK_BEAMS = create("amethyst_block_beams", "Amethyst Beams").configure(AMETHYST_CONFIGURER).build();
     public static final RechiseledBlockType AMETHYST_BLOCK_BORDERED_DIAGONAL_TILES = create("amethyst_block_bordered_diagonal_tiles", "Bordered Diagonal Amethyst Tiles").configure(AMETHYST_CONFIGURER).build();
     public static final RechiseledBlockType AMETHYST_BLOCK_BRICKS = create("amethyst_block_bricks", "Amethyst Bricks").configure(AMETHYST_CONFIGURER).build();
@@ -36,7 +36,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType AMETHYST_BLOCK_TILES = create("amethyst_block_tiles", "Amethyst Tiles").configure(AMETHYST_CONFIGURER).build();
     // Acacia planks
     private static final Supplier<BlockProperties> ACACIA_PLANKS_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.WOOD, MaterialColor.COLOR_ORANGE).destroyTime(2.0F).explosionResistance(3.0F).sound(SoundType.WOOD);
-    private static final Consumer<RechiseledBlockBuilder> ACACIA_PLANKS_CONFIGURER = b -> b.properties(ACACIA_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.ACACIA_PLANKS).recipe(BaseChiselingRecipes.ACACIA_PLANKS);
+    private static final Consumer<RechiseledBlockBuilder> ACACIA_PLANKS_CONFIGURER = b -> b.withStairs().withSlabs().properties(ACACIA_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.ACACIA_PLANKS).recipe(BaseChiselingRecipes.ACACIA_PLANKS);
     public static final RechiseledBlockType ACACIA_PLANKS_BEAMS = create("acacia_planks_beams", "Acacia Plank Beams").configure(ACACIA_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType ACACIA_PLANKS_BRICK_PATTERN = create("acacia_planks_brick_pattern", "Acacia Plank Brick Pattern").configure(ACACIA_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType ACACIA_PLANKS_BRICK_PAVING = create("acacia_planks_brick_paving", "Acacia Plank Brick Paving").configure(ACACIA_PLANKS_CONFIGURER).build();
@@ -58,21 +58,21 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType ACACIA_PLANKS_WOVEN = create("acacia_planks_woven", "Woven Acacia Planks").configure(ACACIA_PLANKS_CONFIGURER).build();
     // Andesite
     private static final Supplier<BlockProperties> ANDESITE_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.STONE).requiresCorrectTool().destroyTime(1.5F).explosionResistance(6.0F);
-    private static final Consumer<RechiseledBlockBuilder> ANDESITE_CONFIGURER = b -> b.properties(ANDESITE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.POLISHED_ANDESITE).recipe(BaseChiselingRecipes.ANDESITE);
+    private static final Consumer<RechiseledBlockBuilder> ANDESITE_CONFIGURER = b -> b.withStairs().withSlabs().properties(ANDESITE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.POLISHED_ANDESITE).recipe(BaseChiselingRecipes.ANDESITE);
     public static final RechiseledBlockType ANDESITE_BRICK_PATTERN = create("andesite_brick_pattern", "Andesite Brick Pattern").configure(ANDESITE_CONFIGURER).build();
     public static final RechiseledBlockType ANDESITE_BRICK_PAVING = create("andesite_brick_paving", "Andesite Brick Paving").configure(ANDESITE_CONFIGURER).build();
     public static final RechiseledBlockType ANDESITE_BRICKS = create("andesite_bricks", "Andesite Bricks").configure(ANDESITE_CONFIGURER).build();
     public static final RechiseledBlockType ANDESITE_DIAGONAL_BRICKS = create("andesite_diagonal_bricks", "Diagonal Andesite Bricks").configure(ANDESITE_CONFIGURER).build();
     public static final RechiseledBlockType ANDESITE_DOTTED = create("andesite_dotted", "Dotted Andesite").configure(ANDESITE_CONFIGURER).build();
     public static final RechiseledBlockType ANDESITE_PAVING = create("andesite_paving", "Andesite Paving").configure(ANDESITE_CONFIGURER).build();
-    public static final RechiseledBlockType ANDESITE_POLISHED = create("andesite_polished", "Polished Andesite").configure(ANDESITE_CONFIGURER).regularVariant(() -> Blocks.POLISHED_ANDESITE).build();
+    public static final RechiseledBlockType ANDESITE_POLISHED = create("andesite_polished", "Polished Andesite").configure(ANDESITE_CONFIGURER).regularVariant(() -> Blocks.POLISHED_ANDESITE, () -> Blocks.POLISHED_ANDESITE_STAIRS, () -> Blocks.POLISHED_ANDESITE_SLAB).build();
     public static final RechiseledBlockType ANDESITE_ROTATED_BRICKS = create("andesite_rotated_bricks", "Rotated Andesite Bricks").configure(ANDESITE_CONFIGURER).build();
     public static final RechiseledBlockType ANDESITE_SQUARES = create("andesite_squares", "Andesite Squares").configure(ANDESITE_CONFIGURER).build();
     public static final RechiseledBlockType ANDESITE_TILES = create("andesite_tiles", "Andesite Tiles").configure(ANDESITE_CONFIGURER).build();
     public static final RechiseledBlockType ANDESITE_WAVY = create("andesite_wavy", "Wavy Andesite").configure(ANDESITE_CONFIGURER).build();
     // Basalt
     private static final Supplier<BlockProperties> BASALT_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.COLOR_BLACK).requiresCorrectTool().destroyTime(1.25F).explosionResistance(4.2F).sound(SoundType.BASALT);
-    private static final Consumer<RechiseledBlockBuilder> BASALT_CONFIGURER = b -> b.properties(BASALT_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.POLISHED_BASALT).recipe(BaseChiselingRecipes.BASALT);
+    private static final Consumer<RechiseledBlockBuilder> BASALT_CONFIGURER = b -> b.withStairs().withSlabs().properties(BASALT_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.POLISHED_BASALT).recipe(BaseChiselingRecipes.BASALT);
     public static final RechiseledBlockType BASALT_BEAMS = create("basalt_beams", "Basalt Beams").configure(BASALT_CONFIGURER).build();
     public static final RechiseledBlockType BASALT_BORDERED = create("basalt_bordered", "Bordered Basalt").configure(BASALT_CONFIGURER).build();
     public static final RechiseledBlockType BASALT_BORDERED_POLISHED = create("basalt_bordered_polished", "Bordered Polished Basalt").configure(BASALT_CONFIGURER).build();
@@ -84,7 +84,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType BASALT_TILES = create("basalt_tiles", "Basalt Tiles").configure(BASALT_CONFIGURER).build();
     // Bamboo planks
     private static final Supplier<BlockProperties> BAMBOO_PLANKS_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.WOOD, MaterialColor.COLOR_YELLOW).destroyTime(2.0F).explosionResistance(3.0F).sound(SoundType.BAMBOO_WOOD);
-    private static final Consumer<RechiseledBlockBuilder> BAMBOO_PLANKS_CONFIGURER = b -> b.properties(BAMBOO_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.BAMBOO_PLANKS).recipe(BaseChiselingRecipes.BAMBOO_PLANKS);
+    private static final Consumer<RechiseledBlockBuilder> BAMBOO_PLANKS_CONFIGURER = b -> b.withStairs().withSlabs().properties(BAMBOO_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.BAMBOO_PLANKS).recipe(BaseChiselingRecipes.BAMBOO_PLANKS);
     public static final RechiseledBlockType BAMBOO_PLANKS_BEAMS = create("bamboo_planks_beams", "Bamboo Plank Beams").configure(BAMBOO_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType BAMBOO_PLANKS_BRICK_PATTERN = create("bamboo_planks_brick_pattern", "Bamboo Plank Brick Pattern").configure(BAMBOO_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType BAMBOO_PLANKS_BRICK_PAVING = create("bamboo_planks_brick_paving", "Bamboo Plank Brick Paving").configure(BAMBOO_PLANKS_CONFIGURER).build();
@@ -105,7 +105,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType BAMBOO_PLANKS_WOVEN = create("bamboo_planks_woven", "Woven Bamboo Planks").configure(BAMBOO_PLANKS_CONFIGURER).build();
     // Birch planks
     private static final Supplier<BlockProperties> BIRCH_PLANKS_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.WOOD, MaterialColor.SAND).destroyTime(2.0F).explosionResistance(3.0F).sound(SoundType.WOOD);
-    private static final Consumer<RechiseledBlockBuilder> BIRCH_PLANKS_CONFIGURER = b -> b.properties(BIRCH_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.BIRCH_PLANKS).recipe(BaseChiselingRecipes.BIRCH_PLANKS);
+    private static final Consumer<RechiseledBlockBuilder> BIRCH_PLANKS_CONFIGURER = b -> b.withStairs().withSlabs().properties(BIRCH_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.BIRCH_PLANKS).recipe(BaseChiselingRecipes.BIRCH_PLANKS);
     public static final RechiseledBlockType BIRCH_PLANKS_BEAMS = create("birch_planks_beams", "Birch Plank Beams").configure(BIRCH_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType BIRCH_PLANKS_BRICK_PATTERN = create("birch_planks_brick_pattern", "Birch Plank Brick Pattern").configure(BIRCH_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType BIRCH_PLANKS_BRICK_PAVING = create("birch_planks_brick_paving", "Birch Plank Brick Paving").configure(BIRCH_PLANKS_CONFIGURER).build();
@@ -127,16 +127,16 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType BIRCH_PLANKS_WOVEN = create("birch_planks_woven", "Woven Birch Planks").configure(BIRCH_PLANKS_CONFIGURER).build();
     // Blackstone
     private static final Supplier<BlockProperties> BLACKSTONE_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.COLOR_BLACK).requiresCorrectTool().destroyTime(2.0F).explosionResistance(6.0F);
-    private static final Consumer<RechiseledBlockBuilder> BLACKSTONE_CONFIGURER = b -> b.properties(BLACKSTONE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.POLISHED_BLACKSTONE).recipe(BaseChiselingRecipes.BLACKSTONE);
+    private static final Consumer<RechiseledBlockBuilder> BLACKSTONE_CONFIGURER = b -> b.withStairs().withSlabs().properties(BLACKSTONE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.POLISHED_BLACKSTONE).recipe(BaseChiselingRecipes.BLACKSTONE);
     public static final RechiseledBlockType BLACKSTONE_BRICK_PATTERN = create("blackstone_brick_pattern", "Blackstone Brick Pattern").configure(BLACKSTONE_CONFIGURER).build();
     public static final RechiseledBlockType BLACKSTONE_BRICK_PAVING = create("blackstone_brick_paving", "Blackstone Brick Paving").configure(BLACKSTONE_CONFIGURER).build();
     public static final RechiseledBlockType BLACKSTONE_DIAGONAL_BRICKS = create("blackstone_diagonal_bricks", "Diagonal Blackstone Bricks").configure(BLACKSTONE_CONFIGURER).build();
-    public static final RechiseledBlockType BLACKSTONE_POLISHED = create("blackstone_polished", "Polished Blackstone").configure(BLACKSTONE_CONFIGURER).regularVariant(() -> Blocks.POLISHED_BLACKSTONE).build();
+    public static final RechiseledBlockType BLACKSTONE_POLISHED = create("blackstone_polished", "Polished Blackstone").configure(BLACKSTONE_CONFIGURER).regularVariant(() -> Blocks.POLISHED_BLACKSTONE, () -> Blocks.POLISHED_BLACKSTONE_STAIRS, () -> Blocks.POLISHED_BLACKSTONE_SLAB).build();
     public static final RechiseledBlockType BLACKSTONE_TILES = create("blackstone_tiles", "Blackstone Tiles").configure(BLACKSTONE_CONFIGURER).build();
     public static final RechiseledBlockType BLACKSTONE_ROTATED_BRICKS = create("blackstone_rotated_bricks", "Rotated Blackstone Bricks").configure(BLACKSTONE_CONFIGURER).build();
     // Blue ice
     private static final Supplier<BlockProperties> BLUE_ICE_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.ICE_SOLID).strength(2.8F).friction(0.989F).sound(SoundType.GLASS);
-    private static final Consumer<RechiseledBlockBuilder> BLUE_ICE_CONFIGURER = b -> b.properties(BLUE_ICE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.BLUE_ICE).recipe(BaseChiselingRecipes.BLUE_ICE);
+    private static final Consumer<RechiseledBlockBuilder> BLUE_ICE_CONFIGURER = b -> b.withStairs().withSlabs().properties(BLUE_ICE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.BLUE_ICE).recipe(BaseChiselingRecipes.BLUE_ICE);
     public static final RechiseledBlockType BLUE_ICE_BORDERED = create("blue_ice_bordered", "Bordered Blue Ice").configure(BLUE_ICE_CONFIGURER).build();
     public static final RechiseledBlockType BLUE_ICE_BRICKS = create("blue_ice_bricks", "Blue Ice Bricks").configure(BLUE_ICE_CONFIGURER).build();
     public static final RechiseledBlockType BLUE_ICE_CHISELED = create("blue_ice_chiseled", "Chiseled Blue Ice").configure(BLUE_ICE_CONFIGURER).build();
@@ -149,7 +149,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType BLUE_ICE_TILES = create("blue_ice_tiles", "Blue Ice Tiles").configure(BLUE_ICE_CONFIGURER).build();
     // Bone block
     private static final Supplier<BlockProperties> BONE_BLOCK_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.SAND).requiresCorrectTool().strength(2.0F).sound(SoundType.BONE_BLOCK);
-    private static final Consumer<RechiseledBlockBuilder> BONE_BLOCK_CONFIGURER = b -> b.properties(BONE_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.BONE_BLOCK).recipe(BaseChiselingRecipes.BONE_BLOCK);
+    private static final Consumer<RechiseledBlockBuilder> BONE_BLOCK_CONFIGURER = b -> b.withStairs().withSlabs().properties(BONE_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.BONE_BLOCK).recipe(BaseChiselingRecipes.BONE_BLOCK);
     public static final RechiseledBlockType BONE_BLOCK_BORDERED = create("bone_block_bordered", "Bordered Bone Block").configure(BONE_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType BONE_BLOCK_BUNDLED = create("bone_block_bundled", "Bundled Bone Block").configure(BONE_BLOCK_CONFIGURER).noConnectingVariant().build();
     public static final RechiseledBlockType BONE_BLOCK_CHISELED = create("bone_block_chiseled", "Chiseled Bone Block").configure(BONE_BLOCK_CONFIGURER).build();
@@ -165,7 +165,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType BONE_BLOCK_SMOOTH = create("bone_block_smooth", "Smooth Bone Block").configure(BONE_BLOCK_CONFIGURER).noConnectingVariant().build();
     // Cherry planks
     private static final Supplier<BlockProperties> CHERRY_PLANKS_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.WOOD, MaterialColor.TERRACOTTA_WHITE).destroyTime(2.0F).explosionResistance(3.0F).sound(SoundType.CHERRY_WOOD);
-    private static final Consumer<RechiseledBlockBuilder> CHERRY_PLANKS_CONFIGURER = b -> b.properties(CHERRY_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.CHERRY_PLANKS).recipe(BaseChiselingRecipes.CHERRY_PLANKS);
+    private static final Consumer<RechiseledBlockBuilder> CHERRY_PLANKS_CONFIGURER = b -> b.withStairs().withSlabs().properties(CHERRY_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.CHERRY_PLANKS).recipe(BaseChiselingRecipes.CHERRY_PLANKS);
     public static final RechiseledBlockType CHERRY_PLANKS_BEAMS = create("cherry_planks_beams", "Cherry Plank Beams").configure(CHERRY_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType CHERRY_PLANKS_BRICK_PATTERN = create("cherry_planks_brick_pattern", "Cherry Plank Brick Pattern").configure(CHERRY_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType CHERRY_PLANKS_BRICK_PAVING = create("cherry_planks_brick_paving", "Cherry Plank Brick Paving").configure(CHERRY_PLANKS_CONFIGURER).build();
@@ -187,7 +187,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType CHERRY_PLANKS_WOVEN = create("cherry_planks_woven", "Woven Cherry Planks").configure(CHERRY_PLANKS_CONFIGURER).build();
     // Coal block
     private static final Supplier<BlockProperties> COAL_BLOCK_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.COLOR_BLACK).requiresCorrectTool().destroyTime(5.0F).explosionResistance(6.0F);
-    private static final Consumer<RechiseledBlockBuilder> COAL_BLOCK_CONFIGURER = b -> b.properties(COAL_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.COAL_BLOCK).recipe(BaseChiselingRecipes.COAL_BLOCK);
+    private static final Consumer<RechiseledBlockBuilder> COAL_BLOCK_CONFIGURER = b -> b.withStairs().withSlabs().properties(COAL_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.COAL_BLOCK).recipe(BaseChiselingRecipes.COAL_BLOCK);
     public static final RechiseledBlockType COAL_BLOCK_CARVED = create("coal_block_carved", "Carved Block of Coal").configure(COAL_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType COAL_BLOCK_CHISELED = create("coal_block_chiseled", "Chiseled Block of Coal").configure(COAL_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType COAL_BLOCK_CIRCLES = create("coal_block_circles", "Coal Block Circles").configure(COAL_BLOCK_CONFIGURER).build();
@@ -201,7 +201,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType COAL_BLOCK_STRIPES = create("coal_block_stripes", "Coal Block Stripes").configure(COAL_BLOCK_CONFIGURER).build();
     // Cobbled deepslate
     private static final Supplier<BlockProperties> COBBLED_DEEPSLATE_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.DEEPSLATE).requiresCorrectTool().destroyTime(3.5F).explosionResistance(6.0F).sound(SoundType.DEEPSLATE);
-    private static final Consumer<RechiseledBlockBuilder> COBBLED_DEEPSLATE_CONFIGURER = b -> b.properties(COBBLED_DEEPSLATE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.COBBLED_DEEPSLATE).recipe(BaseChiselingRecipes.COBBLED_DEEPSLATE);
+    private static final Consumer<RechiseledBlockBuilder> COBBLED_DEEPSLATE_CONFIGURER = b -> b.withStairs().withSlabs().properties(COBBLED_DEEPSLATE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.COBBLED_DEEPSLATE).recipe(BaseChiselingRecipes.COBBLED_DEEPSLATE);
     public static final RechiseledBlockType COBBLED_DEEPSLATE_BEAMS = create("cobbled_deepslate_beams", "Cobbled Deepslate Beams").configure(COBBLED_DEEPSLATE_CONFIGURER).build();
     public static final RechiseledBlockType COBBLED_DEEPSLATE_BRICK_PATTERN = create("cobbled_deepslate_brick_pattern", "Cobbled Deepslate Brick Pattern").configure(COBBLED_DEEPSLATE_CONFIGURER).build();
     public static final RechiseledBlockType COBBLED_DEEPSLATE_BRICK_PAVING = create("cobbled_deepslate_brick_paving", "Cobbled Deepslate Brick Paving").configure(COBBLED_DEEPSLATE_CONFIGURER).build();
@@ -218,7 +218,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType COBBLED_DEEPSLATE_WORN_STRIPES = create("cobbled_deepslate_worn_stripes", "Weathered Cobbled Deepslate Stripes").configure(COBBLED_DEEPSLATE_CONFIGURER).build();
     // Cobblestone
     private static final Supplier<BlockProperties> COBBLESTONE_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE).requiresCorrectTool().destroyTime(2.0F).explosionResistance(6.0F);
-    private static final Consumer<RechiseledBlockBuilder> COBBLESTONE_CONFIGURER = b -> b.properties(COBBLESTONE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.COBBLESTONE).recipe(BaseChiselingRecipes.COBBLESTONE);
+    private static final Consumer<RechiseledBlockBuilder> COBBLESTONE_CONFIGURER = b -> b.withStairs().withSlabs().properties(COBBLESTONE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.COBBLESTONE).recipe(BaseChiselingRecipes.COBBLESTONE);
     public static final RechiseledBlockType COBBLESTONE_BEAMS = create("cobblestone_beams", "Cobblestone Beams").configure(COBBLESTONE_CONFIGURER).build();
     public static final RechiseledBlockType COBBLESTONE_BRICK_PATTERN = create("cobblestone_brick_pattern", "Cobblestone Brick Pattern").configure(COBBLESTONE_CONFIGURER).build();
     public static final RechiseledBlockType COBBLESTONE_BRICK_PAVING = create("cobblestone_brick_paving", "Cobblestone Brick Paving").configure(COBBLESTONE_CONFIGURER).build();
@@ -240,7 +240,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType COBBLESTONE_WORN_STRIPES = create("cobblestone_worn_stripes", "Weathered Cobblestone Stripes").configure(COBBLESTONE_CONFIGURER).build();
     // Copper block
     private static final Supplier<BlockProperties> COPPER_BLOCK_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.METAL, MaterialColor.COLOR_ORANGE).requiresCorrectTool().destroyTime(3.0F).explosionResistance(6.0F).sound(SoundType.COPPER);
-    private static final Consumer<RechiseledBlockBuilder> COPPER_BLOCK_CONFIGURER = b -> b.properties(COPPER_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.COPPER_BLOCK).recipe(BaseChiselingRecipes.COPPER_BLOCK);
+    private static final Consumer<RechiseledBlockBuilder> COPPER_BLOCK_CONFIGURER = b -> b.withStairs().withSlabs().properties(COPPER_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.COPPER_BLOCK).recipe(BaseChiselingRecipes.COPPER_BLOCK);
     public static final RechiseledBlockType COPPER_BLOCK_BARS = create("copper_block_bars", "Copper Bars Block").configure(COPPER_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType COPPER_BLOCK_CIRCLES = create("copper_block_circles", "Copper Block Circles").configure(COPPER_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType COPPER_BLOCK_CONE = create("copper_block_cone", "Copper Cone Block").configure(COPPER_BLOCK_CONFIGURER).noConnectingVariant().build();
@@ -254,7 +254,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType COPPER_BLOCK_SMOOTH = create("copper_block_smooth", "Smooth Block of Copper").configure(COPPER_BLOCK_CONFIGURER).noConnectingVariant().build();
     // Crimson planks
     private static final Supplier<BlockProperties> CRIMSON_PLANKS_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.NETHER_WOOD, MaterialColor.CRIMSON_STEM).destroyTime(2.0F).explosionResistance(3.0F).sound(SoundType.NETHER_WOOD);
-    private static final Consumer<RechiseledBlockBuilder> CRIMSON_PLANKS_CONFIGURER = b -> b.properties(CRIMSON_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.CRIMSON_PLANKS).recipe(BaseChiselingRecipes.CRIMSON_PLANKS);
+    private static final Consumer<RechiseledBlockBuilder> CRIMSON_PLANKS_CONFIGURER = b -> b.withStairs().withSlabs().properties(CRIMSON_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.CRIMSON_PLANKS).recipe(BaseChiselingRecipes.CRIMSON_PLANKS);
     public static final RechiseledBlockType CRIMSON_PLANKS_BEAMS = create("crimson_planks_beams", "Crimson Plank Beams").configure(CRIMSON_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType CRIMSON_PLANKS_BRICK_PATTERN = create("crimson_planks_brick_pattern", "Crimson Plank Brick Pattern").configure(CRIMSON_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType CRIMSON_PLANKS_BRICK_PAVING = create("crimson_planks_brick_paving", "Crimson Plank Brick Paving").configure(CRIMSON_PLANKS_CONFIGURER).build();
@@ -276,7 +276,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType CRIMSON_PLANKS_WOVEN = create("crimson_planks_woven", "Woven Crimson Planks").configure(CRIMSON_PLANKS_CONFIGURER).build();
     // Dark oak planks
     private static final Supplier<BlockProperties> DARK_OAK_PLANKS_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.WOOD, MaterialColor.COLOR_BROWN).destroyTime(2.0F).explosionResistance(3.0F).sound(SoundType.WOOD);
-    private static final Consumer<RechiseledBlockBuilder> DARK_OAK_PLANKS_CONFIGURER = b -> b.properties(DARK_OAK_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.DARK_OAK_PLANKS).recipe(BaseChiselingRecipes.DARK_OAK_PLANKS);
+    private static final Consumer<RechiseledBlockBuilder> DARK_OAK_PLANKS_CONFIGURER = b -> b.withStairs().withSlabs().properties(DARK_OAK_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.DARK_OAK_PLANKS).recipe(BaseChiselingRecipes.DARK_OAK_PLANKS);
     public static final RechiseledBlockType DARK_OAK_PLANKS_BEAMS = create("dark_oak_planks_beams", "Dark Oak Plank Beams").configure(DARK_OAK_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType DARK_OAK_PLANKS_BRICK_PATTERN = create("dark_oak_planks_brick_pattern", "Dark Oak Plank Brick Pattern").configure(DARK_OAK_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType DARK_OAK_PLANKS_BRICK_PAVING = create("dark_oak_planks_brick_paving", "Dark Oak Plank Brick Paving").configure(DARK_OAK_PLANKS_CONFIGURER).build();
@@ -298,7 +298,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType DARK_OAK_PLANKS_WOVEN = create("dark_oak_planks_woven", "Woven Dark Oak Planks").configure(DARK_OAK_PLANKS_CONFIGURER).build();
     // Dark prismarine
     private static final Supplier<BlockProperties> DARK_PRISMARINE_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.DIAMOND).requiresCorrectTool().destroyTime(1.5F).explosionResistance(6.0F);
-    private static final Consumer<RechiseledBlockBuilder> DARK_PRISMARINE_CONFIGURER = b -> b.properties(DARK_PRISMARINE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.DARK_PRISMARINE).recipe(BaseChiselingRecipes.DARK_PRISMARINE);
+    private static final Consumer<RechiseledBlockBuilder> DARK_PRISMARINE_CONFIGURER = b -> b.withStairs().withSlabs().properties(DARK_PRISMARINE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.DARK_PRISMARINE).recipe(BaseChiselingRecipes.DARK_PRISMARINE);
     public static final RechiseledBlockType DARK_PRISMARINE_BEAMS = create("dark_prismarine_beams", "Dark Prismarine Beams").configure(DARK_PRISMARINE_CONFIGURER).build();
     public static final RechiseledBlockType DARK_PRISMARINE_BRICK_PAVING = create("dark_prismarine_brick_paving", "Dark Prismarine Brick Paving").configure(DARK_PRISMARINE_CONFIGURER).build();
     public static final RechiseledBlockType DARK_PRISMARINE_BRICKS = create("dark_prismarine_bricks", "Dark Prismarine Bricks").configure(DARK_PRISMARINE_CONFIGURER).build();
@@ -313,7 +313,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType DARK_PRISMARINE_WOVEN = create("dark_prismarine_woven", "Woven Dark Prismarine").configure(DARK_PRISMARINE_CONFIGURER).build();
     // Diamond block
     private static final Supplier<BlockProperties> DIAMOND_BLOCK_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.METAL, MaterialColor.DIAMOND).requiresCorrectTool().destroyTime(5.0F).explosionResistance(6.0F).sound(SoundType.METAL);
-    private static final Consumer<RechiseledBlockBuilder> DIAMOND_BLOCK_CONFIGURER = b -> b.properties(DIAMOND_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.DIAMOND_BLOCK).recipe(BaseChiselingRecipes.DIAMOND_BLOCK);
+    private static final Consumer<RechiseledBlockBuilder> DIAMOND_BLOCK_CONFIGURER = b -> b.withStairs().withSlabs().properties(DIAMOND_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.DIAMOND_BLOCK).recipe(BaseChiselingRecipes.DIAMOND_BLOCK);
     public static final RechiseledBlockType DIAMOND_BLOCK_CHISELED = create("diamond_block_chiseled", "Chiseled Block of Diamond").configure(DIAMOND_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType DIAMOND_BLOCK_CHISELED_CUBES = create("diamond_block_chiseled_cubes", "Chiseled Diamond Block Cubes").configure(DIAMOND_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType DIAMOND_BLOCK_CONNECTING = create("diamond_block_connecting", "Block of Diamonds").configure(DIAMOND_BLOCK_CONFIGURER).regularVariant(() -> Blocks.DIAMOND_BLOCK).build();
@@ -328,21 +328,21 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType DIAMOND_BLOCK_SMOOTH = create("diamond_block_smooth", "Smooth Block of Diamond").configure(DIAMOND_BLOCK_CONFIGURER).noConnectingVariant().build();
     // Diorite
     private static final Supplier<BlockProperties> DIORITE_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.QUARTZ).requiresCorrectTool().destroyTime(1.5F).explosionResistance(6.0F);
-    private static final Consumer<RechiseledBlockBuilder> DIORITE_CONFIGURER = b -> b.properties(DIORITE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.POLISHED_DIORITE).recipe(BaseChiselingRecipes.DIORITE);
+    private static final Consumer<RechiseledBlockBuilder> DIORITE_CONFIGURER = b -> b.withStairs().withSlabs().properties(DIORITE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.POLISHED_DIORITE).recipe(BaseChiselingRecipes.DIORITE);
     public static final RechiseledBlockType DIORITE_BRICK_PATTERN = create("diorite_brick_pattern", "Diorite Brick Pattern").configure(DIORITE_CONFIGURER).build();
     public static final RechiseledBlockType DIORITE_BRICK_PAVING = create("diorite_brick_paving", "Diorite Brick Paving").configure(DIORITE_CONFIGURER).build();
     public static final RechiseledBlockType DIORITE_BRICKS = create("diorite_bricks", "Diorite Bricks").configure(DIORITE_CONFIGURER).build();
     public static final RechiseledBlockType DIORITE_DIAGONAL_BRICKS = create("diorite_diagonal_bricks", "Diagonal Diorite Bricks").configure(DIORITE_CONFIGURER).build();
     public static final RechiseledBlockType DIORITE_DOTTED = create("diorite_dotted", "Dotted Diorite").configure(DIORITE_CONFIGURER).build();
     public static final RechiseledBlockType DIORITE_PAVING = create("diorite_paving", "Diorite Paving").configure(DIORITE_CONFIGURER).build();
-    public static final RechiseledBlockType DIORITE_POLISHED = create("diorite_polished", "Polished Diorite").configure(DIORITE_CONFIGURER).regularVariant(() -> Blocks.POLISHED_DIORITE).build();
+    public static final RechiseledBlockType DIORITE_POLISHED = create("diorite_polished", "Polished Diorite").configure(DIORITE_CONFIGURER).regularVariant(() -> Blocks.POLISHED_DIORITE, () -> Blocks.POLISHED_DIORITE_STAIRS, () -> Blocks.POLISHED_DIORITE_SLAB).build();
     public static final RechiseledBlockType DIORITE_ROTATED_BRICKS = create("diorite_rotated_bricks", "Rotated Diorite Bricks").configure(DIORITE_CONFIGURER).build();
     public static final RechiseledBlockType DIORITE_SQUARES = create("diorite_squares", "Diorite Squares").configure(DIORITE_CONFIGURER).build();
     public static final RechiseledBlockType DIORITE_TILES = create("diorite_tiles", "Diorite Tiles").configure(DIORITE_CONFIGURER).build();
     public static final RechiseledBlockType DIORITE_WAVY = create("diorite_wavy", "Wavy Diorite").configure(DIORITE_CONFIGURER).build();
     // Dirt
     private static final Supplier<BlockProperties> DIRT_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.DIRT, MaterialColor.DIRT).strength(0.5F).sound(SoundType.GRAVEL);
-    private static final Consumer<RechiseledBlockBuilder> DIRT_CONFIGURER = b -> b.properties(DIRT_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.DIRT).recipe(BaseChiselingRecipes.DIRT);
+    private static final Consumer<RechiseledBlockBuilder> DIRT_CONFIGURER = b -> b.withStairs().withSlabs().properties(DIRT_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.DIRT).recipe(BaseChiselingRecipes.DIRT);
     public static final RechiseledBlockType DIRT_BLOBS = create("dirt_blobs", "Dirt Blobs").configure(DIRT_CONFIGURER).build();
     public static final RechiseledBlockType DIRT_BRICKS = create("dirt_bricks", "Dirt Bricks").configure(DIRT_CONFIGURER).build();
     public static final RechiseledBlockType DIRT_CHUNKS = create("dirt_chunks", "Dirt Chunks").configure(DIRT_CONFIGURER).build();
@@ -360,7 +360,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType DIRT_TILLED = create("dirt_tilled", "Tilled Dirt").configure(DIRT_CONFIGURER).build();
     // Emerald block
     private static final Supplier<BlockProperties> EMERALD_BLOCK_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.METAL, MaterialColor.EMERALD).requiresCorrectTool().destroyTime(5.0F).explosionResistance(6.0F).sound(SoundType.METAL);
-    private static final Consumer<RechiseledBlockBuilder> EMERALD_BLOCK_CONFIGURER = b -> b.properties(EMERALD_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.EMERALD_BLOCK).recipe(BaseChiselingRecipes.EMERALD_BLOCK);
+    private static final Consumer<RechiseledBlockBuilder> EMERALD_BLOCK_CONFIGURER = b -> b.withStairs().withSlabs().properties(EMERALD_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.EMERALD_BLOCK).recipe(BaseChiselingRecipes.EMERALD_BLOCK);
     public static final RechiseledBlockType EMERALD_BLOCK_BORDERED_CROSSES = create("emerald_block_bordered_crosses", "Bordered Emerald Crosses Block").configure(EMERALD_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType EMERALD_BLOCK_BORDERED_PLATING = create("emerald_block_bordered_plating", "Bordered Emerald Plating Block").configure(EMERALD_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType EMERALD_BLOCK_CHISELED = create("emerald_block_chiseled", "Chiseled Block of Emerald").configure(EMERALD_BLOCK_CONFIGURER).build();
@@ -377,7 +377,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType EMERALD_BLOCK_WAXED = create("emerald_block_waxed", "Waxed Block of Emerald").configure(EMERALD_BLOCK_CONFIGURER).build();
     // End stone
     private static final Supplier<BlockProperties> END_STONE_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.SAND).requiresCorrectTool().destroyTime(3.0F).explosionResistance(9.0F);
-    private static final Consumer<RechiseledBlockBuilder> END_STONE_CONFIGURER = b -> b.properties(END_STONE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.END_STONE).recipe(BaseChiselingRecipes.END_STONE);
+    private static final Consumer<RechiseledBlockBuilder> END_STONE_CONFIGURER = b -> b.withStairs().withSlabs().properties(END_STONE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.END_STONE).recipe(BaseChiselingRecipes.END_STONE);
     public static final RechiseledBlockType END_STONE_BLOBS = create("end_stone_blobs", "End Stone Blobs").configure(END_STONE_CONFIGURER).build();
     public static final RechiseledBlockType END_STONE_BRICK_PATTERN = create("end_stone_brick_pattern", "End Stone Brick Pattern").configure(END_STONE_CONFIGURER).build();
     public static final RechiseledBlockType END_STONE_BRICK_PAVING = create("end_stone_brick_paving", "End Stone Brick Paving").configure(END_STONE_CONFIGURER).build();
@@ -395,7 +395,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType END_STONE_TILES = create("end_stone_tiles", "End Stone Tiles").configure(END_STONE_CONFIGURER).build();
     // Glowstone
     private static final Supplier<BlockProperties> GLOWSTONE_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.GLASS, MaterialColor.SAND).strength(0.3F).sound(SoundType.GLASS).lightLevel(p_50872_ -> 15).isRedstoneConductor(Blocks::never);
-    private static final Consumer<RechiseledBlockBuilder> GLOWSTONE_CONFIGURER = b -> b.properties(GLOWSTONE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.GLOWSTONE).recipe(BaseChiselingRecipes.GLOWSTONE);
+    private static final Consumer<RechiseledBlockBuilder> GLOWSTONE_CONFIGURER = b -> b.withStairs().withSlabs().properties(GLOWSTONE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.GLOWSTONE).recipe(BaseChiselingRecipes.GLOWSTONE);
     public static final RechiseledBlockType GLOWSTONE_BRICK_PATTERN = create("glowstone_brick_pattern", "Glowstone Brick Pattern").configure(GLOWSTONE_CONFIGURER).build();
     public static final RechiseledBlockType GLOWSTONE_BRICK_PAVING = create("glowstone_brick_paving", "Glowstone Brick Paving").configure(GLOWSTONE_CONFIGURER).build();
     public static final RechiseledBlockType GLOWSTONE_BRICKS = create("glowstone_bricks", "Glowstone Bricks").configure(GLOWSTONE_CONFIGURER).build();
@@ -407,7 +407,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType GLOWSTONE_TILES = create("glowstone_tiles", "Glowstone Tiles").configure(GLOWSTONE_CONFIGURER).build();
     // Gold block
     private static final Supplier<BlockProperties> GOLD_BLOCK_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.METAL, MaterialColor.GOLD).requiresCorrectTool().destroyTime(3.0F).explosionResistance(6.0F).sound(SoundType.METAL);
-    private static final Consumer<RechiseledBlockBuilder> GOLD_BLOCK_CONFIGURER = b -> b.properties(GOLD_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.GOLD_BLOCK).recipe(BaseChiselingRecipes.GOLD_BLOCK);
+    private static final Consumer<RechiseledBlockBuilder> GOLD_BLOCK_CONFIGURER = b -> b.withStairs().withSlabs().properties(GOLD_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.GOLD_BLOCK).recipe(BaseChiselingRecipes.GOLD_BLOCK);
     public static final RechiseledBlockType GOLD_BLOCK_BEAMS = create("gold_block_beams", "Gold Beams Block").configure(GOLD_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType GOLD_BLOCK_BORDERED = create("gold_block_bordered", "Bordered Block of Gold").configure(GOLD_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType GOLD_BLOCK_LINES = create("gold_block_lines", "Gold Lines Block").configure(GOLD_BLOCK_CONFIGURER).build();
@@ -421,21 +421,21 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType GOLD_BLOCK_TILES = create("gold_block_tiles", "Gold Tiles Block").configure(GOLD_BLOCK_CONFIGURER).build();
     // Granite
     private static final Supplier<BlockProperties> GRANITE_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.DIRT).requiresCorrectTool().destroyTime(1.5F).explosionResistance(6.0F);
-    private static final Consumer<RechiseledBlockBuilder> GRANITE_CONFIGURER = b -> b.properties(GRANITE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.POLISHED_GRANITE).recipe(BaseChiselingRecipes.GRANITE);
+    private static final Consumer<RechiseledBlockBuilder> GRANITE_CONFIGURER = b -> b.withStairs().withSlabs().properties(GRANITE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.POLISHED_GRANITE).recipe(BaseChiselingRecipes.GRANITE);
     public static final RechiseledBlockType GRANITE_BRICK_PATTERN = create("granite_brick_pattern", "Granite Brick Pattern").configure(GRANITE_CONFIGURER).build();
     public static final RechiseledBlockType GRANITE_BRICK_PAVING = create("granite_brick_paving", "Granite Brick Paving").configure(GRANITE_CONFIGURER).build();
     public static final RechiseledBlockType GRANITE_BRICKS = create("granite_bricks", "Granite Bricks").configure(GRANITE_CONFIGURER).build();
     public static final RechiseledBlockType GRANITE_DIAGONAL_BRICKS = create("granite_diagonal_bricks", "Diagonal Granite Bricks").configure(GRANITE_CONFIGURER).build();
     public static final RechiseledBlockType GRANITE_DOTTED = create("granite_dotted", "Dotted Granite").configure(GRANITE_CONFIGURER).build();
     public static final RechiseledBlockType GRANITE_PAVING = create("granite_paving", "Granite Paving").configure(GRANITE_CONFIGURER).build();
-    public static final RechiseledBlockType GRANITE_POLISHED = create("granite_polished", "Polished Granite").configure(GRANITE_CONFIGURER).regularVariant(() -> Blocks.POLISHED_GRANITE).build();
+    public static final RechiseledBlockType GRANITE_POLISHED = create("granite_polished", "Polished Granite").configure(GRANITE_CONFIGURER).regularVariant(() -> Blocks.POLISHED_GRANITE, () -> Blocks.POLISHED_GRANITE_STAIRS, () -> Blocks.POLISHED_GRANITE_SLAB).build();
     public static final RechiseledBlockType GRANITE_ROTATED_BRICKS = create("granite_rotated_bricks", "Rotated Granite Bricks").configure(GRANITE_CONFIGURER).build();
     public static final RechiseledBlockType GRANITE_SQUARES = create("granite_squares", "Granite Squares").configure(GRANITE_CONFIGURER).build();
     public static final RechiseledBlockType GRANITE_TILES = create("granite_tiles", "Granite Tiles").configure(GRANITE_CONFIGURER).build();
     public static final RechiseledBlockType GRANITE_WAVY = create("granite_wavy", "Wavy Granite").configure(GRANITE_CONFIGURER).build();
     // Iron block
     private static final Supplier<BlockProperties> IRON_BLOCK_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.METAL, MaterialColor.METAL).requiresCorrectTool().destroyTime(5.0F).explosionResistance(6.0F).sound(SoundType.METAL);
-    private static final Consumer<RechiseledBlockBuilder> IRON_BLOCK_CONFIGURER = b -> b.properties(IRON_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.IRON_BLOCK).recipe(BaseChiselingRecipes.IRON_BLOCK);
+    private static final Consumer<RechiseledBlockBuilder> IRON_BLOCK_CONFIGURER = b -> b.withStairs().withSlabs().properties(IRON_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.IRON_BLOCK).recipe(BaseChiselingRecipes.IRON_BLOCK);
     public static final RechiseledBlockType IRON_BLOCK_BORDERED = create("iron_block_bordered", "Bordered Block of Iron").configure(IRON_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType IRON_BLOCK_CHISELED = create("iron_block_chiseled", "Chiseled Block of Iron").configure(IRON_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType IRON_BLOCK_CONNECTING = create("iron_block_connecting", "Block of Iron").configure(IRON_BLOCK_CONFIGURER).regularVariant(() -> Blocks.IRON_BLOCK).build();
@@ -454,7 +454,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType IRON_BLOCK_SMOOTH = create("iron_block_smooth", "Smooth Block of Iron").configure(IRON_BLOCK_CONFIGURER).noConnectingVariant().build();
     // Jungle planks
     private static final Supplier<BlockProperties> JUNGLE_PLANKS_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.WOOD, MaterialColor.DIRT).destroyTime(2.0F).explosionResistance(3.0F).sound(SoundType.WOOD);
-    private static final Consumer<RechiseledBlockBuilder> JUNGLE_PLANKS_CONFIGURER = b -> b.properties(JUNGLE_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.JUNGLE_PLANKS).recipe(BaseChiselingRecipes.JUNGLE_PLANKS);
+    private static final Consumer<RechiseledBlockBuilder> JUNGLE_PLANKS_CONFIGURER = b -> b.withStairs().withSlabs().properties(JUNGLE_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.JUNGLE_PLANKS).recipe(BaseChiselingRecipes.JUNGLE_PLANKS);
     public static final RechiseledBlockType JUNGLE_PLANKS_BEAMS = create("jungle_planks_beams", "Jungle Plank Beams").configure(JUNGLE_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType JUNGLE_PLANKS_BRICK_PATTERN = create("jungle_planks_brick_pattern", "Jungle Plank Brick Pattern").configure(JUNGLE_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType JUNGLE_PLANKS_BRICK_PAVING = create("jungle_planks_brick_paving", "Jungle Plank Brick Paving").configure(JUNGLE_PLANKS_CONFIGURER).build();
@@ -476,7 +476,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType JUNGLE_PLANKS_WOVEN = create("jungle_planks_woven", "Woven Jungle Planks").configure(JUNGLE_PLANKS_CONFIGURER).build();
     // Lapis block
     private static final Supplier<BlockProperties> LAPIS_BLOCK_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.METAL, MaterialColor.LAPIS).requiresCorrectTool().destroyTime(3.0F).explosionResistance(3.0F);
-    private static final Consumer<RechiseledBlockBuilder> LAPIS_BLOCK_CONFIGURER = b -> b.properties(LAPIS_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.LAPIS_BLOCK).recipe(BaseChiselingRecipes.LAPIS_BLOCK);
+    private static final Consumer<RechiseledBlockBuilder> LAPIS_BLOCK_CONFIGURER = b -> b.withStairs().withSlabs().properties(LAPIS_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.LAPIS_BLOCK).recipe(BaseChiselingRecipes.LAPIS_BLOCK);
     public static final RechiseledBlockType LAPIS_BLOCK_BORDERED = create("lapis_block_bordered", "Bordered Block of Lapis Lazuli").configure(LAPIS_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType LAPIS_BLOCK_CHISELED = create("lapis_block_chiseled", "Chiseled Block of Lapis Lazuli").configure(LAPIS_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType LAPIS_BLOCK_COBBLED = create("lapis_block_cobbled", "Cobbled Block of Lapis Lazuli").configure(LAPIS_BLOCK_CONFIGURER).noConnectingVariant().build();
@@ -497,7 +497,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType LAPIS_BLOCK_TILES = create("lapis_block_tiles", "Lapis Lazuli Block Tiles").configure(LAPIS_BLOCK_CONFIGURER).build();
     // Mangrove planks
     private static final Supplier<BlockProperties> MANGROVE_PLANKS_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.WOOD, MaterialColor.COLOR_RED).destroyTime(2.0F).explosionResistance(3.0F).sound(SoundType.WOOD);
-    private static final Consumer<RechiseledBlockBuilder> MANGROVE_PLANKS_CONFIGURER = b -> b.properties(MANGROVE_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.MANGROVE_PLANKS).recipe(BaseChiselingRecipes.MANGROVE_PLANKS);
+    private static final Consumer<RechiseledBlockBuilder> MANGROVE_PLANKS_CONFIGURER = b -> b.withStairs().withSlabs().properties(MANGROVE_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.MANGROVE_PLANKS).recipe(BaseChiselingRecipes.MANGROVE_PLANKS);
     public static final RechiseledBlockType MANGROVE_PLANKS_BEAMS = create("mangrove_planks_beams", "Mangrove Plank Beams").configure(MANGROVE_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType MANGROVE_PLANKS_BRICK_PATTERN = create("mangrove_planks_brick_pattern", "Mangrove Plank Brick Pattern").configure(MANGROVE_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType MANGROVE_PLANKS_BRICK_PAVING = create("mangrove_planks_brick_paving", "Mangrove Plank Brick Paving").configure(MANGROVE_PLANKS_CONFIGURER).build();
@@ -519,7 +519,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType MANGROVE_PLANKS_WOVEN = create("mangrove_planks_woven", "Woven Mangrove Planks").configure(MANGROVE_PLANKS_CONFIGURER).build();
     // Mossy cobblestone
     private static final Supplier<BlockProperties> MOSSY_COBBLESTONE_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE).requiresCorrectTool().destroyTime(2.0F).explosionResistance(6.0F);
-    private static final Consumer<RechiseledBlockBuilder> MOSSY_COBBLESTONE_CONFIGURER = b -> b.properties(MOSSY_COBBLESTONE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.MOSSY_COBBLESTONE).recipe(BaseChiselingRecipes.COBBLESTONE);
+    private static final Consumer<RechiseledBlockBuilder> MOSSY_COBBLESTONE_CONFIGURER = b -> b.withStairs().withSlabs().properties(MOSSY_COBBLESTONE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.MOSSY_COBBLESTONE).recipe(BaseChiselingRecipes.COBBLESTONE);
     public static final RechiseledBlockType MOSSY_COBBLESTONE_BEAMS = create("mossy_cobblestone_beams", "Mossy Cobblestone Beams").configure(MOSSY_COBBLESTONE_CONFIGURER).build();
     public static final RechiseledBlockType MOSSY_COBBLESTONE_DENTED = create("mossy_cobblestone_dented", "Dented Mossy Cobblestone").configure(MOSSY_COBBLESTONE_CONFIGURER).build();
     public static final RechiseledBlockType MOSSY_COBBLESTONE_INVERTED_DENTED = create("mossy_cobblestone_inverted_dented", "Inverted Dented Mossy Cobblestone").configure(MOSSY_COBBLESTONE_CONFIGURER).build();
@@ -530,7 +530,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType MOSSY_COBBLESTONE_WORN_STRIPES = create("mossy_cobblestone_worn_stripes", "Weathered Mossy Cobblestone").configure(MOSSY_COBBLESTONE_CONFIGURER).build();
     // Netherrack
     private static final Supplier<BlockProperties> NETHERRACK_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.NETHER).requiresCorrectTool().strength(0.4F).sound(SoundType.NETHERRACK);
-    private static final Consumer<RechiseledBlockBuilder> NETHERRACK_CONFIGURER = b -> b.properties(NETHERRACK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.NETHERRACK).recipe(BaseChiselingRecipes.NETHERRACK);
+    private static final Consumer<RechiseledBlockBuilder> NETHERRACK_CONFIGURER = b -> b.withStairs().withSlabs().properties(NETHERRACK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.NETHERRACK).recipe(BaseChiselingRecipes.NETHERRACK);
     public static final RechiseledBlockType NETHERRACK_BEAMS = create("netherrack_beams", "Netherrack Beams").configure(NETHERRACK_CONFIGURER).build();
     public static final RechiseledBlockType NETHERRACK_BRICK_PATTERN = create("netherrack_brick_pattern", "Netherrack Brick Pattern").configure(NETHERRACK_CONFIGURER).build();
     public static final RechiseledBlockType NETHERRACK_BRICK_PAVING = create("netherrack_brick_paving", "Netherrack Brick Paving").configure(NETHERRACK_CONFIGURER).build();
@@ -542,7 +542,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType NETHERRACK_TILES = create("netherrack_tiles", "Netherrack Tiles").configure(NETHERRACK_CONFIGURER).build();
     // Nether bricks
     private static final Supplier<BlockProperties> NETHER_BRICKS_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.NETHER).requiresCorrectTool().destroyTime(2.0F).explosionResistance(6.0F).sound(SoundType.NETHER_BRICKS);
-    private static final Consumer<RechiseledBlockBuilder> NETHER_BRICKS_CONFIGURER = b -> b.properties(NETHER_BRICKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.NETHER_BRICKS).recipe(BaseChiselingRecipes.NETHER_BRICKS);
+    private static final Consumer<RechiseledBlockBuilder> NETHER_BRICKS_CONFIGURER = b -> b.withStairs().withSlabs().properties(NETHER_BRICKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.NETHER_BRICKS).recipe(BaseChiselingRecipes.NETHER_BRICKS);
     public static final RechiseledBlockType NETHER_BRICKS_BEAMS = create("nether_bricks_beams", "Nether Brick Beams").configure(NETHER_BRICKS_CONFIGURER).build();
     public static final RechiseledBlockType NETHER_BRICKS_BRICK_PATTERN = create("nether_bricks_brick_pattern", "Nether Brick Pattern").configure(NETHER_BRICKS_CONFIGURER).build();
     public static final RechiseledBlockType NETHER_BRICKS_BRICK_PAVING = create("nether_bricks_brick_paving", "Nether Brick Paving").configure(NETHER_BRICKS_CONFIGURER).build();
@@ -557,7 +557,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType NETHER_BRICKS_TILES = create("nether_bricks_tiles", "Nether Brick Tiles").configure(NETHER_BRICKS_CONFIGURER).build();
     // Netherite block
     private static final Supplier<BlockProperties> NETHERITE_BLOCK_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.METAL, MaterialColor.COLOR_BLACK).requiresCorrectTool().destroyTime(50.0F).explosionResistance(1200.0F).sound(SoundType.NETHERITE_BLOCK);
-    private static final Consumer<RechiseledBlockBuilder> NETHERITE_BLOCK_CONFIGURER = b -> b.properties(NETHERITE_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.NETHERITE_BLOCK).recipe(BaseChiselingRecipes.NETHERITE_BLOCK);
+    private static final Consumer<RechiseledBlockBuilder> NETHERITE_BLOCK_CONFIGURER = b -> b.withStairs().withSlabs().properties(NETHERITE_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.NETHERITE_BLOCK).recipe(BaseChiselingRecipes.NETHERITE_BLOCK);
     public static final RechiseledBlockType NETHERITE_BLOCK_BEAMS = create("netherite_block_beams", "Netherite Block Beams").configure(NETHERITE_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType NETHERITE_BLOCK_BRICKS = create("netherite_block_bricks", "Netherite Block Bricks").configure(NETHERITE_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType NETHERITE_BLOCK_CHISELED = create("netherite_block_chiseled", "Chiseled Block of Netherite").configure(NETHERITE_BLOCK_CONFIGURER).build();
@@ -572,7 +572,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType NETHERITE_BLOCK_SMOOTH = create("netherite_block_smooth", "Smooth Block of Netherite").configure(NETHERITE_BLOCK_CONFIGURER).noConnectingVariant().build();
     // Oak planks
     private static final Supplier<BlockProperties> OAK_PLANKS_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.WOOD, MaterialColor.WOOD).destroyTime(2.0F).explosionResistance(3.0F).sound(SoundType.WOOD);
-    private static final Consumer<RechiseledBlockBuilder> OAK_PLANKS_CONFIGURER = b -> b.properties(OAK_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.OAK_PLANKS).recipe(BaseChiselingRecipes.OAK_PLANKS);
+    private static final Consumer<RechiseledBlockBuilder> OAK_PLANKS_CONFIGURER = b -> b.withStairs().withSlabs().properties(OAK_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.OAK_PLANKS).recipe(BaseChiselingRecipes.OAK_PLANKS);
     public static final RechiseledBlockType OAK_PLANKS_BEAMS = create("oak_planks_beams", "Oak Plank Beams").configure(OAK_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType OAK_PLANKS_BRICK_PATTERN = create("oak_planks_brick_pattern", "Oak Plank Brick Pattern").configure(OAK_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType OAK_PLANKS_BRICK_PAVING = create("oak_planks_brick_paving", "Oak Plank Brick Paving").configure(OAK_PLANKS_CONFIGURER).build();
@@ -594,7 +594,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType OAK_PLANKS_WOVEN = create("oak_planks_woven", "Woven Oak Planks").configure(OAK_PLANKS_CONFIGURER).build();
     // Obsidian
     private static final Supplier<BlockProperties> OBSIDIAN_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.COLOR_BLACK).requiresCorrectTool().destroyTime(50.0F).explosionResistance(1200.0F);
-    private static final Consumer<RechiseledBlockBuilder> OBSIDIAN_CONFIGURER = b -> b.properties(OBSIDIAN_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.OBSIDIAN).recipe(BaseChiselingRecipes.OBSIDIAN);
+    private static final Consumer<RechiseledBlockBuilder> OBSIDIAN_CONFIGURER = b -> b.withStairs().withSlabs().properties(OBSIDIAN_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.OBSIDIAN).recipe(BaseChiselingRecipes.OBSIDIAN);
     public static final RechiseledBlockType OBSIDIAN_BORDERED = create("obsidian_bordered", "Bordered Obsidian").configure(OBSIDIAN_CONFIGURER).build();
     public static final RechiseledBlockType OBSIDIAN_BRICK_PATTERN = create("obsidian_brick_pattern", "Obsidian Brick Pattern").configure(OBSIDIAN_CONFIGURER).build();
     public static final RechiseledBlockType OBSIDIAN_BRICK_PAVING = create("obsidian_brick_paving", "Obsidian Brick Paving").configure(OBSIDIAN_CONFIGURER).build();
@@ -613,7 +613,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType OBSIDIAN_TILES = create("obsidian_tiles", "Obsidian Tiles").configure(OBSIDIAN_CONFIGURER).build();
     // Prismarine
     private static final Supplier<BlockProperties> PRISMARINE_BRICKS_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.DIAMOND).requiresCorrectTool().destroyTime(1.5F).explosionResistance(6.0F);
-    private static final Consumer<RechiseledBlockBuilder> PRISMARINE_BRICKS_CONFIGURER = b -> b.properties(PRISMARINE_BRICKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.PRISMARINE_BRICKS).recipe(BaseChiselingRecipes.PRISMARINE_BRICKS);
+    private static final Consumer<RechiseledBlockBuilder> PRISMARINE_BRICKS_CONFIGURER = b -> b.withStairs().withSlabs().properties(PRISMARINE_BRICKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.PRISMARINE_BRICKS).recipe(BaseChiselingRecipes.PRISMARINE_BRICKS);
     public static final RechiseledBlockType PRISMARINE_BRICKS_BEAMS = create("prismarine_bricks_beams", "Prismarine Brick Beams").configure(PRISMARINE_BRICKS_CONFIGURER).build();
     public static final RechiseledBlockType PRISMARINE_BRICKS_BRICK_PATTERN = create("prismarine_bricks_brick_pattern", "Prismarine Brick Pattern").configure(PRISMARINE_BRICKS_CONFIGURER).build();
     public static final RechiseledBlockType PRISMARINE_BRICKS_BRICK_PAVING = create("prismarine_bricks_brick_paving", "Prismarine Brick Paving").configure(PRISMARINE_BRICKS_CONFIGURER).build();
@@ -634,7 +634,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType PRISMARINE_BRICKS_WOVEN = create("prismarine_bricks_woven", "Woven Prismarine Bricks").configure(PRISMARINE_BRICKS_CONFIGURER).build();
     // Purpur
     private static final Supplier<BlockProperties> PURPUR_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.COLOR_MAGENTA).requiresCorrectTool().destroyTime(1.5F).explosionResistance(6.0F);
-    private static final Consumer<RechiseledBlockBuilder> PURPUR_CONFIGURER = b -> b.properties(PURPUR_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.PURPUR_BLOCK).recipe(BaseChiselingRecipes.PURPUR_BLOCK);
+    private static final Consumer<RechiseledBlockBuilder> PURPUR_CONFIGURER = b -> b.withStairs().withSlabs().properties(PURPUR_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.PURPUR_BLOCK).recipe(BaseChiselingRecipes.PURPUR_BLOCK);
     public static final RechiseledBlockType PURPUR_BRICK_PATTERN = create("purpur_brick_pattern", "Purpur Brick Pattern").configure(PURPUR_CONFIGURER).build();
     public static final RechiseledBlockType PURPUR_BRICK_PAVING = create("purpur_brick_paving", "Purpur Brick Paving").configure(PURPUR_CONFIGURER).build();
     public static final RechiseledBlockType PURPUR_BRICKS = create("purpur_bricks", "Purpur Bricks").configure(PURPUR_CONFIGURER).build();
@@ -651,16 +651,16 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType PURPUR_SMALL_TILES = create("purpur_small_tiles", "Small Purpur Tiles").configure(PURPUR_CONFIGURER).build();
     public static final RechiseledBlockType PURPUR_SPIRAL_PATTERN = create("purpur_spiral_pattern", "Spiral Purpur Pattern").configure(PURPUR_CONFIGURER).build();
     public static final RechiseledBlockType PURPUR_SQUARES = create("purpur_squares", "Purpur Squares").configure(PURPUR_CONFIGURER).build();
-    public static final RechiseledBlockType PURPUR_TILES = create("purpur_tiles", "Purpur Block").configure(PURPUR_CONFIGURER).regularVariant(() -> Blocks.PURPUR_BLOCK).build();
+    public static final RechiseledBlockType PURPUR_TILES = create("purpur_tiles", "Purpur Block").configure(PURPUR_CONFIGURER).regularVariant(() -> Blocks.PURPUR_BLOCK, () -> Blocks.PURPUR_STAIRS, () -> Blocks.PURPUR_SLAB).build();
     public static final RechiseledBlockType PURPUR_WOVEN = create("purpur_woven", "Woven Purpur Block").configure(PURPUR_CONFIGURER).build();
     // Quartz block
     private static final Supplier<BlockProperties> QUARTZ_BLOCK_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.QUARTZ).requiresCorrectTool().strength(0.8F);
-    private static final Consumer<RechiseledBlockBuilder> QUARTZ_BLOCK_CONFIGURER = b -> b.properties(QUARTZ_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.QUARTZ_BLOCK).recipe(BaseChiselingRecipes.QUARTZ_BLOCK);
+    private static final Consumer<RechiseledBlockBuilder> QUARTZ_BLOCK_CONFIGURER = b -> b.withStairs().withSlabs().properties(QUARTZ_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.QUARTZ_BLOCK).recipe(BaseChiselingRecipes.QUARTZ_BLOCK);
     public static final RechiseledBlockType QUARTZ_BLOCK_BORDERED = create("quartz_block_bordered", "Bordered Quartz Block").configure(QUARTZ_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType QUARTZ_BLOCK_BRICK_PAVING = create("quartz_block_brick_paving", "Quartz Brick Paving").configure(QUARTZ_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType QUARTZ_BLOCK_CHISELED_PILLAR = create("quartz_block_chiseled_pillar", "Chiseled Quartz Pillar").configure(QUARTZ_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType QUARTZ_BLOCK_CHISELED_SQUARES = create("quartz_block_chiseled_squares", "Chiseled Quartz Block Squares").configure(QUARTZ_BLOCK_CONFIGURER).noConnectingVariant().build();
-    public static final RechiseledBlockType QUARTZ_BLOCK_CONNECTING = create("quartz_block_connecting", "Quartz Block").configure(QUARTZ_BLOCK_CONFIGURER).regularVariant(() -> Blocks.QUARTZ_BLOCK).build();
+    public static final RechiseledBlockType QUARTZ_BLOCK_CONNECTING = create("quartz_block_connecting", "Quartz Block").configure(QUARTZ_BLOCK_CONFIGURER).regularVariant(() -> Blocks.QUARTZ_BLOCK, () -> Blocks.QUARTZ_STAIRS, () -> Blocks.QUARTZ_SLAB).build();
     public static final RechiseledBlockType QUARTZ_BLOCK_CROSSES = create("quartz_block_crosses", "Quartz Block Crosses").configure(QUARTZ_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType QUARTZ_BLOCK_DIAGONAL_TILES = create("quartz_block_diagonal_tiles", "Diagonal Quartz Block Tiles").configure(QUARTZ_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType QUARTZ_BLOCK_PATTERN = create("quartz_block_pattern", "Quartz Block Pattern").configure(QUARTZ_BLOCK_CONFIGURER).build();
@@ -673,7 +673,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType QUARTZ_BLOCK_TILES = create("quartz_block_tiles", "Quartz Block Tiles").configure(QUARTZ_BLOCK_CONFIGURER).build();
     // Red nether bricks
     private static final Supplier<BlockProperties> RED_NETHER_BRICKS_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.NETHER).requiresCorrectTool().destroyTime(2.0F).explosionResistance(6.0F).sound(SoundType.NETHER_BRICKS);
-    private static final Consumer<RechiseledBlockBuilder> RED_NETHER_BRICKS_CONFIGURER = b -> b.properties(RED_NETHER_BRICKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.RED_NETHER_BRICKS).recipe(BaseChiselingRecipes.RED_NETHER_BRICKS);
+    private static final Consumer<RechiseledBlockBuilder> RED_NETHER_BRICKS_CONFIGURER = b -> b.withStairs().withSlabs().properties(RED_NETHER_BRICKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.RED_NETHER_BRICKS).recipe(BaseChiselingRecipes.RED_NETHER_BRICKS);
     public static final RechiseledBlockType RED_NETHER_BRICKS_BEAMS = create("red_nether_bricks_beams", "Red Nether Brick Beams").configure(RED_NETHER_BRICKS_CONFIGURER).build();
     public static final RechiseledBlockType RED_NETHER_BRICKS_BRICK_PATTERN = create("red_nether_bricks_brick_pattern", "Red Nether Brick Pattern").configure(RED_NETHER_BRICKS_CONFIGURER).build();
     public static final RechiseledBlockType RED_NETHER_BRICKS_BRICK_PAVING = create("red_nether_bricks_brick_paving", "Red Nether Brick Paving").configure(RED_NETHER_BRICKS_CONFIGURER).build();
@@ -688,7 +688,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType RED_NETHER_BRICKS_TILES = create("red_nether_bricks_tiles", "Red Nether Brick Tiles").configure(RED_NETHER_BRICKS_CONFIGURER).build();
     // Red sandstone
     private static final Supplier<BlockProperties> RED_SANDSTONE_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.COLOR_ORANGE).requiresCorrectTool().strength(0.8F);
-    private static final Consumer<RechiseledBlockBuilder> RED_SANDSTONE_CONFIGURER = b -> b.properties(RED_SANDSTONE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.RED_SANDSTONE).recipe(BaseChiselingRecipes.RED_SANDSTONE);
+    private static final Consumer<RechiseledBlockBuilder> RED_SANDSTONE_CONFIGURER = b -> b.withStairs().withSlabs().properties(RED_SANDSTONE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.RED_SANDSTONE).recipe(BaseChiselingRecipes.RED_SANDSTONE);
     public static final RechiseledBlockType RED_SANDSTONE_BRICK_PATTERN = create("red_sandstone_brick_pattern", "Red Sandstone Brick Pattern").configure(RED_SANDSTONE_CONFIGURER).build();
     public static final RechiseledBlockType RED_SANDSTONE_BRICK_PAVING = create("red_sandstone_brick_paving", "Red Sandstone Brick Paving").configure(RED_SANDSTONE_CONFIGURER).build();
     public static final RechiseledBlockType RED_SANDSTONE_BRICKS = create("red_sandstone_bricks", "Red Sandstone Bricks").configure(RED_SANDSTONE_CONFIGURER).build();
@@ -699,7 +699,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType RED_SANDSTONE_TILES = create("red_sandstone_tiles", "Red Sandstone Tiles").configure(RED_SANDSTONE_CONFIGURER).build();
     // Redstone block
     private static final Supplier<BlockProperties> REDSTONE_BLOCK_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.METAL, MaterialColor.FIRE).requiresCorrectTool().destroyTime(5.0F).explosionResistance(6.0F).sound(SoundType.METAL).isRedstoneConductor(Blocks::never);
-    private static final Consumer<RechiseledBlockBuilder> REDSTONE_BLOCK_CONFIGURER = b -> b.properties(REDSTONE_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.REDSTONE_BLOCK).recipe(BaseChiselingRecipes.REDSTONE_BLOCK);
+    private static final Consumer<RechiseledBlockBuilder> REDSTONE_BLOCK_CONFIGURER = b -> b.withStairs().withSlabs().properties(REDSTONE_BLOCK_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.REDSTONE_BLOCK).recipe(BaseChiselingRecipes.REDSTONE_BLOCK);
     public static final RechiseledBlockType REDSTONE_BLOCK_BORDERED = create("redstone_block_bordered", "Bordered Block of Redstone").configure(REDSTONE_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType REDSTONE_BLOCK_BRICKS = create("redstone_block_bricks", "Redstone Block Bricks").configure(REDSTONE_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType REDSTONE_BLOCK_BRICK_BORDERED = create("redstone_block_brick_bordered", "Brick Bordered Block of Redstone").configure(REDSTONE_BLOCK_CONFIGURER).noConnectingVariant().build();
@@ -717,7 +717,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType REDSTONE_BLOCK_SMOOTH = create("redstone_block_smooth", "Smooth Block of Redstone").configure(REDSTONE_BLOCK_CONFIGURER).noConnectingVariant().build();
     // Sandstone
     private static final Supplier<BlockProperties> SANDSTONE_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.SAND).requiresCorrectTool().strength(0.8F);
-    private static final Consumer<RechiseledBlockBuilder> SANDSTONE_CONFIGURER = b -> b.properties(SANDSTONE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.SANDSTONE).recipe(BaseChiselingRecipes.SANDSTONE);
+    private static final Consumer<RechiseledBlockBuilder> SANDSTONE_CONFIGURER = b -> b.withStairs().withSlabs().properties(SANDSTONE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.SANDSTONE).recipe(BaseChiselingRecipes.SANDSTONE);
     public static final RechiseledBlockType SANDSTONE_BRICK_PATTERN = create("sandstone_brick_pattern", "Sandstone Brick Pattern").configure(SANDSTONE_CONFIGURER).build();
     public static final RechiseledBlockType SANDSTONE_BRICK_PAVING = create("sandstone_brick_paving", "Sandstone Brick Paving").configure(SANDSTONE_CONFIGURER).build();
     public static final RechiseledBlockType SANDSTONE_BRICKS = create("sandstone_bricks", "Sandstone Bricks").configure(SANDSTONE_CONFIGURER).build();
@@ -728,7 +728,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType SANDSTONE_TILES = create("sandstone_tiles", "Sandstone Tiles").configure(SANDSTONE_CONFIGURER).build();
     // Spruce planks
     private static final Supplier<BlockProperties> SPRUCE_PLANKS_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.WOOD, MaterialColor.PODZOL).destroyTime(2.0F).explosionResistance(3.0F).sound(SoundType.WOOD);
-    private static final Consumer<RechiseledBlockBuilder> SPRUCE_PLANKS_CONFIGURER = b -> b.properties(SPRUCE_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.SPRUCE_PLANKS).recipe(BaseChiselingRecipes.SPRUCE_PLANKS);
+    private static final Consumer<RechiseledBlockBuilder> SPRUCE_PLANKS_CONFIGURER = b -> b.withStairs().withSlabs().properties(SPRUCE_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.SPRUCE_PLANKS).recipe(BaseChiselingRecipes.SPRUCE_PLANKS);
     public static final RechiseledBlockType SPRUCE_PLANKS_BEAMS = create("spruce_planks_beams", "Spruce Plank Beams").configure(SPRUCE_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType SPRUCE_PLANKS_BRICK_PATTERN = create("spruce_planks_brick_pattern", "Spruce Plank Brick Pattern").configure(SPRUCE_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType SPRUCE_PLANKS_BRICK_PAVING = create("spruce_planks_brick_paving", "Spruce Plank Brick Paving").configure(SPRUCE_PLANKS_CONFIGURER).build();
@@ -750,7 +750,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType SPRUCE_PLANKS_WOVEN = create("spruce_planks_woven", "Woven Spruce Planks").configure(SPRUCE_PLANKS_CONFIGURER).build();
     // Stone
     private static final Supplier<BlockProperties> STONE_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.STONE, MaterialColor.STONE).requiresCorrectTool().destroyTime(1.5F).explosionResistance(6.0F);
-    private static final Consumer<RechiseledBlockBuilder> STONE_CONFIGURER = b -> b.properties(STONE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.STONE).recipe(BaseChiselingRecipes.STONE);
+    private static final Consumer<RechiseledBlockBuilder> STONE_CONFIGURER = b -> b.withStairs().withSlabs().properties(STONE_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.STONE).recipe(BaseChiselingRecipes.STONE);
     public static final RechiseledBlockType STONE_BIG_TILES = create("stone_big_tiles", "Large Stone Tiles").configure(STONE_CONFIGURER).build();
     public static final RechiseledBlockType STONE_BORDERED = create("stone_bordered", "Bordered Stone").configure(STONE_CONFIGURER).build();
     public static final RechiseledBlockType STONE_BRICK_PATTERN = create("stone_brick_pattern", "Stone Brick Pattern").configure(STONE_CONFIGURER).build();
@@ -764,7 +764,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType STONE_SLATED = create("stone_slated", "Slated Stone").configure(STONE_CONFIGURER).specification(BlockSpecification.PILLAR).noConnectingVariant().build();
     public static final RechiseledBlockType STONE_SMALL_BRICKS = create("stone_small_bricks", "Small Stone Bricks").configure(STONE_CONFIGURER).build();
     public static final RechiseledBlockType STONE_SMALL_TILES = create("stone_small_tiles", "Small Stone Tiles").configure(STONE_CONFIGURER).build();
-    public static final RechiseledBlockType STONE_SMOOTH = create("stone_smooth", "Smooth Stone").configure(STONE_CONFIGURER).regularVariant(() -> Blocks.SMOOTH_STONE).build();
+    public static final RechiseledBlockType STONE_SMOOTH = create("stone_smooth", "Smooth Stone").configure(STONE_CONFIGURER).regularVariant(() -> Blocks.SMOOTH_STONE, null, () -> Blocks.SMOOTH_STONE_SLAB).build();
     public static final RechiseledBlockType STONE_SMOOTH_BRICK_PAVING = create("stone_smooth_brick_paving", "Smooth Stone Brick Paving").configure(STONE_CONFIGURER).build();
     public static final RechiseledBlockType STONE_SMOOTH_LARGE_TILES = create("stone_smooth_large_tiles", "Large Smooth Stone Tiles").configure(STONE_CONFIGURER).build();
     public static final RechiseledBlockType STONE_SMOOTH_ROTATED_BRICKS = create("stone_smooth_rotated_bricks", "Rotated Smooth Stone Bricks").configure(STONE_CONFIGURER).build();
@@ -774,7 +774,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType STONE_WAVES = create("stone_waves", "Stone Waves").configure(STONE_CONFIGURER).build();
     // Warped planks
     private static final Supplier<BlockProperties> WARPED_PLANKS_BLOCK_PROPERTIES = () -> BlockProperties.create(Material.NETHER_WOOD, MaterialColor.WARPED_STEM).destroyTime(2.0F).explosionResistance(3.0F).sound(SoundType.NETHER_WOOD);
-    private static final Consumer<RechiseledBlockBuilder> WARPED_PLANKS_CONFIGURER = b -> b.properties(WARPED_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.WARPED_PLANKS).recipe(BaseChiselingRecipes.WARPED_PLANKS);
+    private static final Consumer<RechiseledBlockBuilder> WARPED_PLANKS_CONFIGURER = b -> b.withStairs().withSlabs().properties(WARPED_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.WARPED_PLANKS).recipe(BaseChiselingRecipes.WARPED_PLANKS);
     public static final RechiseledBlockType WARPED_PLANKS_BEAMS = create("warped_planks_beams", "Warped Plank Beams").configure(WARPED_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType WARPED_PLANKS_BRICK_PATTERN = create("warped_planks_brick_pattern", "Warped Plank Brick Pattern").configure(WARPED_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType WARPED_PLANKS_BRICK_PAVING = create("warped_planks_brick_paving", "Warped Plank Brick Paving").configure(WARPED_PLANKS_CONFIGURER).build();
