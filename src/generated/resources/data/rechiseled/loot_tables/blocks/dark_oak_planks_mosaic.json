@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:dark_oak_planks_mosaic"
+          "name": "rechiseled:dark_oak_planks_mosaic",
+          "type": "minecraft:item"
         }
       ]
     }

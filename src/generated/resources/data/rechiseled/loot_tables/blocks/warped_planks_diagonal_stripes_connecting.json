@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:warped_planks_diagonal_stripes_connecting"
+          "name": "rechiseled:warped_planks_diagonal_stripes_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:cobbled_deepslate_pulverized"
+          "name": "rechiseled:cobbled_deepslate_pulverized",
+          "type": "minecraft:item"
         }
       ]
     }

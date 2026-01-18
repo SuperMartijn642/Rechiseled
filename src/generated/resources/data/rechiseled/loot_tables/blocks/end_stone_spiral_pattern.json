@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:end_stone_spiral_pattern"
+          "name": "rechiseled:end_stone_spiral_pattern",
+          "type": "minecraft:item"
         }
       ]
     }

@@ -1,0 +1,138 @@
+{
+  "type": "fusion:connecting",
+  "parent": "rechiseled:block/stairs_top",
+  "connections": {
+    "bottom": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:diamond_block_polished_connecting"
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:diamond_block_polished_stairs_connecting"
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:diamond_block_polished_slab_connecting"
+        }
+      ]
+    },
+    "side": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:diamond_block_polished_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:diamond_block_polished_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:diamond_block_polished_stairs_connecting"
+        },
+        {
+          "type": "fusion:and",
+          "predicates": [
+            {
+              "type": "fusion:is_direction",
+              "directions": [
+                "top",
+                "top_left",
+                "top_right"
+              ]
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:diamond_block_polished_slab_connecting",
+              "properties": {
+                "type": [
+                  "bottom"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:and",
+          "predicates": [
+            {
+              "type": "fusion:is_direction",
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right",
+                "left",
+                "right"
+              ]
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:diamond_block_polished_slab_connecting",
+              "properties": {
+                "type": [
+                  "top"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "top": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:diamond_block_polished_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:diamond_block_polished_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:diamond_block_polished_stairs_connecting"
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "rechiseled:diamond_block_polished_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "loader": "fusion:model",
+  "textures": {
+    "bottom": "rechiseled:block/diamond_block_polished",
+    "side": "rechiseled:block/diamond_block_polished",
+    "top": "rechiseled:block/diamond_block_polished"
+  }
+}

@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:granite_dotted"
+          "name": "rechiseled:granite_dotted",
+          "type": "minecraft:item"
         }
       ]
     }

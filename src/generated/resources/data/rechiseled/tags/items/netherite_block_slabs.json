@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:netherite_block_beams_slab",
+    "rechiseled:netherite_block_beams_slab_connecting",
+    "rechiseled:netherite_block_bricks_slab",
+    "rechiseled:netherite_block_bricks_slab_connecting",
+    "rechiseled:netherite_block_chiseled_slab",
+    "rechiseled:netherite_block_chiseled_slab_connecting",
+    "rechiseled:netherite_block_compacted_slab",
+    "rechiseled:netherite_block_compacted_slab_connecting",
+    "rechiseled:netherite_block_decorated_slab",
+    "rechiseled:netherite_block_decorated_slab_connecting",
+    "rechiseled:netherite_block_diagonal_tiles_slab",
+    "rechiseled:netherite_block_diagonal_tiles_slab_connecting",
+    "rechiseled:netherite_block_indented_slab",
+    "rechiseled:netherite_block_indented_slab_connecting",
+    "rechiseled:netherite_block_meteoric_slab",
+    "rechiseled:netherite_block_patterned_slab",
+    "rechiseled:netherite_block_patterned_slab_connecting",
+    "rechiseled:netherite_block_pillar_slab",
+    "rechiseled:netherite_block_pillar_slab_connecting",
+    "rechiseled:netherite_block_small_tiles_slab",
+    "rechiseled:netherite_block_small_tiles_slab_connecting",
+    "rechiseled:netherite_block_smooth_slab"
+  ]
+}

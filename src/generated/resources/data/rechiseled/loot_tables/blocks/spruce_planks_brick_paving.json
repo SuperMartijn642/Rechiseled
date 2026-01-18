@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:spruce_planks_brick_paving"
+          "name": "rechiseled:spruce_planks_brick_paving",
+          "type": "minecraft:item"
         }
       ]
     }

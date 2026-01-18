@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:gold_block_beams_connecting"
+          "name": "rechiseled:gold_block_beams_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

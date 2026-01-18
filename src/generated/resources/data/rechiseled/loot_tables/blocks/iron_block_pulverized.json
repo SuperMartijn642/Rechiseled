@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:iron_block_pulverized"
+          "name": "rechiseled:iron_block_pulverized",
+          "type": "minecraft:item"
         }
       ]
     }

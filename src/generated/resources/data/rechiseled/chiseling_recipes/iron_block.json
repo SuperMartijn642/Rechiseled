@@ -2,63 +2,141 @@
   "type": "rechiseled:chiseling",
   "entries": [
     {
-      "connecting_item": "rechiseled:iron_block_bordered_connecting",
-      "item": "rechiseled:iron_block_bordered"
+      "block": "rechiseled:iron_block_bordered",
+      "connecting_block": "rechiseled:iron_block_bordered_connecting",
+      "connecting_slab": "rechiseled:iron_block_bordered_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:iron_block_bordered_stairs_connecting",
+      "slab": "rechiseled:iron_block_bordered_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:iron_block_bordered_stairs"
     },
     {
-      "connecting_item": "rechiseled:iron_block_chiseled_connecting",
-      "item": "rechiseled:iron_block_chiseled"
+      "block": "rechiseled:iron_block_chiseled",
+      "connecting_block": "rechiseled:iron_block_chiseled_connecting",
+      "connecting_slab": "rechiseled:iron_block_chiseled_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:iron_block_chiseled_stairs_connecting",
+      "slab": "rechiseled:iron_block_chiseled_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:iron_block_chiseled_stairs"
     },
     {
-      "connecting_item": "rechiseled:iron_block_connecting_connecting",
-      "item": "minecraft:iron_block"
+      "block": "minecraft:iron_block",
+      "connecting_block": "rechiseled:iron_block_connecting_connecting",
+      "connecting_slab": "rechiseled:iron_block_connecting_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:iron_block_connecting_stairs_connecting"
     },
     {
-      "connecting_item": "rechiseled:iron_block_framed_connecting",
-      "item": "rechiseled:iron_block_framed"
+      "block": "rechiseled:iron_block_framed",
+      "connecting_block": "rechiseled:iron_block_framed_connecting",
+      "connecting_slab": "rechiseled:iron_block_framed_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:iron_block_framed_stairs_connecting",
+      "slab": "rechiseled:iron_block_framed_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:iron_block_framed_stairs"
     },
     {
-      "connecting_item": "rechiseled:iron_block_gears_connecting",
-      "item": "rechiseled:iron_block_gears"
+      "block": "rechiseled:iron_block_gears",
+      "connecting_block": "rechiseled:iron_block_gears_connecting",
+      "connecting_slab": "rechiseled:iron_block_gears_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:iron_block_gears_stairs_connecting",
+      "slab": "rechiseled:iron_block_gears_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:iron_block_gears_stairs"
     },
     {
-      "connecting_item": "rechiseled:iron_block_lines_connecting",
-      "item": "rechiseled:iron_block_lines"
+      "block": "rechiseled:iron_block_lines",
+      "connecting_block": "rechiseled:iron_block_lines_connecting",
+      "connecting_slab": "rechiseled:iron_block_lines_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:iron_block_lines_stairs_connecting",
+      "slab": "rechiseled:iron_block_lines_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:iron_block_lines_stairs"
     },
     {
-      "connecting_item": "rechiseled:iron_block_patterned_connecting",
-      "item": "rechiseled:iron_block_patterned"
+      "block": "rechiseled:iron_block_patterned",
+      "connecting_block": "rechiseled:iron_block_patterned_connecting",
+      "connecting_slab": "rechiseled:iron_block_patterned_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:iron_block_patterned_stairs_connecting",
+      "slab": "rechiseled:iron_block_patterned_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:iron_block_patterned_stairs"
     },
     {
-      "connecting_item": "rechiseled:iron_block_pipes_connecting",
-      "item": "rechiseled:iron_block_pipes"
+      "block": "rechiseled:iron_block_pipes",
+      "connecting_block": "rechiseled:iron_block_pipes_connecting",
+      "connecting_slab": "rechiseled:iron_block_pipes_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:iron_block_pipes_stairs_connecting",
+      "slab": "rechiseled:iron_block_pipes_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:iron_block_pipes_stairs"
     },
     {
-      "item": "rechiseled:iron_block_plated"
+      "block": "rechiseled:iron_block_plated",
+      "slab": "rechiseled:iron_block_plated_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:iron_block_plated_stairs"
     },
     {
-      "connecting_item": "rechiseled:iron_block_polished_connecting",
-      "item": "rechiseled:iron_block_polished"
+      "block": "rechiseled:iron_block_polished",
+      "connecting_block": "rechiseled:iron_block_polished_connecting",
+      "connecting_slab": "rechiseled:iron_block_polished_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:iron_block_polished_stairs_connecting",
+      "slab": "rechiseled:iron_block_polished_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:iron_block_polished_stairs"
     },
     {
-      "connecting_item": "rechiseled:iron_block_processed_connecting",
-      "item": "rechiseled:iron_block_processed"
+      "block": "rechiseled:iron_block_processed",
+      "connecting_block": "rechiseled:iron_block_processed_connecting",
+      "connecting_slab": "rechiseled:iron_block_processed_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:iron_block_processed_stairs_connecting",
+      "slab": "rechiseled:iron_block_processed_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:iron_block_processed_stairs"
     },
     {
-      "item": "rechiseled:iron_block_pulverized"
+      "block": "rechiseled:iron_block_pulverized",
+      "slab": "rechiseled:iron_block_pulverized_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:iron_block_pulverized_stairs"
     },
     {
-      "item": "rechiseled:iron_block_reinforced"
+      "block": "rechiseled:iron_block_reinforced",
+      "slab": "rechiseled:iron_block_reinforced_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:iron_block_reinforced_stairs"
     },
     {
-      "item": "rechiseled:iron_block_sheets"
+      "block": "rechiseled:iron_block_sheets",
+      "slab": "rechiseled:iron_block_sheets_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:iron_block_sheets_stairs"
     },
     {
-      "connecting_item": "rechiseled:iron_block_small_bricks_connecting",
-      "item": "rechiseled:iron_block_small_bricks"
+      "block": "rechiseled:iron_block_small_bricks",
+      "connecting_block": "rechiseled:iron_block_small_bricks_connecting",
+      "connecting_slab": "rechiseled:iron_block_small_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5,
+      "connecting_stairs": "rechiseled:iron_block_small_bricks_stairs_connecting",
+      "slab": "rechiseled:iron_block_small_bricks_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:iron_block_small_bricks_stairs"
     },
     {
-      "item": "rechiseled:iron_block_smooth"
+      "block": "rechiseled:iron_block_smooth",
+      "slab": "rechiseled:iron_block_smooth_slab",
+      "slab_worth": 0.5,
+      "stairs": "rechiseled:iron_block_smooth_stairs"
     }
   ],
   "overwrite": false

@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:diamond_block_chiseled_cubes_connecting"
+          "name": "rechiseled:diamond_block_chiseled_cubes_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

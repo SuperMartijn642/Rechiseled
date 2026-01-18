@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:basalt_beams_connecting"
+          "name": "rechiseled:basalt_beams_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

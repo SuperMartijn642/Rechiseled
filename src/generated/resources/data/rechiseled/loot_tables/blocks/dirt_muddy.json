@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:dirt_muddy"
+          "name": "rechiseled:dirt_muddy",
+          "type": "minecraft:item"
         }
       ]
     }

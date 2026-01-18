@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:granite_paving_connecting"
+          "name": "rechiseled:granite_paving_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

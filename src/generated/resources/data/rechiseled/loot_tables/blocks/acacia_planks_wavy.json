@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:acacia_planks_wavy"
+          "name": "rechiseled:acacia_planks_wavy",
+          "type": "minecraft:item"
         }
       ]
     }

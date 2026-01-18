@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:cobblestone_pillar_connecting"
+          "name": "rechiseled:cobblestone_pillar_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

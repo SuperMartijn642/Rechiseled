@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:stone_waves"
+          "name": "rechiseled:stone_waves",
+          "type": "minecraft:item"
         }
       ]
     }

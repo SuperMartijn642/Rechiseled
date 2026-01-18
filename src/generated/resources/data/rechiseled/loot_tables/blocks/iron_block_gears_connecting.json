@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:iron_block_gears_connecting"
+          "name": "rechiseled:iron_block_gears_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

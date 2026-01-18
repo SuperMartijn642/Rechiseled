@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:stone_squares"
+          "name": "rechiseled:stone_squares",
+          "type": "minecraft:item"
         }
       ]
     }

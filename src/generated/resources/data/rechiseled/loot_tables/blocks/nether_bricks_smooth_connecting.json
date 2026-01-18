@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:nether_bricks_smooth_connecting"
+          "name": "rechiseled:nether_bricks_smooth_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

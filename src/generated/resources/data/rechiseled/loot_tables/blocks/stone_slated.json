@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:stone_slated"
+          "name": "rechiseled:stone_slated",
+          "type": "minecraft:item"
         }
       ]
     }

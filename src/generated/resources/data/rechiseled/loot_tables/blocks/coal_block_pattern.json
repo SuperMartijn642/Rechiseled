@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:coal_block_pattern"
+          "name": "rechiseled:coal_block_pattern",
+          "type": "minecraft:item"
         }
       ]
     }

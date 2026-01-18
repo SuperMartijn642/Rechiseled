@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:quartz_block_stripes_connecting"
+          "name": "rechiseled:quartz_block_stripes_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

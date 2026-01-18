@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:blackstone_diagonal_bricks_connecting"
+          "name": "rechiseled:blackstone_diagonal_bricks_connecting",
+          "type": "minecraft:item"
         }
       ]
     }

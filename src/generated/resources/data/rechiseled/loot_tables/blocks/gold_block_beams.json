@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:gold_block_beams"
+          "name": "rechiseled:gold_block_beams",
+          "type": "minecraft:item"
         }
       ]
     }

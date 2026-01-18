@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:copper_block_circles"
+          "name": "rechiseled:copper_block_circles",
+          "type": "minecraft:item"
         }
       ]
     }

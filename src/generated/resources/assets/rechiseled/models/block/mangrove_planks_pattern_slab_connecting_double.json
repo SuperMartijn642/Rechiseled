@@ -1,0 +1,164 @@
+{
+  "type": "fusion:connecting",
+  "parent": "minecraft:block/cube",
+  "connections": {
+    "down": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:mangrove_planks_pattern_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:mangrove_planks_pattern_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:mangrove_planks_pattern_stairs_connecting"
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "rechiseled:mangrove_planks_pattern_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          }
+        }
+      ]
+    },
+    "east": "#side",
+    "north": "#side",
+    "side": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:mangrove_planks_pattern_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:mangrove_planks_pattern_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:mangrove_planks_pattern_stairs_connecting"
+        },
+        {
+          "type": "fusion:and",
+          "predicates": [
+            {
+              "type": "fusion:is_direction",
+              "directions": [
+                "top",
+                "top_left",
+                "top_right"
+              ]
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:mangrove_planks_pattern_slab_connecting",
+              "properties": {
+                "type": [
+                  "bottom"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:and",
+          "predicates": [
+            {
+              "type": "fusion:is_direction",
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right"
+              ]
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:mangrove_planks_pattern_slab_connecting",
+              "properties": {
+                "type": [
+                  "top"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "south": "#side",
+    "up": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:or",
+          "predicates": [
+            {
+              "type": "fusion:match_block",
+              "block": "rechiseled:mangrove_planks_pattern_connecting"
+            },
+            {
+              "type": "fusion:match_state",
+              "block": "rechiseled:mangrove_planks_pattern_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "rechiseled:mangrove_planks_pattern_stairs_connecting"
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "rechiseled:mangrove_planks_pattern_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          }
+        }
+      ]
+    },
+    "west": "#side"
+  },
+  "loader": "fusion:model",
+  "textures": {
+    "down": "rechiseled:block/mangrove_planks_pattern",
+    "east": "#side",
+    "north": "#side",
+    "particle": "#side",
+    "side": "rechiseled:block/mangrove_planks_pattern",
+    "south": "#side",
+    "up": "rechiseled:block/mangrove_planks_pattern",
+    "west": "#side"
+  }
+}

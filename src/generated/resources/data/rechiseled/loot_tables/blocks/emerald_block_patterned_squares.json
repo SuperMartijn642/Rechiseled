@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "rechiseled:emerald_block_patterned_squares"
+          "name": "rechiseled:emerald_block_patterned_squares",
+          "type": "minecraft:item"
         }
       ]
     }
