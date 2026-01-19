@@ -1,0 +1,30 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:emerald_block_bordered_crosses_stairs",
+    "rechiseled:emerald_block_bordered_crosses_stairs_connecting",
+    "rechiseled:emerald_block_bordered_plating_stairs",
+    "rechiseled:emerald_block_bordered_plating_stairs_connecting",
+    "rechiseled:emerald_block_chiseled_stairs",
+    "rechiseled:emerald_block_chiseled_stairs_connecting",
+    "rechiseled:emerald_block_clovers_stairs",
+    "rechiseled:emerald_block_clovers_stairs_connecting",
+    "rechiseled:emerald_block_crosses_stairs",
+    "rechiseled:emerald_block_crystal_stairs",
+    "rechiseled:emerald_block_crystal_stairs_connecting",
+    "rechiseled:emerald_block_patterned_squares_stairs",
+    "rechiseled:emerald_block_patterned_squares_stairs_connecting",
+    "rechiseled:emerald_block_patterned_stairs",
+    "rechiseled:emerald_block_patterned_stairs_connecting",
+    "rechiseled:emerald_block_pillar_stairs",
+    "rechiseled:emerald_block_pillar_stairs_connecting",
+    "rechiseled:emerald_block_plating_stairs",
+    "rechiseled:emerald_block_polished_stairs",
+    "rechiseled:emerald_block_polished_stairs_connecting",
+    "rechiseled:emerald_block_smooth_stairs",
+    "rechiseled:emerald_block_striped_stairs",
+    "rechiseled:emerald_block_striped_stairs_connecting",
+    "rechiseled:emerald_block_waxed_stairs",
+    "rechiseled:emerald_block_waxed_stairs_connecting"
+  ]
+}

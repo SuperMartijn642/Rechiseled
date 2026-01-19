@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "rechiseled:block/blue_ice_chiseled",
+    "side": "rechiseled:block/blue_ice_chiseled",
+    "top": "rechiseled:block/blue_ice_chiseled"
+  }
+}

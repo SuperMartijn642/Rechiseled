@@ -3,81 +3,171 @@
   "overwrite": false,
   "entries": [
     {
-      "item": "minecraft:cobbled_deepslate"
+      "block": "minecraft:cobbled_deepslate",
+      "stairs": "minecraft:cobbled_deepslate_stairs",
+      "slab": "minecraft:cobbled_deepslate_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "minecraft:polished_deepslate"
+      "block": "minecraft:polished_deepslate",
+      "stairs": "minecraft:polished_deepslate_stairs",
+      "slab": "minecraft:polished_deepslate_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "minecraft:deepslate_bricks"
+      "block": "minecraft:deepslate_bricks",
+      "stairs": "minecraft:deepslate_brick_stairs",
+      "slab": "minecraft:deepslate_brick_slab",
+      "slab_worth": 0.5
+    },
+    "minecraft:cracked_deepslate_bricks",
+    {
+      "block": "minecraft:deepslate_tiles",
+      "stairs": "minecraft:deepslate_tile_stairs",
+      "slab": "minecraft:deepslate_tile_slab",
+      "slab_worth": 0.5
+    },
+    "minecraft:cracked_deepslate_tiles",
+    "minecraft:chiseled_deepslate",
+    {
+      "block": "rechiseled:cobbled_deepslate_beams",
+      "stairs": "rechiseled:cobbled_deepslate_beams_stairs",
+      "slab": "rechiseled:cobbled_deepslate_beams_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobbled_deepslate_beams_connecting",
+      "connecting_stairs": "rechiseled:cobbled_deepslate_beams_stairs_connecting",
+      "connecting_slab": "rechiseled:cobbled_deepslate_beams_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "minecraft:cracked_deepslate_bricks"
+      "block": "rechiseled:cobbled_deepslate_brick_pattern",
+      "stairs": "rechiseled:cobbled_deepslate_brick_pattern_stairs",
+      "slab": "rechiseled:cobbled_deepslate_brick_pattern_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobbled_deepslate_brick_pattern_connecting",
+      "connecting_stairs": "rechiseled:cobbled_deepslate_brick_pattern_stairs_connecting",
+      "connecting_slab": "rechiseled:cobbled_deepslate_brick_pattern_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "minecraft:deepslate_tiles"
+      "block": "rechiseled:cobbled_deepslate_brick_paving",
+      "stairs": "rechiseled:cobbled_deepslate_brick_paving_stairs",
+      "slab": "rechiseled:cobbled_deepslate_brick_paving_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobbled_deepslate_brick_paving_connecting",
+      "connecting_stairs": "rechiseled:cobbled_deepslate_brick_paving_stairs_connecting",
+      "connecting_slab": "rechiseled:cobbled_deepslate_brick_paving_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "minecraft:cracked_deepslate_tiles"
+      "block": "rechiseled:cobbled_deepslate_bricks",
+      "stairs": "rechiseled:cobbled_deepslate_bricks_stairs",
+      "slab": "rechiseled:cobbled_deepslate_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobbled_deepslate_bricks_connecting",
+      "connecting_stairs": "rechiseled:cobbled_deepslate_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:cobbled_deepslate_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "minecraft:chiseled_deepslate"
+      "block": "rechiseled:cobbled_deepslate_large_tiles",
+      "stairs": "rechiseled:cobbled_deepslate_large_tiles_stairs",
+      "slab": "rechiseled:cobbled_deepslate_large_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobbled_deepslate_large_tiles_connecting",
+      "connecting_stairs": "rechiseled:cobbled_deepslate_large_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:cobbled_deepslate_large_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobbled_deepslate_beams",
-      "connecting_item": "rechiseled:cobbled_deepslate_beams_connecting"
+      "block": "rechiseled:cobbled_deepslate_paving",
+      "stairs": "rechiseled:cobbled_deepslate_paving_stairs",
+      "slab": "rechiseled:cobbled_deepslate_paving_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobbled_deepslate_paving_connecting",
+      "connecting_stairs": "rechiseled:cobbled_deepslate_paving_stairs_connecting",
+      "connecting_slab": "rechiseled:cobbled_deepslate_paving_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobbled_deepslate_brick_pattern",
-      "connecting_item": "rechiseled:cobbled_deepslate_brick_pattern_connecting"
+      "block": "rechiseled:cobbled_deepslate_pillar",
+      "stairs": "rechiseled:cobbled_deepslate_pillar_stairs",
+      "slab": "rechiseled:cobbled_deepslate_pillar_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobbled_deepslate_pillar_connecting",
+      "connecting_stairs": "rechiseled:cobbled_deepslate_pillar_stairs_connecting",
+      "connecting_slab": "rechiseled:cobbled_deepslate_pillar_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobbled_deepslate_brick_paving",
-      "connecting_item": "rechiseled:cobbled_deepslate_brick_paving_connecting"
+      "block": "rechiseled:cobbled_deepslate_pulverized",
+      "stairs": "rechiseled:cobbled_deepslate_pulverized_stairs",
+      "slab": "rechiseled:cobbled_deepslate_pulverized_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobbled_deepslate_pulverized_connecting",
+      "connecting_stairs": "rechiseled:cobbled_deepslate_pulverized_stairs_connecting",
+      "connecting_slab": "rechiseled:cobbled_deepslate_pulverized_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobbled_deepslate_bricks",
-      "connecting_item": "rechiseled:cobbled_deepslate_bricks_connecting"
+      "block": "rechiseled:cobbled_deepslate_rotated_bricks",
+      "stairs": "rechiseled:cobbled_deepslate_rotated_bricks_stairs",
+      "slab": "rechiseled:cobbled_deepslate_rotated_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobbled_deepslate_rotated_bricks_connecting",
+      "connecting_stairs": "rechiseled:cobbled_deepslate_rotated_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:cobbled_deepslate_rotated_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobbled_deepslate_large_tiles",
-      "connecting_item": "rechiseled:cobbled_deepslate_large_tiles_connecting"
+      "block": "rechiseled:cobbled_deepslate_small_tiles",
+      "stairs": "rechiseled:cobbled_deepslate_small_tiles_stairs",
+      "slab": "rechiseled:cobbled_deepslate_small_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobbled_deepslate_small_tiles_connecting",
+      "connecting_stairs": "rechiseled:cobbled_deepslate_small_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:cobbled_deepslate_small_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobbled_deepslate_paving",
-      "connecting_item": "rechiseled:cobbled_deepslate_paving_connecting"
+      "block": "rechiseled:cobbled_deepslate_squares",
+      "stairs": "rechiseled:cobbled_deepslate_squares_stairs",
+      "slab": "rechiseled:cobbled_deepslate_squares_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobbled_deepslate_squares_connecting",
+      "connecting_stairs": "rechiseled:cobbled_deepslate_squares_stairs_connecting",
+      "connecting_slab": "rechiseled:cobbled_deepslate_squares_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobbled_deepslate_pillar",
-      "connecting_item": "rechiseled:cobbled_deepslate_pillar_connecting"
+      "block": "rechiseled:cobbled_deepslate_stripes",
+      "stairs": "rechiseled:cobbled_deepslate_stripes_stairs",
+      "slab": "rechiseled:cobbled_deepslate_stripes_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobbled_deepslate_stripes_connecting",
+      "connecting_stairs": "rechiseled:cobbled_deepslate_stripes_stairs_connecting",
+      "connecting_slab": "rechiseled:cobbled_deepslate_stripes_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobbled_deepslate_pulverized",
-      "connecting_item": "rechiseled:cobbled_deepslate_pulverized_connecting"
+      "block": "rechiseled:cobbled_deepslate_tiles",
+      "stairs": "rechiseled:cobbled_deepslate_tiles_stairs",
+      "slab": "rechiseled:cobbled_deepslate_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobbled_deepslate_tiles_connecting",
+      "connecting_stairs": "rechiseled:cobbled_deepslate_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:cobbled_deepslate_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobbled_deepslate_rotated_bricks",
-      "connecting_item": "rechiseled:cobbled_deepslate_rotated_bricks_connecting"
-    },
-    {
-      "item": "rechiseled:cobbled_deepslate_small_tiles",
-      "connecting_item": "rechiseled:cobbled_deepslate_small_tiles_connecting"
-    },
-    {
-      "item": "rechiseled:cobbled_deepslate_squares",
-      "connecting_item": "rechiseled:cobbled_deepslate_squares_connecting"
-    },
-    {
-      "item": "rechiseled:cobbled_deepslate_stripes",
-      "connecting_item": "rechiseled:cobbled_deepslate_stripes_connecting"
-    },
-    {
-      "item": "rechiseled:cobbled_deepslate_tiles",
-      "connecting_item": "rechiseled:cobbled_deepslate_tiles_connecting"
-    },
-    {
-      "item": "rechiseled:cobbled_deepslate_worn_stripes",
-      "connecting_item": "rechiseled:cobbled_deepslate_worn_stripes_connecting"
+      "block": "rechiseled:cobbled_deepslate_worn_stripes",
+      "stairs": "rechiseled:cobbled_deepslate_worn_stripes_stairs",
+      "slab": "rechiseled:cobbled_deepslate_worn_stripes_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobbled_deepslate_worn_stripes_connecting",
+      "connecting_stairs": "rechiseled:cobbled_deepslate_worn_stripes_stairs_connecting",
+      "connecting_slab": "rechiseled:cobbled_deepslate_worn_stripes_slab_connecting",
+      "connecting_slab_worth": 0.5
     }
   ]
 }

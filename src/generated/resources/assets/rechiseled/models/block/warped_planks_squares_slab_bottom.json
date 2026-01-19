@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "rechiseled:block/warped_planks_squares",
+    "side": "rechiseled:block/warped_planks_squares",
+    "top": "rechiseled:block/warped_planks_squares"
+  }
+}

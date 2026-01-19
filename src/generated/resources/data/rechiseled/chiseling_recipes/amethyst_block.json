@@ -2,53 +2,114 @@
   "type": "rechiseled:chiseling",
   "overwrite": false,
   "entries": [
+    "minecraft:amethyst_block",
     {
-      "item": "minecraft:amethyst_block"
+      "block": "rechiseled:amethyst_block_beams",
+      "stairs": "rechiseled:amethyst_block_beams_stairs",
+      "slab": "rechiseled:amethyst_block_beams_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:amethyst_block_beams_connecting",
+      "connecting_stairs": "rechiseled:amethyst_block_beams_stairs_connecting",
+      "connecting_slab": "rechiseled:amethyst_block_beams_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:amethyst_block_beams",
-      "connecting_item": "rechiseled:amethyst_block_beams_connecting"
+      "block": "rechiseled:amethyst_block_bordered_diagonal_tiles",
+      "stairs": "rechiseled:amethyst_block_bordered_diagonal_tiles_stairs",
+      "slab": "rechiseled:amethyst_block_bordered_diagonal_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:amethyst_block_bordered_diagonal_tiles_connecting",
+      "connecting_stairs": "rechiseled:amethyst_block_bordered_diagonal_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:amethyst_block_bordered_diagonal_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:amethyst_block_bordered_diagonal_tiles",
-      "connecting_item": "rechiseled:amethyst_block_bordered_diagonal_tiles_connecting"
+      "block": "rechiseled:amethyst_block_bricks",
+      "stairs": "rechiseled:amethyst_block_bricks_stairs",
+      "slab": "rechiseled:amethyst_block_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:amethyst_block_bricks_connecting",
+      "connecting_stairs": "rechiseled:amethyst_block_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:amethyst_block_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:amethyst_block_bricks",
-      "connecting_item": "rechiseled:amethyst_block_bricks_connecting"
+      "block": "rechiseled:amethyst_block_cut",
+      "stairs": "rechiseled:amethyst_block_cut_stairs",
+      "slab": "rechiseled:amethyst_block_cut_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:amethyst_block_cut_connecting",
+      "connecting_stairs": "rechiseled:amethyst_block_cut_stairs_connecting",
+      "connecting_slab": "rechiseled:amethyst_block_cut_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:amethyst_block_cut",
-      "connecting_item": "rechiseled:amethyst_block_cut_connecting"
+      "block": "rechiseled:amethyst_block_diagonal_tiles",
+      "stairs": "rechiseled:amethyst_block_diagonal_tiles_stairs",
+      "slab": "rechiseled:amethyst_block_diagonal_tiles_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "rechiseled:amethyst_block_diagonal_tiles"
+      "block": "rechiseled:amethyst_block_edged",
+      "stairs": "rechiseled:amethyst_block_edged_stairs",
+      "slab": "rechiseled:amethyst_block_edged_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:amethyst_block_edged_connecting",
+      "connecting_stairs": "rechiseled:amethyst_block_edged_stairs_connecting",
+      "connecting_slab": "rechiseled:amethyst_block_edged_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:amethyst_block_edged",
-      "connecting_item": "rechiseled:amethyst_block_edged_connecting"
+      "block": "rechiseled:amethyst_block_jewel",
+      "stairs": "rechiseled:amethyst_block_jewel_stairs",
+      "slab": "rechiseled:amethyst_block_jewel_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "rechiseled:amethyst_block_jewel"
+      "block": "rechiseled:amethyst_block_pillar",
+      "stairs": "rechiseled:amethyst_block_pillar_stairs",
+      "slab": "rechiseled:amethyst_block_pillar_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:amethyst_block_pillar_connecting",
+      "connecting_stairs": "rechiseled:amethyst_block_pillar_stairs_connecting",
+      "connecting_slab": "rechiseled:amethyst_block_pillar_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:amethyst_block_pillar",
-      "connecting_item": "rechiseled:amethyst_block_pillar_connecting"
+      "block": "rechiseled:amethyst_block_polished",
+      "stairs": "rechiseled:amethyst_block_polished_stairs",
+      "slab": "rechiseled:amethyst_block_polished_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:amethyst_block_polished_connecting",
+      "connecting_stairs": "rechiseled:amethyst_block_polished_stairs_connecting",
+      "connecting_slab": "rechiseled:amethyst_block_polished_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:amethyst_block_polished",
-      "connecting_item": "rechiseled:amethyst_block_polished_connecting"
+      "block": "rechiseled:amethyst_block_shiny",
+      "stairs": "rechiseled:amethyst_block_shiny_stairs",
+      "slab": "rechiseled:amethyst_block_shiny_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:amethyst_block_shiny_connecting",
+      "connecting_stairs": "rechiseled:amethyst_block_shiny_stairs_connecting",
+      "connecting_slab": "rechiseled:amethyst_block_shiny_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:amethyst_block_shiny",
-      "connecting_item": "rechiseled:amethyst_block_shiny_connecting"
+      "block": "rechiseled:amethyst_block_smooth",
+      "stairs": "rechiseled:amethyst_block_smooth_stairs",
+      "slab": "rechiseled:amethyst_block_smooth_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "rechiseled:amethyst_block_smooth"
-    },
-    {
-      "item": "rechiseled:amethyst_block_tiles",
-      "connecting_item": "rechiseled:amethyst_block_tiles_connecting"
+      "block": "rechiseled:amethyst_block_tiles",
+      "stairs": "rechiseled:amethyst_block_tiles_stairs",
+      "slab": "rechiseled:amethyst_block_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:amethyst_block_tiles_connecting",
+      "connecting_stairs": "rechiseled:amethyst_block_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:amethyst_block_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     }
   ]
 }

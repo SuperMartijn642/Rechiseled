@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "rechiseled:block/quartz_block_scales_slab_bottom"
+    },
+    "type=double": {
+      "model": "rechiseled:block/quartz_block_scales_slab_double"
+    },
+    "type=top": {
+      "model": "rechiseled:block/quartz_block_scales_slab_top"
+    }
+  }
+}

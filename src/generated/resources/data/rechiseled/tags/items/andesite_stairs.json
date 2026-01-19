@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:andesite_brick_pattern_stairs",
+    "rechiseled:andesite_brick_pattern_stairs_connecting",
+    "rechiseled:andesite_brick_paving_stairs",
+    "rechiseled:andesite_brick_paving_stairs_connecting",
+    "rechiseled:andesite_bricks_stairs",
+    "rechiseled:andesite_bricks_stairs_connecting",
+    "rechiseled:andesite_diagonal_bricks_stairs",
+    "rechiseled:andesite_diagonal_bricks_stairs_connecting",
+    "rechiseled:andesite_dotted_stairs",
+    "rechiseled:andesite_dotted_stairs_connecting",
+    "rechiseled:andesite_paving_stairs",
+    "rechiseled:andesite_paving_stairs_connecting",
+    "rechiseled:andesite_polished_stairs_connecting",
+    "rechiseled:andesite_rotated_bricks_stairs",
+    "rechiseled:andesite_rotated_bricks_stairs_connecting",
+    "rechiseled:andesite_squares_stairs",
+    "rechiseled:andesite_squares_stairs_connecting",
+    "rechiseled:andesite_tiles_stairs",
+    "rechiseled:andesite_tiles_stairs_connecting",
+    "rechiseled:andesite_wavy_stairs",
+    "rechiseled:andesite_wavy_stairs_connecting"
+  ]
+}
