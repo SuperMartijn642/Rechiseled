@@ -53,7 +53,7 @@ public class ConnectingToggleWidget extends AbstractButtonWidget {
     public void renderBackground(int mouseX, int mouseY){
         boolean canSwitch = this.isClickable();
         ScreenUtils.bindTexture(SMALL_GREY_BUTTONS);
-        ScreenUtils.drawTexture(poseStack, this.x, this.y, this.width, this.height, 0, (canSwitch ? this.isFocused() ? 2 : 0 : 1) / 3f, 1, 1 / 3f);
+        ScreenUtils.drawTexture(this.x, this.y, this.width, this.height, 0, (canSwitch ? this.isFocused() ? 2 : 0 : 1) / 3f, 1, 1 / 3f);
     }
 
     @Override

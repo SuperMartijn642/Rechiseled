@@ -1,6 +1,5 @@
 package com.supermartijn642.rechiseled.screen;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.CursorType;
@@ -99,26 +98,26 @@ public class FilterOptionsWidget extends BaseWidget {
     }
 
     @Override
-    public void renderTooltips(MatrixStack poseStack, int mouseX, int mouseY){
+    public void renderTooltips(int mouseX, int mouseY){
         if(this.active && this.isFocused() && mouseX >= this.x && mouseX < this.x + this.collapsedWidth && mouseY >= this.y && mouseY < this.y + this.collapsedHeight)
-            super.renderTooltips(poseStack, mouseX, mouseY);
+            super.renderTooltips(mouseX, mouseY);
     }
 
     @Override
-    public void renderBackground(MatrixStack poseStack, int mouseX, int mouseY){
+    public void renderBackground(int mouseX, int mouseY){
         if(this.dropdown.expanded && (mouseX < this.x - PADDING || mouseX > this.x + this.width + PADDING || mouseY < this.y - PADDING || mouseY > this.y + this.height + PADDING))
             this.setExpanded(false);
 
         ScreenUtils.bindTexture(BUTTONS);
-        ScreenUtils.drawTexture(poseStack, this.x, this.y, this.collapsedWidth, this.collapsedHeight, 0, (this.active ? this.isFocused() || this.dropdown.expanded ? 1 : 0 : 2) / 3f, 1, 1 / 3f);
+        ScreenUtils.drawTexture(this.x, this.y, this.collapsedWidth, this.collapsedHeight, 0, (this.active ? this.isFocused() || this.dropdown.expanded ? 1 : 0 : 2) / 3f, 1, 1 / 3f);
     }
 
     @Override
-    public void render(MatrixStack poseStack, int mouseX, int mouseY){
+    public void render(int mouseX, int mouseY){
         if(!this.showBlocks.getAsBoolean() || !this.showStairs.getAsBoolean() || !this.showSlabs.getAsBoolean() || !this.showNonConnecting.getAsBoolean()){
-            GlStateManager._enableAlphaTest();
+            GlStateManager.enableAlphaTest();
             ScreenUtils.bindTexture(MARKER);
-            ScreenUtils.drawTexture(poseStack, this.x + 7, this.y + 1, 3, 3);
+            ScreenUtils.drawTexture(this.x + 7, this.y + 1, 3, 3);
         }
     }
 
@@ -161,33 +160,32 @@ public class FilterOptionsWidget extends BaseWidget {
         }
 
         @Override
-        public void renderForeground(MatrixStack poseStack, int mouseX, int mouseY){
+        public void renderForeground(int mouseX, int mouseY){
             if(!this.expanded)
                 return;
-            poseStack.pushPose();
-            poseStack.translate(0, 0, 500);
-            ScreenUtils.fillRect(poseStack, this.x, this.y, this.width, this.height, 139 / 255f, 139 / 255f, 139 / 255f, 1);
+            GlStateManager.pushMatrix();
+            GlStateManager.translatef(0, 0, 500);
+            ScreenUtils.fillRect(this.x, this.y, this.width, this.height, 139 / 255f, 139 / 255f, 139 / 255f, 1);
             int hoveredLine;
             if(this.expanded && mouseX >= this.x && mouseX < this.x + this.width && mouseY >= this.y && mouseY < this.y + this.height){
                 hoveredLine = Math.max((int)Math.floor((float)(mouseY - this.y) / this.height * 4), 0);
-                ScreenUtils.fillRect(poseStack, this.x, this.y + 1 + 11 * hoveredLine, this.width, 11, 150 / 255f, 150 / 255f, 150 / 255f, 1);
+                ScreenUtils.fillRect(this.x, this.y + 1 + 11 * hoveredLine, this.width, 11, 150 / 255f, 150 / 255f, 150 / 255f, 1);
             }else
                 hoveredLine = -1;
-            this.renderLine(poseStack, 0, hoveredLine, FilterOptionsWidget.this.showBlocks, this.showBlocksText);
-            this.renderLine(poseStack, 1, hoveredLine, FilterOptionsWidget.this.showStairs, this.showStairsText);
-            this.renderLine(poseStack, 2, hoveredLine, FilterOptionsWidget.this.showSlabs, this.showSlabsText);
-            this.renderLine(poseStack, 3, hoveredLine, FilterOptionsWidget.this.showNonConnecting, this.showNonConnectingText);
-            poseStack.popPose();
+            this.renderLine(0, hoveredLine, FilterOptionsWidget.this.showBlocks, this.showBlocksText);
+            this.renderLine(1, hoveredLine, FilterOptionsWidget.this.showStairs, this.showStairsText);
+            this.renderLine(2, hoveredLine, FilterOptionsWidget.this.showSlabs, this.showSlabsText);
+            this.renderLine(3, hoveredLine, FilterOptionsWidget.this.showNonConnecting, this.showNonConnectingText);
+            GlStateManager.popMatrix();
         }
 
-        private void renderLine(MatrixStack poseStack, int line, int hoveredLine, BooleanSupplier isEnabled, ITextComponent text){
+        private void renderLine(int line, int hoveredLine, BooleanSupplier isEnabled, ITextComponent text){
             if(isEnabled.getAsBoolean()){
-                GlStateManager._enableAlphaTest();
+                GlStateManager.enableAlphaTest();
                 ScreenUtils.bindTexture(CHECKMARK);
-                ScreenUtils.drawTexture(poseStack, this.x + 3, this.y + 2 + line * 11, 8, 8);
+                ScreenUtils.drawTexture(this.x + 3, this.y + 2 + line * 11, 8, 8);
             }
             ScreenUtils.drawString(
-                poseStack,
                 hoveredLine == line ? TextComponents.fromTextComponent(text).italic().get() : text,
                 isEnabled.getAsBoolean() ? this.x + 12 : this.x + 3, this.y + 3 + line * 11
             );

@@ -45,7 +45,7 @@ public class PreviewModeButtonWidget extends AbstractButtonWidget {
     @Override
     public void render(int mouseX, int mouseY){
         boolean selected = this.mode == this.currentMode.get();
-        GlStateManager._enableAlphaTest();
+        GlStateManager.enableAlphaTest();
         ScreenUtils.bindTexture(GREY_BUTTONS);
         ScreenUtils.drawTexture(this.x, this.y, this.width, this.height, 0, (!this.isClickable() ? 1 : this.isFocused() ? 2 : 0) / 3f, 1, 1 / 3f);
         ScreenUtils.bindTexture(this.mode.icon(selected));

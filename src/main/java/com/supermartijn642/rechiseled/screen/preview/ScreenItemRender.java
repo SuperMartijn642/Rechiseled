@@ -13,8 +13,6 @@ import net.minecraft.item.Item;
  */
 public class ScreenItemRender {
 
-    private static final MatrixStack POSE_STACK = new MatrixStack();
-
     /**
      * Renders a given item as a 3d model
      */
@@ -30,18 +28,6 @@ public class ScreenItemRender {
         GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
         GlStateManager.color4f(1, 1, 1, 1);
 
-        RenderSystem.enableRescaleNormal();
-        RenderSystem.enableAlphaTest();
-        RenderSystem.defaultAlphaFunc();
-        RenderSystem.enableBlend();
-        RenderSystem.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
-
-        RenderSystem.pushMatrix();
-        RenderSystem.translated(x, y, 350);
-        RenderSystem.scaled(scale, -scale, scale);
-        Quaternion rotation = new Quaternion(pitch, yaw, 0, true);
-        RenderSystem.rotatef(rotation.r(), rotation.i(), rotation.j(), rotation.k());
-
         if(doShading)
             RenderHelper.turnOnGui();
         else
@@ -49,9 +35,7 @@ public class ScreenItemRender {
 
         GlStateManager.pushMatrix();
         GlStateManager.translated(x, y, 350);
-        GlStateManager.scalef(1, -1, 1);
-        GlStateManager.scaled(scale, scale, scale);
-
+        GlStateManager.scaled(scale, -scale, scale);
         GlStateManager.rotated(pitch, 1, 0, 0);
         GlStateManager.rotated(yaw, 0, 1, 0);
 
@@ -59,7 +43,6 @@ public class ScreenItemRender {
         if(model != null)
             ClientUtils.getItemRenderer().render(item.getDefaultInstance(), model);
 
-        GlStateManager.enableDepthTest();
         if(doShading)
             GlStateManager.disableLighting();
 

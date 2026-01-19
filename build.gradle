@@ -41,7 +41,7 @@ dependencies {
     // SpongePowered Mixin
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
     // SpongePowered Mixin
-    implementation("org.spongepowered:mixin:0.8.4-SNAPSHOT") {
+    implementation("org.spongepowered:mixin:0.8.3-SNAPSHOT") {
         exclude module: "guava"
         exclude module: "commons-io"
         exclude module: "gson"

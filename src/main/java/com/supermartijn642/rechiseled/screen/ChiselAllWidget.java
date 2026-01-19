@@ -64,11 +64,9 @@ public class ChiselAllWidget extends AbstractButtonWidget {
     }
 
     private static void drawColoredTexture(float x, float y, float width, float height, float red, float green, float blue){
-        //noinspection deprecation
-        GlStateManager._color4f(1.0F, 1.0F, 1.0F, 1.0F);
+        GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
         Tessellator tessellator = Tessellator.getInstance();
         BufferBuilder buffer = tessellator.getBuilder();
-        //noinspection deprecation
         buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_COLOR);
         buffer.vertex(x, y + height, 0.0F).uv(0, 1).color(red, green, blue, 1).endVertex();
         buffer.vertex(x + width, y + height, 0.0F).uv(1, 1).color(red, green, blue, 1).endVertex();

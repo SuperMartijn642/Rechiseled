@@ -1,6 +1,5 @@
 package com.supermartijn642.rechiseled.screen;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.premade.AbstractButtonWidget;
@@ -57,18 +56,18 @@ public class ShapeSelectionWidget extends AbstractButtonWidget {
     }
 
     @Override
-    public void renderBackground(MatrixStack poseStack, int mouseX, int mouseY){
+    public void renderBackground(int mouseX, int mouseY){
         boolean canClick = this.isClickable();
         ScreenUtils.bindTexture(SMALL_GREY_BUTTONS);
-        ScreenUtils.drawTexture(poseStack, this.x, this.y, this.width, this.height, 0, (canClick ? this.isFocused() ? 2 : 0 : 1) / 3f, 1, 1 / 3f);
+        ScreenUtils.drawTexture(this.x, this.y, this.width, this.height, 0, (canClick ? this.isFocused() ? 2 : 0 : 1) / 3f, 1, 1 / 3f);
     }
 
     @Override
-    public void render(MatrixStack poseStack, int mouseX, int mouseY){
+    public void render(int mouseX, int mouseY){
         DisplayEntry display = this.currentEntry.get();
         if(display != null && display.entry().hasShape(this.shape)){
             ScreenUtils.bindTexture(this.icon);
-            ScreenUtils.drawTexture(poseStack, this.x + 1, this.y + 2, this.width - 2, this.height - 4);
+            ScreenUtils.drawTexture(this.x + 1, this.y + 2, this.width - 2, this.height - 4);
         }
     }
 }

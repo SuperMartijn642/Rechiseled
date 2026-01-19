@@ -204,7 +204,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
                 items += stack.getCount();
 
                 // Render overlay
-                ScreenUtils.fillRect(poseStack, slot.x, slot.y, 16, 16, 0, 20, 100, 0.5f);
+                ScreenUtils.fillRect(slot.x, slot.y, 16, 16, 0, 20, 100, 0.5f);
             }
             this.chiselAllWidget.chiselableItems = items;
         }
