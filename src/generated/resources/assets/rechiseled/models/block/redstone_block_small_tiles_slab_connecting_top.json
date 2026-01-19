@@ -1,0 +1,160 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "side": "rechiseled:block/redstone_block_small_tiles",
+    "top": "rechiseled:block/redstone_block_small_tiles",
+    "bottom": "rechiseled:block/redstone_block_small_tiles"
+  },
+  "connections": {
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:redstone_block_small_tiles_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:redstone_block_small_tiles_stairs_connecting",
+          "properties": {
+            "half": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "side": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "directions": [
+                "left",
+                "right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "predicates": [
+                {
+                  "block": "rechiseled:redstone_block_small_tiles_slab_connecting",
+                  "properties": {
+                    "type": [
+                      "top"
+                    ]
+                  },
+                  "type": "fusion:match_state"
+                },
+                {
+                  "block": "rechiseled:redstone_block_small_tiles_stairs_connecting",
+                  "properties": {
+                    "half": [
+                      "top"
+                    ]
+                  },
+                  "type": "fusion:match_state"
+                }
+              ],
+              "type": "fusion:or"
+            }
+          ],
+          "type": "fusion:and"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "top",
+                "top_left",
+                "top_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "predicates": [
+                {
+                  "predicates": [
+                    {
+                      "block": "rechiseled:redstone_block_small_tiles_connecting",
+                      "type": "fusion:match_block"
+                    },
+                    {
+                      "block": "rechiseled:redstone_block_small_tiles_slab_connecting",
+                      "properties": {
+                        "type": [
+                          "double"
+                        ]
+                      },
+                      "type": "fusion:match_state"
+                    }
+                  ],
+                  "type": "fusion:or"
+                },
+                {
+                  "block": "rechiseled:redstone_block_small_tiles_slab_connecting",
+                  "properties": {
+                    "type": [
+                      "bottom"
+                    ]
+                  },
+                  "type": "fusion:match_state"
+                },
+                {
+                  "block": "rechiseled:redstone_block_small_tiles_stairs_connecting",
+                  "type": "fusion:match_block"
+                }
+              ],
+              "type": "fusion:or"
+            }
+          ],
+          "type": "fusion:and"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "top": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:redstone_block_small_tiles_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:redstone_block_small_tiles_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:redstone_block_small_tiles_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:redstone_block_small_tiles_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    }
+  },
+  "loader": "fusion:model",
+  "type": "fusion:connecting"
+}

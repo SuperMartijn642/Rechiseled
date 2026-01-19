@@ -1,0 +1,16 @@
+{
+  "parent": "rechiseled:block/coal_block_pillar_connecting",
+  "connections": {
+    "up": "#all",
+    "down": "#all",
+    "north": "#all",
+    "east": "#all",
+    "south": "#all",
+    "west": "#all",
+    "all": {
+      "type": "fusion:is_same_state"
+    }
+  },
+  "loader": "fusion:model",
+  "type": "fusion:connecting"
+}

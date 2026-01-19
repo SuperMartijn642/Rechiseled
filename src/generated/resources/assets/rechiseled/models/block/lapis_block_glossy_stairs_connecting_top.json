@@ -1,0 +1,138 @@
+{
+  "parent": "rechiseled:block/stairs_top",
+  "textures": {
+    "side": "rechiseled:block/lapis_block_glossy",
+    "top": "rechiseled:block/lapis_block_glossy",
+    "bottom": "rechiseled:block/lapis_block_glossy"
+  },
+  "connections": {
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:lapis_block_glossy_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:lapis_block_glossy_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:lapis_block_glossy_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "side": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:lapis_block_glossy_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:lapis_block_glossy_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:lapis_block_glossy_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "top",
+                "top_left",
+                "top_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:lapis_block_glossy_slab_connecting",
+              "properties": {
+                "type": [
+                  "bottom"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right",
+                "left",
+                "right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:lapis_block_glossy_slab_connecting",
+              "properties": {
+                "type": [
+                  "top"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "top": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:lapis_block_glossy_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:lapis_block_glossy_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:lapis_block_glossy_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:lapis_block_glossy_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    }
+  },
+  "loader": "fusion:model",
+  "type": "fusion:connecting"
+}

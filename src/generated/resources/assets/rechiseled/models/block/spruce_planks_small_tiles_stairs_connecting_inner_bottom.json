@@ -1,0 +1,138 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "side": "rechiseled:block/spruce_planks_small_tiles",
+    "top": "rechiseled:block/spruce_planks_small_tiles",
+    "bottom": "rechiseled:block/spruce_planks_small_tiles"
+  },
+  "connections": {
+    "bottom": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:spruce_planks_small_tiles_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:spruce_planks_small_tiles_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:spruce_planks_small_tiles_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:spruce_planks_small_tiles_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "side": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:spruce_planks_small_tiles_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:spruce_planks_small_tiles_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:spruce_planks_small_tiles_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "left",
+                "right",
+                "top",
+                "top_left",
+                "top_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:spruce_planks_small_tiles_slab_connecting",
+              "properties": {
+                "type": [
+                  "bottom"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:spruce_planks_small_tiles_slab_connecting",
+              "properties": {
+                "type": [
+                  "top"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:spruce_planks_small_tiles_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:spruce_planks_small_tiles_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:spruce_planks_small_tiles_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    }
+  },
+  "loader": "fusion:model",
+  "type": "fusion:connecting"
+}

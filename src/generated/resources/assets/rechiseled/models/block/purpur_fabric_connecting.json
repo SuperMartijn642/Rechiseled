@@ -1,13 +1,163 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube",
   "textures": {
-    "all": "rechiseled:block/purpur_fabric"
+    "east": "rechiseled:block/purpur_fabric",
+    "south": "rechiseled:block/purpur_fabric",
+    "north": "rechiseled:block/purpur_fabric",
+    "west": "rechiseled:block/purpur_fabric",
+    "particle": "rechiseled:block/purpur_fabric",
+    "up": "rechiseled:block/purpur_fabric",
+    "down": "rechiseled:block/purpur_fabric"
   },
-  "connections": [
-    {
-      "type": "fusion:is_same_block"
+  "connections": {
+    "north": "#side",
+    "east": "#side",
+    "south": "#side",
+    "west": "#side",
+    "side": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:purpur_fabric_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:purpur_fabric_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:purpur_fabric_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "top",
+                "top_left",
+                "top_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:purpur_fabric_slab_connecting",
+              "properties": {
+                "type": [
+                  "bottom"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:purpur_fabric_slab_connecting",
+              "properties": {
+                "type": [
+                  "top"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:purpur_fabric_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:purpur_fabric_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:purpur_fabric_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:purpur_fabric_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:purpur_fabric_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:purpur_fabric_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:purpur_fabric_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:purpur_fabric_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
     }
-  ],
+  },
   "loader": "fusion:model",
   "type": "fusion:connecting"
 }
