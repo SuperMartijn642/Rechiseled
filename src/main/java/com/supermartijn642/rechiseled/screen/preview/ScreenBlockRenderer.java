@@ -48,7 +48,7 @@ public class ScreenBlockRenderer {
         RenderSystem.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
 
         RenderSystem.pushMatrix();
-        RenderSystem.translated(x, y, 350);
+        RenderSystem.translated(x, y, 250);
         RenderSystem.scaled(scale, -scale, scale);
 
         POSE_STACK.pushPose();
