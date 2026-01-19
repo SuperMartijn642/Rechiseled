@@ -10,6 +10,7 @@
     "PlayerListMixin"
   ],
   "client": [
+    "jei.RecipesGuiMixin",
     "MinecraftMixin",
     "PlayerControllerMixin"
   ],
