@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "rechiseled:block/bone_block_bundled",
+    "side": "rechiseled:block/bone_block_bundled",
+    "top": "rechiseled:block/bone_block_bundled"
+  }
+}

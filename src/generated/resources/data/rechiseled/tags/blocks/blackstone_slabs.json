@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:blackstone_brick_pattern_slab",
+    "rechiseled:blackstone_brick_pattern_slab_connecting",
+    "rechiseled:blackstone_brick_paving_slab",
+    "rechiseled:blackstone_brick_paving_slab_connecting",
+    "rechiseled:blackstone_diagonal_bricks_slab",
+    "rechiseled:blackstone_diagonal_bricks_slab_connecting",
+    "rechiseled:blackstone_polished_slab_connecting",
+    "rechiseled:blackstone_rotated_bricks_slab",
+    "rechiseled:blackstone_rotated_bricks_slab_connecting",
+    "rechiseled:blackstone_tiles_slab",
+    "rechiseled:blackstone_tiles_slab_connecting"
+  ]
+}

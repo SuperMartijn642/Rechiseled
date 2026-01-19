@@ -2,46 +2,93 @@
   "type": "rechiseled:chiseling",
   "overwrite": false,
   "entries": [
+    "minecraft:basalt",
+    "minecraft:polished_basalt",
     {
-      "item": "minecraft:basalt"
+      "block": "rechiseled:basalt_beams",
+      "stairs": "rechiseled:basalt_beams_stairs",
+      "slab": "rechiseled:basalt_beams_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:basalt_beams_connecting",
+      "connecting_stairs": "rechiseled:basalt_beams_stairs_connecting",
+      "connecting_slab": "rechiseled:basalt_beams_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "minecraft:polished_basalt"
+      "block": "rechiseled:basalt_bordered",
+      "stairs": "rechiseled:basalt_bordered_stairs",
+      "slab": "rechiseled:basalt_bordered_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:basalt_bordered_connecting",
+      "connecting_stairs": "rechiseled:basalt_bordered_stairs_connecting",
+      "connecting_slab": "rechiseled:basalt_bordered_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:basalt_beams",
-      "connecting_item": "rechiseled:basalt_beams_connecting"
+      "block": "rechiseled:basalt_bordered_polished",
+      "stairs": "rechiseled:basalt_bordered_polished_stairs",
+      "slab": "rechiseled:basalt_bordered_polished_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:basalt_bordered_polished_connecting",
+      "connecting_stairs": "rechiseled:basalt_bordered_polished_stairs_connecting",
+      "connecting_slab": "rechiseled:basalt_bordered_polished_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:basalt_bordered",
-      "connecting_item": "rechiseled:basalt_bordered_connecting"
+      "block": "rechiseled:basalt_bricks",
+      "stairs": "rechiseled:basalt_bricks_stairs",
+      "slab": "rechiseled:basalt_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:basalt_bricks_connecting",
+      "connecting_stairs": "rechiseled:basalt_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:basalt_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:basalt_bordered_polished",
-      "connecting_item": "rechiseled:basalt_bordered_polished_connecting"
+      "block": "rechiseled:basalt_chiseled_piglin",
+      "stairs": "rechiseled:basalt_chiseled_piglin_stairs",
+      "slab": "rechiseled:basalt_chiseled_piglin_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "rechiseled:basalt_bricks",
-      "connecting_item": "rechiseled:basalt_bricks_connecting"
+      "block": "rechiseled:basalt_diagonal_tiles",
+      "stairs": "rechiseled:basalt_diagonal_tiles_stairs",
+      "slab": "rechiseled:basalt_diagonal_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:basalt_diagonal_tiles_connecting",
+      "connecting_stairs": "rechiseled:basalt_diagonal_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:basalt_diagonal_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:basalt_chiseled_piglin"
+      "block": "rechiseled:basalt_pattern",
+      "stairs": "rechiseled:basalt_pattern_stairs",
+      "slab": "rechiseled:basalt_pattern_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:basalt_pattern_connecting",
+      "connecting_stairs": "rechiseled:basalt_pattern_stairs_connecting",
+      "connecting_slab": "rechiseled:basalt_pattern_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:basalt_diagonal_tiles",
-      "connecting_item": "rechiseled:basalt_diagonal_tiles_connecting"
+      "block": "rechiseled:basalt_patterned",
+      "stairs": "rechiseled:basalt_patterned_stairs",
+      "slab": "rechiseled:basalt_patterned_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:basalt_patterned_connecting",
+      "connecting_stairs": "rechiseled:basalt_patterned_stairs_connecting",
+      "connecting_slab": "rechiseled:basalt_patterned_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:basalt_pattern",
-      "connecting_item": "rechiseled:basalt_pattern_connecting"
-    },
-    {
-      "item": "rechiseled:basalt_patterned",
-      "connecting_item": "rechiseled:basalt_patterned_connecting"
-    },
-    {
-      "item": "rechiseled:basalt_tiles",
-      "connecting_item": "rechiseled:basalt_tiles_connecting"
+      "block": "rechiseled:basalt_tiles",
+      "stairs": "rechiseled:basalt_tiles_stairs",
+      "slab": "rechiseled:basalt_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:basalt_tiles_connecting",
+      "connecting_stairs": "rechiseled:basalt_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:basalt_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     }
   ]
 }

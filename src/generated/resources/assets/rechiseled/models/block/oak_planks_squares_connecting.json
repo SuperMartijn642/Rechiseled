@@ -1,13 +1,163 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube",
   "textures": {
-    "all": "rechiseled:block/oak_planks_squares"
+    "east": "rechiseled:block/oak_planks_squares",
+    "south": "rechiseled:block/oak_planks_squares",
+    "north": "rechiseled:block/oak_planks_squares",
+    "west": "rechiseled:block/oak_planks_squares",
+    "particle": "rechiseled:block/oak_planks_squares",
+    "up": "rechiseled:block/oak_planks_squares",
+    "down": "rechiseled:block/oak_planks_squares"
   },
-  "connections": [
-    {
-      "type": "fusion:is_same_block"
+  "connections": {
+    "north": "#side",
+    "east": "#side",
+    "south": "#side",
+    "west": "#side",
+    "side": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:oak_planks_squares_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:oak_planks_squares_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:oak_planks_squares_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "top",
+                "top_left",
+                "top_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:oak_planks_squares_slab_connecting",
+              "properties": {
+                "type": [
+                  "bottom"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:oak_planks_squares_slab_connecting",
+              "properties": {
+                "type": [
+                  "top"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:oak_planks_squares_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:oak_planks_squares_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:oak_planks_squares_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:oak_planks_squares_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:oak_planks_squares_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:oak_planks_squares_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:oak_planks_squares_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:oak_planks_squares_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
     }
-  ],
+  },
   "loader": "fusion:model",
   "type": "fusion:connecting"
 }

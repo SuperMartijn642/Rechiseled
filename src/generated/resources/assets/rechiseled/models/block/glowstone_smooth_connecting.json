@@ -1,13 +1,163 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube",
   "textures": {
-    "all": "rechiseled:block/glowstone_smooth"
+    "east": "rechiseled:block/glowstone_smooth",
+    "south": "rechiseled:block/glowstone_smooth",
+    "north": "rechiseled:block/glowstone_smooth",
+    "west": "rechiseled:block/glowstone_smooth",
+    "particle": "rechiseled:block/glowstone_smooth",
+    "up": "rechiseled:block/glowstone_smooth",
+    "down": "rechiseled:block/glowstone_smooth"
   },
-  "connections": [
-    {
-      "type": "fusion:is_same_block"
+  "connections": {
+    "north": "#side",
+    "east": "#side",
+    "south": "#side",
+    "west": "#side",
+    "side": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:glowstone_smooth_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:glowstone_smooth_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:glowstone_smooth_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "top",
+                "top_left",
+                "top_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:glowstone_smooth_slab_connecting",
+              "properties": {
+                "type": [
+                  "bottom"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        },
+        {
+          "predicates": [
+            {
+              "directions": [
+                "bottom",
+                "bottom_left",
+                "bottom_right"
+              ],
+              "type": "fusion:is_direction"
+            },
+            {
+              "block": "rechiseled:glowstone_smooth_slab_connecting",
+              "properties": {
+                "type": [
+                  "top"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:and"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:glowstone_smooth_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:glowstone_smooth_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:glowstone_smooth_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:glowstone_smooth_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:glowstone_smooth_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:glowstone_smooth_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:glowstone_smooth_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:glowstone_smooth_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
     }
-  ],
+  },
   "loader": "fusion:model",
   "type": "fusion:connecting"
 }

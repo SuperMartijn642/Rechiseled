@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:sandstone_brick_pattern_slab",
+    "rechiseled:sandstone_brick_pattern_slab_connecting",
+    "rechiseled:sandstone_brick_paving_slab",
+    "rechiseled:sandstone_brick_paving_slab_connecting",
+    "rechiseled:sandstone_bricks_slab",
+    "rechiseled:sandstone_bricks_slab_connecting",
+    "rechiseled:sandstone_diagonal_bricks_slab",
+    "rechiseled:sandstone_diagonal_bricks_slab_connecting",
+    "rechiseled:sandstone_large_tiles_slab",
+    "rechiseled:sandstone_large_tiles_slab_connecting",
+    "rechiseled:sandstone_polished_slab",
+    "rechiseled:sandstone_polished_slab_connecting",
+    "rechiseled:sandstone_rotated_bricks_slab",
+    "rechiseled:sandstone_rotated_bricks_slab_connecting",
+    "rechiseled:sandstone_tiles_slab",
+    "rechiseled:sandstone_tiles_slab_connecting"
+  ]
+}

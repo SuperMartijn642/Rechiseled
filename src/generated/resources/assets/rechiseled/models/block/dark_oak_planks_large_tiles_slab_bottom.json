@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "rechiseled:block/dark_oak_planks_large_tiles",
+    "side": "rechiseled:block/dark_oak_planks_large_tiles",
+    "top": "rechiseled:block/dark_oak_planks_large_tiles"
+  }
+}
