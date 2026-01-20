@@ -1,6 +1,5 @@
 package com.supermartijn642.rechiseled;
 
-import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.CommonUtils;
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.item.BaseItem;
@@ -93,7 +92,7 @@ public class ChiselItem extends BaseItem {
         ChiselingRecipe recipe = filter.isEmpty() ? null : ChiselingRecipeManager.get(true).getRecipeForItem(filter.getItem());
         if(!filter.isEmpty() && recipe == null)
             return Collections.emptyList();
-        BlockState targetedBlock = ClientUtils.getWorld().getBlockState(targetedPos);
+        BlockState targetedBlock = level.getBlockState(targetedPos);
         if(recipe == null){
             recipe = ChiselingRecipeManager.get(true).getRecipeForItem(targetedBlock.getBlock().asItem());
             if(recipe == null)
