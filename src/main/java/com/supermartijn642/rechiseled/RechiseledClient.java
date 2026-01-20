@@ -22,6 +22,6 @@ public class RechiseledClient {
             return screen;
         });
         handler.registerItemModelOverwrite(() -> Rechiseled.chisel, CustomRendererBakedModelWrapper::wrap);
-        handler.registerCustomItemRenderer(() -> Rechiseled.chisel, ChiselItemRenderer::new);
+        handler.registerCustomItemRenderer(() -> Rechiseled.chisel, ChiselItemRenderer.INSTANCE);
     }
 }

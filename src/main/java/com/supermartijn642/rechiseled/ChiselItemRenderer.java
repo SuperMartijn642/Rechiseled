@@ -13,10 +13,20 @@ import net.minecraft.item.ItemStack;
  */
 public class ChiselItemRenderer implements CustomItemRenderer {
 
+    public static final ChiselItemRenderer INSTANCE = new ChiselItemRenderer();
+
+    public boolean isInGui = false;
+
+    private ChiselItemRenderer() {
+    }
+
     @Override
     public void render(ItemStack stack){
         renderChisel(stack);
         ItemStack storedStack = ChiselItem.getStoredStack(stack);
+        if(!this.isInGui)
+            return;
+        this.isInGui = false;
         if(!storedStack.isEmpty()){
             GlStateManager.pushMatrix();
             GlStateManager.translate(0.25f, 0.75f, 0.5f);
