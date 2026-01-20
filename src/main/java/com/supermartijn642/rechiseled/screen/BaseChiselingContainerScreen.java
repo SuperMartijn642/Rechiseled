@@ -4,13 +4,14 @@ import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.BaseContainerWidget;
 import com.supermartijn642.rechiseled.Rechiseled;
-import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
-import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipe;
+import com.supermartijn642.rechiseled.api.util.ItemWithMeta;
 import com.supermartijn642.rechiseled.packet.PacketChiselAll;
 import com.supermartijn642.rechiseled.packet.PacketSelectEntry;
 import com.supermartijn642.rechiseled.packet.PacketToggleConnecting;
 import net.minecraft.inventory.Slot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -59,14 +60,14 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
             ChiselingEntry entry = this.container.currentEntry;
             if(entry == null)
                 return null;
-            return (this.container.connecting && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItemStack() : entry.getRegularItemStack();
+            return ((this.container.connecting && entry.hasConnectingItem(ChiselingBlockShape.BLOCK)) || !entry.hasRegularItem(ChiselingBlockShape.BLOCK) ? entry.getConnectingItem(ChiselingBlockShape.BLOCK) : entry.getRegularItem(ChiselingBlockShape.BLOCK)).toStack();
         }, () -> previewMode));
         Supplier<Boolean> enablePreviewButtons = () -> {
             ChiselingEntry entry = this.container.currentEntry;
             if(entry == null)
                 return false;
-            Item currentItem = (this.container.connecting && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
-            return currentItem instanceof ItemBlock;
+            ItemWithMeta currentItem = (this.container.connecting && entry.hasConnectingItem(ChiselingBlockShape.BLOCK)) || !entry.hasRegularItem(ChiselingBlockShape.BLOCK) ? entry.getConnectingItem(ChiselingBlockShape.BLOCK) : entry.getRegularItem(ChiselingBlockShape.BLOCK);
+            return currentItem.item() instanceof ItemBlock;
         };
         this.addWidget(new PreviewModeButtonWidget(193, 18, 19, 21, 2, () -> previewMode, enablePreviewButtons, () -> previewMode = 2));
         this.addWidget(new PreviewModeButtonWidget(193, 41, 19, 21, 1, () -> previewMode, enablePreviewButtons, () -> previewMode = 1));
@@ -94,11 +95,12 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
             for(int index = 1; index < this.container.inventorySlots.size(); index++){
                 Slot slot = this.container.getSlot(index);
                 ItemStack stack = slot.getStack();
+                ItemWithMeta stackType = ItemWithMeta.fromStack(stack);
 
-                for(ChiselingEntry entry : this.container.currentRecipe.getEntries()){
+                for(ChiselingEntry entry : this.container.currentRecipe.entries()){
                     if((!stack.hasTagCompound() || stack.getTagCompound().hasNoTags())
-                        && ((entry.hasConnectingItem() && stack.getItem() == entry.getConnectingItem() && (!entry.getConnectingItem().getHasSubtypes() || entry.getConnectingItemData() == stack.getMetadata()))
-                        || (entry.hasRegularItem() && stack.getItem() == entry.getRegularItem() && (!entry.getRegularItem().getHasSubtypes() || entry.getRegularItemData() == stack.getMetadata())))){
+                        && ((entry.hasConnectingItem(ChiselingBlockShape.BLOCK) && stackType.equals(entry.getConnectingItem(ChiselingBlockShape.BLOCK)))
+                        || (entry.hasRegularItem(ChiselingBlockShape.BLOCK) && stackType.equals(entry.getRegularItem(ChiselingBlockShape.BLOCK))))){
                         ScreenUtils.fillRect(slot.xPos, slot.yPos, 16, 16, 0, 20, 100, 0.5f);
                     }
                 }
@@ -113,7 +115,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
         ChiselingRecipe recipe = this.container.currentRecipe;
         if(recipe == null)
             return null;
-        return index >= 0 && index < recipe.getEntries().size() ? recipe.getEntries().get(index) : null;
+        return index >= 0 && index < recipe.entries().size() ? recipe.entries().get(index) : null;
     }
 
     private void selectEntry(int index){

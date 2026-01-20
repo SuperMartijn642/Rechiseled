@@ -9,6 +9,7 @@ import com.supermartijn642.core.registry.RegistrationHandler;
 import com.supermartijn642.core.registry.RegistryEntryAcceptor;
 import com.supermartijn642.rechiseled.api.blocks.RechiseledBlockType;
 import com.supermartijn642.rechiseled.api.registration.RechiseledRegistration;
+import com.supermartijn642.rechiseled.chiseling.PacketUpdateChiselingRecipes;
 import com.supermartijn642.rechiseled.data.RechiseledItemModelGenerator;
 import com.supermartijn642.rechiseled.data.RechiseledLanguageGenerator;
 import com.supermartijn642.rechiseled.data.RechiseledRecipeGenerator;
@@ -66,6 +67,7 @@ public class Rechiseled {
         CHANNEL.registerMessage(PacketSelectEntry.class, PacketSelectEntry::new, true);
         CHANNEL.registerMessage(PacketToggleConnecting.class, PacketToggleConnecting::new, true);
         CHANNEL.registerMessage(PacketChiselAll.class, PacketChiselAll::new, true);
+        CHANNEL.registerMessage(PacketUpdateChiselingRecipes.class, PacketUpdateChiselingRecipes::new, false);
 
         register();
         if(CommonUtils.getEnvironmentSide().isClient())

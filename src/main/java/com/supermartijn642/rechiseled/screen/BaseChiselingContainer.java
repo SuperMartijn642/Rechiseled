@@ -2,13 +2,14 @@ package com.supermartijn642.rechiseled.screen;
 
 import com.supermartijn642.core.gui.BaseContainer;
 import com.supermartijn642.core.gui.BaseContainerType;
-import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
-import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
-import com.supermartijn642.rechiseled.chiseling.ChiselingRecipes;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipe;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipeManager;
+import com.supermartijn642.rechiseled.api.util.ItemWithMeta;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.SlotItemHandler;
@@ -20,17 +21,20 @@ import javax.annotation.Nonnull;
  */
 public abstract class BaseChiselingContainer extends BaseContainer {
 
+    private final boolean isClient;
     public ChiselingRecipe currentRecipe = null;
     public ChiselingEntry currentEntry = null;
     public boolean connecting = false;
 
     public BaseChiselingContainer(BaseContainerType<?> type, EntityPlayer player){
         super(type, player);
+        this.isClient = player.world.isRemote;
         this.addSlots();
     }
 
     @Override
-    protected void addSlots(EntityPlayer playerEntity){
+    protected void addSlots(EntityPlayer player){
+        boolean isClient = player.world.isRemote;
         this.addSlot(new SlotItemHandler(new IItemHandlerModifiable() {
             @Override
             public void setStackInSlot(int slot, @Nonnull ItemStack stack){
@@ -101,7 +105,7 @@ public abstract class BaseChiselingContainer extends BaseContainer {
 
             @Override
             public boolean isItemValid(int slot, @Nonnull ItemStack stack){
-                return slot == 0 && ChiselingRecipes.getRecipe(stack) != null;
+                return slot == 0 && ChiselingRecipeManager.get(isClient).getRecipeForItem(ItemWithMeta.fromStack(stack)) != null;
             }
         }, 0, 154, 102));
         this.addPlayerSlots(31, 144);
@@ -119,14 +123,15 @@ public abstract class BaseChiselingContainer extends BaseContainer {
             this.currentEntry = null;
             this.connecting = false;
         }else{
-            this.currentRecipe = ChiselingRecipes.getRecipe(stack);
+            ItemWithMeta item = ItemWithMeta.fromStack(stack);
+            this.currentRecipe = ChiselingRecipeManager.get(this.isClient).getRecipeForItem(item);
             if(this.currentRecipe != null){
-                for(ChiselingEntry entry : this.currentRecipe.getEntries()){
-                    if(entry.hasRegularItem() && entry.getRegularItem() == stack.getItem() && (!entry.getRegularItem().getHasSubtypes() || entry.getRegularItemData() == stack.getMetadata())){
+                for(ChiselingEntry entry : this.currentRecipe.entries()){
+                    if(entry.hasRegularItem(ChiselingBlockShape.BLOCK) && entry.getRegularItem(ChiselingBlockShape.BLOCK).equals(item)){
                         this.currentEntry = entry;
                         this.connecting = false;
                         return;
-                    }else if(entry.hasConnectingItem() && entry.getConnectingItem() == stack.getItem() && (!entry.getConnectingItem().getHasSubtypes() || entry.getConnectingItemData() == stack.getMetadata())){
+                    }else if(entry.hasConnectingItem(ChiselingBlockShape.BLOCK) && entry.getConnectingItem(ChiselingBlockShape.BLOCK).equals(item)){
                         this.currentEntry = entry;
                         this.connecting = true;
                         return;
@@ -140,12 +145,12 @@ public abstract class BaseChiselingContainer extends BaseContainer {
     }
 
     public void setCurrentEntry(int index){
-        if(this.currentRecipe == null || index >= this.currentRecipe.getEntries().size())
+        if(this.currentRecipe == null || index >= this.currentRecipe.entries().size())
             return;
 
-        ChiselingEntry entry = this.currentRecipe.getEntries().get(index);
-        ItemStack stack = (this.connecting && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItemStack() : entry.getRegularItemStack();
-        stack.setCount(this.getCurrentStack().getCount());
+        ChiselingEntry entry = this.currentRecipe.entries().get(index);
+        ItemWithMeta item = (this.connecting && entry.hasConnectingItem(ChiselingBlockShape.BLOCK)) || !entry.hasRegularItem(ChiselingBlockShape.BLOCK) ? entry.getConnectingItem(ChiselingBlockShape.BLOCK) : entry.getRegularItem(ChiselingBlockShape.BLOCK);
+        ItemStack stack = item.toStack(this.getCurrentStack().getCount());
         this.setCurrentStack(stack);
         this.updateRecipe();
     }
@@ -155,14 +160,14 @@ public abstract class BaseChiselingContainer extends BaseContainer {
             return;
 
         if(this.connecting){
-            if(this.currentEntry.hasRegularItem()){
-                ItemStack stack = new ItemStack(this.currentEntry.getRegularItem(), this.getCurrentStack().getCount(), this.currentEntry.getRegularItemData());
+            if(this.currentEntry.hasRegularItem(ChiselingBlockShape.BLOCK)){
+                ItemStack stack = this.currentEntry.getRegularItem(ChiselingBlockShape.BLOCK).toStack(this.getCurrentStack().getCount());
                 this.setCurrentStack(stack);
                 this.updateRecipe();
             }
         }else{
-            if(this.currentEntry.hasConnectingItem()){
-                ItemStack stack = new ItemStack(this.currentEntry.getConnectingItem(), this.getCurrentStack().getCount(), this.currentEntry.getConnectingItemData());
+            if(this.currentEntry.hasConnectingItem(ChiselingBlockShape.BLOCK)){
+                ItemStack stack = this.currentEntry.getConnectingItem(ChiselingBlockShape.BLOCK).toStack(this.getCurrentStack().getCount());
                 this.setCurrentStack(stack);
                 this.updateRecipe();
             }
@@ -176,16 +181,15 @@ public abstract class BaseChiselingContainer extends BaseContainer {
         InventoryPlayer inventory = this.player.inventory;
         for(int index = 0; index < inventory.getSizeInventory(); index++){
             ItemStack stack = inventory.getStackInSlot(index);
-            Item item = this.connecting ? this.currentEntry.getConnectingItem() : this.currentEntry.getRegularItem();
-            int data = this.connecting ? this.currentEntry.getConnectingItemData() : this.currentEntry.getRegularItemData();
-            if(stack.getCount() > item.getItemStackLimit())
+            ItemWithMeta stackType = ItemWithMeta.fromStack(stack);
+            ItemWithMeta item = this.connecting ? this.currentEntry.getConnectingItem(ChiselingBlockShape.BLOCK) : this.currentEntry.getRegularItem(ChiselingBlockShape.BLOCK);
+            if(stack.getCount() > item.item().getItemStackLimit() || (stack.hasTagCompound() && !stack.getTagCompound().hasNoTags()))
                 continue;
 
-            for(ChiselingEntry entry : this.currentRecipe.getEntries()){
-                if((!stack.hasTagCompound() || stack.getTagCompound().hasNoTags())
-                    && ((entry.hasConnectingItem() && stack.getItem() == entry.getConnectingItem() && (!entry.getConnectingItem().getHasSubtypes() || entry.getConnectingItemData() == stack.getMetadata()))
-                    || (entry.hasRegularItem() && stack.getItem() == entry.getRegularItem() && (!entry.getRegularItem().getHasSubtypes() || entry.getRegularItemData() == stack.getMetadata())))){
-                    stack = new ItemStack(item, stack.getCount(), data);
+            for(ChiselingEntry entry : this.currentRecipe.entries()){
+                if((entry.hasConnectingItem(ChiselingBlockShape.BLOCK) && stackType.equals(entry.getConnectingItem(ChiselingBlockShape.BLOCK)))
+                    || (entry.hasRegularItem(ChiselingBlockShape.BLOCK) && stackType.equals(entry.getRegularItem(ChiselingBlockShape.BLOCK)))){
+                    stack = item.toStack(stack.getCount());
                     inventory.setInventorySlotContents(index, stack);
                 }
             }

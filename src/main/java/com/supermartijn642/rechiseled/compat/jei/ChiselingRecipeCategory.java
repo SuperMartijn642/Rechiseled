@@ -2,8 +2,9 @@ package com.supermartijn642.rechiseled.compat.jei;
 
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.rechiseled.Rechiseled;
-import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
-import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipe;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IGuiItemStackGroup;
@@ -84,15 +85,15 @@ public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipeC
             List<ItemStack> inputs = new ArrayList<>();
             List<List<ItemStack>> outputs = new ArrayList<>();
 
-            for(ChiselingEntry entry : this.recipe.getEntries()){
+            for(ChiselingEntry entry : this.recipe.entries()){
                 List<ItemStack> output = new ArrayList<>();
-                if(entry.hasRegularItem()){
-                    inputs.add(entry.getRegularItemStack());
-                    output.add(entry.getRegularItemStack());
+                if(entry.hasRegularItem(ChiselingBlockShape.BLOCK)){
+                    inputs.add(entry.getRegularItem(ChiselingBlockShape.BLOCK).toStack());
+                    output.add(entry.getRegularItem(ChiselingBlockShape.BLOCK).toStack());
                 }
-                if(entry.hasConnectingItem()){
-                    inputs.add(entry.getConnectingItemStack());
-                    output.add(entry.getConnectingItemStack());
+                if(entry.hasConnectingItem(ChiselingBlockShape.BLOCK)){
+                    inputs.add(entry.getConnectingItem(ChiselingBlockShape.BLOCK).toStack());
+                    output.add(entry.getConnectingItem(ChiselingBlockShape.BLOCK).toStack());
                 }
                 outputs.add(output);
             }

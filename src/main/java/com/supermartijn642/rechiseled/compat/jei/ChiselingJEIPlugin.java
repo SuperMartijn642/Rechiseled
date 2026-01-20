@@ -1,8 +1,8 @@
 package com.supermartijn642.rechiseled.compat.jei;
 
 import com.supermartijn642.rechiseled.Rechiseled;
-import com.supermartijn642.rechiseled.chiseling.ChiselingRecipe;
-import com.supermartijn642.rechiseled.chiseling.ChiselingRecipes;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipe;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipeManager;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
@@ -22,7 +22,7 @@ public class ChiselingJEIPlugin implements IModPlugin {
 
     @Override
     public void register(IModRegistry registry){
-        registry.addRecipes(ChiselingRecipes.getAllRecipes(), Rechiseled.identifier("chiseling").toString());
+        registry.addRecipes(ChiselingRecipeManager.get(true).getAllRecipes(), Rechiseled.identifier("chiseling").toString());
         registry.handleRecipes(ChiselingRecipe.class, ChiselingRecipeCategory.ChiselingRecipeWrapper::new, Rechiseled.identifier("chiseling").toString());
         registry.addRecipeCatalyst(new ItemStack(Rechiseled.chisel), Rechiseled.identifier("chiseling").toString());
     }

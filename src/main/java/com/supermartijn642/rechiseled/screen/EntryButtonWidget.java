@@ -4,9 +4,9 @@ import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.core.gui.widget.BaseWidget;
 import com.supermartijn642.rechiseled.Rechiseled;
-import com.supermartijn642.rechiseled.chiseling.ChiselingEntry;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
+import com.supermartijn642.rechiseled.api.chiseling.ChiselingEntry;
+import com.supermartijn642.rechiseled.api.util.ItemWithMeta;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
@@ -41,8 +41,8 @@ public class EntryButtonWidget extends BaseWidget {
         ChiselingEntry entry = this.entry.get();
         if(entry == null)
             return null;
-        ItemStack item = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItemStack() : entry.getRegularItemStack();
-        return TextComponents.translation("rechiseled.chiseling.select_block", TextComponents.itemStack(item).get()).get();
+        ItemWithMeta item = (this.connecting.get() && entry.hasConnectingItem(ChiselingBlockShape.BLOCK)) || !entry.hasRegularItem(ChiselingBlockShape.BLOCK) ? entry.getConnectingItem(ChiselingBlockShape.BLOCK) : entry.getRegularItem(ChiselingBlockShape.BLOCK);
+        return TextComponents.translation("rechiseled.chiseling.select_block", TextComponents.itemStack(item.toStack()).get()).get();
     }
 
     @Override
@@ -51,15 +51,14 @@ public class EntryButtonWidget extends BaseWidget {
 
         boolean hasEntry = entry != null;
         boolean selected = hasEntry && this.selectedEntry.get() == entry;
-        boolean hasCorrectItem = hasEntry && (this.connecting.get() ? entry.hasConnectingItem() : entry.hasRegularItem());
+        boolean hasCorrectItem = hasEntry && (this.connecting.get() ? entry.hasConnectingItem(ChiselingBlockShape.BLOCK) : entry.hasRegularItem(ChiselingBlockShape.BLOCK));
 
         ScreenUtils.bindTexture(TEXTURE);
         ScreenUtils.drawTexture(this.x, this.y, this.width, this.height, 0, (selected ? 1 : hasEntry ? hasCorrectItem ? this.isFocused() ? 2 : 0 : this.isFocused() ? 4 : 3 : 0) / 5f, 1, 1 / 5f);
 
         if(hasEntry){
-            Item item = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItem() : entry.getRegularItem();
-            int data = (this.connecting.get() && entry.hasConnectingItem()) || !entry.hasRegularItem() ? entry.getConnectingItemData() : entry.getRegularItemData();
-            ScreenItemRender.drawItem(new ItemStack(item, 1, data), this.x + this.width / 2d, this.y + this.height / 2d, (this.width - 4), 0, 0, true);
+            ItemWithMeta item = (this.connecting.get() && entry.hasConnectingItem(ChiselingBlockShape.BLOCK)) || !entry.hasRegularItem(ChiselingBlockShape.BLOCK) ? entry.getConnectingItem(ChiselingBlockShape.BLOCK) : entry.getRegularItem(ChiselingBlockShape.BLOCK);
+            ScreenItemRender.drawItem(item.toStack(), this.x + this.width / 2d, this.y + this.height / 2d, (this.width - 4), 0, 0, true);
         }
     }
 
