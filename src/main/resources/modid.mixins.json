@@ -9,6 +9,8 @@
     "PlayerListMixin"
   ],
   "client": [
+    "jei.RecipeLayoutMixin",
+    "jei.RecipesGuiMixin",
     "MinecraftMixin",
     "PlayerControllerMPMixin",
     "RenderItemMixin"
