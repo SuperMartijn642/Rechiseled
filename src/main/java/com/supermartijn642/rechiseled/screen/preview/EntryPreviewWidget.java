@@ -5,6 +5,7 @@ import com.supermartijn642.rechiseled.api.util.ItemWithMeta;
 import com.supermartijn642.rechiseled.screen.ToggleRotationButton;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
@@ -68,20 +69,36 @@ public class EntryPreviewWidget extends BaseWidget {
             if(item.item() instanceof ItemBlock){
                 // Render block
                 Block block = ((ItemBlock)item.item()).getBlock();
-                IBlockState state = item.hasSubtypes() ? block.getStateFromMeta(item.meta()) : block.getDefaultState();
-                BlockCapture capture;
-                if(previewMode == PreviewMode.SINGLE)
-                    capture = new BlockCapture(block);
-                else if(previewMode == PreviewMode.ROW){
-                    capture = new BlockCapture(block);
-                    capture.putBlock(new BlockPos(-1, 0, 0), block);
-                    capture.putBlock(new BlockPos(1, 0, 0), block);
-                }else{
-                    capture = new BlockCapture();
-                    for(int i = 0; i < 9; i++)
-                        capture.putBlock(new BlockPos(i / 3 - 1, i % 3 - 1, 0), state);
+                IBlockState state = item.hasSubtypes() ? null : block.getDefaultState();
+                if(state == null){
+                    try{
+                        //noinspection deprecation
+                        state = block.getStateFromMeta(item.meta());
+                    }catch(Exception ignore){
+                    }
                 }
-                ScreenBlockRenderer.drawBlock(capture, this.x + this.width / 2d, this.y + this.height / 2d, this.width, yaw, pitch, true);
+                if(state != null){
+                    BlockCapture capture = new BlockCapture();
+                    int xRange = previewMode == PreviewMode.SINGLE ? 1 : 2;
+                    int yRange = previewMode == PreviewMode.PANEL ? 2 : 1;
+                    for(int x = -xRange; x <= xRange; x++){
+                        for(int y = -yRange; y <= yRange; y++){
+                            BlockPos pos = new BlockPos(x, y, 0);
+                            if(Math.abs(x) == xRange || Math.abs(y) == yRange)
+                                capture.putBlock(pos, Blocks.COBBLESTONE.getDefaultState());
+                            else
+                                capture.putBlock(pos, state);
+                        }
+                    }
+                    capture.updateShapes();
+                    for(int x = -xRange; x <= xRange; x++){
+                        for(int y = -yRange; y <= yRange; y++){
+                            if(Math.abs(x) == xRange || Math.abs(y) == yRange)
+                                capture.putBlock(new BlockPos(x, y, 0), (IBlockState)null);
+                        }
+                    }
+                    ScreenBlockRenderer.drawBlock(capture, this.x + this.width / 2d, this.y + this.height / 2d, this.width, yaw, pitch, true);
+                }
             }else{
                 // Render item
                 ScreenItemRenderer.drawItem(item.toStack(), this.x + this.width / 2d, this.y + this.height / 2d, this.width, yaw, pitch, true);

@@ -1,9 +1,11 @@
 package com.supermartijn642.rechiseled.screen.preview;
 
 import com.google.common.collect.Maps;
+import com.supermartijn642.core.util.Holder;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 
@@ -13,6 +15,8 @@ import java.util.Map;
  * Created 25/12/2021 by SuperMartijn642
  */
 public class BlockCapture {
+
+    private static BlockCaptureLevel fakeLevel;
 
     private final Map<BlockPos,IBlockState> blocks = Maps.newHashMap();
 
@@ -36,6 +40,36 @@ public class BlockCapture {
 
     public void putBlock(BlockPos pos, Block block){
         this.putBlock(pos, block.getDefaultState());
+    }
+
+    public void updateShapes(){
+        if(fakeLevel == null)
+            fakeLevel = new BlockCaptureLevel();
+        fakeLevel.setCapture(this);
+        this.blocks.replaceAll((pos, state) -> {
+            BlockPos.MutableBlockPos neighbor = new BlockPos.MutableBlockPos();
+            Holder<IBlockState> updatedState = new Holder<>(state);
+            fakeLevel.setSetBlockCallback((p, s) -> {
+                if(pos.equals(p)){
+                    updatedState.set(s);
+                    return true;
+                }
+                return false;
+            });
+            try{
+                for(EnumFacing direction : EnumFacing.values()){
+                    neighbor.setPos(pos).move(direction);
+                    Block neighborBlock = this.blocks.getOrDefault(neighbor, Blocks.AIR.getDefaultState()).getBlock();
+                    updatedState.get().neighborChanged(fakeLevel, pos, neighborBlock, neighbor);
+                    if(updatedState.get() == null || updatedState.get().getBlock() != state.getBlock())
+                        return state;
+                }
+            }catch(Exception ignored){
+                return state;
+            }
+            return updatedState.get();
+        });
+        fakeLevel.setCapture(null);
     }
 
     public boolean isAir(BlockPos pos){
