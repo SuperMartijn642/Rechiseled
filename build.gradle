@@ -120,6 +120,7 @@ minecraft {
         }
 
         data {
+            parent(runs.client)
             property "--generatorModid", mod_id
             property "--output", file("src/generated/resources/")
             //noinspection GroovyAssignabilityCheck
