@@ -1,0 +1,293 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:dark_prismarine_beams",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_beams_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_beams_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_beams_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_beams_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_beams_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_brick_paving",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_brick_paving_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_brick_paving_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_brick_paving_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_brick_paving_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_brick_paving_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_bricks",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_bricks_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_dotted",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_dotted_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_dotted_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_dotted_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_dotted_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_dotted_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_fabric",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_fabric_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_fabric_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_fabric_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_fabric_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_fabric_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_large_tiles",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_large_tiles_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_large_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_large_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_large_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_large_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_rotated_bricks",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_rotated_bricks_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_rotated_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_rotated_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_rotated_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_rotated_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_rows",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_rows_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_rows_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_rows_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_rows_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_rows_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_squares",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_squares_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_squares_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_squares_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_squares_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_squares_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_tiles",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_tiles_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_wavy",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_wavy_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_wavy_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_wavy_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_wavy_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_wavy_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_woven",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_woven_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_woven_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_woven_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_woven_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_woven_stairs_connecting",
+      "required": true
+    }
+  ]
+}

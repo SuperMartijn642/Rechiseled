@@ -3,55 +3,127 @@
   "overwrite": false,
   "entries": [
     {
-      "item": "minecraft:red_nether_brick"
+      "block": "minecraft:red_nether_brick"
     },
     {
-      "item": "rechiseled:red_nether_bricks_beams",
-      "connecting_item": "rechiseled:red_nether_bricks_beams_connecting"
+      "block": "rechiseled:red_nether_bricks_beams",
+      "stairs": "rechiseled:red_nether_bricks_beams_stairs",
+      "slab": "rechiseled:red_nether_bricks_beams_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:red_nether_bricks_beams_connecting",
+      "connecting_stairs": "rechiseled:red_nether_bricks_beams_stairs_connecting",
+      "connecting_slab": "rechiseled:red_nether_bricks_beams_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:red_nether_bricks_brick_pattern",
-      "connecting_item": "rechiseled:red_nether_bricks_brick_pattern_connecting"
+      "block": "rechiseled:red_nether_bricks_brick_pattern",
+      "stairs": "rechiseled:red_nether_bricks_brick_pattern_stairs",
+      "slab": "rechiseled:red_nether_bricks_brick_pattern_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:red_nether_bricks_brick_pattern_connecting",
+      "connecting_stairs": "rechiseled:red_nether_bricks_brick_pattern_stairs_connecting",
+      "connecting_slab": "rechiseled:red_nether_bricks_brick_pattern_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:red_nether_bricks_brick_paving",
-      "connecting_item": "rechiseled:red_nether_bricks_brick_paving_connecting"
+      "block": "rechiseled:red_nether_bricks_brick_paving",
+      "stairs": "rechiseled:red_nether_bricks_brick_paving_stairs",
+      "slab": "rechiseled:red_nether_bricks_brick_paving_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:red_nether_bricks_brick_paving_connecting",
+      "connecting_stairs": "rechiseled:red_nether_bricks_brick_paving_stairs_connecting",
+      "connecting_slab": "rechiseled:red_nether_bricks_brick_paving_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:red_nether_bricks_chiseled_squares",
-      "connecting_item": "rechiseled:red_nether_bricks_chiseled_squares_connecting"
+      "block": "rechiseled:red_nether_bricks_chiseled_squares",
+      "stairs": "rechiseled:red_nether_bricks_chiseled_squares_stairs",
+      "slab": "rechiseled:red_nether_bricks_chiseled_squares_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:red_nether_bricks_chiseled_squares_connecting",
+      "connecting_stairs": "rechiseled:red_nether_bricks_chiseled_squares_stairs_connecting",
+      "connecting_slab": "rechiseled:red_nether_bricks_chiseled_squares_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:red_nether_bricks_diagonal_bricks",
-      "connecting_item": "rechiseled:red_nether_bricks_diagonal_bricks_connecting"
+      "block": "rechiseled:red_nether_bricks_diagonal_bricks",
+      "stairs": "rechiseled:red_nether_bricks_diagonal_bricks_stairs",
+      "slab": "rechiseled:red_nether_bricks_diagonal_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:red_nether_bricks_diagonal_bricks_connecting",
+      "connecting_stairs": "rechiseled:red_nether_bricks_diagonal_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:red_nether_bricks_diagonal_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:red_nether_bricks_large_bricks",
-      "connecting_item": "rechiseled:red_nether_bricks_large_bricks_connecting"
+      "block": "rechiseled:red_nether_bricks_large_bricks",
+      "stairs": "rechiseled:red_nether_bricks_large_bricks_stairs",
+      "slab": "rechiseled:red_nether_bricks_large_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:red_nether_bricks_large_bricks_connecting",
+      "connecting_stairs": "rechiseled:red_nether_bricks_large_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:red_nether_bricks_large_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:red_nether_bricks_large_tiles",
-      "connecting_item": "rechiseled:red_nether_bricks_large_tiles_connecting"
+      "block": "rechiseled:red_nether_bricks_large_tiles",
+      "stairs": "rechiseled:red_nether_bricks_large_tiles_stairs",
+      "slab": "rechiseled:red_nether_bricks_large_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:red_nether_bricks_large_tiles_connecting",
+      "connecting_stairs": "rechiseled:red_nether_bricks_large_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:red_nether_bricks_large_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:red_nether_bricks_rotated_bricks",
-      "connecting_item": "rechiseled:red_nether_bricks_rotated_bricks_connecting"
+      "block": "rechiseled:red_nether_bricks_rotated_bricks",
+      "stairs": "rechiseled:red_nether_bricks_rotated_bricks_stairs",
+      "slab": "rechiseled:red_nether_bricks_rotated_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:red_nether_bricks_rotated_bricks_connecting",
+      "connecting_stairs": "rechiseled:red_nether_bricks_rotated_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:red_nether_bricks_rotated_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:red_nether_bricks_small_tiles",
-      "connecting_item": "rechiseled:red_nether_bricks_small_tiles_connecting"
+      "block": "rechiseled:red_nether_bricks_small_tiles",
+      "stairs": "rechiseled:red_nether_bricks_small_tiles_stairs",
+      "slab": "rechiseled:red_nether_bricks_small_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:red_nether_bricks_small_tiles_connecting",
+      "connecting_stairs": "rechiseled:red_nether_bricks_small_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:red_nether_bricks_small_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:red_nether_bricks_smooth",
-      "connecting_item": "rechiseled:red_nether_bricks_smooth_connecting"
+      "block": "rechiseled:red_nether_bricks_smooth",
+      "stairs": "rechiseled:red_nether_bricks_smooth_stairs",
+      "slab": "rechiseled:red_nether_bricks_smooth_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:red_nether_bricks_smooth_connecting",
+      "connecting_stairs": "rechiseled:red_nether_bricks_smooth_stairs_connecting",
+      "connecting_slab": "rechiseled:red_nether_bricks_smooth_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:red_nether_bricks_squares",
-      "connecting_item": "rechiseled:red_nether_bricks_squares_connecting"
+      "block": "rechiseled:red_nether_bricks_squares",
+      "stairs": "rechiseled:red_nether_bricks_squares_stairs",
+      "slab": "rechiseled:red_nether_bricks_squares_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:red_nether_bricks_squares_connecting",
+      "connecting_stairs": "rechiseled:red_nether_bricks_squares_stairs_connecting",
+      "connecting_slab": "rechiseled:red_nether_bricks_squares_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:red_nether_bricks_tiles",
-      "connecting_item": "rechiseled:red_nether_bricks_tiles_connecting"
+      "block": "rechiseled:red_nether_bricks_tiles",
+      "stairs": "rechiseled:red_nether_bricks_tiles_stairs",
+      "slab": "rechiseled:red_nether_bricks_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:red_nether_bricks_tiles_connecting",
+      "connecting_stairs": "rechiseled:red_nether_bricks_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:red_nether_bricks_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     }
   ]
 }

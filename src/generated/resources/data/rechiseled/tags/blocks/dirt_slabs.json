@@ -1,0 +1,113 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:dirt_blobs_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_blobs_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_chunks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_chunks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_clumps_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_clumps_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_cobbled_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_grooves_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_large_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_large_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_muddy_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_small_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_small_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_small_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_small_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_smooth_clumps_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_smooth_clumps_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_soil_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_soil_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_squares_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_squares_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_tilled_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_tilled_slab_connecting",
+      "required": true
+    }
+  ]
+}

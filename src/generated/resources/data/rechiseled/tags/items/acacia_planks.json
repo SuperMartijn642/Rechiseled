@@ -1,0 +1,449 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:acacia_planks_beams",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_beams_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_beams_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_beams_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_beams_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_beams_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_brick_pattern",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_brick_pattern_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_brick_pattern_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_brick_pattern_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_brick_pattern_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_brick_pattern_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_brick_paving",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_brick_paving_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_brick_paving_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_brick_paving_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_brick_paving_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_brick_paving_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_bricks",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_bricks_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_crate",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_crate_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_crate_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_crate_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_crate_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_crate_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_diagonal_stripes",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_diagonal_stripes_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_diagonal_stripes_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_diagonal_stripes_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_diagonal_stripes_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_diagonal_stripes_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_diagonal_tiles",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_diagonal_tiles_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_diagonal_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_diagonal_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_diagonal_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_diagonal_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_dotted",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_dotted_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_dotted_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_dotted_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_dotted_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_dotted_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_flooring",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_flooring_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_flooring_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_flooring_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_flooring_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_flooring_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_large_tiles",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_large_tiles_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_large_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_large_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_large_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_large_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_mosaic",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_mosaic_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_mosaic_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_pattern",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_pattern_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_pattern_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_pattern_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_pattern_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_pattern_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_rotated_bricks",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_rotated_bricks_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_rotated_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_rotated_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_rotated_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_rotated_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_small_bricks",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_small_bricks_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_small_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_small_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_small_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_small_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_small_tiles",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_small_tiles_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_small_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_small_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_small_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_small_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_squares",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_squares_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_squares_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_squares_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_squares_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_squares_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_tiles",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_tiles_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_wavy",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_wavy_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_wavy_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_wavy_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_wavy_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_wavy_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_woven",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_woven_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_woven_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_woven_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_woven_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:acacia_planks_woven_stairs_connecting",
+      "required": true
+    }
+  ]
+}

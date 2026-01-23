@@ -1,0 +1,121 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:obsidian_bordered_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_bordered_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_brick_pattern_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_brick_pattern_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_brick_paving_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_brick_paving_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_chiseled_circles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_chiseled_circles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_chiseled_creeper_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_chiseled_skeleton_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_chiseled_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_chiseled_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_dark_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_dark_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_large_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_pillars_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_pillars_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_rotated_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_rotated_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_spots_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_spots_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_squares_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_squares_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_stripes_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_stripes_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_tiles_slab_connecting",
+      "required": true
+    }
+  ]
+}

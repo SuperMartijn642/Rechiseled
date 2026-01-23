@@ -1,0 +1,89 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:andesite_brick_pattern_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:andesite_brick_pattern_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:andesite_brick_paving_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:andesite_brick_paving_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:andesite_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:andesite_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:andesite_diagonal_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:andesite_diagonal_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:andesite_dotted_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:andesite_dotted_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:andesite_paving_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:andesite_paving_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:andesite_polished_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:andesite_rotated_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:andesite_rotated_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:andesite_squares_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:andesite_squares_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:andesite_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:andesite_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:andesite_wavy_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:andesite_wavy_stairs_connecting",
+      "required": true
+    }
+  ]
+}

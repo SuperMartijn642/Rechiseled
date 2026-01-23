@@ -3,80 +3,188 @@
   "overwrite": false,
   "entries": [
     {
-      "item": "minecraft:prismarine",
-      "item_data": 1
+      "block": "minecraft:prismarine",
+      "block_meta": 1
     },
     {
-      "item": "rechiseled:prismarine_bricks_beams",
-      "connecting_item": "rechiseled:prismarine_bricks_beams_connecting"
+      "block": "rechiseled:prismarine_bricks_beams",
+      "stairs": "rechiseled:prismarine_bricks_beams_stairs",
+      "slab": "rechiseled:prismarine_bricks_beams_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:prismarine_bricks_beams_connecting",
+      "connecting_stairs": "rechiseled:prismarine_bricks_beams_stairs_connecting",
+      "connecting_slab": "rechiseled:prismarine_bricks_beams_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:prismarine_bricks_brick_pattern",
-      "connecting_item": "rechiseled:prismarine_bricks_brick_pattern_connecting"
+      "block": "rechiseled:prismarine_bricks_brick_pattern",
+      "stairs": "rechiseled:prismarine_bricks_brick_pattern_stairs",
+      "slab": "rechiseled:prismarine_bricks_brick_pattern_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:prismarine_bricks_brick_pattern_connecting",
+      "connecting_stairs": "rechiseled:prismarine_bricks_brick_pattern_stairs_connecting",
+      "connecting_slab": "rechiseled:prismarine_bricks_brick_pattern_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:prismarine_bricks_brick_paving",
-      "connecting_item": "rechiseled:prismarine_bricks_brick_paving_connecting"
+      "block": "rechiseled:prismarine_bricks_brick_paving",
+      "stairs": "rechiseled:prismarine_bricks_brick_paving_stairs",
+      "slab": "rechiseled:prismarine_bricks_brick_paving_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:prismarine_bricks_brick_paving_connecting",
+      "connecting_stairs": "rechiseled:prismarine_bricks_brick_paving_stairs_connecting",
+      "connecting_slab": "rechiseled:prismarine_bricks_brick_paving_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:prismarine_bricks_bricks",
-      "connecting_item": "rechiseled:prismarine_bricks_bricks_connecting"
+      "block": "rechiseled:prismarine_bricks_bricks",
+      "stairs": "rechiseled:prismarine_bricks_bricks_stairs",
+      "slab": "rechiseled:prismarine_bricks_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:prismarine_bricks_bricks_connecting",
+      "connecting_stairs": "rechiseled:prismarine_bricks_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:prismarine_bricks_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:prismarine_bricks_chiseled_circles",
-      "connecting_item": "rechiseled:prismarine_bricks_chiseled_circles_connecting"
+      "block": "rechiseled:prismarine_bricks_chiseled_circles",
+      "stairs": "rechiseled:prismarine_bricks_chiseled_circles_stairs",
+      "slab": "rechiseled:prismarine_bricks_chiseled_circles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:prismarine_bricks_chiseled_circles_connecting",
+      "connecting_stairs": "rechiseled:prismarine_bricks_chiseled_circles_stairs_connecting",
+      "connecting_slab": "rechiseled:prismarine_bricks_chiseled_circles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:prismarine_bricks_chiseled_squares",
-      "connecting_item": "rechiseled:prismarine_bricks_chiseled_squares_connecting"
+      "block": "rechiseled:prismarine_bricks_chiseled_squares",
+      "stairs": "rechiseled:prismarine_bricks_chiseled_squares_stairs",
+      "slab": "rechiseled:prismarine_bricks_chiseled_squares_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:prismarine_bricks_chiseled_squares_connecting",
+      "connecting_stairs": "rechiseled:prismarine_bricks_chiseled_squares_stairs_connecting",
+      "connecting_slab": "rechiseled:prismarine_bricks_chiseled_squares_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:prismarine_bricks_diagonal_bricks",
-      "connecting_item": "rechiseled:prismarine_bricks_diagonal_bricks_connecting"
+      "block": "rechiseled:prismarine_bricks_diagonal_bricks",
+      "stairs": "rechiseled:prismarine_bricks_diagonal_bricks_stairs",
+      "slab": "rechiseled:prismarine_bricks_diagonal_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:prismarine_bricks_diagonal_bricks_connecting",
+      "connecting_stairs": "rechiseled:prismarine_bricks_diagonal_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:prismarine_bricks_diagonal_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:prismarine_bricks_diagonal_tiles",
-      "connecting_item": "rechiseled:prismarine_bricks_diagonal_tiles_connecting"
+      "block": "rechiseled:prismarine_bricks_diagonal_tiles",
+      "stairs": "rechiseled:prismarine_bricks_diagonal_tiles_stairs",
+      "slab": "rechiseled:prismarine_bricks_diagonal_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:prismarine_bricks_diagonal_tiles_connecting",
+      "connecting_stairs": "rechiseled:prismarine_bricks_diagonal_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:prismarine_bricks_diagonal_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:prismarine_bricks_dotted",
-      "connecting_item": "rechiseled:prismarine_bricks_dotted_connecting"
+      "block": "rechiseled:prismarine_bricks_dotted",
+      "stairs": "rechiseled:prismarine_bricks_dotted_stairs",
+      "slab": "rechiseled:prismarine_bricks_dotted_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:prismarine_bricks_dotted_connecting",
+      "connecting_stairs": "rechiseled:prismarine_bricks_dotted_stairs_connecting",
+      "connecting_slab": "rechiseled:prismarine_bricks_dotted_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:prismarine_bricks_pillars",
-      "connecting_item": "rechiseled:prismarine_bricks_pillars_connecting"
+      "block": "rechiseled:prismarine_bricks_pillars",
+      "stairs": "rechiseled:prismarine_bricks_pillars_stairs",
+      "slab": "rechiseled:prismarine_bricks_pillars_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:prismarine_bricks_pillars_connecting",
+      "connecting_stairs": "rechiseled:prismarine_bricks_pillars_stairs_connecting",
+      "connecting_slab": "rechiseled:prismarine_bricks_pillars_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:prismarine_bricks_polished",
-      "connecting_item": "rechiseled:prismarine_bricks_polished_connecting"
+      "block": "rechiseled:prismarine_bricks_polished",
+      "stairs": "rechiseled:prismarine_bricks_polished_stairs",
+      "slab": "rechiseled:prismarine_bricks_polished_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:prismarine_bricks_polished_connecting",
+      "connecting_stairs": "rechiseled:prismarine_bricks_polished_stairs_connecting",
+      "connecting_slab": "rechiseled:prismarine_bricks_polished_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:prismarine_bricks_rotated_bricks",
-      "connecting_item": "rechiseled:prismarine_bricks_rotated_bricks_connecting"
+      "block": "rechiseled:prismarine_bricks_rotated_bricks",
+      "stairs": "rechiseled:prismarine_bricks_rotated_bricks_stairs",
+      "slab": "rechiseled:prismarine_bricks_rotated_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:prismarine_bricks_rotated_bricks_connecting",
+      "connecting_stairs": "rechiseled:prismarine_bricks_rotated_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:prismarine_bricks_rotated_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:prismarine_bricks_rows",
-      "connecting_item": "rechiseled:prismarine_bricks_rows_connecting"
+      "block": "rechiseled:prismarine_bricks_rows",
+      "stairs": "rechiseled:prismarine_bricks_rows_stairs",
+      "slab": "rechiseled:prismarine_bricks_rows_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:prismarine_bricks_rows_connecting",
+      "connecting_stairs": "rechiseled:prismarine_bricks_rows_stairs_connecting",
+      "connecting_slab": "rechiseled:prismarine_bricks_rows_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:prismarine_bricks_small_tiles",
-      "connecting_item": "rechiseled:prismarine_bricks_small_tiles_connecting"
+      "block": "rechiseled:prismarine_bricks_small_tiles",
+      "stairs": "rechiseled:prismarine_bricks_small_tiles_stairs",
+      "slab": "rechiseled:prismarine_bricks_small_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:prismarine_bricks_small_tiles_connecting",
+      "connecting_stairs": "rechiseled:prismarine_bricks_small_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:prismarine_bricks_small_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:prismarine_bricks_squares",
-      "connecting_item": "rechiseled:prismarine_bricks_squares_connecting"
+      "block": "rechiseled:prismarine_bricks_squares",
+      "stairs": "rechiseled:prismarine_bricks_squares_stairs",
+      "slab": "rechiseled:prismarine_bricks_squares_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:prismarine_bricks_squares_connecting",
+      "connecting_stairs": "rechiseled:prismarine_bricks_squares_stairs_connecting",
+      "connecting_slab": "rechiseled:prismarine_bricks_squares_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:prismarine_bricks_tiles",
-      "connecting_item": "rechiseled:prismarine_bricks_tiles_connecting"
+      "block": "rechiseled:prismarine_bricks_tiles",
+      "stairs": "rechiseled:prismarine_bricks_tiles_stairs",
+      "slab": "rechiseled:prismarine_bricks_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:prismarine_bricks_tiles_connecting",
+      "connecting_stairs": "rechiseled:prismarine_bricks_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:prismarine_bricks_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:prismarine_bricks_wavy",
-      "connecting_item": "rechiseled:prismarine_bricks_wavy_connecting"
+      "block": "rechiseled:prismarine_bricks_wavy",
+      "stairs": "rechiseled:prismarine_bricks_wavy_stairs",
+      "slab": "rechiseled:prismarine_bricks_wavy_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:prismarine_bricks_wavy_connecting",
+      "connecting_stairs": "rechiseled:prismarine_bricks_wavy_stairs_connecting",
+      "connecting_slab": "rechiseled:prismarine_bricks_wavy_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:prismarine_bricks_woven",
-      "connecting_item": "rechiseled:prismarine_bricks_woven_connecting"
+      "block": "rechiseled:prismarine_bricks_woven",
+      "stairs": "rechiseled:prismarine_bricks_woven_stairs",
+      "slab": "rechiseled:prismarine_bricks_woven_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:prismarine_bricks_woven_connecting",
+      "connecting_stairs": "rechiseled:prismarine_bricks_woven_stairs_connecting",
+      "connecting_slab": "rechiseled:prismarine_bricks_woven_slab_connecting",
+      "connecting_slab_worth": 0.5
     }
   ]
 }

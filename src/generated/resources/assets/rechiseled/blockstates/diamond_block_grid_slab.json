@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "rechiseled:diamond_block_grid_slab_bottom"
+    },
+    "type=double": {
+      "model": "rechiseled:diamond_block_grid_slab_double"
+    },
+    "type=top": {
+      "model": "rechiseled:diamond_block_grid_slab_top"
+    }
+  }
+}

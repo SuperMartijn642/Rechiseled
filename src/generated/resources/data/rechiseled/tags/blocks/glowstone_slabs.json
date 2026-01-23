@@ -1,0 +1,77 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:glowstone_brick_pattern_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:glowstone_brick_pattern_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:glowstone_brick_paving_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:glowstone_brick_paving_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:glowstone_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:glowstone_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:glowstone_crushed_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:glowstone_crushed_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:glowstone_large_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:glowstone_large_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:glowstone_rotated_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:glowstone_rotated_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:glowstone_small_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:glowstone_small_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:glowstone_smooth_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:glowstone_smooth_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:glowstone_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:glowstone_tiles_slab_connecting",
+      "required": true
+    }
+  ]
+}

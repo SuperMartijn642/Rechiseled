@@ -1,0 +1,145 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:cobblestone_beams_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_beams_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_brick_pattern_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_brick_pattern_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_brick_paving_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_brick_paving_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_chiseled_border_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_chiseled_border_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_crosses_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_crosses_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_dented_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_dented_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_inverted_dented_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_inverted_dented_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_large_squares_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_paving_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_paving_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_pillar_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_pillar_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_polished_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_pulverized_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_pulverized_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_rotated_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_rotated_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_sheared_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_small_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_small_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_squares_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_squares_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_stripes_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_stripes_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_worn_stripes_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_worn_stripes_slab_connecting",
+      "required": true
+    }
+  ]
+}

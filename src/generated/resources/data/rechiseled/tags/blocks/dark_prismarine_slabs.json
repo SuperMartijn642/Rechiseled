@@ -1,0 +1,101 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:dark_prismarine_beams_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_beams_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_brick_paving_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_brick_paving_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_dotted_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_dotted_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_fabric_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_fabric_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_large_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_large_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_rotated_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_rotated_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_rows_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_rows_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_squares_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_squares_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_wavy_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_wavy_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_woven_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_woven_slab_connecting",
+      "required": true
+    }
+  ]
+}

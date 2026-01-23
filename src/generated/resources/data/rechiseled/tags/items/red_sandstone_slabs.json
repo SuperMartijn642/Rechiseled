@@ -1,0 +1,69 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:red_sandstone_brick_pattern_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:red_sandstone_brick_pattern_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:red_sandstone_brick_paving_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:red_sandstone_brick_paving_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:red_sandstone_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:red_sandstone_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:red_sandstone_diagonal_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:red_sandstone_diagonal_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:red_sandstone_large_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:red_sandstone_large_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:red_sandstone_polished_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:red_sandstone_polished_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:red_sandstone_rotated_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:red_sandstone_rotated_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:red_sandstone_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:red_sandstone_tiles_slab_connecting",
+      "required": true
+    }
+  ]
+}

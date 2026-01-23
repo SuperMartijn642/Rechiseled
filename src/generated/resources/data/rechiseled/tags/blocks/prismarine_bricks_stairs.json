@@ -1,0 +1,149 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:prismarine_bricks_beams_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_beams_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_brick_pattern_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_brick_pattern_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_brick_paving_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_brick_paving_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_chiseled_circles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_chiseled_circles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_chiseled_squares_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_chiseled_squares_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_diagonal_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_diagonal_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_diagonal_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_diagonal_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_dotted_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_dotted_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_pillars_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_pillars_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_polished_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_polished_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_rotated_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_rotated_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_rows_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_rows_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_small_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_small_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_squares_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_squares_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_wavy_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_wavy_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_woven_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:prismarine_bricks_woven_stairs_connecting",
+      "required": true
+    }
+  ]
+}

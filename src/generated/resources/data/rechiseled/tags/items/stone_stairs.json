@@ -1,0 +1,165 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:stone_big_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_big_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_bordered_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_bordered_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_brick_pattern_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_brick_pattern_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_brick_paving_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_brick_paving_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_chiseled_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_chiseled_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_cobbled_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_crushed_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_crushed_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_diagonal_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_diagonal_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_path_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_path_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_rotated_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_rotated_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_slated_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_small_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_small_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_small_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_small_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_smooth_brick_paving_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_smooth_brick_paving_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_smooth_large_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_smooth_large_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_smooth_rotated_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_smooth_rotated_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_smooth_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_smooth_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_smooth_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_smooth_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_squares_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_squares_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_waves_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:stone_waves_stairs_connecting",
+      "required": true
+    }
+  ]
+}

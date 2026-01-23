@@ -3,56 +3,128 @@
   "overwrite": false,
   "entries": [
     {
-      "item": "minecraft:prismarine",
-      "item_data": 2
+      "block": "minecraft:prismarine",
+      "block_meta": 2
     },
     {
-      "item": "rechiseled:dark_prismarine_beams",
-      "connecting_item": "rechiseled:dark_prismarine_beams_connecting"
+      "block": "rechiseled:dark_prismarine_beams",
+      "stairs": "rechiseled:dark_prismarine_beams_stairs",
+      "slab": "rechiseled:dark_prismarine_beams_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:dark_prismarine_beams_connecting",
+      "connecting_stairs": "rechiseled:dark_prismarine_beams_stairs_connecting",
+      "connecting_slab": "rechiseled:dark_prismarine_beams_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:dark_prismarine_brick_paving",
-      "connecting_item": "rechiseled:dark_prismarine_brick_paving_connecting"
+      "block": "rechiseled:dark_prismarine_brick_paving",
+      "stairs": "rechiseled:dark_prismarine_brick_paving_stairs",
+      "slab": "rechiseled:dark_prismarine_brick_paving_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:dark_prismarine_brick_paving_connecting",
+      "connecting_stairs": "rechiseled:dark_prismarine_brick_paving_stairs_connecting",
+      "connecting_slab": "rechiseled:dark_prismarine_brick_paving_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:dark_prismarine_bricks",
-      "connecting_item": "rechiseled:dark_prismarine_bricks_connecting"
+      "block": "rechiseled:dark_prismarine_bricks",
+      "stairs": "rechiseled:dark_prismarine_bricks_stairs",
+      "slab": "rechiseled:dark_prismarine_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:dark_prismarine_bricks_connecting",
+      "connecting_stairs": "rechiseled:dark_prismarine_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:dark_prismarine_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:dark_prismarine_dotted",
-      "connecting_item": "rechiseled:dark_prismarine_dotted_connecting"
+      "block": "rechiseled:dark_prismarine_dotted",
+      "stairs": "rechiseled:dark_prismarine_dotted_stairs",
+      "slab": "rechiseled:dark_prismarine_dotted_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:dark_prismarine_dotted_connecting",
+      "connecting_stairs": "rechiseled:dark_prismarine_dotted_stairs_connecting",
+      "connecting_slab": "rechiseled:dark_prismarine_dotted_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:dark_prismarine_fabric",
-      "connecting_item": "rechiseled:dark_prismarine_fabric_connecting"
+      "block": "rechiseled:dark_prismarine_fabric",
+      "stairs": "rechiseled:dark_prismarine_fabric_stairs",
+      "slab": "rechiseled:dark_prismarine_fabric_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:dark_prismarine_fabric_connecting",
+      "connecting_stairs": "rechiseled:dark_prismarine_fabric_stairs_connecting",
+      "connecting_slab": "rechiseled:dark_prismarine_fabric_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:dark_prismarine_large_tiles",
-      "connecting_item": "rechiseled:dark_prismarine_large_tiles_connecting"
+      "block": "rechiseled:dark_prismarine_large_tiles",
+      "stairs": "rechiseled:dark_prismarine_large_tiles_stairs",
+      "slab": "rechiseled:dark_prismarine_large_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:dark_prismarine_large_tiles_connecting",
+      "connecting_stairs": "rechiseled:dark_prismarine_large_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:dark_prismarine_large_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:dark_prismarine_rotated_bricks",
-      "connecting_item": "rechiseled:dark_prismarine_rotated_bricks_connecting"
+      "block": "rechiseled:dark_prismarine_rotated_bricks",
+      "stairs": "rechiseled:dark_prismarine_rotated_bricks_stairs",
+      "slab": "rechiseled:dark_prismarine_rotated_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:dark_prismarine_rotated_bricks_connecting",
+      "connecting_stairs": "rechiseled:dark_prismarine_rotated_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:dark_prismarine_rotated_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:dark_prismarine_rows",
-      "connecting_item": "rechiseled:dark_prismarine_rows_connecting"
+      "block": "rechiseled:dark_prismarine_rows",
+      "stairs": "rechiseled:dark_prismarine_rows_stairs",
+      "slab": "rechiseled:dark_prismarine_rows_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:dark_prismarine_rows_connecting",
+      "connecting_stairs": "rechiseled:dark_prismarine_rows_stairs_connecting",
+      "connecting_slab": "rechiseled:dark_prismarine_rows_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:dark_prismarine_squares",
-      "connecting_item": "rechiseled:dark_prismarine_squares_connecting"
+      "block": "rechiseled:dark_prismarine_squares",
+      "stairs": "rechiseled:dark_prismarine_squares_stairs",
+      "slab": "rechiseled:dark_prismarine_squares_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:dark_prismarine_squares_connecting",
+      "connecting_stairs": "rechiseled:dark_prismarine_squares_stairs_connecting",
+      "connecting_slab": "rechiseled:dark_prismarine_squares_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:dark_prismarine_tiles",
-      "connecting_item": "rechiseled:dark_prismarine_tiles_connecting"
+      "block": "rechiseled:dark_prismarine_tiles",
+      "stairs": "rechiseled:dark_prismarine_tiles_stairs",
+      "slab": "rechiseled:dark_prismarine_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:dark_prismarine_tiles_connecting",
+      "connecting_stairs": "rechiseled:dark_prismarine_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:dark_prismarine_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:dark_prismarine_wavy",
-      "connecting_item": "rechiseled:dark_prismarine_wavy_connecting"
+      "block": "rechiseled:dark_prismarine_wavy",
+      "stairs": "rechiseled:dark_prismarine_wavy_stairs",
+      "slab": "rechiseled:dark_prismarine_wavy_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:dark_prismarine_wavy_connecting",
+      "connecting_stairs": "rechiseled:dark_prismarine_wavy_stairs_connecting",
+      "connecting_slab": "rechiseled:dark_prismarine_wavy_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:dark_prismarine_woven",
-      "connecting_item": "rechiseled:dark_prismarine_woven_connecting"
+      "block": "rechiseled:dark_prismarine_woven",
+      "stairs": "rechiseled:dark_prismarine_woven_stairs",
+      "slab": "rechiseled:dark_prismarine_woven_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:dark_prismarine_woven_connecting",
+      "connecting_stairs": "rechiseled:dark_prismarine_woven_stairs_connecting",
+      "connecting_slab": "rechiseled:dark_prismarine_woven_slab_connecting",
+      "connecting_slab_worth": 0.5
     }
   ]
 }

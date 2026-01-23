@@ -1,0 +1,145 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:cobblestone_beams_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_beams_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_brick_pattern_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_brick_pattern_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_brick_paving_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_brick_paving_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_chiseled_border_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_chiseled_border_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_crosses_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_crosses_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_dented_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_dented_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_inverted_dented_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_inverted_dented_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_large_squares_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_paving_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_paving_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_pillar_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_pillar_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_polished_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_pulverized_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_pulverized_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_rotated_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_rotated_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_sheared_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_small_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_small_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_squares_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_squares_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_stripes_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_stripes_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_worn_stripes_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:cobblestone_worn_stripes_stairs_connecting",
+      "required": true
+    }
+  ]
+}

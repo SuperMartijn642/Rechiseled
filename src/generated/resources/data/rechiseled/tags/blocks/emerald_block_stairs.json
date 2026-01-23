@@ -1,0 +1,105 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:emerald_block_bordered_crosses_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_bordered_crosses_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_bordered_plating_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_bordered_plating_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_chiseled_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_chiseled_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_clovers_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_clovers_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_crosses_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_crystal_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_crystal_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_patterned_squares_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_patterned_squares_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_patterned_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_patterned_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_pillar_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_pillar_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_plating_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_polished_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_polished_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_smooth_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_striped_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_striped_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_waxed_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_waxed_stairs_connecting",
+      "required": true
+    }
+  ]
+}

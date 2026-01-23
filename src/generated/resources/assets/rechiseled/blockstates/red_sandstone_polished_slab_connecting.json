@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "rechiseled:red_sandstone_polished_slab_connecting_bottom"
+    },
+    "type=double": {
+      "model": "rechiseled:red_sandstone_polished_slab_connecting_double"
+    },
+    "type=top": {
+      "model": "rechiseled:red_sandstone_polished_slab_connecting_top"
+    }
+  }
+}

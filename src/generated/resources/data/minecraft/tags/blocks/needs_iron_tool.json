@@ -1,71 +1,797 @@
 {
   "replace": false,
   "values": [
-    "rechiseled:diamond_block_jewel_block",
-    "rechiseled:emerald_block_crystal_connecting",
-    "rechiseled:emerald_block_polished_connecting",
-    "rechiseled:gold_block_bordered_connecting",
-    "rechiseled:diamond_block_polished",
-    "rechiseled:emerald_block_waxed_connecting",
-    "rechiseled:gold_block_lines",
-    "rechiseled:emerald_block_plating",
-    "rechiseled:emerald_block_crystal",
-    "rechiseled:emerald_block_patterned_connecting",
-    "rechiseled:emerald_block_chiseled_connecting",
-    "rechiseled:emerald_block_clovers_connecting",
-    "rechiseled:diamond_block_small_tiles_connecting",
-    "rechiseled:diamond_block_diagonal_tiles",
-    "rechiseled:emerald_block_striped",
-    "rechiseled:gold_block_bordered",
-    "rechiseled:gold_block_pattern",
-    "rechiseled:diamond_block_grid",
-    "rechiseled:diamond_block_small_tiles",
-    "rechiseled:emerald_block_clovers",
-    "rechiseled:emerald_block_bordered_plating",
-    "rechiseled:diamond_block_grid_connecting",
-    "rechiseled:emerald_block_smooth",
-    "rechiseled:gold_block_small_tiles",
-    "rechiseled:diamond_block_smooth",
-    "rechiseled:gold_block_tiles",
-    "rechiseled:diamond_block_shiny_bordered_connecting",
-    "rechiseled:emerald_block_striped_connecting",
-    "rechiseled:emerald_block_bordered_crosses",
-    "rechiseled:gold_block_smooth",
-    "rechiseled:diamond_block_shiny",
-    "rechiseled:diamond_block_chiseled_cubes",
-    "rechiseled:emerald_block_crosses",
-    "rechiseled:emerald_block_pillar",
-    "rechiseled:diamond_block_chiseled_cubes_connecting",
-    "rechiseled:gold_block_tiles_connecting",
-    "rechiseled:diamond_block_chiseled_connecting",
-    "rechiseled:emerald_block_bordered_plating_connecting",
-    "rechiseled:diamond_block_rhombuses",
-    "rechiseled:diamond_block_chiseled",
-    "rechiseled:diamond_block_shiny_bordered",
-    "rechiseled:gold_block_beams",
-    "rechiseled:gold_block_scales_connecting",
-    "rechiseled:diamond_block_polished_connecting",
-    "rechiseled:diamond_block_rhombuses_connecting",
-    "rechiseled:diamond_block_connecting_connecting",
-    "rechiseled:gold_block_polished",
-    "rechiseled:gold_block_small_tiles_connecting",
-    "rechiseled:gold_block_polished_connecting",
-    "rechiseled:gold_block_pattern_connecting",
-    "rechiseled:emerald_block_polished",
-    "rechiseled:gold_block_scales",
-    "rechiseled:gold_block_beams_connecting",
-    "rechiseled:gold_block_small_bricks",
-    "rechiseled:emerald_block_patterned_squares",
-    "rechiseled:gold_block_lines_connecting",
-    "rechiseled:emerald_block_patterned_squares_connecting",
-    "rechiseled:emerald_block_pillar_connecting",
-    "rechiseled:gold_block_small_bricks_connecting",
-    "rechiseled:emerald_block_bordered_crosses_connecting",
-    "rechiseled:gold_block_striped",
-    "rechiseled:gold_block_striped_connecting",
-    "rechiseled:emerald_block_chiseled",
-    "rechiseled:emerald_block_waxed",
-    "rechiseled:emerald_block_patterned",
-    "rechiseled:diamond_block_jewel_block_connecting"
+    {
+      "id": "rechiseled:diamond_block_chiseled",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_chiseled_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_chiseled_cubes",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_chiseled_cubes_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_chiseled_cubes_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_chiseled_cubes_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_chiseled_cubes_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_chiseled_cubes_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_chiseled_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_chiseled_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_chiseled_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_chiseled_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_connecting_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_connecting_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_connecting_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_diagonal_tiles",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_diagonal_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_diagonal_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_grid",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_grid_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_grid_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_grid_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_grid_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_grid_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_jewel_block",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_jewel_block_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_jewel_block_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_jewel_block_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_jewel_block_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_jewel_block_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_polished",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_polished_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_polished_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_polished_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_polished_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_polished_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_rhombuses",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_rhombuses_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_rhombuses_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_rhombuses_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_rhombuses_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_rhombuses_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_shiny",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_shiny_bordered",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_shiny_bordered_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_shiny_bordered_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_shiny_bordered_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_shiny_bordered_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_shiny_bordered_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_shiny_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_shiny_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_small_tiles",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_small_tiles_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_small_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_small_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_small_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_small_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_smooth",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_smooth_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diamond_block_smooth_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_bordered_crosses",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_bordered_crosses_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_bordered_crosses_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_bordered_crosses_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_bordered_crosses_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_bordered_crosses_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_bordered_plating",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_bordered_plating_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_bordered_plating_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_bordered_plating_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_bordered_plating_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_bordered_plating_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_chiseled",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_chiseled_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_chiseled_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_chiseled_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_chiseled_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_chiseled_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_clovers",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_clovers_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_clovers_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_clovers_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_clovers_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_clovers_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_crosses",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_crosses_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_crosses_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_crystal",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_crystal_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_crystal_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_crystal_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_crystal_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_crystal_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_patterned",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_patterned_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_patterned_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_patterned_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_patterned_squares",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_patterned_squares_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_patterned_squares_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_patterned_squares_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_patterned_squares_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_patterned_squares_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_patterned_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_patterned_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_pillar",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_pillar_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_pillar_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_pillar_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_pillar_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_pillar_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_plating",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_plating_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_plating_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_polished",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_polished_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_polished_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_polished_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_polished_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_polished_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_smooth",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_smooth_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_smooth_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_striped",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_striped_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_striped_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_striped_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_striped_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_striped_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_waxed",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_waxed_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_waxed_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_waxed_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_waxed_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_waxed_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_beams",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_beams_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_beams_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_beams_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_beams_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_beams_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_bordered",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_bordered_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_bordered_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_bordered_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_bordered_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_bordered_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_lines",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_lines_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_lines_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_lines_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_lines_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_lines_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_pattern",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_pattern_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_pattern_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_pattern_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_pattern_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_pattern_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_polished",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_polished_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_polished_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_polished_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_polished_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_polished_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_scales",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_scales_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_scales_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_scales_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_scales_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_scales_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_small_bricks",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_small_bricks_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_small_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_small_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_small_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_small_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_small_tiles",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_small_tiles_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_small_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_small_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_small_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_small_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_smooth",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_smooth_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_smooth_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_striped",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_striped_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_striped_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_striped_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_striped_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_striped_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_tiles",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_tiles_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_tiles_stairs_connecting",
+      "required": true
+    }
   ]
 }

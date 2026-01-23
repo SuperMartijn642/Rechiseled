@@ -1,0 +1,221 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:netherrack_beams",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_beams_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_beams_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_beams_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_beams_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_beams_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_brick_pattern",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_brick_pattern_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_brick_pattern_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_brick_pattern_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_brick_pattern_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_brick_pattern_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_brick_paving",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_brick_paving_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_brick_paving_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_brick_paving_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_brick_paving_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_brick_paving_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_bricks",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_bricks_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_dented",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_dented_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_dented_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_dented_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_dented_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_dented_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_rotated_bricks",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_rotated_bricks_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_rotated_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_rotated_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_rotated_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_rotated_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_small_tiles",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_small_tiles_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_small_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_small_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_small_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_small_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_stripes",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_stripes_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_stripes_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_stripes_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_stripes_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_stripes_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_tiles",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_tiles_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:netherrack_tiles_stairs_connecting",
+      "required": true
+    }
+  ]
+}

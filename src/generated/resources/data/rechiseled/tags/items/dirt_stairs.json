@@ -1,0 +1,113 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:dirt_blobs_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_blobs_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_chunks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_chunks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_clumps_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_clumps_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_cobbled_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_grooves_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_large_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_large_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_muddy_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_small_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_small_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_small_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_small_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_smooth_clumps_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_smooth_clumps_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_soil_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_soil_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_squares_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_squares_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_tilled_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dirt_tilled_stairs_connecting",
+      "required": true
+    }
+  ]
+}

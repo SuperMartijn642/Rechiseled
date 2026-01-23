@@ -1,0 +1,89 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:coal_block_carved_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:coal_block_carved_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:coal_block_chiseled_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:coal_block_chiseled_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:coal_block_circles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:coal_block_circles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:coal_block_compacted_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:coal_block_compacted_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:coal_block_ovals_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:coal_block_ovals_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:coal_block_pattern_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:coal_block_pattern_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:coal_block_pillar_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:coal_block_pillar_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:coal_block_polished_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:coal_block_rotated_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:coal_block_rotated_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:coal_block_small_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:coal_block_small_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:coal_block_stripes_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:coal_block_stripes_slab_connecting",
+      "required": true
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "rechiseled:bone_block_decorated_bordered_slab_bottom"
+    },
+    "type=double": {
+      "model": "rechiseled:bone_block_decorated_bordered_slab_double"
+    },
+    "type=top": {
+      "model": "rechiseled:bone_block_decorated_bordered_slab_top"
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:end_stone_blobs_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_blobs_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_brick_pattern_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_brick_pattern_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_brick_paving_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_brick_paving_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_chiseled_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_chiseled_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_crushed_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_crushed_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_diagonal_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_diagonal_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_mesh_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_mesh_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_paving_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_paving_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_polished_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_polished_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_rotated_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_rotated_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_scales_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_scales_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_small_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_small_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_spiral_pattern_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_spiral_pattern_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_squares_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_squares_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_tiles_slab_connecting",
+      "required": true
+    }
+  ]
+}

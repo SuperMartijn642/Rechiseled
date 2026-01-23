@@ -1,0 +1,121 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:obsidian_bordered_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_bordered_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_brick_pattern_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_brick_pattern_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_brick_paving_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_brick_paving_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_chiseled_circles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_chiseled_circles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_chiseled_creeper_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_chiseled_skeleton_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_chiseled_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_chiseled_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_dark_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_dark_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_large_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_pillars_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_pillars_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_rotated_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_rotated_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_spots_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_spots_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_squares_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_squares_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_stripes_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_stripes_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:obsidian_tiles_stairs_connecting",
+      "required": true
+    }
+  ]
+}

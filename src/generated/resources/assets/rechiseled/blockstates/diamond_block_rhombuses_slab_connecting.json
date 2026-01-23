@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "rechiseled:diamond_block_rhombuses_slab_connecting_bottom"
+    },
+    "type=double": {
+      "model": "rechiseled:diamond_block_rhombuses_slab_connecting_double"
+    },
+    "type=top": {
+      "model": "rechiseled:diamond_block_rhombuses_slab_connecting_top"
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:gold_block_beams_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_beams_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_bordered_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_bordered_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_lines_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_lines_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_pattern_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_pattern_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_polished_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_polished_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_scales_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_scales_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_small_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_small_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_small_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_small_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_smooth_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_striped_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_striped_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:gold_block_tiles_slab_connecting",
+      "required": true
+    }
+  ]
+}

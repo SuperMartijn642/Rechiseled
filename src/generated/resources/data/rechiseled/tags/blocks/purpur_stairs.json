@@ -1,0 +1,145 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:purpur_brick_pattern_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_brick_pattern_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_brick_paving_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_brick_paving_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_diagonal_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_diagonal_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_diagonal_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_diagonal_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_dotted_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_dotted_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_fabric_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_fabric_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_jagged_pattern_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_jagged_pattern_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_large_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_large_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_organic_pattern_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_organic_pattern_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_pillar_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_pillar_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_rotated_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_rotated_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_slanted_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_slanted_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_small_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_small_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_spiral_pattern_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_spiral_pattern_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_squares_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_squares_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_woven_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:purpur_woven_stairs_connecting",
+      "required": true
+    }
+  ]
+}

@@ -3,50 +3,113 @@
   "overwrite": false,
   "entries": [
     {
-      "item": "minecraft:coal_block"
+      "block": "minecraft:coal_block"
     },
     {
-      "item": "rechiseled:coal_block_carved",
-      "connecting_item": "rechiseled:coal_block_carved_connecting"
+      "block": "rechiseled:coal_block_carved",
+      "stairs": "rechiseled:coal_block_carved_stairs",
+      "slab": "rechiseled:coal_block_carved_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:coal_block_carved_connecting",
+      "connecting_stairs": "rechiseled:coal_block_carved_stairs_connecting",
+      "connecting_slab": "rechiseled:coal_block_carved_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:coal_block_chiseled",
-      "connecting_item": "rechiseled:coal_block_chiseled_connecting"
+      "block": "rechiseled:coal_block_chiseled",
+      "stairs": "rechiseled:coal_block_chiseled_stairs",
+      "slab": "rechiseled:coal_block_chiseled_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:coal_block_chiseled_connecting",
+      "connecting_stairs": "rechiseled:coal_block_chiseled_stairs_connecting",
+      "connecting_slab": "rechiseled:coal_block_chiseled_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:coal_block_circles",
-      "connecting_item": "rechiseled:coal_block_circles_connecting"
+      "block": "rechiseled:coal_block_circles",
+      "stairs": "rechiseled:coal_block_circles_stairs",
+      "slab": "rechiseled:coal_block_circles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:coal_block_circles_connecting",
+      "connecting_stairs": "rechiseled:coal_block_circles_stairs_connecting",
+      "connecting_slab": "rechiseled:coal_block_circles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:coal_block_compacted",
-      "connecting_item": "rechiseled:coal_block_compacted_connecting"
+      "block": "rechiseled:coal_block_compacted",
+      "stairs": "rechiseled:coal_block_compacted_stairs",
+      "slab": "rechiseled:coal_block_compacted_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:coal_block_compacted_connecting",
+      "connecting_stairs": "rechiseled:coal_block_compacted_stairs_connecting",
+      "connecting_slab": "rechiseled:coal_block_compacted_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:coal_block_ovals",
-      "connecting_item": "rechiseled:coal_block_ovals_connecting"
+      "block": "rechiseled:coal_block_ovals",
+      "stairs": "rechiseled:coal_block_ovals_stairs",
+      "slab": "rechiseled:coal_block_ovals_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:coal_block_ovals_connecting",
+      "connecting_stairs": "rechiseled:coal_block_ovals_stairs_connecting",
+      "connecting_slab": "rechiseled:coal_block_ovals_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:coal_block_pattern",
-      "connecting_item": "rechiseled:coal_block_pattern_connecting"
+      "block": "rechiseled:coal_block_pattern",
+      "stairs": "rechiseled:coal_block_pattern_stairs",
+      "slab": "rechiseled:coal_block_pattern_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:coal_block_pattern_connecting",
+      "connecting_stairs": "rechiseled:coal_block_pattern_stairs_connecting",
+      "connecting_slab": "rechiseled:coal_block_pattern_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:coal_block_pillar",
-      "connecting_item": "rechiseled:coal_block_pillar_connecting"
+      "block": "rechiseled:coal_block_pillar",
+      "stairs": "rechiseled:coal_block_pillar_stairs",
+      "slab": "rechiseled:coal_block_pillar_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:coal_block_pillar_connecting",
+      "connecting_stairs": "rechiseled:coal_block_pillar_stairs_connecting",
+      "connecting_slab": "rechiseled:coal_block_pillar_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:coal_block_polished"
+      "block": "rechiseled:coal_block_polished",
+      "stairs": "rechiseled:coal_block_polished_stairs",
+      "slab": "rechiseled:coal_block_polished_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "rechiseled:coal_block_rotated_bricks",
-      "connecting_item": "rechiseled:coal_block_rotated_bricks_connecting"
+      "block": "rechiseled:coal_block_rotated_bricks",
+      "stairs": "rechiseled:coal_block_rotated_bricks_stairs",
+      "slab": "rechiseled:coal_block_rotated_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:coal_block_rotated_bricks_connecting",
+      "connecting_stairs": "rechiseled:coal_block_rotated_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:coal_block_rotated_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:coal_block_small_tiles",
-      "connecting_item": "rechiseled:coal_block_small_tiles_connecting"
+      "block": "rechiseled:coal_block_small_tiles",
+      "stairs": "rechiseled:coal_block_small_tiles_stairs",
+      "slab": "rechiseled:coal_block_small_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:coal_block_small_tiles_connecting",
+      "connecting_stairs": "rechiseled:coal_block_small_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:coal_block_small_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:coal_block_stripes",
-      "connecting_item": "rechiseled:coal_block_stripes_connecting"
+      "block": "rechiseled:coal_block_stripes",
+      "stairs": "rechiseled:coal_block_stripes_stairs",
+      "slab": "rechiseled:coal_block_stripes_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:coal_block_stripes_connecting",
+      "connecting_stairs": "rechiseled:coal_block_stripes_stairs_connecting",
+      "connecting_slab": "rechiseled:coal_block_stripes_slab_connecting",
+      "connecting_slab_worth": 0.5
     }
   ]
 }

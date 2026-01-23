@@ -1,0 +1,109 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:iron_block_bordered_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_bordered_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_chiseled_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_chiseled_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_connecting_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_framed_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_framed_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_gears_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_gears_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_lines_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_lines_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_patterned_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_patterned_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_pipes_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_pipes_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_plated_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_polished_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_polished_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_processed_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_processed_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_pulverized_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_reinforced_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_sheets_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_small_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_small_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:iron_block_smooth_slab",
+      "required": true
+    }
+  ]
+}

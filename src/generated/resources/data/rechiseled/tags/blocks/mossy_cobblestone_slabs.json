@@ -1,0 +1,69 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:mossy_cobblestone_beams_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_beams_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_dented_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_dented_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_inverted_dented_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_inverted_dented_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_paving_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_paving_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_small_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_small_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_squares_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_squares_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_stripes_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_stripes_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_worn_stripes_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_worn_stripes_slab_connecting",
+      "required": true
+    }
+  ]
+}

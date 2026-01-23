@@ -1,0 +1,341 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:quartz_block_bordered",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_bordered_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_bordered_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_bordered_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_bordered_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_bordered_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_brick_paving",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_brick_paving_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_brick_paving_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_brick_paving_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_brick_paving_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_brick_paving_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_chiseled_pillar",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_chiseled_pillar_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_chiseled_pillar_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_chiseled_pillar_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_chiseled_pillar_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_chiseled_pillar_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_chiseled_squares",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_chiseled_squares_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_chiseled_squares_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_connecting_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_connecting_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_connecting_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_crosses",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_crosses_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_crosses_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_crosses_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_crosses_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_crosses_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_diagonal_tiles",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_diagonal_tiles_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_diagonal_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_diagonal_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_diagonal_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_diagonal_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_pattern",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_pattern_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_pattern_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_pattern_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_pattern_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_pattern_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_rotated_bricks",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_rotated_bricks_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_rotated_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_rotated_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_rotated_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_rotated_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_rows",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_rows_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_rows_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_rows_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_rows_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_rows_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_scales",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_scales_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_scales_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_scales_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_scales_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_scales_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_small_tiles",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_small_tiles_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_small_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_small_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_small_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_small_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_squares",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_squares_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_squares_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_squares_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_squares_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_squares_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_stripes",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_stripes_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_stripes_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_stripes_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_stripes_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_stripes_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_tiles",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_tiles_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:quartz_block_tiles_stairs_connecting",
+      "required": true
+    }
+  ]
+}

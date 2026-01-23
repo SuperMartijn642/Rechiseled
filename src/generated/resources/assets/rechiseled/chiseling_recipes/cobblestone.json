@@ -3,115 +3,272 @@
   "overwrite": false,
   "entries": [
     {
-      "item": "minecraft:cobblestone"
+      "block": "minecraft:cobblestone",
+      "stairs": "minecraft:stone_stairs",
+      "slab": "minecraft:stone_slab",
+      "slab_meta": 3,
+      "slab_worth": 0.5
     },
     {
-      "item": "minecraft:mossy_cobblestone"
+      "block": "minecraft:mossy_cobblestone"
     },
     {
-      "item": "rechiseled:cobblestone_beams",
-      "connecting_item": "rechiseled:cobblestone_beams_connecting"
+      "block": "rechiseled:cobblestone_beams",
+      "stairs": "rechiseled:cobblestone_beams_stairs",
+      "slab": "rechiseled:cobblestone_beams_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobblestone_beams_connecting",
+      "connecting_stairs": "rechiseled:cobblestone_beams_stairs_connecting",
+      "connecting_slab": "rechiseled:cobblestone_beams_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobblestone_brick_pattern",
-      "connecting_item": "rechiseled:cobblestone_brick_pattern_connecting"
+      "block": "rechiseled:cobblestone_brick_pattern",
+      "stairs": "rechiseled:cobblestone_brick_pattern_stairs",
+      "slab": "rechiseled:cobblestone_brick_pattern_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobblestone_brick_pattern_connecting",
+      "connecting_stairs": "rechiseled:cobblestone_brick_pattern_stairs_connecting",
+      "connecting_slab": "rechiseled:cobblestone_brick_pattern_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobblestone_brick_paving",
-      "connecting_item": "rechiseled:cobblestone_brick_paving_connecting"
+      "block": "rechiseled:cobblestone_brick_paving",
+      "stairs": "rechiseled:cobblestone_brick_paving_stairs",
+      "slab": "rechiseled:cobblestone_brick_paving_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobblestone_brick_paving_connecting",
+      "connecting_stairs": "rechiseled:cobblestone_brick_paving_stairs_connecting",
+      "connecting_slab": "rechiseled:cobblestone_brick_paving_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobblestone_chiseled_border",
-      "connecting_item": "rechiseled:cobblestone_chiseled_border_connecting"
+      "block": "rechiseled:cobblestone_chiseled_border",
+      "stairs": "rechiseled:cobblestone_chiseled_border_stairs",
+      "slab": "rechiseled:cobblestone_chiseled_border_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobblestone_chiseled_border_connecting",
+      "connecting_stairs": "rechiseled:cobblestone_chiseled_border_stairs_connecting",
+      "connecting_slab": "rechiseled:cobblestone_chiseled_border_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobblestone_crosses",
-      "connecting_item": "rechiseled:cobblestone_crosses_connecting"
+      "block": "rechiseled:cobblestone_crosses",
+      "stairs": "rechiseled:cobblestone_crosses_stairs",
+      "slab": "rechiseled:cobblestone_crosses_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobblestone_crosses_connecting",
+      "connecting_stairs": "rechiseled:cobblestone_crosses_stairs_connecting",
+      "connecting_slab": "rechiseled:cobblestone_crosses_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobblestone_dented",
-      "connecting_item": "rechiseled:cobblestone_dented_connecting"
+      "block": "rechiseled:cobblestone_dented",
+      "stairs": "rechiseled:cobblestone_dented_stairs",
+      "slab": "rechiseled:cobblestone_dented_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobblestone_dented_connecting",
+      "connecting_stairs": "rechiseled:cobblestone_dented_stairs_connecting",
+      "connecting_slab": "rechiseled:cobblestone_dented_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobblestone_inverted_dented",
-      "connecting_item": "rechiseled:cobblestone_inverted_dented_connecting"
+      "block": "rechiseled:cobblestone_inverted_dented",
+      "stairs": "rechiseled:cobblestone_inverted_dented_stairs",
+      "slab": "rechiseled:cobblestone_inverted_dented_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobblestone_inverted_dented_connecting",
+      "connecting_stairs": "rechiseled:cobblestone_inverted_dented_stairs_connecting",
+      "connecting_slab": "rechiseled:cobblestone_inverted_dented_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobblestone_large_squares"
+      "block": "rechiseled:cobblestone_large_squares",
+      "stairs": "rechiseled:cobblestone_large_squares_stairs",
+      "slab": "rechiseled:cobblestone_large_squares_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobblestone_paving",
-      "connecting_item": "rechiseled:cobblestone_paving_connecting"
+      "block": "rechiseled:cobblestone_paving",
+      "stairs": "rechiseled:cobblestone_paving_stairs",
+      "slab": "rechiseled:cobblestone_paving_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobblestone_paving_connecting",
+      "connecting_stairs": "rechiseled:cobblestone_paving_stairs_connecting",
+      "connecting_slab": "rechiseled:cobblestone_paving_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobblestone_pillar",
-      "connecting_item": "rechiseled:cobblestone_pillar_connecting"
+      "block": "rechiseled:cobblestone_pillar",
+      "stairs": "rechiseled:cobblestone_pillar_stairs",
+      "slab": "rechiseled:cobblestone_pillar_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobblestone_pillar_connecting",
+      "connecting_stairs": "rechiseled:cobblestone_pillar_stairs_connecting",
+      "connecting_slab": "rechiseled:cobblestone_pillar_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobblestone_polished"
+      "block": "rechiseled:cobblestone_polished",
+      "stairs": "rechiseled:cobblestone_polished_stairs",
+      "slab": "rechiseled:cobblestone_polished_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobblestone_pulverized",
-      "connecting_item": "rechiseled:cobblestone_pulverized_connecting"
+      "block": "rechiseled:cobblestone_pulverized",
+      "stairs": "rechiseled:cobblestone_pulverized_stairs",
+      "slab": "rechiseled:cobblestone_pulverized_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobblestone_pulverized_connecting",
+      "connecting_stairs": "rechiseled:cobblestone_pulverized_stairs_connecting",
+      "connecting_slab": "rechiseled:cobblestone_pulverized_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobblestone_rotated_bricks",
-      "connecting_item": "rechiseled:cobblestone_rotated_bricks_connecting"
+      "block": "rechiseled:cobblestone_rotated_bricks",
+      "stairs": "rechiseled:cobblestone_rotated_bricks_stairs",
+      "slab": "rechiseled:cobblestone_rotated_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobblestone_rotated_bricks_connecting",
+      "connecting_stairs": "rechiseled:cobblestone_rotated_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:cobblestone_rotated_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobblestone_sheared"
+      "block": "rechiseled:cobblestone_sheared",
+      "stairs": "rechiseled:cobblestone_sheared_stairs",
+      "slab": "rechiseled:cobblestone_sheared_slab",
+      "slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobblestone_small_tiles",
-      "connecting_item": "rechiseled:cobblestone_small_tiles_connecting"
+      "block": "rechiseled:cobblestone_small_tiles",
+      "stairs": "rechiseled:cobblestone_small_tiles_stairs",
+      "slab": "rechiseled:cobblestone_small_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobblestone_small_tiles_connecting",
+      "connecting_stairs": "rechiseled:cobblestone_small_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:cobblestone_small_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobblestone_squares",
-      "connecting_item": "rechiseled:cobblestone_squares_connecting"
+      "block": "rechiseled:cobblestone_squares",
+      "stairs": "rechiseled:cobblestone_squares_stairs",
+      "slab": "rechiseled:cobblestone_squares_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobblestone_squares_connecting",
+      "connecting_stairs": "rechiseled:cobblestone_squares_stairs_connecting",
+      "connecting_slab": "rechiseled:cobblestone_squares_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobblestone_stripes",
-      "connecting_item": "rechiseled:cobblestone_stripes_connecting"
+      "block": "rechiseled:cobblestone_stripes",
+      "stairs": "rechiseled:cobblestone_stripes_stairs",
+      "slab": "rechiseled:cobblestone_stripes_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobblestone_stripes_connecting",
+      "connecting_stairs": "rechiseled:cobblestone_stripes_stairs_connecting",
+      "connecting_slab": "rechiseled:cobblestone_stripes_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobblestone_tiles",
-      "connecting_item": "rechiseled:cobblestone_tiles_connecting"
+      "block": "rechiseled:cobblestone_tiles",
+      "stairs": "rechiseled:cobblestone_tiles_stairs",
+      "slab": "rechiseled:cobblestone_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobblestone_tiles_connecting",
+      "connecting_stairs": "rechiseled:cobblestone_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:cobblestone_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:cobblestone_worn_stripes",
-      "connecting_item": "rechiseled:cobblestone_worn_stripes_connecting"
+      "block": "rechiseled:cobblestone_worn_stripes",
+      "stairs": "rechiseled:cobblestone_worn_stripes_stairs",
+      "slab": "rechiseled:cobblestone_worn_stripes_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:cobblestone_worn_stripes_connecting",
+      "connecting_stairs": "rechiseled:cobblestone_worn_stripes_stairs_connecting",
+      "connecting_slab": "rechiseled:cobblestone_worn_stripes_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:mossy_cobblestone_beams",
-      "connecting_item": "rechiseled:mossy_cobblestone_beams_connecting"
+      "block": "rechiseled:mossy_cobblestone_beams",
+      "stairs": "rechiseled:mossy_cobblestone_beams_stairs",
+      "slab": "rechiseled:mossy_cobblestone_beams_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:mossy_cobblestone_beams_connecting",
+      "connecting_stairs": "rechiseled:mossy_cobblestone_beams_stairs_connecting",
+      "connecting_slab": "rechiseled:mossy_cobblestone_beams_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:mossy_cobblestone_dented",
-      "connecting_item": "rechiseled:mossy_cobblestone_dented_connecting"
+      "block": "rechiseled:mossy_cobblestone_dented",
+      "stairs": "rechiseled:mossy_cobblestone_dented_stairs",
+      "slab": "rechiseled:mossy_cobblestone_dented_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:mossy_cobblestone_dented_connecting",
+      "connecting_stairs": "rechiseled:mossy_cobblestone_dented_stairs_connecting",
+      "connecting_slab": "rechiseled:mossy_cobblestone_dented_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:mossy_cobblestone_inverted_dented",
-      "connecting_item": "rechiseled:mossy_cobblestone_inverted_dented_connecting"
+      "block": "rechiseled:mossy_cobblestone_inverted_dented",
+      "stairs": "rechiseled:mossy_cobblestone_inverted_dented_stairs",
+      "slab": "rechiseled:mossy_cobblestone_inverted_dented_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:mossy_cobblestone_inverted_dented_connecting",
+      "connecting_stairs": "rechiseled:mossy_cobblestone_inverted_dented_stairs_connecting",
+      "connecting_slab": "rechiseled:mossy_cobblestone_inverted_dented_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:mossy_cobblestone_paving",
-      "connecting_item": "rechiseled:mossy_cobblestone_paving_connecting"
+      "block": "rechiseled:mossy_cobblestone_paving",
+      "stairs": "rechiseled:mossy_cobblestone_paving_stairs",
+      "slab": "rechiseled:mossy_cobblestone_paving_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:mossy_cobblestone_paving_connecting",
+      "connecting_stairs": "rechiseled:mossy_cobblestone_paving_stairs_connecting",
+      "connecting_slab": "rechiseled:mossy_cobblestone_paving_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:mossy_cobblestone_small_tiles",
-      "connecting_item": "rechiseled:mossy_cobblestone_small_tiles_connecting"
+      "block": "rechiseled:mossy_cobblestone_small_tiles",
+      "stairs": "rechiseled:mossy_cobblestone_small_tiles_stairs",
+      "slab": "rechiseled:mossy_cobblestone_small_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:mossy_cobblestone_small_tiles_connecting",
+      "connecting_stairs": "rechiseled:mossy_cobblestone_small_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:mossy_cobblestone_small_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:mossy_cobblestone_squares",
-      "connecting_item": "rechiseled:mossy_cobblestone_squares_connecting"
+      "block": "rechiseled:mossy_cobblestone_squares",
+      "stairs": "rechiseled:mossy_cobblestone_squares_stairs",
+      "slab": "rechiseled:mossy_cobblestone_squares_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:mossy_cobblestone_squares_connecting",
+      "connecting_stairs": "rechiseled:mossy_cobblestone_squares_stairs_connecting",
+      "connecting_slab": "rechiseled:mossy_cobblestone_squares_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:mossy_cobblestone_stripes",
-      "connecting_item": "rechiseled:mossy_cobblestone_stripes_connecting"
+      "block": "rechiseled:mossy_cobblestone_stripes",
+      "stairs": "rechiseled:mossy_cobblestone_stripes_stairs",
+      "slab": "rechiseled:mossy_cobblestone_stripes_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:mossy_cobblestone_stripes_connecting",
+      "connecting_stairs": "rechiseled:mossy_cobblestone_stripes_stairs_connecting",
+      "connecting_slab": "rechiseled:mossy_cobblestone_stripes_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:mossy_cobblestone_worn_stripes",
-      "connecting_item": "rechiseled:mossy_cobblestone_worn_stripes_connecting"
+      "block": "rechiseled:mossy_cobblestone_worn_stripes",
+      "stairs": "rechiseled:mossy_cobblestone_worn_stripes_stairs",
+      "slab": "rechiseled:mossy_cobblestone_worn_stripes_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:mossy_cobblestone_worn_stripes_connecting",
+      "connecting_stairs": "rechiseled:mossy_cobblestone_worn_stripes_stairs_connecting",
+      "connecting_slab": "rechiseled:mossy_cobblestone_worn_stripes_slab_connecting",
+      "connecting_slab_worth": 0.5
     }
   ]
 }

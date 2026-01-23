@@ -1,0 +1,89 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:diorite_brick_pattern_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diorite_brick_pattern_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diorite_brick_paving_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diorite_brick_paving_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diorite_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diorite_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diorite_diagonal_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diorite_diagonal_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diorite_dotted_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diorite_dotted_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diorite_paving_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diorite_paving_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diorite_polished_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diorite_rotated_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diorite_rotated_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diorite_squares_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diorite_squares_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diorite_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diorite_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diorite_wavy_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:diorite_wavy_stairs_connecting",
+      "required": true
+    }
+  ]
+}

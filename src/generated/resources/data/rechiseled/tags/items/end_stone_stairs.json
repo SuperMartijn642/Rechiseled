@@ -1,0 +1,125 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:end_stone_blobs_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_blobs_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_brick_pattern_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_brick_pattern_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_brick_paving_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_brick_paving_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_chiseled_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_chiseled_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_crushed_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_crushed_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_diagonal_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_diagonal_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_mesh_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_mesh_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_paving_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_paving_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_polished_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_polished_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_rotated_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_rotated_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_scales_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_scales_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_small_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_small_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_spiral_pattern_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_spiral_pattern_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_squares_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_squares_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:end_stone_tiles_stairs_connecting",
+      "required": true
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:mossy_cobblestone_beams_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_beams_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_dented_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_dented_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_inverted_dented_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_inverted_dented_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_paving_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_paving_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_small_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_small_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_squares_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_squares_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_stripes_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_stripes_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_worn_stripes_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:mossy_cobblestone_worn_stripes_stairs_connecting",
+      "required": true
+    }
+  ]
+}

@@ -3,53 +3,116 @@
   "overwrite": false,
   "entries": [
     {
-      "item": "minecraft:stone",
-      "item_data": 5
+      "block": "minecraft:stone",
+      "block_meta": 5
     },
     {
-      "item": "rechiseled:andesite_brick_pattern",
-      "connecting_item": "rechiseled:andesite_brick_pattern_connecting"
+      "block": "rechiseled:andesite_brick_pattern",
+      "stairs": "rechiseled:andesite_brick_pattern_stairs",
+      "slab": "rechiseled:andesite_brick_pattern_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:andesite_brick_pattern_connecting",
+      "connecting_stairs": "rechiseled:andesite_brick_pattern_stairs_connecting",
+      "connecting_slab": "rechiseled:andesite_brick_pattern_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:andesite_brick_paving",
-      "connecting_item": "rechiseled:andesite_brick_paving_connecting"
+      "block": "rechiseled:andesite_brick_paving",
+      "stairs": "rechiseled:andesite_brick_paving_stairs",
+      "slab": "rechiseled:andesite_brick_paving_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:andesite_brick_paving_connecting",
+      "connecting_stairs": "rechiseled:andesite_brick_paving_stairs_connecting",
+      "connecting_slab": "rechiseled:andesite_brick_paving_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:andesite_bricks",
-      "connecting_item": "rechiseled:andesite_bricks_connecting"
+      "block": "rechiseled:andesite_bricks",
+      "stairs": "rechiseled:andesite_bricks_stairs",
+      "slab": "rechiseled:andesite_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:andesite_bricks_connecting",
+      "connecting_stairs": "rechiseled:andesite_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:andesite_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:andesite_diagonal_bricks",
-      "connecting_item": "rechiseled:andesite_diagonal_bricks_connecting"
+      "block": "rechiseled:andesite_diagonal_bricks",
+      "stairs": "rechiseled:andesite_diagonal_bricks_stairs",
+      "slab": "rechiseled:andesite_diagonal_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:andesite_diagonal_bricks_connecting",
+      "connecting_stairs": "rechiseled:andesite_diagonal_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:andesite_diagonal_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:andesite_dotted",
-      "connecting_item": "rechiseled:andesite_dotted_connecting"
+      "block": "rechiseled:andesite_dotted",
+      "stairs": "rechiseled:andesite_dotted_stairs",
+      "slab": "rechiseled:andesite_dotted_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:andesite_dotted_connecting",
+      "connecting_stairs": "rechiseled:andesite_dotted_stairs_connecting",
+      "connecting_slab": "rechiseled:andesite_dotted_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:andesite_paving",
-      "connecting_item": "rechiseled:andesite_paving_connecting"
+      "block": "rechiseled:andesite_paving",
+      "stairs": "rechiseled:andesite_paving_stairs",
+      "slab": "rechiseled:andesite_paving_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:andesite_paving_connecting",
+      "connecting_stairs": "rechiseled:andesite_paving_stairs_connecting",
+      "connecting_slab": "rechiseled:andesite_paving_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "minecraft:stone",
-      "item_data": 6,
-      "connecting_item": "rechiseled:andesite_polished_connecting"
+      "block": "minecraft:stone",
+      "block_meta": 6,
+      "connecting_block": "rechiseled:andesite_polished_connecting",
+      "connecting_stairs": "rechiseled:andesite_polished_stairs_connecting",
+      "connecting_slab": "rechiseled:andesite_polished_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:andesite_rotated_bricks",
-      "connecting_item": "rechiseled:andesite_rotated_bricks_connecting"
+      "block": "rechiseled:andesite_rotated_bricks",
+      "stairs": "rechiseled:andesite_rotated_bricks_stairs",
+      "slab": "rechiseled:andesite_rotated_bricks_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:andesite_rotated_bricks_connecting",
+      "connecting_stairs": "rechiseled:andesite_rotated_bricks_stairs_connecting",
+      "connecting_slab": "rechiseled:andesite_rotated_bricks_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:andesite_squares",
-      "connecting_item": "rechiseled:andesite_squares_connecting"
+      "block": "rechiseled:andesite_squares",
+      "stairs": "rechiseled:andesite_squares_stairs",
+      "slab": "rechiseled:andesite_squares_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:andesite_squares_connecting",
+      "connecting_stairs": "rechiseled:andesite_squares_stairs_connecting",
+      "connecting_slab": "rechiseled:andesite_squares_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:andesite_tiles",
-      "connecting_item": "rechiseled:andesite_tiles_connecting"
+      "block": "rechiseled:andesite_tiles",
+      "stairs": "rechiseled:andesite_tiles_stairs",
+      "slab": "rechiseled:andesite_tiles_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:andesite_tiles_connecting",
+      "connecting_stairs": "rechiseled:andesite_tiles_stairs_connecting",
+      "connecting_slab": "rechiseled:andesite_tiles_slab_connecting",
+      "connecting_slab_worth": 0.5
     },
     {
-      "item": "rechiseled:andesite_wavy",
-      "connecting_item": "rechiseled:andesite_wavy_connecting"
+      "block": "rechiseled:andesite_wavy",
+      "stairs": "rechiseled:andesite_wavy_stairs",
+      "slab": "rechiseled:andesite_wavy_slab",
+      "slab_worth": 0.5,
+      "connecting_block": "rechiseled:andesite_wavy_connecting",
+      "connecting_stairs": "rechiseled:andesite_wavy_stairs_connecting",
+      "connecting_slab": "rechiseled:andesite_wavy_slab_connecting",
+      "connecting_slab_worth": 0.5
     }
   ]
 }

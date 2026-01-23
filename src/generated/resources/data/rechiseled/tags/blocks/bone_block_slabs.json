@@ -1,0 +1,81 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:bone_block_bordered_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:bone_block_bordered_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:bone_block_bundled_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:bone_block_chiseled_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:bone_block_chiseled_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:bone_block_connecting_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:bone_block_cracked_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:bone_block_decorated_bordered_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:bone_block_decorated_bordered_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:bone_block_decorated_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:bone_block_inverted_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:bone_block_inverted_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:bone_block_patterned_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:bone_block_patterned_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:bone_block_pillar_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:bone_block_pillar_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:bone_block_rib_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:bone_block_skull_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:bone_block_smooth_slab",
+      "required": true
+    }
+  ]
+}

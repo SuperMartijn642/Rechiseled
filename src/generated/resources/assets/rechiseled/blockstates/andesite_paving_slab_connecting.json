@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "rechiseled:andesite_paving_slab_connecting_bottom"
+    },
+    "type=double": {
+      "model": "rechiseled:andesite_paving_slab_connecting_double"
+    },
+    "type=top": {
+      "model": "rechiseled:andesite_paving_slab_connecting_top"
+    }
+  }
+}

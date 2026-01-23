@@ -1,0 +1,105 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:emerald_block_bordered_crosses_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_bordered_crosses_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_bordered_plating_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_bordered_plating_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_chiseled_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_chiseled_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_clovers_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_clovers_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_crosses_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_crystal_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_crystal_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_patterned_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_patterned_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_patterned_squares_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_patterned_squares_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_pillar_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_pillar_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_plating_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_polished_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_polished_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_smooth_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_striped_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_striped_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_waxed_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:emerald_block_waxed_slab_connecting",
+      "required": true
+    }
+  ]
+}

@@ -1,0 +1,329 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:redstone_block_bordered",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_bordered_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_bordered_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_bordered_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_bordered_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_bordered_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_brick_bordered",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_brick_bordered_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_brick_bordered_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_bricks",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_bricks_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_chiseled_clovers",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_chiseled_clovers_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_chiseled_clovers_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_chiseled_clovers_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_chiseled_clovers_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_chiseled_clovers_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_circles",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_circles_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_circles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_circles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_circles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_circles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_compressed",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_compressed_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_compressed_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_compressed_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_compressed_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_compressed_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_crushed",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_crushed_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_crushed_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_diagonal_tiles",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_diagonal_tiles_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_diagonal_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_diagonal_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_diagonal_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_diagonal_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_patterned",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_patterned_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_patterned_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_patterned_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_patterned_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_patterned_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_paving",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_paving_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_paving_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_paving_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_paving_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_paving_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_pillar",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_pillar_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_pillar_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_pillar_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_pillar_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_pillar_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_polished",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_polished_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_polished_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_polished_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_polished_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_polished_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_scales",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_scales_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_scales_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_scales_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_scales_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_scales_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_small_tiles",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_small_tiles_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_small_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_small_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_small_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_small_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_smooth",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_smooth_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:redstone_block_smooth_stairs",
+      "required": true
+    }
+  ]
+}

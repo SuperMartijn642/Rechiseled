@@ -1,0 +1,89 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:granite_brick_pattern_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:granite_brick_pattern_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:granite_brick_paving_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:granite_brick_paving_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:granite_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:granite_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:granite_diagonal_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:granite_diagonal_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:granite_dotted_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:granite_dotted_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:granite_paving_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:granite_paving_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:granite_polished_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:granite_rotated_bricks_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:granite_rotated_bricks_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:granite_squares_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:granite_squares_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:granite_tiles_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:granite_tiles_slab_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:granite_wavy_slab",
+      "required": true
+    },
+    {
+      "id": "rechiseled:granite_wavy_slab_connecting",
+      "required": true
+    }
+  ]
+}

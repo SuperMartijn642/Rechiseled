@@ -1,0 +1,101 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "rechiseled:dark_prismarine_beams_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_beams_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_brick_paving_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_brick_paving_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_dotted_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_dotted_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_fabric_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_fabric_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_large_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_large_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_rotated_bricks_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_rotated_bricks_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_rows_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_rows_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_squares_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_squares_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_tiles_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_tiles_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_wavy_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_wavy_stairs_connecting",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_woven_stairs",
+      "required": true
+    },
+    {
+      "id": "rechiseled:dark_prismarine_woven_stairs_connecting",
+      "required": true
+    }
+  ]
+}
