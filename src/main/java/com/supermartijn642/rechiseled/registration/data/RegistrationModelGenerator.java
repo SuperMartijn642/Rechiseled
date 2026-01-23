@@ -165,12 +165,12 @@ public class RegistrationModelGenerator extends ModelGenerator {
             .texture("west", side)
             .texture("particle", side);
         this.model(new ResourceLocation(modelIdentifier.getResourceDomain(), modelIdentifier.getResourcePath() + "_bottom"))
-            .parent("minecraft", "block/slab")
+            .parent("minecraft", "block/half_slab")
             .texture("bottom", bottom)
             .texture("side", side)
             .texture("top", top);
         this.model(new ResourceLocation(modelIdentifier.getResourceDomain(), modelIdentifier.getResourcePath() + "_top"))
-            .parent("minecraft", "block/slab_top")
+            .parent("minecraft", "block/upper_slab")
             .texture("bottom", bottom)
             .texture("side", side)
             .texture("top", top);

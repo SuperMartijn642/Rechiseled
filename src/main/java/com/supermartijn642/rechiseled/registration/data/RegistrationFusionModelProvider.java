@@ -274,7 +274,7 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
         this.addModel(new ResourceLocation(modelIdentifier.getResourceDomain(), modelIdentifier.getResourcePath() + "_bottom"), ModelInstance.of(
             DefaultModelTypes.CONNECTING,
             ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("block/slab"))
+                .parent(new ResourceLocation("block/half_slab"))
                 .texture("bottom", bottom)
                 .texture("side", side)
                 .texture("top", top)
@@ -286,7 +286,7 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
         this.addModel(new ResourceLocation(modelIdentifier.getResourceDomain(), modelIdentifier.getResourcePath() + "_top"), ModelInstance.of(
             DefaultModelTypes.CONNECTING,
             ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("block/slab_top"))
+                .parent(new ResourceLocation("block/upper_slab"))
                 .texture("bottom", bottom)
                 .texture("side", side)
                 .texture("top", top)
