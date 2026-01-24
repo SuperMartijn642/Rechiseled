@@ -45,13 +45,13 @@ dependencies {
 
     // Core library
 //    implementation fg.deobf("curse.maven:supermartijn642s-core-lib-454372:${core_library_file}")
-    implementation fg.deobf("a:supermartijn642corelib:1.1.20-forge-mc1.20.4")
+    implementation fg.deobf("a:supermartijn642corelib:1.1.20-forge-mc1.20.1")
     // Config library
     implementation fg.deobf("curse.maven:supermartijn642s-config-lib-438332:${config_library_file}")
     // Fusion
     implementation fg.deobf("curse.maven:fusion-854949:${fusion_file}")
     // Just Enough Items
-    implementation fg.deobf("mezz.jei:jei-1.20.4-forge:${just_enough_items_version}")
+    implementation fg.deobf("mezz.jei:jei-1.20.1-forge:${just_enough_items_version}")
     // Roughly Enough Items
     compileOnly fg.deobf("me.shedaniel:RoughlyEnoughItems-forge:${roughly_enough_items_version}")
     // Cloth Config API
