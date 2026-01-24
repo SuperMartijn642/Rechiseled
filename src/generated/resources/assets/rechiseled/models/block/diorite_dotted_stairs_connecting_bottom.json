@@ -6,6 +6,59 @@
     "bottom": "rechiseled:block/diorite_dotted"
   },
   "connections": {
+    "bottom": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:diorite_dotted_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:diorite_dotted_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:diorite_dotted_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:diorite_dotted_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:diorite_dotted_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:diorite_dotted_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:diorite_dotted_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "side": {
       "predicates": [
         {
@@ -75,59 +128,6 @@
             }
           ],
           "type": "fusion:and"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "bottom": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:diorite_dotted_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:diorite_dotted_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:diorite_dotted_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:diorite_dotted_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:diorite_dotted_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:diorite_dotted_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:diorite_dotted_slab_connecting",
-          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

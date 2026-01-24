@@ -6,6 +6,69 @@
     "bottom": "rechiseled:block/redstone_block_pillar_end"
   },
   "connections": {
+    "bottom": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:redstone_block_pillar_connecting",
+              "properties": {
+                "axis": [
+                  "y"
+                ]
+              },
+              "type": "fusion:match_state"
+            },
+            {
+              "block": "rechiseled:redstone_block_pillar_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:redstone_block_pillar_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:redstone_block_pillar_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:redstone_block_pillar_connecting",
+          "properties": {
+            "axis": [
+              "y"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:redstone_block_pillar_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:redstone_block_pillar_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "side": {
       "predicates": [
         {
@@ -80,69 +143,6 @@
             }
           ],
           "type": "fusion:and"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "bottom": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:redstone_block_pillar_connecting",
-              "properties": {
-                "axis": [
-                  "y"
-                ]
-              },
-              "type": "fusion:match_state"
-            },
-            {
-              "block": "rechiseled:redstone_block_pillar_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:redstone_block_pillar_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:redstone_block_pillar_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:redstone_block_pillar_connecting",
-          "properties": {
-            "axis": [
-              "y"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:redstone_block_pillar_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:redstone_block_pillar_slab_connecting",
-          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

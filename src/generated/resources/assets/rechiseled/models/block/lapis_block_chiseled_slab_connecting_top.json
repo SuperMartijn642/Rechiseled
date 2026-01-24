@@ -6,6 +6,65 @@
     "bottom": "rechiseled:block/lapis_block_chiseled"
   },
   "connections": {
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:lapis_block_chiseled_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:lapis_block_chiseled_stairs_connecting",
+          "properties": {
+            "half": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "top": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:lapis_block_chiseled_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:lapis_block_chiseled_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:lapis_block_chiseled_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:lapis_block_chiseled_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "side": {
       "predicates": [
         {
@@ -91,65 +150,6 @@
             }
           ],
           "type": "fusion:and"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:lapis_block_chiseled_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:lapis_block_chiseled_stairs_connecting",
-          "properties": {
-            "half": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:lapis_block_chiseled_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:lapis_block_chiseled_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:lapis_block_chiseled_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:lapis_block_chiseled_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
         }
       ],
       "type": "fusion:or"

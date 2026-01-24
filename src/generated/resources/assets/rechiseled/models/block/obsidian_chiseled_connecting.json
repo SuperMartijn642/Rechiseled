@@ -10,6 +10,43 @@
     "down": "rechiseled:block/obsidian_chiseled"
   },
   "connections": {
+    "west": "#side",
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:obsidian_chiseled_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:obsidian_chiseled_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:obsidian_chiseled_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:obsidian_chiseled_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "south": "#side",
     "side": {
       "predicates": [
@@ -113,43 +150,6 @@
           "properties": {
             "type": [
               "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "west": "#side",
-    "down": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:obsidian_chiseled_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:obsidian_chiseled_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:obsidian_chiseled_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:obsidian_chiseled_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
             ]
           },
           "type": "fusion:match_state"

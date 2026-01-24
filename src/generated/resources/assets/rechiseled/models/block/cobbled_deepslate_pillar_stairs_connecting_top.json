@@ -6,6 +6,69 @@
     "bottom": "rechiseled:block/cobbled_deepslate_pillar_end"
   },
   "connections": {
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:cobbled_deepslate_pillar_connecting",
+          "properties": {
+            "axis": [
+              "y"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:cobbled_deepslate_pillar_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:cobbled_deepslate_pillar_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "top": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:cobbled_deepslate_pillar_connecting",
+              "properties": {
+                "axis": [
+                  "y"
+                ]
+              },
+              "type": "fusion:match_state"
+            },
+            {
+              "block": "rechiseled:cobbled_deepslate_pillar_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:cobbled_deepslate_pillar_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:cobbled_deepslate_pillar_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "side": {
       "predicates": [
         {
@@ -80,69 +143,6 @@
             }
           ],
           "type": "fusion:and"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:cobbled_deepslate_pillar_connecting",
-          "properties": {
-            "axis": [
-              "y"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:cobbled_deepslate_pillar_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:cobbled_deepslate_pillar_slab_connecting",
-          "type": "fusion:match_block"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:cobbled_deepslate_pillar_connecting",
-              "properties": {
-                "axis": [
-                  "y"
-                ]
-              },
-              "type": "fusion:match_state"
-            },
-            {
-              "block": "rechiseled:cobbled_deepslate_pillar_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:cobbled_deepslate_pillar_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:cobbled_deepslate_pillar_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
         }
       ],
       "type": "fusion:or"

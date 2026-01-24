@@ -11,6 +11,48 @@
     "down": "rechiseled:block/blue_ice_pillar_end"
   },
   "connections": {
+    "west": "#side",
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:blue_ice_pillar_connecting",
+              "properties": {
+                "axis": [
+                  "y"
+                ]
+              },
+              "type": "fusion:match_state"
+            },
+            {
+              "block": "rechiseled:blue_ice_pillar_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:blue_ice_pillar_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:blue_ice_pillar_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "south": "#side",
     "side": {
       "predicates": [
@@ -124,48 +166,6 @@
           "properties": {
             "type": [
               "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "west": "#side",
-    "down": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:blue_ice_pillar_connecting",
-              "properties": {
-                "axis": [
-                  "y"
-                ]
-              },
-              "type": "fusion:match_state"
-            },
-            {
-              "block": "rechiseled:blue_ice_pillar_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:blue_ice_pillar_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:blue_ice_pillar_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
             ]
           },
           "type": "fusion:match_state"
