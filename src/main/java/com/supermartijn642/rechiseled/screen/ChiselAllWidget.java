@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.settings.GameSettings;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
@@ -49,7 +50,7 @@ public class ChiselAllWidget extends AbstractButtonWidget {
     protected void getTooltips(Consumer<ITextComponent> tooltips){
         if(this.currentEntry.get() != null){
             tooltips.accept(TextComponents.translation("rechiseled.chiseling.chisel_all").bold().get());
-            tooltips.accept(TextComponents.translation("rechiseled.chiseling.chisel_all.shift", TextComponents.translation("key.keyboard.left.shift").color(TextFormatting.GOLD).get()).get());
+            tooltips.accept(TextComponents.translation("rechiseled.chiseling.chisel_all.shift", TextComponents.string(GameSettings.getKeyDisplayString(42)).color(TextFormatting.GOLD).get()).get());
             tooltips.accept(TextComponents.translation("rechiseled.chiseling.chisel_all.items", TextComponents.number(this.chiselableItems).get()).italic().color(TextFormatting.GRAY).get());
         }
     }
