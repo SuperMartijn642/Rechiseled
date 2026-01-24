@@ -79,23 +79,6 @@
       ],
       "type": "fusion:or"
     },
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:end_stone_mesh_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:end_stone_mesh_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:end_stone_mesh_slab_connecting",
-          "type": "fusion:match_block"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -128,6 +111,23 @@
             ]
           },
           "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:end_stone_mesh_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:end_stone_mesh_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:end_stone_mesh_slab_connecting",
+          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

@@ -95,29 +95,6 @@
       ],
       "type": "fusion:or"
     },
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:netherite_block_diagonal_tiles_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:netherite_block_diagonal_tiles_stairs_connecting",
-          "properties": {
-            "half": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -146,6 +123,29 @@
           "block": "rechiseled:netherite_block_diagonal_tiles_slab_connecting",
           "properties": {
             "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:netherite_block_diagonal_tiles_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:netherite_block_diagonal_tiles_stairs_connecting",
+          "properties": {
+            "half": [
               "top"
             ]
           },

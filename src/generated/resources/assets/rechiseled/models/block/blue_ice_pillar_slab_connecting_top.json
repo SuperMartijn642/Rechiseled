@@ -100,29 +100,6 @@
       ],
       "type": "fusion:or"
     },
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:blue_ice_pillar_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:blue_ice_pillar_stairs_connecting",
-          "properties": {
-            "half": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -156,6 +133,29 @@
           "block": "rechiseled:blue_ice_pillar_slab_connecting",
           "properties": {
             "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:blue_ice_pillar_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:blue_ice_pillar_stairs_connecting",
+          "properties": {
+            "half": [
               "top"
             ]
           },

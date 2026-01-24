@@ -95,6 +95,29 @@
       ],
       "type": "fusion:or"
     },
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:birch_planks_brick_pattern_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:birch_planks_brick_pattern_stairs_connecting",
+          "properties": {
+            "half": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "bottom": {
       "predicates": [
         {
@@ -123,29 +146,6 @@
           "block": "rechiseled:birch_planks_brick_pattern_slab_connecting",
           "properties": {
             "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:birch_planks_brick_pattern_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:birch_planks_brick_pattern_stairs_connecting",
-          "properties": {
-            "half": [
               "bottom"
             ]
           },

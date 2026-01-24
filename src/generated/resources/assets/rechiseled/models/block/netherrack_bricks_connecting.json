@@ -10,7 +10,44 @@
     "down": "rechiseled:block/netherrack_bricks"
   },
   "connections": {
-    "south": "#side",
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:netherrack_bricks_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:netherrack_bricks_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:netherrack_bricks_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:netherrack_bricks_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "east": "#side",
+    "north": "#side",
     "side": {
       "predicates": [
         {
@@ -82,45 +119,7 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
-    "east": "#side",
-    "up": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:netherrack_bricks_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:netherrack_bricks_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:netherrack_bricks_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:netherrack_bricks_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "west": "#side",
+    "south": "#side",
     "down": {
       "predicates": [
         {
@@ -156,7 +155,8 @@
         }
       ],
       "type": "fusion:or"
-    }
+    },
+    "west": "#side"
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

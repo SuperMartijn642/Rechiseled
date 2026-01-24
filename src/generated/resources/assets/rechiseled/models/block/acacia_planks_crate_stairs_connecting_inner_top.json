@@ -79,23 +79,6 @@
       ],
       "type": "fusion:or"
     },
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:acacia_planks_crate_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:acacia_planks_crate_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:acacia_planks_crate_slab_connecting",
-          "type": "fusion:match_block"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -128,6 +111,23 @@
             ]
           },
           "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:acacia_planks_crate_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:acacia_planks_crate_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:acacia_planks_crate_slab_connecting",
+          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"
