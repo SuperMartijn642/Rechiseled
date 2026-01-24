@@ -30,18 +30,10 @@ public class MinecraftMixin {
     }
 
     @Inject(
-        method = "disconnect(Lnet/minecraft/client/gui/screens/Screen;)V",
+        method = "clearLevel(Lnet/minecraft/client/gui/screens/Screen;)V",
         at = @At("TAIL")
     )
-    private void disconnect(Screen screen, CallbackInfo ci) {
-        ChiselingRecipeManagerImpl.get(true).clearRecipes();
-    }
-
-    @Inject(
-        method = "clearClientLevel",
-        at = @At("TAIL")
-    )
-    private void clearClientLevel(Screen screen, CallbackInfo ci) {
+    private void clearLevel(Screen screen, CallbackInfo ci){
         ChiselingRecipeManagerImpl.get(true).clearRecipes();
     }
 

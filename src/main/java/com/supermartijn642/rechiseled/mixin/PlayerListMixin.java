@@ -5,7 +5,6 @@ import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipeManager;
 import com.supermartijn642.rechiseled.chiseling.PacketUpdateChiselingRecipes;
 import net.minecraft.network.Connection;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.server.network.CommonListenerCookie;
 import net.minecraft.server.players.PlayerList;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -26,7 +25,7 @@ public class PlayerListMixin {
             shift = At.Shift.BEFORE
         )
     )
-    public void placeNewPlayer(Connection connection, ServerPlayer player, CommonListenerCookie cookie, CallbackInfo ci){
+    public void placeNewPlayer(Connection connection, ServerPlayer player, CallbackInfo ci){
         Rechiseled.CHANNEL.sendToPlayer(player, new PacketUpdateChiselingRecipes(ChiselingRecipeManager.get(false).getAllRecipes()));
     }
 
@@ -34,7 +33,7 @@ public class PlayerListMixin {
         method = "reloadResources",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/network/protocol/common/ClientboundUpdateTagsPacket;<init>(Ljava/util/Map;)V",
+            target = "Lnet/minecraft/network/protocol/game/ClientboundUpdateTagsPacket;<init>(Ljava/util/Map;)V",
             shift = At.Shift.BEFORE
         )
     )
