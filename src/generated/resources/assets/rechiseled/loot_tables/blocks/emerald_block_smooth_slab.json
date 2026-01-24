@@ -6,6 +6,19 @@
       "conditions": [
         {
           "condition": "supermartijn642corelib:survives_explosion"
+        },
+        {
+          "block": "rechiseled:emerald_block_smooth_slab",
+          "properties": {
+            "type": [
+              "bottom",
+              "top"
+            ]
+          },
+          "condition": "supermartijn642corelib:block_state_property"
+        },
+        {
+          "condition": "supermartijn642corelib:survives_explosion"
         }
       ],
       "entries": [
@@ -13,6 +26,41 @@
           "weight": 1,
           "quality": 0,
           "type": "item",
+          "name": "rechiseled:emerald_block_smooth_slab"
+        }
+      ]
+    },
+    {
+      "name": "pool2",
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "supermartijn642corelib:survives_explosion"
+        },
+        {
+          "block": "rechiseled:emerald_block_smooth_slab",
+          "properties": {
+            "type": [
+              "double"
+            ]
+          },
+          "condition": "supermartijn642corelib:block_state_property"
+        },
+        {
+          "condition": "supermartijn642corelib:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "weight": 1,
+          "quality": 0,
+          "type": "item",
+          "functions": [
+            {
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            }
+          ],
           "name": "rechiseled:emerald_block_smooth_slab"
         }
       ]

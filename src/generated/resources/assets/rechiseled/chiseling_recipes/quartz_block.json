@@ -49,6 +49,7 @@
     {
       "block": "minecraft:quartz_block",
       "block_meta": 0,
+      "stairs": "minecraft:quartz_stairs",
       "connecting_block": "rechiseled:quartz_block_connecting_connecting",
       "connecting_stairs": "rechiseled:quartz_block_connecting_stairs_connecting",
       "connecting_slab": "rechiseled:quartz_block_connecting_slab_connecting",

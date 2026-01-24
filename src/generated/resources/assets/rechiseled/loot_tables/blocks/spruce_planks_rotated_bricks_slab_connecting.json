@@ -6,6 +6,19 @@
       "conditions": [
         {
           "condition": "supermartijn642corelib:survives_explosion"
+        },
+        {
+          "block": "rechiseled:spruce_planks_rotated_bricks_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom",
+              "top"
+            ]
+          },
+          "condition": "supermartijn642corelib:block_state_property"
+        },
+        {
+          "condition": "supermartijn642corelib:survives_explosion"
         }
       ],
       "entries": [
@@ -13,6 +26,41 @@
           "weight": 1,
           "quality": 0,
           "type": "item",
+          "name": "rechiseled:spruce_planks_rotated_bricks_slab_connecting"
+        }
+      ]
+    },
+    {
+      "name": "pool2",
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "supermartijn642corelib:survives_explosion"
+        },
+        {
+          "block": "rechiseled:spruce_planks_rotated_bricks_slab_connecting",
+          "properties": {
+            "type": [
+              "double"
+            ]
+          },
+          "condition": "supermartijn642corelib:block_state_property"
+        },
+        {
+          "condition": "supermartijn642corelib:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "weight": 1,
+          "quality": 0,
+          "type": "item",
+          "functions": [
+            {
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            }
+          ],
           "name": "rechiseled:spruce_planks_rotated_bricks_slab_connecting"
         }
       ]
