@@ -1,11 +1,26 @@
 {
-  "type": "minecraft:block",
   "pools": [
     {
       "rolls": 1.0,
       "conditions": [
         {
           "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "functions": [
+        {
+          "conditions": [
+            {
+              "block": "rechiseled:lapis_block_inverted_tiles_slab",
+              "properties": {
+                "type": "double"
+              },
+              "condition": "minecraft:block_state_property"
+            }
+          ],
+          "count": 2.0,
+          "add": false,
+          "function": "minecraft:set_count"
         }
       ],
       "entries": [
