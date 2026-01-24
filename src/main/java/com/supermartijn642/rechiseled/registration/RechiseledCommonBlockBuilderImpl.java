@@ -186,18 +186,12 @@ public abstract class RechiseledCommonBlockBuilderImpl<T extends RechiseledCommo
             this.itemGroups.forEach(itemProperties::group);
         if(this.hasRegularVariant)
             handler.registerItem(this.identifier, () -> {
-                regularItemHolder.set(new BaseBlockItem(regularBlockHolder.get(), itemProperties));
+                regularItemHolder.set(this.createItem(regularBlockHolder.get(), false, itemProperties));
                 return regularItemHolder.get();
             });
         if(this.hasConnectingVariant)
             handler.registerItem(this.identifier + "_connecting", () -> {
-                connectingItemHolder.set(new BaseBlockItem(connectingBlockHolder.get(), itemProperties) {
-                    @Override
-                    protected void appendItemInformation(ItemStack stack, @Nullable IBlockAccess level, Consumer<ITextComponent> info, boolean advanced){
-                        super.appendItemInformation(stack, level, info, advanced);
-                        info.accept(TextComponents.translation("rechiseled.tooltip.connecting").color(TextFormatting.GRAY).get());
-                    }
-                });
+                connectingItemHolder.set(this.createItem(connectingBlockHolder.get(), true, itemProperties));
                 return connectingItemHolder.get();
             });
 
@@ -218,6 +212,19 @@ public abstract class RechiseledCommonBlockBuilderImpl<T extends RechiseledCommo
     }
 
     protected abstract Block createBlock(BlockSpecification specification, Block parent, boolean connecting, BlockProperties properties, ResourceLocation identifier);
+
+    protected ItemBlock createItem(Block parent, boolean connecting, ItemProperties properties){
+        if(connecting){
+            return new BaseBlockItem(parent, properties) {
+                @Override
+                protected void appendItemInformation(ItemStack stack, @Nullable IBlockAccess level, Consumer<ITextComponent> info, boolean advanced){
+                    super.appendItemInformation(stack, level, info, advanced);
+                    info.accept(TextComponents.translation("rechiseled.tooltip.connecting").color(TextFormatting.GRAY).get());
+                }
+            };
+        }
+        return new BaseBlockItem(parent, properties);
+    }
 
     protected abstract void setBlockReferences(Block regularBlock, Block regularStairs, Block regularSlab, Block connectingBlock, Block connectingStairs, Block connectingSlab);
 
