@@ -339,7 +339,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
     private void selectDisplayEntry(DisplayEntry entry){
         if(entry == null || this.selectedEntry == entry)
             return;
-        boolean changedShape = entry.shape() == ChiselingBlockShape.BLOCK;
+        boolean changedShape = this.selectedEntry == null || this.selectedEntry.shape() != entry.shape();
         boolean isSameRecipeEntry = this.selectedEntry != null && entry.entry() == this.selectedEntry.entry();
         this.selectedEntry = entry;
         if(!entry.hasItem(this.connecting))
