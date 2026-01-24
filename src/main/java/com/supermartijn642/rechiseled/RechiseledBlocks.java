@@ -466,7 +466,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType PURPUR_SMALL_TILES = create("purpur_small_tiles", "Small Purpur Tiles").configure(PURPUR_CONFIGURER).build();
     public static final RechiseledBlockType PURPUR_SPIRAL_PATTERN = create("purpur_spiral_pattern", "Spiral Purpur Pattern").configure(PURPUR_CONFIGURER).build();
     public static final RechiseledBlockType PURPUR_SQUARES = create("purpur_squares", "Purpur Squares").configure(PURPUR_CONFIGURER).build();
-    public static final RechiseledBlockType PURPUR_TILES = create("purpur_tiles", "Purpur Block").configure(PURPUR_CONFIGURER).regularVariant(() -> Blocks.PURPUR_BLOCK, 0).build();
+    public static final RechiseledBlockType PURPUR_TILES = create("purpur_tiles", "Purpur Block").configure(PURPUR_CONFIGURER).regularVariant(() -> Blocks.PURPUR_BLOCK, 0, () -> Blocks.PURPUR_STAIRS, 0, () -> Blocks.PURPUR_SLAB, 0).build();
     public static final RechiseledBlockType PURPUR_WOVEN = create("purpur_woven", "Woven Purpur Block").configure(PURPUR_CONFIGURER).build();
     // Quartz block
     private static final Supplier<BlockProperties> QUARTZ_BLOCK_BLOCK_PROPERTIES = () -> BlockProperties.copy(Blocks.QUARTZ_BLOCK).defaultLootTable();
@@ -475,7 +475,7 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType QUARTZ_BLOCK_BRICK_PAVING = create("quartz_block_brick_paving", "Quartz Brick Paving").configure(QUARTZ_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType QUARTZ_BLOCK_CHISELED_PILLAR = create("quartz_block_chiseled_pillar", "Chiseled Quartz Pillar").configure(QUARTZ_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType QUARTZ_BLOCK_CHISELED_SQUARES = create("quartz_block_chiseled_squares", "Chiseled Quartz Block Squares").configure(QUARTZ_BLOCK_CONFIGURER).noConnectingVariant().build();
-    public static final RechiseledBlockType QUARTZ_BLOCK_CONNECTING = create("quartz_block_connecting", "Quartz Block").configure(QUARTZ_BLOCK_CONFIGURER).regularVariant(() -> Blocks.QUARTZ_BLOCK, 0).build();
+    public static final RechiseledBlockType QUARTZ_BLOCK_CONNECTING = create("quartz_block_connecting", "Quartz Block").configure(QUARTZ_BLOCK_CONFIGURER).regularVariant(() -> Blocks.QUARTZ_BLOCK, 0, () -> Blocks.QUARTZ_STAIRS, 0, null, 0).build();
     public static final RechiseledBlockType QUARTZ_BLOCK_CROSSES = create("quartz_block_crosses", "Quartz Block Crosses").configure(QUARTZ_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType QUARTZ_BLOCK_DIAGONAL_TILES = create("quartz_block_diagonal_tiles", "Diagonal Quartz Block Tiles").configure(QUARTZ_BLOCK_CONFIGURER).build();
     public static final RechiseledBlockType QUARTZ_BLOCK_PATTERN = create("quartz_block_pattern", "Quartz Block Pattern").configure(QUARTZ_BLOCK_CONFIGURER).build();
