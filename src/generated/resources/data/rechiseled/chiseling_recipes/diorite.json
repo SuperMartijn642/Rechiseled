@@ -70,6 +70,9 @@
     },
     {
       "block": "minecraft:polished_diorite",
+      "stairs": "minecraft:polished_diorite_stairs",
+      "slab": "minecraft:polished_diorite_slab",
+      "slab_worth": 0.5,
       "connecting_block": "rechiseled:diorite_polished_connecting",
       "connecting_stairs": "rechiseled:diorite_polished_stairs_connecting",
       "connecting_slab": "rechiseled:diorite_polished_slab_connecting",

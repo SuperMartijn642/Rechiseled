@@ -48,6 +48,9 @@
     },
     {
       "block": "minecraft:polished_blackstone",
+      "stairs": "minecraft:polished_blackstone_stairs",
+      "slab": "minecraft:polished_blackstone_slab",
+      "slab_worth": 0.5,
       "connecting_block": "rechiseled:blackstone_polished_connecting",
       "connecting_stairs": "rechiseled:blackstone_polished_stairs_connecting",
       "connecting_slab": "rechiseled:blackstone_polished_slab_connecting",

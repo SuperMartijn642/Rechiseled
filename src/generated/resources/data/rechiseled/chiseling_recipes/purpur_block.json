@@ -165,6 +165,9 @@
     },
     {
       "block": "minecraft:purpur_block",
+      "stairs": "minecraft:purpur_stairs",
+      "slab": "minecraft:purpur_slab",
+      "slab_worth": 0.5,
       "connecting_block": "rechiseled:purpur_tiles_connecting",
       "connecting_stairs": "rechiseled:purpur_tiles_stairs_connecting",
       "connecting_slab": "rechiseled:purpur_tiles_slab_connecting",

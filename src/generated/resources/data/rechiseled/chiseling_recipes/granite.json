@@ -70,6 +70,9 @@
     },
     {
       "block": "minecraft:polished_granite",
+      "stairs": "minecraft:polished_granite_stairs",
+      "slab": "minecraft:polished_granite_slab",
+      "slab_worth": 0.5,
       "connecting_block": "rechiseled:granite_polished_connecting",
       "connecting_stairs": "rechiseled:granite_polished_stairs_connecting",
       "connecting_slab": "rechiseled:granite_polished_slab_connecting",

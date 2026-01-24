@@ -49,6 +49,9 @@
     },
     {
       "block": "minecraft:quartz_block",
+      "stairs": "minecraft:quartz_stairs",
+      "slab": "minecraft:quartz_slab",
+      "slab_worth": 0.5,
       "connecting_block": "rechiseled:quartz_block_connecting_connecting",
       "connecting_stairs": "rechiseled:quartz_block_connecting_stairs_connecting",
       "connecting_slab": "rechiseled:quartz_block_connecting_slab_connecting",

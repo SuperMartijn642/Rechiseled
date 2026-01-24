@@ -6,6 +6,59 @@
     "bottom": "rechiseled:block/lapis_block_mosaic"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:lapis_block_mosaic_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:lapis_block_mosaic_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:lapis_block_mosaic_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:lapis_block_mosaic_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:lapis_block_mosaic_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:lapis_block_mosaic_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:lapis_block_mosaic_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "side": {
       "predicates": [
         {
@@ -75,59 +128,6 @@
             }
           ],
           "type": "fusion:and"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:lapis_block_mosaic_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:lapis_block_mosaic_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:lapis_block_mosaic_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:lapis_block_mosaic_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:lapis_block_mosaic_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:lapis_block_mosaic_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:lapis_block_mosaic_slab_connecting",
-          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

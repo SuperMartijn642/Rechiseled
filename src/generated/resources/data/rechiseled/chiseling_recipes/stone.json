@@ -142,6 +142,8 @@
     },
     {
       "block": "minecraft:smooth_stone",
+      "slab": "minecraft:smooth_stone_slab",
+      "slab_worth": 0.5,
       "connecting_block": "rechiseled:stone_smooth_connecting",
       "connecting_stairs": "rechiseled:stone_smooth_stairs_connecting",
       "connecting_slab": "rechiseled:stone_smooth_slab_connecting",

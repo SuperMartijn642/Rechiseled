@@ -6,6 +6,59 @@
     "bottom": "rechiseled:block/crimson_planks_flooring"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:crimson_planks_flooring_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:crimson_planks_flooring_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:crimson_planks_flooring_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:crimson_planks_flooring_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:crimson_planks_flooring_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:crimson_planks_flooring_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:crimson_planks_flooring_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "side": {
       "predicates": [
         {
@@ -75,59 +128,6 @@
             }
           ],
           "type": "fusion:and"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:crimson_planks_flooring_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:crimson_planks_flooring_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:crimson_planks_flooring_slab_connecting",
-          "type": "fusion:match_block"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "bottom": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:crimson_planks_flooring_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:crimson_planks_flooring_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:crimson_planks_flooring_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:crimson_planks_flooring_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
         }
       ],
       "type": "fusion:or"

@@ -70,6 +70,9 @@
     },
     {
       "block": "minecraft:polished_andesite",
+      "stairs": "minecraft:polished_andesite_stairs",
+      "slab": "minecraft:polished_andesite_slab",
+      "slab_worth": 0.5,
       "connecting_block": "rechiseled:andesite_polished_connecting",
       "connecting_stairs": "rechiseled:andesite_polished_stairs_connecting",
       "connecting_slab": "rechiseled:andesite_polished_slab_connecting",
