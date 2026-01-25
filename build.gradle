@@ -37,13 +37,11 @@ dependencies {
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 
     // Core library
-//    implementation "curse.maven:supermartijn642s-core-lib-454372:${core_library_file}"
-    implementation "a:supermartijn642corelib:1.1.20-forge-mc1.21.11"
+    implementation "curse.maven:supermartijn642s-core-lib-454372:${core_library_file}"
     // Config library
     implementation "curse.maven:supermartijn642s-config-lib-438332:${config_library_file}"
     // Fusion
-//    implementation "curse.maven:fusion-854949:${fusion_file}"
-    implementation "a:fusion:1.2.12-forge-mc1.21.11"
+    implementation "curse.maven:fusion-854949:${fusion_file}"
 
     // Hack fix for now, force jopt-simple to be exactly 5.0.4 because Mojang ships that version, but some transitive dependencies request 6.0+
     implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
