@@ -1,3 +1,6 @@
+### Rechiseled 1.2.1
+- Fixed in-world chiseling not working when on a server
+
 ### Rechiseled 1.2.0
 - Added stairs and slabs for all Rechiseled's decorative blocks
 - Overhauled the chiseling screen with a scrollbar, search field, filters, and stairs and slabs
