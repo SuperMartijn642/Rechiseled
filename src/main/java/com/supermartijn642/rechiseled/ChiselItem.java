@@ -90,15 +90,15 @@ public class ChiselItem extends BaseItem {
         // Find appropriate chiseling recipe
         if(!filter.isEmpty() && !(filter.getItem() instanceof ItemBlock))
             return Collections.emptyList();
-        ChiselingRecipe recipe = filter.isEmpty() ? null : ChiselingRecipeManager.get(true).getRecipeForItem(ItemWithMeta.fromStack(filter));
+        ChiselingRecipe recipe = filter.isEmpty() ? null : ChiselingRecipeManager.get(level).getRecipeForItem(ItemWithMeta.fromStack(filter));
         if(!filter.isEmpty() && recipe == null)
             return Collections.emptyList();
         IBlockState targetedBlock = level.getBlockState(targetedPos);
         if(recipe == null){
-            recipe = ChiselingRecipeManager.get(true).getRecipeForItem(ItemWithMeta.of(targetedBlock.getBlock()));
+            recipe = ChiselingRecipeManager.get(level).getRecipeForItem(ItemWithMeta.of(targetedBlock.getBlock()));
             if(recipe == null)
                 return Collections.emptyList();
-        }else if(recipe != ChiselingRecipeManager.get(true).getRecipeForItem(ItemWithMeta.of(targetedBlock.getBlock())))
+        }else if(recipe != ChiselingRecipeManager.get(level).getRecipeForItem(ItemWithMeta.of(targetedBlock.getBlock())))
             return Collections.emptyList();
 
         // Get the shape we want to convert
