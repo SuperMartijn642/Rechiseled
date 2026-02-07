@@ -1,3 +1,7 @@
+### Rechiseled 1.2.2
+- Fixed being able to obtain oversized item stacks from the chisel
+- Fixed crash with Just Enough Items
+
 ### Rechiseled 1.2.1
 - Fixed in-world chiseling not working when on a server
 
