@@ -1,5 +1,7 @@
 package com.supermartijn642.rechiseled;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.supermartijn642.core.CommonUtils;
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.item.BaseItem;
@@ -11,8 +13,10 @@ import com.supermartijn642.rechiseled.screen.ChiselContainer;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -35,8 +39,16 @@ import java.util.function.Consumer;
  */
 public class ChiselItem extends BaseItem {
 
+    /**
+     * Item stack codec that is not arbitrarily capped at a stack size of 99
+     */
+    private static final Codec<ItemStack> ITEM_STACK_CODEC = RecordCodecBuilder.create(instance -> instance.group(
+        ItemStack.ITEM_NON_AIR_CODEC.fieldOf("id").forGetter(ItemStack::getItemHolder),
+        ExtraCodecs.POSITIVE_INT.fieldOf("count").orElse(1).forGetter(ItemStack::getCount),
+        DataComponentPatch.CODEC.optionalFieldOf("components", DataComponentPatch.EMPTY).forGetter(ItemStack::getComponentsPatch)
+    ).apply(instance, ItemStack::new));
     public static final DataComponentType<StoredStack> HELD_STACK = DataComponentType.<StoredStack>builder()
-        .persistent(ItemStack.OPTIONAL_CODEC.xmap(StoredStack::new, StoredStack::stack))
+        .persistent(ITEM_STACK_CODEC.xmap(StoredStack::new, StoredStack::stack))
         .networkSynchronized(ItemStack.OPTIONAL_STREAM_CODEC.map(StoredStack::new, StoredStack::stack))
         .build();
 
