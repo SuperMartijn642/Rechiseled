@@ -1,3 +1,7 @@
+### Rechiseled 1.2.2
+- Fixed being able to obtain oversized item stacks from the chisel
+- Fixed crash when saving a chisel containing a stack with size greater than 99
+
 ### Rechiseled 1.2.1
 - Fixed in-world chiseling not working when on a server
 
