@@ -1,8 +1,10 @@
 package com.supermartijn642.rechiseled.core;
 
+import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 import org.spongepowered.asm.launch.MixinBootstrap;
 import org.spongepowered.asm.mixin.Mixins;
+import org.spongepowered.asm.service.MixinService;
 
 import java.util.Map;
 
@@ -16,6 +18,16 @@ public class CoreMod implements IFMLLoadingPlugin {
     public CoreMod(){
         MixinBootstrap.init();
         Mixins.addConfiguration("rechiseled.mixins.json");
+        // In dev, load late mixins early
+        if(FMLLaunchHandler.isDeobfuscatedEnvironment()){
+            boolean isMixinBooterLoaded = false;
+            try{
+                MixinService.getService().getBytecodeProvider().getClassNode("zone.rong.mixinbooter.MixinBooterPlugin");
+                isMixinBooterLoaded = true;
+            }catch(Exception ignored){}
+            if(!isMixinBooterLoaded)
+                Mixins.addConfiguration("rechiseled.mixins-late.json");
+        }
     }
 
     @Override

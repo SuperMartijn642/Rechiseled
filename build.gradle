@@ -33,6 +33,9 @@ repositories {
         }
         filter { includeGroup "org.spongepowered" }
     }
+    maven { // MixinBooter
+        url 'https://maven.cleanroommc.com'
+    }
     maven { url = "https://maven.blamejared.com/" } // JEI
 }
 
@@ -46,6 +49,10 @@ dependencies {
         exclude module: "guava"
         exclude module: "commons-io"
         exclude module: "gson"
+    }
+    // MixinBooter
+    compileOnly('zone.rong:mixinbooter:10.7') {
+        transitive = false
     }
 
     // Core library
@@ -75,13 +82,14 @@ processResources {
     if (matcher.find())
         copyProperties.mod_version = copyProperties.mod_version.substring(0, matcher.start()) + "+" + copyProperties.mod_version.substring(matcher.start())
 
-    filesMatching(["mcmod.info", "modid.mixins.json", "pack.mcmeta"]) {
+    filesMatching(["mcmod.info", "modid.mixins.json", "modid.mixins-late.json", "pack.mcmeta"]) {
         expand copyProperties
     }
 
     exclude "**/*.pdn"
 
     rename "^modid.mixins.json\$", "${mod_id}.mixins.json"
+    rename "^modid.mixins-late.json\$", "${mod_id}.mixins-late.json"
     rename "^icon.png\$", "${mod_id}.png"
 }
 
@@ -172,14 +180,6 @@ gradle.taskGraph.whenReady {
 }
 
 jar {
-    from {
-        configurations.compileClasspath
-            .filter { "mixin-0.8.3-SNAPSHOT.jar" == it.name }
-            .collect { it.isDirectory() ? it : zipTree(it) }
-    } {
-        exclude "LICENSE.txt", "META-INF/MANIFSET.MF", "META-INF/maven/**", "META-INF/*.RSA", "META-INF/*.SF"
-    }
-
     manifest {
         attributes "FMLCorePlugin": "${mod_package}.${coremod_package}.${coremod_class}"
         attributes "FMLCorePluginContainsFMLMod": "true"
@@ -205,13 +205,14 @@ tasks.register('prepareDataResources', Sync) {
     if (matcher.find())
         copyProperties.mod_version = copyProperties.mod_version.substring(0, matcher.start()) + "+" + copyProperties.mod_version.substring(matcher.start())
 
-    filesMatching(["mcmod.info", "modid.mixins.json", "pack.mcmeta"]) {
+    filesMatching(["mcmod.info", "modid.mixins.json", "modid.mixins-late.json", "pack.mcmeta"]) {
         expand copyProperties
     }
 
     exclude "**/*.pdn"
 
     rename "^modid.mixins.json\$", "${mod_id}.mixins.json"
+    rename "^modid.mixins-late.json\$", "${mod_id}.mixins-late.json"
     rename "^icon.png\$", "${mod_id}.png"
 }
 
