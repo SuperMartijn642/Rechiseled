@@ -10,6 +10,7 @@ import com.supermartijn642.rechiseled.api.chiseling.conversion.ConversionResult;
 import com.supermartijn642.rechiseled.api.util.ItemWithMeta;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
@@ -290,11 +291,7 @@ public abstract class BaseChiselingContainer extends BaseContainer {
                 Slot slot = this.inventorySlots.get(index);
                 ItemStack slotStack = slot.getStack();
                 if(slotStack.isEmpty() && slot.isItemValid(stack)){
-                    if(stack.getCount() > slot.getSlotStackLimit())
-                        slot.putStack(stack.splitStack(slot.getSlotStackLimit()));
-                    else
-                        slot.putStack(stack.splitStack(stack.getCount()));
-
+                    slot.putStack(stack.splitStack(Math.min(slot.getItemStackLimit(stack), stack.getMaxStackSize())));
                     changed = true;
                     break;
                 }
@@ -307,5 +304,30 @@ public abstract class BaseChiselingContainer extends BaseContainer {
         }
 
         return changed;
+    }
+
+    @Override
+    public ItemStack slotClick(int slotIndex, int inventoryIndex, ClickType clickType, EntityPlayer player){
+        // Prevent swapping oversized stacks from the chisel to the hotbar
+        if(clickType == ClickType.SWAP && slotIndex == 0 && inventoryIndex >= 0 && inventoryIndex < 9){
+            ItemStack currentStack = this.getCurrentStack();
+            InventoryPlayer inventory = player.inventory;
+            if(!currentStack.isEmpty() && (currentStack.getCount() > currentStack.getMaxStackSize() || currentStack.getCount() > inventory.getInventoryStackLimit())){
+                ItemStack inventoryStack = inventory.getStackInSlot(inventoryIndex);
+                if(!inventoryStack.isEmpty() && currentStack.getItem() == inventoryStack.getItem() && (!currentStack.getHasSubtypes() || currentStack.getMetadata() == inventoryStack.getMetadata()) && ItemStack.areItemStackTagsEqual(currentStack, inventoryStack))
+                    return ItemStack.EMPTY;
+                int maxSize = Math.min(currentStack.getMaxStackSize(), inventory.getInventoryStackLimit());
+                int transfer = maxSize - inventoryStack.getCount();
+                if(transfer <= 0)
+                    return ItemStack.EMPTY;
+                currentStack.shrink(transfer);
+                this.setCurrentStack(currentStack);
+                inventoryStack = currentStack.copy();
+                inventoryStack.setCount(maxSize);
+                inventory.setInventorySlotContents(inventoryIndex, inventoryStack);
+                return ItemStack.EMPTY;
+            }
+        }
+        return super.slotClick(slotIndex, inventoryIndex, clickType, player);
     }
 }
