@@ -24,7 +24,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,12 +34,13 @@ import java.util.function.Consumer;
  */
 public class ChiselItem extends BaseItem {
 
-    @SuppressWarnings("ClassEscapesDefinedScope")
-    public static final DataComponentType<ItemHolder> HELD_STACK = DataComponentType.<ItemHolder>builder()
-        .persistent(ItemStack.OPTIONAL_CODEC.xmap(ItemHolder::new, ItemHolder::stack))
-        .networkSynchronized(ItemStack.OPTIONAL_STREAM_CODEC.map(ItemHolder::new, ItemHolder::stack)).build();
+    public static final DataComponentType<StoredStack> HELD_STACK = DataComponentType.<StoredStack>builder()
+        .persistent(ItemStack.OPTIONAL_CODEC.xmap(StoredStack::new, StoredStack::stack))
+        .networkSynchronized(ItemStack.OPTIONAL_STREAM_CODEC.map(StoredStack::new, StoredStack::stack))
+        .build();
 
     public static ItemStack getStoredStack(ItemStack chisel){
+        //noinspection DataFlowIssue
         return chisel.has(HELD_STACK) ? chisel.get(HELD_STACK).stack : ItemStack.EMPTY;
     }
 
@@ -48,10 +48,7 @@ public class ChiselItem extends BaseItem {
         if(stack == null || stack.isEmpty())
             chisel.remove(HELD_STACK);
         else
-            chisel.set(HELD_STACK, new ItemHolder(stack));
-    }
-
-    private record ItemHolder(@NotNull ItemStack stack) {
+            chisel.set(HELD_STACK, new StoredStack(stack));
     }
 
     public ChiselItem(){
@@ -214,5 +211,23 @@ public class ChiselItem extends BaseItem {
             }
         }
         return chiselableBlocks;
+    }
+
+    private record StoredStack(ItemStack stack) {
+        StoredStack{
+            if(stack == null || stack.isEmpty())
+                throw new IllegalArgumentException("Stack cannot be null or empty");
+        }
+
+        @Override
+        public boolean equals(Object object){
+            if(!(object instanceof StoredStack that)) return false;
+            return ItemStack.matches(this.stack, that.stack);
+        }
+
+        @Override
+        public int hashCode(){
+            return this.stack.getCount() * 31 + ItemStack.hashItemAndComponents(this.stack);
+        }
     }
 }
