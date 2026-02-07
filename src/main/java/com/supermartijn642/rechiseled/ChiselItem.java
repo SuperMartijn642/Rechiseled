@@ -34,17 +34,21 @@ import java.util.function.Consumer;
  */
 public class ChiselItem extends BaseItem {
 
-    public static final DataComponentType<ItemStack> HELD_STACK = DataComponentType.<ItemStack>builder().persistent(ItemStack.OPTIONAL_CODEC).networkSynchronized(ItemStack.OPTIONAL_STREAM_CODEC).build();
+    public static final DataComponentType<StoredStack> HELD_STACK = DataComponentType.<StoredStack>builder()
+        .persistent(ItemStack.OPTIONAL_CODEC.xmap(StoredStack::new, StoredStack::stack))
+        .networkSynchronized(ItemStack.OPTIONAL_STREAM_CODEC.map(StoredStack::new, StoredStack::stack))
+        .build();
 
     public static ItemStack getStoredStack(ItemStack chisel){
-        return chisel.has(HELD_STACK) ? chisel.get(HELD_STACK) : ItemStack.EMPTY;
+        //noinspection DataFlowIssue
+        return chisel.has(HELD_STACK) ? chisel.get(HELD_STACK).stack : ItemStack.EMPTY;
     }
 
     public static void setStoredStack(ItemStack chisel, ItemStack stack){
         if(stack == null || stack.isEmpty())
             chisel.remove(HELD_STACK);
         else
-            chisel.set(HELD_STACK, stack);
+            chisel.set(HELD_STACK, new StoredStack(stack));
     }
 
     public ChiselItem(){
@@ -207,5 +211,23 @@ public class ChiselItem extends BaseItem {
             }
         }
         return chiselableBlocks;
+    }
+
+    private record StoredStack(ItemStack stack) {
+        StoredStack{
+            if(stack == null || stack.isEmpty())
+                throw new IllegalArgumentException("Stack cannot be null or empty");
+        }
+
+        @Override
+        public boolean equals(Object object){
+            if(!(object instanceof StoredStack that)) return false;
+            return ItemStack.matches(this.stack, that.stack);
+        }
+
+        @Override
+        public int hashCode(){
+            return this.stack.getCount() * 31 + ItemStack.hashItemAndComponents(this.stack);
+        }
     }
 }
