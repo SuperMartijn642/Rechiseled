@@ -11,6 +11,8 @@
     "VegetationBlockMixin"
   ],
   "client": [
+    "jei.RecipeLayoutInputHandlerMixin",
+    "jei.RecipeLayoutUserInputHandlerMixin",
     "MinecraftMixin",
     "MultiPlayerGameModeMixin"
   ],
