@@ -1,3 +1,7 @@
+### Rechiseled 1.2.3
+- Fixed JEI buttons quick craft button not working
+- Fixed texture for Edged Block of Amethyst connecting incorrectly
+
 ### Rechiseled 1.2.2
 - Fixed being able to obtain oversized item stacks from the chisel
 - Fixed crash when saving a chisel containing a stack with size greater than 99
