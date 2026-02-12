@@ -75,5 +75,6 @@ public abstract class RecipesGuiMixin extends GuiScreen {
             Object recipe = JEIFieldAccess.getRecipeLayoutRecipeWrapper(layout);
             ((ChiselingRecipeCategory)layout.getRecipeCategory()).mouseReleased((ChiselingRecipeCategory.ChiselingRecipeWrapper)recipe, mouseX - layout.getPosX(), mouseY - layout.getPosY(), button);
         }
+        super.mouseReleased(mouseX, mouseY, button);
     }
 }
