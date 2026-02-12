@@ -10,6 +10,7 @@ import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.builder.IRecipeSlotBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.gui.ingredient.IRecipeSlotDrawable;
 import mezz.jei.api.gui.ingredient.IRecipeSlotRichTooltipCallback;
 import mezz.jei.api.gui.widgets.IRecipeExtrasBuilder;
 import mezz.jei.api.helpers.IGuiHelper;
@@ -19,6 +20,7 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import mezz.jei.common.gui.elements.OffsetDrawable;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
@@ -32,9 +34,10 @@ import java.util.stream.Collectors;
  */
 public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipe> {
 
-    private final IDrawable icon, arrow, focussedSlot;
+    private final IDrawable slot, icon, arrow, focussedSlot;
 
     public ChiselingRecipeCategory(IGuiHelper guiHelper){
+        this.slot = OffsetDrawable.create(guiHelper.getSlotDrawable(), -1, -1);
         this.icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(Rechiseled.chisel));
         this.arrow = guiHelper.drawableBuilder(Rechiseled.identifier("textures/screen/curved_arrow.png"), 0, 0, 20, 20).setTextureSize(20, 20).build();
         this.focussedSlot = guiHelper.drawableBuilder(Rechiseled.identifier("textures/screen/focussed_slot.png"), 0, 0, 18, 18).setTextureSize(18, 18).build();
@@ -117,11 +120,8 @@ public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipe>
             input.setStandardSlotBackground();
 
         // Output slots
-        for(int i = 0; i < outputs.size(); i++){
-            int x = 49 + 18 * (i % 7);
-            int y = 1 + 18 * (i / 7);
-            List<Item> items = outputs.get(i);
-            IRecipeSlotBuilder output = recipeLayoutBuilder.addSlot(RecipeIngredientRole.OUTPUT, x, y).addRichTooltipCallback(tooltip);
+        for(List<Item> items : outputs){
+            IRecipeSlotBuilder output = recipeLayoutBuilder.addSlot(RecipeIngredientRole.OUTPUT, 0, 0).addRichTooltipCallback(tooltip);
             items.forEach(output::addItemLike);
             if(items.stream().anyMatch(focusedOutputs::contains))
                 output.setBackground(this.focussedSlot, -1, -1);
@@ -131,8 +131,11 @@ public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipe>
     @Override
     public void createRecipeExtras(IRecipeExtrasBuilder builder, ChiselingRecipe recipe, IFocusGroup focuses){
         builder.getRecipeSlots().getSlots(RecipeIngredientRole.INPUT).get(0).setPosition(73, 1);
-        builder.addScrollGridWidget(builder.getRecipeSlots().getSlots(RecipeIngredientRole.OUTPUT), 9, 4).setPosition(0, 22);
         builder.addDrawable(this.arrow).setPosition(89, 0);
+        List<IRecipeSlotDrawable> scrollableSlots = builder.getRecipeSlots().getSlots(RecipeIngredientRole.OUTPUT);
+        JEIScrollableSlotsWidget scrollableSlotsWidget = new JEIScrollableSlotsWidget(0, 22, scrollableSlots, this.slot);
+        builder.addSlottedWidget(scrollableSlotsWidget, scrollableSlots);
+        builder.addInputHandler(scrollableSlotsWidget);
     }
 
     private static Set<Item> focusedItems(IFocusGroup focuses, RecipeIngredientRole role){
