@@ -11,6 +11,8 @@
   ],
   "client": [
     "dev.DatagenModLoaderMixin",
+    "jei.RecipeLayoutInputHandlerMixin",
+    "jei.RecipeLayoutUserInputHandlerMixin",
     "MinecraftMixin",
     "MultiPlayerGameModeMixin"
   ],
