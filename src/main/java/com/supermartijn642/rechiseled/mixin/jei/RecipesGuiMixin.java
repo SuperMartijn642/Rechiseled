@@ -4,7 +4,7 @@ import com.supermartijn642.rechiseled.api.chiseling.ChiselingRecipe;
 import com.supermartijn642.rechiseled.compat.jei.ChiselingRecipeCategory;
 import mezz.jei.api.gui.IRecipeLayoutDrawable;
 import mezz.jei.gui.recipes.RecipesGui;
-import net.minecraft.client.gui.components.events.ContainerEventHandler;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.Rect2i;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,11 +21,15 @@ import java.util.List;
  */
 @Pseudo
 @Mixin(RecipesGui.class)
-public abstract class RecipesGuiMixin implements ContainerEventHandler {
+public abstract class RecipesGuiMixin extends Screen {
 
     @Final
     @Shadow
     private List<IRecipeLayoutDrawable<?>> recipeLayouts;
+
+    private RecipesGuiMixin(){
+        super(null);
+    }
 
     @Inject(
         method = "mouseScrolled",
@@ -55,6 +59,6 @@ public abstract class RecipesGuiMixin implements ContainerEventHandler {
             Rect2i recipeArea = layout.getRect();
             ((ChiselingRecipeCategory)layout.getRecipeCategory()).mouseReleased((ChiselingRecipe)layout.getRecipe(), mouseX - recipeArea.getX(), mouseY - recipeArea.getY(), button);
         }
-        return false;
+        return super.mouseReleased(mouseX, mouseY, button);
     }
 }
