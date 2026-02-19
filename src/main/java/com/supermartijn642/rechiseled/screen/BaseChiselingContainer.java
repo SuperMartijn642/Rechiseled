@@ -40,7 +40,7 @@ public abstract class BaseChiselingContainer extends BaseContainer {
             CustomSlot.builder()
                 .position(181, 108)
                 .size(26)
-                .setter(BaseChiselingContainer.this::setCurrentStack)
+                .setter(this::setCurrentStack)
                 .getter(this::getCurrentStack)
                 .filter(stack -> ChiselingRecipeManager.get(isClient).getRecipeForItem(stack.getItem()) != null)
                 .onChange((oldStack, newStack) -> this.findRecipe())
@@ -214,6 +214,9 @@ public abstract class BaseChiselingContainer extends BaseContainer {
         if(stack.isEmpty())
             return stack;
 
+        // Create a copy as the stack will be modified
+        stack = stack.copy();
+        // Transfer stack from chisel to inventory or vice versa
         if(index == 0){
             if(!this.moveItemStackTo(stack, 1, this.slots.size(), true))
                 return ItemStack.EMPTY;
@@ -222,8 +225,8 @@ public abstract class BaseChiselingContainer extends BaseContainer {
                 return ItemStack.EMPTY;
         }
 
-        if(stack.isEmpty())
-            this.slots.get(index).set(stack);
+        // Update slot
+        this.slots.get(index).set(stack);
         return stack;
     }
 
