@@ -38,15 +38,23 @@ public class ChiselItem extends BaseItem {
 
     public static ItemStack getStoredStack(ItemStack chisel){
         CompoundTag tag = chisel.getOrCreateTag();
-        return tag.contains("stack") ? ItemStack.of(tag.getCompound("stack")) : ItemStack.EMPTY;
+        if(!tag.contains("stack"))
+            return ItemStack.EMPTY;
+        ItemStack stack = ItemStack.of(tag.getCompound("stack"));
+        if(tag.contains("stackCount"))
+            stack.setCount(tag.getInt("stackCount"));
+        return stack;
     }
 
     public static void setStoredStack(ItemStack chisel, ItemStack stack){
         CompoundTag tag = chisel.getOrCreateTag();
-        if(stack == null || stack.isEmpty())
+        if(stack == null || stack.isEmpty()){
             tag.remove("stack");
-        else
+            tag.remove("stackCount");
+        }else{
             tag.put("stack", stack.save(new CompoundTag()));
+            tag.putInt("stackCount", stack.getCount());
+        }
     }
 
     public ChiselItem(){
