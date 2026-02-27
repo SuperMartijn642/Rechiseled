@@ -39,15 +39,23 @@ public class ChiselItem extends BaseItem {
 
     public static ItemStack getStoredStack(ItemStack chisel){
         NBTTagCompound tag = chisel.getTagCompound();
-        return tag != null && tag.hasKey("stack") ? new ItemStack(tag.getCompoundTag("stack")) : ItemStack.EMPTY;
+        if(tag == null || !tag.hasKey("stack"))
+            return ItemStack.EMPTY;
+        ItemStack stack = new ItemStack(tag.getCompoundTag("stack"));
+        if(tag.hasKey("stackCount"))
+            stack.setCount(tag.getInteger("stackCount"));
+        return stack;
     }
 
     public static void setStoredStack(ItemStack chisel, ItemStack stack){
         NBTTagCompound tag = chisel.hasTagCompound() ? chisel.getTagCompound() : new NBTTagCompound();
-        if(stack == null || stack.isEmpty())
+        if(stack == null || stack.isEmpty()){
             tag.removeTag("stack");
-        else
+            tag.removeTag("stackCount");
+        }else{
             tag.setTag("stack", stack.serializeNBT());
+            tag.setInteger("stackCount", stack.getCount());
+        }
         chisel.setTagCompound(tag);
     }
 
