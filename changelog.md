@@ -1,3 +1,6 @@
+### Rechiseled 1.2.4
+- Fixed chisel stack not always updating when shift-clicking items from its slot
+
 ### Rechiseled 1.2.3
 - Fixed texture for Edged Block of Amethyst connecting incorrectly
 
