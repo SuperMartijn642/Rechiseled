@@ -1,3 +1,7 @@
+### Rechiseled 1.2.4
+- Fixed chisel stack not always updating when shift-clicking items from its slot
+- Fixed stack sizes of 128 and greater in the chisel not getting saved correctly
+
 ### Rechiseled 1.2.3
 - Replaced default JEI scrollbar with custom smooth scrolling
 - Fixed texture for Edged Block of Amethyst connecting incorrectly
