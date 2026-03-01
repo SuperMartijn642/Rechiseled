@@ -1,3 +1,6 @@
+### Rechiseled 1.2.4a
+- Fixed crash on startup
+
 ### Rechiseled 1.2.4
 - Fixed chisel stack not always updating when shift-clicking items from its slot
 - Fixed stack sizes of 128 and greater in the chisel not getting saved correctly
