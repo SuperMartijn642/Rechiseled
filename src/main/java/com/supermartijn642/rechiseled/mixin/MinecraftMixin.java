@@ -44,7 +44,7 @@ public class MinecraftMixin {
     }
 
     @Inject(
-        method = "startAttack()Z",
+        method = "startAttack()V",
         at = @At(
             value = "INVOKE",
             target = "Lnet/minecraft/client/multiplayer/MultiPlayerGameMode;startDestroyBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/Direction;)Z",
