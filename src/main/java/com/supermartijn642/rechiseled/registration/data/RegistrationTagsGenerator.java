@@ -39,7 +39,7 @@ public class RegistrationTagsGenerator extends TagGenerator {
 
     static{
         List<PackResources> packs = new ArrayList<>();
-        packs.add(new VanillaPackResources(ServerPacksSource.BUILT_IN_METADATA, ServerPacksSource.VANILLA_ID));
+        packs.add(new VanillaPackResources(ServerPacksSource.BUILT_IN_METADATA, "minecraft"));
         new ModResourcePackCreator(PackType.SERVER_DATA).loadPacks(pack -> {
             try{
                 packs.add(pack.open());
