@@ -1,6 +1,9 @@
 {
   "fusion": {
     "type": "connecting",
-    "layout": "vertical"
+    "layout": "vertical",
+    "connections": {
+      "type": "false"
+    }
   }
 }
