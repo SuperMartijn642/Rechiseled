@@ -1,58 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/netherite_block_pillar_side",
     "south": "rechiseled:block/netherite_block_pillar_side",
+    "east": "rechiseled:block/netherite_block_pillar_side",
     "north": "rechiseled:block/netherite_block_pillar_side",
+    "up": "rechiseled:block/netherite_block_pillar_end",
     "west": "rechiseled:block/netherite_block_pillar_side",
     "particle": "rechiseled:block/netherite_block_pillar_side",
-    "up": "rechiseled:block/netherite_block_pillar_end",
     "down": "rechiseled:block/netherite_block_pillar_end"
   },
   "connections": {
-    "up": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:netherite_block_pillar_connecting",
-              "properties": {
-                "axis": [
-                  "y"
-                ]
-              },
-              "type": "fusion:match_state"
-            },
-            {
-              "block": "rechiseled:netherite_block_pillar_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:netherite_block_pillar_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:netherite_block_pillar_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "east": "#side",
-    "north": "#side",
     "side": {
       "predicates": [
         {
@@ -130,6 +87,50 @@
       "type": "fusion:or"
     },
     "south": "#side",
+    "east": "#side",
+    "north": "#side",
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:netherite_block_pillar_connecting",
+              "properties": {
+                "axis": [
+                  "y"
+                ]
+              },
+              "type": "fusion:match_state"
+            },
+            {
+              "block": "rechiseled:netherite_block_pillar_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:netherite_block_pillar_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:netherite_block_pillar_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "west": "#side",
     "down": {
       "predicates": [
         {
@@ -170,8 +171,7 @@
         }
       ],
       "type": "fusion:or"
-    },
-    "west": "#side"
+    }
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

@@ -2,58 +2,15 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "east": "#side",
-    "side": "rechiseled:block/cobbled_deepslate_pillar_side",
     "south": "#side",
-    "north": "#side",
     "west": "#side",
+    "down": "rechiseled:block/cobbled_deepslate_pillar_end",
+    "north": "#side",
     "particle": "#side",
-    "up": "rechiseled:block/cobbled_deepslate_pillar_end",
-    "down": "rechiseled:block/cobbled_deepslate_pillar_end"
+    "side": "rechiseled:block/cobbled_deepslate_pillar_side",
+    "up": "rechiseled:block/cobbled_deepslate_pillar_end"
   },
   "connections": {
-    "up": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:cobbled_deepslate_pillar_connecting",
-              "properties": {
-                "axis": [
-                  "y"
-                ]
-              },
-              "type": "fusion:match_state"
-            },
-            {
-              "block": "rechiseled:cobbled_deepslate_pillar_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:cobbled_deepslate_pillar_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:cobbled_deepslate_pillar_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "east": "#side",
-    "north": "#side",
     "side": {
       "predicates": [
         {
@@ -131,6 +88,50 @@
       "type": "fusion:or"
     },
     "south": "#side",
+    "east": "#side",
+    "north": "#side",
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:cobbled_deepslate_pillar_connecting",
+              "properties": {
+                "axis": [
+                  "y"
+                ]
+              },
+              "type": "fusion:match_state"
+            },
+            {
+              "block": "rechiseled:cobbled_deepslate_pillar_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:cobbled_deepslate_pillar_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:cobbled_deepslate_pillar_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "west": "#side",
     "down": {
       "predicates": [
         {
@@ -171,8 +172,7 @@
         }
       ],
       "type": "fusion:or"
-    },
-    "west": "#side"
+    }
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

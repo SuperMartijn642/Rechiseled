@@ -1,53 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/warped_planks_squares",
     "south": "rechiseled:block/warped_planks_squares",
+    "east": "rechiseled:block/warped_planks_squares",
     "north": "rechiseled:block/warped_planks_squares",
+    "up": "rechiseled:block/warped_planks_squares",
     "west": "rechiseled:block/warped_planks_squares",
     "particle": "rechiseled:block/warped_planks_squares",
-    "up": "rechiseled:block/warped_planks_squares",
     "down": "rechiseled:block/warped_planks_squares"
   },
   "connections": {
-    "up": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:warped_planks_squares_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:warped_planks_squares_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:warped_planks_squares_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:warped_planks_squares_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "east": "#side",
-    "north": "#side",
     "side": {
       "predicates": [
         {
@@ -120,6 +82,45 @@
       "type": "fusion:or"
     },
     "south": "#side",
+    "east": "#side",
+    "north": "#side",
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:warped_planks_squares_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:warped_planks_squares_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:warped_planks_squares_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:warped_planks_squares_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "west": "#side",
     "down": {
       "predicates": [
         {
@@ -155,8 +156,7 @@
         }
       ],
       "type": "fusion:or"
-    },
-    "west": "#side"
+    }
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

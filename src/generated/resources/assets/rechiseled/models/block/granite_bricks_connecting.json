@@ -1,53 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/granite_bricks",
     "south": "rechiseled:block/granite_bricks",
+    "east": "rechiseled:block/granite_bricks",
     "north": "rechiseled:block/granite_bricks",
+    "up": "rechiseled:block/granite_bricks",
     "west": "rechiseled:block/granite_bricks",
     "particle": "rechiseled:block/granite_bricks",
-    "up": "rechiseled:block/granite_bricks",
     "down": "rechiseled:block/granite_bricks"
   },
   "connections": {
-    "up": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:granite_bricks_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:granite_bricks_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:granite_bricks_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:granite_bricks_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "east": "#side",
-    "north": "#side",
     "side": {
       "predicates": [
         {
@@ -120,6 +82,45 @@
       "type": "fusion:or"
     },
     "south": "#side",
+    "east": "#side",
+    "north": "#side",
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:granite_bricks_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:granite_bricks_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:granite_bricks_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:granite_bricks_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "west": "#side",
     "down": {
       "predicates": [
         {
@@ -155,8 +156,7 @@
         }
       ],
       "type": "fusion:or"
-    },
-    "west": "#side"
+    }
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

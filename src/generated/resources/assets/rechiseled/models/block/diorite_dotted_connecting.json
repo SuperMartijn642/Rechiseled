@@ -1,53 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/diorite_dotted",
     "south": "rechiseled:block/diorite_dotted",
+    "east": "rechiseled:block/diorite_dotted",
     "north": "rechiseled:block/diorite_dotted",
+    "up": "rechiseled:block/diorite_dotted",
     "west": "rechiseled:block/diorite_dotted",
     "particle": "rechiseled:block/diorite_dotted",
-    "up": "rechiseled:block/diorite_dotted",
     "down": "rechiseled:block/diorite_dotted"
   },
   "connections": {
-    "up": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:diorite_dotted_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:diorite_dotted_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:diorite_dotted_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:diorite_dotted_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "east": "#side",
-    "north": "#side",
     "side": {
       "predicates": [
         {
@@ -120,6 +82,45 @@
       "type": "fusion:or"
     },
     "south": "#side",
+    "east": "#side",
+    "north": "#side",
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:diorite_dotted_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:diorite_dotted_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:diorite_dotted_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:diorite_dotted_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "west": "#side",
     "down": {
       "predicates": [
         {
@@ -155,8 +156,7 @@
         }
       ],
       "type": "fusion:or"
-    },
-    "west": "#side"
+    }
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

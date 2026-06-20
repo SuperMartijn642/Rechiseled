@@ -1,53 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/quartz_block_stripes",
     "south": "rechiseled:block/quartz_block_stripes",
+    "east": "rechiseled:block/quartz_block_stripes",
     "north": "rechiseled:block/quartz_block_stripes",
+    "up": "rechiseled:block/quartz_block_stripes",
     "west": "rechiseled:block/quartz_block_stripes",
     "particle": "rechiseled:block/quartz_block_stripes",
-    "up": "rechiseled:block/quartz_block_stripes",
     "down": "rechiseled:block/quartz_block_stripes"
   },
   "connections": {
-    "up": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:quartz_block_stripes_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:quartz_block_stripes_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:quartz_block_stripes_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:quartz_block_stripes_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "east": "#side",
-    "north": "#side",
     "side": {
       "predicates": [
         {
@@ -120,6 +82,45 @@
       "type": "fusion:or"
     },
     "south": "#side",
+    "east": "#side",
+    "north": "#side",
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:quartz_block_stripes_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:quartz_block_stripes_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:quartz_block_stripes_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:quartz_block_stripes_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "west": "#side",
     "down": {
       "predicates": [
         {
@@ -155,8 +156,7 @@
         }
       ],
       "type": "fusion:or"
-    },
-    "west": "#side"
+    }
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

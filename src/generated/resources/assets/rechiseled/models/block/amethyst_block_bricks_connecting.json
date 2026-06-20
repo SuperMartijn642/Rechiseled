@@ -1,53 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/amethyst_block_bricks",
     "south": "rechiseled:block/amethyst_block_bricks",
+    "east": "rechiseled:block/amethyst_block_bricks",
     "north": "rechiseled:block/amethyst_block_bricks",
+    "up": "rechiseled:block/amethyst_block_bricks",
     "west": "rechiseled:block/amethyst_block_bricks",
     "particle": "rechiseled:block/amethyst_block_bricks",
-    "up": "rechiseled:block/amethyst_block_bricks",
     "down": "rechiseled:block/amethyst_block_bricks"
   },
   "connections": {
-    "up": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:amethyst_block_bricks_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:amethyst_block_bricks_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:amethyst_block_bricks_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:amethyst_block_bricks_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "east": "#side",
-    "north": "#side",
     "side": {
       "predicates": [
         {
@@ -120,6 +82,45 @@
       "type": "fusion:or"
     },
     "south": "#side",
+    "east": "#side",
+    "north": "#side",
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:amethyst_block_bricks_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:amethyst_block_bricks_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:amethyst_block_bricks_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:amethyst_block_bricks_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "west": "#side",
     "down": {
       "predicates": [
         {
@@ -155,8 +156,7 @@
         }
       ],
       "type": "fusion:or"
-    },
-    "west": "#side"
+    }
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

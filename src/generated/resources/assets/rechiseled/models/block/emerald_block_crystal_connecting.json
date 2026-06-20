@@ -1,53 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/emerald_block_crystal",
     "south": "rechiseled:block/emerald_block_crystal",
+    "east": "rechiseled:block/emerald_block_crystal",
     "north": "rechiseled:block/emerald_block_crystal",
+    "up": "rechiseled:block/emerald_block_crystal",
     "west": "rechiseled:block/emerald_block_crystal",
     "particle": "rechiseled:block/emerald_block_crystal",
-    "up": "rechiseled:block/emerald_block_crystal",
     "down": "rechiseled:block/emerald_block_crystal"
   },
   "connections": {
-    "up": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:emerald_block_crystal_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:emerald_block_crystal_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:emerald_block_crystal_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:emerald_block_crystal_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "east": "#side",
-    "north": "#side",
     "side": {
       "predicates": [
         {
@@ -120,6 +82,45 @@
       "type": "fusion:or"
     },
     "south": "#side",
+    "east": "#side",
+    "north": "#side",
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:emerald_block_crystal_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:emerald_block_crystal_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:emerald_block_crystal_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:emerald_block_crystal_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "west": "#side",
     "down": {
       "predicates": [
         {
@@ -155,8 +156,7 @@
         }
       ],
       "type": "fusion:or"
-    },
-    "west": "#side"
+    }
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

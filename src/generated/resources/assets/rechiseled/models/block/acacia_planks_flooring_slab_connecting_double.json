@@ -2,53 +2,15 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "east": "#side",
-    "side": "rechiseled:block/acacia_planks_flooring",
     "south": "#side",
-    "north": "#side",
     "west": "#side",
+    "down": "rechiseled:block/acacia_planks_flooring",
+    "north": "#side",
     "particle": "#side",
-    "up": "rechiseled:block/acacia_planks_flooring",
-    "down": "rechiseled:block/acacia_planks_flooring"
+    "side": "rechiseled:block/acacia_planks_flooring",
+    "up": "rechiseled:block/acacia_planks_flooring"
   },
   "connections": {
-    "up": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:acacia_planks_flooring_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:acacia_planks_flooring_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:acacia_planks_flooring_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:acacia_planks_flooring_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "east": "#side",
-    "north": "#side",
     "side": {
       "predicates": [
         {
@@ -121,6 +83,45 @@
       "type": "fusion:or"
     },
     "south": "#side",
+    "east": "#side",
+    "north": "#side",
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:acacia_planks_flooring_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:acacia_planks_flooring_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:acacia_planks_flooring_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:acacia_planks_flooring_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "west": "#side",
     "down": {
       "predicates": [
         {
@@ -156,8 +157,7 @@
         }
       ],
       "type": "fusion:or"
-    },
-    "west": "#side"
+    }
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

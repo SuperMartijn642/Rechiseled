@@ -1,53 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/prismarine_bricks_chiseled_circles",
     "south": "rechiseled:block/prismarine_bricks_chiseled_circles",
+    "east": "rechiseled:block/prismarine_bricks_chiseled_circles",
     "north": "rechiseled:block/prismarine_bricks_chiseled_circles",
+    "up": "rechiseled:block/prismarine_bricks_chiseled_circles",
     "west": "rechiseled:block/prismarine_bricks_chiseled_circles",
     "particle": "rechiseled:block/prismarine_bricks_chiseled_circles",
-    "up": "rechiseled:block/prismarine_bricks_chiseled_circles",
     "down": "rechiseled:block/prismarine_bricks_chiseled_circles"
   },
   "connections": {
-    "up": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:prismarine_bricks_chiseled_circles_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:prismarine_bricks_chiseled_circles_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:prismarine_bricks_chiseled_circles_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:prismarine_bricks_chiseled_circles_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "east": "#side",
-    "north": "#side",
     "side": {
       "predicates": [
         {
@@ -120,6 +82,45 @@
       "type": "fusion:or"
     },
     "south": "#side",
+    "east": "#side",
+    "north": "#side",
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:prismarine_bricks_chiseled_circles_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:prismarine_bricks_chiseled_circles_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:prismarine_bricks_chiseled_circles_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:prismarine_bricks_chiseled_circles_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "west": "#side",
     "down": {
       "predicates": [
         {
@@ -155,8 +156,7 @@
         }
       ],
       "type": "fusion:or"
-    },
-    "west": "#side"
+    }
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

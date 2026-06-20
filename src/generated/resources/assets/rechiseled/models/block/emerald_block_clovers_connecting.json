@@ -1,53 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/emerald_block_clovers",
     "south": "rechiseled:block/emerald_block_clovers",
+    "east": "rechiseled:block/emerald_block_clovers",
     "north": "rechiseled:block/emerald_block_clovers",
+    "up": "rechiseled:block/emerald_block_clovers",
     "west": "rechiseled:block/emerald_block_clovers",
     "particle": "rechiseled:block/emerald_block_clovers",
-    "up": "rechiseled:block/emerald_block_clovers",
     "down": "rechiseled:block/emerald_block_clovers"
   },
   "connections": {
-    "up": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:emerald_block_clovers_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:emerald_block_clovers_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:emerald_block_clovers_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:emerald_block_clovers_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "east": "#side",
-    "north": "#side",
     "side": {
       "predicates": [
         {
@@ -120,6 +82,45 @@
       "type": "fusion:or"
     },
     "south": "#side",
+    "east": "#side",
+    "north": "#side",
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:emerald_block_clovers_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:emerald_block_clovers_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:emerald_block_clovers_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:emerald_block_clovers_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "west": "#side",
     "down": {
       "predicates": [
         {
@@ -155,8 +156,7 @@
         }
       ],
       "type": "fusion:or"
-    },
-    "west": "#side"
+    }
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

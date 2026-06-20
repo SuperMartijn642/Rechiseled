@@ -2,53 +2,15 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "east": "#side",
-    "side": "rechiseled:block/dirt_tilled",
     "south": "#side",
-    "north": "#side",
     "west": "#side",
+    "down": "rechiseled:block/dirt_tilled",
+    "north": "#side",
     "particle": "#side",
-    "up": "rechiseled:block/dirt_tilled",
-    "down": "rechiseled:block/dirt_tilled"
+    "side": "rechiseled:block/dirt_tilled",
+    "up": "rechiseled:block/dirt_tilled"
   },
   "connections": {
-    "up": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:dirt_tilled_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:dirt_tilled_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:dirt_tilled_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:dirt_tilled_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "east": "#side",
-    "north": "#side",
     "side": {
       "predicates": [
         {
@@ -121,6 +83,45 @@
       "type": "fusion:or"
     },
     "south": "#side",
+    "east": "#side",
+    "north": "#side",
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:dirt_tilled_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:dirt_tilled_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:dirt_tilled_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:dirt_tilled_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "west": "#side",
     "down": {
       "predicates": [
         {
@@ -156,8 +157,7 @@
         }
       ],
       "type": "fusion:or"
-    },
-    "west": "#side"
+    }
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

@@ -1,53 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/oak_planks_tiles",
     "south": "rechiseled:block/oak_planks_tiles",
+    "east": "rechiseled:block/oak_planks_tiles",
     "north": "rechiseled:block/oak_planks_tiles",
+    "up": "rechiseled:block/oak_planks_tiles",
     "west": "rechiseled:block/oak_planks_tiles",
     "particle": "rechiseled:block/oak_planks_tiles",
-    "up": "rechiseled:block/oak_planks_tiles",
     "down": "rechiseled:block/oak_planks_tiles"
   },
   "connections": {
-    "up": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:oak_planks_tiles_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:oak_planks_tiles_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:oak_planks_tiles_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:oak_planks_tiles_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "east": "#side",
-    "north": "#side",
     "side": {
       "predicates": [
         {
@@ -120,6 +82,45 @@
       "type": "fusion:or"
     },
     "south": "#side",
+    "east": "#side",
+    "north": "#side",
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:oak_planks_tiles_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:oak_planks_tiles_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:oak_planks_tiles_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:oak_planks_tiles_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "west": "#side",
     "down": {
       "predicates": [
         {
@@ -155,8 +156,7 @@
         }
       ],
       "type": "fusion:or"
-    },
-    "west": "#side"
+    }
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

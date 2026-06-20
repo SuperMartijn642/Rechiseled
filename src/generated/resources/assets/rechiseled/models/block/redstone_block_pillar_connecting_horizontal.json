@@ -1,15 +1,15 @@
 {
   "parent": "rechiseled:block/redstone_block_pillar_connecting",
   "connections": {
+    "south": "#all",
+    "east": "#all",
+    "north": "#all",
     "all": {
       "type": "fusion:is_same_state"
     },
-    "east": "#all",
-    "north": "#all",
     "up": "#all",
-    "south": "#all",
-    "down": "#all",
-    "west": "#all"
+    "west": "#all",
+    "down": "#all"
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

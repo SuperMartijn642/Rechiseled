@@ -1,53 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/red_sandstone_tiles",
     "south": "rechiseled:block/red_sandstone_tiles",
+    "east": "rechiseled:block/red_sandstone_tiles",
     "north": "rechiseled:block/red_sandstone_tiles",
+    "up": "rechiseled:block/red_sandstone_tiles",
     "west": "rechiseled:block/red_sandstone_tiles",
     "particle": "rechiseled:block/red_sandstone_tiles",
-    "up": "rechiseled:block/red_sandstone_tiles",
     "down": "rechiseled:block/red_sandstone_tiles"
   },
   "connections": {
-    "up": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:red_sandstone_tiles_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:red_sandstone_tiles_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:red_sandstone_tiles_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:red_sandstone_tiles_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "east": "#side",
-    "north": "#side",
     "side": {
       "predicates": [
         {
@@ -120,6 +82,45 @@
       "type": "fusion:or"
     },
     "south": "#side",
+    "east": "#side",
+    "north": "#side",
+    "up": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:red_sandstone_tiles_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:red_sandstone_tiles_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:red_sandstone_tiles_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:red_sandstone_tiles_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "west": "#side",
     "down": {
       "predicates": [
         {
@@ -155,8 +156,7 @@
         }
       ],
       "type": "fusion:or"
-    },
-    "west": "#side"
+    }
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"
