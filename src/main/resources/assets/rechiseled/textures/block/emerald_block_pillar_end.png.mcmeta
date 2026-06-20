@@ -1,6 +1,9 @@
 {
   "fusion": {
     "type": "connecting",
-    "layout": "simple"
+    "layout": "simple",
+    "connections": {
+      "type": "false"
+    }
   }
 }
