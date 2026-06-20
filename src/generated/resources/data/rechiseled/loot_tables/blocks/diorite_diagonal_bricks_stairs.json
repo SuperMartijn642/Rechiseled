@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "name": "rechiseled:diorite_diagonal_bricks_stairs",
-          "type": "minecraft:item"
+          "type": "minecraft:item",
+          "name": "rechiseled:diorite_diagonal_bricks_stairs"
         }
       ]
     }

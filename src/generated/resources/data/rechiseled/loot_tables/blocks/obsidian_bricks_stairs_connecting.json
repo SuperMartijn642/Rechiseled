@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "name": "rechiseled:obsidian_bricks_stairs_connecting",
-          "type": "minecraft:item"
+          "type": "minecraft:item",
+          "name": "rechiseled:obsidian_bricks_stairs_connecting"
         }
       ]
     }

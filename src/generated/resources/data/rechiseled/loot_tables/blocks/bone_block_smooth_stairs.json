@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "name": "rechiseled:bone_block_smooth_stairs",
-          "type": "minecraft:item"
+          "type": "minecraft:item",
+          "name": "rechiseled:bone_block_smooth_stairs"
         }
       ]
     }

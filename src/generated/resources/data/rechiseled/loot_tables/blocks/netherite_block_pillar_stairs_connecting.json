@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "name": "rechiseled:netherite_block_pillar_stairs_connecting",
-          "type": "minecraft:item"
+          "type": "minecraft:item",
+          "name": "rechiseled:netherite_block_pillar_stairs_connecting"
         }
       ]
     }

@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "name": "rechiseled:dark_prismarine_wavy_stairs",
-          "type": "minecraft:item"
+          "type": "minecraft:item",
+          "name": "rechiseled:dark_prismarine_wavy_stairs"
         }
       ]
     }

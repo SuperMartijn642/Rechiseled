@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "name": "rechiseled:warped_planks_wavy_stairs",
-          "type": "minecraft:item"
+          "type": "minecraft:item",
+          "name": "rechiseled:warped_planks_wavy_stairs"
         }
       ]
     }

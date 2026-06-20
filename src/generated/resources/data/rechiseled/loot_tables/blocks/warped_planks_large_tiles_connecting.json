@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "name": "rechiseled:warped_planks_large_tiles_connecting",
-          "type": "minecraft:item"
+          "type": "minecraft:item",
+          "name": "rechiseled:warped_planks_large_tiles_connecting"
         }
       ]
     }

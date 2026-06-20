@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "name": "rechiseled:diamond_block_grid_stairs_connecting",
-          "type": "minecraft:item"
+          "type": "minecraft:item",
+          "name": "rechiseled:diamond_block_grid_stairs_connecting"
         }
       ]
     }

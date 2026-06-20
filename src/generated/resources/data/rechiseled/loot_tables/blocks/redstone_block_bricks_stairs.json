@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "name": "rechiseled:redstone_block_bricks_stairs",
-          "type": "minecraft:item"
+          "type": "minecraft:item",
+          "name": "rechiseled:redstone_block_bricks_stairs"
         }
       ]
     }

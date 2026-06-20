@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "name": "rechiseled:jungle_planks_large_tiles_stairs_connecting",
-          "type": "minecraft:item"
+          "type": "minecraft:item",
+          "name": "rechiseled:jungle_planks_large_tiles_stairs_connecting"
         }
       ]
     }

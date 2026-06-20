@@ -9,24 +9,24 @@
       ],
       "functions": [
         {
+          "function": "minecraft:set_count",
           "conditions": [
             {
+              "condition": "minecraft:block_state_property",
               "block": "rechiseled:amethyst_block_edged_slab",
               "properties": {
                 "type": "double"
-              },
-              "condition": "minecraft:block_state_property"
+              }
             }
           ],
           "count": 2.0,
-          "add": false,
-          "function": "minecraft:set_count"
+          "add": false
         }
       ],
       "entries": [
         {
-          "name": "rechiseled:amethyst_block_edged_slab",
-          "type": "minecraft:item"
+          "type": "minecraft:item",
+          "name": "rechiseled:amethyst_block_edged_slab"
         }
       ]
     }

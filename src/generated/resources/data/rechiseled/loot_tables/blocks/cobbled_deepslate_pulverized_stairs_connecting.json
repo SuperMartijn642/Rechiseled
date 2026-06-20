@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "name": "rechiseled:cobbled_deepslate_pulverized_stairs_connecting",
-          "type": "minecraft:item"
+          "type": "minecraft:item",
+          "name": "rechiseled:cobbled_deepslate_pulverized_stairs_connecting"
         }
       ]
     }
