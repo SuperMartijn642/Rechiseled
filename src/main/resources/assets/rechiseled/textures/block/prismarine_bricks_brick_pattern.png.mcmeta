@@ -1,5 +1,8 @@
 {
   "fusion": {
-    "type": "connecting"
+    "type": "connecting",
+    "connections": {
+      "type": "false"
+    }
   }
 }
