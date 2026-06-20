@@ -42,7 +42,7 @@ dependencies {
     // Config library
     implementation "curse.maven:supermartijn642s-config-lib-438332:${config_library_file}"
     // Fusion
-    implementation "curse.maven:fusion-854949:${fusion_file}"
+    implementation "maven.modrinth:fusion-connected-textures:${fusion_version}"
     // Just Enough Items
     implementation "mezz.jei:jei-1.21.1-forge:${just_enough_items_version}"
 
