@@ -45,7 +45,7 @@ dependencies {
     // Config library
     modImplementation "curse.maven:supermartijn642s-config-lib-438332:${config_library_file}"
     // Fusion
-    modImplementation "curse.maven:fusion-854949:${fusion_file}"
+    modImplementation "maven.modrinth:fusion-connected-textures:${fusion_version}"
     // Just Enough Items
     modImplementation "mezz.jei:jei-1.20.4-fabric:${just_enough_items_version}"
     // Roughly Enough Items
