@@ -3,11 +3,11 @@ package com.supermartijn642.rechiseled.registration.data;
 import com.supermartijn642.core.registry.Registries;
 import com.supermartijn642.fusion.api.model.DefaultModelTypes;
 import com.supermartijn642.fusion.api.model.ModelInstance;
-import com.supermartijn642.fusion.api.model.data.ConnectingModelDataBuilder;
-import com.supermartijn642.fusion.api.predicate.ConnectionDirection;
-import com.supermartijn642.fusion.api.predicate.ConnectionPredicate;
-import com.supermartijn642.fusion.api.predicate.DefaultConnectionPredicates;
+import com.supermartijn642.fusion.api.model.types.connecting.ConnectingModelData;
 import com.supermartijn642.fusion.api.provider.FusionModelProvider;
+import com.supermartijn642.fusion.api.texture.types.connecting.predicates.ConnectionDirection;
+import com.supermartijn642.fusion.api.texture.types.connecting.predicates.ConnectionPredicate;
+import com.supermartijn642.fusion.api.texture.types.connecting.predicates.DefaultConnectionPredicates;
 import com.supermartijn642.fusion.api.util.Pair;
 import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.api.blocks.BlockModelType;
@@ -22,6 +22,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.SlabType;
+
+import java.util.List;
 
 /**
  * Created 05/05/2023 by SuperMartijn642
@@ -91,15 +93,15 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
         ResourceLocation modelIdentifier = identifier.withPrefix("block/");
         this.addModel(modelIdentifier, ModelInstance.of(
             DefaultModelTypes.CONNECTING,
-            ConnectingModelDataBuilder.builder()
+            ConnectingModelData.builder()
                 .parent(new ResourceLocation("block/cube"))
-                .texture("up", up)
-                .texture("down", down)
-                .texture("north", north)
-                .texture("east", east)
-                .texture("south", south)
-                .texture("west", west)
-                .texture("particle", particle)
+                .material("up", up)
+                .material("down", down)
+                .material("north", north)
+                .material("east", east)
+                .material("south", south)
+                .material("west", west)
+                .material("particle", particle)
                 .connections("north", "side")
                 .connections("east", "side")
                 .connections("south", "side")
@@ -114,7 +116,7 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
         if(modelType == BlockModelType.PILLAR){
             this.addModel(modelIdentifier.withSuffix("_horizontal"), ModelInstance.of(
                 DefaultModelTypes.CONNECTING,
-                ConnectingModelDataBuilder.builder()
+                ConnectingModelData.builder()
                     .parent(modelIdentifier)
                     .connections("up", "all")
                     .connections("down", "all")
@@ -150,11 +152,11 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
             Rechiseled.identifier("block/glass_stairs") : new ResourceLocation("block/stairs");
         this.addModel(modelIdentifier.withSuffix("_bottom"), ModelInstance.of(
             DefaultModelTypes.CONNECTING,
-            ConnectingModelDataBuilder.builder()
+            ConnectingModelData.builder()
                 .parent(parent)
-                .texture("bottom", bottom)
-                .texture("side", side)
-                .texture("top", top)
+                .material("bottom", bottom)
+                .material("side", side)
+                .material("top", top)
                 .connections("bottom", bottomStairConnectionsBottom(block, stairs, slab))
                 .connections("side", bottomStairConnectionsSide(block, stairs, slab))
                 .connections("top", bottomStairConnectionsTop(block, stairs, slab))
@@ -164,11 +166,11 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
             Rechiseled.identifier("block/glass_inner_stairs") : new ResourceLocation("block/inner_stairs");
         this.addModel(modelIdentifier.withSuffix("_inner_bottom"), ModelInstance.of(
             DefaultModelTypes.CONNECTING,
-            ConnectingModelDataBuilder.builder()
+            ConnectingModelData.builder()
                 .parent(parent)
-                .texture("bottom", bottom)
-                .texture("side", side)
-                .texture("top", top)
+                .material("bottom", bottom)
+                .material("side", side)
+                .material("top", top)
                 .connections("bottom", bottomStairConnectionsBottom(block, stairs, slab))
                 .connections("side", bottomStairConnectionsSide(block, stairs, slab))
                 .connections("top", bottomStairConnectionsTop(block, stairs, slab))
@@ -178,11 +180,11 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
             Rechiseled.identifier("block/glass_outer_stairs") : new ResourceLocation("block/outer_stairs");
         this.addModel(modelIdentifier.withSuffix("_outer_bottom"), ModelInstance.of(
             DefaultModelTypes.CONNECTING,
-            ConnectingModelDataBuilder.builder()
+            ConnectingModelData.builder()
                 .parent(parent)
-                .texture("bottom", bottom)
-                .texture("side", side)
-                .texture("top", top)
+                .material("bottom", bottom)
+                .material("side", side)
+                .material("top", top)
                 .connections("bottom", bottomStairConnectionsBottom(block, stairs, slab))
                 .connections("side", bottomStairConnectionsSide(block, stairs, slab))
                 .connections("top", bottomStairConnectionsTop(block, stairs, slab))
@@ -192,11 +194,11 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
             Rechiseled.identifier("block/glass_stairs_top") : Rechiseled.identifier("block/stairs_top");
         this.addModel(modelIdentifier.withSuffix("_top"), ModelInstance.of(
             DefaultModelTypes.CONNECTING,
-            ConnectingModelDataBuilder.builder()
+            ConnectingModelData.builder()
                 .parent(parent)
-                .texture("bottom", bottom)
-                .texture("side", side)
-                .texture("top", top)
+                .material("bottom", bottom)
+                .material("side", side)
+                .material("top", top)
                 .connections("bottom", topStairConnectionsBottom(block, stairs, slab))
                 .connections("side", topStairConnectionsSide(block, stairs, slab))
                 .connections("top", topStairConnectionsTop(block, stairs, slab))
@@ -206,11 +208,11 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
             Rechiseled.identifier("block/glass_inner_stairs_top") : Rechiseled.identifier("block/inner_stairs_top");
         this.addModel(modelIdentifier.withSuffix("_inner_top"), ModelInstance.of(
             DefaultModelTypes.CONNECTING,
-            ConnectingModelDataBuilder.builder()
+            ConnectingModelData.builder()
                 .parent(parent)
-                .texture("bottom", bottom)
-                .texture("side", side)
-                .texture("top", top)
+                .material("bottom", bottom)
+                .material("side", side)
+                .material("top", top)
                 .connections("bottom", topStairConnectionsBottom(block, stairs, slab))
                 .connections("side", topStairConnectionsSide(block, stairs, slab))
                 .connections("top", topStairConnectionsTop(block, stairs, slab))
@@ -220,11 +222,11 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
             Rechiseled.identifier("block/glass_outer_stairs_top") : Rechiseled.identifier("block/outer_stairs_top");
         this.addModel(modelIdentifier.withSuffix("_outer_top"), ModelInstance.of(
             DefaultModelTypes.CONNECTING,
-            ConnectingModelDataBuilder.builder()
+            ConnectingModelData.builder()
                 .parent(parent)
-                .texture("bottom", bottom)
-                .texture("side", side)
-                .texture("top", top)
+                .material("bottom", bottom)
+                .material("side", side)
+                .material("top", top)
                 .connections("bottom", topStairConnectionsBottom(block, stairs, slab))
                 .connections("side", topStairConnectionsSide(block, stairs, slab))
                 .connections("top", topStairConnectionsTop(block, stairs, slab))
@@ -252,16 +254,16 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
         ResourceLocation modelIdentifier = identifier.withPrefix("block/");
         this.addModel(modelIdentifier.withSuffix("_double"), ModelInstance.of(
             DefaultModelTypes.CONNECTING,
-            ConnectingModelDataBuilder.builder()
+            ConnectingModelData.builder()
                 .parent(new ResourceLocation("block/cube"))
-                .texture("up", top)
-                .texture("down", bottom)
-                .texture("north", "#side")
-                .texture("east", "#side")
-                .texture("south", "#side")
-                .texture("west", "#side")
-                .texture("particle", "#side")
-                .texture("side", side)
+                .material("up", top)
+                .material("down", bottom)
+                .material("north", "#side")
+                .material("east", "#side")
+                .material("south", "#side")
+                .material("west", "#side")
+                .material("particle", "#side")
+                .material("side", side)
                 .connections("north", "side")
                 .connections("east", "side")
                 .connections("south", "side")
@@ -273,11 +275,11 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
         ));
         this.addModel(modelIdentifier.withSuffix("_bottom"), ModelInstance.of(
             DefaultModelTypes.CONNECTING,
-            ConnectingModelDataBuilder.builder()
+            ConnectingModelData.builder()
                 .parent(new ResourceLocation("block/slab"))
-                .texture("bottom", bottom)
-                .texture("side", side)
-                .texture("top", top)
+                .material("bottom", bottom)
+                .material("side", side)
+                .material("top", top)
                 .connections("bottom", bottomSlabConnectionsBottom(block, stairs, slab))
                 .connections("side", bottomSlabConnectionsSide(block, stairs, slab))
                 .connections("top", bottomSlabConnectionsTop(block, stairs, slab))
@@ -285,11 +287,11 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
         ));
         this.addModel(modelIdentifier.withSuffix("_top"), ModelInstance.of(
             DefaultModelTypes.CONNECTING,
-            ConnectingModelDataBuilder.builder()
+            ConnectingModelData.builder()
                 .parent(new ResourceLocation("block/slab_top"))
-                .texture("bottom", bottom)
-                .texture("side", side)
-                .texture("top", top)
+                .material("bottom", bottom)
+                .material("side", side)
+                .material("top", top)
                 .connections("bottom", topSlabConnectionsBottom(block, stairs, slab))
                 .connections("side", topSlabConnectionsSide(block, stairs, slab))
                 .connections("top", topSlabConnectionsTop(block, stairs, slab))
@@ -300,7 +302,7 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
     private static ConnectionPredicate isBlock(Block block){
         if(block.getStateDefinition().getProperties().contains(RechiseledPillarBlock.AXIS_PROPERTY))
             //noinspection unchecked,SuspiciousNameCombination
-            return DefaultConnectionPredicates.matchState(block, Pair.of(RechiseledPillarBlock.AXIS_PROPERTY, Direction.Axis.Y));
+            return DefaultConnectionPredicates.matchState(List.of(block), Pair.of(RechiseledPillarBlock.AXIS_PROPERTY, Direction.Axis.Y));
         return DefaultConnectionPredicates.matchBlock(block);
     }
 
@@ -308,7 +310,7 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
         if(slab == null)
             return isBlock(block);
         //noinspection unchecked
-        return isBlock(block).or(DefaultConnectionPredicates.matchState(slab, Pair.of(RechiseledSlabBlock.TYPE, SlabType.DOUBLE)));
+        return isBlock(block).or(DefaultConnectionPredicates.matchState(List.of(slab), Pair.of(RechiseledSlabBlock.TYPE, SlabType.DOUBLE)));
     }
 
     private static ConnectionPredicate isStairs(Block stairs){
@@ -317,12 +319,12 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
 
     private static ConnectionPredicate isTopStairs(Block stairs){
         //noinspection unchecked,SuspiciousNameCombination
-        return stairs == null ? DefaultConnectionPredicates.or() : DefaultConnectionPredicates.matchState(stairs, Pair.of(RechiseledStairBlock.HALF, Half.TOP));
+        return stairs == null ? DefaultConnectionPredicates.or() : DefaultConnectionPredicates.matchState(List.of(stairs), Pair.of(RechiseledStairBlock.HALF, Half.TOP));
     }
 
     private static ConnectionPredicate isBottomStairs(Block stairs){
         //noinspection unchecked,SuspiciousNameCombination
-        return stairs == null ? DefaultConnectionPredicates.or() : DefaultConnectionPredicates.matchState(stairs, Pair.of(RechiseledStairBlock.HALF, Half.BOTTOM));
+        return stairs == null ? DefaultConnectionPredicates.or() : DefaultConnectionPredicates.matchState(List.of(stairs), Pair.of(RechiseledStairBlock.HALF, Half.BOTTOM));
     }
 
     private static ConnectionPredicate isSlab(Block slab){
@@ -331,12 +333,12 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
 
     private static ConnectionPredicate isTopSlab(Block slab){
         //noinspection unchecked,SuspiciousNameCombination
-        return slab == null ? DefaultConnectionPredicates.or() : DefaultConnectionPredicates.matchState(slab, Pair.of(RechiseledSlabBlock.TYPE, SlabType.TOP));
+        return slab == null ? DefaultConnectionPredicates.or() : DefaultConnectionPredicates.matchState(List.of(slab), Pair.of(RechiseledSlabBlock.TYPE, SlabType.TOP));
     }
 
     private static ConnectionPredicate isBottomSlab(Block slab){
         //noinspection unchecked,SuspiciousNameCombination
-        return slab == null ? DefaultConnectionPredicates.or() : DefaultConnectionPredicates.matchState(slab, Pair.of(RechiseledSlabBlock.TYPE, SlabType.BOTTOM));
+        return slab == null ? DefaultConnectionPredicates.or() : DefaultConnectionPredicates.matchState(List.of(slab), Pair.of(RechiseledSlabBlock.TYPE, SlabType.BOTTOM));
     }
 
     private static ConnectionPredicate blockConnectionsSide(Block block, Block stairs, Block slab){
