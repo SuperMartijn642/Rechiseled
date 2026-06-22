@@ -1,15 +1,15 @@
 {
   "parent": "rechiseled:block/lapis_block_pillar_connecting",
   "connections": {
-    "up": "#all",
-    "down": "#all",
-    "north": "#all",
-    "east": "#all",
-    "south": "#all",
-    "west": "#all",
     "all": {
       "type": "fusion:is_same_state"
-    }
+    },
+    "east": "#all",
+    "south": "#all",
+    "north": "#all",
+    "west": "#all",
+    "up": "#all",
+    "down": "#all"
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"
