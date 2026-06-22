@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/dirt_clumps",
-    "south": "rechiseled:block/dirt_clumps",
-    "north": "rechiseled:block/dirt_clumps",
     "west": "rechiseled:block/dirt_clumps",
     "particle": "rechiseled:block/dirt_clumps",
-    "up": "rechiseled:block/dirt_clumps",
-    "down": "rechiseled:block/dirt_clumps"
+    "down": "rechiseled:block/dirt_clumps",
+    "south": "rechiseled:block/dirt_clumps",
+    "east": "rechiseled:block/dirt_clumps",
+    "north": "rechiseled:block/dirt_clumps",
+    "up": "rechiseled:block/dirt_clumps"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

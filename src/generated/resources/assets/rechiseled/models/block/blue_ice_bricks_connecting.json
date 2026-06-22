@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/blue_ice_bricks",
-    "south": "rechiseled:block/blue_ice_bricks",
-    "north": "rechiseled:block/blue_ice_bricks",
     "west": "rechiseled:block/blue_ice_bricks",
     "particle": "rechiseled:block/blue_ice_bricks",
-    "up": "rechiseled:block/blue_ice_bricks",
-    "down": "rechiseled:block/blue_ice_bricks"
+    "down": "rechiseled:block/blue_ice_bricks",
+    "south": "rechiseled:block/blue_ice_bricks",
+    "east": "rechiseled:block/blue_ice_bricks",
+    "north": "rechiseled:block/blue_ice_bricks",
+    "up": "rechiseled:block/blue_ice_bricks"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

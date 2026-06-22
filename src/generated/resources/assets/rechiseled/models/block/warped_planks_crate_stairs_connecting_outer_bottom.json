@@ -1,11 +1,28 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/warped_planks_crate",
     "top": "rechiseled:block/warped_planks_crate",
-    "bottom": "rechiseled:block/warped_planks_crate"
+    "bottom": "rechiseled:block/warped_planks_crate",
+    "side": "rechiseled:block/warped_planks_crate"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:warped_planks_crate_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:warped_planks_crate_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:warped_planks_crate_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "bottom": {
       "predicates": [
         {
@@ -38,23 +55,6 @@
             ]
           },
           "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:warped_planks_crate_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:warped_planks_crate_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:warped_planks_crate_slab_connecting",
-          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/stone_crushed",
-    "south": "rechiseled:block/stone_crushed",
-    "north": "rechiseled:block/stone_crushed",
     "west": "rechiseled:block/stone_crushed",
     "particle": "rechiseled:block/stone_crushed",
-    "up": "rechiseled:block/stone_crushed",
-    "down": "rechiseled:block/stone_crushed"
+    "down": "rechiseled:block/stone_crushed",
+    "south": "rechiseled:block/stone_crushed",
+    "east": "rechiseled:block/stone_crushed",
+    "north": "rechiseled:block/stone_crushed",
+    "up": "rechiseled:block/stone_crushed"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

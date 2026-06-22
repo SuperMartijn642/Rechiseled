@@ -1,11 +1,28 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/quartz_block_squares",
     "top": "rechiseled:block/quartz_block_squares",
-    "bottom": "rechiseled:block/quartz_block_squares"
+    "bottom": "rechiseled:block/quartz_block_squares",
+    "side": "rechiseled:block/quartz_block_squares"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:quartz_block_squares_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:quartz_block_squares_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:quartz_block_squares_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "bottom": {
       "predicates": [
         {
@@ -38,23 +55,6 @@
             ]
           },
           "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:quartz_block_squares_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:quartz_block_squares_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:quartz_block_squares_slab_connecting",
-          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

@@ -1,11 +1,28 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/basalt_bordered",
     "top": "rechiseled:block/basalt_bordered",
-    "bottom": "rechiseled:block/basalt_bordered"
+    "bottom": "rechiseled:block/basalt_bordered",
+    "side": "rechiseled:block/basalt_bordered"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:basalt_bordered_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:basalt_bordered_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:basalt_bordered_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "bottom": {
       "predicates": [
         {
@@ -38,23 +55,6 @@
             ]
           },
           "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:basalt_bordered_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:basalt_bordered_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:basalt_bordered_slab_connecting",
-          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

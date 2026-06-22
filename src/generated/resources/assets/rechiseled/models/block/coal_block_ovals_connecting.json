@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/coal_block_ovals",
-    "south": "rechiseled:block/coal_block_ovals",
-    "north": "rechiseled:block/coal_block_ovals",
     "west": "rechiseled:block/coal_block_ovals",
     "particle": "rechiseled:block/coal_block_ovals",
-    "up": "rechiseled:block/coal_block_ovals",
-    "down": "rechiseled:block/coal_block_ovals"
+    "down": "rechiseled:block/coal_block_ovals",
+    "south": "rechiseled:block/coal_block_ovals",
+    "east": "rechiseled:block/coal_block_ovals",
+    "north": "rechiseled:block/coal_block_ovals",
+    "up": "rechiseled:block/coal_block_ovals"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

@@ -1,11 +1,34 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "rechiseled:block/spruce_planks_diagonal_tiles",
     "top": "rechiseled:block/spruce_planks_diagonal_tiles",
-    "bottom": "rechiseled:block/spruce_planks_diagonal_tiles"
+    "bottom": "rechiseled:block/spruce_planks_diagonal_tiles",
+    "side": "rechiseled:block/spruce_planks_diagonal_tiles"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:spruce_planks_diagonal_tiles_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:spruce_planks_diagonal_tiles_stairs_connecting",
+          "properties": {
+            "half": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "bottom": {
       "predicates": [
         {
@@ -34,29 +57,6 @@
           "block": "rechiseled:spruce_planks_diagonal_tiles_slab_connecting",
           "properties": {
             "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:spruce_planks_diagonal_tiles_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:spruce_planks_diagonal_tiles_stairs_connecting",
-          "properties": {
-            "half": [
               "bottom"
             ]
           },

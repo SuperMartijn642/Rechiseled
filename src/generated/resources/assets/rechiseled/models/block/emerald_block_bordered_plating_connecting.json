@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/emerald_block_bordered_plating",
-    "south": "rechiseled:block/emerald_block_bordered_plating",
-    "north": "rechiseled:block/emerald_block_bordered_plating",
     "west": "rechiseled:block/emerald_block_bordered_plating",
     "particle": "rechiseled:block/emerald_block_bordered_plating",
-    "up": "rechiseled:block/emerald_block_bordered_plating",
-    "down": "rechiseled:block/emerald_block_bordered_plating"
+    "down": "rechiseled:block/emerald_block_bordered_plating",
+    "south": "rechiseled:block/emerald_block_bordered_plating",
+    "east": "rechiseled:block/emerald_block_bordered_plating",
+    "north": "rechiseled:block/emerald_block_bordered_plating",
+    "up": "rechiseled:block/emerald_block_bordered_plating"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

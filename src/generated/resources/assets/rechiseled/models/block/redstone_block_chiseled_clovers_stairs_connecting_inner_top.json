@@ -1,28 +1,11 @@
 {
   "parent": "rechiseled:block/inner_stairs_top",
   "textures": {
-    "side": "rechiseled:block/redstone_block_chiseled_clovers",
     "top": "rechiseled:block/redstone_block_chiseled_clovers",
-    "bottom": "rechiseled:block/redstone_block_chiseled_clovers"
+    "bottom": "rechiseled:block/redstone_block_chiseled_clovers",
+    "side": "rechiseled:block/redstone_block_chiseled_clovers"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:redstone_block_chiseled_clovers_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:redstone_block_chiseled_clovers_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:redstone_block_chiseled_clovers_slab_connecting",
-          "type": "fusion:match_block"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -55,6 +38,23 @@
             ]
           },
           "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:redstone_block_chiseled_clovers_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:redstone_block_chiseled_clovers_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:redstone_block_chiseled_clovers_slab_connecting",
+          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

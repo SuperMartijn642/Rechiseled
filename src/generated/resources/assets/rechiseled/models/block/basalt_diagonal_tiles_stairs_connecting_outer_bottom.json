@@ -1,11 +1,28 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/basalt_diagonal_tiles",
     "top": "rechiseled:block/basalt_diagonal_tiles",
-    "bottom": "rechiseled:block/basalt_diagonal_tiles"
+    "bottom": "rechiseled:block/basalt_diagonal_tiles",
+    "side": "rechiseled:block/basalt_diagonal_tiles"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:basalt_diagonal_tiles_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:basalt_diagonal_tiles_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:basalt_diagonal_tiles_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "bottom": {
       "predicates": [
         {
@@ -38,23 +55,6 @@
             ]
           },
           "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:basalt_diagonal_tiles_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:basalt_diagonal_tiles_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:basalt_diagonal_tiles_slab_connecting",
-          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

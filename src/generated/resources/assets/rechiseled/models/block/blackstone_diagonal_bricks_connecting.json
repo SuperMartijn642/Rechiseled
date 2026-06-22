@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/blackstone_diagonal_bricks",
-    "south": "rechiseled:block/blackstone_diagonal_bricks",
-    "north": "rechiseled:block/blackstone_diagonal_bricks",
     "west": "rechiseled:block/blackstone_diagonal_bricks",
     "particle": "rechiseled:block/blackstone_diagonal_bricks",
-    "up": "rechiseled:block/blackstone_diagonal_bricks",
-    "down": "rechiseled:block/blackstone_diagonal_bricks"
+    "down": "rechiseled:block/blackstone_diagonal_bricks",
+    "south": "rechiseled:block/blackstone_diagonal_bricks",
+    "east": "rechiseled:block/blackstone_diagonal_bricks",
+    "north": "rechiseled:block/blackstone_diagonal_bricks",
+    "up": "rechiseled:block/blackstone_diagonal_bricks"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

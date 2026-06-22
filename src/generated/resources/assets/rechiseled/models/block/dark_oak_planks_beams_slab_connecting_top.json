@@ -1,34 +1,11 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/dark_oak_planks_beams",
     "top": "rechiseled:block/dark_oak_planks_beams",
-    "bottom": "rechiseled:block/dark_oak_planks_beams"
+    "bottom": "rechiseled:block/dark_oak_planks_beams",
+    "side": "rechiseled:block/dark_oak_planks_beams"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:dark_oak_planks_beams_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:dark_oak_planks_beams_stairs_connecting",
-          "properties": {
-            "half": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -57,6 +34,29 @@
           "block": "rechiseled:dark_oak_planks_beams_slab_connecting",
           "properties": {
             "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:dark_oak_planks_beams_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:dark_oak_planks_beams_stairs_connecting",
+          "properties": {
+            "half": [
               "top"
             ]
           },

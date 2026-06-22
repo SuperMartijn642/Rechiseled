@@ -1,28 +1,11 @@
 {
   "parent": "rechiseled:block/stairs_top",
   "textures": {
-    "side": "rechiseled:block/cobbled_deepslate_bricks",
     "top": "rechiseled:block/cobbled_deepslate_bricks",
-    "bottom": "rechiseled:block/cobbled_deepslate_bricks"
+    "bottom": "rechiseled:block/cobbled_deepslate_bricks",
+    "side": "rechiseled:block/cobbled_deepslate_bricks"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:cobbled_deepslate_bricks_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:cobbled_deepslate_bricks_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:cobbled_deepslate_bricks_slab_connecting",
-          "type": "fusion:match_block"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -55,6 +38,23 @@
             ]
           },
           "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:cobbled_deepslate_bricks_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:cobbled_deepslate_bricks_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:cobbled_deepslate_bricks_slab_connecting",
+          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

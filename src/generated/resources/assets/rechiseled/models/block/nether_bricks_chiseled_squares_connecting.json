@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/nether_bricks_chiseled_squares",
-    "south": "rechiseled:block/nether_bricks_chiseled_squares",
-    "north": "rechiseled:block/nether_bricks_chiseled_squares",
     "west": "rechiseled:block/nether_bricks_chiseled_squares",
     "particle": "rechiseled:block/nether_bricks_chiseled_squares",
-    "up": "rechiseled:block/nether_bricks_chiseled_squares",
-    "down": "rechiseled:block/nether_bricks_chiseled_squares"
+    "down": "rechiseled:block/nether_bricks_chiseled_squares",
+    "south": "rechiseled:block/nether_bricks_chiseled_squares",
+    "east": "rechiseled:block/nether_bricks_chiseled_squares",
+    "north": "rechiseled:block/nether_bricks_chiseled_squares",
+    "up": "rechiseled:block/nether_bricks_chiseled_squares"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

@@ -1,28 +1,11 @@
 {
   "parent": "rechiseled:block/outer_stairs_top",
   "textures": {
-    "side": "rechiseled:block/iron_block_processed",
     "top": "rechiseled:block/iron_block_processed",
-    "bottom": "rechiseled:block/iron_block_processed"
+    "bottom": "rechiseled:block/iron_block_processed",
+    "side": "rechiseled:block/iron_block_processed"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:iron_block_processed_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:iron_block_processed_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:iron_block_processed_slab_connecting",
-          "type": "fusion:match_block"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -55,6 +38,23 @@
             ]
           },
           "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:iron_block_processed_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:iron_block_processed_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:iron_block_processed_slab_connecting",
+          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

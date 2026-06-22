@@ -1,11 +1,28 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/quartz_block_connecting",
     "top": "rechiseled:block/quartz_block_connecting",
-    "bottom": "rechiseled:block/quartz_block_connecting"
+    "bottom": "rechiseled:block/quartz_block_connecting",
+    "side": "rechiseled:block/quartz_block_connecting"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:quartz_block_connecting_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:quartz_block_connecting_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:quartz_block_connecting_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "bottom": {
       "predicates": [
         {
@@ -38,23 +55,6 @@
             ]
           },
           "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:quartz_block_connecting_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:quartz_block_connecting_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:quartz_block_connecting_slab_connecting",
-          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

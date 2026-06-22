@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/spruce_planks_woven",
-    "south": "rechiseled:block/spruce_planks_woven",
-    "north": "rechiseled:block/spruce_planks_woven",
     "west": "rechiseled:block/spruce_planks_woven",
     "particle": "rechiseled:block/spruce_planks_woven",
-    "up": "rechiseled:block/spruce_planks_woven",
-    "down": "rechiseled:block/spruce_planks_woven"
+    "down": "rechiseled:block/spruce_planks_woven",
+    "south": "rechiseled:block/spruce_planks_woven",
+    "east": "rechiseled:block/spruce_planks_woven",
+    "north": "rechiseled:block/spruce_planks_woven",
+    "up": "rechiseled:block/spruce_planks_woven"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

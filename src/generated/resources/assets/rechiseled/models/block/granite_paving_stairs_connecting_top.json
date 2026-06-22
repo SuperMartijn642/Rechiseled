@@ -1,28 +1,11 @@
 {
   "parent": "rechiseled:block/stairs_top",
   "textures": {
-    "side": "rechiseled:block/granite_paving",
     "top": "rechiseled:block/granite_paving",
-    "bottom": "rechiseled:block/granite_paving"
+    "bottom": "rechiseled:block/granite_paving",
+    "side": "rechiseled:block/granite_paving"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:granite_paving_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:granite_paving_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:granite_paving_slab_connecting",
-          "type": "fusion:match_block"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -55,6 +38,23 @@
             ]
           },
           "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:granite_paving_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:granite_paving_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:granite_paving_slab_connecting",
+          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

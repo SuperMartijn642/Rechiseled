@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/obsidian_stripes",
-    "south": "rechiseled:block/obsidian_stripes",
-    "north": "rechiseled:block/obsidian_stripes",
     "west": "rechiseled:block/obsidian_stripes",
     "particle": "rechiseled:block/obsidian_stripes",
-    "up": "rechiseled:block/obsidian_stripes",
-    "down": "rechiseled:block/obsidian_stripes"
+    "down": "rechiseled:block/obsidian_stripes",
+    "south": "rechiseled:block/obsidian_stripes",
+    "east": "rechiseled:block/obsidian_stripes",
+    "north": "rechiseled:block/obsidian_stripes",
+    "up": "rechiseled:block/obsidian_stripes"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

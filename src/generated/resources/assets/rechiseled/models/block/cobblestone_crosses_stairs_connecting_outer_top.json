@@ -1,28 +1,11 @@
 {
   "parent": "rechiseled:block/outer_stairs_top",
   "textures": {
-    "side": "rechiseled:block/cobblestone_crosses",
     "top": "rechiseled:block/cobblestone_crosses",
-    "bottom": "rechiseled:block/cobblestone_crosses"
+    "bottom": "rechiseled:block/cobblestone_crosses",
+    "side": "rechiseled:block/cobblestone_crosses"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:cobblestone_crosses_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:cobblestone_crosses_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:cobblestone_crosses_slab_connecting",
-          "type": "fusion:match_block"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -55,6 +38,23 @@
             ]
           },
           "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:cobblestone_crosses_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:cobblestone_crosses_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:cobblestone_crosses_slab_connecting",
+          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

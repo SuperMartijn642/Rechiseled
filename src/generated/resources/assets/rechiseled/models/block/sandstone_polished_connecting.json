@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/sandstone_polished",
-    "south": "rechiseled:block/sandstone_polished",
-    "north": "rechiseled:block/sandstone_polished",
     "west": "rechiseled:block/sandstone_polished",
     "particle": "rechiseled:block/sandstone_polished",
-    "up": "rechiseled:block/sandstone_polished",
-    "down": "rechiseled:block/sandstone_polished"
+    "down": "rechiseled:block/sandstone_polished",
+    "south": "rechiseled:block/sandstone_polished",
+    "east": "rechiseled:block/sandstone_polished",
+    "north": "rechiseled:block/sandstone_polished",
+    "up": "rechiseled:block/sandstone_polished"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

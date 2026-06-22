@@ -1,34 +1,11 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/amethyst_block_cut",
     "top": "rechiseled:block/amethyst_block_cut",
-    "bottom": "rechiseled:block/amethyst_block_cut"
+    "bottom": "rechiseled:block/amethyst_block_cut",
+    "side": "rechiseled:block/amethyst_block_cut"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:amethyst_block_cut_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:amethyst_block_cut_stairs_connecting",
-          "properties": {
-            "half": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -57,6 +34,29 @@
           "block": "rechiseled:amethyst_block_cut_slab_connecting",
           "properties": {
             "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:amethyst_block_cut_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:amethyst_block_cut_stairs_connecting",
+          "properties": {
+            "half": [
               "top"
             ]
           },

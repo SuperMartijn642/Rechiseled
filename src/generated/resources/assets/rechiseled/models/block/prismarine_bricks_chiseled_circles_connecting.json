@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/prismarine_bricks_chiseled_circles",
-    "south": "rechiseled:block/prismarine_bricks_chiseled_circles",
-    "north": "rechiseled:block/prismarine_bricks_chiseled_circles",
     "west": "rechiseled:block/prismarine_bricks_chiseled_circles",
     "particle": "rechiseled:block/prismarine_bricks_chiseled_circles",
-    "up": "rechiseled:block/prismarine_bricks_chiseled_circles",
-    "down": "rechiseled:block/prismarine_bricks_chiseled_circles"
+    "down": "rechiseled:block/prismarine_bricks_chiseled_circles",
+    "south": "rechiseled:block/prismarine_bricks_chiseled_circles",
+    "east": "rechiseled:block/prismarine_bricks_chiseled_circles",
+    "north": "rechiseled:block/prismarine_bricks_chiseled_circles",
+    "up": "rechiseled:block/prismarine_bricks_chiseled_circles"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/andesite_wavy",
-    "south": "rechiseled:block/andesite_wavy",
-    "north": "rechiseled:block/andesite_wavy",
     "west": "rechiseled:block/andesite_wavy",
     "particle": "rechiseled:block/andesite_wavy",
-    "up": "rechiseled:block/andesite_wavy",
-    "down": "rechiseled:block/andesite_wavy"
+    "down": "rechiseled:block/andesite_wavy",
+    "south": "rechiseled:block/andesite_wavy",
+    "east": "rechiseled:block/andesite_wavy",
+    "north": "rechiseled:block/andesite_wavy",
+    "up": "rechiseled:block/andesite_wavy"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

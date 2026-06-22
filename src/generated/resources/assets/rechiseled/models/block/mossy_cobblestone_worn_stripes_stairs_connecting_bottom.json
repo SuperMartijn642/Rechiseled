@@ -1,11 +1,28 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/mossy_cobblestone_worn_stripes",
     "top": "rechiseled:block/mossy_cobblestone_worn_stripes",
-    "bottom": "rechiseled:block/mossy_cobblestone_worn_stripes"
+    "bottom": "rechiseled:block/mossy_cobblestone_worn_stripes",
+    "side": "rechiseled:block/mossy_cobblestone_worn_stripes"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:mossy_cobblestone_worn_stripes_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:mossy_cobblestone_worn_stripes_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:mossy_cobblestone_worn_stripes_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "bottom": {
       "predicates": [
         {
@@ -38,23 +55,6 @@
             ]
           },
           "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:mossy_cobblestone_worn_stripes_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:mossy_cobblestone_worn_stripes_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:mossy_cobblestone_worn_stripes_slab_connecting",
-          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

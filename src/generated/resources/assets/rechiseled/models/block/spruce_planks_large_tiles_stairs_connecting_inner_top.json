@@ -1,28 +1,11 @@
 {
   "parent": "rechiseled:block/inner_stairs_top",
   "textures": {
-    "side": "rechiseled:block/spruce_planks_large_tiles",
     "top": "rechiseled:block/spruce_planks_large_tiles",
-    "bottom": "rechiseled:block/spruce_planks_large_tiles"
+    "bottom": "rechiseled:block/spruce_planks_large_tiles",
+    "side": "rechiseled:block/spruce_planks_large_tiles"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:spruce_planks_large_tiles_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:spruce_planks_large_tiles_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:spruce_planks_large_tiles_slab_connecting",
-          "type": "fusion:match_block"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -55,6 +38,23 @@
             ]
           },
           "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:spruce_planks_large_tiles_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:spruce_planks_large_tiles_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:spruce_planks_large_tiles_slab_connecting",
+          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/crimson_planks_squares",
-    "south": "rechiseled:block/crimson_planks_squares",
-    "north": "rechiseled:block/crimson_planks_squares",
     "west": "rechiseled:block/crimson_planks_squares",
     "particle": "rechiseled:block/crimson_planks_squares",
-    "up": "rechiseled:block/crimson_planks_squares",
-    "down": "rechiseled:block/crimson_planks_squares"
+    "down": "rechiseled:block/crimson_planks_squares",
+    "south": "rechiseled:block/crimson_planks_squares",
+    "east": "rechiseled:block/crimson_planks_squares",
+    "north": "rechiseled:block/crimson_planks_squares",
+    "up": "rechiseled:block/crimson_planks_squares"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

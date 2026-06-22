@@ -1,28 +1,11 @@
 {
   "parent": "rechiseled:block/outer_stairs_top",
   "textures": {
-    "side": "rechiseled:block/andesite_brick_paving",
     "top": "rechiseled:block/andesite_brick_paving",
-    "bottom": "rechiseled:block/andesite_brick_paving"
+    "bottom": "rechiseled:block/andesite_brick_paving",
+    "side": "rechiseled:block/andesite_brick_paving"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:andesite_brick_paving_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:andesite_brick_paving_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:andesite_brick_paving_slab_connecting",
-          "type": "fusion:match_block"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -55,6 +38,23 @@
             ]
           },
           "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:andesite_brick_paving_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:andesite_brick_paving_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:andesite_brick_paving_slab_connecting",
+          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

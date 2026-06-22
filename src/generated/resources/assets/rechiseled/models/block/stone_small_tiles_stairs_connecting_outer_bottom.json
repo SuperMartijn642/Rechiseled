@@ -1,11 +1,28 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/stone_small_tiles",
     "top": "rechiseled:block/stone_small_tiles",
-    "bottom": "rechiseled:block/stone_small_tiles"
+    "bottom": "rechiseled:block/stone_small_tiles",
+    "side": "rechiseled:block/stone_small_tiles"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:stone_small_tiles_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:stone_small_tiles_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:stone_small_tiles_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "bottom": {
       "predicates": [
         {
@@ -38,23 +55,6 @@
             ]
           },
           "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:stone_small_tiles_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:stone_small_tiles_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:stone_small_tiles_slab_connecting",
-          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

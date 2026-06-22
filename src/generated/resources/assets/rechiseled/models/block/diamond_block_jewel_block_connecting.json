@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/diamond_block_jewel_block",
-    "south": "rechiseled:block/diamond_block_jewel_block",
-    "north": "rechiseled:block/diamond_block_jewel_block",
     "west": "rechiseled:block/diamond_block_jewel_block",
     "particle": "rechiseled:block/diamond_block_jewel_block",
-    "up": "rechiseled:block/diamond_block_jewel_block",
-    "down": "rechiseled:block/diamond_block_jewel_block"
+    "down": "rechiseled:block/diamond_block_jewel_block",
+    "south": "rechiseled:block/diamond_block_jewel_block",
+    "east": "rechiseled:block/diamond_block_jewel_block",
+    "north": "rechiseled:block/diamond_block_jewel_block",
+    "up": "rechiseled:block/diamond_block_jewel_block"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

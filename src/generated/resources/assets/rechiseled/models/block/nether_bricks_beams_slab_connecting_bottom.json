@@ -1,11 +1,34 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "rechiseled:block/nether_bricks_beams",
     "top": "rechiseled:block/nether_bricks_beams",
-    "bottom": "rechiseled:block/nether_bricks_beams"
+    "bottom": "rechiseled:block/nether_bricks_beams",
+    "side": "rechiseled:block/nether_bricks_beams"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:nether_bricks_beams_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:nether_bricks_beams_stairs_connecting",
+          "properties": {
+            "half": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "bottom": {
       "predicates": [
         {
@@ -34,29 +57,6 @@
           "block": "rechiseled:nether_bricks_beams_slab_connecting",
           "properties": {
             "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:nether_bricks_beams_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:nether_bricks_beams_stairs_connecting",
-          "properties": {
-            "half": [
               "bottom"
             ]
           },

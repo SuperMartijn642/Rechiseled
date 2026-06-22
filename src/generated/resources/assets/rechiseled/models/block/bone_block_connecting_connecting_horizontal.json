@@ -1,15 +1,15 @@
 {
   "parent": "rechiseled:block/bone_block_connecting_connecting",
   "connections": {
-    "all": {
-      "type": "fusion:is_same_state"
-    },
     "west": "#all",
     "down": "#all",
     "south": "#all",
-    "up": "#all",
+    "east": "#all",
     "north": "#all",
-    "east": "#all"
+    "all": {
+      "type": "fusion:is_same_state"
+    },
+    "up": "#all"
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

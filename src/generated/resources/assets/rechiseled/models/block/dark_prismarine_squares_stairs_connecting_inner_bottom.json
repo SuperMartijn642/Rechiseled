@@ -1,11 +1,28 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/dark_prismarine_squares",
     "top": "rechiseled:block/dark_prismarine_squares",
-    "bottom": "rechiseled:block/dark_prismarine_squares"
+    "bottom": "rechiseled:block/dark_prismarine_squares",
+    "side": "rechiseled:block/dark_prismarine_squares"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:dark_prismarine_squares_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:dark_prismarine_squares_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:dark_prismarine_squares_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "bottom": {
       "predicates": [
         {
@@ -38,23 +55,6 @@
             ]
           },
           "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:dark_prismarine_squares_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:dark_prismarine_squares_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:dark_prismarine_squares_slab_connecting",
-          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

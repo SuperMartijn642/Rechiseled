@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/end_stone_chiseled",
-    "south": "rechiseled:block/end_stone_chiseled",
-    "north": "rechiseled:block/end_stone_chiseled",
     "west": "rechiseled:block/end_stone_chiseled",
     "particle": "rechiseled:block/end_stone_chiseled",
-    "up": "rechiseled:block/end_stone_chiseled",
-    "down": "rechiseled:block/end_stone_chiseled"
+    "down": "rechiseled:block/end_stone_chiseled",
+    "south": "rechiseled:block/end_stone_chiseled",
+    "east": "rechiseled:block/end_stone_chiseled",
+    "north": "rechiseled:block/end_stone_chiseled",
+    "up": "rechiseled:block/end_stone_chiseled"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

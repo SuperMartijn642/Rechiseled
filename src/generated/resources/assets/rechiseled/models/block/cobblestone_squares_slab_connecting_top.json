@@ -1,34 +1,11 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/cobblestone_squares",
     "top": "rechiseled:block/cobblestone_squares",
-    "bottom": "rechiseled:block/cobblestone_squares"
+    "bottom": "rechiseled:block/cobblestone_squares",
+    "side": "rechiseled:block/cobblestone_squares"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:cobblestone_squares_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:cobblestone_squares_stairs_connecting",
-          "properties": {
-            "half": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -57,6 +34,29 @@
           "block": "rechiseled:cobblestone_squares_slab_connecting",
           "properties": {
             "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:cobblestone_squares_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:cobblestone_squares_stairs_connecting",
+          "properties": {
+            "half": [
               "top"
             ]
           },

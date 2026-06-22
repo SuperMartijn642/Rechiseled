@@ -1,11 +1,28 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/diamond_block_grid",
     "top": "rechiseled:block/diamond_block_grid",
-    "bottom": "rechiseled:block/diamond_block_grid"
+    "bottom": "rechiseled:block/diamond_block_grid",
+    "side": "rechiseled:block/diamond_block_grid"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:diamond_block_grid_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:diamond_block_grid_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:diamond_block_grid_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "bottom": {
       "predicates": [
         {
@@ -38,23 +55,6 @@
             ]
           },
           "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:diamond_block_grid_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:diamond_block_grid_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:diamond_block_grid_slab_connecting",
-          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

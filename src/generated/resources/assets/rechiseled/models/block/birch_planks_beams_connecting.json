@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/birch_planks_beams",
-    "south": "rechiseled:block/birch_planks_beams",
-    "north": "rechiseled:block/birch_planks_beams",
     "west": "rechiseled:block/birch_planks_beams",
     "particle": "rechiseled:block/birch_planks_beams",
-    "up": "rechiseled:block/birch_planks_beams",
-    "down": "rechiseled:block/birch_planks_beams"
+    "down": "rechiseled:block/birch_planks_beams",
+    "south": "rechiseled:block/birch_planks_beams",
+    "east": "rechiseled:block/birch_planks_beams",
+    "north": "rechiseled:block/birch_planks_beams",
+    "up": "rechiseled:block/birch_planks_beams"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

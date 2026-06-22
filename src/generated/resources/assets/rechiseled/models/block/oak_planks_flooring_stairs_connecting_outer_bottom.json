@@ -1,11 +1,28 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/oak_planks_flooring",
     "top": "rechiseled:block/oak_planks_flooring",
-    "bottom": "rechiseled:block/oak_planks_flooring"
+    "bottom": "rechiseled:block/oak_planks_flooring",
+    "side": "rechiseled:block/oak_planks_flooring"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:oak_planks_flooring_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:oak_planks_flooring_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:oak_planks_flooring_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "bottom": {
       "predicates": [
         {
@@ -38,23 +55,6 @@
             ]
           },
           "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:oak_planks_flooring_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:oak_planks_flooring_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:oak_planks_flooring_slab_connecting",
-          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

@@ -1,11 +1,28 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/obsidian_pillars",
     "top": "rechiseled:block/obsidian_pillars",
-    "bottom": "rechiseled:block/obsidian_pillars"
+    "bottom": "rechiseled:block/obsidian_pillars",
+    "side": "rechiseled:block/obsidian_pillars"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:obsidian_pillars_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:obsidian_pillars_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:obsidian_pillars_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "bottom": {
       "predicates": [
         {
@@ -38,23 +55,6 @@
             ]
           },
           "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:obsidian_pillars_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:obsidian_pillars_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:obsidian_pillars_slab_connecting",
-          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

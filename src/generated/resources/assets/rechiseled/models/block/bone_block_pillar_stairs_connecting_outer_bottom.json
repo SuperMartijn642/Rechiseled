@@ -1,11 +1,33 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/bone_block_pillar_side",
     "top": "rechiseled:block/bone_block_pillar_end",
-    "bottom": "rechiseled:block/bone_block_pillar_end"
+    "bottom": "rechiseled:block/bone_block_pillar_end",
+    "side": "rechiseled:block/bone_block_pillar_side"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:bone_block_pillar_connecting",
+          "properties": {
+            "axis": [
+              "y"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:bone_block_pillar_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:bone_block_pillar_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "bottom": {
       "predicates": [
         {
@@ -43,28 +65,6 @@
             ]
           },
           "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:bone_block_pillar_connecting",
-          "properties": {
-            "axis": [
-              "y"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:bone_block_pillar_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:bone_block_pillar_slab_connecting",
-          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

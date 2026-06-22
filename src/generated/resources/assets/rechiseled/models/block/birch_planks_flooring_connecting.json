@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/birch_planks_flooring",
-    "south": "rechiseled:block/birch_planks_flooring",
-    "north": "rechiseled:block/birch_planks_flooring",
     "west": "rechiseled:block/birch_planks_flooring",
     "particle": "rechiseled:block/birch_planks_flooring",
-    "up": "rechiseled:block/birch_planks_flooring",
-    "down": "rechiseled:block/birch_planks_flooring"
+    "down": "rechiseled:block/birch_planks_flooring",
+    "south": "rechiseled:block/birch_planks_flooring",
+    "east": "rechiseled:block/birch_planks_flooring",
+    "north": "rechiseled:block/birch_planks_flooring",
+    "up": "rechiseled:block/birch_planks_flooring"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

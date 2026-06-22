@@ -1,34 +1,11 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/emerald_block_clovers",
     "top": "rechiseled:block/emerald_block_clovers",
-    "bottom": "rechiseled:block/emerald_block_clovers"
+    "bottom": "rechiseled:block/emerald_block_clovers",
+    "side": "rechiseled:block/emerald_block_clovers"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:emerald_block_clovers_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:emerald_block_clovers_stairs_connecting",
-          "properties": {
-            "half": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -57,6 +34,29 @@
           "block": "rechiseled:emerald_block_clovers_slab_connecting",
           "properties": {
             "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:emerald_block_clovers_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:emerald_block_clovers_stairs_connecting",
+          "properties": {
+            "half": [
               "top"
             ]
           },

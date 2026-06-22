@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/netherite_block_patterned",
-    "south": "rechiseled:block/netherite_block_patterned",
-    "north": "rechiseled:block/netherite_block_patterned",
     "west": "rechiseled:block/netherite_block_patterned",
     "particle": "rechiseled:block/netherite_block_patterned",
-    "up": "rechiseled:block/netherite_block_patterned",
-    "down": "rechiseled:block/netherite_block_patterned"
+    "down": "rechiseled:block/netherite_block_patterned",
+    "south": "rechiseled:block/netherite_block_patterned",
+    "east": "rechiseled:block/netherite_block_patterned",
+    "north": "rechiseled:block/netherite_block_patterned",
+    "up": "rechiseled:block/netherite_block_patterned"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

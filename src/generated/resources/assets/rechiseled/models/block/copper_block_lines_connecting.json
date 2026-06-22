@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/copper_block_lines",
-    "south": "rechiseled:block/copper_block_lines",
-    "north": "rechiseled:block/copper_block_lines",
     "west": "rechiseled:block/copper_block_lines",
     "particle": "rechiseled:block/copper_block_lines",
-    "up": "rechiseled:block/copper_block_lines",
-    "down": "rechiseled:block/copper_block_lines"
+    "down": "rechiseled:block/copper_block_lines",
+    "south": "rechiseled:block/copper_block_lines",
+    "east": "rechiseled:block/copper_block_lines",
+    "north": "rechiseled:block/copper_block_lines",
+    "up": "rechiseled:block/copper_block_lines"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

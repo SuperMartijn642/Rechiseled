@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/warped_planks_small_bricks",
-    "south": "rechiseled:block/warped_planks_small_bricks",
-    "north": "rechiseled:block/warped_planks_small_bricks",
     "west": "rechiseled:block/warped_planks_small_bricks",
     "particle": "rechiseled:block/warped_planks_small_bricks",
-    "up": "rechiseled:block/warped_planks_small_bricks",
-    "down": "rechiseled:block/warped_planks_small_bricks"
+    "down": "rechiseled:block/warped_planks_small_bricks",
+    "south": "rechiseled:block/warped_planks_small_bricks",
+    "east": "rechiseled:block/warped_planks_small_bricks",
+    "north": "rechiseled:block/warped_planks_small_bricks",
+    "up": "rechiseled:block/warped_planks_small_bricks"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

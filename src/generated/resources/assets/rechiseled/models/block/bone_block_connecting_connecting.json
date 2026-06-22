@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/bone_block_connecting_side",
-    "south": "rechiseled:block/bone_block_connecting_side",
-    "north": "rechiseled:block/bone_block_connecting_side",
     "west": "rechiseled:block/bone_block_connecting_side",
     "particle": "rechiseled:block/bone_block_connecting_side",
-    "up": "rechiseled:block/bone_block_connecting_end",
-    "down": "rechiseled:block/bone_block_connecting_end"
+    "down": "rechiseled:block/bone_block_connecting_end",
+    "south": "rechiseled:block/bone_block_connecting_side",
+    "east": "rechiseled:block/bone_block_connecting_side",
+    "north": "rechiseled:block/bone_block_connecting_side",
+    "up": "rechiseled:block/bone_block_connecting_end"
   },
   "connections": {
     "west": "#side",
@@ -52,7 +52,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -129,8 +128,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

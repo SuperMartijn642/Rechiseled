@@ -1,28 +1,11 @@
 {
   "parent": "rechiseled:block/outer_stairs_top",
   "textures": {
-    "side": "rechiseled:block/lapis_block_bordered",
     "top": "rechiseled:block/lapis_block_bordered",
-    "bottom": "rechiseled:block/lapis_block_bordered"
+    "bottom": "rechiseled:block/lapis_block_bordered",
+    "side": "rechiseled:block/lapis_block_bordered"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:lapis_block_bordered_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:lapis_block_bordered_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:lapis_block_bordered_slab_connecting",
-          "type": "fusion:match_block"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -55,6 +38,23 @@
             ]
           },
           "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:lapis_block_bordered_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:lapis_block_bordered_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:lapis_block_bordered_slab_connecting",
+          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

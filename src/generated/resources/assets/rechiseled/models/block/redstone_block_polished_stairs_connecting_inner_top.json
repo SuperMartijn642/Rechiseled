@@ -1,28 +1,11 @@
 {
   "parent": "rechiseled:block/inner_stairs_top",
   "textures": {
-    "side": "rechiseled:block/redstone_block_polished",
     "top": "rechiseled:block/redstone_block_polished",
-    "bottom": "rechiseled:block/redstone_block_polished"
+    "bottom": "rechiseled:block/redstone_block_polished",
+    "side": "rechiseled:block/redstone_block_polished"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:redstone_block_polished_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:redstone_block_polished_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:redstone_block_polished_slab_connecting",
-          "type": "fusion:match_block"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -55,6 +38,23 @@
             ]
           },
           "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:redstone_block_polished_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:redstone_block_polished_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:redstone_block_polished_slab_connecting",
+          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

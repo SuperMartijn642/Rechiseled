@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/andesite_tiles",
-    "south": "rechiseled:block/andesite_tiles",
-    "north": "rechiseled:block/andesite_tiles",
     "west": "rechiseled:block/andesite_tiles",
     "particle": "rechiseled:block/andesite_tiles",
-    "up": "rechiseled:block/andesite_tiles",
-    "down": "rechiseled:block/andesite_tiles"
+    "down": "rechiseled:block/andesite_tiles",
+    "south": "rechiseled:block/andesite_tiles",
+    "east": "rechiseled:block/andesite_tiles",
+    "north": "rechiseled:block/andesite_tiles",
+    "up": "rechiseled:block/andesite_tiles"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/redstone_block_paving",
-    "south": "rechiseled:block/redstone_block_paving",
-    "north": "rechiseled:block/redstone_block_paving",
     "west": "rechiseled:block/redstone_block_paving",
     "particle": "rechiseled:block/redstone_block_paving",
-    "up": "rechiseled:block/redstone_block_paving",
-    "down": "rechiseled:block/redstone_block_paving"
+    "down": "rechiseled:block/redstone_block_paving",
+    "south": "rechiseled:block/redstone_block_paving",
+    "east": "rechiseled:block/redstone_block_paving",
+    "north": "rechiseled:block/redstone_block_paving",
+    "up": "rechiseled:block/redstone_block_paving"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

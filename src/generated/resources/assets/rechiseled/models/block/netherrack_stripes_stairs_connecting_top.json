@@ -1,28 +1,11 @@
 {
   "parent": "rechiseled:block/stairs_top",
   "textures": {
-    "side": "rechiseled:block/netherrack_stripes",
     "top": "rechiseled:block/netherrack_stripes",
-    "bottom": "rechiseled:block/netherrack_stripes"
+    "bottom": "rechiseled:block/netherrack_stripes",
+    "side": "rechiseled:block/netherrack_stripes"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:netherrack_stripes_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:netherrack_stripes_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:netherrack_stripes_slab_connecting",
-          "type": "fusion:match_block"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -55,6 +38,23 @@
             ]
           },
           "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:netherrack_stripes_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:netherrack_stripes_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:netherrack_stripes_slab_connecting",
+          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

@@ -1,34 +1,11 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/andesite_wavy",
     "top": "rechiseled:block/andesite_wavy",
-    "bottom": "rechiseled:block/andesite_wavy"
+    "bottom": "rechiseled:block/andesite_wavy",
+    "side": "rechiseled:block/andesite_wavy"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:andesite_wavy_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:andesite_wavy_stairs_connecting",
-          "properties": {
-            "half": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -57,6 +34,29 @@
           "block": "rechiseled:andesite_wavy_slab_connecting",
           "properties": {
             "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:andesite_wavy_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:andesite_wavy_stairs_connecting",
+          "properties": {
+            "half": [
               "top"
             ]
           },

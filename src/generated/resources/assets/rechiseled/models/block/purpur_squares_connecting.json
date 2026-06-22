@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/purpur_squares",
-    "south": "rechiseled:block/purpur_squares",
-    "north": "rechiseled:block/purpur_squares",
     "west": "rechiseled:block/purpur_squares",
     "particle": "rechiseled:block/purpur_squares",
-    "up": "rechiseled:block/purpur_squares",
-    "down": "rechiseled:block/purpur_squares"
+    "down": "rechiseled:block/purpur_squares",
+    "south": "rechiseled:block/purpur_squares",
+    "east": "rechiseled:block/purpur_squares",
+    "north": "rechiseled:block/purpur_squares",
+    "up": "rechiseled:block/purpur_squares"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

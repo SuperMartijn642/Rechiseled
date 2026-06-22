@@ -1,11 +1,28 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/prismarine_bricks_rows",
     "top": "rechiseled:block/prismarine_bricks_rows",
-    "bottom": "rechiseled:block/prismarine_bricks_rows"
+    "bottom": "rechiseled:block/prismarine_bricks_rows",
+    "side": "rechiseled:block/prismarine_bricks_rows"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:prismarine_bricks_rows_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:prismarine_bricks_rows_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:prismarine_bricks_rows_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "bottom": {
       "predicates": [
         {
@@ -38,23 +55,6 @@
             ]
           },
           "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:prismarine_bricks_rows_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:prismarine_bricks_rows_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:prismarine_bricks_rows_slab_connecting",
-          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

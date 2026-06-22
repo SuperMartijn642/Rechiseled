@@ -1,11 +1,34 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "rechiseled:block/glowstone_smooth",
     "top": "rechiseled:block/glowstone_smooth",
-    "bottom": "rechiseled:block/glowstone_smooth"
+    "bottom": "rechiseled:block/glowstone_smooth",
+    "side": "rechiseled:block/glowstone_smooth"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:glowstone_smooth_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:glowstone_smooth_stairs_connecting",
+          "properties": {
+            "half": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "bottom": {
       "predicates": [
         {
@@ -34,29 +57,6 @@
           "block": "rechiseled:glowstone_smooth_slab_connecting",
           "properties": {
             "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:glowstone_smooth_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:glowstone_smooth_stairs_connecting",
-          "properties": {
-            "half": [
               "bottom"
             ]
           },

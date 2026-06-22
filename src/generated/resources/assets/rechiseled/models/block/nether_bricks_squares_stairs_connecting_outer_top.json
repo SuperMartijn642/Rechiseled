@@ -1,28 +1,11 @@
 {
   "parent": "rechiseled:block/outer_stairs_top",
   "textures": {
-    "side": "rechiseled:block/nether_bricks_squares",
     "top": "rechiseled:block/nether_bricks_squares",
-    "bottom": "rechiseled:block/nether_bricks_squares"
+    "bottom": "rechiseled:block/nether_bricks_squares",
+    "side": "rechiseled:block/nether_bricks_squares"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:nether_bricks_squares_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:nether_bricks_squares_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:nether_bricks_squares_slab_connecting",
-          "type": "fusion:match_block"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -55,6 +38,23 @@
             ]
           },
           "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:nether_bricks_squares_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:nether_bricks_squares_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:nether_bricks_squares_slab_connecting",
+          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

@@ -1,34 +1,11 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/coal_block_pillar_side",
     "top": "rechiseled:block/coal_block_pillar_end",
-    "bottom": "rechiseled:block/coal_block_pillar_end"
+    "bottom": "rechiseled:block/coal_block_pillar_end",
+    "side": "rechiseled:block/coal_block_pillar_side"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:coal_block_pillar_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:coal_block_pillar_stairs_connecting",
-          "properties": {
-            "half": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -62,6 +39,29 @@
           "block": "rechiseled:coal_block_pillar_slab_connecting",
           "properties": {
             "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:coal_block_pillar_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:coal_block_pillar_stairs_connecting",
+          "properties": {
+            "half": [
               "top"
             ]
           },

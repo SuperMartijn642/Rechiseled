@@ -1,11 +1,28 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/netherite_block_chiseled",
     "top": "rechiseled:block/netherite_block_chiseled",
-    "bottom": "rechiseled:block/netherite_block_chiseled"
+    "bottom": "rechiseled:block/netherite_block_chiseled",
+    "side": "rechiseled:block/netherite_block_chiseled"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:netherite_block_chiseled_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:netherite_block_chiseled_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:netherite_block_chiseled_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "bottom": {
       "predicates": [
         {
@@ -38,23 +55,6 @@
             ]
           },
           "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:netherite_block_chiseled_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:netherite_block_chiseled_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:netherite_block_chiseled_slab_connecting",
-          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/mossy_cobblestone_stripes",
-    "south": "rechiseled:block/mossy_cobblestone_stripes",
-    "north": "rechiseled:block/mossy_cobblestone_stripes",
     "west": "rechiseled:block/mossy_cobblestone_stripes",
     "particle": "rechiseled:block/mossy_cobblestone_stripes",
-    "up": "rechiseled:block/mossy_cobblestone_stripes",
-    "down": "rechiseled:block/mossy_cobblestone_stripes"
+    "down": "rechiseled:block/mossy_cobblestone_stripes",
+    "south": "rechiseled:block/mossy_cobblestone_stripes",
+    "east": "rechiseled:block/mossy_cobblestone_stripes",
+    "north": "rechiseled:block/mossy_cobblestone_stripes",
+    "up": "rechiseled:block/mossy_cobblestone_stripes"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

@@ -1,11 +1,28 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/iron_block_framed",
     "top": "rechiseled:block/iron_block_framed",
-    "bottom": "rechiseled:block/iron_block_framed"
+    "bottom": "rechiseled:block/iron_block_framed",
+    "side": "rechiseled:block/iron_block_framed"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:iron_block_framed_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:iron_block_framed_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:iron_block_framed_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "bottom": {
       "predicates": [
         {
@@ -38,23 +55,6 @@
             ]
           },
           "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:iron_block_framed_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:iron_block_framed_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:iron_block_framed_slab_connecting",
-          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

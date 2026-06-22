@@ -1,11 +1,28 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/end_stone_chiseled",
     "top": "rechiseled:block/end_stone_chiseled",
-    "bottom": "rechiseled:block/end_stone_chiseled"
+    "bottom": "rechiseled:block/end_stone_chiseled",
+    "side": "rechiseled:block/end_stone_chiseled"
   },
   "connections": {
+    "top": {
+      "predicates": [
+        {
+          "block": "rechiseled:end_stone_chiseled_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:end_stone_chiseled_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:end_stone_chiseled_slab_connecting",
+          "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "bottom": {
       "predicates": [
         {
@@ -38,23 +55,6 @@
             ]
           },
           "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "top": {
-      "predicates": [
-        {
-          "block": "rechiseled:end_stone_chiseled_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:end_stone_chiseled_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:end_stone_chiseled_slab_connecting",
-          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/gold_block_bordered",
-    "south": "rechiseled:block/gold_block_bordered",
-    "north": "rechiseled:block/gold_block_bordered",
     "west": "rechiseled:block/gold_block_bordered",
     "particle": "rechiseled:block/gold_block_bordered",
-    "up": "rechiseled:block/gold_block_bordered",
-    "down": "rechiseled:block/gold_block_bordered"
+    "down": "rechiseled:block/gold_block_bordered",
+    "south": "rechiseled:block/gold_block_bordered",
+    "east": "rechiseled:block/gold_block_bordered",
+    "north": "rechiseled:block/gold_block_bordered",
+    "up": "rechiseled:block/gold_block_bordered"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

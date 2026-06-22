@@ -1,33 +1,11 @@
 {
   "parent": "rechiseled:block/stairs_top",
   "textures": {
-    "side": "rechiseled:block/copper_block_pillar_side",
     "top": "rechiseled:block/copper_block_pillar_end",
-    "bottom": "rechiseled:block/copper_block_pillar_end"
+    "bottom": "rechiseled:block/copper_block_pillar_end",
+    "side": "rechiseled:block/copper_block_pillar_side"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:copper_block_pillar_connecting",
-          "properties": {
-            "axis": [
-              "y"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:copper_block_pillar_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:copper_block_pillar_slab_connecting",
-          "type": "fusion:match_block"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -65,6 +43,28 @@
             ]
           },
           "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:copper_block_pillar_connecting",
+          "properties": {
+            "axis": [
+              "y"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:copper_block_pillar_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:copper_block_pillar_slab_connecting",
+          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

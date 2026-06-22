@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/cobbled_deepslate_pulverized",
-    "south": "rechiseled:block/cobbled_deepslate_pulverized",
-    "north": "rechiseled:block/cobbled_deepslate_pulverized",
     "west": "rechiseled:block/cobbled_deepslate_pulverized",
     "particle": "rechiseled:block/cobbled_deepslate_pulverized",
-    "up": "rechiseled:block/cobbled_deepslate_pulverized",
-    "down": "rechiseled:block/cobbled_deepslate_pulverized"
+    "down": "rechiseled:block/cobbled_deepslate_pulverized",
+    "south": "rechiseled:block/cobbled_deepslate_pulverized",
+    "east": "rechiseled:block/cobbled_deepslate_pulverized",
+    "north": "rechiseled:block/cobbled_deepslate_pulverized",
+    "up": "rechiseled:block/cobbled_deepslate_pulverized"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {

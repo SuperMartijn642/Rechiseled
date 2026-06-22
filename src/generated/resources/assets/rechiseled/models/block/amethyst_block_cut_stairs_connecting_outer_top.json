@@ -1,28 +1,11 @@
 {
   "parent": "rechiseled:block/outer_stairs_top",
   "textures": {
-    "side": "rechiseled:block/amethyst_block_cut",
     "top": "rechiseled:block/amethyst_block_cut",
-    "bottom": "rechiseled:block/amethyst_block_cut"
+    "bottom": "rechiseled:block/amethyst_block_cut",
+    "side": "rechiseled:block/amethyst_block_cut"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:amethyst_block_cut_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:amethyst_block_cut_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:amethyst_block_cut_slab_connecting",
-          "type": "fusion:match_block"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "top": {
       "predicates": [
         {
@@ -55,6 +38,23 @@
             ]
           },
           "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:amethyst_block_cut_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:amethyst_block_cut_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:amethyst_block_cut_slab_connecting",
+          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

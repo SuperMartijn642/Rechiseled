@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/acacia_planks_wavy",
-    "south": "rechiseled:block/acacia_planks_wavy",
-    "north": "rechiseled:block/acacia_planks_wavy",
     "west": "rechiseled:block/acacia_planks_wavy",
     "particle": "rechiseled:block/acacia_planks_wavy",
-    "up": "rechiseled:block/acacia_planks_wavy",
-    "down": "rechiseled:block/acacia_planks_wavy"
+    "down": "rechiseled:block/acacia_planks_wavy",
+    "south": "rechiseled:block/acacia_planks_wavy",
+    "east": "rechiseled:block/acacia_planks_wavy",
+    "north": "rechiseled:block/acacia_planks_wavy",
+    "up": "rechiseled:block/acacia_planks_wavy"
   },
   "connections": {
     "west": "#side",
@@ -47,7 +47,6 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side",
     "side": {
       "predicates": [
         {
@@ -119,8 +118,9 @@
       ],
       "type": "fusion:or"
     },
-    "north": "#side",
+    "south": "#side",
     "east": "#side",
+    "north": "#side",
     "up": {
       "predicates": [
         {
