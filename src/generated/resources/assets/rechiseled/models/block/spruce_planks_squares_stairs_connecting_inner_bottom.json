@@ -6,42 +6,6 @@
     "bottom": "rechiseled:block/spruce_planks_squares"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:spruce_planks_squares_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:spruce_planks_squares_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:spruce_planks_squares_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:spruce_planks_squares_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "side": {
       "predicates": [
         {
@@ -128,6 +92,42 @@
         {
           "block": "rechiseled:spruce_planks_squares_slab_connecting",
           "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:spruce_planks_squares_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:spruce_planks_squares_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:spruce_planks_squares_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:spruce_planks_squares_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
         }
       ],
       "type": "fusion:or"

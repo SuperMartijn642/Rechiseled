@@ -6,29 +6,6 @@
     "bottom": "rechiseled:block/netherrack_bricks"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:netherrack_bricks_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:netherrack_bricks_stairs_connecting",
-          "properties": {
-            "half": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "side": {
       "predicates": [
         {
@@ -146,6 +123,29 @@
           "block": "rechiseled:netherrack_bricks_slab_connecting",
           "properties": {
             "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:netherrack_bricks_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:netherrack_bricks_stairs_connecting",
+          "properties": {
+            "half": [
               "top"
             ]
           },

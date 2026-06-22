@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "side": "rechiseled:block/warped_planks_brick_pattern",
     "east": "#side",
+    "side": "rechiseled:block/warped_planks_brick_pattern",
     "south": "#side",
     "north": "#side",
     "west": "#side",
@@ -11,10 +11,7 @@
     "down": "rechiseled:block/warped_planks_brick_pattern"
   },
   "connections": {
-    "north": "#side",
     "east": "#side",
-    "south": "#side",
-    "west": "#side",
     "side": {
       "predicates": [
         {
@@ -86,6 +83,9 @@
       ],
       "type": "fusion:or"
     },
+    "south": "#side",
+    "north": "#side",
+    "west": "#side",
     "up": {
       "predicates": [
         {

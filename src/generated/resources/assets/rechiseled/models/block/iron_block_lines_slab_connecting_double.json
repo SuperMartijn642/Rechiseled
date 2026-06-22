@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "side": "rechiseled:block/iron_block_lines",
     "east": "#side",
+    "side": "rechiseled:block/iron_block_lines",
     "south": "#side",
     "north": "#side",
     "west": "#side",
@@ -11,10 +11,7 @@
     "down": "rechiseled:block/iron_block_lines"
   },
   "connections": {
-    "north": "#side",
     "east": "#side",
-    "south": "#side",
-    "west": "#side",
     "side": {
       "predicates": [
         {
@@ -86,6 +83,9 @@
       ],
       "type": "fusion:or"
     },
+    "south": "#side",
+    "north": "#side",
+    "west": "#side",
     "up": {
       "predicates": [
         {

@@ -6,42 +6,6 @@
     "bottom": "rechiseled:block/warped_planks_diagonal_tiles"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:warped_planks_diagonal_tiles_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:warped_planks_diagonal_tiles_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:warped_planks_diagonal_tiles_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:warped_planks_diagonal_tiles_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "side": {
       "predicates": [
         {
@@ -146,6 +110,42 @@
           "block": "rechiseled:warped_planks_diagonal_tiles_stairs_connecting",
           "properties": {
             "half": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:warped_planks_diagonal_tiles_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:warped_planks_diagonal_tiles_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:warped_planks_diagonal_tiles_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:warped_planks_diagonal_tiles_slab_connecting",
+          "properties": {
+            "type": [
               "bottom"
             ]
           },

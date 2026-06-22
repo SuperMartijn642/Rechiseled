@@ -6,42 +6,6 @@
     "bottom": "rechiseled:block/quartz_block_scales"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:quartz_block_scales_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:quartz_block_scales_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:quartz_block_scales_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:quartz_block_scales_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "side": {
       "predicates": [
         {
@@ -146,6 +110,42 @@
           "block": "rechiseled:quartz_block_scales_stairs_connecting",
           "properties": {
             "half": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:quartz_block_scales_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:quartz_block_scales_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:quartz_block_scales_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:quartz_block_scales_slab_connecting",
+          "properties": {
+            "type": [
               "bottom"
             ]
           },

@@ -10,10 +10,7 @@
     "down": "rechiseled:block/netherite_block_pillar_end"
   },
   "connections": {
-    "north": "#side",
     "east": "#side",
-    "south": "#side",
-    "west": "#side",
     "side": {
       "predicates": [
         {
@@ -90,6 +87,9 @@
       ],
       "type": "fusion:or"
     },
+    "south": "#side",
+    "north": "#side",
+    "west": "#side",
     "up": {
       "predicates": [
         {

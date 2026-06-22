@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "side": "rechiseled:block/jungle_planks_large_tiles",
     "east": "#side",
+    "side": "rechiseled:block/jungle_planks_large_tiles",
     "south": "#side",
     "north": "#side",
     "west": "#side",
@@ -11,10 +11,7 @@
     "down": "rechiseled:block/jungle_planks_large_tiles"
   },
   "connections": {
-    "north": "#side",
     "east": "#side",
-    "south": "#side",
-    "west": "#side",
     "side": {
       "predicates": [
         {
@@ -86,6 +83,9 @@
       ],
       "type": "fusion:or"
     },
+    "south": "#side",
+    "north": "#side",
+    "west": "#side",
     "up": {
       "predicates": [
         {
