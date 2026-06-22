@@ -6,23 +6,6 @@
     "bottom": "rechiseled:block/stone_waves"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:stone_waves_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:stone_waves_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:stone_waves_slab_connecting",
-          "type": "fusion:match_block"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "side": {
       "predicates": [
         {
@@ -128,6 +111,23 @@
             ]
           },
           "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:stone_waves_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:stone_waves_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:stone_waves_slab_connecting",
+          "type": "fusion:match_block"
         }
       ],
       "type": "fusion:or"

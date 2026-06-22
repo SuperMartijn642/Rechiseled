@@ -6,42 +6,6 @@
     "bottom": "rechiseled:block/lapis_block_decorated"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:lapis_block_decorated_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:lapis_block_decorated_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:lapis_block_decorated_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:lapis_block_decorated_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "side": {
       "predicates": [
         {
@@ -128,6 +92,42 @@
         {
           "block": "rechiseled:lapis_block_decorated_slab_connecting",
           "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:lapis_block_decorated_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:lapis_block_decorated_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:lapis_block_decorated_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:lapis_block_decorated_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
         }
       ],
       "type": "fusion:or"

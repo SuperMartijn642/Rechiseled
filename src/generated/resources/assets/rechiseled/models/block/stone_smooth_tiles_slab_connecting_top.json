@@ -6,29 +6,6 @@
     "bottom": "rechiseled:block/stone_smooth_tiles"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:stone_smooth_tiles_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:stone_smooth_tiles_stairs_connecting",
-          "properties": {
-            "half": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "side": {
       "predicates": [
         {
@@ -146,6 +123,29 @@
           "block": "rechiseled:stone_smooth_tiles_slab_connecting",
           "properties": {
             "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:stone_smooth_tiles_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:stone_smooth_tiles_stairs_connecting",
+          "properties": {
+            "half": [
               "top"
             ]
           },

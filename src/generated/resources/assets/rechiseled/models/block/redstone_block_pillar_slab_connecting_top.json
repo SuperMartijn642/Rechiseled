@@ -6,29 +6,6 @@
     "bottom": "rechiseled:block/redstone_block_pillar_end"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:redstone_block_pillar_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:redstone_block_pillar_stairs_connecting",
-          "properties": {
-            "half": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "side": {
       "predicates": [
         {
@@ -156,6 +133,29 @@
           "block": "rechiseled:redstone_block_pillar_slab_connecting",
           "properties": {
             "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:redstone_block_pillar_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:redstone_block_pillar_stairs_connecting",
+          "properties": {
+            "half": [
               "top"
             ]
           },

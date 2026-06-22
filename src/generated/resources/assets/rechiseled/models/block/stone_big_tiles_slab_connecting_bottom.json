@@ -6,42 +6,6 @@
     "bottom": "rechiseled:block/stone_big_tiles"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:stone_big_tiles_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:stone_big_tiles_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:stone_big_tiles_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:stone_big_tiles_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "side": {
       "predicates": [
         {
@@ -146,6 +110,42 @@
           "block": "rechiseled:stone_big_tiles_stairs_connecting",
           "properties": {
             "half": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:stone_big_tiles_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:stone_big_tiles_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:stone_big_tiles_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:stone_big_tiles_slab_connecting",
+          "properties": {
+            "type": [
               "bottom"
             ]
           },

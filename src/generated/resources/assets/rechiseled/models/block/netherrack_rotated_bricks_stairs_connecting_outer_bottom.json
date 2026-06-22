@@ -6,42 +6,6 @@
     "bottom": "rechiseled:block/netherrack_rotated_bricks"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:netherrack_rotated_bricks_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:netherrack_rotated_bricks_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:netherrack_rotated_bricks_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:netherrack_rotated_bricks_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "side": {
       "predicates": [
         {
@@ -128,6 +92,42 @@
         {
           "block": "rechiseled:netherrack_rotated_bricks_slab_connecting",
           "type": "fusion:match_block"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:netherrack_rotated_bricks_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:netherrack_rotated_bricks_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:netherrack_rotated_bricks_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:netherrack_rotated_bricks_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
         }
       ],
       "type": "fusion:or"

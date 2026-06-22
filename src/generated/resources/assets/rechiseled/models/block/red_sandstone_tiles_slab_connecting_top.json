@@ -6,29 +6,6 @@
     "bottom": "rechiseled:block/red_sandstone_tiles"
   },
   "connections": {
-    "bottom": {
-      "predicates": [
-        {
-          "block": "rechiseled:red_sandstone_tiles_slab_connecting",
-          "properties": {
-            "type": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        },
-        {
-          "block": "rechiseled:red_sandstone_tiles_stairs_connecting",
-          "properties": {
-            "half": [
-              "top"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
     "side": {
       "predicates": [
         {
@@ -146,6 +123,29 @@
           "block": "rechiseled:red_sandstone_tiles_slab_connecting",
           "properties": {
             "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
+    "bottom": {
+      "predicates": [
+        {
+          "block": "rechiseled:red_sandstone_tiles_slab_connecting",
+          "properties": {
+            "type": [
+              "top"
+            ]
+          },
+          "type": "fusion:match_state"
+        },
+        {
+          "block": "rechiseled:red_sandstone_tiles_stairs_connecting",
+          "properties": {
+            "half": [
               "top"
             ]
           },

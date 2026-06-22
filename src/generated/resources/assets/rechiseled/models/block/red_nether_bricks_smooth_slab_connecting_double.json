@@ -11,10 +11,7 @@
     "down": "rechiseled:block/red_nether_bricks_smooth"
   },
   "connections": {
-    "north": "#side",
     "east": "#side",
-    "south": "#side",
-    "west": "#side",
     "side": {
       "predicates": [
         {
@@ -86,6 +83,9 @@
       ],
       "type": "fusion:or"
     },
+    "south": "#side",
+    "north": "#side",
+    "west": "#side",
     "up": {
       "predicates": [
         {
