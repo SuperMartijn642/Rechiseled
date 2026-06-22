@@ -21,12 +21,7 @@ compileJava.options.compilerArgs.add '-parameters'
 repositories {
     flatDir { dirs "libs" }
     maven { url "https://www.cursemaven.com" }
-    exclusiveContent {
-        forRepository {
-            maven { url = "https://api.modrinth.com/maven" }
-        }
-        filter { includeGroup "maven.modrinth" }
-    }
+    maven { url = "https://api.modrinth.com/maven" }
     exclusiveContent {
         forRepository {
             maven { url = "https://repo.spongepowered.org/maven" }
