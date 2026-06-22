@@ -1,3 +1,7 @@
+### Rechiseled 1.2.5
+- Fixed non-connecting blocks also connecting with Fusion 1.3.0
+- Fixed texture for Compacted Coal Block
+
 ### Rechiseled 1.2.4a
 - Fixed blocks not having mining tags
 
