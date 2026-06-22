@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/stone_smooth_rotated_bricks",
     "top": "rechiseled:block/stone_smooth_rotated_bricks",
-    "bottom": "rechiseled:block/stone_smooth_rotated_bricks"
+    "bottom": "rechiseled:block/stone_smooth_rotated_bricks",
+    "side": "rechiseled:block/stone_smooth_rotated_bricks"
   },
   "connections": {
     "top": {

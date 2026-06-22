@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/warped_planks_squares",
     "top": "rechiseled:block/warped_planks_squares",
-    "bottom": "rechiseled:block/warped_planks_squares"
+    "bottom": "rechiseled:block/warped_planks_squares",
+    "side": "rechiseled:block/warped_planks_squares"
   },
   "connections": {
     "top": {

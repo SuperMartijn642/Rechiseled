@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/iron_block_bordered",
     "top": "rechiseled:block/iron_block_bordered",
-    "bottom": "rechiseled:block/iron_block_bordered"
+    "bottom": "rechiseled:block/iron_block_bordered",
+    "side": "rechiseled:block/iron_block_bordered"
   },
   "connections": {
     "top": {

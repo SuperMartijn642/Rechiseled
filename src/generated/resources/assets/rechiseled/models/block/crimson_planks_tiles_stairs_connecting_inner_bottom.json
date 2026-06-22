@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/crimson_planks_tiles",
     "top": "rechiseled:block/crimson_planks_tiles",
-    "bottom": "rechiseled:block/crimson_planks_tiles"
+    "bottom": "rechiseled:block/crimson_planks_tiles",
+    "side": "rechiseled:block/crimson_planks_tiles"
   },
   "connections": {
     "top": {

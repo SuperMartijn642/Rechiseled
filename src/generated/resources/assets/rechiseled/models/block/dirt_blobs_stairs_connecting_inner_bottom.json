@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/dirt_blobs",
     "top": "rechiseled:block/dirt_blobs",
-    "bottom": "rechiseled:block/dirt_blobs"
+    "bottom": "rechiseled:block/dirt_blobs",
+    "side": "rechiseled:block/dirt_blobs"
   },
   "connections": {
     "top": {

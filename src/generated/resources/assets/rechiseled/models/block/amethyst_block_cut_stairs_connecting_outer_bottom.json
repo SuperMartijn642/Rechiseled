@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/amethyst_block_cut",
     "top": "rechiseled:block/amethyst_block_cut",
-    "bottom": "rechiseled:block/amethyst_block_cut"
+    "bottom": "rechiseled:block/amethyst_block_cut",
+    "side": "rechiseled:block/amethyst_block_cut"
   },
   "connections": {
     "top": {

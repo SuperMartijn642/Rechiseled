@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/outer_stairs_top",
   "textures": {
-    "side": "rechiseled:block/bone_block_chiseled",
     "top": "rechiseled:block/bone_block_chiseled",
-    "bottom": "rechiseled:block/bone_block_chiseled"
+    "bottom": "rechiseled:block/bone_block_chiseled",
+    "side": "rechiseled:block/bone_block_chiseled"
   },
   "connections": {
     "top": {

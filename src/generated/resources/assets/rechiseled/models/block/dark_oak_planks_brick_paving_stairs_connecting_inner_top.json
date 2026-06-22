@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/inner_stairs_top",
   "textures": {
-    "side": "rechiseled:block/dark_oak_planks_brick_paving",
     "top": "rechiseled:block/dark_oak_planks_brick_paving",
-    "bottom": "rechiseled:block/dark_oak_planks_brick_paving"
+    "bottom": "rechiseled:block/dark_oak_planks_brick_paving",
+    "side": "rechiseled:block/dark_oak_planks_brick_paving"
   },
   "connections": {
     "top": {

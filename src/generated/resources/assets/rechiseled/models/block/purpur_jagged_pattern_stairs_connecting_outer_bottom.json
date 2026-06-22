@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/purpur_jagged_pattern",
     "top": "rechiseled:block/purpur_jagged_pattern",
-    "bottom": "rechiseled:block/purpur_jagged_pattern"
+    "bottom": "rechiseled:block/purpur_jagged_pattern",
+    "side": "rechiseled:block/purpur_jagged_pattern"
   },
   "connections": {
     "top": {

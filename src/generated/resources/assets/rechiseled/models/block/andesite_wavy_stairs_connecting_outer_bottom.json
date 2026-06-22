@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/andesite_wavy",
     "top": "rechiseled:block/andesite_wavy",
-    "bottom": "rechiseled:block/andesite_wavy"
+    "bottom": "rechiseled:block/andesite_wavy",
+    "side": "rechiseled:block/andesite_wavy"
   },
   "connections": {
     "top": {

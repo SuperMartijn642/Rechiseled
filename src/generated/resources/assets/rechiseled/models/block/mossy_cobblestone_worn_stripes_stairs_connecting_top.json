@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/stairs_top",
   "textures": {
-    "side": "rechiseled:block/mossy_cobblestone_worn_stripes",
     "top": "rechiseled:block/mossy_cobblestone_worn_stripes",
-    "bottom": "rechiseled:block/mossy_cobblestone_worn_stripes"
+    "bottom": "rechiseled:block/mossy_cobblestone_worn_stripes",
+    "side": "rechiseled:block/mossy_cobblestone_worn_stripes"
   },
   "connections": {
     "top": {

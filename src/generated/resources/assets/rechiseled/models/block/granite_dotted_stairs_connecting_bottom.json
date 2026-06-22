@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/granite_dotted",
     "top": "rechiseled:block/granite_dotted",
-    "bottom": "rechiseled:block/granite_dotted"
+    "bottom": "rechiseled:block/granite_dotted",
+    "side": "rechiseled:block/granite_dotted"
   },
   "connections": {
     "top": {

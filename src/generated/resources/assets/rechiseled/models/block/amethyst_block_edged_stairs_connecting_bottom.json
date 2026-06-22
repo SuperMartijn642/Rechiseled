@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/amethyst_block_edged",
     "top": "rechiseled:block/amethyst_block_edged",
-    "bottom": "rechiseled:block/amethyst_block_edged"
+    "bottom": "rechiseled:block/amethyst_block_edged",
+    "side": "rechiseled:block/amethyst_block_edged"
   },
   "connections": {
     "top": {

@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/stairs_top",
   "textures": {
-    "side": "rechiseled:block/acacia_planks_diagonal_tiles",
     "top": "rechiseled:block/acacia_planks_diagonal_tiles",
-    "bottom": "rechiseled:block/acacia_planks_diagonal_tiles"
+    "bottom": "rechiseled:block/acacia_planks_diagonal_tiles",
+    "side": "rechiseled:block/acacia_planks_diagonal_tiles"
   },
   "connections": {
     "top": {

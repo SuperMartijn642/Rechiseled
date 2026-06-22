@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/amethyst_block_shiny",
     "top": "rechiseled:block/amethyst_block_shiny",
-    "bottom": "rechiseled:block/amethyst_block_shiny"
+    "bottom": "rechiseled:block/amethyst_block_shiny",
+    "side": "rechiseled:block/amethyst_block_shiny"
   },
   "connections": {
     "top": {

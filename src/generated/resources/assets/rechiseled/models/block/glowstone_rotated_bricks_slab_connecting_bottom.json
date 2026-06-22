@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "rechiseled:block/glowstone_rotated_bricks",
     "top": "rechiseled:block/glowstone_rotated_bricks",
-    "bottom": "rechiseled:block/glowstone_rotated_bricks"
+    "bottom": "rechiseled:block/glowstone_rotated_bricks",
+    "side": "rechiseled:block/glowstone_rotated_bricks"
   },
   "connections": {
     "top": {

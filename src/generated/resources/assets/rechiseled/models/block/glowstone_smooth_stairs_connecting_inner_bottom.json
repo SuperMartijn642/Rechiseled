@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/glowstone_smooth",
     "top": "rechiseled:block/glowstone_smooth",
-    "bottom": "rechiseled:block/glowstone_smooth"
+    "bottom": "rechiseled:block/glowstone_smooth",
+    "side": "rechiseled:block/glowstone_smooth"
   },
   "connections": {
     "top": {

@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/redstone_block_circles",
     "top": "rechiseled:block/redstone_block_circles",
-    "bottom": "rechiseled:block/redstone_block_circles"
+    "bottom": "rechiseled:block/redstone_block_circles",
+    "side": "rechiseled:block/redstone_block_circles"
   },
   "connections": {
     "top": {

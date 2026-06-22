@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/coal_block_pattern",
     "top": "rechiseled:block/coal_block_pattern",
-    "bottom": "rechiseled:block/coal_block_pattern"
+    "bottom": "rechiseled:block/coal_block_pattern",
+    "side": "rechiseled:block/coal_block_pattern"
   },
   "connections": {
     "top": {

@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/netherite_block_compacted",
     "top": "rechiseled:block/netherite_block_compacted",
-    "bottom": "rechiseled:block/netherite_block_compacted"
+    "bottom": "rechiseled:block/netherite_block_compacted",
+    "side": "rechiseled:block/netherite_block_compacted"
   },
   "connections": {
     "top": {

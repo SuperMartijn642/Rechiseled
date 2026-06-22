@@ -1,53 +1,16 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "#side",
-    "side": "rechiseled:block/quartz_block_chiseled_pillar",
-    "south": "#side",
     "north": "#side",
-    "west": "#side",
     "particle": "#side",
+    "side": "rechiseled:block/quartz_block_chiseled_pillar",
     "up": "rechiseled:block/quartz_block_chiseled_pillar",
+    "east": "#side",
+    "south": "#side",
+    "west": "#side",
     "down": "rechiseled:block/quartz_block_chiseled_pillar"
   },
   "connections": {
-    "down": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:quartz_block_chiseled_pillar_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:quartz_block_chiseled_pillar_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:quartz_block_chiseled_pillar_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:quartz_block_chiseled_pillar_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "west": "#side",
     "up": {
       "predicates": [
         {
@@ -84,8 +47,43 @@
       ],
       "type": "fusion:or"
     },
-    "east": "#side",
-    "north": "#side",
+    "west": "#side",
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:quartz_block_chiseled_pillar_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:quartz_block_chiseled_pillar_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:quartz_block_chiseled_pillar_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:quartz_block_chiseled_pillar_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "side": {
       "predicates": [
         {
@@ -157,7 +155,9 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side"
+    "south": "#side",
+    "east": "#side",
+    "north": "#side"
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

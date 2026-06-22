@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/diamond_block_connecting",
     "top": "rechiseled:block/diamond_block_connecting",
-    "bottom": "rechiseled:block/diamond_block_connecting"
+    "bottom": "rechiseled:block/diamond_block_connecting",
+    "side": "rechiseled:block/diamond_block_connecting"
   },
   "connections": {
     "top": {

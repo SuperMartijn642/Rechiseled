@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/stairs_top",
   "textures": {
-    "side": "rechiseled:block/cobblestone_dented",
     "top": "rechiseled:block/cobblestone_dented",
-    "bottom": "rechiseled:block/cobblestone_dented"
+    "bottom": "rechiseled:block/cobblestone_dented",
+    "side": "rechiseled:block/cobblestone_dented"
   },
   "connections": {
     "top": {

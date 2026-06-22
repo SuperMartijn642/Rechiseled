@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/inner_stairs_top",
   "textures": {
-    "side": "rechiseled:block/jungle_planks_diagonal_tiles",
     "top": "rechiseled:block/jungle_planks_diagonal_tiles",
-    "bottom": "rechiseled:block/jungle_planks_diagonal_tiles"
+    "bottom": "rechiseled:block/jungle_planks_diagonal_tiles",
+    "side": "rechiseled:block/jungle_planks_diagonal_tiles"
   },
   "connections": {
     "top": {

@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/stairs_top",
   "textures": {
-    "side": "rechiseled:block/diamond_block_chiseled_cubes",
     "top": "rechiseled:block/diamond_block_chiseled_cubes",
-    "bottom": "rechiseled:block/diamond_block_chiseled_cubes"
+    "bottom": "rechiseled:block/diamond_block_chiseled_cubes",
+    "side": "rechiseled:block/diamond_block_chiseled_cubes"
   },
   "connections": {
     "top": {

@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/warped_planks_tiles",
     "top": "rechiseled:block/warped_planks_tiles",
-    "bottom": "rechiseled:block/warped_planks_tiles"
+    "bottom": "rechiseled:block/warped_planks_tiles",
+    "side": "rechiseled:block/warped_planks_tiles"
   },
   "connections": {
     "top": {

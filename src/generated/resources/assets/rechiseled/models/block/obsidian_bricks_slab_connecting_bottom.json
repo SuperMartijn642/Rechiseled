@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "rechiseled:block/obsidian_bricks",
     "top": "rechiseled:block/obsidian_bricks",
-    "bottom": "rechiseled:block/obsidian_bricks"
+    "bottom": "rechiseled:block/obsidian_bricks",
+    "side": "rechiseled:block/obsidian_bricks"
   },
   "connections": {
     "top": {

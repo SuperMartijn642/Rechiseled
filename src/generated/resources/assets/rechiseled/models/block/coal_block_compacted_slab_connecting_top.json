@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/coal_block_compacted",
     "top": "rechiseled:block/coal_block_compacted",
-    "bottom": "rechiseled:block/coal_block_compacted"
+    "bottom": "rechiseled:block/coal_block_compacted",
+    "side": "rechiseled:block/coal_block_compacted"
   },
   "connections": {
     "top": {

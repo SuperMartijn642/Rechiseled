@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/stone_big_tiles",
     "top": "rechiseled:block/stone_big_tiles",
-    "bottom": "rechiseled:block/stone_big_tiles"
+    "bottom": "rechiseled:block/stone_big_tiles",
+    "side": "rechiseled:block/stone_big_tiles"
   },
   "connections": {
     "top": {

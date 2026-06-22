@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/inner_stairs_top",
   "textures": {
-    "side": "rechiseled:block/diorite_brick_pattern",
     "top": "rechiseled:block/diorite_brick_pattern",
-    "bottom": "rechiseled:block/diorite_brick_pattern"
+    "bottom": "rechiseled:block/diorite_brick_pattern",
+    "side": "rechiseled:block/diorite_brick_pattern"
   },
   "connections": {
     "top": {

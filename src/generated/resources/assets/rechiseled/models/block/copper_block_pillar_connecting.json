@@ -1,57 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/copper_block_pillar_side",
-    "south": "rechiseled:block/copper_block_pillar_side",
-    "north": "rechiseled:block/copper_block_pillar_side",
+    "up": "rechiseled:block/copper_block_pillar_end",
     "west": "rechiseled:block/copper_block_pillar_side",
     "particle": "rechiseled:block/copper_block_pillar_side",
-    "up": "rechiseled:block/copper_block_pillar_end",
-    "down": "rechiseled:block/copper_block_pillar_end"
+    "down": "rechiseled:block/copper_block_pillar_end",
+    "south": "rechiseled:block/copper_block_pillar_side",
+    "east": "rechiseled:block/copper_block_pillar_side",
+    "north": "rechiseled:block/copper_block_pillar_side"
   },
   "connections": {
-    "down": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:copper_block_pillar_connecting",
-              "properties": {
-                "axis": [
-                  "y"
-                ]
-              },
-              "type": "fusion:match_state"
-            },
-            {
-              "block": "rechiseled:copper_block_pillar_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:copper_block_pillar_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:copper_block_pillar_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "west": "#side",
     "up": {
       "predicates": [
         {
@@ -93,8 +51,48 @@
       ],
       "type": "fusion:or"
     },
-    "east": "#side",
-    "north": "#side",
+    "west": "#side",
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:copper_block_pillar_connecting",
+              "properties": {
+                "axis": [
+                  "y"
+                ]
+              },
+              "type": "fusion:match_state"
+            },
+            {
+              "block": "rechiseled:copper_block_pillar_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:copper_block_pillar_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:copper_block_pillar_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "side": {
       "predicates": [
         {
@@ -171,7 +169,9 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side"
+    "south": "#side",
+    "east": "#side",
+    "north": "#side"
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

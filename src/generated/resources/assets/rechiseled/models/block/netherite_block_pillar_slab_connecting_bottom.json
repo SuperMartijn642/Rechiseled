@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "rechiseled:block/netherite_block_pillar_side",
     "top": "rechiseled:block/netherite_block_pillar_end",
-    "bottom": "rechiseled:block/netherite_block_pillar_end"
+    "bottom": "rechiseled:block/netherite_block_pillar_end",
+    "side": "rechiseled:block/netherite_block_pillar_side"
   },
   "connections": {
     "top": {

@@ -1,52 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/diamond_block_jewel_block",
-    "south": "rechiseled:block/diamond_block_jewel_block",
-    "north": "rechiseled:block/diamond_block_jewel_block",
+    "up": "rechiseled:block/diamond_block_jewel_block",
     "west": "rechiseled:block/diamond_block_jewel_block",
     "particle": "rechiseled:block/diamond_block_jewel_block",
-    "up": "rechiseled:block/diamond_block_jewel_block",
-    "down": "rechiseled:block/diamond_block_jewel_block"
+    "down": "rechiseled:block/diamond_block_jewel_block",
+    "south": "rechiseled:block/diamond_block_jewel_block",
+    "east": "rechiseled:block/diamond_block_jewel_block",
+    "north": "rechiseled:block/diamond_block_jewel_block"
   },
   "connections": {
-    "down": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:diamond_block_jewel_block_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:diamond_block_jewel_block_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:diamond_block_jewel_block_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:diamond_block_jewel_block_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "west": "#side",
     "up": {
       "predicates": [
         {
@@ -83,8 +46,43 @@
       ],
       "type": "fusion:or"
     },
-    "east": "#side",
-    "north": "#side",
+    "west": "#side",
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:diamond_block_jewel_block_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:diamond_block_jewel_block_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:diamond_block_jewel_block_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:diamond_block_jewel_block_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "side": {
       "predicates": [
         {
@@ -156,7 +154,9 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side"
+    "south": "#side",
+    "east": "#side",
+    "north": "#side"
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

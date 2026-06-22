@@ -1,52 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/crimson_planks_flooring",
-    "south": "rechiseled:block/crimson_planks_flooring",
-    "north": "rechiseled:block/crimson_planks_flooring",
+    "up": "rechiseled:block/crimson_planks_flooring",
     "west": "rechiseled:block/crimson_planks_flooring",
     "particle": "rechiseled:block/crimson_planks_flooring",
-    "up": "rechiseled:block/crimson_planks_flooring",
-    "down": "rechiseled:block/crimson_planks_flooring"
+    "down": "rechiseled:block/crimson_planks_flooring",
+    "south": "rechiseled:block/crimson_planks_flooring",
+    "east": "rechiseled:block/crimson_planks_flooring",
+    "north": "rechiseled:block/crimson_planks_flooring"
   },
   "connections": {
-    "down": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:crimson_planks_flooring_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:crimson_planks_flooring_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:crimson_planks_flooring_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:crimson_planks_flooring_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "west": "#side",
     "up": {
       "predicates": [
         {
@@ -83,8 +46,43 @@
       ],
       "type": "fusion:or"
     },
-    "east": "#side",
-    "north": "#side",
+    "west": "#side",
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:crimson_planks_flooring_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:crimson_planks_flooring_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:crimson_planks_flooring_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:crimson_planks_flooring_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "side": {
       "predicates": [
         {
@@ -156,7 +154,9 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side"
+    "south": "#side",
+    "east": "#side",
+    "north": "#side"
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

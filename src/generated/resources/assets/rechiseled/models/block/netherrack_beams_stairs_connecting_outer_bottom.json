@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/netherrack_beams",
     "top": "rechiseled:block/netherrack_beams",
-    "bottom": "rechiseled:block/netherrack_beams"
+    "bottom": "rechiseled:block/netherrack_beams",
+    "side": "rechiseled:block/netherrack_beams"
   },
   "connections": {
     "top": {

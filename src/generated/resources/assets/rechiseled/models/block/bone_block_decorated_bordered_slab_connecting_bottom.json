@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "rechiseled:block/bone_block_decorated_bordered",
     "top": "rechiseled:block/bone_block_decorated_bordered",
-    "bottom": "rechiseled:block/bone_block_decorated_bordered"
+    "bottom": "rechiseled:block/bone_block_decorated_bordered",
+    "side": "rechiseled:block/bone_block_decorated_bordered"
   },
   "connections": {
     "top": {

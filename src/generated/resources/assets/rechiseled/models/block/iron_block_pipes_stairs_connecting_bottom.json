@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/iron_block_pipes",
     "top": "rechiseled:block/iron_block_pipes",
-    "bottom": "rechiseled:block/iron_block_pipes"
+    "bottom": "rechiseled:block/iron_block_pipes",
+    "side": "rechiseled:block/iron_block_pipes"
   },
   "connections": {
     "top": {

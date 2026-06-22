@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/warped_planks_diagonal_tiles",
     "top": "rechiseled:block/warped_planks_diagonal_tiles",
-    "bottom": "rechiseled:block/warped_planks_diagonal_tiles"
+    "bottom": "rechiseled:block/warped_planks_diagonal_tiles",
+    "side": "rechiseled:block/warped_planks_diagonal_tiles"
   },
   "connections": {
     "top": {

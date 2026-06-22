@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/cobbled_deepslate_beams",
     "top": "rechiseled:block/cobbled_deepslate_beams",
-    "bottom": "rechiseled:block/cobbled_deepslate_beams"
+    "bottom": "rechiseled:block/cobbled_deepslate_beams",
+    "side": "rechiseled:block/cobbled_deepslate_beams"
   },
   "connections": {
     "top": {

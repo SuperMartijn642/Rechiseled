@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/dark_oak_planks_small_tiles",
     "top": "rechiseled:block/dark_oak_planks_small_tiles",
-    "bottom": "rechiseled:block/dark_oak_planks_small_tiles"
+    "bottom": "rechiseled:block/dark_oak_planks_small_tiles",
+    "side": "rechiseled:block/dark_oak_planks_small_tiles"
   },
   "connections": {
     "top": {

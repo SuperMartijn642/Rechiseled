@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/diamond_block_shiny_bordered",
     "top": "rechiseled:block/diamond_block_shiny_bordered",
-    "bottom": "rechiseled:block/diamond_block_shiny_bordered"
+    "bottom": "rechiseled:block/diamond_block_shiny_bordered",
+    "side": "rechiseled:block/diamond_block_shiny_bordered"
   },
   "connections": {
     "top": {

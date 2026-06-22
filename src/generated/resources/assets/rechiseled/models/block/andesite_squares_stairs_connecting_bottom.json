@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/andesite_squares",
     "top": "rechiseled:block/andesite_squares",
-    "bottom": "rechiseled:block/andesite_squares"
+    "bottom": "rechiseled:block/andesite_squares",
+    "side": "rechiseled:block/andesite_squares"
   },
   "connections": {
     "top": {

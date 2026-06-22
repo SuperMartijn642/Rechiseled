@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/end_stone_paving",
     "top": "rechiseled:block/end_stone_paving",
-    "bottom": "rechiseled:block/end_stone_paving"
+    "bottom": "rechiseled:block/end_stone_paving",
+    "side": "rechiseled:block/end_stone_paving"
   },
   "connections": {
     "top": {

@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/outer_stairs_top",
   "textures": {
-    "side": "rechiseled:block/red_sandstone_polished",
     "top": "rechiseled:block/red_sandstone_polished",
-    "bottom": "rechiseled:block/red_sandstone_polished"
+    "bottom": "rechiseled:block/red_sandstone_polished",
+    "side": "rechiseled:block/red_sandstone_polished"
   },
   "connections": {
     "top": {

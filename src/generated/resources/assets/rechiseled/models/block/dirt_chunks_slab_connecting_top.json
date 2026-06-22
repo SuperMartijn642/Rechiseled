@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/dirt_chunks",
     "top": "rechiseled:block/dirt_chunks",
-    "bottom": "rechiseled:block/dirt_chunks"
+    "bottom": "rechiseled:block/dirt_chunks",
+    "side": "rechiseled:block/dirt_chunks"
   },
   "connections": {
     "top": {

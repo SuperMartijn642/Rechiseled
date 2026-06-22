@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/acacia_planks_squares",
     "top": "rechiseled:block/acacia_planks_squares",
-    "bottom": "rechiseled:block/acacia_planks_squares"
+    "bottom": "rechiseled:block/acacia_planks_squares",
+    "side": "rechiseled:block/acacia_planks_squares"
   },
   "connections": {
     "top": {

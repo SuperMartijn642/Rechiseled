@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/stairs_top",
   "textures": {
-    "side": "rechiseled:block/diorite_wavy",
     "top": "rechiseled:block/diorite_wavy",
-    "bottom": "rechiseled:block/diorite_wavy"
+    "bottom": "rechiseled:block/diorite_wavy",
+    "side": "rechiseled:block/diorite_wavy"
   },
   "connections": {
     "top": {

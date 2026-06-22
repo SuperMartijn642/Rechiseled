@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/red_sandstone_large_tiles",
     "top": "rechiseled:block/red_sandstone_large_tiles",
-    "bottom": "rechiseled:block/red_sandstone_large_tiles"
+    "bottom": "rechiseled:block/red_sandstone_large_tiles",
+    "side": "rechiseled:block/red_sandstone_large_tiles"
   },
   "connections": {
     "top": {

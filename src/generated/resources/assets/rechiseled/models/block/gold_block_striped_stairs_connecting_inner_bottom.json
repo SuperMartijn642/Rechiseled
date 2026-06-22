@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/gold_block_striped",
     "top": "rechiseled:block/gold_block_striped",
-    "bottom": "rechiseled:block/gold_block_striped"
+    "bottom": "rechiseled:block/gold_block_striped",
+    "side": "rechiseled:block/gold_block_striped"
   },
   "connections": {
     "top": {

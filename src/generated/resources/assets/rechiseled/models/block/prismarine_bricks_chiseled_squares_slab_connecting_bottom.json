@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "rechiseled:block/prismarine_bricks_chiseled_squares",
     "top": "rechiseled:block/prismarine_bricks_chiseled_squares",
-    "bottom": "rechiseled:block/prismarine_bricks_chiseled_squares"
+    "bottom": "rechiseled:block/prismarine_bricks_chiseled_squares",
+    "side": "rechiseled:block/prismarine_bricks_chiseled_squares"
   },
   "connections": {
     "top": {

@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/redstone_block_compressed",
     "top": "rechiseled:block/redstone_block_compressed",
-    "bottom": "rechiseled:block/redstone_block_compressed"
+    "bottom": "rechiseled:block/redstone_block_compressed",
+    "side": "rechiseled:block/redstone_block_compressed"
   },
   "connections": {
     "top": {

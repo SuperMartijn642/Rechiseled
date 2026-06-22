@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/stairs_top",
   "textures": {
-    "side": "rechiseled:block/blue_ice_patterned",
     "top": "rechiseled:block/blue_ice_patterned",
-    "bottom": "rechiseled:block/blue_ice_patterned"
+    "bottom": "rechiseled:block/blue_ice_patterned",
+    "side": "rechiseled:block/blue_ice_patterned"
   },
   "connections": {
     "top": {

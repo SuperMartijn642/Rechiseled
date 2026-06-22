@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/quartz_block_crosses",
     "top": "rechiseled:block/quartz_block_crosses",
-    "bottom": "rechiseled:block/quartz_block_crosses"
+    "bottom": "rechiseled:block/quartz_block_crosses",
+    "side": "rechiseled:block/quartz_block_crosses"
   },
   "connections": {
     "top": {

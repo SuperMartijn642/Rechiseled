@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/obsidian_chiseled_circles",
     "top": "rechiseled:block/obsidian_chiseled_circles",
-    "bottom": "rechiseled:block/obsidian_chiseled_circles"
+    "bottom": "rechiseled:block/obsidian_chiseled_circles",
+    "side": "rechiseled:block/obsidian_chiseled_circles"
   },
   "connections": {
     "top": {

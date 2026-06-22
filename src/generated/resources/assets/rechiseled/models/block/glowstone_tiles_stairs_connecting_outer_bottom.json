@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/glowstone_tiles",
     "top": "rechiseled:block/glowstone_tiles",
-    "bottom": "rechiseled:block/glowstone_tiles"
+    "bottom": "rechiseled:block/glowstone_tiles",
+    "side": "rechiseled:block/glowstone_tiles"
   },
   "connections": {
     "top": {

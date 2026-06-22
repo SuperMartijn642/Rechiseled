@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/stairs_top",
   "textures": {
-    "side": "rechiseled:block/spruce_planks_diagonal_stripes",
     "top": "rechiseled:block/spruce_planks_diagonal_stripes",
-    "bottom": "rechiseled:block/spruce_planks_diagonal_stripes"
+    "bottom": "rechiseled:block/spruce_planks_diagonal_stripes",
+    "side": "rechiseled:block/spruce_planks_diagonal_stripes"
   },
   "connections": {
     "top": {

@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/diorite_paving",
     "top": "rechiseled:block/diorite_paving",
-    "bottom": "rechiseled:block/diorite_paving"
+    "bottom": "rechiseled:block/diorite_paving",
+    "side": "rechiseled:block/diorite_paving"
   },
   "connections": {
     "top": {

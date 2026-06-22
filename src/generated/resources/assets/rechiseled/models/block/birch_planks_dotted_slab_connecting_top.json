@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/birch_planks_dotted",
     "top": "rechiseled:block/birch_planks_dotted",
-    "bottom": "rechiseled:block/birch_planks_dotted"
+    "bottom": "rechiseled:block/birch_planks_dotted",
+    "side": "rechiseled:block/birch_planks_dotted"
   },
   "connections": {
     "top": {

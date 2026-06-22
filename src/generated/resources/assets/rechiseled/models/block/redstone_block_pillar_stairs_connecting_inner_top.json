@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/inner_stairs_top",
   "textures": {
-    "side": "rechiseled:block/redstone_block_pillar_side",
     "top": "rechiseled:block/redstone_block_pillar_end",
-    "bottom": "rechiseled:block/redstone_block_pillar_end"
+    "bottom": "rechiseled:block/redstone_block_pillar_end",
+    "side": "rechiseled:block/redstone_block_pillar_side"
   },
   "connections": {
     "top": {

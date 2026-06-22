@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "rechiseled:block/dark_oak_planks_beams",
     "top": "rechiseled:block/dark_oak_planks_beams",
-    "bottom": "rechiseled:block/dark_oak_planks_beams"
+    "bottom": "rechiseled:block/dark_oak_planks_beams",
+    "side": "rechiseled:block/dark_oak_planks_beams"
   },
   "connections": {
     "top": {

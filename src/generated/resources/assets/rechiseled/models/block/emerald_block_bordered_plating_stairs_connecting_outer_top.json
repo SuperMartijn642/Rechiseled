@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/outer_stairs_top",
   "textures": {
-    "side": "rechiseled:block/emerald_block_bordered_plating",
     "top": "rechiseled:block/emerald_block_bordered_plating",
-    "bottom": "rechiseled:block/emerald_block_bordered_plating"
+    "bottom": "rechiseled:block/emerald_block_bordered_plating",
+    "side": "rechiseled:block/emerald_block_bordered_plating"
   },
   "connections": {
     "top": {

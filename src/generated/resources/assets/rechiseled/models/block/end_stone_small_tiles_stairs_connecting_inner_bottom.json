@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/end_stone_small_tiles",
     "top": "rechiseled:block/end_stone_small_tiles",
-    "bottom": "rechiseled:block/end_stone_small_tiles"
+    "bottom": "rechiseled:block/end_stone_small_tiles",
+    "side": "rechiseled:block/end_stone_small_tiles"
   },
   "connections": {
     "top": {

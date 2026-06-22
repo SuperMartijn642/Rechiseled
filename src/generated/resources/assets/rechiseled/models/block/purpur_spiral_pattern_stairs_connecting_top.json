@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/stairs_top",
   "textures": {
-    "side": "rechiseled:block/purpur_spiral_pattern",
     "top": "rechiseled:block/purpur_spiral_pattern",
-    "bottom": "rechiseled:block/purpur_spiral_pattern"
+    "bottom": "rechiseled:block/purpur_spiral_pattern",
+    "side": "rechiseled:block/purpur_spiral_pattern"
   },
   "connections": {
     "top": {

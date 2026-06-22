@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/obsidian_spots",
     "top": "rechiseled:block/obsidian_spots",
-    "bottom": "rechiseled:block/obsidian_spots"
+    "bottom": "rechiseled:block/obsidian_spots",
+    "side": "rechiseled:block/obsidian_spots"
   },
   "connections": {
     "top": {

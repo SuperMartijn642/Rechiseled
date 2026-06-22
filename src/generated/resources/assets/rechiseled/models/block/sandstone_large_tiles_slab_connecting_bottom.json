@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "rechiseled:block/sandstone_large_tiles",
     "top": "rechiseled:block/sandstone_large_tiles",
-    "bottom": "rechiseled:block/sandstone_large_tiles"
+    "bottom": "rechiseled:block/sandstone_large_tiles",
+    "side": "rechiseled:block/sandstone_large_tiles"
   },
   "connections": {
     "top": {

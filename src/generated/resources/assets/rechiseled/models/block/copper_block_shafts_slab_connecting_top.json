@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/copper_block_shafts",
     "top": "rechiseled:block/copper_block_shafts",
-    "bottom": "rechiseled:block/copper_block_shafts"
+    "bottom": "rechiseled:block/copper_block_shafts",
+    "side": "rechiseled:block/copper_block_shafts"
   },
   "connections": {
     "top": {

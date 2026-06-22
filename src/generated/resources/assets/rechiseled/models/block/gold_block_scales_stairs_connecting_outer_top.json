@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/outer_stairs_top",
   "textures": {
-    "side": "rechiseled:block/gold_block_scales",
     "top": "rechiseled:block/gold_block_scales",
-    "bottom": "rechiseled:block/gold_block_scales"
+    "bottom": "rechiseled:block/gold_block_scales",
+    "side": "rechiseled:block/gold_block_scales"
   },
   "connections": {
     "top": {

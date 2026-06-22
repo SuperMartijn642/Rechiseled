@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/redstone_block_bordered",
     "top": "rechiseled:block/redstone_block_bordered",
-    "bottom": "rechiseled:block/redstone_block_bordered"
+    "bottom": "rechiseled:block/redstone_block_bordered",
+    "side": "rechiseled:block/redstone_block_bordered"
   },
   "connections": {
     "top": {

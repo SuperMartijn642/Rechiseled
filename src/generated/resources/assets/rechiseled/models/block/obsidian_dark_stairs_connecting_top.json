@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/stairs_top",
   "textures": {
-    "side": "rechiseled:block/obsidian_dark",
     "top": "rechiseled:block/obsidian_dark",
-    "bottom": "rechiseled:block/obsidian_dark"
+    "bottom": "rechiseled:block/obsidian_dark",
+    "side": "rechiseled:block/obsidian_dark"
   },
   "connections": {
     "top": {

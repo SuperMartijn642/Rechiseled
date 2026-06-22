@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/cobbled_deepslate_worn_stripes",
     "top": "rechiseled:block/cobbled_deepslate_worn_stripes",
-    "bottom": "rechiseled:block/cobbled_deepslate_worn_stripes"
+    "bottom": "rechiseled:block/cobbled_deepslate_worn_stripes",
+    "side": "rechiseled:block/cobbled_deepslate_worn_stripes"
   },
   "connections": {
     "top": {

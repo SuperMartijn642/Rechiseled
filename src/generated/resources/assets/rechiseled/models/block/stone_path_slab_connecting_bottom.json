@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "rechiseled:block/stone_path",
     "top": "rechiseled:block/stone_path",
-    "bottom": "rechiseled:block/stone_path"
+    "bottom": "rechiseled:block/stone_path",
+    "side": "rechiseled:block/stone_path"
   },
   "connections": {
     "top": {

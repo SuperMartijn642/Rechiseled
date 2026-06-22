@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/inner_stairs_top",
   "textures": {
-    "side": "rechiseled:block/emerald_block_patterned",
     "top": "rechiseled:block/emerald_block_patterned",
-    "bottom": "rechiseled:block/emerald_block_patterned"
+    "bottom": "rechiseled:block/emerald_block_patterned",
+    "side": "rechiseled:block/emerald_block_patterned"
   },
   "connections": {
     "top": {

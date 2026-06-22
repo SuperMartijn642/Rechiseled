@@ -1,53 +1,16 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "#side",
-    "side": "rechiseled:block/cobblestone_tiles",
-    "south": "#side",
     "north": "#side",
-    "west": "#side",
     "particle": "#side",
+    "side": "rechiseled:block/cobblestone_tiles",
     "up": "rechiseled:block/cobblestone_tiles",
+    "east": "#side",
+    "south": "#side",
+    "west": "#side",
     "down": "rechiseled:block/cobblestone_tiles"
   },
   "connections": {
-    "down": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:cobblestone_tiles_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:cobblestone_tiles_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:cobblestone_tiles_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:cobblestone_tiles_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "west": "#side",
     "up": {
       "predicates": [
         {
@@ -84,8 +47,43 @@
       ],
       "type": "fusion:or"
     },
-    "east": "#side",
-    "north": "#side",
+    "west": "#side",
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:cobblestone_tiles_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:cobblestone_tiles_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:cobblestone_tiles_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:cobblestone_tiles_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "side": {
       "predicates": [
         {
@@ -157,7 +155,9 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side"
+    "south": "#side",
+    "east": "#side",
+    "north": "#side"
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

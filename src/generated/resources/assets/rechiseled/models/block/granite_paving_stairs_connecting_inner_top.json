@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/inner_stairs_top",
   "textures": {
-    "side": "rechiseled:block/granite_paving",
     "top": "rechiseled:block/granite_paving",
-    "bottom": "rechiseled:block/granite_paving"
+    "bottom": "rechiseled:block/granite_paving",
+    "side": "rechiseled:block/granite_paving"
   },
   "connections": {
     "top": {

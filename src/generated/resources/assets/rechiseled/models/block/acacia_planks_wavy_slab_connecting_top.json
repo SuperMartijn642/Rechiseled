@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/acacia_planks_wavy",
     "top": "rechiseled:block/acacia_planks_wavy",
-    "bottom": "rechiseled:block/acacia_planks_wavy"
+    "bottom": "rechiseled:block/acacia_planks_wavy",
+    "side": "rechiseled:block/acacia_planks_wavy"
   },
   "connections": {
     "top": {

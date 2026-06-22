@@ -1,52 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/lapis_block_mosaic",
-    "south": "rechiseled:block/lapis_block_mosaic",
-    "north": "rechiseled:block/lapis_block_mosaic",
+    "up": "rechiseled:block/lapis_block_mosaic",
     "west": "rechiseled:block/lapis_block_mosaic",
     "particle": "rechiseled:block/lapis_block_mosaic",
-    "up": "rechiseled:block/lapis_block_mosaic",
-    "down": "rechiseled:block/lapis_block_mosaic"
+    "down": "rechiseled:block/lapis_block_mosaic",
+    "south": "rechiseled:block/lapis_block_mosaic",
+    "east": "rechiseled:block/lapis_block_mosaic",
+    "north": "rechiseled:block/lapis_block_mosaic"
   },
   "connections": {
-    "down": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:lapis_block_mosaic_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:lapis_block_mosaic_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:lapis_block_mosaic_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:lapis_block_mosaic_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "west": "#side",
     "up": {
       "predicates": [
         {
@@ -83,8 +46,43 @@
       ],
       "type": "fusion:or"
     },
-    "east": "#side",
-    "north": "#side",
+    "west": "#side",
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:lapis_block_mosaic_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:lapis_block_mosaic_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:lapis_block_mosaic_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:lapis_block_mosaic_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "side": {
       "predicates": [
         {
@@ -156,7 +154,9 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side"
+    "south": "#side",
+    "east": "#side",
+    "north": "#side"
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

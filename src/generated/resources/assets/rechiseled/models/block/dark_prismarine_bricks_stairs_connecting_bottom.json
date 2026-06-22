@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/dark_prismarine_bricks",
     "top": "rechiseled:block/dark_prismarine_bricks",
-    "bottom": "rechiseled:block/dark_prismarine_bricks"
+    "bottom": "rechiseled:block/dark_prismarine_bricks",
+    "side": "rechiseled:block/dark_prismarine_bricks"
   },
   "connections": {
     "top": {

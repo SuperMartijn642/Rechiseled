@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/oak_planks_large_tiles",
     "top": "rechiseled:block/oak_planks_large_tiles",
-    "bottom": "rechiseled:block/oak_planks_large_tiles"
+    "bottom": "rechiseled:block/oak_planks_large_tiles",
+    "side": "rechiseled:block/oak_planks_large_tiles"
   },
   "connections": {
     "top": {

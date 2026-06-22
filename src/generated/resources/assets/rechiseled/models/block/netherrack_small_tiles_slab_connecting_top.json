@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/netherrack_small_tiles",
     "top": "rechiseled:block/netherrack_small_tiles",
-    "bottom": "rechiseled:block/netherrack_small_tiles"
+    "bottom": "rechiseled:block/netherrack_small_tiles",
+    "side": "rechiseled:block/netherrack_small_tiles"
   },
   "connections": {
     "top": {

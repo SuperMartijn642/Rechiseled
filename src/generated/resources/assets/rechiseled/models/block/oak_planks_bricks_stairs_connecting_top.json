@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/stairs_top",
   "textures": {
-    "side": "rechiseled:block/oak_planks_bricks",
     "top": "rechiseled:block/oak_planks_bricks",
-    "bottom": "rechiseled:block/oak_planks_bricks"
+    "bottom": "rechiseled:block/oak_planks_bricks",
+    "side": "rechiseled:block/oak_planks_bricks"
   },
   "connections": {
     "top": {

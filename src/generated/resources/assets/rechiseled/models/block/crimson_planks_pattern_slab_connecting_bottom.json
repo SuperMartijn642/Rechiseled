@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "rechiseled:block/crimson_planks_pattern",
     "top": "rechiseled:block/crimson_planks_pattern",
-    "bottom": "rechiseled:block/crimson_planks_pattern"
+    "bottom": "rechiseled:block/crimson_planks_pattern",
+    "side": "rechiseled:block/crimson_planks_pattern"
   },
   "connections": {
     "top": {

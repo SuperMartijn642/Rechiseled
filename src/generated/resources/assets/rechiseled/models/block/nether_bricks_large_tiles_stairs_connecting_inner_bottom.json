@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/nether_bricks_large_tiles",
     "top": "rechiseled:block/nether_bricks_large_tiles",
-    "bottom": "rechiseled:block/nether_bricks_large_tiles"
+    "bottom": "rechiseled:block/nether_bricks_large_tiles",
+    "side": "rechiseled:block/nether_bricks_large_tiles"
   },
   "connections": {
     "top": {

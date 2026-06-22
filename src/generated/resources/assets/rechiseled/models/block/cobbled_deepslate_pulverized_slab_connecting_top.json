@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/cobbled_deepslate_pulverized",
     "top": "rechiseled:block/cobbled_deepslate_pulverized",
-    "bottom": "rechiseled:block/cobbled_deepslate_pulverized"
+    "bottom": "rechiseled:block/cobbled_deepslate_pulverized",
+    "side": "rechiseled:block/cobbled_deepslate_pulverized"
   },
   "connections": {
     "top": {

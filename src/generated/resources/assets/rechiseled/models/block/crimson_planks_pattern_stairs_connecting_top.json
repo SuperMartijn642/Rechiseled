@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/stairs_top",
   "textures": {
-    "side": "rechiseled:block/crimson_planks_pattern",
     "top": "rechiseled:block/crimson_planks_pattern",
-    "bottom": "rechiseled:block/crimson_planks_pattern"
+    "bottom": "rechiseled:block/crimson_planks_pattern",
+    "side": "rechiseled:block/crimson_planks_pattern"
   },
   "connections": {
     "top": {

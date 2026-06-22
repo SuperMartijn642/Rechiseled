@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/stairs_top",
   "textures": {
-    "side": "rechiseled:block/end_stone_polished",
     "top": "rechiseled:block/end_stone_polished",
-    "bottom": "rechiseled:block/end_stone_polished"
+    "bottom": "rechiseled:block/end_stone_polished",
+    "side": "rechiseled:block/end_stone_polished"
   },
   "connections": {
     "top": {

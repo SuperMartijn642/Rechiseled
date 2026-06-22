@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/lapis_block_glossy",
     "top": "rechiseled:block/lapis_block_glossy",
-    "bottom": "rechiseled:block/lapis_block_glossy"
+    "bottom": "rechiseled:block/lapis_block_glossy",
+    "side": "rechiseled:block/lapis_block_glossy"
   },
   "connections": {
     "top": {

@@ -1,52 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/iron_block_lines",
-    "south": "rechiseled:block/iron_block_lines",
-    "north": "rechiseled:block/iron_block_lines",
+    "up": "rechiseled:block/iron_block_lines",
     "west": "rechiseled:block/iron_block_lines",
     "particle": "rechiseled:block/iron_block_lines",
-    "up": "rechiseled:block/iron_block_lines",
-    "down": "rechiseled:block/iron_block_lines"
+    "down": "rechiseled:block/iron_block_lines",
+    "south": "rechiseled:block/iron_block_lines",
+    "east": "rechiseled:block/iron_block_lines",
+    "north": "rechiseled:block/iron_block_lines"
   },
   "connections": {
-    "down": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:iron_block_lines_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:iron_block_lines_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:iron_block_lines_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:iron_block_lines_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "west": "#side",
     "up": {
       "predicates": [
         {
@@ -83,8 +46,43 @@
       ],
       "type": "fusion:or"
     },
-    "east": "#side",
-    "north": "#side",
+    "west": "#side",
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:iron_block_lines_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:iron_block_lines_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:iron_block_lines_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:iron_block_lines_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "side": {
       "predicates": [
         {
@@ -156,7 +154,9 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side"
+    "south": "#side",
+    "east": "#side",
+    "north": "#side"
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

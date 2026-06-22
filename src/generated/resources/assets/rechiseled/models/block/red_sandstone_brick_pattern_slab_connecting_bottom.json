@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "rechiseled:block/red_sandstone_brick_pattern",
     "top": "rechiseled:block/red_sandstone_brick_pattern",
-    "bottom": "rechiseled:block/red_sandstone_brick_pattern"
+    "bottom": "rechiseled:block/red_sandstone_brick_pattern",
+    "side": "rechiseled:block/red_sandstone_brick_pattern"
   },
   "connections": {
     "top": {

@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/emerald_block_waxed",
     "top": "rechiseled:block/emerald_block_waxed",
-    "bottom": "rechiseled:block/emerald_block_waxed"
+    "bottom": "rechiseled:block/emerald_block_waxed",
+    "side": "rechiseled:block/emerald_block_waxed"
   },
   "connections": {
     "top": {

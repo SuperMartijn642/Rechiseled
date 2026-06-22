@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/inner_stairs_top",
   "textures": {
-    "side": "rechiseled:block/cobbled_deepslate_rotated_bricks",
     "top": "rechiseled:block/cobbled_deepslate_rotated_bricks",
-    "bottom": "rechiseled:block/cobbled_deepslate_rotated_bricks"
+    "bottom": "rechiseled:block/cobbled_deepslate_rotated_bricks",
+    "side": "rechiseled:block/cobbled_deepslate_rotated_bricks"
   },
   "connections": {
     "top": {

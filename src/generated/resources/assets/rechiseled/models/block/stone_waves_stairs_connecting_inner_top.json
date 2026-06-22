@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/inner_stairs_top",
   "textures": {
-    "side": "rechiseled:block/stone_waves",
     "top": "rechiseled:block/stone_waves",
-    "bottom": "rechiseled:block/stone_waves"
+    "bottom": "rechiseled:block/stone_waves",
+    "side": "rechiseled:block/stone_waves"
   },
   "connections": {
     "top": {

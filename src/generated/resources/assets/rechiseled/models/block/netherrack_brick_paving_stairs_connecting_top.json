@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/stairs_top",
   "textures": {
-    "side": "rechiseled:block/netherrack_brick_paving",
     "top": "rechiseled:block/netherrack_brick_paving",
-    "bottom": "rechiseled:block/netherrack_brick_paving"
+    "bottom": "rechiseled:block/netherrack_brick_paving",
+    "side": "rechiseled:block/netherrack_brick_paving"
   },
   "connections": {
     "top": {

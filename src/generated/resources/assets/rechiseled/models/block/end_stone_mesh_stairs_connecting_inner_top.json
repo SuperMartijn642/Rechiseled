@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/inner_stairs_top",
   "textures": {
-    "side": "rechiseled:block/end_stone_mesh",
     "top": "rechiseled:block/end_stone_mesh",
-    "bottom": "rechiseled:block/end_stone_mesh"
+    "bottom": "rechiseled:block/end_stone_mesh",
+    "side": "rechiseled:block/end_stone_mesh"
   },
   "connections": {
     "top": {

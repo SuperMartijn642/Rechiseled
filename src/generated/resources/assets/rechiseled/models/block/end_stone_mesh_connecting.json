@@ -1,52 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/end_stone_mesh",
-    "south": "rechiseled:block/end_stone_mesh",
-    "north": "rechiseled:block/end_stone_mesh",
+    "up": "rechiseled:block/end_stone_mesh",
     "west": "rechiseled:block/end_stone_mesh",
     "particle": "rechiseled:block/end_stone_mesh",
-    "up": "rechiseled:block/end_stone_mesh",
-    "down": "rechiseled:block/end_stone_mesh"
+    "down": "rechiseled:block/end_stone_mesh",
+    "south": "rechiseled:block/end_stone_mesh",
+    "east": "rechiseled:block/end_stone_mesh",
+    "north": "rechiseled:block/end_stone_mesh"
   },
   "connections": {
-    "down": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:end_stone_mesh_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:end_stone_mesh_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:end_stone_mesh_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:end_stone_mesh_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "west": "#side",
     "up": {
       "predicates": [
         {
@@ -83,8 +46,43 @@
       ],
       "type": "fusion:or"
     },
-    "east": "#side",
-    "north": "#side",
+    "west": "#side",
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:end_stone_mesh_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:end_stone_mesh_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:end_stone_mesh_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:end_stone_mesh_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "side": {
       "predicates": [
         {
@@ -156,7 +154,9 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side"
+    "south": "#side",
+    "east": "#side",
+    "north": "#side"
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

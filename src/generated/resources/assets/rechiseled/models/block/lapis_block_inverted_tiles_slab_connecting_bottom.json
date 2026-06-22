@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "rechiseled:block/lapis_block_inverted_tiles",
     "top": "rechiseled:block/lapis_block_inverted_tiles",
-    "bottom": "rechiseled:block/lapis_block_inverted_tiles"
+    "bottom": "rechiseled:block/lapis_block_inverted_tiles",
+    "side": "rechiseled:block/lapis_block_inverted_tiles"
   },
   "connections": {
     "top": {

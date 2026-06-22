@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/oak_planks_pattern",
     "top": "rechiseled:block/oak_planks_pattern",
-    "bottom": "rechiseled:block/oak_planks_pattern"
+    "bottom": "rechiseled:block/oak_planks_pattern",
+    "side": "rechiseled:block/oak_planks_pattern"
   },
   "connections": {
     "top": {

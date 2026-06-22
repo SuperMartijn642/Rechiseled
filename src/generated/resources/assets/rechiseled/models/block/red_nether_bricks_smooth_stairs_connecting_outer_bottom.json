@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/red_nether_bricks_smooth",
     "top": "rechiseled:block/red_nether_bricks_smooth",
-    "bottom": "rechiseled:block/red_nether_bricks_smooth"
+    "bottom": "rechiseled:block/red_nether_bricks_smooth",
+    "side": "rechiseled:block/red_nether_bricks_smooth"
   },
   "connections": {
     "top": {

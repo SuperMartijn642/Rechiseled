@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/cobbled_deepslate_brick_paving",
     "top": "rechiseled:block/cobbled_deepslate_brick_paving",
-    "bottom": "rechiseled:block/cobbled_deepslate_brick_paving"
+    "bottom": "rechiseled:block/cobbled_deepslate_brick_paving",
+    "side": "rechiseled:block/cobbled_deepslate_brick_paving"
   },
   "connections": {
     "top": {

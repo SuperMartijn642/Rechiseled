@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/lapis_block_scales",
     "top": "rechiseled:block/lapis_block_scales",
-    "bottom": "rechiseled:block/lapis_block_scales"
+    "bottom": "rechiseled:block/lapis_block_scales",
+    "side": "rechiseled:block/lapis_block_scales"
   },
   "connections": {
     "top": {

@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/outer_stairs_top",
   "textures": {
-    "side": "rechiseled:block/birch_planks_tiles",
     "top": "rechiseled:block/birch_planks_tiles",
-    "bottom": "rechiseled:block/birch_planks_tiles"
+    "bottom": "rechiseled:block/birch_planks_tiles",
+    "side": "rechiseled:block/birch_planks_tiles"
   },
   "connections": {
     "top": {

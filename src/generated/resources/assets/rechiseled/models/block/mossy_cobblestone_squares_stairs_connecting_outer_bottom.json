@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/mossy_cobblestone_squares",
     "top": "rechiseled:block/mossy_cobblestone_squares",
-    "bottom": "rechiseled:block/mossy_cobblestone_squares"
+    "bottom": "rechiseled:block/mossy_cobblestone_squares",
+    "side": "rechiseled:block/mossy_cobblestone_squares"
   },
   "connections": {
     "top": {

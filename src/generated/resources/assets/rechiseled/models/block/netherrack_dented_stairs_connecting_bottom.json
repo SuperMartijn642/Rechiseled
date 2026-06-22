@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/netherrack_dented",
     "top": "rechiseled:block/netherrack_dented",
-    "bottom": "rechiseled:block/netherrack_dented"
+    "bottom": "rechiseled:block/netherrack_dented",
+    "side": "rechiseled:block/netherrack_dented"
   },
   "connections": {
     "top": {

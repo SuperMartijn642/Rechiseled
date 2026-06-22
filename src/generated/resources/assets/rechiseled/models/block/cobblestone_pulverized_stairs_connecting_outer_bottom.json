@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/cobblestone_pulverized",
     "top": "rechiseled:block/cobblestone_pulverized",
-    "bottom": "rechiseled:block/cobblestone_pulverized"
+    "bottom": "rechiseled:block/cobblestone_pulverized",
+    "side": "rechiseled:block/cobblestone_pulverized"
   },
   "connections": {
     "top": {

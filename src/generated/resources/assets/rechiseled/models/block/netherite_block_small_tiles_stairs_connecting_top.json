@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/stairs_top",
   "textures": {
-    "side": "rechiseled:block/netherite_block_small_tiles",
     "top": "rechiseled:block/netherite_block_small_tiles",
-    "bottom": "rechiseled:block/netherite_block_small_tiles"
+    "bottom": "rechiseled:block/netherite_block_small_tiles",
+    "side": "rechiseled:block/netherite_block_small_tiles"
   },
   "connections": {
     "top": {

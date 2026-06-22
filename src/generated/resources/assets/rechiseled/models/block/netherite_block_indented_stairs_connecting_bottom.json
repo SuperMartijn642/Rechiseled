@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/netherite_block_indented",
     "top": "rechiseled:block/netherite_block_indented",
-    "bottom": "rechiseled:block/netherite_block_indented"
+    "bottom": "rechiseled:block/netherite_block_indented",
+    "side": "rechiseled:block/netherite_block_indented"
   },
   "connections": {
     "top": {

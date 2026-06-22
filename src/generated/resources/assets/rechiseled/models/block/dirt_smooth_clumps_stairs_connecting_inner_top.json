@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/inner_stairs_top",
   "textures": {
-    "side": "rechiseled:block/dirt_smooth_clumps",
     "top": "rechiseled:block/dirt_smooth_clumps",
-    "bottom": "rechiseled:block/dirt_smooth_clumps"
+    "bottom": "rechiseled:block/dirt_smooth_clumps",
+    "side": "rechiseled:block/dirt_smooth_clumps"
   },
   "connections": {
     "top": {

@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/bone_block_inverted_tiles",
     "top": "rechiseled:block/bone_block_inverted_tiles",
-    "bottom": "rechiseled:block/bone_block_inverted_tiles"
+    "bottom": "rechiseled:block/bone_block_inverted_tiles",
+    "side": "rechiseled:block/bone_block_inverted_tiles"
   },
   "connections": {
     "top": {

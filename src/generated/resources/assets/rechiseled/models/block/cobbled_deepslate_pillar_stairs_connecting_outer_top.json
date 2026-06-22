@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/outer_stairs_top",
   "textures": {
-    "side": "rechiseled:block/cobbled_deepslate_pillar_side",
     "top": "rechiseled:block/cobbled_deepslate_pillar_end",
-    "bottom": "rechiseled:block/cobbled_deepslate_pillar_end"
+    "bottom": "rechiseled:block/cobbled_deepslate_pillar_end",
+    "side": "rechiseled:block/cobbled_deepslate_pillar_side"
   },
   "connections": {
     "top": {

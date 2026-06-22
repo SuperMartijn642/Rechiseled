@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/end_stone_spiral_pattern",
     "top": "rechiseled:block/end_stone_spiral_pattern",
-    "bottom": "rechiseled:block/end_stone_spiral_pattern"
+    "bottom": "rechiseled:block/end_stone_spiral_pattern",
+    "side": "rechiseled:block/end_stone_spiral_pattern"
   },
   "connections": {
     "top": {

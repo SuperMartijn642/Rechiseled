@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/end_stone_chiseled",
     "top": "rechiseled:block/end_stone_chiseled",
-    "bottom": "rechiseled:block/end_stone_chiseled"
+    "bottom": "rechiseled:block/end_stone_chiseled",
+    "side": "rechiseled:block/end_stone_chiseled"
   },
   "connections": {
     "top": {

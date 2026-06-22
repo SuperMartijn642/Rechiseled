@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/iron_block_polished",
     "top": "rechiseled:block/iron_block_polished",
-    "bottom": "rechiseled:block/iron_block_polished"
+    "bottom": "rechiseled:block/iron_block_polished",
+    "side": "rechiseled:block/iron_block_polished"
   },
   "connections": {
     "top": {

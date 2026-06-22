@@ -1,52 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/dark_oak_planks_crate",
-    "south": "rechiseled:block/dark_oak_planks_crate",
-    "north": "rechiseled:block/dark_oak_planks_crate",
+    "up": "rechiseled:block/dark_oak_planks_crate",
     "west": "rechiseled:block/dark_oak_planks_crate",
     "particle": "rechiseled:block/dark_oak_planks_crate",
-    "up": "rechiseled:block/dark_oak_planks_crate",
-    "down": "rechiseled:block/dark_oak_planks_crate"
+    "down": "rechiseled:block/dark_oak_planks_crate",
+    "south": "rechiseled:block/dark_oak_planks_crate",
+    "east": "rechiseled:block/dark_oak_planks_crate",
+    "north": "rechiseled:block/dark_oak_planks_crate"
   },
   "connections": {
-    "down": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:dark_oak_planks_crate_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:dark_oak_planks_crate_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:dark_oak_planks_crate_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:dark_oak_planks_crate_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "west": "#side",
     "up": {
       "predicates": [
         {
@@ -83,8 +46,43 @@
       ],
       "type": "fusion:or"
     },
-    "east": "#side",
-    "north": "#side",
+    "west": "#side",
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:dark_oak_planks_crate_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:dark_oak_planks_crate_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:dark_oak_planks_crate_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:dark_oak_planks_crate_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "side": {
       "predicates": [
         {
@@ -156,7 +154,9 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side"
+    "south": "#side",
+    "east": "#side",
+    "north": "#side"
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

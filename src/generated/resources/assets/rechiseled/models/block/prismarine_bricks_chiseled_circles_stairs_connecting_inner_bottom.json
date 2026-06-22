@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/prismarine_bricks_chiseled_circles",
     "top": "rechiseled:block/prismarine_bricks_chiseled_circles",
-    "bottom": "rechiseled:block/prismarine_bricks_chiseled_circles"
+    "bottom": "rechiseled:block/prismarine_bricks_chiseled_circles",
+    "side": "rechiseled:block/prismarine_bricks_chiseled_circles"
   },
   "connections": {
     "top": {

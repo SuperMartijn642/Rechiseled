@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/obsidian_brick_paving",
     "top": "rechiseled:block/obsidian_brick_paving",
-    "bottom": "rechiseled:block/obsidian_brick_paving"
+    "bottom": "rechiseled:block/obsidian_brick_paving",
+    "side": "rechiseled:block/obsidian_brick_paving"
   },
   "connections": {
     "top": {

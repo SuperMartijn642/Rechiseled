@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/nether_bricks_beams",
     "top": "rechiseled:block/nether_bricks_beams",
-    "bottom": "rechiseled:block/nether_bricks_beams"
+    "bottom": "rechiseled:block/nether_bricks_beams",
+    "side": "rechiseled:block/nether_bricks_beams"
   },
   "connections": {
     "top": {

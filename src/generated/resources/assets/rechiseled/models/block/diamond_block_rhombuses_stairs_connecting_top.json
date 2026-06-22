@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/stairs_top",
   "textures": {
-    "side": "rechiseled:block/diamond_block_rhombuses",
     "top": "rechiseled:block/diamond_block_rhombuses",
-    "bottom": "rechiseled:block/diamond_block_rhombuses"
+    "bottom": "rechiseled:block/diamond_block_rhombuses",
+    "side": "rechiseled:block/diamond_block_rhombuses"
   },
   "connections": {
     "top": {

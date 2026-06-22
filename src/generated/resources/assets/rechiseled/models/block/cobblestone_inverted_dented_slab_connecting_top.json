@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/cobblestone_inverted_dented",
     "top": "rechiseled:block/cobblestone_inverted_dented",
-    "bottom": "rechiseled:block/cobblestone_inverted_dented"
+    "bottom": "rechiseled:block/cobblestone_inverted_dented",
+    "side": "rechiseled:block/cobblestone_inverted_dented"
   },
   "connections": {
     "top": {

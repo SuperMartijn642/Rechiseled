@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/glowstone_crushed",
     "top": "rechiseled:block/glowstone_crushed",
-    "bottom": "rechiseled:block/glowstone_crushed"
+    "bottom": "rechiseled:block/glowstone_crushed",
+    "side": "rechiseled:block/glowstone_crushed"
   },
   "connections": {
     "top": {

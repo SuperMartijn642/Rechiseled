@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/outer_stairs_top",
   "textures": {
-    "side": "rechiseled:block/quartz_block_pattern",
     "top": "rechiseled:block/quartz_block_pattern",
-    "bottom": "rechiseled:block/quartz_block_pattern"
+    "bottom": "rechiseled:block/quartz_block_pattern",
+    "side": "rechiseled:block/quartz_block_pattern"
   },
   "connections": {
     "top": {

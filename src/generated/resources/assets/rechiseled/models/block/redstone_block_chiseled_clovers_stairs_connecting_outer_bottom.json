@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/redstone_block_chiseled_clovers",
     "top": "rechiseled:block/redstone_block_chiseled_clovers",
-    "bottom": "rechiseled:block/redstone_block_chiseled_clovers"
+    "bottom": "rechiseled:block/redstone_block_chiseled_clovers",
+    "side": "rechiseled:block/redstone_block_chiseled_clovers"
   },
   "connections": {
     "top": {

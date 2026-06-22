@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/stone_smooth_tiles",
     "top": "rechiseled:block/stone_smooth_tiles",
-    "bottom": "rechiseled:block/stone_smooth_tiles"
+    "bottom": "rechiseled:block/stone_smooth_tiles",
+    "side": "rechiseled:block/stone_smooth_tiles"
   },
   "connections": {
     "top": {

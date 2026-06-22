@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/gold_block_lines",
     "top": "rechiseled:block/gold_block_lines",
-    "bottom": "rechiseled:block/gold_block_lines"
+    "bottom": "rechiseled:block/gold_block_lines",
+    "side": "rechiseled:block/gold_block_lines"
   },
   "connections": {
     "top": {

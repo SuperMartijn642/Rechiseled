@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/purpur_woven",
     "top": "rechiseled:block/purpur_woven",
-    "bottom": "rechiseled:block/purpur_woven"
+    "bottom": "rechiseled:block/purpur_woven",
+    "side": "rechiseled:block/purpur_woven"
   },
   "connections": {
     "top": {

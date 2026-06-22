@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/redstone_block_scales",
     "top": "rechiseled:block/redstone_block_scales",
-    "bottom": "rechiseled:block/redstone_block_scales"
+    "bottom": "rechiseled:block/redstone_block_scales",
+    "side": "rechiseled:block/redstone_block_scales"
   },
   "connections": {
     "top": {

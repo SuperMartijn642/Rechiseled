@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/gold_block_bordered",
     "top": "rechiseled:block/gold_block_bordered",
-    "bottom": "rechiseled:block/gold_block_bordered"
+    "bottom": "rechiseled:block/gold_block_bordered",
+    "side": "rechiseled:block/gold_block_bordered"
   },
   "connections": {
     "top": {

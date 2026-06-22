@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/inner_stairs_top",
   "textures": {
-    "side": "rechiseled:block/glowstone_brick_paving",
     "top": "rechiseled:block/glowstone_brick_paving",
-    "bottom": "rechiseled:block/glowstone_brick_paving"
+    "bottom": "rechiseled:block/glowstone_brick_paving",
+    "side": "rechiseled:block/glowstone_brick_paving"
   },
   "connections": {
     "top": {

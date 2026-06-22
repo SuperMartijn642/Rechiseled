@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/diamond_block_jewel_block",
     "top": "rechiseled:block/diamond_block_jewel_block",
-    "bottom": "rechiseled:block/diamond_block_jewel_block"
+    "bottom": "rechiseled:block/diamond_block_jewel_block",
+    "side": "rechiseled:block/diamond_block_jewel_block"
   },
   "connections": {
     "top": {

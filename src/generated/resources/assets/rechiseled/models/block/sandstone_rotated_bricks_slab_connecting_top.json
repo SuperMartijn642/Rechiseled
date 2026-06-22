@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/sandstone_rotated_bricks",
     "top": "rechiseled:block/sandstone_rotated_bricks",
-    "bottom": "rechiseled:block/sandstone_rotated_bricks"
+    "bottom": "rechiseled:block/sandstone_rotated_bricks",
+    "side": "rechiseled:block/sandstone_rotated_bricks"
   },
   "connections": {
     "top": {

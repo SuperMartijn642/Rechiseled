@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/diamond_block_grid",
     "top": "rechiseled:block/diamond_block_grid",
-    "bottom": "rechiseled:block/diamond_block_grid"
+    "bottom": "rechiseled:block/diamond_block_grid",
+    "side": "rechiseled:block/diamond_block_grid"
   },
   "connections": {
     "top": {

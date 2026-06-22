@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/inner_stairs_top",
   "textures": {
-    "side": "rechiseled:block/mossy_cobblestone_inverted_dented",
     "top": "rechiseled:block/mossy_cobblestone_inverted_dented",
-    "bottom": "rechiseled:block/mossy_cobblestone_inverted_dented"
+    "bottom": "rechiseled:block/mossy_cobblestone_inverted_dented",
+    "side": "rechiseled:block/mossy_cobblestone_inverted_dented"
   },
   "connections": {
     "top": {

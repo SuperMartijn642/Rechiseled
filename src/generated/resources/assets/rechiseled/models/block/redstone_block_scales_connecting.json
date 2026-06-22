@@ -1,52 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/redstone_block_scales",
-    "south": "rechiseled:block/redstone_block_scales",
-    "north": "rechiseled:block/redstone_block_scales",
+    "up": "rechiseled:block/redstone_block_scales",
     "west": "rechiseled:block/redstone_block_scales",
     "particle": "rechiseled:block/redstone_block_scales",
-    "up": "rechiseled:block/redstone_block_scales",
-    "down": "rechiseled:block/redstone_block_scales"
+    "down": "rechiseled:block/redstone_block_scales",
+    "south": "rechiseled:block/redstone_block_scales",
+    "east": "rechiseled:block/redstone_block_scales",
+    "north": "rechiseled:block/redstone_block_scales"
   },
   "connections": {
-    "down": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:redstone_block_scales_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:redstone_block_scales_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:redstone_block_scales_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:redstone_block_scales_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "west": "#side",
     "up": {
       "predicates": [
         {
@@ -83,8 +46,43 @@
       ],
       "type": "fusion:or"
     },
-    "east": "#side",
-    "north": "#side",
+    "west": "#side",
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:redstone_block_scales_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:redstone_block_scales_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:redstone_block_scales_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:redstone_block_scales_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "side": {
       "predicates": [
         {
@@ -156,7 +154,9 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side"
+    "south": "#side",
+    "east": "#side",
+    "north": "#side"
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

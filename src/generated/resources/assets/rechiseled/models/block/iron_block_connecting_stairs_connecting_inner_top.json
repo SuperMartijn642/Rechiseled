@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/inner_stairs_top",
   "textures": {
-    "side": "rechiseled:block/iron_block_connecting",
     "top": "rechiseled:block/iron_block_connecting",
-    "bottom": "rechiseled:block/iron_block_connecting"
+    "bottom": "rechiseled:block/iron_block_connecting",
+    "side": "rechiseled:block/iron_block_connecting"
   },
   "connections": {
     "top": {

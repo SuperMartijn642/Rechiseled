@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "rechiseled:block/nether_bricks_diagonal_bricks",
     "top": "rechiseled:block/nether_bricks_diagonal_bricks",
-    "bottom": "rechiseled:block/nether_bricks_diagonal_bricks"
+    "bottom": "rechiseled:block/nether_bricks_diagonal_bricks",
+    "side": "rechiseled:block/nether_bricks_diagonal_bricks"
   },
   "connections": {
     "top": {

@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/dirt_large_tiles",
     "top": "rechiseled:block/dirt_large_tiles",
-    "bottom": "rechiseled:block/dirt_large_tiles"
+    "bottom": "rechiseled:block/dirt_large_tiles",
+    "side": "rechiseled:block/dirt_large_tiles"
   },
   "connections": {
     "top": {

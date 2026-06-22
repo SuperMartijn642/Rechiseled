@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/cobblestone_brick_pattern",
     "top": "rechiseled:block/cobblestone_brick_pattern",
-    "bottom": "rechiseled:block/cobblestone_brick_pattern"
+    "bottom": "rechiseled:block/cobblestone_brick_pattern",
+    "side": "rechiseled:block/cobblestone_brick_pattern"
   },
   "connections": {
     "top": {

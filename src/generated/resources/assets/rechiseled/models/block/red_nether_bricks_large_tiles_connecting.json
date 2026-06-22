@@ -1,52 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/red_nether_bricks_large_tiles",
-    "south": "rechiseled:block/red_nether_bricks_large_tiles",
-    "north": "rechiseled:block/red_nether_bricks_large_tiles",
+    "up": "rechiseled:block/red_nether_bricks_large_tiles",
     "west": "rechiseled:block/red_nether_bricks_large_tiles",
     "particle": "rechiseled:block/red_nether_bricks_large_tiles",
-    "up": "rechiseled:block/red_nether_bricks_large_tiles",
-    "down": "rechiseled:block/red_nether_bricks_large_tiles"
+    "down": "rechiseled:block/red_nether_bricks_large_tiles",
+    "south": "rechiseled:block/red_nether_bricks_large_tiles",
+    "east": "rechiseled:block/red_nether_bricks_large_tiles",
+    "north": "rechiseled:block/red_nether_bricks_large_tiles"
   },
   "connections": {
-    "down": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:red_nether_bricks_large_tiles_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:red_nether_bricks_large_tiles_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:red_nether_bricks_large_tiles_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:red_nether_bricks_large_tiles_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "west": "#side",
     "up": {
       "predicates": [
         {
@@ -83,8 +46,43 @@
       ],
       "type": "fusion:or"
     },
-    "east": "#side",
-    "north": "#side",
+    "west": "#side",
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:red_nether_bricks_large_tiles_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:red_nether_bricks_large_tiles_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:red_nether_bricks_large_tiles_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:red_nether_bricks_large_tiles_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "side": {
       "predicates": [
         {
@@ -156,7 +154,9 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side"
+    "south": "#side",
+    "east": "#side",
+    "north": "#side"
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

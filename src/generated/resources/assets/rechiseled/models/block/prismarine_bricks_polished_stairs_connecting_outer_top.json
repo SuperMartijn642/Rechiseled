@@ -1,9 +1,9 @@
 {
   "parent": "rechiseled:block/outer_stairs_top",
   "textures": {
-    "side": "rechiseled:block/prismarine_bricks_polished",
     "top": "rechiseled:block/prismarine_bricks_polished",
-    "bottom": "rechiseled:block/prismarine_bricks_polished"
+    "bottom": "rechiseled:block/prismarine_bricks_polished",
+    "side": "rechiseled:block/prismarine_bricks_polished"
   },
   "connections": {
     "top": {

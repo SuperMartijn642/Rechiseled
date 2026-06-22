@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "rechiseled:block/emerald_block_bordered_crosses",
     "top": "rechiseled:block/emerald_block_bordered_crosses",
-    "bottom": "rechiseled:block/emerald_block_bordered_crosses"
+    "bottom": "rechiseled:block/emerald_block_bordered_crosses",
+    "side": "rechiseled:block/emerald_block_bordered_crosses"
   },
   "connections": {
     "top": {

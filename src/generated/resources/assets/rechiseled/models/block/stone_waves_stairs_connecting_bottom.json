@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/stone_waves",
     "top": "rechiseled:block/stone_waves",
-    "bottom": "rechiseled:block/stone_waves"
+    "bottom": "rechiseled:block/stone_waves",
+    "side": "rechiseled:block/stone_waves"
   },
   "connections": {
     "top": {

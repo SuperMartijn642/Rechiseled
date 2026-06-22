@@ -1,52 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/cobbled_deepslate_brick_pattern",
-    "south": "rechiseled:block/cobbled_deepslate_brick_pattern",
-    "north": "rechiseled:block/cobbled_deepslate_brick_pattern",
+    "up": "rechiseled:block/cobbled_deepslate_brick_pattern",
     "west": "rechiseled:block/cobbled_deepslate_brick_pattern",
     "particle": "rechiseled:block/cobbled_deepslate_brick_pattern",
-    "up": "rechiseled:block/cobbled_deepslate_brick_pattern",
-    "down": "rechiseled:block/cobbled_deepslate_brick_pattern"
+    "down": "rechiseled:block/cobbled_deepslate_brick_pattern",
+    "south": "rechiseled:block/cobbled_deepslate_brick_pattern",
+    "east": "rechiseled:block/cobbled_deepslate_brick_pattern",
+    "north": "rechiseled:block/cobbled_deepslate_brick_pattern"
   },
   "connections": {
-    "down": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:cobbled_deepslate_brick_pattern_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:cobbled_deepslate_brick_pattern_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:cobbled_deepslate_brick_pattern_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:cobbled_deepslate_brick_pattern_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "west": "#side",
     "up": {
       "predicates": [
         {
@@ -83,8 +46,43 @@
       ],
       "type": "fusion:or"
     },
-    "east": "#side",
-    "north": "#side",
+    "west": "#side",
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:cobbled_deepslate_brick_pattern_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:cobbled_deepslate_brick_pattern_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:cobbled_deepslate_brick_pattern_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:cobbled_deepslate_brick_pattern_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "side": {
       "predicates": [
         {
@@ -156,7 +154,9 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side"
+    "south": "#side",
+    "east": "#side",
+    "north": "#side"
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

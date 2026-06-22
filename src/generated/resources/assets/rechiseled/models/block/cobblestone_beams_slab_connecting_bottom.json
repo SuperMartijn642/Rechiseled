@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "rechiseled:block/cobblestone_beams",
     "top": "rechiseled:block/cobblestone_beams",
-    "bottom": "rechiseled:block/cobblestone_beams"
+    "bottom": "rechiseled:block/cobblestone_beams",
+    "side": "rechiseled:block/cobblestone_beams"
   },
   "connections": {
     "top": {

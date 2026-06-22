@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/netherrack_bricks",
     "top": "rechiseled:block/netherrack_bricks",
-    "bottom": "rechiseled:block/netherrack_bricks"
+    "bottom": "rechiseled:block/netherrack_bricks",
+    "side": "rechiseled:block/netherrack_bricks"
   },
   "connections": {
     "top": {

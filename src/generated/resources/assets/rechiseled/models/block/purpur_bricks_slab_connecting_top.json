@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "rechiseled:block/purpur_bricks",
     "top": "rechiseled:block/purpur_bricks",
-    "bottom": "rechiseled:block/purpur_bricks"
+    "bottom": "rechiseled:block/purpur_bricks",
+    "side": "rechiseled:block/purpur_bricks"
   },
   "connections": {
     "top": {

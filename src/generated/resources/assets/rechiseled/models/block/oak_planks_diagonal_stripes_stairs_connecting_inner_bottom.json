@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/oak_planks_diagonal_stripes",
     "top": "rechiseled:block/oak_planks_diagonal_stripes",
-    "bottom": "rechiseled:block/oak_planks_diagonal_stripes"
+    "bottom": "rechiseled:block/oak_planks_diagonal_stripes",
+    "side": "rechiseled:block/oak_planks_diagonal_stripes"
   },
   "connections": {
     "top": {

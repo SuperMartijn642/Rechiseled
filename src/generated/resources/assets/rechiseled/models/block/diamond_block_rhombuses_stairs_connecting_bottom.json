@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "rechiseled:block/diamond_block_rhombuses",
     "top": "rechiseled:block/diamond_block_rhombuses",
-    "bottom": "rechiseled:block/diamond_block_rhombuses"
+    "bottom": "rechiseled:block/diamond_block_rhombuses",
+    "side": "rechiseled:block/diamond_block_rhombuses"
   },
   "connections": {
     "top": {

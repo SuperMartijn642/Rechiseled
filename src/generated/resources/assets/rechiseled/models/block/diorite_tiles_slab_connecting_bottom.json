@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "rechiseled:block/diorite_tiles",
     "top": "rechiseled:block/diorite_tiles",
-    "bottom": "rechiseled:block/diorite_tiles"
+    "bottom": "rechiseled:block/diorite_tiles",
+    "side": "rechiseled:block/diorite_tiles"
   },
   "connections": {
     "top": {

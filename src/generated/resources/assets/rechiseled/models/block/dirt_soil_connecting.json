@@ -1,52 +1,15 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "east": "rechiseled:block/dirt_soil",
-    "south": "rechiseled:block/dirt_soil",
-    "north": "rechiseled:block/dirt_soil",
+    "up": "rechiseled:block/dirt_soil",
     "west": "rechiseled:block/dirt_soil",
     "particle": "rechiseled:block/dirt_soil",
-    "up": "rechiseled:block/dirt_soil",
-    "down": "rechiseled:block/dirt_soil"
+    "down": "rechiseled:block/dirt_soil",
+    "south": "rechiseled:block/dirt_soil",
+    "east": "rechiseled:block/dirt_soil",
+    "north": "rechiseled:block/dirt_soil"
   },
   "connections": {
-    "down": {
-      "predicates": [
-        {
-          "predicates": [
-            {
-              "block": "rechiseled:dirt_soil_connecting",
-              "type": "fusion:match_block"
-            },
-            {
-              "block": "rechiseled:dirt_soil_slab_connecting",
-              "properties": {
-                "type": [
-                  "double"
-                ]
-              },
-              "type": "fusion:match_state"
-            }
-          ],
-          "type": "fusion:or"
-        },
-        {
-          "block": "rechiseled:dirt_soil_stairs_connecting",
-          "type": "fusion:match_block"
-        },
-        {
-          "block": "rechiseled:dirt_soil_slab_connecting",
-          "properties": {
-            "type": [
-              "bottom"
-            ]
-          },
-          "type": "fusion:match_state"
-        }
-      ],
-      "type": "fusion:or"
-    },
-    "west": "#side",
     "up": {
       "predicates": [
         {
@@ -83,8 +46,43 @@
       ],
       "type": "fusion:or"
     },
-    "east": "#side",
-    "north": "#side",
+    "west": "#side",
+    "down": {
+      "predicates": [
+        {
+          "predicates": [
+            {
+              "block": "rechiseled:dirt_soil_connecting",
+              "type": "fusion:match_block"
+            },
+            {
+              "block": "rechiseled:dirt_soil_slab_connecting",
+              "properties": {
+                "type": [
+                  "double"
+                ]
+              },
+              "type": "fusion:match_state"
+            }
+          ],
+          "type": "fusion:or"
+        },
+        {
+          "block": "rechiseled:dirt_soil_stairs_connecting",
+          "type": "fusion:match_block"
+        },
+        {
+          "block": "rechiseled:dirt_soil_slab_connecting",
+          "properties": {
+            "type": [
+              "bottom"
+            ]
+          },
+          "type": "fusion:match_state"
+        }
+      ],
+      "type": "fusion:or"
+    },
     "side": {
       "predicates": [
         {
@@ -156,7 +154,9 @@
       ],
       "type": "fusion:or"
     },
-    "south": "#side"
+    "south": "#side",
+    "east": "#side",
+    "north": "#side"
   },
   "loader": "fusion:model",
   "type": "fusion:connecting"

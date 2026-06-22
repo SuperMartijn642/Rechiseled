@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "rechiseled:block/coal_block_circles",
     "top": "rechiseled:block/coal_block_circles",
-    "bottom": "rechiseled:block/coal_block_circles"
+    "bottom": "rechiseled:block/coal_block_circles",
+    "side": "rechiseled:block/coal_block_circles"
   },
   "connections": {
     "top": {
