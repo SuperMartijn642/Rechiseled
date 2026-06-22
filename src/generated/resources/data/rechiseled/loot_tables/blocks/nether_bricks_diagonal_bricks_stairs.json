@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "name": "rechiseled:nether_bricks_diagonal_bricks_stairs",
-          "type": "minecraft:item"
+          "type": "minecraft:item",
+          "name": "rechiseled:nether_bricks_diagonal_bricks_stairs"
         }
       ]
     }

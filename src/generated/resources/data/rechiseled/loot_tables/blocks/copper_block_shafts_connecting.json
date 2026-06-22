@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "name": "rechiseled:copper_block_shafts_connecting",
-          "type": "minecraft:item"
+          "type": "minecraft:item",
+          "name": "rechiseled:copper_block_shafts_connecting"
         }
       ]
     }

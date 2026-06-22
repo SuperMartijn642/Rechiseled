@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "name": "rechiseled:glowstone_small_tiles_stairs",
-          "type": "minecraft:item"
+          "type": "minecraft:item",
+          "name": "rechiseled:glowstone_small_tiles_stairs"
         }
       ]
     }

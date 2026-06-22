@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "name": "rechiseled:quartz_block_diagonal_tiles_connecting",
-          "type": "minecraft:item"
+          "type": "minecraft:item",
+          "name": "rechiseled:quartz_block_diagonal_tiles_connecting"
         }
       ]
     }

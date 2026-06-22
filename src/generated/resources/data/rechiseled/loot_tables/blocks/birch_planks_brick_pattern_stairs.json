@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "name": "rechiseled:birch_planks_brick_pattern_stairs",
-          "type": "minecraft:item"
+          "type": "minecraft:item",
+          "name": "rechiseled:birch_planks_brick_pattern_stairs"
         }
       ]
     }

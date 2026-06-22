@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "name": "rechiseled:gold_block_scales_stairs",
-          "type": "minecraft:item"
+          "type": "minecraft:item",
+          "name": "rechiseled:gold_block_scales_stairs"
         }
       ]
     }

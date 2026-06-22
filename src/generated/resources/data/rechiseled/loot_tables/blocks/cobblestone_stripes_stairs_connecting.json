@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "name": "rechiseled:cobblestone_stripes_stairs_connecting",
-          "type": "minecraft:item"
+          "type": "minecraft:item",
+          "name": "rechiseled:cobblestone_stripes_stairs_connecting"
         }
       ]
     }

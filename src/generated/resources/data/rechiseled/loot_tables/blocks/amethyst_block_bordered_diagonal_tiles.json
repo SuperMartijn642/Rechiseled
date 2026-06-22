@@ -10,8 +10,8 @@
       ],
       "entries": [
         {
-          "name": "rechiseled:amethyst_block_bordered_diagonal_tiles",
-          "type": "minecraft:item"
+          "type": "minecraft:item",
+          "name": "rechiseled:amethyst_block_bordered_diagonal_tiles"
         }
       ]
     }
