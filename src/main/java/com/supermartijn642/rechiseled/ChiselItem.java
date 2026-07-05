@@ -42,7 +42,7 @@ public class ChiselItem extends BaseItem {
      * Item stack codec that is not arbitrarily capped at a stack size of 99
      */
     private static final Codec<ItemStack> ITEM_STACK_CODEC = RecordCodecBuilder.create(instance -> instance.group(
-        Item.CODEC.fieldOf("id").forGetter(ItemStack::getItemHolder),
+        Item.CODEC.fieldOf("id").forGetter(stack -> stack.getItem().builtInRegistryHolder()),
         ExtraCodecs.POSITIVE_INT.fieldOf("count").orElse(1).forGetter(ItemStack::getCount),
         DataComponentPatch.CODEC.optionalFieldOf("components", DataComponentPatch.EMPTY).forGetter(ItemStack::getComponentsPatch)
     ).apply(instance, ItemStack::new));
@@ -217,7 +217,7 @@ public class ChiselItem extends BaseItem {
                     }
                     if(validBlocks.isEmpty())
                         continue;
-                    Block block = validBlocks.get(level.random.nextInt(validBlocks.size()));
+                    Block block = validBlocks.get(level.getRandom().nextInt(validBlocks.size()));
                     chiselableBlocks.add(Pair.of(pos.immutable(), block.withPropertiesOf(state)));
                 }
             }

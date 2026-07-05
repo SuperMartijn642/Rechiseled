@@ -1,12 +1,17 @@
 package com.supermartijn642.rechiseled.screen.preview;
 
 import com.supermartijn642.core.ClientUtils;
-import net.minecraft.core.*;
+import net.minecraft.client.renderer.block.BlockAndTintGetter;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.attribute.EnvironmentAttributeReader;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.flag.FeatureFlagSet;
+import net.minecraft.world.level.CardinalLighting;
 import net.minecraft.world.level.ColorResolver;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.LightLayer;
@@ -31,7 +36,7 @@ import java.util.List;
 /**
  * Created 10/06/2023 by SuperMartijn642
  */
-public class BlockCaptureLevel implements LevelReader {
+public class BlockCaptureLevel implements LevelReader, BlockAndTintGetter {
 
     private BlockCapture capture;
 
@@ -53,11 +58,6 @@ public class BlockCaptureLevel implements LevelReader {
     @Override
     public FluidState getFluidState(BlockPos pos){
         return this.capture.getBlock(pos).getFluidState();
-    }
-
-    @Override
-    public float getShade(Direction side, boolean bl){
-        return 1;
     }
 
     @Override
@@ -93,6 +93,11 @@ public class BlockCaptureLevel implements LevelReader {
     @Override
     public BiomeManager getBiomeManager(){
         return null;
+    }
+
+    @Override
+    public CardinalLighting cardinalLighting(){
+        return CardinalLighting.DEFAULT;
     }
 
     @Override

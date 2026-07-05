@@ -8,7 +8,7 @@ import com.google.gson.JsonObject;
 import com.supermartijn642.core.util.Pair;
 import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.texture.TextureMappingTool;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.resources.Identifier;
@@ -34,12 +34,12 @@ public abstract class ChiseledTextureProvider implements DataProvider {
     private static final Gson GSON = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
 
     private final String modid;
-    private final FabricDataOutput generator;
+    private final FabricPackOutput generator;
     private final Map<Pair<Identifier,Identifier>,PaletteMap> textures = new HashMap<>();
     private final Set<String> outputLocations = new HashSet<>();
     private final List<String> oakPlankSuffixes;
 
-    public ChiseledTextureProvider(String modid, FabricDataOutput generator){
+    public ChiseledTextureProvider(String modid, FabricPackOutput generator){
         this.modid = modid;
         this.generator = generator;
         this.oakPlankSuffixes = TextureMappingTool.getSuffixes("oak_planks");

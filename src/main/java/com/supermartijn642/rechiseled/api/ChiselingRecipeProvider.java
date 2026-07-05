@@ -9,7 +9,7 @@ import com.supermartijn642.rechiseled.api.chiseling.ChiselingBlockShape;
 import com.supermartijn642.rechiseled.api.chiseling.ItemWithWorth;
 import com.supermartijn642.rechiseled.api.chiseling.data.ChiselingEntryBuilder;
 import com.supermartijn642.rechiseled.chiseling.data.ChiselingEntryBuilderImpl;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.resources.Identifier;
@@ -27,10 +27,10 @@ import java.util.function.Consumer;
 public abstract class ChiselingRecipeProvider implements DataProvider {
 
     private final String modid;
-    private final FabricDataOutput generator;
+    private final FabricPackOutput generator;
     private final Map<Identifier,ChiselingRecipeBuilder> recipes = new HashMap<>();
 
-    public ChiselingRecipeProvider(String modid, FabricDataOutput generator){
+    public ChiselingRecipeProvider(String modid, FabricPackOutput generator){
         this.modid = modid;
         this.generator = generator;
     }

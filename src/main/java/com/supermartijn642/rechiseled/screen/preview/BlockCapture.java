@@ -75,6 +75,10 @@ public class BlockCapture {
         return this.blocks.entrySet();
     }
 
+    public int size(){
+        return this.blocks.size();
+    }
+
     public AABB getBounds(){
         if(this.blocks.isEmpty())
             return new AABB(0, 0, 0, 0, 0, 0);

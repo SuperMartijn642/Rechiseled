@@ -91,9 +91,9 @@ public class EntryButtonWidget extends AbstractButtonWidget {
         DisplayEntry display = this.entry.get();
         ItemWithWorth item = display == null ? null : display.getItem(this.connecting.get());
         if(item != null){
-            graphics.submitCustomRendering(
+            graphics.submitFeatures(
                 this.x, this.y, this.width, this.height,
-                (poseStack, bufferSource) -> ScreenItemRenderer.drawItem(poseStack, bufferSource, item.item(), this.width / 2d, this.height / 2d, this.width - 4, 0, 0, false)
+                (poseStack, output) -> ScreenItemRenderer.submitItem(poseStack, output, item.item(), this.width / 2d, this.height / 2d, this.width - 4, 0, 0)
             );
         }
     }

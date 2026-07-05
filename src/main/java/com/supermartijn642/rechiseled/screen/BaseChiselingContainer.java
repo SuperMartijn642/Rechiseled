@@ -9,7 +9,7 @@ import com.supermartijn642.rechiseled.api.chiseling.conversion.ChiselingConversi
 import com.supermartijn642.rechiseled.api.chiseling.conversion.ConversionResult;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.ClickType;
+import net.minecraft.world.inventory.ContainerInput;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -304,9 +304,9 @@ public abstract class BaseChiselingContainer extends BaseContainer {
     }
 
     @Override
-    public void clicked(int slotIndex, int inventoryIndex, ClickType clickType, Player player){
+    public void clicked(int slotIndex, int inventoryIndex, ContainerInput input, Player player){
         // Prevent swapping oversized stacks from the chisel to the hotbar
-        if (clickType == ClickType.SWAP && slotIndex == 0 && (inventoryIndex >= 0 && inventoryIndex < 9 || inventoryIndex == 40)) {
+        if (input == ContainerInput.SWAP && slotIndex == 0 && (inventoryIndex >= 0 && inventoryIndex < 9 || inventoryIndex == 40)) {
             ItemStack currentStack = this.getCurrentStack();
             Inventory inventory = player.getInventory();
             if(!currentStack.isEmpty() && (currentStack.getCount() > currentStack.getMaxStackSize() || currentStack.getCount() > inventory.getMaxStackSize(currentStack))){
@@ -323,6 +323,6 @@ public abstract class BaseChiselingContainer extends BaseContainer {
                 return;
             }
         }
-        super.clicked(slotIndex, inventoryIndex, clickType, player);
+        super.clicked(slotIndex, inventoryIndex, input, player);
     }
 }

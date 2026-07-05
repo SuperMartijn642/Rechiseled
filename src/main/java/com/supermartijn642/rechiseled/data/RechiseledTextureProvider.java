@@ -2,7 +2,7 @@ package com.supermartijn642.rechiseled.data;
 
 import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.api.ChiseledTextureProvider;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.resources.Identifier;
 
 /**
@@ -10,7 +10,7 @@ import net.minecraft.resources.Identifier;
  */
 public class RechiseledTextureProvider extends ChiseledTextureProvider {
 
-    public RechiseledTextureProvider(FabricDataOutput generator){
+    public RechiseledTextureProvider(FabricPackOutput generator){
         super(Rechiseled.MODID, generator);
     }
 

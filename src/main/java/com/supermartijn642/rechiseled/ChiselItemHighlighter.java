@@ -6,9 +6,9 @@ import com.supermartijn642.core.block.BlockShape;
 import com.supermartijn642.core.render.RenderUtils;
 import com.supermartijn642.core.util.Pair;
 import net.fabricmc.fabric.api.client.rendering.v1.RenderStateDataKey;
-import net.fabricmc.fabric.api.client.rendering.v1.world.WorldRenderEvents;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.state.LevelRenderState;
+import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderEvents;
+import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.client.renderer.state.level.LevelRenderState;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -27,8 +27,8 @@ public class ChiselItemHighlighter {
     private static final RenderStateDataKey<BlockShape> HIGHLIGHT_KEY = RenderStateDataKey.create(() -> Rechiseled.identifier("chisel_highlight").toString());
 
     public static void registerListeners(){
-        WorldRenderEvents.END_EXTRACTION.register(context -> extractChiselHighlight(context.worldState()));
-        WorldRenderEvents.AFTER_ENTITIES.register(context -> renderChiselHighlight(context.worldState(), context.consumers(), context.matrices()));
+        LevelRenderEvents.END_EXTRACTION.register(context -> extractChiselHighlight(context.levelState()));
+        LevelRenderEvents.COLLECT_SUBMITS.register(context -> renderChiselHighlight(context.levelState(), context.submitNodeCollector(), context.poseStack()));
     }
 
     private static void extractChiselHighlight(LevelRenderState levelRenderState){
@@ -62,14 +62,14 @@ public class ChiselItemHighlighter {
             levelRenderState.setData(HIGHLIGHT_KEY, shape);
     }
 
-    private static void renderChiselHighlight(LevelRenderState levelRenderState, MultiBufferSource bufferSource, PoseStack poseStack){
+    private static void renderChiselHighlight(LevelRenderState levelRenderState, SubmitNodeCollector output, PoseStack poseStack){
         BlockShape shape = levelRenderState.getData(HIGHLIGHT_KEY);
         if(shape == null)
             return;
         Vec3 camera = levelRenderState.cameraRenderState.pos;
         poseStack.pushPose();
         poseStack.translate(-camera.x, -camera.y, -camera.z);
-        RenderUtils.renderShape(poseStack, shape, 1, 1, 1, false);
+        RenderUtils.submitShape(output, poseStack, shape, 1, 1, 1, 1, false);
         poseStack.popPose();
     }
 }

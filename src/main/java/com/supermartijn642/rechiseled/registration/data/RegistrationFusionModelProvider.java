@@ -16,7 +16,7 @@ import com.supermartijn642.rechiseled.blocks.RechiseledPillarBlock;
 import com.supermartijn642.rechiseled.blocks.RechiseledSlabBlock;
 import com.supermartijn642.rechiseled.blocks.RechiseledStairBlock;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
@@ -32,7 +32,7 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
 
     private final RechiseledRegistrationImpl registration;
 
-    public RegistrationFusionModelProvider(RechiseledRegistrationImpl registration, FabricDataOutput output){
+    public RegistrationFusionModelProvider(RechiseledRegistrationImpl registration, FabricPackOutput output){
         super(registration.getModid(), output);
         this.registration = registration;
     }

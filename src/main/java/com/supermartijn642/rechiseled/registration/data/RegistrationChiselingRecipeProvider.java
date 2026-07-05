@@ -3,7 +3,7 @@ package com.supermartijn642.rechiseled.registration.data;
 import com.supermartijn642.rechiseled.api.ChiselingRecipeProvider;
 import com.supermartijn642.rechiseled.api.chiseling.data.ChiselingEntryBuilder;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.world.level.ItemLike;
 
 /**
@@ -13,7 +13,7 @@ public class RegistrationChiselingRecipeProvider extends ChiselingRecipeProvider
 
     private final RechiseledRegistrationImpl registration;
 
-    public RegistrationChiselingRecipeProvider(RechiseledRegistrationImpl registration, FabricDataOutput output){
+    public RegistrationChiselingRecipeProvider(RechiseledRegistrationImpl registration, FabricPackOutput output){
         super(registration.getModid(), output);
         this.registration = registration;
     }

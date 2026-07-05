@@ -1,3 +1,5 @@
+## Update to Minecraft 26.1
+
 ### Rechiseled 1.2.5
 - Fixed non-connecting blocks also connecting with Fusion 1.3.0
 - Fixed texture for Compacted Coal Block
