@@ -1,11 +1,9 @@
 package com.supermartijn642.rechiseled.registration;
 
-import com.supermartijn642.core.CommonUtils;
 import com.supermartijn642.core.TextComponents;
 import com.supermartijn642.core.block.BlockProperties;
 import com.supermartijn642.core.item.BaseBlockItem;
 import com.supermartijn642.core.item.ItemProperties;
-import com.supermartijn642.core.registry.ClientRegistrationHandler;
 import com.supermartijn642.core.registry.RegistrationHandler;
 import com.supermartijn642.core.util.Holder;
 import com.supermartijn642.rechiseled.api.blocks.BlockSpecification;
@@ -189,16 +187,6 @@ public abstract class RechiseledCommonBlockBuilderImpl<T extends RechiseledCommo
         this.connectingBlock = connectingBlockHolder::get;
         this.regularItem = regularItemHolder::get;
         this.connectingItem = connectingItemHolder::get;
-
-        // Set the render type for transparent blocks
-        if(specification == BlockSpecification.GLASS || specification == BlockSpecification.GLASS_PILLAR){
-            if(CommonUtils.getEnvironmentSide().isClient()){
-                if(this.hasRegularVariant)
-                    ClientRegistrationHandler.get(this.registration.getModid()).registerBlockModelTranslucentRenderType(this.regularBlock);
-                if(this.hasConnectingVariant)
-                    ClientRegistrationHandler.get(this.registration.getModid()).registerBlockModelTranslucentRenderType(this.connectingBlock);
-            }
-        }
     }
 
     protected abstract Block createBlock(BlockSpecification specification, Block parent, boolean connecting, BlockProperties properties, Identifier identifier);

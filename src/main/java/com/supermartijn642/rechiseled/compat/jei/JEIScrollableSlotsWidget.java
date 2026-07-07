@@ -10,7 +10,7 @@ import mezz.jei.api.gui.inputs.IJeiInputHandler;
 import mezz.jei.api.gui.inputs.IJeiUserInput;
 import mezz.jei.api.gui.inputs.RecipeSlotUnderMouse;
 import mezz.jei.api.gui.widgets.ISlottedRecipeWidget;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.navigation.ScreenPosition;
 import net.minecraft.client.gui.navigation.ScreenRectangle;
 import net.minecraft.resources.Identifier;
@@ -77,7 +77,7 @@ public class JEIScrollableSlotsWidget implements ISlottedRecipeWidget, IJeiInput
     }
 
     @Override
-    public void drawWidget(GuiGraphics graphics, double mouseX, double mouseY){
+    public void drawWidget(GuiGraphicsExtractor graphics, double mouseX, double mouseY){
         GuiGraphicsHelper helper = GuiGraphicsHelper.of(graphics);
         Matrix3x2fStack pose = helper.poseStack();
 
@@ -113,7 +113,7 @@ public class JEIScrollableSlotsWidget implements ISlottedRecipeWidget, IJeiInput
                 this.slotBackground.draw(graphics, 0, 0);
                 if(index < this.slots.size()){
                     IRecipeSlotDrawable slot = this.slots.get(index);
-                    slot.draw(graphics);
+                    slot.draw(graphics, slot.isMouseOver(mouseX, mouseY));
                 }
                 pose.popMatrix();
             }

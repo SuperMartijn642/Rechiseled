@@ -5,8 +5,8 @@ import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.block.BlockShape;
 import com.supermartijn642.core.render.RenderUtils;
 import com.supermartijn642.core.util.Pair;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.state.LevelRenderState;
+import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.client.renderer.state.level.LevelRenderState;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.context.ContextKey;
 import net.minecraft.world.item.ItemStack;
@@ -31,7 +31,7 @@ public class ChiselItemHighlighter {
 
     public static void registerListeners(){
         NeoForge.EVENT_BUS.addListener((Consumer<ExtractLevelRenderStateEvent>)e -> extractChiselHighlight(e.getRenderState()));
-        NeoForge.EVENT_BUS.addListener((Consumer<RenderLevelStageEvent.AfterEntities>)e -> renderChiselHighlight(e.getLevelRenderState(), RenderUtils.getMainBufferSource(), e.getPoseStack()));
+        NeoForge.EVENT_BUS.addListener((Consumer<RenderLevelStageEvent.AfterOpaqueBlocks>)e -> renderChiselHighlight(e.getLevelRenderState(), e.getLevelRenderer().submitNodeStorage, e.getPoseStack()));
     }
 
     private static void extractChiselHighlight(LevelRenderState levelRenderState){
@@ -65,14 +65,14 @@ public class ChiselItemHighlighter {
             levelRenderState.setRenderData(HIGHLIGHT_KEY, shape);
     }
 
-    private static void renderChiselHighlight(LevelRenderState levelRenderState, MultiBufferSource bufferSource, PoseStack poseStack){
+    private static void renderChiselHighlight(LevelRenderState levelRenderState, SubmitNodeCollector output, PoseStack poseStack){
         BlockShape shape = levelRenderState.getRenderData(HIGHLIGHT_KEY);
         if(shape == null)
             return;
         Vec3 camera = levelRenderState.cameraRenderState.pos;
         poseStack.pushPose();
         poseStack.translate(-camera.x, -camera.y, -camera.z);
-        RenderUtils.renderShape(poseStack, shape, 1, 1, 1, false);
+        RenderUtils.submitShape(output, poseStack, shape, 1, 1, 1, 1, false);
         poseStack.popPose();
     }
 }
