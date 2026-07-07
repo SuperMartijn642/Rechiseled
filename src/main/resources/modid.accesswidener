@@ -1,8 +1,5 @@
 classTweaker v1 official
 
-# FeatureRenderDispatcher
-accessible field net/minecraft/client/renderer/feature/FeatureRenderDispatcher bufferSource Lnet/minecraft/client/renderer/MultiBufferSource$BufferSource;
-mutable field net/minecraft/client/renderer/feature/FeatureRenderDispatcher bufferSource Lnet/minecraft/client/renderer/MultiBufferSource$BufferSource;
 # Inventory
 accessible method net/minecraft/world/entity/player/Inventory addResource (Lnet/minecraft/world/item/ItemStack;)I
 # Minecraft

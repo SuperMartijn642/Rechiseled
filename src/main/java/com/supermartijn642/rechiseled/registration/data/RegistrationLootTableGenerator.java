@@ -5,7 +5,7 @@ import com.supermartijn642.core.generator.ResourceCache;
 import com.supermartijn642.core.registry.Registries;
 import com.supermartijn642.rechiseled.blocks.RechiseledSlabBlock;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
-import net.minecraft.advancements.criterion.StatePropertiesPredicate;
+import net.minecraft.advancements.predicates.StatePropertiesPredicate;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Block;
