@@ -88,7 +88,7 @@ public class ChiselingRecipeManagerImpl implements ChiselingRecipeManager {
 
     private static void loadAnnotationPlugins(){
         Type pluginAnnotation = Type.getType(RechiseledChiselingRecipePlugin.class);
-        for(ModFileScanData scanData : ModList.get().getAllScanData()){
+        for(ModFileScanData scanData : ModList.getAllScanData()){
             // Try to figure out a modid
             if(scanData.getIModInfoData().isEmpty() || scanData.getIModInfoData().getFirst().getMods().isEmpty())
                 continue;

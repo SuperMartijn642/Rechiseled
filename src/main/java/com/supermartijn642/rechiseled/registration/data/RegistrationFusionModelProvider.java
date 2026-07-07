@@ -22,6 +22,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.SlabType;
+import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.List;
 
@@ -32,8 +33,8 @@ public class RegistrationFusionModelProvider extends FusionModelProvider {
 
     private final RechiseledRegistrationImpl registration;
 
-    public RegistrationFusionModelProvider(RechiseledRegistrationImpl registration, PackOutput output){
-        super(registration.getModid(), output);
+    public RegistrationFusionModelProvider(RechiseledRegistrationImpl registration, PackOutput output, ExistingFileHelper existingFileHelper) {
+        super(registration.getModid(), output, existingFileHelper);
         this.registration = registration;
     }
 

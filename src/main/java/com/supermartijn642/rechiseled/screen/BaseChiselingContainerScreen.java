@@ -314,7 +314,7 @@ public class BaseChiselingContainerScreen<T extends BaseChiselingContainer> exte
             Identifier identifier = BuiltInRegistries.ITEM.getKey(item);
             if(identifier.getNamespace().toLowerCase().startsWith(formattedSearchText.substring(1)))
                 return true;
-            String modName = ModList.get().getModContainerById(identifier.getNamespace()).map(ModContainer::getModInfo).map(IModInfo::getDisplayName).orElse(null);
+            String modName = ModList.getModContainerById(identifier.getNamespace()).map(ModContainer::getModInfo).map(IModInfo::getDisplayName).orElse(null);
             return modName != null && modName.toLowerCase().startsWith(formattedSearchText);
         }
 

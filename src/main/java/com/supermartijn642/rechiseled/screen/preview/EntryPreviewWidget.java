@@ -22,13 +22,14 @@ import java.util.function.Supplier;
  */
 public class EntryPreviewWidget extends BaseWidget {
 
-    private static final int ROTATION_TIME = 10000;
+    private static final int ROTATION_TIME = 20000;
 
     private static boolean rotatePreview = true;
     private static float yaw = 0.35f, pitch = 30;
 
     private final Supplier<Item> item;
     private final Supplier<PreviewMode> previewMode;
+    private final ScreenBlockRenderer.RenderState blockRenderState = new ScreenBlockRenderer.RenderState();
 
     private long lastRotationTime;
     private boolean dragging = false;
@@ -99,16 +100,17 @@ public class EntryPreviewWidget extends BaseWidget {
                             capture.putBlock(new BlockPos(x, y, 0), (BlockState)null);
                     }
                 }
+                ScreenBlockRenderer.updateState(this.blockRenderState, capture);
                 graphics.nextStratum();
-                graphics.submitCustomRendering(
+                graphics.submitFeatures(
                     this.x, this.y, this.width, this.height,
-                    (poseStack, bufferSource) -> ScreenBlockRenderer.drawBlock(poseStack, bufferSource, capture, this.width / 2d, this.height / 2d, this.width, yaw, pitch, true)
+                    (poseStack, output) -> ScreenBlockRenderer.submit(output, poseStack, this.blockRenderState, this.width / 2d, this.height / 2d, this.width, yaw, pitch)
                 );
             }else{
                 // Render item
-                graphics.submitCustomRendering(
+                graphics.submitFeatures(
                     this.x, this.y, this.width, this.height,
-                    (poseStack, bufferSource) -> ScreenItemRenderer.drawItem(poseStack, bufferSource, item, this.width / 2d, this.height / 2d, this.width, yaw, pitch, true)
+                    (poseStack, output) -> ScreenItemRenderer.submitItem(poseStack, output, item, this.width / 2d, this.height / 2d, this.width, yaw, pitch)
                 );
             }
         }

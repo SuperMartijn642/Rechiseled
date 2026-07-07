@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.special.SpecialModelRenderer;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
+import org.joml.Matrix4fc;
 import org.joml.Vector3fc;
 
 import java.util.function.Consumer;
@@ -24,7 +25,7 @@ public class ChiselItemRenderer implements ItemModel.Unbaked {
     private static final SpecialModelRenderer<ItemStackRenderState> ICON_RENDERER = new SpecialModelRenderer<>() {
 
         @Override
-        public void submit(@Nullable ItemStackRenderState iconRenderState, ItemDisplayContext displayContext, PoseStack poseStack, SubmitNodeCollector output, int combinedLight, int combinedOverlay, boolean hasFoil, int k){
+        public void submit(@Nullable ItemStackRenderState iconRenderState, PoseStack poseStack, SubmitNodeCollector output, int combinedLight, int combinedOverlay, boolean hasFoil, int k){
             if(RECURSION_GUARD.get() != null)
                 return;
             RECURSION_GUARD.set(true);
@@ -56,7 +57,7 @@ public class ChiselItemRenderer implements ItemModel.Unbaked {
     }
 
     @Override
-    public ItemModel bake(ItemModel.BakingContext bakingContext){
+    public ItemModel bake(ItemModel.BakingContext bakingContext, Matrix4fc transformation){
         return (renderState, stack, modelResolver, transformType, level, entity, someRandomId) -> {
             if(transformType != ItemDisplayContext.GUI || RECURSION_GUARD.get() != null)
                 return;
@@ -73,7 +74,9 @@ public class ChiselItemRenderer implements ItemModel.Unbaked {
                         }
                     };
                     ClientUtils.getMinecraft().getItemModelResolver().updateForTopItem(iconRenderState, storedStack, ItemDisplayContext.GUI, level, entity, someRandomId);
-                    renderState.newLayer().setupSpecialModel(ICON_RENDERER, iconRenderState);
+                    ItemStackRenderState.LayerRenderState layer = renderState.newLayer();
+                    layer.setLocalTransform(transformation);
+                    layer.setupSpecialModel(ICON_RENDERER, iconRenderState);
                     renderState.appendModelIdentityElement(storedStack.getItem());
                 }
             }finally{
