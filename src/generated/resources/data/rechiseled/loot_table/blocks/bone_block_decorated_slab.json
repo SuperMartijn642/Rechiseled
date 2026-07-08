@@ -19,7 +19,6 @@
             }
           ],
           "count": 2.0,
-          "add": false,
           "function": "minecraft:set_count"
         }
       ],

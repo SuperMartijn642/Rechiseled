@@ -53,7 +53,7 @@ public class RechiseledChiselingRecipes {
         regularSet(COBBLESTONE, () -> Items.COBBLESTONE, () -> Items.COBBLESTONE_STAIRS, () -> Items.COBBLESTONE_SLAB);
         regularSet(COBBLESTONE, () -> Items.MOSSY_COBBLESTONE, () -> Items.MOSSY_COBBLESTONE_STAIRS, () -> Items.MOSSY_COBBLESTONE_SLAB);
         // Copper block
-        regularBlockOnly(COPPER_BLOCK, () -> Items.COPPER_BLOCK);
+        regularBlockOnly(COPPER_BLOCK, () -> Items.COPPER_BLOCK.weathering().unaffected());
         // Crimson planks
         regularSet(CRIMSON_PLANKS, () -> Items.CRIMSON_PLANKS, () -> Items.CRIMSON_STAIRS, () -> Items.CRIMSON_SLAB);
         // Dark oak planks

@@ -1,6 +1,5 @@
 package com.supermartijn642.rechiseled;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.block.BlockShape;
 import com.supermartijn642.core.render.RenderUtils;
@@ -29,7 +28,7 @@ public class ChiselItemHighlighter {
 
     public static void registerListeners(){
         RenderHighlightEvent.Block.BUS.addListener((Consumer<RenderHighlightEvent.Block>)e -> extractChiselHighlight(e.getLevelRenderState()));
-        RenderWorldEvent.EVENT_BUS.addListener(e -> renderChiselHighlight(e.getPoseStack()));
+        RenderWorldEvent.EVENT_BUS.addListener(ChiselItemHighlighter::renderChiselHighlight);
     }
 
     private static void extractChiselHighlight(LevelRenderState levelRenderState){
@@ -65,14 +64,16 @@ public class ChiselItemHighlighter {
             HIGHLIGHT_SHAPE = shape;
     }
 
-    public static void renderChiselHighlight(PoseStack poseStack){
+    public static void renderChiselHighlight(RenderWorldEvent e){
         BlockShape shape = HIGHLIGHT_SHAPE;
         if(shape == null)
             return;
-        Vec3 camera = RenderUtils.getCameraPosition();
-        poseStack.pushPose();
-        poseStack.translate(-camera.x, -camera.y, -camera.z);
-        RenderUtils.renderShape(poseStack, shape, 1, 1, 1, false);
-        poseStack.popPose();
+        Vec3 camera = e.getCameraPos();
+        e.submitFeatures((poseStack, output) -> {
+            poseStack.pushPose();
+            poseStack.translate(-camera.x, -camera.y, -camera.z);
+            RenderUtils.submitShape(output, poseStack, shape, 1, 1, 1, 1, false);
+            poseStack.popPose();
+        });
     }
 }
