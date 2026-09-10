@@ -1,25 +1,23 @@
 {
   "pools": [
     {
-      "rolls": 1.0,
+      "rolls": 1,
       "conditions": [
         {
-          "condition": "minecraft:survives_explosion"
+          "type": "minecraft:survives_explosion"
         }
       ],
       "functions": [
         {
-          "conditions": [
-            {
-              "block": "rechiseled:blackstone_brick_paving_slab_connecting",
-              "properties": {
-                "type": "double"
-              },
-              "condition": "minecraft:block_state_property"
-            }
-          ],
-          "count": 2.0,
-          "function": "minecraft:set_count"
+          "condition": {
+            "blocks": "rechiseled:blackstone_brick_paving_slab_connecting",
+            "state": {
+              "type": "double"
+            },
+            "type": "minecraft:match_block"
+          },
+          "count": 2,
+          "type": "minecraft:set_count"
         }
       ],
       "entries": [

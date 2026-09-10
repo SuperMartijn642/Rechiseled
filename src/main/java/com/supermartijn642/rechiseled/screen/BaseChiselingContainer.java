@@ -7,6 +7,7 @@ import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.api.chiseling.*;
 import com.supermartijn642.rechiseled.api.chiseling.conversion.ChiselingConversionHelper;
 import com.supermartijn642.rechiseled.api.chiseling.conversion.ConversionResult;
+import net.minecraft.util.Prediction;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerInput;
@@ -117,7 +118,7 @@ public abstract class BaseChiselingContainer extends BaseContainer {
             currentStack = currentStack.copyWithCount(conversion.leftover());
             int leftover = this.player.getInventory().addResource(currentStack);
             if(leftover > 0)
-                this.player.drop(currentStack.copyWithCount(leftover), true, true);
+                this.player.drop(currentStack.copyWithCount(leftover), true, Prediction.SERVER_ONLY);
         }
     }
 
@@ -196,7 +197,7 @@ public abstract class BaseChiselingContainer extends BaseContainer {
             }while(overflow > 0);
             if(overflow > 0){
                 Rechiseled.LOGGER.error("Failed to insert stacks into player inventory despite the fact there should be sufficient space!");
-                this.player.drop(new ItemStack(targetItem, overflow), true, true);
+                this.player.drop(new ItemStack(targetItem, overflow), true, Prediction.SERVER_ONLY);
             }
         }
     }
@@ -306,7 +307,7 @@ public abstract class BaseChiselingContainer extends BaseContainer {
     @Override
     public void clicked(int slotIndex, int inventoryIndex, ContainerInput input, Player player){
         // Prevent swapping oversized stacks from the chisel to the hotbar
-        if (input == ContainerInput.SWAP && slotIndex == 0 && (inventoryIndex >= 0 && inventoryIndex < 9 || inventoryIndex == 40)) {
+        if(input == ContainerInput.SWAP && slotIndex == 0 && (inventoryIndex >= 0 && inventoryIndex < 9 || inventoryIndex == 40)){
             ItemStack currentStack = this.getCurrentStack();
             Inventory inventory = player.getInventory();
             if(!currentStack.isEmpty() && (currentStack.getCount() > currentStack.getMaxStackSize() || currentStack.getCount() > inventory.getMaxStackSize(currentStack))){

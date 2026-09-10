@@ -24,7 +24,7 @@ public class RechiseledGlassSlabBlock extends RechiseledSlabBlock {
     private volatile Map<Pair<BlockState,BlockState>,Boolean[]> shouldHideFaceCache = null;
 
     public RechiseledGlassSlabBlock(boolean connecting, Properties properties){
-        super(connecting, properties.noOcclusion().isSuffocating(Blocks::never).isViewBlocking(Blocks::never));
+        super(connecting, properties.noOcclusion().isSuffocating(Blocks::never).isViewBlocking((_, _, _, _) -> false));
     }
 
     public void setStairsAndSlab(Block block, Block stairs){

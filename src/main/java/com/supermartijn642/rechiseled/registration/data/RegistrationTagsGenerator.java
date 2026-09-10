@@ -8,7 +8,7 @@ import com.supermartijn642.core.registry.Registries;
 import com.supermartijn642.rechiseled.Rechiseled;
 import com.supermartijn642.rechiseled.registration.RechiseledCommonBlockBuilderImpl;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
-import net.fabricmc.fabric.api.resource.ModResourcePack;
+import net.fabricmc.fabric.api.resource.v1.pack.ModPackResources;
 import net.fabricmc.fabric.impl.resource.pack.ModResourcePackCreator;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.PackResources;
@@ -37,10 +37,10 @@ public class RegistrationTagsGenerator extends TagGenerator {
 
     static{
         List<PackResources> packs = new ArrayList<>();
-        packs.add(ServerPacksSource.createVanillaPackSource());
+        packs.add(ServerPacksSource.createVanillaPackSource().fullResources());
         new ModResourcePackCreator(PackType.SERVER_DATA).loadPacks(pack -> {
             try{
-                packs.add(pack.open());
+                pack.open().forEach(packs::add);
             }catch(Exception e){
                 Rechiseled.LOGGER.info("Encountered an exception whilst loading data packs for 'RegistrationTagsGenerator'!", e);
             }
@@ -57,7 +57,7 @@ public class RegistrationTagsGenerator extends TagGenerator {
         this.resources = new MultiPackResourceManager(
             PackType.SERVER_DATA,
             ALL_DATA_PACKS.stream()
-                .filter(pack -> !(pack instanceof ModResourcePack) || !((ModResourcePack)pack).getFabricModMetadata().getId().equals(registration.getModid()))
+                .filter(pack -> !(pack instanceof ModPackResources) || !((ModPackResources)pack).getFabricModMetadata().getId().equals(registration.getModid()))
                 .toList()
         );
     }

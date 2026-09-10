@@ -1,6 +1,7 @@
 package com.supermartijn642.rechiseled.screen.preview;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Axis;
 import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.rechiseled.Rechiseled;
 import it.unimi.dsi.fastutil.ints.IntList;
@@ -22,7 +23,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import org.joml.Matrix4f;
 import org.joml.Matrix4fc;
-import org.joml.Quaternionf;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -95,8 +95,8 @@ public class ScreenBlockRenderer {
         poseStack.pushPose();
         poseStack.translate(x, y, 0);
         poseStack.scale((float)scale, (float)-scale, (float)-scale);
-        poseStack.mulPose(new Quaternionf().setAngleAxis(pitch / 180 * (float)Math.PI, 1, 0, 0));
-        poseStack.mulPose(new Quaternionf().setAngleAxis(yaw / 180 * (float)Math.PI, 0, 1, 0));
+        poseStack.rotateDegrees(Axis.XP, pitch);
+        poseStack.rotateDegrees(Axis.YP, yaw);
 
         for(int i = 0; i < state.count; i++){
             BlockPos pos = state.positions[i];
