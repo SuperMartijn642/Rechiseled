@@ -4,5 +4,7 @@ classTweaker v1 official
 accessible method net/minecraft/world/entity/player/Inventory addResource (Lnet/minecraft/world/item/ItemStack;)I
 # Minecraft
 accessible field net/minecraft/client/Minecraft resourcePackRepository Lnet/minecraft/server/packs/repository/PackRepository;
+# MouseHandler
+accessible field net/minecraft/client/MouseHandler activeButton Lnet/minecraft/client/input/MouseButtonInfo;
 # ServerPacksSource
 accessible method net/minecraft/server/packs/repository/ServerPacksSource createVanillaPackSource ()Lnet/minecraft/server/packs/VanillaPackResources;
