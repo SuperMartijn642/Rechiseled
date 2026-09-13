@@ -1,3 +1,9 @@
+### Rechiseled 1.2.6
+- Added Simplified Chinese translations (thanks to Yizhouuu!)
+- Added Mexican Spanish translations (thanks to TheLegendofSaram!)
+- Updated Ukrainian translations (thanks to Tenwoc!)
+- Fixed crash with newer versions of Just Enough Items
+
 ### Rechiseled 1.2.5
 - Fixed non-connecting blocks also connecting with Fusion 1.3.0
 - Fixed texture for Compacted Coal Block
