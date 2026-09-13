@@ -20,7 +20,6 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.api.recipe.types.IRecipeType;
-import mezz.jei.common.gui.elements.OffsetDrawable;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
@@ -37,7 +36,7 @@ public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipe>
     private final IDrawable slot, icon, arrow, focussedSlot;
 
     public ChiselingRecipeCategory(IGuiHelper guiHelper){
-        this.slot = OffsetDrawable.create(guiHelper.getSlotDrawable(), -1, -1);
+        this.slot = guiHelper.getSlotDrawable();
         this.icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(Rechiseled.chisel));
         this.arrow = guiHelper.drawableBuilder(Rechiseled.identifier("textures/screen/curved_arrow.png"), 0, 0, 20, 20).setTextureSize(20, 20).build();
         this.focussedSlot = guiHelper.drawableBuilder(Rechiseled.identifier("textures/screen/focussed_slot.png"), 0, 0, 18, 18).setTextureSize(18, 18).build();
