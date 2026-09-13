@@ -45,7 +45,9 @@ dependencies {
     // Fusion
     implementation fg.deobf("maven.modrinth:fusion-connected-textures:${fusion_version}")
     // Just Enough Items
-    implementation fg.deobf("mezz.jei:jei-1.20.1-forge:${just_enough_items_version}")
+    compileOnly fg.deobf("mezz.jei:jei-1.20.1-common-api:${just_enough_items_version}")
+    compileOnly fg.deobf("mezz.jei:jei-1.20.1-forge-api:${just_enough_items_version}")
+    runtimeOnly fg.deobf("mezz.jei:jei-1.20.1-forge:${just_enough_items_version}")
     // Roughly Enough Items
     compileOnly fg.deobf("me.shedaniel:RoughlyEnoughItems-forge:${roughly_enough_items_version}")
     // Cloth Config API
