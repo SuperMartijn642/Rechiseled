@@ -2,6 +2,7 @@ package com.supermartijn642.rechiseled.compat.jei;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.supermartijn642.core.ClientUtils;
 import com.supermartijn642.core.gui.CursorTypes;
 import com.supermartijn642.core.gui.ScreenUtils;
 import com.supermartijn642.rechiseled.Rechiseled;
@@ -22,7 +23,7 @@ import java.util.Optional;
 /**
  * Created 12/02/2026 by SuperMartijn642
  */
-public class JEIScrollableSlotsWidget implements ISlottedRecipeWidget, IJeiInputHandler, JEIOutOfBoundsInputListener {
+public class JEIScrollableSlotsWidget implements ISlottedRecipeWidget, IJeiInputHandler {
 
     private static final ResourceLocation BOX_BACKGROUND = Rechiseled.identifier("textures/screen/jei_box_background.png");
     private static final ResourceLocation SCROLLBAR_BACKGROUND = Rechiseled.identifier("textures/screen/jei_scrollbar_background.png");
@@ -81,6 +82,8 @@ public class JEIScrollableSlotsWidget implements ISlottedRecipeWidget, IJeiInput
         PoseStack pose = graphics.pose();
 
         // Update dragging
+        if(this.dragging && ClientUtils.getMinecraft().mouseHandler.activeButton == -1)
+            this.dragging = false;
         if(this.scrollable){
             if(this.dragging){
                 this.updateDrag((float)mouseY);
@@ -109,7 +112,7 @@ public class JEIScrollableSlotsWidget implements ISlottedRecipeWidget, IJeiInput
                     pose.pushPose();
                     pose.translate(column * SLOT_WIDTH + 1, row * SLOT_HEIGHT - (rowOffset % 1) * SLOT_HEIGHT + 1, 0);
                     int index = (row + (int)rowOffset) * COLUMNS + column;
-                    this.slotBackground.draw(graphics, 0, 0);
+                    this.slotBackground.draw(graphics, -1, -1);
                     if(index < this.slots.size()){
                         IRecipeSlotDrawable slot = this.slots.get(index);
                         slot.draw(graphics);
@@ -131,11 +134,6 @@ public class JEIScrollableSlotsWidget implements ISlottedRecipeWidget, IJeiInput
                 this.dragging = false;
         }
         return false;
-    }
-
-    @Override
-    public void rechiseledOutOfBoundsInput(double mouseX, double mouseY, IJeiUserInput input){
-        this.handleInput(mouseX, mouseY, input);
     }
 
     @Override
