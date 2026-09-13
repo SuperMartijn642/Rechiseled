@@ -21,5 +21,7 @@ accessible field net/minecraft/client/renderer/block/model/ItemTransform$Deseria
 accessible class net/minecraft/client/renderer/block/model/ItemTransform$Deserializer
 # Minecraft
 accessible field net/minecraft/client/Minecraft resourcePackRepository Lnet/minecraft/server/packs/repository/PackRepository;
+# MouseHandler
+accessible field net/minecraft/client/MouseHandler activeButton I
 # ServerPacksSource
 accessible method net/minecraft/server/packs/repository/ServerPacksSource createVanillaPackSource ()Lnet/minecraft/server/packs/VanillaPackResources;
