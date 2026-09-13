@@ -47,7 +47,8 @@ dependencies {
     // Fusion
     implementation "maven.modrinth:fusion-connected-textures:${fusion_version}"
     // Just Enough Items
-    compileOnly "mezz.jei:jei-1.21.4-neoforge:${just_enough_items_version}"
+    compileOnly "mezz.jei:jei-1.21.4-neoforge-api:${just_enough_items_version}"
+    runtimeOnly "mezz.jei:jei-1.21.4-neoforge:${just_enough_items_version}"
     // Roughly Enough Items
     compileOnly "me.shedaniel:RoughlyEnoughItems-neoforge:${roughly_enough_items_version}"
 }
