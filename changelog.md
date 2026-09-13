@@ -1,3 +1,9 @@
+### Rechiseled 1.2.6
+- Added Simplified Chinese translations (thanks to Yizhouuu!)
+- Added Mexican Spanish translations (thanks to TheLegendofSaram!)
+- Updated Ukrainian translations (thanks to Tenwoc!)
+- Fixed crash with newer versions of Just Enough Items
+
 ## Update to Minecraft 26.3
 
 ## Update to Minecraft 26.2
