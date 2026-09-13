@@ -47,7 +47,8 @@ dependencies {
     // Fusion
     modImplementation "maven.modrinth:fusion-connected-textures:${fusion_version}"
     // Just Enough Items
-    modImplementation "mezz.jei:jei-${minecraft_version}-fabric:${just_enough_items_version}"
+    modCompileOnly "mezz.jei:jei-${minecraft_version}-fabric-api:${just_enough_items_version}"
+    modRuntimeOnly "mezz.jei:jei-${minecraft_version}-fabric:${just_enough_items_version}"
     // Roughly Enough Items
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-fabric:${roughly_enough_items_version}"
 }
