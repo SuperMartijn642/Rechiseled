@@ -20,7 +20,6 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
-import mezz.jei.common.gui.elements.OffsetDrawable;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
@@ -34,10 +33,9 @@ import java.util.stream.Collectors;
  */
 public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipe> {
 
-    private final IDrawable slot, icon, arrow, focussedSlot;
+    private final IDrawable icon, arrow, focussedSlot;
 
     public ChiselingRecipeCategory(IGuiHelper guiHelper){
-        this.slot = OffsetDrawable.create(guiHelper.getSlotDrawable(), -1, -1);
         this.icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(Rechiseled.chisel));
         this.arrow = guiHelper.drawableBuilder(Rechiseled.identifier("textures/screen/curved_arrow.png"), 0, 0, 20, 20).setTextureSize(20, 20).build();
         this.focussedSlot = guiHelper.drawableBuilder(Rechiseled.identifier("textures/screen/focussed_slot.png"), 0, 0, 18, 18).setTextureSize(18, 18).build();
@@ -133,9 +131,7 @@ public class ChiselingRecipeCategory implements IRecipeCategory<ChiselingRecipe>
         builder.getRecipeSlots().getSlots(RecipeIngredientRole.INPUT).getFirst().setPosition(73, 1);
         builder.addDrawable(this.arrow).setPosition(89, 0);
         List<IRecipeSlotDrawable> scrollableSlots = builder.getRecipeSlots().getSlots(RecipeIngredientRole.OUTPUT);
-        JEIScrollableSlotsWidget scrollableSlotsWidget = new JEIScrollableSlotsWidget(0, 22, scrollableSlots, this.slot);
-        builder.addSlottedWidget(scrollableSlotsWidget, scrollableSlots);
-        builder.addInputHandler(scrollableSlotsWidget);
+        builder.addScrollGridWidget(scrollableSlots, 9, 4).setPosition(0, 22);
     }
 
     private static Set<Item> focusedItems(IFocusGroup focuses, RecipeIngredientRole role){
