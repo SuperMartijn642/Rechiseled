@@ -95,6 +95,8 @@ public class RechiseledChiselingRecipes {
         regularSet(PRISMARINE_BRICKS, () -> Items.PRISMARINE_BRICKS, () -> Items.PRISMARINE_BRICK_STAIRS, () -> Items.PRISMARINE_BRICK_SLAB);
         // Pale oak planks
         regularSet(PALE_OAK_PLANKS, () -> Items.PALE_OAK_PLANKS, () -> Items.PALE_OAK_STAIRS, () -> Items.PALE_OAK_SLAB);
+        // Poplar planks
+        regularSet(POPLAR_PLANKS, () -> Items.POPLAR_PLANKS, () -> Items.POPLAR_STAIRS, () -> Items.POPLAR_SLAB);
         // Purpur block
         regularBlockOnly(PURPUR_BLOCK, () -> Items.PURPUR_PILLAR);
         // Quartz block
