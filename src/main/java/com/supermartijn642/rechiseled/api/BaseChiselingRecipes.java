@@ -45,6 +45,7 @@ public final class BaseChiselingRecipes {
     public static final Identifier OAK_PLANKS = location("oak_planks");
     public static final Identifier OBSIDIAN = location("obsidian");
     public static final Identifier PALE_OAK_PLANKS = location("pale_oak_planks");
+    public static final Identifier POPLAR_PLANKS = location("poplar_planks");
     public static final Identifier PRISMARINE_BRICKS = location("prismarine_bricks");
     public static final Identifier PURPUR_BLOCK = location("purpur_block");
     public static final Identifier QUARTZ_BLOCK = location("quartz_block");

@@ -633,6 +633,28 @@ public class RechiseledBlocks {
     public static final RechiseledBlockType PALE_OAK_PLANKS_TILES = create("pale_oak_planks_tiles", "Pale Oak Plank Tiles").configure(PALE_OAK_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType PALE_OAK_PLANKS_WAVY = create("pale_oak_planks_wavy", "Wavy Pale Oak Planks").configure(PALE_OAK_PLANKS_CONFIGURER).build();
     public static final RechiseledBlockType PALE_OAK_PLANKS_WOVEN = create("pale_oak_planks_woven", "Woven Pale Oak Planks").configure(PALE_OAK_PLANKS_CONFIGURER).build();
+    // Poplar planks
+    private static final Consumer<BlockProperties> POPLAR_PLANKS_BLOCK_PROPERTIES = p -> p.mapColor(MapColor.COLOR_LIGHT_GRAY).instrument(NoteBlockInstrument.BASS).destroyTime(2.0F).explosionResistance(3.0F).sound(SoundType.WOOD).ignitedByLava();
+    private static final Consumer<RechiseledBlockBuilder> POPLAR_PLANKS_CONFIGURER = b -> b.properties(POPLAR_PLANKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.POPLAR_PLANKS).recipe(BaseChiselingRecipes.POPLAR_PLANKS).itemAndBlockTag(Rechiseled.identifier("poplar_planks")).withStairs(s -> s.itemAndBlockTag(Rechiseled.identifier("poplar_planks_stairs"))).withSlabs(s -> s.itemAndBlockTag(Rechiseled.identifier("poplar_planks_slabs")));
+    public static final RechiseledBlockType POPLAR_PLANKS_BEAMS = create("poplar_planks_beams", "Poplar Plank Beams").configure(POPLAR_PLANKS_CONFIGURER).build();
+    public static final RechiseledBlockType POPLAR_PLANKS_BRICK_PATTERN = create("poplar_planks_brick_pattern", "Poplar Plank Brick Pattern").configure(POPLAR_PLANKS_CONFIGURER).build();
+    public static final RechiseledBlockType POPLAR_PLANKS_BRICK_PAVING = create("poplar_planks_brick_paving", "Poplar Plank Brick Paving").configure(POPLAR_PLANKS_CONFIGURER).build();
+    public static final RechiseledBlockType POPLAR_PLANKS_BRICKS = create("poplar_planks_bricks", "Poplar Plank Bricks").configure(POPLAR_PLANKS_CONFIGURER).build();
+    public static final RechiseledBlockType POPLAR_PLANKS_CRATE = create("poplar_planks_crate", "Poplar Planks Crate").configure(POPLAR_PLANKS_CONFIGURER).build();
+    public static final RechiseledBlockType POPLAR_PLANKS_DIAGONAL_STRIPES = create("poplar_planks_diagonal_stripes", "Diagonal Poplar Plank Stripes").configure(POPLAR_PLANKS_CONFIGURER).build();
+    public static final RechiseledBlockType POPLAR_PLANKS_DIAGONAL_TILES = create("poplar_planks_diagonal_tiles", "Diagonal Poplar Plank Tiles").configure(POPLAR_PLANKS_CONFIGURER).build();
+    public static final RechiseledBlockType POPLAR_PLANKS_DOTTED = create("poplar_planks_dotted", "Dotted Poplar Planks").configure(POPLAR_PLANKS_CONFIGURER).build();
+    public static final RechiseledBlockType POPLAR_PLANKS_FLOORING = create("poplar_planks_flooring", "Poplar Plank Flooring").configure(POPLAR_PLANKS_CONFIGURER).build();
+    public static final RechiseledBlockType POPLAR_PLANKS_LARGE_TILES = create("poplar_planks_large_tiles", "Large Poplar Plank Tiles").configure(POPLAR_PLANKS_CONFIGURER).build();
+    public static final RechiseledBlockType POPLAR_PLANKS_MOSAIC = create("poplar_planks_mosaic", "Poplar Plank Mosaic").configure(POPLAR_PLANKS_CONFIGURER).noConnectingVariant().build();
+    public static final RechiseledBlockType POPLAR_PLANKS_PATTERN = create("poplar_planks_pattern", "Poplar Plank Pattern").configure(POPLAR_PLANKS_CONFIGURER).build();
+    public static final RechiseledBlockType POPLAR_PLANKS_ROTATED_BRICKS = create("poplar_planks_rotated_bricks", "Rotated Poplar Plank Bricks").configure(POPLAR_PLANKS_CONFIGURER).build();
+    public static final RechiseledBlockType POPLAR_PLANKS_SMALL_BRICKS = create("poplar_planks_small_bricks", "Small Poplar Plank Bricks").configure(POPLAR_PLANKS_CONFIGURER).build();
+    public static final RechiseledBlockType POPLAR_PLANKS_SMALL_TILES = create("poplar_planks_small_tiles", "Small Poplar Plank Tiles").configure(POPLAR_PLANKS_CONFIGURER).build();
+    public static final RechiseledBlockType POPLAR_PLANKS_SQUARES = create("poplar_planks_squares", "Poplar Plank Squares").configure(POPLAR_PLANKS_CONFIGURER).build();
+    public static final RechiseledBlockType POPLAR_PLANKS_TILES = create("poplar_planks_tiles", "Poplar Plank Tiles").configure(POPLAR_PLANKS_CONFIGURER).build();
+    public static final RechiseledBlockType POPLAR_PLANKS_WAVY = create("poplar_planks_wavy", "Wavy Poplar Planks").configure(POPLAR_PLANKS_CONFIGURER).build();
+    public static final RechiseledBlockType POPLAR_PLANKS_WOVEN = create("poplar_planks_woven", "Woven Poplar Planks").configure(POPLAR_PLANKS_CONFIGURER).build();
     // Prismarine
     private static final Consumer<BlockProperties> PRISMARINE_BRICKS_BLOCK_PROPERTIES = p -> p.mapColor(MapColor.DIAMOND).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectTool().destroyTime(1.5F).explosionResistance(6.0F);
     private static final Consumer<RechiseledBlockBuilder> PRISMARINE_BRICKS_CONFIGURER = b -> b.properties(PRISMARINE_BRICKS_BLOCK_PROPERTIES).miningTagsFrom(() -> Blocks.PRISMARINE_BRICKS).recipe(BaseChiselingRecipes.PRISMARINE_BRICKS).itemAndBlockTag(Rechiseled.identifier("prismarine_bricks")).withStairs(s -> s.itemAndBlockTag(Rechiseled.identifier("prismarine_bricks_stairs"))).withSlabs(s -> s.itemAndBlockTag(Rechiseled.identifier("prismarine_bricks_slabs")));
