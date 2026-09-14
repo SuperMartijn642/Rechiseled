@@ -1,0 +1,9 @@
+{
+  "fusion": {
+    "type": "connecting",
+    "connections": {
+      "type": "false"
+    },
+    "layout": "pieced"
+  }
+}

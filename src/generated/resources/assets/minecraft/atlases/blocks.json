@@ -10,6 +10,10 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/poplar_planks_rotated_bricks"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/end_stone_brick_pattern"
     },
     {
@@ -402,6 +406,10 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/poplar_planks_mosaic"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/blue_ice_patterned"
     },
     {
@@ -514,6 +522,10 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/poplar_planks_tiles"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/prismarine_bricks_rows"
     },
     {
@@ -543,6 +555,10 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/copper_block_pillar_side"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/poplar_planks_beams"
     },
     {
       "type": "minecraft:single",
@@ -706,6 +722,10 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/poplar_planks_bricks"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/copper_block_polished"
     },
     {
@@ -771,6 +791,10 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/prismarine_bricks_dotted"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/poplar_planks_brick_paving"
     },
     {
       "type": "minecraft:single",
@@ -1015,6 +1039,10 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/cobblestone_polished"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/poplar_planks_large_tiles"
     },
     {
       "type": "minecraft:single",
@@ -1311,6 +1339,10 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/mangrove_planks_flooring"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/poplar_planks_diagonal_tiles"
     },
     {
       "type": "minecraft:single",
@@ -1650,6 +1682,10 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/poplar_planks_pattern"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/cherry_planks_small_bricks"
     },
     {
@@ -1734,6 +1770,14 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/poplar_planks_dotted"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/poplar_planks_small_tiles"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/lapis_block_inverted_tiles"
     },
     {
@@ -1815,6 +1859,10 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/amethyst_block_bricks"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/poplar_planks_brick_pattern"
     },
     {
       "type": "minecraft:single",
@@ -1978,6 +2026,10 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/poplar_planks_wavy"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/netherite_block_small_tiles"
     },
     {
@@ -2066,6 +2118,10 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/poplar_planks_squares"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/oak_planks_diagonal_stripes"
     },
     {
@@ -2118,6 +2174,10 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/poplar_planks_diagonal_stripes"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/mangrove_planks_crate"
     },
     {
@@ -2155,6 +2215,10 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/prismarine_bricks_beams"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/poplar_planks_woven"
     },
     {
       "type": "minecraft:single",
@@ -2386,6 +2450,10 @@
     },
     {
       "type": "minecraft:single",
+      "resource": "rechiseled:block/poplar_planks_flooring"
+    },
+    {
+      "type": "minecraft:single",
       "resource": "rechiseled:block/dirt_large_tiles"
     },
     {
@@ -2447,6 +2515,10 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/cobbled_deepslate_small_tiles"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/poplar_planks_small_bricks"
     },
     {
       "type": "minecraft:single",
@@ -2559,6 +2631,10 @@
     {
       "type": "minecraft:single",
       "resource": "rechiseled:block/oak_planks_squares"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "rechiseled:block/poplar_planks_crate"
     },
     {
       "type": "minecraft:single",
