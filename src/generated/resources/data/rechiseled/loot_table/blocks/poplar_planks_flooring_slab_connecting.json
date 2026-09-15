@@ -1,0 +1,31 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "type": "minecraft:survives_explosion"
+        }
+      ],
+      "functions": [
+        {
+          "condition": {
+            "blocks": "rechiseled:poplar_planks_flooring_slab_connecting",
+            "state": {
+              "type": "double"
+            },
+            "type": "minecraft:match_block"
+          },
+          "count": 2,
+          "type": "minecraft:set_count"
+        }
+      ],
+      "entries": [
+        {
+          "name": "rechiseled:poplar_planks_flooring_slab_connecting",
+          "type": "minecraft:item"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "type": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "name": "rechiseled:poplar_planks_diagonal_stripes_stairs",
+          "type": "minecraft:item"
+        }
+      ]
+    }
+  ]
+}
