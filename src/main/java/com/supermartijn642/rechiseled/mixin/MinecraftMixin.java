@@ -8,6 +8,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.SwingAnimation;
 import net.minecraft.world.phys.BlockHitResult;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -66,7 +67,7 @@ public class MinecraftMixin {
                 return;
             boolean isShiftDown = ClientUtils.getMinecraft().options.keyShift.isDown();
             if(Rechiseled.chisel.leftClickBlock(player, stack, result.getBlockPos(), result.getDirection(), isShiftDown))
-                player.swing(InteractionHand.MAIN_HAND);
+                player.swing(InteractionHand.MAIN_HAND, SwingAnimation.DEFAULT, false);
             cir.setReturnValue(true);
         }
     }

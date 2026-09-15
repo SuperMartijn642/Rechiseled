@@ -1,3 +1,5 @@
+## Update to Minecraft 26.3
+
 ### Rechiseled 1.2.6
 - Added Simplified Chinese translations (thanks to Yizhouuu!)
 - Added Mexican Spanish translations (thanks to TheLegendofSaram!)

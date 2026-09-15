@@ -7,11 +7,15 @@ import com.supermartijn642.core.generator.TagGenerator;
 import com.supermartijn642.core.registry.Registries;
 import com.supermartijn642.rechiseled.registration.RechiseledCommonBlockBuilderImpl;
 import com.supermartijn642.rechiseled.registration.RechiseledRegistrationImpl;
+import net.minecraft.SharedConstants;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.PackLocationInfo;
 import net.minecraft.server.packs.PackResources;
 import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.metadata.pack.PackFormat;
+import net.minecraft.server.packs.repository.Pack;
+import net.minecraft.server.packs.repository.PackCompatibility;
 import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.server.packs.repository.ServerPacksSource;
 import net.minecraft.server.packs.resources.MultiPackResourceManager;
@@ -19,6 +23,7 @@ import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.resource.ResourcePackLoader;
@@ -45,20 +50,25 @@ public class RegistrationTagsGenerator extends TagGenerator {
         this.registration = registration;
 
         List<PackResources> packs = new ArrayList<>();
-        packs.add(ServerPacksSource.createVanillaPackSource());
+        packs.add(ServerPacksSource.createVanillaPackSource().fullResources());
         // include existing packs
 //        existingPacks.forEach(path -> {
 //            var packInfo = new PackLocationInfo(path.getFileName().toString(), Component.empty(), PackSource.BUILT_IN, Optional.empty());
 //            packs.add(new PathPackResources(packInfo, path));
 //        });
         // include mod resources last
+        PackFormat packFormat = SharedConstants.getCurrentVersion().packVersion(PackType.SERVER_DATA);
         ModList.get().getSortedMods().stream()
             .filter(Predicate.not(mod -> mod.getModId().equals("minecraft")))
             .filter(Predicate.not(mod -> mod.getModId().equals(registration.getModid())))
-            .map(mod -> {
+            .flatMap(mod -> {
                 var owningFile = mod.getModInfo().getOwningFile();
                 var packInfo = new PackLocationInfo("mod/" + mod.getModId(), Component.empty(), PackSource.BUILT_IN, Optional.empty());
-                return ResourcePackLoader.createPackForMod(owningFile).openPrimary(packInfo);
+                Pack.ResourcesSupplier resourcesSupplier = ResourcePackLoader.createPackForMod(owningFile);
+                Pack.Metadata metadata = Pack.readPackMetadata(packInfo, resourcesSupplier, packFormat, PackType.SERVER_DATA);
+                if(metadata == null)
+                    metadata = new Pack.Metadata(packInfo.title(), PackCompatibility.COMPATIBLE, FeatureFlagSet.of(), List.of(), false);
+                return resourcesSupplier.openResources(packInfo, metadata);
             })
             .forEach(packs::add);
         this.resources = new MultiPackResourceManager(
