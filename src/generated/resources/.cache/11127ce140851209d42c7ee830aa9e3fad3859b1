@@ -1,4 +1,4 @@
-// 26.3-rc-2	2026-09-15T09:57:22.6694516	Core Lib Generators
+// 26.3-rc-2	2026-10-06T19:55:39.883041	Core Lib Generators
 604c85fc071c3516a683f67f274973299815d93e assets/minecraft/atlases/blocks.json
 ac3f53650fb47acfd46b3d388545b4ff8b7bb2c9 assets/minecraft/atlases/gui.json
 6e360e1b0a77fa58f410338708454a83081843be assets/rechiseled/blockstates/acacia_planks_beams.json
@@ -12373,6 +12373,7 @@ dbb16f9406aa29a8c3396a07cd547047627c55d1 assets/rechiseled/models/block/warped_p
 021128429c288fefca3e0c48f4d2fffa24059c8c assets/rechiseled/models/block/warped_planks_woven_stairs_inner.json
 f309362d6d7fa453982923c6b749015034b4e5c4 assets/rechiseled/models/block/warped_planks_woven_stairs_outer.json
 a17fc14fc50fec3ef840739e302b550b88db4170 assets/rechiseled/models/item/chisel.json
+fb0c9813adfd48c9adcd12826c4586c3a06fff98 data/minecraft/tags/block/blocks_motion_no_leaves.json
 830b5615290d75b91446753db5146759c491bddb data/minecraft/tags/block/dirt.json
 ff8a1a8d64c396c3a228bebbae0ceb37cacb88bf data/minecraft/tags/block/mineable/axe.json
 7f19f51c97bd3ead970487f270cd04640c623df0 data/minecraft/tags/block/mineable/pickaxe.json
