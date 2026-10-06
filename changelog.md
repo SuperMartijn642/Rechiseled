@@ -1,3 +1,6 @@
+### Rechiseled 1.2.6a
+- Added all blocks to the `minecraft:blocks_motion_no_leaves` tag to prevent rain from going through them
+
 ### Rechiseled 1.2.6
 - Added Simplified Chinese translations (thanks to Yizhouuu!)
 - Added Mexican Spanish translations (thanks to TheLegendofSaram!)
