@@ -1,3 +1,6 @@
+### Rechiseled 1.2.6a
+- Added all blocks to the `minecraft:blocks_motion_no_leaves` tag to prevent rain from going through them
+
 ## Update to Minecraft 26.3
 
 ### Rechiseled 1.2.6
