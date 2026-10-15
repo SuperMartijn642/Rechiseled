@@ -126,6 +126,11 @@ public class ChiselItem extends BaseItem {
             }
         }
 
+        // target might not be same block as one in chisel
+        if (targetShape == null) {
+            return Collections.emptyList();
+        }
+
         // Get filter properties
         Block filterBlock = null;
         if(!filter.isEmpty()){
