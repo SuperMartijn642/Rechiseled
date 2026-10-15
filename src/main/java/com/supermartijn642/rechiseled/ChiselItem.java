@@ -102,16 +102,16 @@ public class ChiselItem extends BaseItem {
         if(!filter.isEmpty() && recipe == null)
             return Collections.emptyList();
         IBlockState targetedBlock = level.getBlockState(targetedPos);
+        //noinspection deprecation
+        ItemWithMeta item = ItemWithMeta.fromStack(targetedBlock.getBlock().getItem(level, targetedPos, targetedBlock));
         if(recipe == null){
-            recipe = ChiselingRecipeManager.get(level).getRecipeForItem(ItemWithMeta.of(targetedBlock.getBlock()));
+            recipe = ChiselingRecipeManager.get(level).getRecipeForItem(item);
             if(recipe == null)
                 return Collections.emptyList();
-        }else if(recipe != ChiselingRecipeManager.get(level).getRecipeForItem(ItemWithMeta.of(targetedBlock.getBlock())))
+        }else if(recipe != ChiselingRecipeManager.get(level).getRecipeForItem(item))
             return Collections.emptyList();
 
         // Get the shape we want to convert
-        //noinspection deprecation
-        ItemWithMeta item = ItemWithMeta.fromStack(targetedBlock.getBlock().getItem(level, targetedPos, targetedBlock));
         ChiselingBlockShape targetShape = null;
         loop:
         for(ChiselingEntry entry : recipe.entries()){
@@ -125,6 +125,8 @@ public class ChiselItem extends BaseItem {
                 }
             }
         }
+        if(targetShape == null)
+            throw new AssertionError("Chiseling recipe contains '" + item + "', but no entry for it was found!");
 
         // Get filter properties
         Block filterBlock = null;
