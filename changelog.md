@@ -1,3 +1,6 @@
+### Rechiseled 1.2.6a
+- Fixed crash when holding chisel and looking at blocks that returned a different item for `Block#getItem` than what is stored in Minecraft's block to item map
+
 ### Rechiseled 1.2.6
 - Added Simplified Chinese translations (thanks to Yizhouuu!)
 - Added Mexican Spanish translations (thanks to TheLegendofSaram!)
